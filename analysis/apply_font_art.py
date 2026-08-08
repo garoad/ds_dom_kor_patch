@@ -13,8 +13,8 @@ Key design decisions (see ANALYSIS_NOTES.md for rationale):
     측정하여 잉크 영역 x:0..10, y:2..12 (11×11px), 잉크 인덱스 15만 사용을 확인.
 
 Usage:
-    cd /Users/garoad/Documents/mds/NitroPacker
-    .venv/bin/python3 temp/apply_font_art.py
+    cd /path/to/ds_dom_kor_patch
+    .venv/bin/python3 analysis/apply_font_art.py
 
 Inputs:
     - temp/fonts/Galmuri11.bdf          (BDF 비트맵 폰트, 한글 11,172자 수록)
@@ -33,7 +33,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(HERE, ".."))
 UNPACK_ORIGIN_NBFC = os.path.join(PROJECT_ROOT, "unpack_origin", "data", "Font_DOM.nbfc")
 UNPACK_NBFC = os.path.join(PROJECT_ROOT, "unpack", "data", "Font_DOM.nbfc")
-FONT_MAP_PATH = os.path.join(HERE, "font_map_full.json")
+FONT_MAP_PATH = os.path.join(HERE, "font_map_kr.json")
 BDF_PATH = os.path.join(HERE, "fonts", "Galmuri11.bdf")
 
 # ── Measured from original Japanese glyphs in pristine Font_DOM.nbfc ──

@@ -16,10 +16,17 @@ avoids the ambiguity of collapsing 22 different 'blank' codes to one space
 character, which would make the reverse mapping (space -> which blank code?)
 impossible.
 """
+import json
+import os
 import re
 from collections import Counter
 
 import mes_codec as mc
+
+# Load Korean font map for text_to_tokens re-encoding
+with open(os.path.join(mc.HERE, "font_map_kr.json")) as _f:
+    _FM_KR = json.load(_f)
+CODES_KR = _FM_KR["codes"]
 
 PLACEHOLDER_RE = re.compile(r"<([0-9A-Fa-f]{1,4})>")
 
@@ -54,7 +61,7 @@ _CHAR_TO_CODE = {}
 # blank tile added by an earlier repaint pass) render nearly 2x as wide as
 # intended, making translated lines look oddly spaced out (2026-08-06).
 for _pass_kinds in (("half",), ("full",)):
-    for _k, _v in mc.CODES.items():
+    for _k, _v in CODES_KR.items():
         if _v.get("kind") in _pass_kinds:
             _ch = _v.get("char")
             if _ch and len(_ch) == 1:

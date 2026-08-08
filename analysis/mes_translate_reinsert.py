@@ -1,43 +1,10 @@
 """
-Read back a translation CSV (produced by mes_translate_extract.py, with the
-'translation' column filled in) and build translated .mes files.
-
-Safety model:
-  - Never touches unpack/data/Script/*.mes directly. Writes to
-    analysis/translated_output/Script/ instead. Copying the results into
-    unpack/ and repacking the ROM is a separate, explicit step for the user.
-  - Re-derives dialogue block boundaries from the ORIGINAL file each time
-    (not from stale start/end offsets in the CSV), so block-length changes
-    from translation don't corrupt later blocks in the same file.
-  - Per block, validates that every <HEX> control/formatting placeholder in
-    the source appears the same number of times in the translation (see
-    translate_io.validate_placeholders). A file with ANY validation error is
-    skipped entirely (not partially written) and reported; every other file
-    is still processed.
-  - Per block, validates that the translation encodes to EXACTLY the same
-    number of u16 tokens as the original block. The opening-scene field test
-    (2026-08-05, dom1OP_0701_1.mes) confirmed on real hardware/melonDS that a
-    block whose token count differs from the original corrupts the speaker
-    name and hangs the game - `diff -rq` round-trip checks alone don't catch
-    this. A mismatch is reported and the file is skipped, the same as a
-    placeholder error; there is no auto-padding here (padding requires a
-    'blank' filler code chosen per font/scene, see opening_scene_font.py).
-  - Blank (or unchanged) 'translation' cells fall back to the block's
-    ORIGINAL TOKENS, copied verbatim - not re-encoded from the decoded text.
-    This matters because Font_DOM.nbfc's kanji/kana tiles have since been
-    repainted as Hangul (2026-08-06, full wanseong registration) to make room
-    for the complete 완성형 set; re-encoding untranslated Japanese source text
-    via text_to_tokens would fail outright since those characters no longer
-    have a font code. Reusing the original tokens sidesteps this entirely -
-    untranslated dialogue keeps displaying (garbled, since its glyphs are now
-    Hangul-shaped) exactly as it always played back, just not translated yet.
-  - Aborts a file (with a clear error) if the CSV's block count for that file
-    doesn't match what's actually in the current .mes file - this catches a
-    stale CSV after the source scripts changed.
-
-Run mes_translate_extract.py first if translation_export.csv doesn't exist.
+Read back translation CSV files (produced by mes_translate_extract.py into
+temp/translations/*.csv, with the 'translation' column filled in) and
+build translated .mes files into temp/translated_output/.
 """
 import csv
+import glob
 import os
 import sys
 from collections import defaultdict
@@ -46,9 +13,8 @@ import mes_codec as mc
 import mes_translate_extract as mte
 import translate_io as tio
 
-SCRIPT_DIR = f"{mc.ROOT}/data/Script"
-DEFAULT_CSV = os.path.join(mc.HERE, "translation_export.csv")
-OUT_DIR = os.path.join(mc.HERE, "translated_output", "Script")
+TRANSLATIONS_DIR = os.path.join(mc.PROJECT_ROOT, "temp", "translations")
+OUT_BASE_DIR = os.path.join(mc.PROJECT_ROOT, "temp", "translated_output")
 
 
 def load_csv(path):
@@ -60,23 +26,34 @@ def load_csv(path):
 
 
 def build_file(fname, rows_by_block):
-    src_path = os.path.join(SCRIPT_DIR, fname)
+    # Determine source path via rel_path from the first row if present, else fallback to Script/
+    first_row = next(iter(rows_by_block.values()))
+    rel_path = first_row.get("rel_path")
+    if rel_path:
+        src_path = os.path.join(mc.ROOT, "data", rel_path)
+    else:
+        src_path = os.path.join(mc.ROOT, "data", "Script", fname)
+
     if not os.path.exists(src_path):
-        return None, [f"source file not found: {src_path}"]
+        # Fallback to unpack_origin if unpack doesn't have it yet
+        if rel_path:
+            src_path = os.path.join(mc.ORIGIN_ROOT, "data", rel_path)
+        else:
+            src_path = os.path.join(mc.ORIGIN_ROOT, "data", "Script", fname)
+
+    if not os.path.exists(src_path):
+        return None, rel_path or fname, [f"source file not found: {src_path}"]
 
     values = mc.load_values(src_path)
-    # mes_translate_extract.py numbers CSV rows over real (non-debug-menu)
-    # blocks only - re-deriving from mc.find_dialogue_blocks() without the
-    # same filter here would misalign every row after the first debug block
-    # and then hard-fail on the block-count check for any file that has one
-    # (discovered 2026-08-06 testing the CSV-edit pipeline on
-    # dom1OP_0701_1.mes, which has 113 debug-menu blocks interleaved with
-    # its 119 real ones - 232 vs 119 always mismatched before this fix).
     all_blocks = mc.find_dialogue_blocks(values)
-    blocks = [(s, e) for s, e in all_blocks if not mte.is_debug_menu_block(values[s:e])]
+    is_script = "Script" in src_path
+    blocks = [
+        (s, e) for s, e in all_blocks
+        if not (is_script and mte.is_debug_menu_block(values[s:e]))
+    ]
 
     if len(blocks) != len(rows_by_block):
-        return None, [
+        return None, rel_path or fname, [
             f"block count mismatch: CSV has {len(rows_by_block)} rows for "
             f"{fname}, current file has {len(blocks)} real dialogue blocks "
             "(CSV is stale - re-run mes_translate_extract.py)"
@@ -126,36 +103,56 @@ def build_file(fname, rows_by_block):
         last = e
 
     if problems:
-        return None, problems
+        return None, rel_path or fname, problems
 
     out.extend(values[last:])
-    return out, []
+    return out, rel_path or fname, []
 
 
 def main():
-    csv_path = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_CSV
-    if not os.path.exists(csv_path):
-        print(f"no such CSV: {csv_path}\nrun mes_translate_extract.py first.")
+    csv_files = []
+    if len(sys.argv) > 1:
+        arg = sys.argv[1]
+        if os.path.isdir(arg):
+            csv_files = sorted(glob.glob(os.path.join(arg, "*.csv")))
+        else:
+            csv_files = [arg]
+    else:
+        if os.path.exists(TRANSLATIONS_DIR):
+            csv_files = sorted(glob.glob(os.path.join(TRANSLATIONS_DIR, "*.csv")))
+        elif os.path.exists(os.path.join(mc.HERE, "translation_export.csv")):
+            csv_files = [os.path.join(mc.HERE, "translation_export.csv")]
+
+    if not csv_files:
+        print(f"No CSV files found in {TRANSLATIONS_DIR}. Run mes_translate_extract.py first.")
         sys.exit(1)
 
-    by_file = load_csv(csv_path)
-    os.makedirs(OUT_DIR, exist_ok=True)
+    total_written, total_skipped = 0, 0
+    for csv_path in csv_files:
+        by_file = load_csv(csv_path)
+        written, skipped = 0, 0
+        for fname, rows_by_block in sorted(by_file.items()):
+            out_values, rel_path, problems = build_file(fname, rows_by_block)
+            if problems:
+                skipped += 1
+                print(f"SKIPPED [{os.path.basename(csv_path)}] {fname}:")
+                for p in problems:
+                    print(f"    {p}")
+                continue
 
-    written, skipped = 0, 0
-    for fname, rows_by_block in sorted(by_file.items()):
-        out_values, problems = build_file(fname, rows_by_block)
-        if problems:
-            skipped += 1
-            print(f"SKIPPED {fname}:")
-            for p in problems:
-                print(f"    {p}")
-            continue
-        out_path = os.path.join(OUT_DIR, fname)
-        mc.dump_values(out_values, out_path)
-        written += 1
+            # Output path mirroring rel_path under translated_output/
+            out_path = os.path.join(OUT_BASE_DIR, rel_path)
+            os.makedirs(os.path.dirname(out_path), exist_ok=True)
+            mc.dump_values(out_values, out_path)
+            written += 1
 
-    print(f"\n{written} file(s) written to {OUT_DIR}, {skipped} file(s) skipped due to validation errors")
+        total_written += written
+        total_skipped += skipped
+        print(f"CSV {os.path.basename(csv_path)}: {written} written, {skipped} skipped")
+
+    print(f"\nTOTAL: {total_written} file(s) written to {OUT_BASE_DIR}, {total_skipped} file(s) skipped due to validation errors")
 
 
 if __name__ == "__main__":
     main()
+

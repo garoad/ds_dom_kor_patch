@@ -219,4 +219,35 @@ __marimo__/
 
 # etc
 *.nds
+*.NDS
 .DS_Store
+
+# Retro Game ROM saves & emulator apps
+*.sav
+melonDS.app/
+
+# Unpacked ROM assets (Copyrighted contents)
+unpack/
+unpack_origin/
+
+# Executables & PDB files
+NitroPacker
+HaroohieClub.NitroPacker.pdb
+NitroPacker.pdb
+NitroPacker.SymTableHelper
+
+# Local Development & Temp directories
+temp/
+webtool/
+.claude/
+.agents/
+
+# Stray assets/screenshots
+*.png
+*.jpg
+*.jpeg
+
+# Miscellaneous junk files
+10
+128
+=

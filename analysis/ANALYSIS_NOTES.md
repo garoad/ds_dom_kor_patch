@@ -2083,8 +2083,8 @@ Galmuri9, Galmuri11, Galmuri11-Bold, Galmuri14 등 다양한 폰트/사이즈를
 
 **실행 방법**:
 ```bash
-cd /Users/garoad/Documents/mds/NitroPacker
-.venv/bin/python3 temp/apply_font_art.py
+cd /path/to/ds_dom_kor_patch
+.venv/bin/python3 analysis/apply_font_art.py
 ```
 
 ### 빌드 히스토리 (확정 버전)
@@ -2109,3 +2109,85 @@ cd /Users/garoad/Documents/mds/NitroPacker
 
 **핵심 교훈**: 픽셀 폰트는 반드시 BDF/PCF 같은 비트맵 원본 포맷에서 직접 읽어야 한다.
 TTF로 변환된 픽셀 폰트를 다시 래스터라이즈하면 원래 비트맵 디자인과 달라진다.
+
+## ★★ CSV 추출/재삽입 파이프라인 개편 (2026-08-08)
+
+### 주요 개편 사항
+
+1. **단일 거대 CSV 분할 (`analysis/translations/` 폴더)**
+   - 기존: `analysis/translation_export.csv` (1개 거대 파일, 38,154행, ~3.8MB)로 인해 수정 및 관리가 비효율적이었음.
+   - 개편: 시리즈(dom1, dom2, dom3) 및 캐릭터별로 37개 CSV로 자동 분할 추출.
+     - 캐릭터별 CSV: 예) `dom1_Athena.csv`, `dom2_Shizuku.csv`, `dom3_Iroha.csv` 등
+     - 시리즈 공통(OP, DefScn, ENC 등): `dom1_common.csv`, `dom2_common.csv`, `dom3_common.csv`
+     - 기타 이벤트/특수: `dom2_Festival.csv`, `dom3_Birthday.csv`, `dom3_Training*.mes` 등
+
+2. **`Script/` 바깥 시스템 스크립트 분리 (`system_common.csv`)**
+   - 조사 대상: `unpack_origin/data/*.mes` (Script/ 바깥에 위치한 12개 시스템 스크립트)
+     - `soundnamedom1~3.mes` (BGM/사운드 이름)
+     - `endtitledom1~3.mes` (엔딩 타이틀 명칭)
+     - `dom2chara.mes`, `dom3chara.mes` (프로필/캐릭터 상세 정보)
+     - `playername.mes`, `extraopen.mes`, `common.mes`, `strindex.mes`
+   - 추출 결과: `analysis/translations/system_common.csv` (총 165개 대사/텍스트 블록)로 통합 관리.
+
+3. **스크립트 업데이트**
+   - `analysis/mes_translate_extract.py`: `Script/` 내 파일 및 시스템 `.mes` 12개를 전수 조사하여 분류 및 37개 CSV로 일괄 생성. (`rel_path` 컬럼 추가로 원본 상대 경로 보존)
+   - `analysis/mes_translate_reinsert.py`: `analysis/translations/*.csv` 내의 개별/전체 CSV를 스캔하여 `analysis/translated_output/` 내의 해당 경로(`Script/` 및 루트 `data/`)로 교체 파일 자동 재구성.
+
+
+## ★★ 폰트 맵 원본 일어 테이블 완전 복원 및 CSV 재추출 (2026-08-08)
+
+### 문제 점검
+- 이전 한글 폰트 테스트 과정에서 `font_map_full.json`의 한자/일어 코드 매핑(1,359개)이 한글 글자 매핑으로 덮어씌워져 있었음.
+- 이 상태에서 CSV를 export하여 원본 일본어 대사가 아닌 "한자를 한글로 임시 대치한 텍스트"가 source 컬럼으로 추출되는 현상이 발생.
+
+### 조치 사항
+1. `analysis/font_map_full.json`을 순수 원본 일어/한자 매핑 테이블(`pre_v8scan` 백업)로 **완전 복원**.
+   - 순수 일어/한자 매핑 1,561개 복구 완료 (한글 매핑 0개)
+2. `mes_translate_extract.py` 재실행을 통해 **순수 일본어 원문 대사** 기반으로 `temp/translations/*.csv` 37개 파일 재추출 완료.
+   - 예시: `えーっと、たしか……<485C>`, `メインテーマ`, `対決` 등 순수 원문 100% 복원 확인.
+
+
+## ★★ 폰트 매핑 테이블 독립 분리 (`font_map_full.json` & `font_map_kr.json`) (2026-08-08)
+
+### 구조 분리 목적
+- 일본어 원문 대사 디코딩/추출용 폰트 맵과 한글 텍스트 인코딩/타일 렌더링용 폰트 맵을 명확히 분리하여 상호 간섭 제거.
+
+### 매핑 테이블 역할
+1. **`analysis/font_map_full.json`**: 순수 일본어 원본 폰트 매핑 테이블 (1,561개 일어/한자 매핑)
+   - 역할: `.mes` 대사 파일에서 순수 일본어 원문 대사를 추출하고 디코딩할 때 사용 (`mes_codec.py`).
+2. **`analysis/font_map_kr.json`**: 한글 완성형 코드 매핑 테이블 (2,350개 한글 음절 매핑)
+   - 역할: 번역문 작성 후 한글 텍스트를 u16 폰트 코드로 역변환할 때(`translate_io.py`) 및 NDS 폰트 타일을 렌더링할 때(`apply_font_art.py`) 사용.
+
+
+## ★★ 한글 폰트 매핑 수치 재정정: 엄격 안전 예산 1,559자 확정 (2026-08-08)
+
+- 기존 `font_map_kr.json`에 임시 적용되어 있던 KS X 1001 완성형 전량(2,350자)을 롤백.
+- 이전 검증에서 도출된 **엄격 안전 예산 1,559자** (한자 단독 소유 타일 1,359개 + 2×2 미사용 빈 슬롯 200개)로 `analysis/font_map_kr.json` 재정의 완료.
+- 이로써 히라가나, 가타카나, 숫자, 문장부호, 제어코드 타일을 100% 보존하면서 **정확히 1,559자 한글 글리프만 안전하게 렌더링**함 (`apply_font_art.py` 1,559자 렌더링 검증 완료).
+
+
+## ★★ 반각문자 및 37개 반각 슬롯 완전 복원 (2026-08-08)
+
+- 이전 테이블 축소 복원 시 반각 문자 슬롯(숫자 0-9, 콜론, 점, 알파벳 A/B, 제어 반각 코드 등 총 37개)이 18개로 축소되어 있던 정황을 포착.
+- `font_map_full.json` 및 `font_map_kr.json` 양쪽 모두에 **37개 반각(half-width) 문자 슬롯 및 전체 3,591개 코드 체계**를 완전히 복원 완료.
+- `font_map_kr.json`은 37개 반각 슬롯 완전 보존 + **엄격 안전 예산 1,559개 한글 슬롯**으로 최종 확정.
+
+
+## ★★ CSV 구조 개편: AI 초벌 번역 컬럼 (`ai_draft`) 추가 (2026-08-08)
+
+- 번역작업 편의성을 위해 CSV 파이프라인 헤더 컬럼 구조를 다음과 같이 개편함:
+  - 기존: `file,rel_path,block,n_tokens,speaker,source,translation`
+  - 신규: `file,rel_path,block,n_tokens,speaker,source,ai_draft,translation`
+- 역할:
+  - `source`: 원본 일본어 대사 (불변 기준)
+  - `ai_draft`: AI 모델을 이용해 생성한 초벌 번역문 (번역자 참고용)
+  - `translation`: 번역자가 최종 감수/수정한 확정 한글 대사 (`mes_translate_reinsert.py` 반영 대상)
+
+
+## ★★ 토큰 길이 고정 정책 확정 (2026-08-08)
+
+- **원인 분석**: `.mes` 파일 내부에는 상대 바이트 오프셋(relative byte offset)을 사용하는 점프/분기 명령어 (`0x0029` GOTO, `0x0007 0x0003` BRANCH 등 총 5,827개)가 대량 존재함.
+- **결론**: 토큰 길이를 늘리거나 줄일 경우 오프셋 위치가 비틀어져 게임 프리징이 발생하므로, **동일 토큰 길이 고정 정책(Strict Token-Count Matching)**을 100% 철저히 유지함.
+  - 대사가 짧은 경우: `0xA002` (공백) 패딩 사용.
+  - 대사가 긴 경우: 축약/의역 처리.
+

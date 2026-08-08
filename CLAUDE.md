@@ -23,7 +23,7 @@
 
 ## 3. 테스트/조사용 임시 자료는 프로젝트 루트의 `temp/`에 둔다 (`analysis/` 안이 아님)
 
-`temp/`는 `analysis/`의 하위 폴더가 아니라 프로젝트 루트(`/Users/hmc/Documents/mds/NitroPacker/temp/`,
+`temp/`는 `analysis/`의 하위 폴더가 아니라 프로젝트 루트(워크스페이스 내 `temp/`,
 `unpack/`·`analysis/`와 같은 층)에 둔다. 다음 유형은 전부 여기에 저장한다:
 - 코드 확인용 1회성 스크립트 (예: `scan_all_codes_v8.py`, `render_tilestrip.py`)
 - 그 스크립트들이 만들어내는 결과물 (`tilestrip_*.png`, `probe_*.png` 등)
@@ -32,7 +32,16 @@
 `render_tilestrip.py`처럼 반복적으로 쓰는 조사 도구 자체도 `temp/`에 스크립트로 남겨두고, 매번
 만들어내는 출력 이미지도 같은 곳에 둘 것 (분석이 끝났다고 최종 산출물 쪽으로 옮기지 말 것 — 최종
 산출물은 위 2번 목록뿐). `temp/`의 스크립트는 `analysis/`의 `mes_codec.py` 등을 import하므로
-실행 시 `PYTHONPATH=analysis`를 지정할 것(예: `cd /Users/hmc/Documents/mds/NitroPacker && PYTHONPATH=analysis python3 temp/render_tilestrip.py <hex>`).
+실행 시 `PYTHONPATH=analysis`를 지정할 것(예: `export PYTHONPATH=analysis && python3 temp/render_tilestrip.py <hex>`).
+
+## 4. 폰트 매핑 테이블 및 한글 타일 예산 엄격 준수
+
+- **원문용/한글용 폰트 맵 분리**:
+  - `analysis/font_map_full.json`: 순수 원본 일어/한자 매핑 테이블 (원문 추출 및 디코딩용). **절대 한글 글자를 덮어쓰지 말 것.**
+  - `analysis/font_map_kr.json`: 한글 완성형 코드 매핑 테이블 (한글 텍스트 역인코딩 및 타일 렌더링용).
+- **한글 타일 예산 상한 (1,559자)**:
+  - 안전한 한글 할당 예산은 **정확히 1,559자** (한자 단독 소유 타일 1,359개 + 2×2 미사용 빈 슬롯 200개)로 제한된다.
+  - 가나, 특수문자, 숫자, 제어코드 슬롯을 침범하는 2,350자 전체 완성형 할당은 시스템 기호 및 연출 파괴를 일으키므로 **절대 금지**한다.
 
 ## Why
 

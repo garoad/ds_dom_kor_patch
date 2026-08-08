@@ -1,13 +1,16 @@
 """
-Bulk-extract every confirmed dialogue block from every .mes script into a
-single CSV for translation. One row = one dialogue block. The 'source'
-column is the lossless text form from translate_io.tokens_to_text() - real
-glyphs as literal characters, everything else (control/formatting codes) as
-explicit <HEX> placeholders the translator must copy through untouched.
+Bulk-extract confirmed dialogue blocks from all .mes script files into separate
+CSV files per series/character and system scripts.
 
-Fill in the 'translation' column (leave <HEX> placeholders in place,
-anywhere in the line) and run mes_translate_reinsert.py to build translated
-.mes files.
+CSV directory: temp/translations/
+Categories:
+  - dom1_<Character>.csv, dom2_<Character>.csv, dom3_<Character>.csv
+  - dom1_common.csv, dom2_common.csv, dom3_common.csv (for non-character scripts like OP, DefScn, ENC, HZR, etc.)
+  - system_common.csv (for .mes files outside Script/ directory like soundnamedom*.mes, endtitledom*.mes, etc.)
+
+One row = one dialogue block. The 'source' column is the lossless text form from
+translate_io.tokens_to_text() - real glyphs as literal characters, everything else
+(control/formatting codes) as explicit <HEX> placeholders that must be preserved.
 """
 import csv
 import glob
@@ -17,35 +20,64 @@ import mes_codec as mc
 import speaker_map
 import translate_io as tio
 
-SCRIPT_DIR = f"{mc.ROOT}/data/Script"
-OUT_CSV = os.path.join(mc.HERE, "translation_export.csv")
-FIELDS = ["file", "block", "n_tokens", "speaker", "source", "translation"]
+TRANSLATIONS_DIR = os.path.join(mc.PROJECT_ROOT, "temp", "translations")
+FIELDS = ["file", "rel_path", "block", "n_tokens", "speaker", "source", "ai_draft", "translation"]
+
+# Outside Script/ system .mes files
+OUTSIDE_MES_FILES = [
+    "soundnamedom1.mes",
+    "soundnamedom2.mes",
+    "soundnamedom3.mes",
+    "dom3chara.mes",
+    "dom2chara.mes",
+    "playername.mes",
+    "extraopen.mes",
+    "common.mes",
+    "strindex.mes",
+    "endtitledom3.mes",
+    "endtitledom2.mes",
+    "endtitledom1.mes",
+]
 
 
-def iter_mes_files():
-    return sorted(glob.glob(os.path.join(SCRIPT_DIR, "*.mes")))
+def get_category(path):
+    fname = os.path.basename(path)
+    if not path.startswith(os.path.join(mc.ORIGIN_ROOT, "data", "Script")):
+        return "system_common"
+
+    if fname.startswith("dom1"):
+        dom = "dom1"
+        rest = fname[4:]
+    elif fname.startswith("dom2"):
+        dom = "dom2"
+        rest = fname[4:]
+    elif fname.startswith("dom3"):
+        dom = "dom3"
+        rest = fname[4:]
+    else:
+        dom = "other"
+        rest = fname
+
+    char_name = ""
+    for ch in rest:
+        if ch.isalpha():
+            char_name += ch
+        else:
+            break
+
+    if not char_name or char_name in ["OP", "DefScn", "ENC", "HZR", "ED", "CHOICE", "MEZ", "Ed"]:
+        return f"{dom}_common"
+    else:
+        return f"{dom}_{char_name}"
 
 
-# Raw token IDs for the literal phrase "次のページ" ("next page"), captured
-# from font_map_full.json BEFORE the 2026-08-06 full-wanseong repaint (backup:
-# temp/backups_wanseong_full/font_map_full.json.pre_full). Matched against raw
-# token values rather than decoded text so this detection stays correct even
-# though those same codes now decode to unrelated Hangul characters post-
-# repaint - the underlying .mes token stream itself never changed.
+# Raw token IDs for the literal phrase "次のページ" ("next page")
 _NEXT_PAGE_TOKENS = (0x5904, 0xB0A, 0x1102, 0x21E, 0xE1E)
 
 
 def is_debug_menu_block(values):
     """Leftover dev QA menu entries that match the real dialogue box shape
-    but aren't player-facing text. Two known shapes:
-    (1) "<name><0087><costume><0087><emotion>" portrait/costume test entries
-        - every confirmed instance contains a literal 0x0087 separator; no
-        confirmed real dialogue block does.
-    (2) sound/BGM/emotion test-menu screens ("ムーディ悲しみ恐怖次のページ",
-        "停止サウンドテスト終了次のページ", etc.) - every confirmed instance
-        ends with the literal phrase "次のページ" ("next page"), which does
-        not occur in any real dialogue line in the corpus.
-    """
+    but aren't player-facing text."""
     if 0x0087 in values:
         return True
     n = len(_NEXT_PAGE_TOKENS)
@@ -55,42 +87,66 @@ def is_debug_menu_block(values):
 
 
 def main():
-    files = iter_mes_files()
-    rows = []
-    files_with_blocks = 0
-    skipped_debug = 0
-    for path in files:
+    os.makedirs(TRANSLATIONS_DIR, exist_ok=True)
+
+    # 1. Script/*.mes
+    script_files = sorted(glob.glob(os.path.join(mc.ORIGIN_ROOT, "data", "Script", "*.mes")))
+    # 2. Outside Script/ system .mes files
+    outside_paths = [
+        os.path.join(mc.ORIGIN_ROOT, "data", fname) for fname in OUTSIDE_MES_FILES
+    ]
+    all_files = script_files + [p for p in outside_paths if os.path.exists(p)]
+
+    csv_data = {}
+    total_blocks = 0
+    total_files = 0
+
+    for path in all_files:
+        cat = get_category(path)
+        if cat not in csv_data:
+            csv_data[cat] = []
+
         fname = os.path.basename(path)
+        rel_path = os.path.relpath(path, os.path.join(mc.ORIGIN_ROOT, "data"))
         values = mc.load_values(path)
         blocks = mc.find_dialogue_blocks(values)
+
+        is_script = path.startswith(os.path.join(mc.ORIGIN_ROOT, "data", "Script"))
         real_blocks = []
         for s, e in blocks:
-            if is_debug_menu_block(values[s:e]):
-                skipped_debug += 1
-            else:
-                real_blocks.append((s, e))
+            if is_script and is_debug_menu_block(values[s:e]):
+                continue
+            real_blocks.append((s, e))
+
         if real_blocks:
-            files_with_blocks += 1
+            total_files += 1
+
         for i, (s, e) in enumerate(real_blocks):
             text = tio.tokens_to_text(values[s:e])
             header_val = values[s - 1] if s - 1 >= 0 else None
             speaker = speaker_map.speaker_of(header_val) if header_val is not None else None
-            rows.append({
+            csv_data[cat].append({
                 "file": fname,
+                "rel_path": rel_path,
                 "block": i,
                 "n_tokens": e - s,
                 "speaker": speaker if speaker is not None else f"UNKNOWN_{header_val:#04x}" if header_val is not None else "",
                 "source": text,
+                "ai_draft": "",
                 "translation": "",
             })
+            total_blocks += 1
 
-    with open(OUT_CSV, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=FIELDS)
-        w.writeheader()
-        w.writerows(rows)
+    for cat, rows in sorted(csv_data.items()):
+        out_csv = os.path.join(TRANSLATIONS_DIR, f"{cat}.csv")
+        with open(out_csv, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=FIELDS)
+            w.writeheader()
+            w.writerows(rows)
+        print(f"wrote {len(rows):4d} blocks -> temp/translations/{cat}.csv")
 
-    print(f"scanned {len(files)} .mes files ({files_with_blocks} contain dialogue blocks)")
-    print(f"wrote {len(rows)} dialogue blocks -> {OUT_CSV}")
+    print(f"\nScanned {len(all_files)} .mes files ({total_files} contain dialogue blocks)")
+    print(f"Total {total_blocks} dialogue blocks extracted across {len(csv_data)} CSV files in {TRANSLATIONS_DIR}")
 
 
 if __name__ == "__main__":
