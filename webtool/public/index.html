@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOM 한글패치 툴</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>Days of Memories 한글패치 툴</h1>
+  <div id="active-project-banner">선택된 프로젝트: <strong id="active-project-name">없음</strong></div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="tab-project">프로젝트</button>
+  <button class="tab-btn" data-tab="tab-csv">번역 CSV</button>
+  <button class="tab-btn" data-tab="tab-images">이미지 탐색</button>
+  <button class="tab-btn" data-tab="tab-build">빌드</button>
+</nav>
+
+<main>
+  <section id="tab-project" class="tab-panel active">
+    <h2>기존 프로젝트</h2>
+    <ul id="project-list" class="project-list"></ul>
+
+    <h2>새 프로젝트 언팩</h2>
+    <form id="unpack-form">
+      <label>프로젝트 이름 <input type="text" id="project-name" placeholder="DAYSOFMEMORY" required /></label>
+      <div id="rom-dropzone" class="dropzone">
+        <span id="rom-dropzone-text">ROM(.nds) 파일을 여기로 드래그하거나 클릭해서 선택하세요</span>
+        <input type="file" id="rom-file-input" accept=".nds" hidden />
+      </div>
+      <button type="submit">업로드 및 언팩</button>
+    </form>
+    <pre id="unpack-result" class="result-box"></pre>
+
+    <h2>프로젝트 상태</h2>
+    <pre id="project-status" class="result-box">프로젝트를 선택하세요</pre>
+  </section>
+
+  <section id="tab-csv" class="tab-panel">
+    <h2>번역 CSV</h2>
+    <button id="btn-extract">CSV 생성/갱신</button>
+    <a id="btn-download-csv" class="btn-link" href="#" download>분리 CSV 압축본(ZIP) 다운로드</a>
+    <pre id="extract-result" class="result-box"></pre>
+
+    <div class="subtabs" id="csv-group-tabs">
+      <button class="subtab-btn active" data-group="dom1">dom1</button>
+      <button class="subtab-btn" data-group="dom2">dom2</button>
+      <button class="subtab-btn" data-group="dom3">dom3</button>
+      <button class="subtab-btn" data-group="system_common">공용 시스템</button>
+    </div>
+
+    <label>파일 선택
+      <select id="file-select"></select>
+    </label>
+    <table id="csv-table">
+      <colgroup>
+        <col class="col-block" />
+        <col class="col-ntokens" />
+        <col class="col-speaker" />
+        <col class="col-source" />
+        <col class="col-aidraft" />
+        <col class="col-translation" />
+        <col class="col-status" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>블록</th>
+          <th>토큰수</th>
+          <th>화자</th>
+          <th>원문</th>
+          <th>초벌번역(AI)</th>
+          <th>번역</th>
+          <th>상태</th>
+        </tr>
+      </thead>
+      <tbody id="csv-table-body"></tbody>
+    </table>
+    <button id="btn-save-csv">저장</button>
+  </section>
+
+  <section id="tab-images" class="tab-panel">
+    <h2>이미지 탐색</h2>
+    <div id="breadcrumb" class="breadcrumb"></div>
+    <div class="image-browser">
+      <ul id="file-tree" class="file-tree"></ul>
+      <div id="image-preview" class="image-preview">파일을 선택하세요</div>
+    </div>
+  </section>
+
+  <section id="tab-build" class="tab-panel">
+    <h2>번역 적용 (재삽입)</h2>
+    <button id="btn-reinsert">재삽입 실행</button>
+    <pre id="reinsert-result" class="result-box"></pre>
+
+    <h2>ROM 빌드</h2>
+    <button id="btn-pack">ROM 빌드</button>
+    <pre id="pack-result" class="result-box"></pre>
+    <a id="download-link" class="hidden" href="#" download>다운로드</a>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -14,7 +14,10 @@
     },
     "full_width_total": 3389,
     "full_width_labeled": 1566,
-    "full_width_unlabeled": 1823
+    "full_width_unlabeled": 1823,
+    "hangul_mapped": 1558,
+    "hangul_budget": 1559,
+    "rebuild_note": "Rebuilt by rebuild_font_map_kr.py from kanji_only_hangul_glyphs.json manifest. Only kanji (CJK 4E00-9FFF) and free full-kind slots are replaced with Hangul. Hiragana, Katakana, punctuation, control codes are 100% preserved."
   },
   "codes": {
     "485C": {
@@ -775,8 +778,7 @@
     "020A": {
       "kind": "blank",
       "count": 587,
-      "real_tile": 138,
-      "char": "익"
+      "real_tile": 138
     },
     "1000": {
       "kind": "full",
@@ -11142,8 +11144,7 @@
     "00A4": {
       "kind": "half",
       "count": 2,
-      "real_tile": null,
-      "char": " "
+      "real_tile": null
     },
     "7508": {
       "kind": "full",

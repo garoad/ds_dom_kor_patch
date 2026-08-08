@@ -1,0 +1,17 @@
+{
+  "name": "dom-hangul-patch-tool",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Days of Memories (NDS) 한글패치 작업용 웹 툴",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.6",
+    "csv-stringify": "^6.5.0",
+    "express": "^5.2.1",
+    "multer": "^2.2.0",
+    "pngjs": "^7.0.0"
+  }
+}

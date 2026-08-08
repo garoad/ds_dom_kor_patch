@@ -238,9 +238,14 @@ NitroPacker.SymTableHelper
 
 # Local Development & Temp directories
 temp/
-webtool/
 .claude/
 .agents/
+
+# Webtool dependencies & local runtime state
+webtool/node_modules/
+webtool/.server.pid
+webtool/server.log
+webtool/workspace/
 
 # Stray assets/screenshots
 *.png

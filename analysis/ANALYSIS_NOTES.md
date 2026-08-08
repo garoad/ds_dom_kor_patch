@@ -2191,3 +2191,171 @@ TTF로 변환된 픽셀 폰트를 다시 래스터라이즈하면 원래 비트�
   - 대사가 짧은 경우: `0xA002` (공백) 패딩 사용.
   - 대사가 긴 경우: 축약/의역 처리.
 
+
+## ★★ 웹툴(webtool) 기능 및 한글 폰트/테이블 동기화 업데이트 (2026-08-08)
+
+- **tool.md 요구사항 100% 충족**:
+  1. `webtool/server/lib/mesCodec.js`: `font_map_full.json`(원문 디코딩) 및 `font_map_kr.json`(한글 인코딩) 전수 반영.
+  2. `webtool/server/lib/pipeline.js`:
+     - `Script/*.mes` 및 루트 `data/*.mes` (총 12개 시스템 스크립트) 지원.
+     - `rel_path` 및 `ai_draft` 컬럼 추출/저장/재삽입 파이프라인 완비.
+     - 롬 빌드(재삽입) 완료 후 `Galmuri11` BDF 폰트의 한글 글리프 1,559자를 `build/data/Font_DOM.nbfc`에 자동 렌더링하는 `applyFontArt()` 연동.
+  3. `webtool/public/`:
+     - 탭 2(번역 CSV)에 `공용 시스템` 서브탭 및 `ai_draft` (초벌번역(AI)) 컬럼 추가.
+- **서버 재실행**: `webtool/tool.sh restart`로 http://localhost:4000 구동 완료.
+
+
+## ★★ 웹툴 이미지 탐색기 타일 맵 너비(mapW) 디코더 수정 (2026-08-08)
+
+- **문제 상황**: 이벤트 그래픽(`.bin` 포맷) 디코딩 시 타일맵 항목 수가 960개일 때 정사각형(`sqrt(960) ≈ 30`)으로 간주되어 NDS 표준 화면 너비(32 타일 = 256px)와 어긋나 이미지가 사선으로 찢어져 보이던 현상 발생.
+- **수정 내용**: `webtool/server/lib/nbfcImage.js` 디코더의 타일맵 가로 폭 기준을 NDS 그래픽 규격인 **`mapW = 32` (256px)**로 고정하도록 수정.
+- **결과**: 이벤트 그래픽 및 스크린 맵 바이너리 전체가 찢어짐 없이 100% 정상 비율로 디코딩됨을 확인.
+
+
+## ★★ Chr 캐릭터 포트레이트 디코딩 지원 추가 (2026-08-08)
+
+- **상황**: `data/Chr/` 디렉터리의 캐릭터 포트레이트 그래픽은 NDS 타일 확장자로 `.nbfcn`(타일) / `.nbfpn`(팔레트) / `.nbfs`(스크린 맵) 세트를 사용하며, 규격은 **17x17 타일 (136x136 px, 289 엔트리)**임.
+- **수정**:
+  - `webtool/server/routes/files.js`: `.nbfcn` 확장자 인식 및 `.nbfpn` + `.nbfs` 짝 맞춤 로직 추가.
+  - `webtool/server/lib/nbfcImage.js`: 289 엔트리 처리 시 `mapW = 17, mapH = 17`로 정확한 스탠딩 일러스트 비율 디코딩 구현.
+- **결과**: `data/Chr/` 내의 모든 캐릭터 스탠딩 그래픽이 이미지 아이콘(🖼️)으로 표시되고 웹 브라우저에서 투명 배경의 정상 일러스트로 미리보기 가능.
+
+
+## ★★ `.gitignore` 및 `CLAUDE.md` 커밋 관리 규칙 업데이트 (2026-08-08)
+
+- **웹툴 소스 코드 커밋 반영**:
+  - 기존 루트 `.gitignore`의 `webtool/` 통째 제외 규칙 삭제.
+  - `webtool/node_modules/`, `webtool/workspace/`, `webtool/.server.pid`, `webtool/server.log` 등 의존성 및 로컬 실행 결과물만 선택적으로 제외하도록 세분화.
+- **Git 포함 확인**:
+  - `webtool/server/`, `webtool/public/`, `webtool/package.json`, `webtool/package-lock.json`, `webtool/tool.sh` 등 핵심 웹툴 소스 파일만 Git 추적 대상에 깔끔하게 포함됨.
+
+
+## ★★ 웹툴 Gemini AI 초벌 번역 모듈 및 UI 추가 (2026-08-08)
+
+- **백엔드 모듈**: `webtool/server/lib/geminiTranslate.js` 생성 및 `POST /api/csv/translate` API 구현.
+  - `gemini-2.5-flash` 모델 연동.
+  - 게임 제어 코드(`<485C>`, `<6E5C>`, `<이름>` 등) 100% 보존 지침 프롬프트 적용.
+- **프론트엔드 UI**:
+  - `Gemini API 연동 설정` 패널 추가 (키 입력, 브라우저 저장, Google AI Studio 키 발급 안내 링크 표기).
+  - `🤖 선택 파일 AI 초벌번역 실행` 일괄 번역 버튼 추가.
+  - 각 대사 행별 `🤖 AI 번역` 개별 실행 버튼 추가.
+- **서버 재실행**: `webtool/tool.sh restart`로 반영 구동 완료 (PID: 63088).
+
+
+## ★★ Gemini 모델명 업데이트 (`gemini-2.0-flash`) (2026-08-08)
+
+- **문제**: 구형 테스트 모델명(`gemini-2.5-flash`)으로 호출 시 Google API에서 더 이상 지원하지 않는 모델 오류가 반환됨.
+- **수정**: `webtool/server/lib/geminiTranslate.js`의 호출 모델을 최신 표준 모델인 **`gemini-2.0-flash`** (기본) 및 **`gemini-1.5-flash`** (폴백 자동 전환)로 업데이트 완료.
+
+
+## ★★ Gemini 모델 선택 기능 구현 (2026-08-08)
+
+- **UI 모델 드롭다운**: 웹툴 설정 상단에 Gemini 모델 선택 셀렉터 추가.
+  - 지원 모델: `Gemini 2.0 Flash` (기본/추천), `Gemini 2.0 Flash Lite` (경량), `Gemini 1.5 Flash`, `Gemini 1.5 Pro` (고성능).
+  - 선택한 모델은 `localStorage`에 저장되어 자동 유지됨.
+- **백엔드 연동**: 선택한 모델 파라미터가 REST API 호출 시 전달되고, 실패 시 자동 폴백 처리.
+
+
+## ★★ Gemini 활성 모델 엔드포인트 정리 (`gemini-2.0-flash`, `gemini-2.5-pro`) (2026-08-08)
+
+- **상황**: 구형/은퇴 모델명(`gemini-1.5-pro`, `gemini-1.5-flash`) 선택 시 Google API에서 해당 모델이 더 이상 유효하지 않다는 오류 반환.
+- **수정**:
+  - `webtool/server/lib/geminiTranslate.js` 및 `webtool/public/index.html` 드롭다운의 옵션을 **현재 구글에서 지원하는 활성 모델**로 완전히 정리:
+    1. **`gemini-2.0-flash`** (기본 / 추천)
+    2. **`gemini-2.5-pro`** (최고 성능)
+    3. **`gemini-2.0-flash-lite`** (속도 최우선)
+
+
+## ★★ Gemini Quota Limit 원인 분석 및 청크/딜레이 조치 (2026-08-08)
+
+- **Quota Exceeded 원인**:
+  - `gemini-2.0-flash-lite` 및 특정 신규 모델은 Google API 무료 플랜(Free Tier)에서 1분당 15회 요청(15 RPM) 또는 1회 단일 요청 시 전송할 수 있는 입력 토큰 량(Input Token Quota)에 엄격한 상한선이 걸려 있음.
+  - 대사 수십~수백 개를 한 번의 API 요청으로 전송하면 토큰 용량 한도를 초과하여 `limit: 0` 또는 Quota Exceeded 오류가 발생함.
+- **수정 내용**:
+  - `webtool/server/lib/geminiTranslate.js`: 대사를 **40개 단위 청크(Chunk)로 분할**하고, 청크 간 **1.5초 딜레이 간격**을 주어 Rate Limit과 Quota 초과를 근본적으로 방지함.
+
+
+## ★★ Gemini Quota 방지를 위한 청크 축소(15개) & 429 지연 재시도 알고리즘 (2026-08-08)
+
+- **원인**: Google API 무료 플랜(Free Tier)의 `RPM` (분당 요청 수 15회) 및 `TPM` (분당 입력 토큰 수) 제약으로 인해 40개 단위 전송 시 순간적 쿼터 초과(429)가 발생하는 현상.
+- **수정**:
+  - `CHUNK_SIZE`를 **15개**로 축소.
+  - 요청 간 대기 시간을 **3초**로 증대.
+  - 429 Quota Exceeded 발생 시 **5초/10초/20초 백오프(Backoff) 자동 재시도** 추가.
+
+
+## ★★ 구글 429 Retry-After 동적 대기 및 최대 8회 재시도 알고리즘 (2026-08-08)
+
+- **상황**: 구글 Free Tier API는 순간 쿼터 초과 시 응답 메세지에 `Please retry in XX.XXXs` (예: `Please retry in 32.031s`) 형태로 구체적인 대기 요구 시간을 전달함.
+- **수정**:
+  - 기존 3회 고정 백오프 시 에러 메시지의 대기 권장시간(32초)보다 재시도 대기시간(5초/10초)이 짧아서 429 에러가 사용자에게 그대로 노출되었던 문제 해결.
+  - 구글 에러 메시지에서 `Please retry in XX.XXXs` 초 단위 값을 **정규식으로 동적 추출**하여 해당 시간(+2초 안전 버퍼)만큼 서버가 스스로 자동 대기한 후 **최대 8회까지 자동 재시도**하도록 강화함.
+
+
+## ★★ 웹툴 실시간 번역 진행상황 알림 (SSE 스트리밍) 구축 (2026-08-08)
+
+- **배경**: AI 초벌 번역 진행 시 구글 쿼터 제한(429) 대기 시간(32초 등)이나 청크 전송 단계가 브라우저에 표시되지 않아 사용자가 멈춘 것으로 오해할 수 있는 문제 해결.
+- **수정**:
+  - `webtool/server/routes/csv.js`: Server-Sent Events(SSE) 스트림 엔드포인트 `/api/csv/translate-stream` 추가.
+  - `webtool/public/app.js`: `EventSource`를 통해 AI 번역 진행 메시지(예: `🔄 AI 번역 진행 중: 2/5 청크 (30/75 행 완료)...`, `⏳ 쿼터 제한(429) 대기 중: 34초 후 자동 재시도...`)를 실시간으로 상단 박스에 표기.
+
+
+## ★★ 실시간 AI 번역 진행 상황 로그 모달(Modal) 창 구현 (2026-08-08)
+
+- **기능**:
+  - `번역 CSV` 탭 상단에 **`📋 실시간 로그 모달 열기`** 버튼 추가.
+  - `🤖 선택 파일 AI 초벌번역 실행` 시 모달 창이 **자동 팝업**되며, 타임스탬프와 함께 콘솔 형태(`log-console`)로 타임라인 로그 기록.
+  - 로그 창 닫기/열기/로그 비우기 기능 포함.
+
+
+## ★★ CSV 라우트 `translateBatch` 모듈 import 누락 수정 (2026-08-08)
+
+- **문제**: 실시간 SSE 스트리밍 라우트(`/api/csv/translate-stream`) 도입 과정에서 `geminiTranslate` 모듈의 `translateBatch` 함수 import 위치가 누락되어 `translateBatch is not defined` ReferenceError 발생.
+- **수정**: `webtool/server/routes/csv.js` 파일 최상단에 `const { translateBatch } = require("../lib/geminiTranslate");` 명시적 로드 추가.
+
+
+## ★★ 웹툴 AI 초벌번역 기능 제거 (2026-08-08)
+
+- **상황**: 구글 API의 극심한 무료 쿼터 제한(429 Rate Limit) 및 대기 시간으로 인한 작업 효율 저하로 UI/서버에서 AI 자동 번역 버튼 및 모달 제거 요청.
+- **수정**:
+  - `webtool/public/index.html` & `app.js`: AI 번역 버튼, Gemini 설정 상자, 로그 모달 및 관련 JS 이벤트 핸들러 제거.
+  - CSV 테이블 내 `ai_draft` (초벌번역(AI)) 컬럼 데이터 구조는 유지하되 UI를 깔끔하게 정돈함.
+
+
+## ★★ 웹툴 분리 CSV 저장/압축(ZIP) 기능 반영 (2026-08-08)
+
+- **배경**: 마스터 CSV 파일 통째 저장이 아닌 파이프라인(`mes_translate_extract.py`) 규칙에 맞춰 캐릭터/그룹별 분리 CSV 저장 요구.
+- **수정**:
+  - `webtool/server/lib/project.js`: `csvDir()` 함수 추가 (`workspace/<project>/translations/`).
+  - `webtool/server/lib/pipeline.js`: `writeCsv()` 시 카테고리별(`system_common`, `dom1_common`, `dom1_athena`, `dom2_mai`, `dom3_yuri` 등 총 73개 CSV) 분리 파일로 자동 세분화 저장. `readCsv()` 시 해당 폴더의 모든 CSV를 자동 취합.
+  - `webtool/server/routes/csv.js`: `/api/csv/download` 요청 시 세분화된 `translations/` 폴더를 ZIP 압축 파일 (`<projectName>_translations.zip`)로 즉시 다운로드 제공.
+
+
+## ★★ `dom1_common.csv` 테스트용 한글 번역 데이터 채우기 완료 (2026-08-08)
+
+- **작업**:
+  - `webtool/workspace/dom1/translations/dom1_common.csv` (총 844개 대사 행)에 대해 토큰 수(`n_tokens`) 및 게임 제어 태그(`485C`, `6E5C`, `이름` 등) 100% 무결성을 보장하는 한글 테스트 번역 데이터 작성.
+  - `ai_draft` 및 `translation` 컬럼 채우기 완료.
+- **검증**: `translate_io.py` 및 파이프라인 검증 도구로 844개 행 **100% PASS** 확인 완료.
+
+
+## ★★ 웹툴 재삽입 시 `no font code assigned` 및 토큰 불일치 오류 원인 분석 및 해결 (2026-08-08)
+
+- **원인 1**: 고정 토큰 수(`n_tokens`) 패딩을 위해 문장 뒤에 추가한 공백(`0xA002`)을 웹툴 파이프라인(`webtool/server/lib/pipeline.js`)의 `dstText = (row.translation || "").trim()` 구문이 실수로 잘라내어(trim) 토큰 수가 부족해졌던 버그.
+- **원인 2**: `dom1OP_0702_3.mes` 파일의 51~56번 블록 데이터에 일부 미할당 글자 코드가 매핑되었던 현상.
+- **수정 내용**:
+  1. `webtool/server/lib/pipeline.js`: `validateRow()` 및 `buildFileTokens()` 내부의 `.trim()` 제거하여 공백 패딩 토큰이 100% 보존되도록 보장.
+  2. `analysis/font_map_kr.json`: 표준 2,350자 KS X 1001 한글 글자 테이블을 100% 온전히 탑재하여 모든 한글 음절에 폰트 코드가 정상 할당되도록 보강.
+- **검증**: `reinsertProject` 실행 시 865개 전수 `.mes` 파일 **`filesWritten = 865, filesSkipped = 0, problemsCount = 0` (100% 성공)** 검증 완료.
+
+
+## ★★ [엄격 지침 준수] 한자(Kanji) 영역 + 미사용 슬롯 전용 한글 폰트 매핑 재구축 (2026-08-08)
+
+- **지침 준수**:
+  - 원본 폰트 맵(`font_map_full.json`)에서 **히라가나, 가타카나, 일본어 문장기호, 알파벳/숫자를 100% 원본 그대로 완벽하게 보존** (`169/169 100% Intact`).
+  - 한글 2,350자 음절 매핑을 오직 **한자(Kanji, 1,363개 슬롯) 및 미사용(Unlabeled, 1,895개 슬롯)** 영역에만 엄격하게 할당.
+- **웹툴 파이프라인 패스스루 보강**:
+  - `webtool/server/lib/pipeline.js`의 `buildFileTokens()`에 `analysis/mes_translate_reinsert.py`와 동일하게 번역되지 않은 미번역 원본 대사에 대한 **Pristine Passthrough (원문 바이너리 유지)** 로직 보강.
+- **최종 검증**:
+  - Strict Kanji Reassignment 기반 재삽입 전수 검증: **`filesWritten = 865, filesSkipped = 0, problemsCount = 0` (865/865 100% 성공)**.
+

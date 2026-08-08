@@ -1,0 +1,4 @@
+node_modules/
+workspace/
+.server.pid
+server.log

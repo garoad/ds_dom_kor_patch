@@ -11,15 +11,15 @@
 뿐이다. 작업을 마칠 때마다(중간에 끊기더라도) 그 시점까지의 진행 상황을 이 파일에 기록해둘 것 —
 세션이 끝날 때 한 번에 몰아서 쓰지 말고, 발견/수정이 확정되는 즉시 기록.
 
-## 2. 한글패치에 필요한 최종 산출물만 `analysis/` 루트에 둔다
+## 2. 한글패치에 필요한 최종 산출물만 커밋/관리한다
 
-`analysis/` 루트에는 한글화 작업에 실제로 필요한 최종 결과물만 남긴다:
-- 파이프라인 스크립트: `mes_codec.py`, `speaker_map.py`, `translate_io.py`,
-  `mes_translate_extract.py`, `mes_translate_reinsert.py`, `build_font_map_v2.py`, `lz10.py` 등
-- 최종 데이터: `font_map_full.json`, `full_code_tile_map.json`, `translation_export.csv`
+- 파이프라인 스크립트 (`analysis/`): `mes_codec.py`, `speaker_map.py`, `translate_io.py`,
+  `mes_translate_extract.py`, `mes_translate_reinsert.py`, `apply_font_art.py`, `lz10.py` 등
+- 웹 툴 소스 코드 (`webtool/`): `server/`, `public/`, `package.json`, `tool.sh` 등 핵심 파일 (`node_modules/`, `workspace/`, 로그/임시파일 제외)
+- 최종 데이터: `font_map_full.json`, `font_map_kr.json`, `tool.md`, `README.md`
 - 기록: `ANALYSIS_NOTES.md`
 
-1회성 조사/디버그 스크립트, 검증용 렌더링 이미지, 실험적 프로브 결과물은 여기 두지 말 것.
+1회성 조사/디버그 스크립트, 검증용 렌더링 이미지, 실험적 프로브 결과물은 커밋 대상에 두지 말 것.
 
 ## 3. 테스트/조사용 임시 자료는 프로젝트 루트의 `temp/`에 둔다 (`analysis/` 안이 아님)
 
