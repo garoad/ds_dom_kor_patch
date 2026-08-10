@@ -1,0 +1,6 @@
+[submodule "GameTranslateSkills"]
+	path = GameTranslateSkills
+	url = https://github.com/Leuconoe/GameTranslateSkills
+[submodule "create-retro-game-kr-patch"]
+	path = create-retro-game-kr-patch
+	url = https://github.com/mcpads/create-retro-game-kr-patch
