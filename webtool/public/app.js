@@ -254,35 +254,50 @@ document.getElementById("btn-auto-translate").addEventListener("click", () => {
 
   const box = document.getElementById("translate-progress");
   box.classList.remove("hidden");
-  box.textContent = "자동 초벌번역 준비 중...";
+  box.textContent = "";
 
-  const url = `/api/csv/translate-stream?name=${encodeURIComponent(state.projectName)}&fname=${encodeURIComponent(state.currentFile)}`;
+  const appendLog = (line) => {
+    const ts = new Date().toLocaleTimeString("ko-KR", { hour12: false });
+    box.textContent += `[${ts}] ${line}\n`;
+    box.scrollTop = box.scrollHeight;
+  };
+
+  appendLog("자동 초벌번역 준비 중...");
+
+  const engine = document.getElementById("engine-select").value;
+  const url = `/api/csv/translate-stream?name=${encodeURIComponent(state.projectName)}&fname=${encodeURIComponent(state.currentFile)}&engine=${encodeURIComponent(engine)}`;
   const es = new EventSource(url);
 
   es.onmessage = (e) => {
     try {
       const data = JSON.parse(e.data);
       if (data.type === "start") {
-        box.textContent = `총 ${data.total}개 대사 초벌번역 시작...`;
+        appendLog(`총 ${data.total}개 대사 초벌번역 시작...`);
       } else if (data.type === "progress") {
-        box.textContent = data.message;
+        appendLog(data.message);
       } else if (data.type === "done") {
-        box.textContent = `초벌번역 완료! (총 ${data.translatedCount}행 처리됨)`;
+        appendLog(`초벌번역 완료! (총 ${data.translatedCount}행 처리됨)`);
+        const failed = Array.isArray(data.report) ? data.report.filter((r) => !r.ok) : [];
+        if (failed.length) {
+          appendLog(`⚠ 검증 문제 ${failed.length}건 (저장은 됐으나 재삽입 시 스킵될 수 있음):`);
+          for (const r of failed.slice(0, 20)) appendLog(`  - block ${r.block}: ${r.error}`);
+          if (failed.length > 20) appendLog(`  ... 외 ${failed.length - 20}건`);
+        }
         es.close();
         loadFileRows(state.currentFile);
         refreshFileList();
       } else if (data.type === "error") {
-        box.textContent = `오류: ${data.message}`;
+        appendLog(`오류: ${data.message}`);
         es.close();
       }
     } catch (err) {
-      box.textContent = `이벤트 처리 실패: ${err.message}`;
+      appendLog(`이벤트 처리 실패: ${err.message}`);
       es.close();
     }
   };
 
   es.onerror = () => {
-    box.textContent = "서버 연결 오류가 발생했습니다.";
+    appendLog("서버 연결 오류가 발생했습니다.");
     es.close();
   };
 });

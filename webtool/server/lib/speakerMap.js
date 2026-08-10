@@ -3,6 +3,14 @@
 // Port of analysis/speaker_map.py - see that file's module docstring for the
 // full empirical derivation (header ID at values[start-1], per-character
 // dominant ID, 0x0/0xFFFF special-cased as non-character lines).
+//
+// 2026-08-10 catalog expansion (synced from analysis/speaker_map.py): added
+// 7 crossover-cast IDs resolved via direct in-text addressing (a nearby line
+// calling the speaker by name/title) rather than per-file dominance - see
+// the Python module's docstring for each ID's evidence. 0xf has a known
+// residual scope collision (3/107 occurrences are an unrelated garbled-
+// prefix artifact, not Leona's father) - left mapped anyway (104/107
+// correct) pending investigation of that artifact.
 
 const SPEAKER_NAMES = {
   0x2: "주인공",
@@ -29,11 +37,19 @@ const SPEAKER_NAMES = {
   0x3d: "Mature",
   0x4: "Leona",
   0x7: "King",
+  0xa: "Kaidou",
+  0xf: "레오나 아버지",
+  0x3f: "Kyo",
+  0x41: "Iori",
+  0x48: "Goenitz",
+  0x52: "Kagura Maya",
+  0x76: "Ukyo",
 };
 
 const SPECIAL_NAMES = {
   0x0: "[선택지]",
   0xffff: "[효과음/내레이션]",
+  0x44: "[마리의 개]",
 };
 
 /** Return a display label for a block's header ID, or null if unrecognized. */

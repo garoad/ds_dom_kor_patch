@@ -2359,3 +2359,521 @@ TTF로 변환된 픽셀 폰트를 다시 래스터라이즈하면 원래 비트�
 - **최종 검증**:
   - Strict Kanji Reassignment 기반 재삽입 전수 검증: **`filesWritten = 865, filesSkipped = 0, problemsCount = 0` (865/865 100% 성공)**.
 
+
+## ★★ 서브모듈 스킬(`create-retro-game-kr-patch`, `GameTranslateSkills`) 기준 대사 추출 파이프라인 감사 (2026-08-10)
+
+- **배경**: 신규 클론 환경(이 세션)에서 두 스킬 서브모듈(`create-retro-game-kr-patch/skills/create-kr-patch`,
+  `GameTranslateSkills/skills/gt-text-*`)의 텍스트 추출/번역/QA 판정 기준(`text-extraction.md`,
+  `data-formats.md`, `gt-text-analyze`/`gt-text-qa` SKILL.md)을 확인한 뒤, 현재
+  `analysis/mes_translate_extract.py` 추출 결과를 그 기준으로 감사함.
+- **환경 확인**: 이 clone에는 `unpack/`, `unpack_origin/`, `temp/`, `webtool/workspace/`가 전부 없는
+  상태였음(전부 `.gitignore` 대상 — ROM 산출물/작업물은 의도적으로 미커밋, 스킬의 "원본 ROM·저작 자산
+  커밋 금지" 원칙과 일치). `./NitroPacker unpack -r "Days of Memories.nds" -o unpack -n DAYSOFMEMORY`로
+  `unpack/`을 재생성한 뒤 `python3 analysis/mes_translate_extract.py`를 실행해 `temp/translations/`에
+  37개 CSV·총 **38,319개** 대사 블록(877개 스캔, 865개 파일에 대사 존재 — 기존 문서의 865 재삽입 성공
+  수치와 일치)을 재생성해서 실측함.
+- **① 왕복(Round-trip) 검증 — PASS**: `analysis/mes_translate_reinsert.py`를 번역 전(blank
+  translation) 상태로 실행 → `temp/translated_output/` 865개 파일 전부 `filesWritten=865,
+  skipped=0`. 압축 바이트 자체는 원본과 다르지만(자체 LZ10 재압축이라 당연함), **압축 해제된 u16 토큰
+  스트림은 865/865 파일 전부 원본과 완전히 동일**(`mc.load_values()` 비교). `text-extraction.md` §5·
+  `gt-text-analyze` 절차 3(왕복 계약 검증)의 핵심 요건을 통과함.
+- **② 화자(speaker) 귀속 버그 발견 — 확인된 결함**: 전체 38,319블록 중 **5,466블록(14.26%)**이
+  `UNKNOWN_0x..` 화자로 표시됨. 이 중 **154건은 `UNKNOWN_0x6e5c`** — 원인은
+  `mes_translate_extract.py`가 화자 ID로 읽는 `values[start-1]`이, 블록 시작 위치가 직전 블록의
+  종료 마커(`0x6E5C 0x6E5C`) 바로 뒤(헤더 갭 없음)일 때 **마커 자신의 두 번째 `0x6E5C` 값을 화자
+  ID로 잘못 읽어들이는 off-by-one성 결함**임(`mes_codec.find_dialogue_blocks()`가
+  `prev_term_end = t + 2`로 다음 스캔을 시작하는데, `start == prev_term_end`인 경우
+  `values[start-1]`이 마커의 두 번째 토큰과 일치). `text-extraction.md` §3.1(경계와 인자 폭),
+  §4.1(안정적 식별) 기준으로 보면 이 화자 필드는 현재 신뢰할 수 없는 상태.
+- **③ 화자 매핑 테이블(`speaker_map.py`) 커버리지 갭 — 확인**: 나머지 UNKNOWN ID(`0x74`, `0x75`,
+  `0x76`, `0x77`, `0x1e`, `0x0a`, `0x29`, `0x3f`, `0x41`, `0x42`, `0x52`, `0x6d`, `0x8e`, `0x0f` 등)를
+  표본 확인한 결과, 실제 대사 내용은 정상 일본어(예: `0x74` → `dom3Birthday.mes` 남성 NPC
+  "ケッ、<이름:3232>じゃねぇか!<6E5C>めでてぇ日に縁起が悪ぃぜ", `0x75` →
+  `dom3TrainingSTR.mes` "おっ、<이름:3232>じゃねぇか")이며, 텍스트 추출 자체는 정확함. 문제는
+  `speaker_map.py`가 24명 주역 히로인+주인공만 담은 표라서, dom3 Birthday/Training/Festival 등
+  서브 시나리오의 조연 NPC 화자 ID가 전부 매핑 누락된 것. → **텍스트 추출 결함이 아니라 화자
+  카탈로그 미완성**(`text-extraction.md` §1.4 미확정 항목 0건 요건 미충족 상태).
+- **④ 미동정 글리프 1건(`0x0148`, 참고용)**: `font_map_full.json`의 `0148` 코드가 `kind: "full",
+  real_tile: 136`으로 진짜 글리프 타일이지만 `char` 필드(실제 문자)가 없음 → 코퍼스 전체 3회만
+  등장. 이 코드가 포함된 블록의 `source` 컬럼이 완전한 한글화 대상 일본어 문장이 아니라 `<0148>` raw
+  hex를 포함해 렌더링됨. 발생 빈도가 낮아 배포 차단 사유는 아니지만 해당 3곳은 실제 화면
+  캡처/emucap 대조로 문자를 확정해야 함(`data-formats.md` §2 "미해독 바이트를 문자로 추정해
+  채우지 않는다" 원칙상 방치 가능하나, 텍스트 맵에 미확정 항목으로 명시 필요).
+- **⑤ 디버그 메뉴 필터**: `is_debug_menu_block()` 휴리스틱(0x0087 존재 또는 마지막 5토큰이
+  "次のページ" 고정 시퀀스)으로 `Script/` 대사 341블록이 실제 대사 모집단에서 제외됨. 이 필터
+  자체는 이전 세션에서 이미 근거를 가지고 도입된 것으로 보이나, `text-extraction.md` §1.2(텍스트
+  증거는 독립적 근거 최소 2가지 필요)·§3.5(거짓양성/거짓음성 별도 평가) 기준으로는 이 341블록이
+  실제로 화면에 노출되지 않는다는 독립 검증(예: 실제 해당 오프셋을 게임에서 트리거해서 확인)이
+  이 세션에서는 재확인되지 않았음 — 과거 근거를 신뢰하되 최종 배포 전 재확인 권장.
+- **결론 (다음 작업 우선순위)**:
+  1. **(버그 수정, 최우선)** `mes_translate_extract.py`/`mes_codec.py`의 화자 ID 추출 로직에서
+     `start-1`이 직전 블록 종료 마커 자체를 가리키는 경우를 구분 처리 — 이 경우 실제 헤더 바이트가
+     없는 것인지, 마커 앞의 추가 오프셋(`start-3` 등)을 봐야 하는지 실제 게임 동작으로 재확인 필요.
+  2. **(카탈로그 확장)** `speaker_map.py`에 이번에 발견된 미매핑 ID(0x74/0x75/0x76/0x77/0x1e/0x0a/
+     0x29/0x3f/0x41/0x42/0x52/0x6d/0x8e/0x0f 등, 전체 UNKNOWN 상위 빈도 목록)를 실제 대사 문맥으로
+     대조해 이름/역할을 확정하고 표에 추가 — 목표는 UNKNOWN 비율 14.26% → 0%.
+  3. 위 두 가지가 완료되기 전까지는 "대사 추출이 완료됐다"고 판정하지 않는다(스킬 판정 기준상
+     화자 귀속은 아직 미확정 항목 5,466건이 남아있는 상태).
+  4. 텍스트 자체(원문 source 컬럼)의 추출/왕복 정확도는 검증 완료 상태이므로, 번역 작업(gt-text-translate
+     단계)은 화자 필드에 의존하지 않는 범위(문장 자체 번역)에서는 병행 진행 가능.
+
+
+## ★★ `UNKNOWN_0x6e5c` 화자 버그 근본 원인 확정 및 수정 (2026-08-10)
+
+- **재조사 결과 (앞선 가설 정정)**: 앞 절에서 "off-by-one"으로 잠정 기록했던 원인을 raw 토큰
+  컨텍스트로 직접 대조해 확정함. `Script/*.mes`(실제 대사 파일)는 스캔 결과 **헤더 갭이 단
+  한 건도 0인 적이 없음**(최소 갭 1) — 즉 실제 대사 박스는 항상 화자 헤더 토큰을 최소 1개
+  가진다. 반면 `soundnamedom1/2/3.mes`, `dom2chara.mes`, `dom3chara.mes`, `strindex.mes`,
+  `endtitledom1/2/3.mes`, `playername.mes` 일부(전부 `OUTSIDE_MES_FILES` / `system_common`
+  범주) — 총 158개 블록은 헤더 갭이 **전부 0**: `0x6E5C 0x6E5C` 종료 마커 바로 뒤에 다음
+  항목의 첫 글리프가 공백 없이 이어지는, 화자 개념 자체가 없는 **평범한 이름/라벨 나열
+  테이블**이었음(예: `soundnamedom1.mes`는 사운드 이름을 마커로만 구분해 나열).
+  `values[start-1]`이 이 경우 직전 항목의 종료 마커 자체(`0x6E5C`)를 가리키게 되어 실제
+  ID가 아닌 값을 화자로 오인했던 것 — "인자 폭이 잘못 계산된 버그"가 아니라 **"이 파일
+  유형에는애초에 화자 헤더가 존재하지 않는데 전 파일 유형에 동일한 헤더 해석 규칙을 적용한"
+  범위(scope) 오류**(`text-extraction.md` §3.3 범위별 사양 위반)였음.
+- **수정**: `analysis/speaker_map.py`의 `SPECIAL_NAMES`에 `0x6E5C: ""` 추가(헤더 데이터가
+  전혀 없는 파일 첫 블록의 `header_value is None` 케이스와 동일하게 취급 — 둘 다 "실제
+  화자 ID가 존재하지 않음"이라는 같은 의미). 모듈 docstring에 근거와 파일 목록을 기록.
+- **검증**:
+  - 재추출 후 `UNKNOWN_0x6e5c` 완전히 사라짐(0건). 전체 UNKNOWN 비율 5,466건(14.26%) →
+    **5,312건(13.86%)**로 감소(정확히 -154, 예측과 일치).
+  - 왕복 재검증: `mes_translate_reinsert.py` 재실행 후 865개 파일 전부 `mc.load_values()`
+    기준 원본과 완전 동일 유지 확인 — 이번 수정이 화자 컬럼(CSV 메타데이터)만 건드리고
+    실제 재삽입 로직(`source`/`translation`/`rel_path`만 사용)에는 영향 없음을 재확인.
+- **남은 작업**: 나머지 5,312건(13.86%)은 이전 절 ③에서 확인한 대로 실제 조연 NPC 화자
+  ID가 `speaker_map.py`에 없어서 생기는 **정당한 카탈로그 미완성**이며, 버그가 아니므로
+  이 항목과 구분해서 추적한다. 다음 작업은 그 미매핑 ID들을 실제 대사 문맥으로 이름/역할을
+  확정해 표를 채우는 것.
+
+
+## ★★ 화자 카탈로그 확장 1차 (2026-08-10)
+
+이전 절("`UNKNOWN_0x6e5c` 화자 버그 근본 원인 확정 및 수정")에서 남겨둔 "다음 작업"을
+착수: 미매핑 화자 ID(당시 5,312건/13.86%)를 실제 대사 문맥 증거로 이름/역할을 확정해
+`speaker_map.py`에 추가.
+
+### 방법론
+
+`temp/translations/*.csv`를 전수 스캔해 `UNKNOWN_0x..`별 빈도·파일 분포를 집계한 뒤,
+- 파일 카테고리 하나에 압도적으로 쏠린 ID는 그 heroine 루트의 조연으로 의심
+- **직접 호명 증거**: 해당 화자가 말하기 **직전 줄**(주인공 또는 다른 기존 매핑 화자의
+  대사)에 실제 인명/직함이 등장하는 경우를 정량 스캔(예: "草薙先輩!" 다음 줄이 그 인물의
+  대사인 사례가 코퍼스에서 몇 번 반복되는지)
+- 말투/자기 지칭(自称) 대조 (예: "神楽の家の女" = 神楽 가문 여성 자기소개)
+- 여러 파일에 걸쳐 같은 인물로 재확인되는지 교차검증
+
+로 실제 정체를 확정. 이름을 추측으로 채우지 않는다는 스킬 원칙(`text-extraction.md` §3.2,
+data-formats.md의 "미해독 바이트를 문자로 추정해 채우지 않는다")에 따라, 직접 증거가
+불충분한 ID는 이번에도 매핑하지 않고 `UNKNOWN_0x..`로 남겨둠.
+
+### 확정되어 `speaker_map.py`에 추가한 항목
+
+| ID | 이름 | 핵심 근거 |
+|---|---|---|
+| `0xa` | Kaidou(海堂) | `dom1Kula_L03.mes` 등에서 그의 대사 직후 주인공이 "海堂……"이라고 직접 호명(반복 확인). 거친 말투("テメェ","オレ達")로 dom1 여러 heroine 루트(Kula/Yuri/Kasumi/Jenny/Mai)에 공통 출연하는 파일-비국소적 조연 — 기존에 "Orochi류처럼 파일별 지배 ID 없음"으로 오분류될 뻔한 패턴이었으나, 파일 지배도가 아니라 호명 증거로 해결. |
+| `0xf` | 레오나 아버지 | `dom1Leona_L06.mes`에서 "そうか.初めまして、レオナの父だ"로 자기소개. `dom1Mai_O0727_4.mes`에서도 "事情はレオナから閉いた"(레오나에게 사정을 들었다)로 재등장, 아버지다운 조언 말투("それでこそ男だ","がんばりなさい") 일치. **잔여 스코프 충돌**: 107건 중 3건(`dom1DefScn_Morning.mes` block0, `dom3HZR.mes` block134, `dom1King_M06.mes` block0)은 실제로는 아래 "미해결 구조적 발견"에 해당하는 잡음이며 레오나 아버지가 아님 — 104/107만 정확, 전면 해결은 그 이슈 해결 후로 보류. |
+| `0x3f` | Kyo(草薙京) | 대사 직전 줄에 "草薙先輩" 호칭이 코퍼스 전역에서 56회 반복 확인(`dom2Orochi_L08.mes` 등). 성격/말투("チッ、嫌な奴に見つかっちまったな")도 일치. |
+| `0x41` | Iori(八神庵) | 직전 줄 "八神先輩!" 호칭 35회 확인(`dom2Orochi_L06.mes`). 자기 대사에서 "神楽……あの女の差し金か"로 神楽(=Chizuru 가문)를 직접 언급 — Iori와 Kagura 가문의 대립이라는 원작 설정과 일치. |
+| `0x48` | Goenitz(고엔이츠) | `dom2Orochi_M01.mes`/`_X01.mes`에서 직전 줄에 "ゲーニッツ先生" 호칭. 자기 대사가 "はじまりの風を起こした" 등 바람(風) 모티프로 일관 — 원작 고엔이츠의 상징과 일치. |
+| `0x52` | Kagura Maya(카구라 마야, Chizuru의 "姉様") | `dom2Orochi_X01.mes`에서 Chizuru를 "ちづる"로 직접 호명, Chizuru는 그를 "姉様"라 부름. 자기 대사 "私も、神楽の家の女よ"(나도 神楽 가문의 여자야)로 소속 확인. |
+| `0x76` | Ukyo(右京, Tachibana) | `dom3Saya_L06.mes`, `dom3Mikoto_L01/S08.mes` 등 서로 다른 heroine 루트에 걸쳐 "右京さん/右京先生" 직접 호칭 반복 확인. 예스러운 말투("かまわぬ")도 일관. |
+| `0x44` | [마리의 개] (`SPECIAL_NAMES`, 실명 아님) | 대사 내용이 항상 "グルルル","ワンワン","キャイーン" 같은 의성어뿐이며 실제 대사가 아님(=`0xffff`와 같은 성격이나 Mary 관련 장면 한정으로 고정 출연) — 이름이 아닌 역할 라벨로 처리. |
+
+검증: `mes_translate_extract.py` 재실행 후 UNKNOWN 비율 **5,312건(13.86%) → 3,920건
+(10.23%)**로 감소(−1,392건, 예측치와 일치). `mes_translate_reinsert.py` 재실행 후
+865/865 파일 전부 디코드 토큰 스트림 동일(회귀 없음) 재확인.
+
+### ★ 미해결 구조적 발견: "깨진 숫자 프리픽스" 헤더 (다음 세션 조사 필요, 이름 매핑 보류)
+
+`0x29`, `0x01`, `0x20a` 등 일부 ID의 대사 내용이 `<0148><0000><0000><0000><0000><0000>
+<0030><0022><0002>そりゃ、身近な友達の方が大事だよ` 처럼 **미해독 raw 코드 3개 이상이
+줄줄이 나온 뒤에야 실제 문장이 시작**하는 패턴이 반복 관찰됨(`dom2Athena_L01.mes` block
+33 등). 처음엔 "파일 시작 블록(block 0)의 초기화 잡음"으로 의심했으나, 전수 스캔 결과
+block 0가 아닌 위치(예: block 33)에서도 동일 패턴이 나타나 그 가설은 기각. 대신 각
+발화 내용 자체가 뒷부분에서 대체로 주인공 시점의 평범한 대사로 읽히고(예: 다음 줄에서
+heroine이 그 말에 반응) 화자가 한 인물로 고정되지 않는 점에서, **호감도/분기 조건에 따라
+달라지는 파라미터가 블록 콘텐츠 앞부분에 숫자로 삽입된 구조**일 가능성이 높다고 추정 —
+다만 이는 가설이며 아직 독립 증거로 확정하지 않았다.
+
+- 정량: 코퍼스 전체 865개 파일의 block 0만 봐도 121건이 UNKNOWN인데, 그중 31건이 이
+  "3개 이상 연속 `<XXXX>` 프리픽스" 패턴과 일치(`dom2Athena_M01.mes`, `dom3Saya_M05.mes`,
+  `dom2Chizuru_M02.mes`, `dom3Iroha_*.mes` 등 `_M0N`류 파일에 특히 집중). block 0 밖의
+  발생 빈도는 아직 전수 집계하지 않음.
+- **skill 원칙 적용**: `text-extraction.md` §3.2("의미 확정은 독립 증거가 맞을 때"),
+  §3.4("미확정 토큰은 forbidden로 두고 원본 순서 보존, 이름으로 자동 해석 금지")에 따라
+  이 ID들(`0x29` 등)은 **이번 세션에서 이름을 매핑하지 않았다.** 잘못된 이름을 붙이면
+  `0x6e5c` 때처럼 나중에 재작업이 필요해진다.
+- **다음 조사 방향**: (1) `0x29` 등 헤더 뒤 "깨진 프리픽스"의 정확한 토큰 개수·값 패턴이
+  파일마다 규칙적인지(예: 항상 홀수/짝수 개, 항상 마지막이 `0x0002`로 끝나는지) 확인,
+  (2) 이 프리픽스가 실제로 "블록 콘텐츠"가 아니라 `find_dialogue_blocks()`의 경계 판정
+  오류(예: 아직 알려지지 않은 제어 토큰을 "full"로 오분류해 콘텐츠 시작점을 앞당김)일
+  가능성을 `decode_value()`/`kind_of()` 로직과 대조해 배제, (3) 배제되면 이 프리픽스가
+  실제로 호감도 스탯/조건 플래그를 표시하는 게임 자체 서식인지 원본 화면 증거(에뮬레이터)로
+  검증. 이 조사가 끝나기 전에는 `0x29`류 ID에 이름을 붙이지 않는다.
+
+### 갱신된 남은 작업
+
+- UNKNOWN 잔여 3,920건(10.23%) 중 다수는 "깨진 프리픽스" 이슈와 얽혀 있을 가능성이 있어,
+  위 구조적 발견을 먼저 해소한 뒤 이름 매핑을 재개하는 편이 효율적.
+- 이 프리픽스 이슈와 무관한 순수 미매핑 ID(예: `0x74`~`0x77` 중 아직 못 밝힌 것들,
+  dom3 계열 `0x8e`,`0x6d`,`0x7b`,`0x7e`,`0x7a`, dom1 Kula 전용 `0x24`/`0x25`/`0x26`/`0x27`,
+  Athena 전용 `0x16`/`0x17`/`0x1b`, King 전용 `0xb9`/`0xba`/`0x10c`, Nakoruru 전용
+  `0x7f`/`0xa0`/`0xbe`/`0xbf`, Mikoto 전용 `0xad`, Shino 전용 `0xa2` 등)은 이번과 같은
+  "직전 줄 호명 스캔 + 말투 대조" 방법으로 계속 확정 가능 — 다음 세션에서 이어서 진행.
+
+### ★ "깨진 프리픽스" 후속 조사: 반각문자(half) 가설 반증, 새 가설 확정 (2026-08-10)
+
+사용자 질문("깨진 프리픽스 구조가 반각문자와 연관있을까?")에 대해 `decode_value()`와
+`CODES`(font_map_full.json)로 프리픽스 구성 토큰들을 직접 대조 확인.
+
+- **반증**: 프리픽스 중간에 반복되는 `0x0000`,`0x0030`,`0x0022`,`0x0002`,`0x0011`,
+  `0x0029`,`0x0037`,`0x0046`,`0x0003`,`0x0001` 등은 전부 `decode_value()`/`CODES` 양쪽
+  다 **`ctrl`**로 분류된다(`bank==0 and low<0x80` 조건). `half`는 `bank==0 and
+  low>=0x80`인 경우인데 이 값들은 전부 `low<0x80`이라 `half` 경로에 해당하지 않는다.
+  즉 반각문자와는 무관하다.
+- **새 발견**: 프리픽스 맨 앞의, `find_dialogue_blocks()`가 블록 시작점으로 오인한 토큰
+  (`0x0148`,`0x0574`,`0x04CC`,`0x0568`,`0x04C0`,`0x0728`,`0x051C`,`0x0804`,`0x0174` 등,
+  매번 다른 값)은 전부 `decode_value()`상 **`full`**(진짜 글자 타일)로 판정된다. 이 값들은
+  `font_map_full.json`의 `CODES`에 항목이 아예 없거나(`kind=None`) 있어도 `char`가
+  배정 안 된 경우가 섞여 있다.
+- **원인 후보 좁힘**: `decode_value()`는 `bank!=0`이고 `v+33 < NUM_TILES`(=14336)이면
+  묻지도 따지지도 않고 `full`로 판정한다(`mes_codec.py:41-43`). 이 프리픽스 첫 토큰들은
+  값 자체가 작아서(361~2085 범위, 전부 `v+33 < 14336`) 이 조건을 우연히 만족한다 —
+  즉 실제로는 텍스트 글리프가 아니라 **포인터/인덱스/파라미터 값인데 타일 범위 안에
+  들어간다는 이유만으로 `full`로 오판**되고, `find_dialogue_blocks()`가 이를 블록
+  시작점(`start`)으로 잘못 잡아 뒤따르는 `ctrl` 나열을 블록 콘텐츠 안에 통째로
+  포함시키는 것으로 추정된다. 아직 가설 단계 — `0x29` 등에 이름을 매핑하기 전에 이
+  가설을 `kind_of()`/실제 화면 증거로 확정해야 한다(위 절의 "다음 조사 방향" 그대로 유효).
+
+## ★ 웹툴 speakerMap 동기화 + Gemini 제거 + macOS Foundation Model 번역 백엔드 추가 (2026-08-10)
+
+**speakerMap.js 동기화**: 이번 세션 초반에 `analysis/speaker_map.py`에 추가한 신규 화자 7명
+(`0xa` Kaidou, `0xf` 레오나 아버지, `0x3f` Kyo, `0x41` Iori, `0x48` Goenitz, `0x52` Kagura
+Maya, `0x76` Ukyo) + `SPECIAL_NAMES`의 `0x44`([마리의 개])를 `webtool/server/lib/speakerMap.js`
+JS 포트에도 동일하게 반영. 로직(`speakerOf()`)은 손대지 않고 데이터 딕셔너리만 동기화.
+
+**Gemini 백엔드 완전 제거**: `webtool/server/lib/geminiTranslate.js` 삭제, `csv.js`의
+`engine === "gemini"` 분기·`apiKey`/`model` 쿼리 파라미터·`GEMINI_API_KEY` 환경변수 참조 제거,
+`public/style.css`의 미사용 `.gemini-config-box`/`.gemini-help-text` 죽은 CSS 제거(대응하는
+HTML 요소가 이미 없었음 — UI에서 Gemini를 선택할 방법 자체가 애초에 없던 상태였다).
+
+**macOS Foundation Model 번역 백엔드 신규 추가**: 이 머신(macOS 26.5.1, Apple Silicon, Xcode
+26.5 / Swift 6.3.2)에서 `SystemLanguageModel.default.availability` → `available` 확인 후 실제
+기능 구현.
+
+- Node.js는 Swift 전용 `FoundationModels` 프레임워크를 직접 호출할 수 없어 브릿지가 필요.
+  `webtool/native/fm-translate/`(Package.swift + Sources/fm-translate/main.swift)에 독립
+  Swift CLI를 신규 작성: stdin으로 JSON 문자열 배열을 받아 20개씩 청크로 나눠
+  `LanguageModelSession`에 순차 번역 요청 후, 최종 결과를 JSON 배열로 stdout에 한 번에 출력
+  (진행 상황은 stderr에 한 줄씩). 컴파일된 바이너리(`.build/`)는 커밋하지 않고 `.gitignore`에
+  추가 — 소스만 리포에 남긴다.
+- `webtool/server/lib/foundationTranslate.js`: 바이너리 부재 시 최초 1회 `swift build -c
+  release`를 자동 실행(캐시), 이후 `spawn`으로 바이너리를 호출해 stdin/stdout으로 데이터를
+  주고받는 Node 래퍼. `freeTranslate.js`와 동일한 `translateBatch(items, onProgress)` 형태로
+  `csv.js`의 `/translate-stream` 라우트에서 `engine=foundation`일 때 호출.
+- `public/index.html`/`app.js`에 번역 엔진 선택 드롭다운(`#engine-select`: 무료 번역기 / macOS
+  Foundation Model)을 신규 추가 — Gemini 때는 이런 UI 선택지 자체가 없었으므로 이번이 웹툴에서
+  처음 생기는 엔진 선택 기능이다.
+
+**실측으로 확인된 중요 캐릭터**: 온디바이스 모델에 태그 보존을 프롬프트로만 지시하면 신뢰할 수
+없다.
+- 지시문 없이 그냥 번역시키면 `<0002>`, `<6E5C>` 같은 제어 태그가 **통째로 소실**된다.
+- few-shot 예시 2개를 지시문에 추가하면 대부분 케이스에서 보존되지만, 한 번은 다중 태그 프리픽스
+  (`<0148><0000><0030>`)에서 앞자리 0이 날아가는(`<148><0><30>`) 손상이 관측됨(재시도 로직 추가 후
+  재검증에서는 정상 보존 — `fm-translate` 바이너리에 청크당 최대 3회 재시도 + 응답 개수 불일치 시
+  원문 유지 폴백을 넣어 완화했지만, 근본적으로 클라우드 모델보다 태그 보존 신뢰도가 낮을 수 있음).
+- 다행히 `webtool/server/lib/translateIo.js`의 `validatePlaceholders()` + `pipeline.js` 재삽입
+  검증이 **모든 엔진에 공통으로** 이미 걸려 있어서, 어떤 엔진이 태그를 훼손해도 해당 블록만
+  `problems`로 걸러지고 조용히 데이터가 깨지지는 않는다(자유번역·Gemini 때부터 있던 기존 안전망을
+  그대로 재사용 — 새로 만든 게 아님).
+
+**검증**: `node -c`로 변경된 모든 `.js` 파일 구문 확인, `swift build -c release` 정상 완료,
+`echo '[...]' | fm-translate` 및 Node `foundationTranslate.translateBatch(...)` 직접 호출로
+태그 보존 번역 확인(빈 문자열은 모델 호출 없이 그대로 통과), `npm install` 후 웹툴 서버 기동해
+`csv.js`/`foundationTranslate.js` 포함 전체 라우트 모듈이 에러 없이 로드되고 HTTP 200 응답하는
+것까지 확인. 실제 브라우저 UI로 프로젝트를 만들어 엔진 드롭다운→자동 초벌번역 전체 플로우를 도는
+것은 아직 미검증(현재 `webtool/workspace/`에 생성된 프로젝트가 없어 스킵) — 다음 세션에서 실제
+프로젝트로 한 번 더 확인 권장.
+
+## ★ macOS Foundation Model 번역 백엔드 폐기 → Translation 프레임워크로 교체 (2026-08-10)
+
+**사용자 보고**: "foundation model이 제대로 동작안하는거 같네 한글로 번역은 전혀 안되었고
+그냥 원문으로 나와." — 위 항목에서 신규 추가한 `fm-translate`(FoundationModels LLM 기반)
+백엔드가 실사용 시 완전히 무동작.
+
+**원인 진단**: `temp/translations/dom1_Athena.csv`의 실제 대사 20줄(`<이름:3232>`, `<485C>`,
+`<6E5C>` 등 태그 다수 포함)로 재현한 결과, `fm-translate`의 엄격한 JSON 배열 개수 검증에
+3회 연속 실패 → "청크 번역 실패 - 원문을 그대로 유지합니다" 폴백이 발동해 20줄 전부가
+원문 그대로 반환됨(사용자가 관찰한 증상과 정확히 일치). 검증을 우회하고 원시 응답을 직접
+찍어본 결과, FoundationModels가 애초에 일→한 번역을 제대로 수행하지 않고 있었다: 일본어
+원문을 번역 대신 그대로 에코/재구성하고, 배열 길이를 20→24개로 바꿔버리고(위치 대응 붕괴),
+태그를 문장 내 다른 위치로 옮기고, 심지어 태그 내용 자체를 오역(`<이름:3232>` →
+리터럴 `名前:3232`)하기도 했다. 즉 프롬프트 튜닝으로 해결 가능한 문제가 아니라
+**FoundationModels(온디바이스 요약/재작성용 LLM)가 이 규모의 번역 작업 자체에 부적합**한
+것이 근본 원인.
+
+**해결책**: 사용자가 직접 제안한 대안 — "foundation model 대신 macos에 내장된 기본
+번역기 사용은 되나?" — 을 그대로 채택. macOS/Safari의 "번역" 기능을 구동하는 Apple의
+전용 온디바이스 NMT 엔진인 `Translation` 프레임워크(`TranslationSession`)로 완전히
+교체했다.
+
+- `webtool/native/fm-translate/` 디렉토리 전체 삭제, 대신 `webtool/native/mac-translate/`
+  신규 작성(Package.swift: `swift-tools-version:6.2`, `.macOS(.v26)` — 헤드리스 초기화자
+  `TranslationSession(installedSource:target:)`가 컴파일 에러로 macOS 26.0+ 요구임을 확인).
+  `Sources/mac-translate/main.swift`: `LanguageAvailability().status(from:to:)`로 ja→ko
+  언어팩 설치 여부 확인 후 세션 생성, `TranslationSession.Request(sourceText:clientIdentifier:)`
+  + `session.translations(from:)` 배치 API를 사용 — `clientIdentifier`로 응답을 원본 위치에
+  순서 무관하게 정확히 매칭하므로 LLM 방식의 "배열 개수가 맞아야 한다"는 취약한 가정이
+  아예 필요 없어짐. 50개씩 청크, 청크당 최대 3회 재시도, 실패 시 원문 유지 폴백은 유지.
+- `webtool/server/lib/foundationTranslate.js` 삭제 → `webtool/server/lib/macTranslate.js`
+  신규 작성(동일한 `ensureBuilt()`/`runBinary()`/`translateBatch(items, onProgress)` 패턴,
+  바이너리 경로만 `native/mac-translate/.build/release/mac-translate`로 교체).
+- `webtool/server/routes/csv.js`: import를 `macTranslateBatch`로 교체, 엔진 식별자를
+  `"foundation"` → `"mac"`으로 변경.
+- `webtool/public/index.html`: `<option value="foundation">macOS Foundation Model</option>`
+  → `<option value="mac">macOS 기본 번역기</option>`로 변경(`app.js`는 select 값을 그대로
+  쿼리에 넣는 구조라 별도 수정 불필요).
+- `webtool/.gitignore`: `native/fm-translate/.build/` → `native/mac-translate/.build/`.
+
+**검증**: `swift build -c release` 정상 빌드. `dom1_Athena.csv`의 동일한 실제 대사 20줄로
+`macTranslate.translateBatch()`를 Node에서 직접 호출 — **20줄 전부 정상적으로 한국어 번역되고
+`<485C>`/`<이름:3232>`/`<6E5C>` 태그가 모두 정확한 위치에 그대로 보존**됨을 확인(재시도 없이
+1회 시도로 성공). `node -c`로 `csv.js`/`macTranslate.js` 구문 확인. `webtool/tool.sh stop` →
+`start`로 서버 재기동 시 `MODULE_NOT_FOUND` 등 에러 없이 정상 기동, `curl` HTTP 200 확인.
+
+**결론**: 이 프로젝트의 번역 초벌 작업에는 FoundationModels(범용 온디바이스 LLM)보다
+Translation 프레임워크(전용 온디바이스 NMT)가 훨씬 적합하다 — 번역 품질뿐 아니라 태그
+보존 안정성과 배치 정합성(clientIdentifier 매칭) 면에서도 근본적으로 더 신뢰할 수 있는
+설계. `validatePlaceholders()` 안전망은 계속 유효하게 동작하지만(어떤 엔진이든 태그 훼손
+시 해당 블록만 problems로 스킵), 이번 교체로 안전망에 의존해야 하는 빈도 자체가 크게
+줄어들 것으로 예상된다(다음 세션에서 실제 브라우저 UI로 전체 플로우 회귀 확인 권장 —
+아직 미검증).
+
+## ★ 원문보다 짧은 번역: 공백 토큰 자동 패딩 (2026-08-10)
+
+**경위**: 사용자 지시 "이전에 원본보다 짧은경우는 공백삽입으로 패딩해서 해결한다고 했잖아
+짧은 경우는 알아서 패딩 맞춰주는걸로 해서 ok처리 해줘". 실제로 `mes_translate_reinsert.py`
+에는 이미 이 방침이 에러 메시지 문구("Pad short translations with a blank/filler code or
+shorten the wording")로만 남아있었을 뿐, 자동화는 안 되어 있어 사람이 수동으로 처리해야
+했다 — 방금 웹툴 재삽입 리허설에서 `dom1OP_0701_1.mes`의 `tokenMismatch` 91건 중 다수가
+`shorter` 방향이었던 것으로 확인됨.
+
+**구현**: 공백 문자 " "는 이미 `_CHAR_TO_CODE[" "] = 0xA002`(전각 16x16 빈 타일)로 매핑되어
+있었으므로, `SPACE_TOKEN = 0xA002` 상수로 명시하고(웹툴 `translateIo.js` / 파이썬
+`translate_io.py` 양쪽), 인코딩된 토큰 수가 원본 블록의 고정 토큰 수(`expected_len`)보다
+**짧을 때만** 그 차이만큼 `SPACE_TOKEN`을 뒤에 채워 정확히 일치시키도록 함
+(`mes_translate_reinsert.py`의 `build_file()`, 웹툴 `pipeline.js`의 `buildFileTokens()`
+및 CSV 저장 시 상태 표시용 `validateRow()`/`saveFile()` 양쪽 모두 반영). **길 때(longer)는
+그대로 에러로 남긴다** — 잘라내면 내용이 손실되므로 안전하게 자동화할 수 없고, 번역 문구를
+줄이는 수동 조치가 필요.
+
+**검증**: 웹툴 서버 재시작 후 `/api/build/reinsert`로 `dom1OP_0701_1.mes` 재확인 —
+`tokenMismatch` 91 → 56건(전부 `longer`만 남음, `shorter` 방향은 0건), 파일 전체
+problems 102 → 67건. 폰트 예산 관련 `noFontCode`(4건, 위 항목 참고)와 mac-translate 태그
+누락 `placeholder`(7건, 위 "실전 재삽입 테스트" 항목 참고)는 이번 변경과 무관하게 그대로.
+
+## ★ dom1OP_0701_1.mes 실전 재삽입 테스트에서 발견된 두 가지 이슈 (2026-08-10)
+
+**경위**: `mac-translate`로 `dom1OP_0701_1.mes`(119개 대화 블록)를 자동 초벌번역한 뒤
+웹툴 재삽입을 실행하자 `filesSkipped: 1`, 다수의 `problems`가 보고됨("테스트빌드 해보려니
+에러가 난다"). 원인은 서로 독립된 두 가지였다:
+
+**1) mac-translate 태그 누락률(~5.9%)**: 119개 블록 중 7개에서 `<6E5C>`/`<485C>` 같은
+`<HEX>` 제어 태그가 번역 결과에서 통째로 사라짐(`validatePlaceholders`가 missing
+placeholders로 정확히 잡아냄). 앞서 검증한 깨끗한 20줄 테스트에서는 태그 누락이 0건이었는데,
+119줄 규모의 실제 파일에서는 5.9%까지 올라간 것 — TranslationSession도 LLM 방식보다는
+훨씬 안정적이지만 태그 누락이 완전히 0%는 아님을 확인. `validatePlaceholders` 안전망이
+해당 블록만 problems로 정확히 격리하므로 데이터 손상으로 이어지지는 않지만, 자동번역만으로
+100% 통과는 기대할 수 없고 일정 비율은 수동 검수/재번역이 필요하다.
+
+**2) 고정 토큰 슬롯 정합성(구조적 제약, 버그 아님)**: `pipeline.js`의 `buildFileTokens()`는
+각 대화 블록이 원본 `.mes`에서 차지하던 정확한 토큰 슬롯 수(`expectedLen`)와 재삽입할
+텍스트의 인코딩 후 토큰 수가 정확히 일치해야만 통과시키고, 하나라도 문제(태그 불일치,
+폰트 코드 없음, 토큰수 불일치)가 있으면 `mes_translate_reinsert.py`와 동일하게 파일 전체를
+all-or-nothing으로 스킵한다(주석에 명시됨). 기계번역은 원문과 우연히 토큰 수가 일치할
+확률이 사실상 0에 가까우므로, 어떤 번역 엔진을 쓰든 실제 게임에 들어갈 최종 번역문은
+사람이 줄 길이를 맞춰 편집하는 과정이 구조적으로 필요하다 — 이번 세션에 새로 발견된
+버그가 아니라 이 롬핵의 원래 설계 제약.
+
+**3) 폰트 타일 예산 갭(→ 아래 항목에서 해결 착수)**: `problems`의 상당수가
+"no font code assigned for character" 에러였고, 원인은 현재 `font_map_kr.json`의
+1,558자 한글 매핑이 자모 빈도 근사치 방식으로 선정되어 다,하,아,이,그,나,가 같은 극히
+흔한 받침 없는 음절이 하나도 포함되지 않았기 때문. 상세 진단과 해결 작업은 바로 아래
+"한글 폰트 테이블 재선정" 항목 참고.
+
+## ★ 한글 폰트 테이블 재선정: 실사용 빈도 기반으로 1,558자 재배정 (2026-08-10)
+
+**경위**: 위 항목의 3)에서 드러난 대로, 기존 `font_map_kr.json`의 1,558개 한글 슬롯은
+`CHOSEONG`/`JUNGSEONG`/`JONGSEONG`에 감으로 붙인 "자모 빈도 근사치 가중치"로 선정된
+것이었다. 실제로 확인해보니 게,다,서,테,하,아,리,쿠,나,이,로,응,으,빨,어,일,가,또,벌,기,
+옷,았,그,왜,정,시,했,신,야,쁜,선 등 받침 없는 극히 흔한 음절이 단 하나도 포함되어 있지
+않았다 — 자모 가중치 방식이 받침 없는 흔한 음절을 구조적으로 저평가한 것. 사용자 지시:
+"자주쓰는 한글 1559자로 넣자고 했는데 이상한것만 들어갔나보네 1559자는 유지하되 필요한
+한글을 다시 찾아서 테이블 업데이트 하자" — 1,559자(실질 1,558자) 예산 상한(규칙 4)은
+그대로 유지하고, 그 슬롯에 배정할 글자만 실사용 빈도 기반으로 다시 정하기로 함.
+
+**1) 실사용 빈도 코퍼스 생성**: 유의미한 기존 번역 코퍼스가 없어(`translation_export.csv`
+38,319행 중 118행만 이번 프로젝트 자체 테스트로 채워진 상태), mac-translate 엔진으로
+게임 대사 원문 2,000개를 무작위 샘플링해 실제로 번역한 뒤 그 결과에서 빈도를 집계하는
+방식을 택함(500개 벤치마크 216.87초 → 2,000개 약 15분 소요, 사용자 승인 하에 진행).
+`temp/gen_hangul_freq_corpus.js`로 `webtool/server/lib/macTranslate.js`의
+`translateBatch()`를 그대로 호출해 `temp/hangul_freq_corpus.json`(번역 문자열 2,000개)
+생성.
+
+**2) 빈도 집계 + 자모 back-off 보완**: `temp/build_hangul_freq_manifest.py`가
+`<[^>]*>` 태그 제거 후 가-힣 음절 빈도를 집계 — 코퍼스에서 한글 문자 총 24,249자, 고유
+음절이 관측됨. 기존 `font_map_kr.json`에서 이미 안전성 검증이 끝난 1,558개 코드
+(`code`/`real_tile`)를 그대로 재사용하고(재검증 불필요, 이미 확정된 풀), 빈도 상위
+음절부터 1:1 배정. 관측된 고유 음절 수가 1,558개 슬롯보다 적어 부족분은 "자모 back-off"로
+채움 — 감으로 정한 가중치가 아니라, **이번 2,000개 실사용 코퍼스 자체에서 집계한
+초성/중성/종성 각각의 실제 등장 빈도**를 곱한 점수로 아직 코퍼스에 직접 등장하지 않은
+음절의 순위를 매기는 방식(희소 데이터 보완/smoothing 기법). 결과를
+`temp/kanji_only_hangul_glyphs.json`에 저장, `source` 필드로 `freq_corpus_2000`
+(직접 관측)과 `jamo_backoff_from_freq_corpus_2000`(back-off로 채움)을 구분해 근거를 남김.
+대표 흔한 음절(게,다,서,테,하,아,리,쿠,나,이,로,응,으,빨,어,일,가,또,벌,기,옷,았,그,왜,
+정,시,했,신,야,쁜,선) 전부가 새 매니페스트에 포함됨을 확인.
+
+**3) 폰트 맵/글리프 재생성**: 기존 확정 스크립트를 로직 변경 없이 그대로 재실행.
+`analysis/rebuild_font_map_kr.py` → 매니페스트를 읽어 `font_map_kr.json` 재생성(자체
+안전 검사: 매니페스트의 모든 코드가 한자-안전 코드이거나 빈 슬롯인지 확인,
+`font_map_full.json`은 전혀 건드리지 않음). `analysis/apply_font_art.py` → BDF
+(Galmuri11.bdf, 총 20,966글리프 중 한글 11,172자)를 `unpack_origin/data/Font_DOM.nbfc`
+원본에서부터 항상 새로 렌더링, 결과: "Successfully rendered 1558 Hangul glyphs
+(0 missing from BDF)".
+
+**4) 검증**:
+- `font_map_full.json`: 한글 문자 개수 0 확인 — 규칙 4(원문 맵 순수성) 위반 없음.
+- `font_map_kr.json` 통계: `hangul_mapped: 1558`, `hangul_budget`(이번 추출 슬롯 수
+  기록용 필드) `1558` — 1,559 예산 상한 이내, 축소/초과 없음.
+- `temp/verify_reinsert_dom1OP.js`로 `dom1OP_0701_1.mes`(119개 블록) 재삽입 리허설을
+  갱신 전/후로 비교:
+
+  | 구분 | noFontCode | tokenMismatch | placeholder | other | problems 총계 |
+  |---|---|---|---|---|---|
+  | 이전(자모 가중치 테이블) | 90 | 18 | 7 | 0 | 115/119 블록 |
+  | 이후(실사용 빈도 테이블) | **4** | 91 | 7 | 0 | 102/119 블록 |
+
+  핵심 목표였던 `noFontCode`(글꼴 코드 미배정으로 스킵)가 **90 → 4로 급감**. `tokenMismatch`가
+  18 → 91로 늘어난 것은 회귀가 아니라, 이전에는 `noFontCode`에서 먼저 걸려 뒤 검사까지
+  못 갔던 블록들이 이제 그 관문을 통과해 원래부터 있던(이번 작업 범위 밖의 구조적 문제인)
+  고정 토큰 슬롯 정합성 문제로 넘어가 노출된 것 — 위 "실전 재삽입 테스트" 항목의 2)에서
+  이미 진단된 것과 동일한 이슈. `placeholder`(mac-translate 태그 누락, 위 항목의 1))는
+  7건 그대로 — 이번 작업 범위 밖.
+- 남은 4건의 `noFontCode`는 `grep -E "no font code assigned"`로 확인한 결과 전부
+  이번 작업 범위를 벗어난 것들: 부호 2건(작은따옴표 `'`, 가운뎃점 `·` — 애초에 한글
+  테이블 대상이 아님), 실제 한글 음절 2건(퇴, 뻗 — 1,558자 예산을 넘어서는 음절로,
+  예산 상한을 지키는 이상 발생하는 고유한 트레이드오프이지 버그가 아님).
+
+**결론**: 1,559자(실질 1,558자) 예산 상한을 그대로 지키면서, 슬롯 배정 기준을 "감으로
+정한 자모 가중치"에서 "실사용 번역 코퍼스 직접 빈도 + 동일 코퍼스 기반 자모 back-off"로
+교체해 `noFontCode` 스킵을 90건에서 4건으로 크게 줄였다. 남은 4건은 예산 한계(음절 2건)와
+범위 밖 이슈(부호 2건)로, 추가 조치 없이 현재 상태를 확정한다.
+
+**⚠ 함정 — 웹툴 서버는 `font_map_kr.json`을 시작 시 1회만 메모리에 로드함**: 위 검증을
+`temp/verify_reinsert_dom1OP.js`(별도 Node 프로세스, 파일을 매번 새로 읽음)로는 90→4 개선을
+확인했는데, 이미 떠 있던 웹툴 서버로 실제 `/api/build/reinsert`를 호출해보니 예전과 동일한
+90건 수준의 `noFontCode`가 그대로 재현됐다. 원인은 `webtool/server/lib/mesCodec.js`가
+`_fmKr = JSON.parse(fs.readFileSync(FONT_MAP_KR_PATH, ...))`를 모듈 최상단(파일 로드 시
+1회)에서 실행하기 때문 — `font_map_kr.json`을 재생성해도 이미 실행 중인 서버 프로세스는
+재시작 전까지 구 데이터를 계속 사용한다. `./tool.sh stop && ./tool.sh start`로 재시작 후
+API로 재확인하니 noFontCode 4건으로 정상 반영됨을 확인. **앞으로 `font_map_kr.json`/
+`font_map_full.json`을 재생성한 뒤에는 반드시 웹툴 서버를 재시작해야 한다** — 재시작 없이
+"파일은 바뀌었는데 결과가 그대로"라면 이 캐싱이 원인일 가능성이 가장 높음.
+
+## ★ 자동번역 엔진: 무료 번역기(기본) 옵션 제거, macOS 번역기만 유지 (2026-08-10)
+
+사용자 지시: "자동번역 기능에 기본 번역은 빼고 macos번역만 남겨". `webtool/public/index.html`의
+`#engine-select`에서 `<option value="free">무료 번역기 (기본)</option>` 제거,
+`webtool/server/routes/csv.js`의 `engine === "mac"` 분기 제거하고 `macTranslateBatch` 직접
+호출로 단순화(더 이상 쓰이지 않는 `engine` 쿼리 파라미터 구조분해도 함께 정리). 그 결과
+어디서도 참조되지 않게 된 `webtool/server/lib/freeTranslate.js`는 파일 자체를 삭제.
+`node -c`로 `csv.js`/`index.js` 구문 확인 후 서버 재기동, HTTP 200 확인.
+
+
+## ★ playername.mes: 원문 토큰 수 일치 검증 예외 처리 (2026-08-10)
+
+**경위**: `/api/build/reinsert` 재검증 도중 원문보다 짧은 번역은 공백 패딩으로 해결했지만,
+`playername.mes`(주인공 이름 프리셋: 성/이름 기본값 나열 테이블, `村上`/`大地`/`優`/`大之介`
+등 6블록)는 여전히 "longer" 방향 token count mismatch로 걸릴 수 있는 상태였다. 사용자 지시:
+"playername.mes 는 사용자 입력 주인공 이름 기본으로 넣는거니까 성,이름 모두 3자 제한이라서
+이건 예외로 할 수 있게 해줘".
+
+**배경 확인**: 이 파일은 `UNKNOWN_0x6e5c` 화자 버그 조사(위 "★★ `UNKNOWN_0x6e5c` 화자 버그
+근본 원인 확정 및 수정" 절) 때 이미 "화자 헤더 자체가 없는 평범한 이름/라벨 나열 테이블"로
+확인된 바 있다 — `Script/`의 실제 대사 박스(고정 폭 렌더링, 토큰 수가 달라지면 실기/melonDS에서
+행 남 - 2026-08-05 확인)와는 다른 구조다. 각 블록은 성 또는 이름 하나이며, 게임 내 이름
+입력/표시 UI 자체가 성 3자·이름 3자로 제한하므로 원문(일어) 토큰 수와 번역(한글) 토큰 수가
+같아야 할 구조적 이유가 없다 — 대신 3토큰(3자) 상한만 지키면 안전하다.
+
+**구현**: `playername.mes`에 한해 "원문과 동일한 토큰 수" 검증을 완전히 건너뛰고, 대신
+"인코딩된 토큰 수가 3을 넘는지"만 검사하도록 4곳에 반영:
+- `webtool/server/lib/pipeline.js`: `PLAYERNAME_FILE`/`PLAYERNAME_MAX_TOKENS` 상수 추가.
+  `validateRow()`에 `fname` 파라미터 추가해 `playername.mes`일 때 패딩/길이일치 로직을
+  건너뛰고 3토큰 초과만 에러 처리. `saveFile()` 호출부와 mismatch 리포트 분기도 `fname !==
+  PLAYERNAME_FILE` 조건으로 우회. `buildFileTokens()`의 블록 루프에도 동일한 분기를 패딩
+  로직 앞에 추가(패딩 없이 인코딩된 토큰을 그대로 사용, 3토큰 초과 시에만 problems에 기록).
+- `analysis/mes_translate_reinsert.py`: 동일한 상수와 분기를 `build_file()`에 미러링(패딩
+  체크 이전에 `fname == PLAYERNAME_FILE`이면 3토큰 상한만 검사하고 `continue`).
+- `<HEX>` 플레이스홀더 개수 검증(`validate_placeholders`/`validatePlaceholders`)은 이 예외와
+  무관하게 그대로 유지 - 길이 제약만 예외이고 제어 코드 보존 요구는 동일하게 적용된다.
+
+**검증**: `node -c pipeline.js`, `python3 -m ast` 구문 확인 후 `./tool.sh stop && ./tool.sh
+start`로 재기동(수정 사항이 즉시 반영되도록 - 위 font_map_kr.json 캐싱 함정과 동일 원리).
+`/api/build/reinsert` 재호출 결과 `playername.mes` 관련 problems 0건으로 완전히 해소됨을
+확인(재기동 전 이 파일에 대해 남아있던 token count mismatch 항목들이 전부 사라짐).
+
+
+## ★ 한글 테이블에 실전 누락 글자 4개 강제 포함: 꿉,콩,찡,퇴 (2026-08-10)
+
+**경위**: `/api/build/reinsert` 재검증에서 `dom1OP_0701_1.mes`에 "no font code assigned"
+에러 4건 발견 - `꿉`(소꿉친구), `콩`(킹콩캉콩 의성어), `찡`(찡찡거리다), `퇴`(퇴학). 실사용
+빈도 코퍼스(2,000개 샘플)에는 표본 한계로 관측되지 않았던 음절들. 사용자 지시: "추가 글자가
+있으니 한글테이블 수정해줘".
+
+**구현**: `temp/build_hangul_freq_manifest.py`에 `FORCE_INCLUDE_CHARS = list("꿉콩찡퇴")` 상수
+추가 - 빈도 랭킹과 무관하게 이 4글자는 항상 슬롯을 강제 배정하고, 자리 확보를 위해 랭킹
+최하위 4음절(`켠`,`틱`,`귄`,`몄` - 전부 자모 back-off로 채워진 미관측 추정 음절)을 제외하는
+로직 추가. 실사용 재삽입 테스트로 확인된 증거가 코퍼스 추정치보다 신뢰도가 높으므로, 빈도
+방식과 병행하되 우선순위를 더 준다는 원칙.
+
+**실행 순서** (1,559자 예산 준수, 안전 코드 풀 1,558개는 그대로 재사용 - 재검증 불필요):
+1. `PYTHONPATH=analysis python3 temp/build_hangul_freq_manifest.py` → 매니페스트 재생성
+   (강제 포함 4글자 확인 로그 출력됨).
+2. `python3 analysis/rebuild_font_map_kr.py` → `font_map_kr.json` 재생성, `Hangul slots:
+   1558 / 1559 budget` 그대로 유지(규칙 4 위반 없음).
+3. `python3 analysis/apply_font_art.py` → `unpack/data/Font_DOM.nbfc`에 새 1,558자 글리프
+   재렌더링 (매번 origin에서 깨끗하게 재시작).
+4. `./tool.sh stop && ./tool.sh start` → 웹툴 서버가 새 `font_map_kr.json`을 다시 로드하도록
+   재기동 (위 캐싱 함정과 동일 원리 - 파일만 갱신하고 재기동을 빼먹으면 반영 안 됨).
+
+**검증**: `/api/build/reinsert` 재호출 결과 `dom1OP_0701_1.mes`의 "no font code assigned"
+에러 4건 전부 해소(0건). 남은 problems는 1건뿐이며 이는 이번 작업과 무관한 기존 이슈
+(block 93, 원문 69 토큰 vs 번역 71 토큰 "longer" 방향 불일치 - 수동 축약 필요, 범위 밖).
+
+
+## ★★ 웹툴 빌드에서 공백이 "幡" 등 원본 일어 글리프로 보이는 버그 수정 (2026-08-10)
+
+**경위**: 사용자가 melonDS 실기 스크린샷 3장을 제출 - 대사 중 공백이 들어가야 할 자리마다
+공백 대신 알아볼 수 없는 한자 비슷한 글자(幡)가 찍혀서 "미안! 幡지금幡나갈께!"처럼 보임.
+
+**원인**: `analysis/apply_font_art.py`(파이썬, 최종 확정 스크립트)는 렌더링 마지막에
+공백 타일 2곳(`10242`=전각 공백 A002, `390`=반각 공백)을 명시적으로 0으로 클리어하는 단계가
+있다 - pristine `Font_DOM.nbfc`의 이 타일 자리에는 애초에 진짜 일본어 글리프 픽셀 데이터가
+박혀 있고, "공백"이라는 건 어디까지나 코드 규약(`0xA002`)일 뿐 실제 픽셀은 비어있지 않기
+때문이다. 그런데 웹툴의 JS 포트 `webtool/server/lib/pipeline.js`의 `applyFontArt()`는 이
+공백 제로클리어 단계를 처음부터 포함하지 않고 있었다 - 한글 1,558자 글리프 렌더링만 하고
+끝나서, 웹툴로 빌드한 ROM은 항상 공백 자리에 원본 일어 글리프가 그대로 남아 있었던 것으로
+보인다(이번에 처음 실기 테스트로 발견됐을 뿐, 웹툴 빌드 자체는 전부터 이 문제를 안고 있었을
+가능성이 높음 - `docstring`에 "port of apply_font_art.py"라고 되어 있었지만 실제로는 이
+부분이 누락된 불완전한 포트였음).
+
+**수정**: `pipeline.js`의 `applyFontArt()` 한글 글리프 렌더 루프 뒤에 `FULL_SPACE_TILE=10242`
+(전각, 2×2=4개 서브타일 클리어)와 `HALF_SPACE_TILE=390`(반각, 2개 서브타일 클리어)를 0으로
+채우는 로직을 `analysis/apply_font_art.py`와 동일하게 추가.
+
+**검증**: `node -c` 구문 확인 → 서버 재기동 → `/api/build/reinsert` 재호출(`filesWritten: 865,
+filesSkipped: 0, problems: 0`) → `webtool/workspace/dom1/build/data/Font_DOM.nbfc`를 직접
+바이너리로 열어 타일 10242/10243/10274/10275(전각) 및 390/391(반각) 6개 서브타일이 전부
+`all zero`임을 확인. 사용자가 다음 빌드(`/api/build/pack`)로 ROM을 재생성해 melonDS에서
+공백이 정상적으로 빈 칸으로 보이는지 실기 재확인 필요.

@@ -16,6 +16,25 @@ import translate_io as tio
 TRANSLATIONS_DIR = os.path.join(mc.PROJECT_ROOT, "temp", "translations")
 OUT_BASE_DIR = os.path.join(mc.PROJECT_ROOT, "temp", "translated_output")
 
+# playername.mes stores default preset names (surname/given name entries),
+# each capped at 3 displayed characters by the in-game name UI itself -
+# unlike dialogue blocks, an entry's length isn't tied to a fixed ROM slot,
+# so it doesn't need to match the original token count exactly (2026-08-10,
+# see pipeline.js's PLAYERNAME_FILE for the JS-side mirror of this).
+PLAYERNAME_FILE = "playername.mes"
+PLAYERNAME_MAX_TOKENS = 3
+
+# 2026-08-10: single 0x485C ("page turn/wait for input") sits as the very
+# last in-block token in ~97% of all dialogue blocks (37417/38495, corpus-
+# wide scan of unpack/data/Script), immediately followed (just outside the
+# block, untouched by this function) by the real box-closing double-0x6E5C
+# terminator. Padding filler must never land AFTER this marker - doing so
+# displays an extra blank "page" the player has to tap through after the
+# dialogue already visually ended, matching the "대사가 끝나도 빈칸이 나오고
+# 안 넘어간다" symptom reported 2026-08-10. Experimental fix: insert filler
+# BEFORE a trailing page-turn marker instead of after it.
+PAGE_TURN_TOKEN = 0x485C
+
 
 def load_csv(path):
     by_file = defaultdict(dict)
@@ -87,14 +106,41 @@ def build_file(fname, rows_by_block):
             problems.append(f"block {i}: {ex}")
             continue
 
+        if fname == PLAYERNAME_FILE:
+            # No fixed-slot constraint here - just the in-game 3-character
+            # name cap (see PLAYERNAME_FILE comment above).
+            if len(new_tokens) > PLAYERNAME_MAX_TOKENS:
+                problems.append(
+                    f"block {i}: player name too long - encodes to "
+                    f"{len(new_tokens)} characters, but names are capped at "
+                    f"{PLAYERNAME_MAX_TOKENS} in-game"
+                )
+                continue
+            out.extend(values[last:s])
+            out.extend(new_tokens)
+            last = e
+            continue
+
+        if len(new_tokens) < expected_len:
+            # Pad with trailing half-width space tokens rather than failing
+            # the block - a shorter translation is safe to pad, unlike a
+            # longer one (which would have to drop content to fit and is
+            # still reported below). If the encoded text ends in the
+            # page-turn marker (true for ~97% of blocks), insert the filler
+            # BEFORE it, not after - see PAGE_TURN_TOKEN above.
+            pad = [tio.HALF_SPACE_TOKEN] * (expected_len - len(new_tokens))
+            if new_tokens and new_tokens[-1] == PAGE_TURN_TOKEN:
+                new_tokens = new_tokens[:-1] + pad + new_tokens[-1:]
+            else:
+                new_tokens = new_tokens + pad
+
         if len(new_tokens) != expected_len:
-            direction = "longer" if len(new_tokens) > expected_len else "shorter"
             problems.append(
                 f"block {i}: token count mismatch - original has {expected_len} "
-                f"tokens, translation encodes to {len(new_tokens)} ({direction}). "
+                f"tokens, translation encodes to {len(new_tokens)} (longer). "
                 "Dialogue blocks must keep an identical token count or the game "
-                "hangs on real hardware/melonDS (confirmed 2026-08-05). Pad short "
-                "translations with a blank/filler code or shorten the wording."
+                "hangs on real hardware/melonDS (confirmed 2026-08-05). Shorten "
+                "the wording."
             )
             continue
 

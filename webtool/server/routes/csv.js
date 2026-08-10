@@ -4,8 +4,7 @@ const express = require("express");
 const fs = require("fs");
 const proj = require("../lib/project");
 const pipeline = require("../lib/pipeline");
-const { translateBatch: geminiTranslateBatch } = require("../lib/geminiTranslate");
-const { translateBatch: freeTranslateBatch } = require("../lib/freeTranslate");
+const { translateBatch: macTranslateBatch } = require("../lib/macTranslate");
 
 const router = express.Router();
 
@@ -58,7 +57,7 @@ router.post("/file/:fname", (req, res) => {
 });
 
 router.get("/translate-stream", async (req, res) => {
-  const { name, fname, engine, apiKey, model } = req.query || {};
+  const { name, fname } = req.query || {};
   if (!name || !fname) return res.status(400).send("name, fname은 필수입니다.");
 
   res.setHeader("Content-Type", "text/event-stream");
@@ -79,19 +78,9 @@ router.get("/translate-stream", async (req, res) => {
     const sources = fileRows.map((r) => r.source);
     sendEvent({ type: "start", total: sources.length });
 
-    let translatedList;
-    const effectiveKey = apiKey || process.env.GEMINI_API_KEY;
-
-    if (engine === "gemini" && effectiveKey) {
-      translatedList = await geminiTranslateBatch(sources, effectiveKey, model || "gemini-2.0-flash-lite", (msg) => {
-        sendEvent({ type: "progress", message: msg });
-      });
-    } else {
-      // Default to Free Built-in Translation Engine (Google/Mac System Translator Bridge)
-      translatedList = await freeTranslateBatch(sources, null, null, (msg) => {
-        sendEvent({ type: "progress", message: msg });
-      });
-    }
+    const translatedList = await macTranslateBatch(sources, (msg) => {
+      sendEvent({ type: "progress", message: msg });
+    });
 
     const edits = fileRows.map((r, idx) => ({
       block: Number(r.block),

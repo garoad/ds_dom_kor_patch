@@ -18,6 +18,20 @@ const NAME_VAR_PREFIX = 0x505c;
 const NAME_VAR_SUFFIXES = new Set([0x3131, 0x3232]);
 const NAME_VAR_RE = /<이름(?::([0-9A-Fa-f]{4}))?>/y;
 
+// Full-width blank tile. Kept for reference/back-compat only - no longer used
+// to encode literal spaces or padding (see HALF_SPACE_TOKEN below).
+const SPACE_TOKEN = 0xa002;
+
+// Half-width blank tile (bank=0, low=0xCA -> tile 2*0xCA-14=390). Shares its
+// physical tile with 0x0606 (a 'full' code with no char label, confirmed
+// unused in real dialogue content) - see analysis/ANALYSIS_NOTES.md "0x00A4
+// 반각 공백 오식별" (2026-08-06) for the full derivation; restored to
+// font_map_full.json/font_map_kr.json 2026-08-10 after an earlier regen
+// dropped it. Used both to encode literal ' ' and to pad translations that
+// encode shorter than the original block's fixed token count (see
+// pipeline.js) - switched from full-width SPACE_TOKEN per user request.
+const HALF_SPACE_TOKEN = 0x00ca;
+
 const _CHAR_TO_CODE = new Map();
 for (const passKinds of [["half"], ["full"]]) {
   for (const [k, v] of Object.entries(mc.CODES_KR)) {
@@ -29,7 +43,10 @@ for (const passKinds of [["half"], ["full"]]) {
     }
   }
 }
-_CHAR_TO_CODE.set(" ", 0xa002);
+// Force space to the half-width blank tile - this used to force full-width,
+// contradicting the half-width preference above for other ASCII-style
+// characters (fixed 2026-08-10).
+_CHAR_TO_CODE.set(" ", HALF_SPACE_TOKEN);
 
 function isLiteralGlyph(v, codesMap = mc.CODES_FULL) {
   const e = codesMap[mc.hex4(v)];
@@ -154,6 +171,8 @@ function validatePlaceholders(srcText, dstText) {
 module.exports = {
   NAME_VAR_PREFIX,
   NAME_VAR_SUFFIXES,
+  SPACE_TOKEN,
+  HALF_SPACE_TOKEN,
   isLiteralGlyph,
   tokensToText,
   textToTokens,

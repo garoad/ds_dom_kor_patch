@@ -91,6 +91,12 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   min-height: 20px;
 }
 
+#translate-progress {
+  max-height: 280px;
+  overflow-y: auto;
+  font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+}
+
 table#csv-table {
   width: 100%;
   table-layout: fixed;
@@ -194,42 +200,6 @@ table#csv-table textarea {
 }
 .dropzone.dragover { border-color: #2c7be5; background: #eaf2fd; color: #22303f; }
 
-.gemini-config-box {
-  background: white;
-  border: 1px solid #cfd8dc;
-  border-radius: 6px;
-  padding: 12px 16px;
-  margin-bottom: 16px;
-}
-.gemini-config-box .config-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.gemini-config-box input[type="password"] {
-  width: 320px;
-  padding: 5px 8px;
-  font-size: 13px;
-}
-.gemini-config-box .key-status {
-  font-size: 12px;
-  color: #2e7d32;
-  font-weight: bold;
-}
-.gemini-help-text {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #546e7a;
-  line-height: 1.5;
-  background: #f8f9fa;
-  padding: 8px 12px;
-  border-radius: 4px;
-  border-left: 3px solid #0288d1;
-}
-.gemini-help-text ol {
-  margin: 4px 0 0 18px;
-  padding: 0;
-}
 .btn-ai {
   background: #6f42c1;
   border-color: #6f42c1;

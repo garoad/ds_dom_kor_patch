@@ -17,6 +17,24 @@ const proj = require("./project");
 
 const FIELDS = ["file", "rel_path", "block", "n_tokens", "speaker", "source", "ai_draft", "translation"];
 
+// playername.mes stores default preset names (surname/given name entries),
+// each capped at 3 displayed characters by the in-game name UI itself -
+// unlike dialogue blocks, an entry's length isn't tied to a fixed ROM slot,
+// so it doesn't need to match the original token count exactly (2026-08-10).
+const PLAYERNAME_FILE = "playername.mes";
+const PLAYERNAME_MAX_TOKENS = 3;
+
+// 2026-08-10: single 0x485C ("page turn/wait for input") sits as the very
+// last in-block token in ~97% of all dialogue blocks (37417/38495, corpus-
+// wide scan of unpack/data/Script), immediately followed (just outside the
+// block, untouched by this function) by the real box-closing double-0x6E5C
+// terminator. Padding filler must never land AFTER this marker - doing so
+// displays an extra blank "page" the player has to tap through after the
+// dialogue already visually ended, matching the "대사가 끝나도 빈칸이 나오고
+// 안 넘어간다" symptom reported 2026-08-10. Experimental fix: insert filler
+// BEFORE a trailing page-turn marker instead of after it.
+const PAGE_TURN_TOKEN = 0x485c;
+
 const OUTSIDE_MES_FILES = [
   "soundnamedom1.mes",
   "soundnamedom2.mes",
@@ -223,8 +241,17 @@ function rowsForFile(name, fname) {
   return readCsv(name).filter((r) => r.file === fname);
 }
 
-/** Validate one row's translation without writing anything. */
-function validateRow(srcText, dstTextRaw) {
+/**
+ * Validate one row's translation without writing anything. If the encoded
+ * translation is shorter than expectedTokenCount, it is padded with trailing
+ * space tokens to match exactly (a translation encoding longer than the
+ * original is still reported as a mismatch - trimming would drop content).
+ *
+ * playername.mes is exempt from the expectedTokenCount match (see
+ * PLAYERNAME_FILE comment above) - it only enforces the in-game 3-character
+ * name cap.
+ */
+function validateRow(srcText, dstTextRaw, expectedTokenCount, fname) {
   const dstText = dstTextRaw && dstTextRaw.length > 0 ? dstTextRaw : srcText;
   const problems = tio.validatePlaceholders(srcText, dstText);
   if (problems.length) return { ok: false, error: problems.join("; ") };
@@ -233,6 +260,20 @@ function validateRow(srcText, dstTextRaw) {
     tokens = tio.textToTokens(dstText);
   } catch (ex) {
     return { ok: false, error: ex.message };
+  }
+
+  if (fname === PLAYERNAME_FILE) {
+    if (tokens.length > PLAYERNAME_MAX_TOKENS) {
+      return {
+        ok: false,
+        error: `player name too long - encodes to ${tokens.length} characters, but names are capped at ${PLAYERNAME_MAX_TOKENS} in-game`,
+      };
+    }
+    return { ok: true, tokenCount: tokens.length };
+  }
+
+  if (expectedTokenCount !== undefined && tokens.length < expectedTokenCount) {
+    tokens = tokens.concat(Array(expectedTokenCount - tokens.length).fill(tio.HALF_SPACE_TOKEN));
   }
   return { ok: true, tokenCount: tokens.length };
 }
@@ -254,15 +295,17 @@ function saveFile(name, fname, edits) {
     if (item.translation !== undefined) row.translation = item.translation;
     if (item.ai_draft !== undefined) row.ai_draft = item.ai_draft;
 
-    const v = validateRow(row.source, row.translation);
+    const v = validateRow(row.source, row.translation, Number(row.n_tokens), fname);
     if (!v.ok) {
       report.push({ block: Number(row.block), ok: false, error: v.error });
-    } else if (v.tokenCount !== Number(row.n_tokens)) {
-      const direction = v.tokenCount > Number(row.n_tokens) ? "longer" : "shorter";
+    } else if (fname !== PLAYERNAME_FILE && v.tokenCount !== Number(row.n_tokens)) {
+      // Shorter translations are already padded to match inside validateRow,
+      // so only "longer" (which would drop content if trimmed) reaches here.
+      // playername.mes doesn't enforce this match at all (see validateRow).
       report.push({
         block: Number(row.block),
         ok: false,
-        error: `token count mismatch - original has ${row.n_tokens} tokens, translation encodes to ${v.tokenCount} (${direction})`,
+        error: `token count mismatch - original has ${row.n_tokens} tokens, translation encodes to ${v.tokenCount} (longer)`,
       });
     } else {
       report.push({ block: Number(row.block), ok: true });
@@ -343,11 +386,41 @@ function buildFileTokens(name, fname, rowsByBlock) {
       return;
     }
 
+    if (fname === PLAYERNAME_FILE) {
+      // No fixed-slot constraint here - just the in-game 3-character name
+      // cap (see PLAYERNAME_FILE comment above).
+      if (newTokens.length > PLAYERNAME_MAX_TOKENS) {
+        problems.push(
+          `block ${i}: player name too long - encodes to ${newTokens.length} characters, ` +
+            `but names are capped at ${PLAYERNAME_MAX_TOKENS} in-game`
+        );
+        return;
+      }
+      out.push(...values.slice(last, s));
+      out.push(...newTokens);
+      last = e;
+      return;
+    }
+
+    if (newTokens.length < expectedLen) {
+      // Pad with trailing half-width space tokens rather than failing the
+      // block - a shorter translation is safe to pad, unlike a longer one
+      // (which would have to drop content to fit and is still reported
+      // below). If the encoded text ends in the page-turn marker (true for
+      // ~97% of blocks), insert the filler BEFORE it, not after - see
+      // PAGE_TURN_TOKEN above.
+      const pad = Array(expectedLen - newTokens.length).fill(tio.HALF_SPACE_TOKEN);
+      if (newTokens.length && newTokens[newTokens.length - 1] === PAGE_TURN_TOKEN) {
+        newTokens = newTokens.slice(0, -1).concat(pad, newTokens[newTokens.length - 1]);
+      } else {
+        newTokens = newTokens.concat(pad);
+      }
+    }
+
     if (newTokens.length !== expectedLen) {
-      const direction = newTokens.length > expectedLen ? "longer" : "shorter";
       problems.push(
         `block ${i}: token count mismatch - original has ${expectedLen} tokens, ` +
-          `translation encodes to ${newTokens.length} (${direction}). Dialogue blocks ` +
+          `translation encodes to ${newTokens.length} (longer). Dialogue blocks ` +
           "must keep an identical token count or the game hangs on real hardware/melonDS."
       );
       return;
@@ -391,6 +464,21 @@ function applyFontArt(name) {
     if (!glyph) continue;
 
     renderGlyphToTiles(nbfcBuf, numTiles, realTile, glyph);
+  }
+
+  // Zero out the blank space tiles (mirrors analysis/apply_font_art.py) - the
+  // pristine Font_DOM.nbfc has real Japanese glyph ink baked into these tile
+  // slots (they were only ever "blank" by font-code convention, not by
+  // pixel data), so without this the space character shows leftover
+  // original artwork instead of a blank (2026-08-10, confirmed via melonDS
+  // screenshots showing 幡 in place of every space).
+  const FULL_SPACE_TILE = 10242;
+  const HALF_SPACE_TILE = 390;
+  for (const off of [FULL_SPACE_TILE * 64, (FULL_SPACE_TILE + 1) * 64, (FULL_SPACE_TILE + 32) * 64, (FULL_SPACE_TILE + 33) * 64]) {
+    if (off + 64 <= nbfcBuf.length) nbfcBuf.fill(0, off, off + 64);
+  }
+  for (const off of [HALF_SPACE_TILE * 64, (HALF_SPACE_TILE + 1) * 64]) {
+    if (off + 64 <= nbfcBuf.length) nbfcBuf.fill(0, off, off + 64);
   }
 
   fs.writeFileSync(nbfcPath, nbfcBuf);

@@ -53,6 +53,22 @@ NAME_VAR_PREFIX = 0x505C
 NAME_VAR_SUFFIXES = {0x3131, 0x3232}
 NAME_VAR_RE = re.compile(r"<이름(?::([0-9A-Fa-f]{4}))?>")
 
+# Full-width blank tile. Kept for reference/back-compat only - no longer used
+# to encode literal spaces or padding (see HALF_SPACE_TOKEN below).
+SPACE_TOKEN = 0xA002
+
+# Half-width blank tile (bank=0, low=0xCA -> tile 2*0xCA-14=390). Shares its
+# physical tile with 0x0606 (a 'full' code with no char label, confirmed
+# unused in real dialogue content) - see ANALYSIS_NOTES.md "0x00A4 반각 공백
+# 오식별" (2026-08-06) for the full derivation. That fix was later lost when
+# font_map_full.json was regenerated from scratch by a different script and
+# didn't carry the manual 00CA addition forward; restored 2026-08-10. Used
+# both to encode literal ' ' and to pad translations that encode shorter than
+# the original block's fixed token count (see mes_translate_reinsert.py) -
+# switched from full-width SPACE_TOKEN per user request, matching the
+# half-width preference already documented below for ':'/digits.
+HALF_SPACE_TOKEN = 0x00CA
+
 _CHAR_TO_CODE = {}
 # Some characters (space, ':', digits, 'A'/'B') have both a half-width and a
 # full-width tile in the corpus. Prefer half-width for these: Korean text
@@ -67,8 +83,10 @@ for _pass_kinds in (("half",), ("full",)):
             if _ch and len(_ch) == 1:
                 _CHAR_TO_CODE.setdefault(_ch, int(_k, 16))
 
-# Force space to use 0xA002 (full-width 16x16 blank tile) for dialogue text
-_CHAR_TO_CODE[" "] = 0xA002
+# Force space to the half-width blank tile (see HALF_SPACE_TOKEN above) -
+# this used to force full-width, contradicting the half-width preference
+# documented above for other ASCII-style characters (fixed 2026-08-10).
+_CHAR_TO_CODE[" "] = HALF_SPACE_TOKEN
 
 
 def is_literal_glyph(v):
