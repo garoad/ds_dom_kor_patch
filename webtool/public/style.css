@@ -63,6 +63,24 @@ button {
 }
 button:disabled { opacity: 0.5; cursor: not-allowed; }
 
+.controls-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 12px 0;
+}
+.controls-row label {
+  margin-bottom: 0;
+}
+.btn-action {
+  background: #0969da;
+  border-color: #0969da;
+  font-weight: bold;
+}
+.btn-action:hover {
+  background: #0353b4;
+}
+
 .result-box {
   background: #fff;
   border: 1px solid #ddd;

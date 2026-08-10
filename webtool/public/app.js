@@ -248,6 +248,45 @@ document.getElementById("file-select").addEventListener("change", (e) => {
   loadFileRows(e.target.value);
 });
 
+document.getElementById("btn-auto-translate").addEventListener("click", () => {
+  if (!state.projectName || !state.currentFile) return alert("프로젝트와 파일이 선택되지 않았습니다.");
+  if (!confirmDiscardIfDirty()) return;
+
+  const box = document.getElementById("translate-progress");
+  box.classList.remove("hidden");
+  box.textContent = "자동 초벌번역 준비 중...";
+
+  const url = `/api/csv/translate-stream?name=${encodeURIComponent(state.projectName)}&fname=${encodeURIComponent(state.currentFile)}`;
+  const es = new EventSource(url);
+
+  es.onmessage = (e) => {
+    try {
+      const data = JSON.parse(e.data);
+      if (data.type === "start") {
+        box.textContent = `총 ${data.total}개 대사 초벌번역 시작...`;
+      } else if (data.type === "progress") {
+        box.textContent = data.message;
+      } else if (data.type === "done") {
+        box.textContent = `초벌번역 완료! (총 ${data.translatedCount}행 처리됨)`;
+        es.close();
+        loadFileRows(state.currentFile);
+        refreshFileList();
+      } else if (data.type === "error") {
+        box.textContent = `오류: ${data.message}`;
+        es.close();
+      }
+    } catch (err) {
+      box.textContent = `이벤트 처리 실패: ${err.message}`;
+      es.close();
+    }
+  };
+
+  es.onerror = () => {
+    box.textContent = "서버 연결 오류가 발생했습니다.";
+    es.close();
+  };
+});
+
 async function loadFileRows(fname) {
   if (!fname || !state.projectName) return;
   state.currentFile = fname;

@@ -52,9 +52,13 @@
       <button class="subtab-btn" data-group="system_common">공용 시스템</button>
     </div>
 
-    <label>파일 선택
-      <select id="file-select"></select>
-    </label>
+    <div class="controls-row">
+      <label>파일 선택
+        <select id="file-select"></select>
+      </label>
+      <button id="btn-auto-translate" class="btn-action">⚡ 현재 파일 자동 초벌번역 실행</button>
+    </div>
+    <div id="translate-progress" class="result-box hidden"></div>
     <table id="csv-table">
       <colgroup>
         <col class="col-block" />

@@ -4,7 +4,8 @@ const express = require("express");
 const fs = require("fs");
 const proj = require("../lib/project");
 const pipeline = require("../lib/pipeline");
-const { translateBatch } = require("../lib/geminiTranslate");
+const { translateBatch: geminiTranslateBatch } = require("../lib/geminiTranslate");
+const { translateBatch: freeTranslateBatch } = require("../lib/freeTranslate");
 
 const router = express.Router();
 
@@ -57,13 +58,8 @@ router.post("/file/:fname", (req, res) => {
 });
 
 router.get("/translate-stream", async (req, res) => {
-  const { name, fname, apiKey, model } = req.query || {};
+  const { name, fname, engine, apiKey, model } = req.query || {};
   if (!name || !fname) return res.status(400).send("name, fname은 필수입니다.");
-
-  const effectiveKey = apiKey || process.env.GEMINI_API_KEY;
-  if (!effectiveKey) {
-    return res.status(400).send("Gemini API Key가 없습니다.");
-  }
 
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
@@ -83,14 +79,24 @@ router.get("/translate-stream", async (req, res) => {
     const sources = fileRows.map((r) => r.source);
     sendEvent({ type: "start", total: sources.length });
 
-    const translatedList = await translateBatch(sources, effectiveKey, model, (msg) => {
-      sendEvent({ type: "progress", message: msg });
-    });
+    let translatedList;
+    const effectiveKey = apiKey || process.env.GEMINI_API_KEY;
+
+    if (engine === "gemini" && effectiveKey) {
+      translatedList = await geminiTranslateBatch(sources, effectiveKey, model || "gemini-2.0-flash-lite", (msg) => {
+        sendEvent({ type: "progress", message: msg });
+      });
+    } else {
+      // Default to Free Built-in Translation Engine (Google/Mac System Translator Bridge)
+      translatedList = await freeTranslateBatch(sources, null, null, (msg) => {
+        sendEvent({ type: "progress", message: msg });
+      });
+    }
 
     const edits = fileRows.map((r, idx) => ({
       block: Number(r.block),
       ai_draft: translatedList[idx],
-      translation: r.translation && r.translation.trim() ? r.translation : translatedList[idx],
+      translation: translatedList[idx],
     }));
 
     const report = pipeline.saveFile(name, fname, edits);
