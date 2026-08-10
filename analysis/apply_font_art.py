@@ -193,13 +193,15 @@ def main():
             missing += 1
         count += 1
 
-    # Zero out space tiles
+    # Zero out space tiles (full 2x2 block for both - half-width 0x00CA
+    # shares its base tile with the unused full-width code 0x0606, which
+    # occupies all 4 sub-tiles; clearing only the top row (base, base+1)
+    # left the bottom row (base+32, base+33) with leftover pristine glyph
+    # ink, confirmed 2026-08-10 via melonDS showing garbage where spaces/
+    # padding should be blank)
     for space_t in (10242, 390):
-        nbfc[space_t * 64 : (space_t + 1) * 64] = b"\x00" * 64
-        nbfc[(space_t + 1) * 64 : (space_t + 2) * 64] = b"\x00" * 64
-        if space_t == 10242:
-            nbfc[(space_t + 32) * 64 : (space_t + 33) * 64] = b"\x00" * 64
-            nbfc[(space_t + 33) * 64 : (space_t + 34) * 64] = b"\x00" * 64
+        for off in (space_t, space_t + 1, space_t + 32, space_t + 33):
+            nbfc[off * 64 : (off + 1) * 64] = b"\x00" * 64
 
     assert len(nbfc) == orig_size, "File size must remain unchanged"
 

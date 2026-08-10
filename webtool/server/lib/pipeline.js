@@ -273,7 +273,7 @@ function validateRow(srcText, dstTextRaw, expectedTokenCount, fname) {
   }
 
   if (expectedTokenCount !== undefined && tokens.length < expectedTokenCount) {
-    tokens = tokens.concat(Array(expectedTokenCount - tokens.length).fill(tio.HALF_SPACE_TOKEN));
+    tokens = tokens.concat(Array(expectedTokenCount - tokens.length).fill(tio.SPACE_TOKEN));
   }
   return { ok: true, tokenCount: tokens.length };
 }
@@ -403,13 +403,14 @@ function buildFileTokens(name, fname, rowsByBlock) {
     }
 
     if (newTokens.length < expectedLen) {
-      // Pad with trailing half-width space tokens rather than failing the
-      // block - a shorter translation is safe to pad, unlike a longer one
-      // (which would have to drop content to fit and is still reported
-      // below). If the encoded text ends in the page-turn marker (true for
-      // ~97% of blocks), insert the filler BEFORE it, not after - see
-      // PAGE_TURN_TOKEN above.
-      const pad = Array(expectedLen - newTokens.length).fill(tio.HALF_SPACE_TOKEN);
+      // Pad with trailing space tokens rather than failing the block - a
+      // shorter translation is safe to pad, unlike a longer one (which
+      // would have to drop content to fit and is still reported below). If
+      // the encoded text ends in the page-turn marker (true for ~97% of
+      // blocks), insert the filler BEFORE it, not after - see
+      // PAGE_TURN_TOKEN above. Uses tio.SPACE_TOKEN (full-width) - see its
+      // comment for why the half-width blank is not used.
+      const pad = Array(expectedLen - newTokens.length).fill(tio.SPACE_TOKEN);
       if (newTokens.length && newTokens[newTokens.length - 1] === PAGE_TURN_TOKEN) {
         newTokens = newTokens.slice(0, -1).concat(pad, newTokens[newTokens.length - 1]);
       } else {
@@ -472,13 +473,20 @@ function applyFontArt(name) {
   // pixel data), so without this the space character shows leftover
   // original artwork instead of a blank (2026-08-10, confirmed via melonDS
   // screenshots showing 幡 in place of every space).
+  //
+  // Both full-width (0xA002) and half-width (0x00CA) space codes need all 4
+  // sub-tiles of their 2x2 block cleared, not just the top row - 0x00CA
+  // shares its base tile with the unused full-width code 0x0606, which
+  // occupies all 4 sub-tiles (base, base+1, base+32, base+33). Clearing only
+  // (base, base+1) left the bottom row with leftover pristine glyph ink,
+  // confirmed 2026-08-10 via melonDS showing garbage where spaces/padding
+  // should be blank.
   const FULL_SPACE_TILE = 10242;
   const HALF_SPACE_TILE = 390;
-  for (const off of [FULL_SPACE_TILE * 64, (FULL_SPACE_TILE + 1) * 64, (FULL_SPACE_TILE + 32) * 64, (FULL_SPACE_TILE + 33) * 64]) {
-    if (off + 64 <= nbfcBuf.length) nbfcBuf.fill(0, off, off + 64);
-  }
-  for (const off of [HALF_SPACE_TILE * 64, (HALF_SPACE_TILE + 1) * 64]) {
-    if (off + 64 <= nbfcBuf.length) nbfcBuf.fill(0, off, off + 64);
+  for (const base of [FULL_SPACE_TILE, HALF_SPACE_TILE]) {
+    for (const off of [base * 64, (base + 1) * 64, (base + 32) * 64, (base + 33) * 64]) {
+      if (off + 64 <= nbfcBuf.length) nbfcBuf.fill(0, off, off + 64);
+    }
   }
 
   fs.writeFileSync(nbfcPath, nbfcBuf);

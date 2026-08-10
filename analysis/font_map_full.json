@@ -1802,7 +1802,8 @@
   "040E": {
    "kind": "full",
    "count": 167,
-   "real_tile": 270
+   "real_tile": 270,
+   "char": "★"
   },
   "6408": {
    "kind": "full",
@@ -2005,7 +2006,8 @@
   "0216": {
    "kind": "full",
    "count": 146,
-   "real_tile": 150
+   "real_tile": 150,
+   "char": "："
   },
   "691A": {
    "kind": "full",
@@ -2255,7 +2257,8 @@
   "0189": {
    "kind": "full",
    "count": 120,
-   "real_tile": 201
+   "real_tile": 201,
+   "char": "O"
   },
   "141C": {
    "kind": "full",
@@ -2380,7 +2383,8 @@
   "018C": {
    "kind": "full",
    "count": 114,
-   "real_tile": 204
+   "real_tile": 204,
+   "char": "S"
   },
   "880C": {
    "kind": "full",
@@ -2457,7 +2461,8 @@
   "019B": {
    "kind": "full",
    "count": 110,
-   "real_tile": 219
+   "real_tile": 219,
+   "char": "i"
   },
   "C008": {
    "kind": "full",
@@ -2552,7 +2557,8 @@
   "019E": {
    "kind": "full",
    "count": 103,
-   "real_tile": 222
+   "real_tile": 222,
+   "char": "m"
   },
   "3810": {
    "kind": "full",
@@ -2807,7 +2813,8 @@
   "0280": {
    "kind": "full",
    "count": 88,
-   "real_tile": 256
+   "real_tile": 256,
+   "char": "o"
   },
   "5610": {
    "kind": "full",
@@ -3026,7 +3033,8 @@
   "0199": {
    "kind": "full",
    "count": 78,
-   "real_tile": 217
+   "real_tile": 217,
+   "char": "g"
   },
   "B102": {
    "kind": "full",
@@ -3085,7 +3093,8 @@
   "009D": {
    "kind": "half",
    "count": 75,
-   "real_tile": null
+   "real_tile": null,
+   "char": "C"
   },
   "3404": {
    "kind": "full",
@@ -3138,7 +3147,8 @@
   "018B": {
    "kind": "full",
    "count": 73,
-   "real_tile": 203
+   "real_tile": 203,
+   "char": "R"
   },
   "7D10": {
    "kind": "full",
@@ -3381,12 +3391,14 @@
   "019A": {
    "kind": "full",
    "count": 61,
-   "real_tile": 218
+   "real_tile": 218,
+   "char": "h"
   },
   "0187": {
    "kind": "full",
    "count": 61,
-   "real_tile": 199
+   "real_tile": 199,
+   "char": "M"
   },
   "0B1C": {
    "kind": "full",
@@ -3535,7 +3547,8 @@
   "019F": {
    "kind": "full",
    "count": 57,
-   "real_tile": 223
+   "real_tile": 223,
+   "char": "『"
   },
   "5412": {
    "kind": "full",
@@ -3707,7 +3720,8 @@
   "C706": {
    "kind": "full",
    "count": 52,
-   "real_tile": 12742
+   "real_tile": 12742,
+   "char": "泉"
   },
   "3200": {
    "kind": "full",
@@ -3736,7 +3750,8 @@
   "031A": {
    "kind": "full",
    "count": 52,
-   "real_tile": 218
+   "real_tile": 218,
+   "char": "』"
   },
   "AC1A": {
    "kind": "full",
@@ -3771,7 +3786,8 @@
   "0195": {
    "kind": "full",
    "count": 51,
-   "real_tile": 213
+   "real_tile": 213,
+   "char": "c"
   },
   "3D14": {
    "kind": "full",
@@ -3800,7 +3816,8 @@
   "0183": {
    "kind": "full",
    "count": 50,
-   "real_tile": 195
+   "real_tile": 195,
+   "char": "I"
   },
   "2004": {
    "kind": "full",
@@ -3859,7 +3876,7 @@
    "kind": "full",
    "count": 49,
    "real_tile": 194,
-   "char": "/"
+   "char": "H"
   },
   "781E": {
    "kind": "full",
@@ -3983,7 +4000,8 @@
   "008F": {
    "kind": "half",
    "count": 46,
-   "real_tile": null
+   "real_tile": null,
+   "char": "#"
   },
   "331C": {
    "kind": "full",
@@ -4017,7 +4035,8 @@
   "0180": {
    "kind": "full",
    "count": 45,
-   "real_tile": 192
+   "real_tile": 192,
+   "char": "F"
   },
   "1704": {
    "kind": "full",
@@ -4127,7 +4146,8 @@
   "009F": {
    "kind": "half",
    "count": 43,
-   "real_tile": null
+   "real_tile": null,
+   "char": "E"
   },
   "6F1E": {
    "kind": "full",
@@ -4264,12 +4284,14 @@
   "0285": {
    "kind": "full",
    "count": 40,
-   "real_tile": 261
+   "real_tile": 261,
+   "char": "u"
   },
   "0185": {
    "kind": "full",
    "count": 40,
-   "real_tile": 197
+   "real_tile": 197,
+   "char": "K"
   },
   "1E0C": {
    "kind": "full",
@@ -4304,12 +4326,14 @@
   "018D": {
    "kind": "full",
    "count": 40,
-   "real_tile": 205
+   "real_tile": 205,
+   "char": "T"
   },
   "0188": {
    "kind": "full",
    "count": 39,
-   "real_tile": 200
+   "real_tile": 200,
+   "char": "N"
   },
   "351C": {
    "kind": "full",
@@ -4326,7 +4350,8 @@
   "0286": {
    "kind": "full",
    "count": 38,
-   "real_tile": 262
+   "real_tile": 262,
+   "char": "w"
   },
   "540A": {
    "kind": "full",
@@ -4379,7 +4404,8 @@
   "AD12": {
    "kind": "full",
    "count": 37,
-   "real_tile": 11090
+   "real_tile": 11090,
+   "char": "閉"
   },
   "4214": {
    "kind": "full",
@@ -4438,7 +4464,8 @@
   "019C": {
    "kind": "full",
    "count": 36,
-   "real_tile": 220
+   "real_tile": 220,
+   "char": "k"
   },
   "120C": {
    "kind": "full",
@@ -4509,7 +4536,8 @@
   "0181": {
    "kind": "full",
    "count": 35,
-   "real_tile": 193
+   "real_tile": 193,
+   "char": "G"
   },
   "CB1C": {
    "kind": "full",
@@ -4682,7 +4710,8 @@
   "0082": {
    "kind": "half",
    "count": 32,
-   "real_tile": null
+   "real_tile": null,
+   "char": "."
   },
   "7A1E": {
    "kind": "full",
@@ -4853,7 +4882,8 @@
   "018A": {
    "kind": "full",
    "count": 29,
-   "real_tile": 202
+   "real_tile": 202,
+   "char": "P"
   },
   "0099": {
    "kind": "half",
@@ -5035,7 +5065,8 @@
   "1B18": {
    "kind": "full",
    "count": 27,
-   "real_tile": 1752
+   "real_tile": 1752,
+   "char": "夜"
   },
   "A21C": {
    "kind": "full",
@@ -5094,7 +5125,8 @@
   "BB14": {
    "kind": "full",
    "count": 26,
-   "real_tile": 11988
+   "real_tile": 11988,
+   "char": "也"
   },
   "1006": {
    "kind": "full",
@@ -5158,7 +5190,8 @@
   "009E": {
    "kind": "half",
    "count": 25,
-   "real_tile": null
+   "real_tile": null,
+   "char": "D"
   },
   "4D04": {
    "kind": "full",
@@ -5169,7 +5202,8 @@
   "0416": {
    "kind": "full",
    "count": 25,
-   "real_tile": 278
+   "real_tile": 278,
+   "char": "1"
   },
   "3C1C": {
    "kind": "full",
@@ -5294,7 +5328,8 @@
   "0418": {
    "kind": "full",
    "count": 24,
-   "real_tile": 280
+   "real_tile": 280,
+   "char": "2"
   },
   "6604": {
    "kind": "full",
@@ -5359,7 +5394,8 @@
   "0308": {
    "kind": "full",
    "count": 23,
-   "real_tile": 200
+   "real_tile": 200,
+   "char": "'"
   },
   "3206": {
    "kind": "full",
@@ -5422,7 +5458,8 @@
   "070C": {
    "kind": "full",
    "count": 23,
-   "real_tile": 460
+   "real_tile": 460,
+   "char": "i"
   },
   "4518": {
    "kind": "full",
@@ -5516,7 +5553,8 @@
   "0086": {
    "kind": "half",
    "count": 22,
-   "real_tile": null
+   "real_tile": null,
+   "char": "!"
   },
   "5808": {
    "kind": "full",
@@ -5623,7 +5661,8 @@
   "5A00": {
    "kind": "full",
    "count": 21,
-   "real_tile": 5760
+   "real_tile": 5760,
+   "char": "鹿"
   },
   "4510": {
    "kind": "full",
@@ -7968,7 +8007,8 @@
   "018E": {
    "kind": "full",
    "count": 8,
-   "real_tile": 206
+   "real_tile": 206,
+   "char": "U"
   },
   "7418": {
    "kind": "full",
@@ -10183,7 +10223,8 @@
   "0186": {
    "kind": "full",
    "count": 3,
-   "real_tile": 198
+   "real_tile": 198,
+   "char": "…"
   },
   "4A1E": {
    "kind": "full",

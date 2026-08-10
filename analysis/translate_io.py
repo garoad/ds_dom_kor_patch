@@ -53,29 +53,31 @@ NAME_VAR_PREFIX = 0x505C
 NAME_VAR_SUFFIXES = {0x3131, 0x3232}
 NAME_VAR_RE = re.compile(r"<이름(?::([0-9A-Fa-f]{4}))?>")
 
-# Full-width blank tile. Kept for reference/back-compat only - no longer used
-# to encode literal spaces or padding (see HALF_SPACE_TOKEN below).
+# Full-width blank tile. Used to encode literal spaces and to pad translations
+# that encode shorter than the original block's fixed token count (see
+# mes_translate_reinsert.py).
+#
+# 2026-08-10: briefly switched to a half-width blank (HALF_SPACE_TOKEN =
+# 0x00CA, tile 390 per font_map_full.json's half-width formula) for tighter
+# Korean spacing, but real-hardware testing proved that tile address formula
+# wrong for this code - overwriting tiles 390/391/422/423 with a solid,
+# unmistakable marker (temp/probe_space_tile_marker.py) had ZERO effect on
+# what melonDS actually displayed, meaning the engine doesn't read that tile
+# for 0x00CA at all (font_map_full.json's own stats confirm this formula was
+# never validated: every OTHER half-width code except the manually-patched
+# 0x00CA has real_tile=None). Reverted to SPACE_TOKEN, which IS validated -
+# it's what the original 2026-08-05/06 session used when the "block token
+# count must match exactly" rule was first confirmed working on real
+# hardware, and a direct A/B real-hardware test (2026-08-10,
+# temp/test9_full_space_probe.py) confirmed it still renders as a clean
+# blank while 0x00CA renders as a repeating garbled glyph.
 SPACE_TOKEN = 0xA002
 
-# Half-width blank tile (bank=0, low=0xCA -> tile 2*0xCA-14=390). Shares its
-# physical tile with 0x0606 (a 'full' code with no char label, confirmed
-# unused in real dialogue content) - see ANALYSIS_NOTES.md "0x00A4 반각 공백
-# 오식별" (2026-08-06) for the full derivation. That fix was later lost when
-# font_map_full.json was regenerated from scratch by a different script and
-# didn't carry the manual 00CA addition forward; restored 2026-08-10. Used
-# both to encode literal ' ' and to pad translations that encode shorter than
-# the original block's fixed token count (see mes_translate_reinsert.py) -
-# switched from full-width SPACE_TOKEN per user request, matching the
-# half-width preference already documented below for ':'/digits.
-HALF_SPACE_TOKEN = 0x00CA
-
 _CHAR_TO_CODE = {}
-# Some characters (space, ':', digits, 'A'/'B') have both a half-width and a
+# Some characters (':', digits, 'A'/'B') have both a half-width and a
 # full-width tile in the corpus. Prefer half-width for these: Korean text
-# uses these ASCII-style characters at half-width spacing convention, and a
-# handful of full-width duplicates (e.g. the ' ' at 0xA002, a brand-new
-# blank tile added by an earlier repaint pass) render nearly 2x as wide as
-# intended, making translated lines look oddly spaced out (2026-08-06).
+# uses these ASCII-style characters at half-width spacing convention. Space
+# is deliberately excluded from this preference - see SPACE_TOKEN above.
 for _pass_kinds in (("half",), ("full",)):
     for _k, _v in CODES_KR.items():
         if _v.get("kind") in _pass_kinds:
@@ -83,10 +85,8 @@ for _pass_kinds in (("half",), ("full",)):
             if _ch and len(_ch) == 1:
                 _CHAR_TO_CODE.setdefault(_ch, int(_k, 16))
 
-# Force space to the half-width blank tile (see HALF_SPACE_TOKEN above) -
-# this used to force full-width, contradicting the half-width preference
-# documented above for other ASCII-style characters (fixed 2026-08-10).
-_CHAR_TO_CODE[" "] = HALF_SPACE_TOKEN
+# Force space to the validated full-width blank tile (see SPACE_TOKEN above).
+_CHAR_TO_CODE[" "] = SPACE_TOKEN
 
 
 def is_literal_glyph(v):

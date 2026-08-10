@@ -18,21 +18,29 @@ const NAME_VAR_PREFIX = 0x505c;
 const NAME_VAR_SUFFIXES = new Set([0x3131, 0x3232]);
 const NAME_VAR_RE = /<이름(?::([0-9A-Fa-f]{4}))?>/y;
 
-// Full-width blank tile. Kept for reference/back-compat only - no longer used
-// to encode literal spaces or padding (see HALF_SPACE_TOKEN below).
+// Full-width blank tile. Used to encode literal spaces and to pad
+// translations that encode shorter than the original block's fixed token
+// count (see pipeline.js).
+//
+// 2026-08-10: briefly switched to a half-width blank (HALF_SPACE_TOKEN =
+// 0x00CA, tile 390 per font_map_full.json's half-width formula) for tighter
+// Korean spacing, but real-hardware testing proved that tile address formula
+// wrong for this code - overwriting tiles 390/391/422/423 with a solid,
+// unmistakable marker had ZERO effect on what melonDS actually displayed,
+// meaning the engine doesn't read that tile for 0x00CA at all
+// (font_map_full.json's own stats confirm this: every OTHER half-width code
+// except the manually-patched 0x00CA has real_tile=null). Reverted to
+// SPACE_TOKEN, which IS validated - it's what the original 2026-08-05/06
+// session used when the "block token count must match exactly" rule was
+// first confirmed working on real hardware, and a direct A/B real-hardware
+// test (2026-08-10) confirmed it still renders as a clean blank while
+// 0x00CA renders as a repeating garbled glyph.
 const SPACE_TOKEN = 0xa002;
 
-// Half-width blank tile (bank=0, low=0xCA -> tile 2*0xCA-14=390). Shares its
-// physical tile with 0x0606 (a 'full' code with no char label, confirmed
-// unused in real dialogue content) - see analysis/ANALYSIS_NOTES.md "0x00A4
-// 반각 공백 오식별" (2026-08-06) for the full derivation; restored to
-// font_map_full.json/font_map_kr.json 2026-08-10 after an earlier regen
-// dropped it. Used both to encode literal ' ' and to pad translations that
-// encode shorter than the original block's fixed token count (see
-// pipeline.js) - switched from full-width SPACE_TOKEN per user request.
-const HALF_SPACE_TOKEN = 0x00ca;
-
 const _CHAR_TO_CODE = new Map();
+// Some characters (':', digits, 'A'/'B') have both a half-width and a
+// full-width tile in the corpus. Prefer half-width for these. Space is
+// deliberately excluded from this preference - see SPACE_TOKEN above.
 for (const passKinds of [["half"], ["full"]]) {
   for (const [k, v] of Object.entries(mc.CODES_KR)) {
     if (passKinds.includes(v.kind)) {
@@ -43,10 +51,8 @@ for (const passKinds of [["half"], ["full"]]) {
     }
   }
 }
-// Force space to the half-width blank tile - this used to force full-width,
-// contradicting the half-width preference above for other ASCII-style
-// characters (fixed 2026-08-10).
-_CHAR_TO_CODE.set(" ", HALF_SPACE_TOKEN);
+// Force space to the validated full-width blank tile (see SPACE_TOKEN above).
+_CHAR_TO_CODE.set(" ", SPACE_TOKEN);
 
 function isLiteralGlyph(v, codesMap = mc.CODES_FULL) {
   const e = codesMap[mc.hex4(v)];
@@ -172,7 +178,6 @@ module.exports = {
   NAME_VAR_PREFIX,
   NAME_VAR_SUFFIXES,
   SPACE_TOKEN,
-  HALF_SPACE_TOKEN,
   isLiteralGlyph,
   tokensToText,
   textToTokens,

@@ -122,13 +122,14 @@ def build_file(fname, rows_by_block):
             continue
 
         if len(new_tokens) < expected_len:
-            # Pad with trailing half-width space tokens rather than failing
-            # the block - a shorter translation is safe to pad, unlike a
-            # longer one (which would have to drop content to fit and is
-            # still reported below). If the encoded text ends in the
-            # page-turn marker (true for ~97% of blocks), insert the filler
-            # BEFORE it, not after - see PAGE_TURN_TOKEN above.
-            pad = [tio.HALF_SPACE_TOKEN] * (expected_len - len(new_tokens))
+            # Pad with trailing space tokens rather than failing the block -
+            # a shorter translation is safe to pad, unlike a longer one
+            # (which would have to drop content to fit and is still reported
+            # below). If the encoded text ends in the page-turn marker (true
+            # for ~97% of blocks), insert the filler BEFORE it, not after -
+            # see PAGE_TURN_TOKEN above. Uses tio.SPACE_TOKEN (full-width) -
+            # see its comment for why the half-width blank is not used.
+            pad = [tio.SPACE_TOKEN] * (expected_len - len(new_tokens))
             if new_tokens and new_tokens[-1] == PAGE_TURN_TOKEN:
                 new_tokens = new_tokens[:-1] + pad + new_tokens[-1:]
             else:
