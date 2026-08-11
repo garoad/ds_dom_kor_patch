@@ -36,7 +36,7 @@ def decode_value(v):
     low = v & 0xFF
     if bank == 0:
         if low >= 0x80:
-            return ("half", 2 * low - 14)
+            return ("half", low - 128)
         return ("ctrl", v)
     if v + 33 >= NUM_TILES:
         return ("ctrl", v)

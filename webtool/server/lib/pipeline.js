@@ -44,7 +44,6 @@ const OUTSIDE_MES_FILES = [
   "playername.mes",
   "extraopen.mes",
   "common.mes",
-  "strindex.mes",
   "endtitledom3.mes",
   "endtitledom2.mes",
   "endtitledom1.mes",
@@ -440,7 +439,8 @@ function buildFileTokens(name, fname, rowsByBlock) {
 
 /**
  * Port of apply_font_art.py for NodeJS webtool.
- * Renders 1,559 Galmuri11 BDF Hangul glyphs into build/data/Font_DOM.nbfc.
+ * Renders the Galmuri11 BDF Hangul glyphs (per font_map_kr.json) into
+ * build/data/Font_DOM.nbfc.
  */
 function applyFontArt(name) {
   const buildDir = proj.buildDir(name);
@@ -459,6 +459,17 @@ function applyFontArt(name) {
 
   for (const [k, v] of Object.entries(mc.CODES_KR)) {
     if (v.kind !== "full" || !v.char) continue;
+    // Only re-render actual Hangul syllables. Without this range check, any
+    // non-Hangul char (Japanese punctuation like '、'/'「', kanji, kana) that
+    // font_map_kr.json still carries from font_map_full.json but which also
+    // happens to exist in Galmuri11.bdf's glyph set gets incorrectly
+    // overwritten with the Korean bitmap font's version, corrupting glyphs
+    // that were never meant to be touched (2026-08-11, confirmed via melonDS
+    // screenshots showing garbled '、'/「' in place of untouched punctuation).
+    // analysis/apply_font_art.py already has this same check - this brings
+    // the JS mirror in line with it.
+    const cp = v.char.codePointAt(0);
+    if (v.char.length !== 1 || cp < 0xac00 || cp > 0xd7a3) continue;
     const realTile = v.real_tile;
     if (realTile === null || realTile === undefined) continue;
     const glyph = glyphs.get(v.char);

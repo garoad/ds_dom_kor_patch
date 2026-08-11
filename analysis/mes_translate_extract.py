@@ -33,7 +33,6 @@ OUTSIDE_MES_FILES = [
     "playername.mes",
     "extraopen.mes",
     "common.mes",
-    "strindex.mes",
     "endtitledom3.mes",
     "endtitledom2.mes",
     "endtitledom1.mes",
