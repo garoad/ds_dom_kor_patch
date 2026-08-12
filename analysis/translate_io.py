@@ -66,6 +66,26 @@ NAME_VAR_RE = re.compile(r"<이름(?::([0-9A-Fa-f]{4}))?>")
 # SPACE_TOKEN (0xA002, full-width) for both spacing and padding at the time.
 SPACE_TOKEN = 0xA002
 
+# 2026-08-10: single 0x485C ("page turn/wait for input") sits as the very
+# last in-block token in ~97% of all dialogue blocks (37417/38495, corpus-
+# wide scan of unpack/data/Script), immediately followed (just outside the
+# block, untouched by mes_translate_reinsert.py) by the real box-closing
+# double-0x6E5C terminator.
+#
+# 2026-08-12: per user request, when a block's LAST token is this marker,
+# mes_translate_extract.py excludes it from the text handed to
+# tokens_to_text() so the CSV 'source' column never shows a trailing
+# <485C> for the translator to carry through. mes_translate_reinsert.py
+# detects the same condition from the real on-disk block boundary and
+# appends this token back onto the encoded translation automatically.
+# Padding filler must never land AFTER this marker - doing so displays an
+# extra blank "page" the player has to tap through after the dialogue
+# already visually ended (matching the "대사가 끝나도 빈칸이 나오고 안 넘어간다"
+# symptom from 2026-08-10) - since the marker is no longer part of the
+# encoded translation tokens, padding is simply computed against the
+# length excluding it, then the marker is appended last.
+PAGE_TURN_TOKEN = 0x485C
+
 # 2026-08-11: half-width formula corrected and hardware-confirmed to be
 # tile=low-128 (see font_map_full.json's formula.description and
 # ANALYSIS_NOTES.md "실기(melonDS) 검증 완료"). Under the CORRECT formula,
@@ -149,17 +169,32 @@ def text_to_tokens(text):
     return tokens
 
 
+# 2026-08-12: a translation that's meaningfully shorter or longer than the
+# source naturally needs a different number of line breaks (0x6E5C, used
+# mid-block as an internal page/line break - see mes_codec.py's box-boundary
+# comment for the separate double-0x6E5C box-closing use outside blocks) or
+# page-turns (tio.PAGE_TURN_TOKEN / 0x485C). Requiring an exact count match
+# for these two forced translators to pad/trim text just to keep the count
+# identical instead of writing natural Korean. Exempted from the count check
+# below per user request - every other placeholder (name variables, unknown
+# control codes, etc.) still must match exactly.
+IGNORED_PLACEHOLDER_CODES = {"485C", "6E5C"}
+
+
 def validate_placeholders(src_text, dst_text):
     """Every <HEX> control/formatting placeholder in the source must appear
     the same number of times in the translation - these encode control flow
     (line breaks, variable substitution, timing, etc.) the translator must
     not drop, duplicate, or invent. Order is NOT enforced (a translator may
     need to reorder a name-substitution placeholder for grammar), only
-    counts."""
+    counts. Exception: see IGNORED_PLACEHOLDER_CODES above."""
     def counts(text):
         c = Counter(PLACEHOLDER_RE.findall(text))
         for m in NAME_VAR_RE.finditer(text):
             c["이름:" + (m.group(1) or "")] += 1
+        for code in IGNORED_PLACEHOLDER_CODES:
+            c.pop(code, None)
+            c.pop(code.lower(), None)
         return c
 
     sc = counts(src_text)

@@ -4905,3 +4905,814 @@ tile=low-128`, 세로 2타일 스택 `{tile, tile+32}`)과 전각 주소 공식
 
 **다음 단계**: 사용자의 melonDS 재확인 필요 — 대사창에서 한글 단어 사이
 간격이 이전보다 좁아졌는지, 부작용(글자 겹침 등) 없는지 확인.
+
+## 2026-08-12 — 페이지 넘김 마커(0x485C)를 CSV에서 숨기고 재삽입 시 자동 부착
+
+**요청 배경**: 사용자가 "csv 대사 마지막에 종결문자가 모두 들어가잖아
+<485C>가 이걸 안보여주고 롬에 넣을때 알아서 붙여주게 수정해"라고 요청.
+`tio.PAGE_TURN_TOKEN`(0x485C, "페이지 넘김/입력 대기" 코드)이 전체 대사
+블록의 약 97%에서 마지막 토큰으로 등장하는데(2026-08-10 발견, 코멘트
+참고), 지금까지는 `tokens_to_text()`가 이를 그냥 일반 미해결 코드처럼
+`<485C>` 플레이스홀더로 노출해서 번역자가 매 줄 끝에 이걸 그대로
+남겨둬야 했음 — 실수로 지우거나 위치를 옮기면 `validate_placeholders()`가
+개수 불일치로 잡아내긴 하지만,애초에 번역 작업 화면에 보일 필요가 없는
+순수 기술적 마커였음.
+
+**적용한 수정** (Python 파이프라인 + webtool JS 미러 양쪽 동일하게):
+- `analysis/mes_translate_extract.py` / `webtool/server/lib/pipeline.js`
+  (`extractProject`): 블록의 마지막 토큰이 `PAGE_TURN_TOKEN`이면 그 토큰을
+  제외한 슬라이스만 `tokens_to_text()`에 넘겨서 CSV `source` 컬럼에
+  `<485C>`가 아예 나타나지 않게 함. `n_tokens` 컬럼 값(실제 ROM 블록
+  길이)은 그대로 둠 — 어차피 재삽입 로직은 CSV의 n_tokens가 아니라
+  실제 원본 파일에서 다시 계산한 블록 길이를 씀.
+- `analysis/mes_translate_reinsert.py` (`build_file`) /
+  `webtool/server/lib/pipeline.js` (`buildFileTokens`): 실제 원본 파일의
+  블록 마지막 토큰이 `PAGE_TURN_TOKEN`인지(`has_page_turn`) 직접 확인하고,
+  번역 텍스트는 그 마커를 뺀 길이(`text_expected_len = expected_len - 1`)
+  기준으로 인코딩·패딩한 뒤, `has_page_turn`이면 마지막에
+  `PAGE_TURN_TOKEN`을 자동으로 붙여서 원래 블록 길이와 정확히 일치시킴.
+  기존에 있던 "패딩을 마커 앞에 끼워넣는" 특수 케이스 로직은 이제 마커가
+  애초에 인코딩된 토큰에 안 섞여 있으므로 제거하고 단순 trailing padding으로
+  정리.
+- `webtool/server/lib/pipeline.js`의 `validateRow`(저장 시 즉석 검증, 원본
+  .mes 파일 접근 없이 CSV 데이터만 봄)는 실제 파일을 못 읽으므로 다른
+  방법으로 `has_page_turn`을 추론: `tokens_to_text`/`text_to_tokens`는
+  이 마커 은닉을 빼면 완전히 1토큰↔1기호 라운드트립이므로, `source` 텍스트를
+  다시 인코딩한 길이가 `n_tokens`와 같으면 마커 없음, `n_tokens - 1`이면
+  마커가 숨겨진 것으로 판별 가능함 — 원본 파일을 열지 않고도 CSV만으로
+  정확히 같은 결론에 도달.
+- `translate_io.py`/`translateIo.js`에 `PAGE_TURN_TOKEN` 상수를 이동/추가해서
+  extract·reinsert 양쪽이 같은 상수를 참조하도록 정리(기존엔
+  `mes_translate_reinsert.py`/`pipeline.js` 안에만 로컬로 정의돼 있었음).
+
+**검증**:
+- `mes_translate_extract.py` 재실행 → 생성된 38,272개 행 전체에서 `source`가
+  `<485C>`로 끝나는 행 0개 확인(수정 전엔 다수 존재).
+- 실제 `.mes` 파일 하나(`dom1Kaido_O0727_0.mes` block 0, 원본 15토큰,
+  마지막 토큰 0x485C)를 대상으로 임의 번역("な、な", 3글자)을 넣고
+  Python `mes_translate_reinsert.py`를 직접 실행 → 재빌드된 파일의 블록이
+  `[な,、,な, 패딩×10, 0x485C]`로 정확히 15토큰, 마커가 맨 끝에 온전히
+  붙는 것 확인.
+- 동일 테스트를 webtool `pipeline.js`의 `extractProject`/`saveFile`/
+  `buildFileTokens`로도 반복 → Python과 동일한 토큰 시퀀스 산출 확인.
+  테스트에 쓴 임시 번역 데이터는 확인 후 다시 빈 문자열로 되돌려놓음
+  (당시 `webtool/workspace/dom1/translations/*.csv`엔 실제 번역이 하나도
+  없는 상태였음 — 작업 손실 없음).
+- 두 파일 모두 `node -c` 문법 검사 통과.
+
+## 2026-08-12 (계속) — 0x6E5C/0x485C 개수 불일치를 검증 오류에서 제외 + CSV 편집 페이지 도움말 추가
+
+**요청 배경**: 사용자가 "웹툴에서 valid 체크할때 대사가 줄거나 많아져서
+<6E5C>나 <485C>를 안넣거나 추가할 수 도 있을거 같은데 이 두 제어문자는
+원본과 달라져도 넘어가게 수정해줘"라고 요청. 번역문이 원문보다 짧아지거나
+길어지면 줄바꿈(0x6E5C, 대사창 내부 개행/페이지 구분용 - 블록 밖 더블
+터미네이터 용도와는 별개)이나 페이지 넘김(0x485C, 위 절의
+`PAGE_TURN_TOKEN`)의 자연스러운 개수가 원문과 달라질 수 있는데, 기존
+`validate_placeholders()`/`validatePlaceholders()`는 모든 `<HEX>`
+플레이스홀더에 대해 원문·번역 개수가 정확히 같아야 한다고 강제해서
+번역자가 부자연스럽게 개수를 맞춰야 했음.
+
+**적용한 수정**:
+- `analysis/translate_io.py`: `IGNORED_PLACEHOLDER_CODES = {"485C", "6E5C"}`
+  추가, `validate_placeholders()`의 `counts()`에서 이 두 코드를 (대소문자
+  둘 다) 카운트에서 제거한 뒤 missing/extra 비교 - 이름 변수(`<이름>` 등)나
+  아직 의미가 안 밝혀진 다른 `<HEX>` 코드는 기존처럼 개수가 정확히 일치해야
+  계속 통과함.
+- `webtool/server/lib/translateIo.js`: 동일하게
+  `IGNORED_PLACEHOLDER_CODES`(`"485C"`/`"485c"`/`"6E5C"`/`"6e5c"`) 추가,
+  `validatePlaceholders()`에서 두 카운트 Map 모두에서 해당 키 삭제 후 비교.
+- 이 변경은 블록의 고정 토큰 수(패딩/길이 제약)와는 무관한 별개 검사임 -
+  `mes_translate_reinsert.py`/`buildFileTokens()`의 길이 검증·패딩 로직은
+  그대로 유지. 번역이 원문보다 길면 여전히 "token count mismatch" 오류로
+  걸림.
+- `webtool/public/index.html`의 "번역 CSV" 탭에 `<details>` 도움말 박스
+  추가 - `<이름>`/`<이름:3131>`/`<이름:3232>`(이름 변수, 반드시 보존),
+  `<485C>`(이제 CSV에 안 보이고 자동 처리됨), `<6E5C>`(자유롭게 추가/삭제
+  가능, 개수 달라도 오류 아님), 그 외 미확인 `<HEX>` 코드(정확히 보존
+  필요), 고정 토큰 수/패딩 설명을 담음. `webtool/public/style.css`에
+  `.help-box` 스타일 추가.
+
+**검증**:
+- Python: `validate_placeholders('안녕<6E5C>세상아', '안녕 세상아')` → `[]`
+  (통과), `validate_placeholders('안녕<0216>세상아', '안녕세상아')` →
+  `<0216> 누락` 오류 (여전히 잡힘) 확인.
+- JS: 동일한 세 가지 케이스(`<6E5C>` 제거, `<485C>` 제거, 미확인 코드
+  `<0216>` 제거)를 `translateIo.js`에 직접 호출해 같은 결과 확인.
+- `node -c`로 두 JS 파일 문법 검사 통과.
+- webtool 서버(`node server/index.js`, 포트 4000)를 로컬로 띄우고
+  Playwright로 "번역 CSV" 탭 스크린샷 촬영 - 도움말 박스가 접힌/펼친 상태
+  모두 텍스트 깨짐 없이 정상 렌더링되는 것 확인. 테스트 후 서버 프로세스
+  종료.
+
+## 2026-08-12 (계속2) — 0x0318/0x0198 여는 낫표(『) 오배정 발견 및 수정
+
+**요청 배경**: 사용자가 "dom1OP_0701_1.mes 115블록 제니의 대사 『NO MUSIC NO
+LIFE!』가 웹툴에서 『』NO MUSIC NO …IFE!』로 나온다, 테이블이 잘못됐는지
+확인해달라"고 요청.
+
+**조사**:
+- 원본(`unpack_origin/`) 기준으로 해당 블록의 실제 토큰을 직접 디코딩해
+  재현: `...好きな言葉は<6E5C>』NO MUSIC NO …IFE!』よん!...`
+- `…IFE!`(L 누락) 부분은 최초 조사 시점에는 **테이블 문제가 아니다**로
+  판단했었다 - `0x0186`(count 3, real_tile 198)이 10차 세션(2026-08-10)에
+  `0x0306`(count 33157, `…`으로 확정)과 `real_tile`이 완전히 동일함을
+  근거로 `…`로 확정되어 있었기 때문. **이 판단은 틀렸다 - 아래 "계속3"
+  항목에서 실기 스크린샷 증거로 뒤집히고 `0x0186`은 `L`로 정정되었다.**
+  (상세 경위는 "계속3" 참고)
+- `』NO MUSIC...』`(양쪽 다 닫는 낫표) 부분은 **실제 테이블 오류로 확인**.
+  `analysis/font_map_full.json`/`font_map_kr.json`에서 `0x0318`(count 53,
+  real_tile 216)이 `char: '』'`(닫는 낫표)로 잘못 등록되어 있었음.
+  - 코퍼스 전체 실제 대사 블록에서 `0x0318`/`0x031A`(이미 `』`로 확정,
+    real_tile 218) 동시 등장 순서를 전수 조사한 결과 `0x0318`이 `0x031A`
+    앞에 오는 경우 55회, 반대는 사실상 0(노이즈 3회)뿐 - 명백한 여는/닫는
+    괄호 쌍 패턴.
+  - `dom1Athena_O0730_1.mes`, `dom1Athena_O0731_2.mes`,
+    `dom1Athena_ending1.mes` 등 여러 파일에서 `』友達からやな』`,
+    `』好き』`, `』手をつなぎたい』` 처럼 동일한 "양쪽 다 닫는 낫표" 증상이
+    반복 확인됨 - 전부 일본어 관용구를 낫표로 인용한 문장으로, 여는 낫표가
+    있어야 자연스러움.
+  - `0x0198`(count 35)도 `0x0318`과 `real_tile`이 정확히 216으로 동일한
+    (완전히 같은 물리적 글리프) 별칭 코드인데 마찬가지로 `char: '』'`로
+    잘못 등록되어 있었음.
+  - `0x0197`/`0x019F`(기존 `『`로 등록, real_tile 215/223)는 `0x031A`와
+    코퍼스에서 아예 동시 등장하지 않아(순서 증거 없음) 이번 조사 범위에서
+    제외 - 건드리지 않았다.
+
+**적용한 수정**: `analysis/font_map_full.json`, `analysis/font_map_kr.json`
+양쪽에서 `0x0318`, `0x0198`의 `char`를 `'』'` → `'『'`로 정정. (`0x031A`는
+이미 올바르게 `'』'`로 남아있음.)
+
+**검증**:
+- 수정 후 dom1OP_0701_1.mes 블록 115를 다시 디코딩 -
+  `...好きな言葉は<6E5C>『NO MUSIC NO …IFE!』よん!...`로 여는/닫는 낫표가
+  정상적으로 비대칭 표시됨을 확인.
+- 기존 CSV(`temp/translations/*.csv`, `webtool/workspace/dom1/translations/
+  *.csv`)에는 실제 번역이 채워진 행이 전혀 없음(`translation` 컬럼 전수
+  스캔, 0건)을 먼저 확인한 뒤 안전하게 재추출:
+  `python3 analysis/mes_translate_extract.py` 및 `pipeline.extractProject
+  ("dom1")` (JS) 양쪽 재실행, `translatedCount: 0` 확인 - 기존 번역 유실
+  없음. 재생성된 CSV에서 해당 대사가 `『NO MUSIC NO …IFE!』`로 정상 노출됨.
+- `webtool/server/lib/mesCodec.js`/`translateIo.js`는 `analysis/`의 JSON
+  파일을 직접 읽으므로 별도 JS 측 수정 불필요.
+
+**남은 항목**: `0x0197`/`0x019F`의 `『` 배정이 실제로 맞는지는 이번 조사로
+확정되지 않음 - 코퍼스에서 `0x031A`와 짝을 이루는 사례가 없어 순서 기반
+검증이 불가능했다. 육안 픽셀 형태만 보면 `0x0197`이 오히려 닫는 낫표 모양에
+가깝다는 의심이 있으나 증거 부족으로 보류(추후 실기 검증 또는 추가 코퍼스
+문맥 필요).
+## 2026-08-12 (계속3) — 0x0186 오배정(`…`→`L`) 발견 및 수정: real_tile 일치만으로 확정한 것의 위험성
+
+**요청 배경**: 바로 위 "계속2" 항목에서 낫표(『』) 문제를 고치고 나서, 사용자가
+melonDS 실기 스크린샷을 제시하며 "실제 대사를 보니 내 예상이 맞다 NO MUSIC NO
+LIFE 다"라고 지적. 즉 실제 게임 화면에는 "NO MUSIC NO …IFE!"가 아니라
+"NO MUSIC NO LIFE!"(L 정상 표시, 말줄임표 없음)로 나온다는 것.
+
+**원인 분석**:
+- `0x0186`(count 3, real_tile 198)의 `char: '…'` 배정은 10차 세션
+  (2026-08-10)에서 `0x0306`(count 33157, `…`으로 확정)과 `real_tile` 값이
+  198로 완전히 동일하다는 이유만으로 내려진 것이었다. 10차 세션 노트 자체도
+  이를 "추정"으로 표기했을 뿐, `0x0186`을 독립적으로 실기 검증한 적은
+  없었다.
+- 이는 11차 세션에서 이미 한 번 경고했던 것과 동일한 실패 유형이다: 서로
+  다른 두 코드가 `real_tile` 값을 동일하게 공유하고 있을 때, 그 중 하나가
+  실제로는 잘못 기록된 `real_tile`일 수 있다는 것 (11차 노트: `0x019A`/
+  `0x031A`가 real_tile 218을 공유하면서도 실기에서는 다른 글리프로
+  렌더링되는 사례, 미해결로 남겨둠). `0x0186`/`0x0306` 쌍도 같은 함정에
+  빠졌던 것 - 이번에 사용자의 실기 스크린샷으로 처음으로 실증적으로
+  틀렸음이 확인된 사례다.
+- 코퍼스 전체에서 `0x0186`은 108회 등장하지만 `mc.find_dialogue_blocks()`
+  기준 실제 대사 블록 안에서 쓰인 것은 `dom1OP_0701_1.mes` 이 한 곳
+  (idx 6847, "NO MUSIC NO LIFE!" 문장)뿐이고 나머지 107회는 전부 헤더/구조
+  데이터 영역이었다 - 즉 이 코드가 실제 대사 문자로 쓰인 유일한 증거가
+  바로 이번에 문제가 된 지점이었다.
+- `real_tile: 198`로 기록된 값 자체는 `0x0186` 코드에 대해 오프라인
+  픽셀 추출 도구(`temp/render_font_tile.py` 등)가 잘못 측정했거나, 실제
+  게임 렌더링 경로가 그 필드가 가리키는 주소를 사용하지 않는 것으로
+  보인다 - 두 경우 모두 "real_tile 일치"만으로 문자를 확정하는 방법론이
+  실기 검증 없이는 신뢰할 수 없음을 재확인시킨다.
+
+**적용한 수정**: `analysis/font_map_full.json`, `analysis/font_map_kr.json`
+양쪽에서 `0x0186`의 `char`를 `'…'` → `'L'`로 정정 (`real_tile: 198` 필드
+자체는 그대로 유지 - 이미 확정된 `0x0306`=`…`과의 연결점으로 남겨두되,
+`char` 판단에는 더 이상 사용하지 않음).
+
+**부수 확인**: `_CHAR_TO_CODE` 역매핑(`translate_io.py`/`translateIo.js`)은
+동일 `char`를 가진 코드가 여럿일 때 JSON 키 순서상 먼저 나오는 코드를
+채택한다(half pass 우선, 그다음 first-wins). `char: 'L'`을 갖는 코드가
+이제 `0x0186`(count 3)과 `0x051E`(count 3, real_tile 350, 기존부터 `L`로
+확정)로 2개가 되었는데, JSON 파일 내 키 순서상 `"0186"`이 `"051E"`보다
+먼저 등장하므로 앞으로 한글 번역문에 알파벳 `L`을 입력하면 `0x0186`으로
+인코딩된다. 두 코드 모두 게임 내에서 정상적으로 `L`로 렌더링되는 것으로
+확인되었으므로(하나는 이번 실기 스크린샷, 하나는 기존 확정) 실제 동작에는
+영향 없음 - 다만 향후 `0x0186`이 다시 문제로 의심될 경우 이 우선순위를
+염두에 둘 것.
+
+**검증**:
+- `mc.find_dialogue_blocks()`로 다시 추출한 `dom1OP_0701_1.mes` 228번째
+  블록(0-index) 전체 텍스트:
+  `ハ~イ、みんな!<6E5C>今日からみんなをビシバシ<6E5C>指導しちゃうジェニー
+  ですっ!<485C>生まれはイギリス、趣味は<6E5C>領海侵犯!好きな言葉は
+  <6E5C>『NO MUSIC NO LIFE!』よん!<6E5C>ヨ。ロ。シ。ク、ねーん★<485C>`
+  - `『NO MUSIC NO LIFE!』`가 낫표 방향과 L자 모두 정상적으로 복원됨을
+    확인.
+- 재추출 전 기존 CSV(`temp/translations/*.csv`,
+  `webtool/workspace/dom1/translations/*.csv`)에 번역이 채워진 행이 없음을
+  재확인(0건)한 뒤 `python3 mes_translate_extract.py` 및
+  `pipeline.extractProject("dom1")`(JS) 재실행 -
+  `{"filesScanned":876,"filesWithBlocks":864,"totalBlocks":38272,
+  "skippedDebug":341,"translatedCount":0}`로 번역 유실 없음 확인.
+  `temp/translations/dom1_common.csv`, `webtool/workspace/dom1/
+  translations/dom1_common.csv` 둘 다 385번째 줄에서 `『NO MUSIC NO
+  LIFE!』`로 정상 노출됨을 확인.
+- `webtool/server/lib/mesCodec.js`/`translateIo.js`는 `analysis/`의 JSON
+  파일을 직접 읽으므로 별도 JS 측 수정 불필요.
+
+**교훈/후속 과제**: `real_tile` 값이 다른 코드와 우연히 일치한다는 이유만
+으로 `char`를 확정한 항목들은 낮은 신뢰도로 재분류해야 한다. 현재 알려진
+사례: `0x019A`/`0x031A`(11차, 미해결) - 이 조합도 언젠가 실기 증거로
+재검증이 필요할 수 있다. 다만 사용자가 별도로 요청하기 전까지는 먼저 손대지
+않는다(근거 없는 선제적 수정 금지 원칙).
+
+## 2026-08-12 (계속4) — 웹툴 CSV 생성 시 translation_export.csv 통합 파일 생성 중단
+
+**요청 배경**: 사용자가 이미 CSV를 카테고리별로 분리해서 관리하기로 했는데,
+웹툴에서 CSV 생성/갱신을 실행할 때마다 `webtool/workspace/<name>/
+translation_export.csv`라는 전체 통합 CSV도 같이 만들어지고 있었다.
+분리 CSV(`translations/*.csv`)만 쓰기로 했으니 이 통합 파일은 더 이상
+필요 없다고 판단해 생성을 막아달라고 요청.
+
+**조사**: `webtool/server/lib/pipeline.js`의 `writeCsv()`가 카테고리별
+분리 CSV(`translations/<cat>.csv`)를 쓴 다음, "호환성을 위해"라는 이유로
+매번 `proj.csvPath(name)`(=`translation_export.csv`) 전체 통합본도 함께
+덮어쓰고 있었다. `extractProject()`(CSV 생성/갱신)와 `saveFile()`(개별 파일
+저장) 양쪽 모두 `writeCsv()`를 거치므로 두 동작 다 이 통합 파일을 계속
+갱신하고 있었음.
+
+**적용한 수정**:
+- `webtool/server/lib/pipeline.js`: `writeCsv()`에서 마스터 통합 CSV를
+  쓰는 부분(`csvStringify(rows, ...)` + `fs.writeFileSync(proj.csvPath(...))`)
+  제거. 분리 CSV만 기록하도록 정리.
+- `readCsv()`의 "분리 CSV가 하나도 없을 때 구 마스터 파일을 대신 읽는"
+  하위호환 폴백은 그대로 유지 - 예전 방식으로 만들어진 프로젝트를 여전히
+  읽을 수 있게 하되, 새로 쓰지는 않는다.
+- `webtool/server/routes/project.js`의 `/status`가 `csvExists`를 판단할 때
+  마스터 파일 존재 여부만 보고 있었는데, 이제 마스터 파일이 생성되지
+  않으므로 분리 CSV 디렉터리(`translations/`) 존재 여부도 함께 확인하도록
+  수정(`fs.existsSync(proj.csvDir(name)) || fs.existsSync(proj.csvPath(name))`).
+- `webtool/server/lib/project.js` 상단 주석을 갱신해 `translation_export.csv`가
+  이제 레거시 폴백 전용이고 더 이상 새로 쓰이지 않음을 명시.
+- `webtool/server/routes/csv.js`의 `/download`(ZIP 다운로드)는 원래도 분리
+  CSV 디렉터리를 우선 사용하고 마스터 파일은 그 디렉터리가 아예 없을 때만
+  폴백으로 쓰던 구조라 수정 불필요.
+- 기존에 `webtool/workspace/dom1/translation_export.csv`(4.5MB, 번역 데이터
+  0건)로 남아있던 레거시 파일은 분리 CSV(`translations/*.csv`)에 동일하게
+  번역 0건임을 확인한 뒤 삭제(더 이상 갱신되지 않는 죽은 파일이라 방치하면
+  혼동만 유발).
+
+**검증**: `pipeline.extractProject("dom1")`을 직접 실행해 재확인 -
+`{"filesScanned":876,...,"totalBlocks":38272,"translatedCount":0}` 정상
+출력, 실행 후 `translation_export.csv`는 생성되지 않고(`master exists:
+false`) `translations/` 디렉터리만 존재함(`split dir exists: true`) 확인.
+`node -c`로 수정한 3개 JS 파일 문법 검사 통과.
+
+## 2026-08-12 (계속5) — translation_export.csv(통합 CSV) 관련 로직 전면 제거
+
+**요청 배경**: 바로 위 항목에서 웹툴의 통합 CSV *생성*만 막았는데, 사용자가
+"배포한 적이 없으니 레거시 따위는 없다, 통합 파일 관련 로직은 다 없애자"고
+요청 - 하위호환 폴백을 남겨둘 이유가 없다는 것(실제 사용자에게 배포된 적이
+없으므로 구버전 포맷의 프로젝트가 존재할 수 없음).
+
+**적용한 수정** (읽기 폴백까지 전부 제거):
+- `webtool/server/lib/pipeline.js`의 `readCsv()` - 분리 CSV가 없을 때
+  `translation_export.csv`를 대신 읽던 폴백 블록 삭제.
+- `webtool/server/lib/project.js` - `csvPath()` 함수 및 `module.exports`의
+  `csvPath` 참조, 상단 주석의 `translation_export.csv` 설명 전부 삭제.
+- `webtool/server/routes/project.js`의 `/status` - `csvExists` 판단을
+  `fs.existsSync(proj.csvDir(name))` 하나로 단순화(마스터 파일 존재 여부
+  분기 제거).
+- `webtool/server/routes/csv.js`의 `/download` - 분리 CSV 디렉터리가 없을
+  때 마스터 파일로 폴백하던 분기 삭제, 디렉터리가 없으면 그냥 404.
+  - **부수적으로 발견한 버그 수정**: 이 라우터 파일이 애초에 최상단에
+    `const path = require("path");`가 없어서 `path.join(...)`을 쓰는 이
+    `/download` 핸들러가 항상 `ReferenceError: path is not defined`로
+    500 에러를 냈던 것을 확인 - 방금 이 핸들러를 실제로 실행해보고서야
+    발견했다(코드 리뷰만으로는 놓쳤던 기존 버그, 이번 수정과 무관하게
+    이전부터 있었음). `require("path")`를 추가해서 함께 해결.
+- `analysis/mes_translate_reinsert.py`의 `main()` - `TRANSLATIONS_DIR`가
+  없을 때 `translation_export.csv`로 폴백하던 `elif` 분기 삭제.
+
+**검증**:
+- `node -c`로 수정한 4개 JS 파일(`pipeline.js`, `project.js`,
+  `routes/project.js`, `routes/csv.js`) 문법 검사 통과.
+- `python3 -c "import ast; ast.parse(...)"`로 `mes_translate_reinsert.py`
+  문법 검사 통과.
+- `grep -rn "csvPath\|translation_export"`로 `analysis/*.py`,
+  `webtool/server/` 전체에서 코드상 참조가 완전히 사라졌음을 확인(남은 건
+  ANALYSIS_NOTES.md의 과거 기록뿐).
+- 웹툴 서버를 실제로 띄우고 `GET /api/csv/download?name=dom1`을 curl로
+  직접 호출 - 수정 전에는 위에서 발견한 `path` 미선언 버그로 500 에러가
+  났으나, 수정 후 HTTP 200과 함께 정상적인 ZIP(`translations/*.csv` 포함)이
+  응답됨을 확인. 테스트 후 서버 프로세스 종료, 테스트로 생성된 임시 ZIP
+  파일 삭제.
+
+## 2026-08-12 (계속6) — namelist1.mes 발견: 화자 ID ↔ 이름표 텍스트 마스터 테이블
+
+**요청 배경**: 사용자가 대사창 위 캐릭터 이름이 어느 파일에 있는지 묻다가
+`unpack_origin/data/namelist1.mes`라는, 지금까지 조사된 적 없는 파일을
+직접 발견하고 "이게 캐릭터 이름 아닐까?"라고 질문.
+
+**조사**: `namelist1.mes`(972 토큰)를 `<6E5C><6E5C>`(헤더리스 리스트
+구분자 - `dom2chara.mes`/`soundnamedom*.mes`/`strindex.mes`/
+`playername.mes`와 동일 패턴, speaker_map.py 상단 docstring에 이미
+문서화됨) 기준으로 분리하면 193개 항목의 플랫 텍스트 목록이 나온다:
+`<이름>`, `<이름:3131>`, `<이름:3232>`, `アテナ`, `レオナ`, `舞`, `ユリ`,
+`キング`, `香澄`, `ジェニー`, `海堂`, `クーラ`, ... 이후 `観光客1`,
+`クラスメイト1`, `部下1~5`, `町人1~3` 같은 단역/몹 이름까지 총 193개.
+
+**결정적 증거(순번=화자 헤더 ID 정합성 검증)**: 항목 순번(0-index)을
+`speaker_map.py`의 `SPEAKER_NAMES`/`SPECIAL_NAMES` 딕셔너리 키(대사 블록
+헤더에서 읽는 화자 ID, `values[start-1]`)와 그대로 대조한 결과, 기존에
+확정돼 있던 32개 ID 전부(`0x2`=주인공 ~ `0x76`=Ukyo)가 **한 치의 어긋남
+없이** 일치했다:
+```
+0x02(2)  <이름:3232>      == 주인공
+0x03(3)  アテナ           == Athena
+0x04(4)  レオナ           == Leona
+0x05(5)  舞               == Mai
+0x06(6)  ユリ             == Yuri
+0x07(7)  キング           == King
+0x08(8)  香澄             == Kasumi
+0x09(9)  ジェニー         == Jenny
+0x0a(10) 海堂             == Kaidou
+0x0b(11) クーラ           == Kula
+0x37(55) 雫               == Shizuku
+0x38(56) ほたる           == Hotaru
+0x39(57) キサラ           == Kisarah
+0x3a(58) フィオ           == Fio
+0x3b(59) ちづる           == Chizuru
+0x3c(60) マリー           == Mary
+0x3d(61) マチュア         == Mature
+0x3f(63) 京               == Kyo
+0x41(65) 庵               == Iori
+0x44(68) アントン         == [마리의 개] (개 이름이 "안톤"이었던 것으로 보임)
+0x48(72) ゲーニッツ       == Goenitz
+0x52(82) マキ             == Kagura Maya (마키가 카구라 마야의 실제 이름)
+0x6b(107)ナコルル         == Nakoruru
+0x6c(108)詩乃             == Shino
+0x6e(110)ミナ             == Mina
+0x6f(111)凛花             == Rinka
+0x70(112)サヤ             == Saya
+0x71(113)命               == Mikoto
+0x72(114)色               == Shiki
+0x73(115)いろは           == Iroha
+0x76(118)右京             == Ukyo
+```
+유일한 예외는 `0x00`(SPECIAL_NAMES 상 "[선택지]") 자리에 `<이름>`(접미사
+없는 플레이어 이름 placeholder)이 들어있는 것인데, 이는 애초에 0x0이
+"이름표가 없는" 특수 블록(선택지)이라 이 자리는 이름표 목적이 아닌 다른
+용도(혹은 단순히 목록 정렬용 채움)로 보인다 - 사소한 예외로 전체 정합성을
+훼손하지 않음.
+
+**부수 발견**: 그동안 미상으로 남아있던 화자 ID의 실제 이름 확인:
+- `0x0f`(15) = 기존에 "레오나 아버지"로만 추정했던 캐릭터의 실제 이름이
+  `ハイデルン`(하이덜른/Heidern, KOF 시리즈에서 레오나의 양아버지)임을
+  확인.
+- `0x44`(68) = `SPECIAL_NAMES`의 "[마리의 개]"에 대응하는 실제 이름이
+  `アントン`(안톤)임을 확인.
+- `0x52`(82) = "Kagura Maya"로 불러온 캐릭터의 실제 표기가 `マキ`(마키)
+  임을 확인(神楽 성을 뺀 이름만 사용).
+- ID 0x76(118) 이후로도 목록이 74개 항목(순번 119~192) 더 이어지는데
+  전부 현재 `SPEAKER_NAMES`/`SPECIAL_NAMES`에 없는 미상 ID들 - 필요시
+  이 위치들을 그대로 신규 ID→이름 매핑으로 채울 수 있음.
+
+**의미/추정(미확정)**: 이 파일이 대사창 위에 표시되는 이름표의 실제
+텍스트 데이터 소스일 가능성이 높다 - 특히 `観光客1`(관광객1),
+`クラスメイト1`(반친구1) 같은 단역은 전용 이미지 이름표(`_bg_namec.bin`
+류, 위 항목 참고)가 있을 수 없으므로 이런 캐릭터의 이름표는 이 텍스트가
+직접 화면에 렌더링되는 것으로 보인다. **다만 실기(melonDS)에서 이 파일의
+텍스트를 수정했을 때 실제로 화면 이름표가 바뀌는지는 아직 검증하지
+않았다** - 순번-ID 정합성은 매우 강한 정황 증거이지만 직접 인과관계
+확인은 아니므로, 이 파일을 번역 대상에 포함시키기 전에 실기 검증을
+권장한다.
+
+**미해결/후속 과제**:
+- `namelist1.mes`는 `data/Script/` 밖에 있는 파일인데, 현재
+  `analysis/mes_translate_extract.py`의 `OUTSIDE_MES_FILES` 목록과
+  `webtool/server/lib/pipeline.js`의 동일 목록 어디에도 포함돼 있지
+  않다 - 즉 지금까지 CSV로 추출된 적도, 번역/재삽입 파이프라인을 거친
+  적도 없다. 사용자가 이 파일도 로컬라이즈하기로 결정하면 두 목록에
+  추가해야 한다.
+- 헤더리스 리스트 형식이므로 `mc.find_dialogue_blocks()`가 이 파일을
+  올바르게 블록 단위로 인식하는지 별도 확인이 필요하다(이번 조사에서는
+  `find_dialogue_blocks()`를 쓰지 않고 `<6E5C><6E5C>` 기준 수동 분리로
+  검증함).
+- 실기에서 이 파일 수정 시 실제 이름표 변경 여부 확인 필요(위 "의미/추정"
+  참고).
+
+## 2026-08-12 (계속7) — namelist1.mes를 번역 추출 파이프라인에 편입
+
+**사용자 결정**: 주인공 이름이 이미 폰트(텍스트) 렌더링으로 처리되고
+있으므로 다른 캐릭터/NPC 이름표도 폰트로 그려질 것이 확실하며, 아테나만
+있는 이미지 이름표(`athena_bg_namec.bin` 등, 위 계속5 이전 기록 참고)는
+개발 중 남은 잔재물일 가능성이 크다는 판단 하에, `namelist1.mes`를 CSV
+추출 대상에 포함하기로 결정.
+
+**적용**:
+- `analysis/mes_translate_extract.py`의 `OUTSIDE_MES_FILES`에
+  `"namelist1.mes"` 추가.
+- `webtool/server/lib/pipeline.js`의 `OUTSIDE_MES_FILES`에 동일하게 추가.
+
+**검증**:
+- Python: `mes_translate_extract.py` 재실행 → `system_common.csv`에
+  `namelist1.mes` 192개 블록(순번 0~191)이 정상 추출됨(계속6에서 수동
+  분리했던 193개보다 1개 적은 이유는 파일 끝 트레일링 빈 항목이
+  `find_dialogue_blocks()` 기준으로는 블록으로 잡히지 않기 때문 - 실제
+  유효 이름 데이터 192개는 모두 정상 포함).
+  `mes_translate_reinsert.py` 재실행 → `namelist1.mes`도 0 skipped로
+  정상 재구성됨(972 토�큰 그대로 일치).
+- JS: `pipeline.extractProject('dom1')` 및 `pipeline.buildFileTokens()`를
+  직접 호출해 검증 → 192개 행 추출, 재구성 시 problems 없음, 토큰 수
+  972개로 원본과 일치.
+- 화자(speaker) 라벨: 이 파일은 헤더리스 리스트 형식(`dom2chara.mes`,
+  `playername.mes`와 동일 패턴)이라 `find_dialogue_blocks()`가
+  `values[start-1]`로 읽는 값이 실제 헤더가 아니라 구분자 토큰
+  `0x6E5C` 자신이다. Python `speaker_map.py`는 `0x6E5C: ""`를 명시
+  특례 처리해 빈 문자열을 내지만, JS `speakerMap.js`에는 이 특례가
+  없어 `UNKNOWN_6e5c`로 표시된다 - 이 차이는 `namelist1.mes` 전용
+  문제가 아니라 기존 `dom2chara.mes`/`playername.mes` 등에도 이미
+  있던 Python/JS 간 사소한 불일치이며, 번역 작업 자체에는 영향 없음
+  (필요시 향후 `speakerMap.js`에도 동일 특례를 추가하는 정도의 사소한
+  후속 작업).
+
+**주의(번역 시 참고)**: `namelist1.mes`는 `playername.mes`처럼 UI 표시
+글자수 상한에 대한 특례가 코드에 없으므로, 기본 규칙(원본과 동일한
+토큰 수를 유지해야 하며, 짧으면 스페이스로 패딩, 길면 에러)이 그대로
+적용된다. 한글 번역 시 이름 길이가 원본 토큰 수를 넘지 않도록 주의
+필요 - 실제 게임에서 이름표 표시 폭에 대한 별도 제약이 있는지는 아직
+실기로 확인되지 않았음.
+
+## 2026-08-12 (계속8) — namelist1.mes 한글 번역 채움 + 토큰 길이 상한 제거(실험) + 실기 테스트용 빌드
+
+**사용자 지시**: "이름은 상한없는걸로 테스트해보자 이름들 한글번역해서 채워줘 직접 빌드해서
+테스트하자" - `namelist1.mes`는 `playername.mes`처럼 고정 ROM 슬롯에 묶여있지 않을 가능성이
+높으니, 토큰 개수 제약(원본과 정확히 같은 길이 유지) 자체를 완전히 없앤 채로 한글 번역을 채워
+직접 빌드해서 실기로 검증해보자는 실험 지시.
+
+**코드 변경 (길이 제약 제거)**:
+- `analysis/mes_translate_reinsert.py`: `NAMELIST_FILE = "namelist1.mes"` 상수 추가. `build_file()`에
+  `fname == PLAYERNAME_FILE` 분기 바로 다음에 `fname == NAMELIST_FILE` 분기를 추가 - 길이 패딩/
+  초과 에러 로직을 완전히 건너뛰고 인코딩된 토큰을 그대로 삽입.
+- `webtool/server/lib/pipeline.js`: 동일하게 `NAMELIST_FILE` 상수 추가, `validateRow()`/
+  `saveFile()`/`buildFileTokens()` 세 곳 모두에서 `namelist1.mes`를 길이 매칭 검사 대상에서 제외.
+- `playername.mes`와 달리 글자수 상한(`PLAYERNAME_MAX_TOKENS`) 자체도 적용하지 않음 - 사용자가
+  명시적으로 "상한없는걸로" 요청했기 때문에 완전 무제한.
+- **주의**: 이 변경은 실기에서 안전한지 아직 확인되지 않은 실험이다. 일반 대사 블록은 토큰 수가
+  다르면 실기/melonDS에서 게임이 멈추는 것으로 이미 확인된 바 있는데(2026-08-05), `namelist1.mes`도
+  같은 제약을 받는지 여부가 이번 테스트의 핵심 질문이다.
+
+**한글 번역 (187개 항목)**: `<이름>`/`<이름:3131>`/`<이름:3232>`(주인공 이름 치환 변수, 원문 그대로
+유지), `……`(구두점, 언어중립이라 변경 불필요), `和<CE12>`(미해독 폰트 코드 포함 - "추측 금지"
+원칙에 따라 원문 그대로 유지)를 제외한 187개 항목 전부에 한글 번역을 채움. 기존 KOF/사무라이
+스피리츠 국내 공식/팬 번역 표기 관행을 따름(아테나, 레오나, 마이, 유리, 킹, 카스미, 제니, 카이도,
+쿨라, 하이덜른, 앤디, 타쿠마, 시즈쿠, 호타루, 키사라, 피오, 치즈루, 마리, 마츄어, 쿄, 야가미,
+이오리, 바이스, 셰르미, 게닛츠, 루갈, 야시로, 크리스, 신고, 나코루루, 시노, 미나, 린카, 사야,
+미코토, 시키, 이로하, 하오마루, 우쿄, 겐주로, 리무루루, 갈포드, 포피, 오로치 등). 원작 미상의
+단역/오리지널 캐릭터(竜白, 狂也, リーリンナイツ, イトカツ, ユガ, 銃士浪, 骸羅, 夜血, 儚, 桑 등)는
+공식 한글 표기가 없어 발음 기준 임의 음역했음을 밝혀둔다 - 확정 표기가 아니라 추정치다.
+
+**폰트 예산 문제 발견 및 수정**: 번역 인코딩 중 2건에서 `no font code assigned` 에러 발생 -
+`챰`(초성/중성 조합이 폰트 맵에 없음)과 `·`(가운뎃점, 아예 미할당). 각각 `참`(더 흔한 음절로
+대체)과 `,`(쉼표로 구분자 교체)로 수정해 우회. 이 두 글자는 애초에 1,559자 한글 타일 예산에
+포함되지 않은 것으로 보이며, 예산을 늘리는 대신 표현을 바꿔 대응함(원칙 5 준수).
+
+**검증**:
+- Python: 수정된 CSV로 `mes_translate_reinsert.py` 재실행 → 865개 파일 전부 0 skipped로 정상
+  재구성됨(`namelist1.mes`도 972 -> 1023 토큰으로 길이가 바뀌었지만 정상 처리).
+- JS(webtool `dom1` 프로젝트): `pipeline.saveFile('dom1', 'namelist1.mes', ...)`로 187개 행 저장 -
+  전부 `ok: true`(길이 불일치 에러 없음, 상한 제거가 의도대로 동작함을 확인).
+- 재삽입: `buildFileTokens()`를 전체 CSV(38,464행/865파일)에 대해 직접 호출 - 0 skipped.
+- 폰트 아트 패치: `pipeline.applyFontArt('dom1')` 정상 적용.
+- 패킹: NitroPacker로 `webtool/workspace/dom1/output/dom1.nds` 생성 완료(다른 모든 텍스트는
+  번역이 비어있어 원문 그대로 유지되고, `namelist1.mes`만 한글로 교체된 상태 - 이번 실험을
+  최대한 격리해서 테스트할 수 있는 빌드).
+
+**미해결 - 실기 검증 대기중**: 이 빌드를 melonDS에서 직접 실행해서 다음을 확인해야 한다:
+1. 토큰 길이가 원본과 달라진 `namelist1.mes` 교체가 게임을 멈추게 하거나 깨뜨리지 않는지
+   (`playername.mes`처럼 고정 슬롯이 아니라는 가설의 검증).
+2. 대사창 위 이름표에 실제로 이 파일의 텍스트가 그려지는지(특히 아테나 - 이미지 이름표 자산이
+   실제로 쓰이는지 아니면 개발 잔재물인지 판별 가능해짐), 그리고 `観光客1`처럼 이미지 자산이
+   있을 수 없는 단역의 이름표가 정상적으로 한글로 뜨는지.
+
+## 2026-08-12 (계속9) — namelist1.mes 실기(melonDS) 검증 완료: 텍스트 이름표 확정
+
+**사용자 실기 테스트 결과**: "텍스트가 맞았다. 번역된 이름으로 잘 나오고 게임도 정상 동작한다."
+
+**확정된 사실** (기존 계속6~8의 "강한 정황 증거"/"실험적" 상태에서 실기 확인으로 승격):
+1. `namelist1.mes`가 대사창 위 이름표에 실제로 그려지는 텍스트 소스가 맞다 - 번역된 한글 이름이
+   화면에 정상적으로 표시됨을 실기로 확인.
+2. 이 파일에 대해 걸었던 토큰 길이 무제한 실험(계속8, `NAMELIST_FILE` 예외 처리)이 안전한 것으로
+   확인됨 - 원본과 길이가 달라진 번역(972 -> 1023 토큰)을 넣어도 게임이 멈추거나 깨지지 않았다.
+   `playername.mes`와 마찬가지로 이 파일도 고정 ROM 슬롯에 묶여있지 않다는 가설이 실기로 입증됨.
+   앞으로 이 파일을 번역할 때 원문 토큰 수에 맞출 필요 없이 자연스러운 길이로 번역해도 된다.
+
+**후속 결정 필요**: 이 파일이 정식으로 번역 워크플로우에 편입되었으므로(계속6~9), 향후
+`ANALYSIS_NOTES.md`나 `tool.md`에 "namelist1.mes는 길이 제약 없음"이라는 사실을 사용자용 문서에도
+반영할지 검토 필요 - 지금은 코드 주석과 이 기록에만 남아있음.
+
+## 2026-08-12 (계속10) — 아테나 이미지 이름표 애셋은 미사용 개발 잔재물로 확정
+
+**사용자 실기 테스트 결과**: "아테나 장면에도 번역이름으로 잘 나온다."
+
+**확정**: 아테나 등장 씬에서도 `athena_bg_namec.bin`/`athena_bg_names.bin`/`athena_p_name.bin`
+이미지 이름표가 아니라 `namelist1.mes`의 텍스트("아테나")가 그대로 화면에 렌더링됨을 실기로
+확인. 이로써 위 계속6~9에서 열어뒀던 질문("아테나만 있는 이미지 이름표가 실제로 쓰이는가")이
+해소됨 - 이 이미지 애셋들은 개발 중 이름표를 이미지로 구현하려다가 텍스트 방식으로 전환하면서
+남은 미사용 잔재물이 맞다. 다른 캐릭터들에 이미지 애셋 짝(`_bg_namec`+`_bg_names`+`_p_name`)이
+온전히 갖춰지지 않은 이유도 이걸로 설명됨 -애초에 실제로 쓰인 적이 없으니 완성할 필요가
+없었던 것.
+
+**결론**: 캐릭터 이름표는 전부 `namelist1.mes` 기반 텍스트 렌더링이며, 이미지 이름표 관련 파일들은
+한글화 작업에서 신경 쓸 필요가 없다(디코딩/패치 불필요).
+
+## 2026-08-12 (계속11) — 다른 헤더리스 리스트 파일에도 길이 제약 제거 확대 적용
+
+`namelist1.mes`에서 검증된 "고정 ROM 슬롯이 아니므로 토큰 길이 제약이 필요 없다"는 가설을,
+`speaker_map.py` 모듈 docstring이 이미 지목해둔 다른 헤더리스 리스트 파일들에도 확대 적용할 수
+있는지 조사했다 (사용자 지시: "다른 파일도 이름표 방식 적용 검토").
+
+**조사 방법**: 각 후보 파일을 `mc.find_dialogue_blocks()`로 열어 (1) 블록 대부분이 진짜 헤더 없이
+`0x6E5C` 마커 바로 뒤에 시작하는지(namelist1.mes와 동일한 구조 시그니처), (2) 내용이 실제
+플레이어 대상 텍스트인지, (3) 이미 알려진 캐릭터당-1건 같은 "리스트" 성격인지를 확인했다.
+
+**길이 제약 제거 적용 대상으로 확정** (구조 시그니처가 namelist1.mes와 동일 - 헤더 없는 블록
+비율이 거의 100%, 캐릭터/트랙/엔딩당 1건씩 나열되는 리스트):
+- `dom1chara.mes` / `dom2chara.mes` / `dom3chara.mes` (캐릭터 프로필 카드: 생일/나이/출신지/
+  혈액형/신장/체중, 8블록씩) - **`dom1chara.mes`는 기존에 파이프라인(`OUTSIDE_MES_FILES`)에서
+  아예 빠져 있었다**는 것도 이번에 발견함 (`dom2chara.mes`/`dom3chara.mes`만 들어가 있었음).
+- `soundnamedom1.mes`/`soundnamedom2.mes`/`soundnamedom3.mes` (사운드 테스트 곡명 리스트,
+  14~15블록씩)
+- `endtitledom1.mes`/`endtitledom2.mes`/`endtitledom3.mes` (엑스트라 모드 엔딩 타이틀명 리스트,
+  14~18블록씩)
+
+코드 변경: `mes_translate_reinsert.py`의 `NAMELIST_FILE` 단일 상수를 `LIST_NO_LENGTH_CAP_FILES`
+집합으로 일반화하고 위 9개 파일을 모두 포함 (`pipeline.js`도 동일하게 `LIST_NO_LENGTH_CAP_FILES`
+Set으로 미러링). `PLAYERNAME_FILE`(3자 상한 있음)과는 별개 로직으로 유지.
+
+**제외 확정** (같은 "헤더리스 리스트" 후보군이었지만 구조/내용상 부적합):
+- `extraopen.mes`, `common.mes`: 헤더 없는 블록 비율이 0%(진짜 헤더가 있는 일반 단발성 문자열).
+  기존 방식(엄격한 토큰 수 일치) 유지, 변경 없음.
+- `strindex.mes`: 폰트 글리프 인덱스 테이블 그 자체(가나/한자를 순서대로 나열한 참조표) -
+  플레이어에게 보이는 텍스트가 아니라 폰트 코드 배치 순서 정의이므로 번역 대상이 아님.
+  파이프라인에 추가하지 않음.
+- `orochiendroll.mes`: 스탭롤(실존 개발자 인명, 예: "近藤哲哉", "前田武史") - 인명은 번역하면 안
+  되므로 파이프라인에 추가하지 않음.
+- `saveload.mes`: 세이브/로드 UI. "8時"/"それから" 같은 번역 가능한 단어도 있지만, 다른 블록들이
+  `<0414>`/`<020A>` 제어코드를 촘촘히 섞어 날짜·시각 숫자를 고정 자리수로 배치하는 포맷이라
+  길이 제약을 풀기엔 위험 부담이 커서 보류(파이프라인에 추가하지 않음).
+
+**추가로 파이프라인 누락 발견 및 보완**: `dom1chara.mes` 외에도 `mapmove.mes`("이동할 곳을
+선택해주세요" 유형의 UI 안내문), `nameinput.mes`("이 이름으로 하시겠습니까?")가 완전히
+추출 파이프라인 밖에 있었다. 둘 다 진짜 헤더가 있는 일반 단발성 문자열이라 `LIST_NO_LENGTH_CAP_FILES`에는
+넣지 않고 기존 엄격한 길이 일치 방식으로 `OUTSIDE_MES_FILES`에만 추가했다.
+
+**실기 테스트용 번역 및 빌드**: 새로 길이 제약을 푼 9개 파일의 내용을 전부 한글로 번역해 검증까지
+마쳤다(총 108블록: dom1chara 8 + dom2chara 8 + dom3chara 8 + soundnamedom1 14 + soundnamedom2 15
++ soundnamedom3 14 + endtitledom1 17 + endtitledom2 10 + endtitledom3 14. 각 리스트 마지막의
+`???????`(잠금 해제 전 플레이스홀더로 추정) 항목과, 미해독 폰트코드(`<9D02>`, `<0287>`)나 불명확한
+표기(`ECSTAC)<020A>816`)가 섞인 `endtitledom2.mes`의 3블록은 원문 그대로 유지). 폰트 예산 밖 글자
+2건 발견해 대체:`쁨`→`즐거움`으로 단어 교체, `쭐`→`혼쭐을 내주마!`를 `혼내주마!`로 교체. 검증 결과
+108개 전 블록 `ok`, 재삽입 868개 파일 작성/0개 스킵. `webtool/workspace/dom1/output/dom1.nds`
+(16,789,504바이트)로 빌드 완료 - `namelist1.mes`와 이번 9개 파일 번역이 모두 반영된 통합 테스트
+ROM. **아직 실기(melonDS) 검증 전** - 확인 필요 화면: dom1/dom2/dom3 캐릭터 프로필 카드(생일/나이
+등 화면), 사운드 테스트 메뉴의 곡명 리스트, 엑스트라 모드의 엔딩 타이틀 리스트. 게임이 정상
+동작하는지, 각 화면에서 번역문이 잘리거나 겹치지 않고 표시되는지 확인 필요.
+
+## 2026-08-12 (계속12) — 엑스트라 모드(게임 클리어 필요) 콘텐츠 검증 방법 조사
+
+**질문**: 사용자가 지적함 — `endtitledom*.mes`(엑스트라 모드 엔딩 타이틀 리스트)는 게임을 한 번
+클리어해야 열리는 화면인데, 이걸 실기(melonDS)로 어떻게 검증하나?
+
+**조사한 우회 경로 1: 숨겨진 개발자 디버그 메뉴** — `Script/dom1OP_0701_1.mes`,
+`dom2OP_0701_1.mes`, `dom3OP_0701.mes` (오프닝/타이틀 스크립트)에서 `is_debug_menu_block()`
+필터에 걸리는 잔존 QA 메뉴 텍스트를 발견함:
+- `ゲームスタート`(게임 시작), `背景テスト`/`背景テスト(暗転)`(배경 테스트/페이드), `キャラテスト`
+  (캐릭터 테스트), `サウンドモード`/`サウンドテスト`(사운드 모드/테스트), `SEテスト`(SE 테스트),
+  `個人シナリオ`(**개별 시나리오 선택** - `dom3OP_0701.mes`에서만 확인), `サブキャラ`(서브 캐릭터)
+- 세 OP 파일 모두 비슷한 구조의 숨김 메뉴를 갖고 있어, 특히 "개별 시나리오"가 있으면 클리어 없이
+  특정 시나리오(엔딩 포함)로 바로 진입 가능할 수도 있다는 가설을 세움.
+
+**조사한 우회 경로 2: ARM9 바이너리에서 트리거 조건 찾기** — `unpack_origin/arm9.bin`에
+`strings -n 4`를 걸어봤으나 "DEBUG"/"TEST"류 ASCII 문자열이 전혀 없고(135개의 의미 없는 짧은
+문자열만 검출, SDK 압축/컴파일된 바이너리라 문자열 리터럴이 거의 안 남음), 이 프로젝트에는
+ARM 디스어셈블러가 준비되어 있지 않음. 즉 "이 메뉴가 부팅 시 어떤 버튼 조합으로 열리는가"를
+바이너리 레벨에서 찾는 것은 현재 툴셋으로는 비합리적으로 비용이 큼 (`.mes` 텍스트 레벨 조사로는
+트리거 조건 자체가 안 보임 - ARM9 코드에서 키 입력을 읽어 분기하는 로직일 가능성이 높음).
+
+**결론 (사용자에게 전달)**:
+1. 디버그 메뉴는 실존하지만 트리거 방법이 확인 안 됨 → 이 경로는 보류.
+2. 대신 실용적 대안: melonDS의 배속(fast-forward)+세이브스테이트 기능으로 한 번 정상 클리어까지
+   플레이한 뒤, "클리어 직후" 지점에서 세이브스테이트를 영구 보관해두고 이후 빌드마다 그 스테이트를
+   불러와 엑스트라 화면만 바로 확인하는 방식을 제안함. ARM9/세이브 포맷 리버싱 없이 가장 확실하고
+   빠른 방법.
+3. `dom1chara`/`dom2chara`/`dom3chara`(캐릭터 프로필 카드)와 `soundnamedom*`(사운드 테스트)는
+   이런 종류의 게임에서 보통 클리어 없이(또는 매우 이른 진행 단계에) 열리는 메뉴인 경우가 많으므로,
+   엑스트라 모드보다 먼저 검증 가능할 가능성이 높음 - 이 두 카테고리부터 먼저 확인하고,
+   `endtitledom*.mes`(엑스트라 엔딩 리스트) 검증은 클리어 세이브스테이트 확보 전까지 보류하는 것을
+   제안함.
+
+## 2026-08-12 (계속13) — 신규 9개 파일 실기(melonDS) 검증 결과: 게임/시스템 화면 정상
+
+사용자가 `webtool/workspace/dom1/output/dom1.nds` 빌드를 melonDS로 테스트: **게임 정상 동작,
+시스템 쪽(길이 제약 없앤 9개 파일 중 클리어 없이 접근 가능한 화면들 - 캐릭터 프로필 카드 /
+사운드 테스트 등)도 길이 문제 없음** 확인. `LIST_NO_LENGTH_CAP_FILES` 확장이 이 파일들에서도
+정상 동작함을 실기로 재확인. `endtitledom*.mes`(엑스트라 엔딩 리스트)는 여전히 게임 클리어가
+필요한 화면이라 이번 검증 범위에는 포함되지 않음 - 클리어 세이브스테이트 확보 후 별도 확인 필요.
+
+## 2026-08-12 (계속14) — 이미지 리팩(재인코딩) 기능 추가: PNG 통째로 교체 방식
+
+**요청**: "이미지 언팩은 되니까 리팩할 수 있는 기능을 만들 수 있나?" - 지금까지 웹툴 "이미지 탐색"
+탭은 `.nbfc`/`.nbfp`/`.nbfs` 등 타일맵 그래픽을 PNG로 디코딩(언팩)만 지원했음. 방향은 두 가지 중
+사용자가 **"PNG 통째로 교체" 방식**을 선택함 (외부 편집기에서 PNG를 통째로 수정 → 업로드하면
+재인코딩되어 반영. `apply_font_art.py`류의 "텍스트 영역만 폰트 자동 합성" 방식은 이번 범위 제외).
+
+**구현**:
+- `webtool/server/lib/nbfcImage.js`: `decodeTilemapPng()`의 엔트리 수→가로/세로 타일 수 결정
+  로직을 `tilemapDims(n)`으로 뽑아 decode/encode 양쪽에서 공유. 신규 `encodeTilemapPng(pngBuf,
+  nbfpBuf, origEntryCount)` 추가 - 팔레트는 재사용(재생성 안 함), 각 픽셀을 RGB 유클리드 거리
+  최근접 팔레트 색상으로 매핑(`nearestPaletteIndex`), 스크린맵은 단순 순차 인덱스로 생성(원본의
+  타일 재사용/hflip/vflip 최적화는 하지 않음 - 파일이 다소 커져도 정확성 우선. NitroPacker pack이
+  가변 크기 파일을 지원하므로 문제 없음). 업로드 PNG 크기가 원본과 정확히 같지 않으면(리사이즈
+  미지원), 또는 엔트리 수가 1024 초과(스크린맵 타일 인덱스 필드가 10비트)면 한글 에러 메시지로
+  reject.
+- `webtool/server/routes/files.js`: 기존 `GET /raw`의 "타깃 경로 → 짝이 되는 팔레트/스크린맵
+  경로 찾기" 로직(`.nbfc`/`.nbfcn`/`_bg_*c.bin` 세 케이스)을 `resolveTripletPaths()` 공통
+  헬퍼로 뽑아 `GET /raw`와 신규 `POST /image` 양쪽에서 재사용. `POST /image`는 `multer`
+  메모리 스토리지로 PNG를 받아 `encodeTilemapPng()` 호출 후 결과를 프로젝트 `unpack/` 작업
+  사본에 직접 `fs.writeFileSync`(팔레트 파일은 건드리지 않음) - 이후 재삽입/빌드 시 자동 반영됨
+  (`/reinsert`가 `unpack/`→`build/` 전체 복사 후 `.mes`만 선택적으로 덮어쓰는 구조라 파이프라인
+  변경 불필요).
+- 프론트엔드(`index.html`/`app.js`/`style.css`): 이미지 탐색 탭에 PNG 파일 선택 input +
+  "이미지 교체" 버튼 + 상태 메시지 span 추가. 업로드 성공 시 캐시 우회 쿼리(`&t=`)로 미리보기
+  갱신. **계획과의 의도적 차이**: 계획엔 업로드 성공 시 `markDirty()`(CSV 미저장 표시) 호출이
+  있었으나, 업로드는 성공 즉시 디스크에 반영되어 "저장 대기 중" 상태가 없으므로 호출하지 않음
+  (CSV 저장 버튼이 무관한 이유로 빨갛게 표시되는 걸 방지).
+
+**검증 (Node.js 직접 테스트, 실기 확인은 사용자 몫으로 보류)**:
+1. 무손실 라운드트립: `dom1char002.nbfcn`(Chr 폴더 캐릭터 스탠딩, 289엔트리/17x17타일) 디코딩→
+   수정 없이 인코딩→재디코딩한 PNG가 원본과 픽셀 단위로 동일함을 메모리 상에서 확인.
+2. 편집 반영 확인: 임의 픽셀을 팔레트에 없는 색(순수 빨강)으로 바꿔서 인코딩 → 해당 영역은
+   팔레트 내 최근접 색으로 치환되고 나머지 픽셀은 원본과 동일함을 확인(팔레트 미포함 색상은
+   정확히 재현 안 되는 것은 v1의 의도된 제약이지 버그 아님).
+3. **빌드 왕복 확인**: 실제로 `webtool/workspace/dom1/unpack/data/Chr/dom1char002.nbfcn`/
+   `.nbfs`를 (변경 없는) 재인코딩 버전으로 덮어쓴 뒤 reinsert(868 written, 0 skipped) → pack
+   (`dom1.nds`, 16,789,504 bytes) → `NitroPacker unpack`으로 재언팩 → 재언팩 결과와 pack 전
+   `unpack/` 작업 사본을 `diff -q`로 비교 → **`.nbfcn`/`.nbfs` 둘 다 바이트 단위 완전 일치**
+   확인. 이후 테스트에 쓴 `dom1char002.nbfcn`/`.nbfs`는 `unpack_origin/`의 원본 바이트로
+   복원해둠(이 캐릭터 포트레이트 자체를 바꾸려던 것이 아니라 순수 기능 검증용이었으므로).
+4. melonDS 실기 시각 확인은 아직 요청 전 - 다음 세션/사용자 테스트 때 진행 필요.
+
+**v1 제약(의도적 범위 제외)**: 팔레트 재생성 없음(기존 팔레트 재사용만), 타일 중복/플립 최적화
+없음(파일 크기 다소 증가 가능), 이미지 픽셀 크기 변경 불가, 팔레트/스크린맵 짝이 없는 orphan
+`_bg_*c.bin`(31개)은 애초에 디코딩이 안 되므로 리팩 대상도 아님, Python(`analysis/`) 쪽은 이미지
+디코딩 자체가 없어 이번에도 웹툴(JS) 전용으로만 추가.
+
+## 2026-08-12 (계속15) — 이미지 리팩 기능 버그 2건 수정 (404 + 드래그앤드롭 미지원)
+
+사용자가 실제로 웹툴에서 `SNK_LOGO_bg_snkc.bin`을 수정해 업로드 시도 → **요청 실패 404** 발생을
+보고. 원인 확인: 새 라우트(`POST /api/files/image`)를 추가한 뒤 실행 중이던 `webtool` 서버
+프로세스(`tool.sh`로 백그라운드 기동됨)를 재시작하지 않아, 예전 코드로 계속 서비스되고 있었음
+(Node.js는 파일 변경을 자동 반영하지 않음 - nodemon 등 미사용). `webtool/tool.sh restart`로
+해결. **교훈**: 이 웹툴은 코드 수정 후 반드시 `cd webtool && ./tool.sh restart`로 재시작해야
+반영됨 - 이후 서버 관련 기능 추가/수정 시 항상 재시작을 확인할 것.
+
+추가로 사용자가 "드래그앤드롭으로 선택하고 교체를 누르면 되게 해달라"고 요청. 기존엔
+`<input type="file">`만 있었음. `webtool/public/index.html`의 이미지 탐색 탭에 ROM 업로드
+탭의 `#rom-dropzone` 패턴과 동일한 `#image-dropzone`(클릭 시 파일 선택 다이얼로그 + 드래그앤드롭
+둘 다 지원)을 추가하고, `app.js`에 `selectedImageFile`/`setImageFile()` (ROM 쪽 `selectedRomFile`/
+`setRomFile()`과 동일 패턴)을 도입해 `<input>`의 `files[0]`에 의존하지 않게 함.
+
+이 과정에서 **기존에 있던 버그**도 함께 발견/수정: 업로드 성공 시 `status.textContent = "적용됨...`
+을 설정한 직후 `previewImage()`를 호출했는데, `previewImage()` 내부가 `image-upload-status`를
+빈 문자열로 초기화하고 있어서 성공 메시지가 화면에 뜨자마자 지워지던 문제. `previewImage()`의
+상태 초기화 책임을 파일트리 클릭 핸들러(새 파일 선택 시에만 초기화)로 옮기고, 업로드 성공
+메시지는 `previewImage()` 호출 뒤에 설정하도록 순서를 바꿔 해결. (Playwright로 실제 브라우저에서
+파일선택 업로드 + `DataTransfer` 기반 진짜 드롭 이벤트 둘 다 재현해 "적용됨 (타일 N개)..." 메시지가
+끝까지 남아있음을 확인.)
+
+**검증**: `SNK_LOGO_bg_snkc.bin`(1024엔트리, 32x32타일)로 재현 - 재시작 전 curl 요청은 404,
+재시작 후 200 확인. Playwright로 파일선택 업로드/드래그드롭 업로드 둘 다 성공 메시지 노출까지
+확인. 테스트 중 실제 `unpack/` 작업 사본이 여러 번 재인코딩 버전으로 덮어써졌으므로, 마지막에
+`unpack_origin/data/SNK_LOGO_bg_snkc.bin`/`.bin`(스크린맵)에서 원본 바이트로 복원해둠.
+
+## 2026-08-12 (계속16) — 이미지 여러 개 일괄 교체(파일명 자동 매칭) 기능 추가
+
+사용자 요청: "이미지를 여러개 올렸을때 동일한 파일명을 찾아서 교체하는 기능도 넣으면 좋겠어".
+기존 리팩 기능은 파일트리에서 이미지 하나를 선택해야만 교체할 수 있었는데, 캐릭터 포트레이트나
+배경 여러 개를 한 번에 편집한 경우 하나씩 선택하는 게 번거로움.
+
+**설계**:
+- `GET /api/files/raw`(디코딩) 응답에 `Content-Disposition: inline; filename="<원본 타일 파일
+  basename>.png"` 헤더를 추가(`webtool/server/routes/files.js`). 브라우저에서 미리보기 이미지를
+  "다른 이름으로 저장"하면 원본 파일명(예: `dom1char002.png`, `SNK_LOGO_bg_snkc.png`)이 자동으로
+  붙어서, 나중에 파일명만으로 매칭할 때 사용자가 직접 리네임할 필요가 없어짐.
+- `walkImageFiles(dir, root, out)`: `unpack/` 트리 전체를 재귀 탐색하며 `.nbfc`/`.nbfcn`/`.bin`
+  확장자 중 `resolveTripletPaths()`가 성공하는(=짝이 있어 실제로 인코딩 가능한) 파일만 모아
+  `{ base(확장자 뺀 소문자 파일명), rel(unpack 루트 기준 상대경로) }` 목록 생성. 팔레트/스크린맵이
+  없는 orphan 파일은 애초에 후보에서 제외됨.
+- `findImagesByBasename(name, targetBase)`: 위 목록을 파일명(대소문자 무시)으로 필터링.
+- `POST /api/files/images-batch` (multer `upload.array("images", 100)`): 업로드된 각 PNG에
+  대해 독립적으로 `path.parse(file.originalname).name`으로 매칭을 시도하고, 0건(찾지 못함)/1건
+  (교체 성공)/2건 이상(모호해서 자동 선택 불가, 후보 경로들을 에러 메시지에 나열) 세 가지 결과를
+  파일 단위로 개별 반환 - 배치 중 한 파일이 실패해도 나머지는 계속 처리됨(부분 실패 허용).
+- 프론트엔드(`index.html`/`app.js`): "이미지 탐색" 탭 상단에 다중 파일 드롭존
+  (`#batch-image-dropzone`, ROM 업로드와 동일한 `.dropzone` 클래스 재사용) + "일괄 교체 실행"
+  버튼 + 결과를 파일별로 ✅/❌ 한 줄씩 보여주는 `#batch-image-result` 박스 추가. 사용법을
+  설명하는 `<details>` 도움말 박스도 함께 추가.
+
+**버그(작성 중 자체 발견 및 수정)**: 기존 "계속15"에서 고친 것과 동일한 버그 패턴 - 배치 업로드
+결과 텍스트를 `#batch-image-result`에 쓴 직후 `setBatchFiles(null)`을 호출하려 했는데,
+`setBatchFiles()` 자체가 그 박스의 textContent를 초기화하는 부작용이 있어 결과 메시지가 바로
+지워질 뻔함. 테스트 전에 코드 검토 중 직접 발견해 `setBatchFiles(null)` 대신 `selectedBatchFiles = []`
+직접 대입으로 바꾸고, 최종 결과 텍스트 대입을 성공 경로의 마지막 문장으로 이동시켜 해결.
+
+**검증**: 서버 재시작(`tool.sh restart`) 후,
+1. `GET /raw`로 `dom1char002.nbfcn`(289엔트리, 136x136px)과 `SNK_LOGO_bg_snkc.bin`(1024엔트리,
+   256x256px)을 각각 `curl -OJ`로 받아 Content-Disposition 파일명이 올바르게 붙는지 확인
+   (`dom1char002.png`, `SNK_LOGO_bg_snkc.png`).
+2. 두 PNG를 한 번에 `POST /images-batch`로 업로드 → `dom1char002.png` → `data/Chr/dom1char002.nbfcn`
+   (타일 289개), `SNK_LOGO_bg_snkc.png` → `data/SNK_LOGO_bg_snkc.bin`(타일 1024개) 모두
+   `ok:true`로 정확히 매칭/교체됨을 확인.
+3. 존재하지 않는 파일명으로 업로드 → `{"ok":false,"error":"일치하는 파일을 찾지 못했습니다"}`
+   정상 반환 확인.
+4. 모호(2건 이상 매칭) 케이스는 실제 프로젝트 안에 동일 basename 중복이 없어 실사용 데이터로는
+   재현하지 않음(코드 리뷰로 로직만 확인 - `matches.length > 1`분기, 후보 경로 나열).
+5. 테스트로 덮어써진 `data/Chr/dom1char002.nbfcn`(변경됨)/`.nbfs`(우연히 동일), `data/SNK_LOGO_bg_snkc.bin`/
+   `data/SNK_LOGO_bg_snks.bin`(둘 다 변경됨)을 `unpack_origin/`의 원본 바이트로 복원, `diff -q`로
+   전부 원본과 일치함을 확인.
+6. Playwright를 통한 실제 브라우저 드래그앤드롭 UI 테스트는 이번 라운드에서는 생략(서버 curl
+   테스트로 핵심 로직 검증 완료, 드롭존 자체는 "계속15"에서 검증한 것과 동일한 이벤트 핸들러
+   패턴을 그대로 재사용했으므로 낮은 리스크로 판단) - 필요 시 다음 세션에서 추가 확인 가능.
+
+## 2026-08-12 (계속17) — CLAUDE.md 규칙 5(한글 타일 예산) 문서 최신화: 1,559자 → 2,350자
+
+사용자가 "csv 초벌번역을 지금까지 학습한 조건으로 채워달라"고 요청해 실제 `analysis/font_map_kr.json`
+현재 상태를 확인하던 중, **`CLAUDE.md` 규칙 5가 실제 상태와 어긋나 있음**을 발견함. `font_map_kr.json`의
+`stats`는 `hangul_mapped: 2353`(2,350 + 별칭 동기화 3건)인데, `CLAUDE.md`에는 여전히 예전 규칙("안전
+예산은 정확히 1,559자, 2,350자 전체 할당은 절대 금지")이 남아있었음.
+
+원인 추적 결과 이미 2026-08-11 세션("한글 타일 예산 1,558 → 2,350자(완성형 전체) 확장" 및 후속
+"글리프 파손(`、`/`「`) 근본원인 규명" 항목)에서 안전 판정 기준을 "코드 단위"에서 "`real_tile` 그룹
+배타성 + 2×2 풋프린트(오프셋 `{0,1,31,32,33}`) 완전 배타성"으로 교체하면서 안전 배정 상한이
+1,359자가 아니라 3,123개까지 확장됐고, 이 기준으로 **2,350자 전체 배정 + melonDS 실기 확인까지
+이미 완료**된 상태였음. 다만 그 항목들 마지막에 "문제 없이 확인되면 CLAUDE.md 규칙 5를 갱신할 것"이라고
+예고만 해두고 실제로 `CLAUDE.md` 파일 수정은 누락되어 있었음(실기 확인 완료 기록 자체는 있음 -
+"사용자 melonDS 실기 확인 완료").
+
+**조치**: `CLAUDE.md` 규칙 5를 새 기준(2,350자 전체가 유효 예산, real_tile 풋프린트 배타성이 진짜
+안전 기준, 재생성은 반드시 `rebuild_font_map_kr.py`로만)으로 갱신. 이제부터 번역 작업 시 사용 가능한
+한글 문자 풀은 `font_map_kr.json`의 2,350자(실질 2,353 매핑) 전체이며, 그 밖의 음절은
+`translate_io.text_to_tokens()`가 인코딩 실패로 걸러낸다는 점을 명시함.
+
+**교훈**: ANALYSIS_NOTES.md에 "CLAUDE.md 갱신 예고"만 적어두고 실제 갱신을 누락하면, 다음 세션이
+루트 CLAUDE.md만 읽고 이미 폐기된 옛 규칙(1,559자 상한)을 진실로 오인할 위험이 있음 — 이런 예고성
+할일은 발견 즉시 바로 실행하거나, 최소한 CLAUDE.md 자체에 "TODO" 표시를 남겨야 함.
+
+## 2026-08-12 (계속18) — CSV 초벌번역 샘플 작업: `dom1_Kaido.csv` (44행) ai_draft/translation 채움
+
+사용자 요청: "이제 csv 초벌번역 부탁해 지금까지 학습한 조건으로 번역을해서 ai_draft와
+translation을 채워줘 `webtool/workspace/dom1/translations`". 대상 34개 CSV(`system_common.csv`
+295/320행만 기존 채움, 나머지 33개는 전량 미번역, 총 38,511행)를 한 번에 처리하기엔 검증 없이
+번역하면 오류가 대량 발생할 위험이 있어, 사용자에게 확인 후(AskUserQuestion) "샘플 먼저(1개 파일)"
++ "ai_draft/translation 둘 다 동일한 최종 번역문으로 채움"으로 범위를 확정하고 `dom1_Kaido.csv`
+(주인공이 병으로 앓아눕고 카이도가 간호해주는 자기완결적 44행 스토리)를 샘플로 선정.
+
+**검증 방법**: 눈대중 글자수 계산 대신, 실제 재삽입 로직인
+`analysis/mes_translate_reinsert.py`의 `build_file()`을 그대로 호출해 검증하는 1회성 스크립트
+`temp/validate_kaido_translation.py`를 작성함 (`mtr.mc.ROOT`/`ORIGIN_ROOT`를
+`webtool/workspace/dom1/unpack`로 임시 재지정해서 실제 프로젝트 사본의 `dom1Kaido_O0727_0.mes`를
+읽게 함). 이 스크립트는:
+1. CSV의 각 행에 번역 초안을 채워 넣고,
+2. `build_file()`을 호출해 (a) `tio.validate_placeholders()` 플레이스홀더 개수 일치, (b)
+   `tio.text_to_tokens()` 인코딩 성공(한글 폰트맵에 없는 글자 사용 여부), (c) 실제 파일에서 판정한
+   `has_page_turn` 기준 토큰 예산(`n_tokens`-1 또는 `n_tokens`) 초과 여부를 실제 프로덕션 코드
+   경로 그대로 검사,
+3. 문제 없으면 CSV에 실제로 기록.
+
+**시행착오**: 초안 1차 버전은 44행 중 24행이 토큰 예산 초과(원문보다 최대 10토큰 초과)로 실패,
+1행(`짓궂게`의 '궂')은 `font_map_kr.json`에 매핑되지 않은 글자라 인코딩 자체가 실패함. 한국어는
+표현당 음절 수가 일본어 가나보다 많아지는 경향이 있어 초벌 번역문을 전반적으로 더 간결하게
+다듬어야 했음(조사 생략, 쉼표·말줄임표 개수 축소, 반복형 감탄사 축약 등). 2차 수정 후 7행이 여전히
+1~7토큰 초과로 남아 추가로 다듬었고, 3차 수정에서 44행 전체가 통과함.
+
+**캐릭터 보이스**: `speaker_map.py`/ANALYSIS_NOTES 기존 확인 사항에 따라 화자명은 "카이도"(海堂,
+스피리츠 팬/공식 번역 표기 관행)로 표기. 카이도는 거친 반말(오레사마→"이 몸", "너 같은 놈", "~냐"체)
+로, 주인공은 평범한 반말체로 옮김.
+
+**결과**: `webtool/workspace/dom1/translations/dom1_Kaido.csv`의 44행 전부 `ai_draft`/`translation`
+두 칸에 동일한 최종 번역문을 채워 반영 완료. 나머지 필드(`file`/`rel_path`/`block`/`n_tokens`/
+`speaker`/`source`)는 변경하지 않음. `temp/validate_kaido_translation.py`는 규칙 3에 따라
+`temp/`에 남겨두고, 이후 다른 CSV 파일 검증 시에도 `CSV_PATH`/`TRANSLATIONS`만 바꿔 재사용
+가능(다만 대량 파일 처리 시엔 이 방식보다 더 자동화된 버전이 필요할 수 있음 - 다음 단계에서 검토).
+
+**다음 단계**: 사용자에게 이 샘플의 번역 톤/품질 확인 요청 → 승인되면 나머지 33개 CSV
+(약 37,850행)에 동일한 검증 방법론을 적용해 순차 진행 예정.

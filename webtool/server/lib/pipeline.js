@@ -24,16 +24,53 @@ const FIELDS = ["file", "rel_path", "block", "n_tokens", "speaker", "source", "a
 const PLAYERNAME_FILE = "playername.mes";
 const PLAYERNAME_MAX_TOKENS = 3;
 
-// 2026-08-10: single 0x485C ("page turn/wait for input") sits as the very
-// last in-block token in ~97% of all dialogue blocks (37417/38495, corpus-
-// wide scan of unpack/data/Script), immediately followed (just outside the
-// block, untouched by this function) by the real box-closing double-0x6E5C
-// terminator. Padding filler must never land AFTER this marker - doing so
-// displays an extra blank "page" the player has to tap through after the
-// dialogue already visually ended, matching the "대사가 끝나도 빈칸이 나오고
-// 안 넘어간다" symptom reported 2026-08-10. Experimental fix: insert filler
-// BEFORE a trailing page-turn marker instead of after it.
-const PAGE_TURN_TOKEN = 0x485c;
+// namelist1.mes (speaker/NPC display-name table, see speakerMap.js) - like
+// playername.mes, entries here aren't dialogue-box text tied to a fixed ROM
+// slot. Hardware-confirmed safe on melonDS 2026-08-12 (translated names of
+// varying length render correctly, game runs normally, including the
+// Athena nameplate - proving that scene reads names from here too rather
+// than from its separate image-based nameplate asset).
+//
+// Extended 2026-08-12 to the other headerless-list-format files (see
+// speaker_map.py's module docstring) that share the same structural
+// signature - back-to-back entries with no per-entry header, found by
+// scanning for 0x6E5C 0x6E5C markers rather than by jumping to a
+// hardcoded byte offset - so the same "not tied to a fixed ROM slot"
+// reasoning applies:
+//   - dom1chara.mes/dom2chara.mes/dom3chara.mes: per-character profile
+//     cards (birthday/age/hometown/blood type/height/weight)
+//   - soundnamedom1/2/3.mes: sound-test music track name list
+//   - endtitledom1/2/3.mes: unlockable ending title name list
+// No max-tokens cap (unlike PLAYERNAME_FILE) since none of these have a
+// known in-game character limit. This extension itself is still
+// experimental pending its own real hardware/melonDS confirmation - only
+// namelist1.mes has been confirmed so far.
+//
+// NOT included: extraopen.mes/common.mes (real per-entry headers, not the
+// headerless-list pattern - structurally just normal one-off strings);
+// strindex.mes (the font glyph index table itself, not player-facing
+// text); orochiendroll.mes (staff credits - real people's names, must stay
+// as-is, not translated); saveload.mes (save/load UI mixes translatable
+// words with fixed-position date/time digit formatting via dense control
+// codes - too fragile to blanket-exempt, left on strict matching if ever
+// added to the pipeline).
+const LIST_NO_LENGTH_CAP_FILES = new Set([
+  "namelist1.mes",
+  "dom1chara.mes",
+  "dom2chara.mes",
+  "dom3chara.mes",
+  "soundnamedom1.mes",
+  "soundnamedom2.mes",
+  "soundnamedom3.mes",
+  "endtitledom1.mes",
+  "endtitledom2.mes",
+  "endtitledom3.mes",
+]);
+
+// See translateIo.js's PAGE_TURN_TOKEN for how the trailing page-turn
+// marker is hidden from the CSV text and re-appended automatically by
+// buildFileTokens()/validateRow() below.
+const PAGE_TURN_TOKEN = tio.PAGE_TURN_TOKEN;
 
 const OUTSIDE_MES_FILES = [
   "soundnamedom1.mes",
@@ -47,6 +84,21 @@ const OUTSIDE_MES_FILES = [
   "endtitledom3.mes",
   "endtitledom2.mes",
   "endtitledom1.mes",
+  // Master speaker/NPC name table - index N == the header ID used by
+  // findDialogueBlocks() to tag a dialogue block's speaker (verified
+  // 2026-08-12 against speaker_map's SPEAKER_NAMES/SPECIAL_NAMES). Headerless
+  // list format like dom2chara.mes/playername.mes, so its own rows' speaker
+  // labels come out as UNKNOWN_0x6e5c - same as those other list files.
+  "namelist1.mes",
+  // dom1chara.mes was missing entirely from this list until 2026-08-12
+  // (dom2chara.mes/dom3chara.mes were already here) - same per-character
+  // profile-card format, just for dom1's cast.
+  "dom1chara.mes",
+  // Short one-off UI prompt strings (map-move / name-confirm dialogs) -
+  // real per-entry headers, NOT the headerless-list pattern, so they use
+  // standard strict length matching, not LIST_NO_LENGTH_CAP_FILES.
+  "mapmove.mes",
+  "nameinput.mes",
 ];
 
 function getCategory(filePath, unpackDataDir) {
@@ -107,15 +159,6 @@ function readCsv(name) {
     }
   }
 
-  // 폴백/하위호환: master translation_export.csv 도 여전히 존재한다면 함께 로드
-  const oldMasterPath = proj.csvPath(name);
-  if (!rows.length && fs.existsSync(oldMasterPath)) {
-    const text = fs.readFileSync(oldMasterPath, "utf-8");
-    if (text.trim()) {
-      rows = csvParse(text, { columns: true, skip_empty_lines: true });
-    }
-  }
-
   return rows;
 }
 
@@ -137,10 +180,6 @@ function writeCsv(name, rows) {
     const text = csvStringify(catRows, { header: true, columns: FIELDS });
     fs.writeFileSync(path.join(transDir, `${cat}.csv`), text);
   }
-
-  // 마스터 통짜 CSV도 호환성을 위해 업데이트
-  const masterText = csvStringify(rows, { header: true, columns: FIELDS });
-  fs.writeFileSync(proj.csvPath(name), masterText);
 }
 
 /**
@@ -194,7 +233,11 @@ function extractProject(name) {
     if (realBlocks.length) filesWithBlocks += 1;
 
     realBlocks.forEach(([s, e], i) => {
-      const text = tio.tokensToText(values.slice(s, e), mc.CODES_FULL);
+      // Hide the trailing page-turn marker from the CSV text entirely (see
+      // tio.PAGE_TURN_TOKEN) - buildFileTokens()/validateRow() restore it
+      // automatically.
+      const textEnd = values[e - 1] === tio.PAGE_TURN_TOKEN ? e - 1 : e;
+      const text = tio.tokensToText(values.slice(s, textEnd), mc.CODES_FULL);
       const headerVal = s - 1 >= 0 ? values[s - 1] : null;
       const speaker = headerVal !== null ? speakerMap.speakerOf(headerVal) : null;
       const nTokens = e - s;
@@ -249,6 +292,17 @@ function rowsForFile(name, fname) {
  * playername.mes is exempt from the expectedTokenCount match (see
  * PLAYERNAME_FILE comment above) - it only enforces the in-game 3-character
  * name cap.
+ *
+ * This function has no access to the source .mes file (CSV data only), so
+ * it can't check the real block's last token directly to detect a hidden
+ * trailing page-turn marker (see tio.PAGE_TURN_TOKEN). Instead it derives
+ * the same fact from srcText alone: tokensToText()/textToTokens() are a
+ * 1-token-in/1-symbol-out round trip for everything except this one
+ * deliberate omission, so srcText re-encodes to exactly expectedTokenCount
+ * tokens normally, or expectedTokenCount - 1 when the marker was hidden.
+ * buildFileTokens() reads the real file and is the authoritative check;
+ * this only has to agree with it closely enough to give useful live
+ * feedback.
  */
 function validateRow(srcText, dstTextRaw, expectedTokenCount, fname) {
   const dstText = dstTextRaw && dstTextRaw.length > 0 ? dstTextRaw : srcText;
@@ -271,10 +325,28 @@ function validateRow(srcText, dstTextRaw, expectedTokenCount, fname) {
     return { ok: true, tokenCount: tokens.length };
   }
 
-  if (expectedTokenCount !== undefined && tokens.length < expectedTokenCount) {
-    tokens = tokens.concat(Array(expectedTokenCount - tokens.length).fill(tio.SPACE_TOKEN));
+  if (LIST_NO_LENGTH_CAP_FILES.has(fname)) {
+    return { ok: true, tokenCount: tokens.length };
   }
-  return { ok: true, tokenCount: tokens.length };
+
+  let hasPageTurn = false;
+  let textExpected = expectedTokenCount;
+  if (expectedTokenCount !== undefined) {
+    let srcTokenCount = expectedTokenCount;
+    try {
+      srcTokenCount = tio.textToTokens(srcText).length;
+    } catch (ex) {
+      // srcText is the original extracted text and should always re-encode
+      // cleanly; fall back to treating it as the no-marker case if not.
+    }
+    hasPageTurn = srcTokenCount === expectedTokenCount - 1;
+    textExpected = hasPageTurn ? expectedTokenCount - 1 : expectedTokenCount;
+  }
+
+  if (textExpected !== undefined && tokens.length < textExpected) {
+    tokens = tokens.concat(Array(textExpected - tokens.length).fill(tio.SPACE_TOKEN));
+  }
+  return { ok: true, tokenCount: tokens.length + (hasPageTurn ? 1 : 0) };
 }
 
 /**
@@ -297,10 +369,10 @@ function saveFile(name, fname, edits) {
     const v = validateRow(row.source, row.translation, Number(row.n_tokens), fname);
     if (!v.ok) {
       report.push({ block: Number(row.block), ok: false, error: v.error });
-    } else if (fname !== PLAYERNAME_FILE && v.tokenCount !== Number(row.n_tokens)) {
+    } else if (fname !== PLAYERNAME_FILE && !LIST_NO_LENGTH_CAP_FILES.has(fname) && v.tokenCount !== Number(row.n_tokens)) {
       // Shorter translations are already padded to match inside validateRow,
       // so only "longer" (which would drop content if trimmed) reaches here.
-      // playername.mes doesn't enforce this match at all (see validateRow).
+      // playername.mes/LIST_NO_LENGTH_CAP_FILES don't enforce this match at all (see validateRow).
       report.push({
         block: Number(row.block),
         ok: false,
@@ -363,6 +435,11 @@ function buildFileTokens(name, fname, rowsByBlock) {
     const srcText = row.source;
     const dstText = row.translation && row.translation.length > 0 ? row.translation : srcText;
     const expectedLen = e - s;
+    // Real on-disk block ends with the page-turn marker - it was hidden
+    // from the CSV text by extractProject(); append it back below (see
+    // tio.PAGE_TURN_TOKEN).
+    const hasPageTurn = expectedLen > 0 && values[e - 1] === PAGE_TURN_TOKEN;
+    const textExpectedLen = hasPageTurn ? expectedLen - 1 : expectedLen;
 
     if (!row.translation || row.translation === srcText) {
       out.push(...values.slice(last, s));
@@ -401,29 +478,40 @@ function buildFileTokens(name, fname, rowsByBlock) {
       return;
     }
 
-    if (newTokens.length < expectedLen) {
-      // Pad with trailing space tokens rather than failing the block - a
-      // shorter translation is safe to pad, unlike a longer one (which
-      // would have to drop content to fit and is still reported below). If
-      // the encoded text ends in the page-turn marker (true for ~97% of
-      // blocks), insert the filler BEFORE it, not after - see
-      // PAGE_TURN_TOKEN above. Uses tio.SPACE_TOKEN (full-width) - see its
-      // comment for why the half-width blank is not used.
-      const pad = Array(expectedLen - newTokens.length).fill(tio.SPACE_TOKEN);
-      if (newTokens.length && newTokens[newTokens.length - 1] === PAGE_TURN_TOKEN) {
-        newTokens = newTokens.slice(0, -1).concat(pad, newTokens[newTokens.length - 1]);
-      } else {
-        newTokens = newTokens.concat(pad);
-      }
+    if (LIST_NO_LENGTH_CAP_FILES.has(fname)) {
+      // No length constraint at all (see LIST_NO_LENGTH_CAP_FILES comment
+      // above) - hardware-confirmed for namelist1.mes only so far; the
+      // other files here are the same experiment, pending their own
+      // real hardware/melonDS confirmation.
+      out.push(...values.slice(last, s));
+      out.push(...newTokens);
+      last = e;
+      return;
     }
 
-    if (newTokens.length !== expectedLen) {
+    if (newTokens.length < textExpectedLen) {
+      // Pad with trailing space tokens rather than failing the block - a
+      // shorter translation is safe to pad, unlike a longer one (which
+      // would have to drop content to fit and is still reported below).
+      // Padded against textExpectedLen (excluding the page-turn marker, if
+      // any) so the marker appended below always ends up last - see
+      // tio.PAGE_TURN_TOKEN for why it must never be pushed off the end by
+      // padding. Uses tio.SPACE_TOKEN (full-width) - see its comment for
+      // why the half-width blank is not used.
+      newTokens = newTokens.concat(Array(textExpectedLen - newTokens.length).fill(tio.SPACE_TOKEN));
+    }
+
+    if (newTokens.length !== textExpectedLen) {
       problems.push(
-        `block ${i}: token count mismatch - original has ${expectedLen} tokens, ` +
+        `block ${i}: token count mismatch - original has ${textExpectedLen} tokens, ` +
           `translation encodes to ${newTokens.length} (longer). Dialogue blocks ` +
           "must keep an identical token count or the game hangs on real hardware/melonDS."
       );
       return;
+    }
+
+    if (hasPageTurn) {
+      newTokens = newTokens.concat(PAGE_TURN_TOKEN);
     }
 
     out.push(...values.slice(last, s));

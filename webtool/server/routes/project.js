@@ -72,7 +72,7 @@ router.get("/status", (req, res) => {
   const summaries = pipeline.fileSummaries(name);
   res.json({
     state,
-    csvExists: fs.existsSync(proj.csvPath(name)),
+    csvExists: fs.existsSync(proj.csvDir(name)),
     totalBlocks: summaries.reduce((a, s) => a + s.blockCount, 0),
     translatedBlocks: summaries.reduce((a, s) => a + s.translatedCount, 0),
     buildExists: fs.existsSync(proj.buildDir(name)),

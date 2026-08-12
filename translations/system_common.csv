@@ -1,0 +1,321 @@
+file,rel_path,block,n_tokens,speaker,source,ai_draft,translation
+soundnamedom1.mes,soundnamedom1.mes,0,6,,メインテーマ,,메인 테마
+soundnamedom1.mes,soundnamedom1.mes,1,2,UNKNOWN_6e5c,対決,,대결
+soundnamedom1.mes,soundnamedom1.mes,2,4,UNKNOWN_6e5c,ムーディ,,무디
+soundnamedom1.mes,soundnamedom1.mes,3,7,UNKNOWN_6e5c,アテナのテーマ,,아테나의 테마
+soundnamedom1.mes,soundnamedom1.mes,4,5,UNKNOWN_6e5c,舞のテーマ,,마이의 테마
+soundnamedom1.mes,soundnamedom1.mes,5,6,UNKNOWN_6e5c,ユリのテーマ,,유리의 테마
+soundnamedom1.mes,soundnamedom1.mes,6,7,UNKNOWN_6e5c,キングのテーマ,,킹의 테마
+soundnamedom1.mes,soundnamedom1.mes,7,6,UNKNOWN_6e5c,香澄のテーマ,,카스미의 테마
+soundnamedom1.mes,soundnamedom1.mes,8,9,UNKNOWN_6e5c,Bジェニーのテーマ,,B 제니의 테마
+soundnamedom1.mes,soundnamedom1.mes,9,7,UNKNOWN_6e5c,クーラのテーマ,,쿨라의 테마
+soundnamedom1.mes,soundnamedom1.mes,10,7,UNKNOWN_6e5c,レオナのテーマ,,레오나의 테마
+soundnamedom1.mes,soundnamedom1.mes,11,5,UNKNOWN_6e5c,OPテーマ,,OP 테마
+soundnamedom1.mes,soundnamedom1.mes,12,3,UNKNOWN_6e5c,サッド,,새드
+soundnamedom1.mes,soundnamedom1.mes,13,8,UNKNOWN_6e5c,サイコソルジャー,,사이코 솔져
+soundnamedom1.mes,soundnamedom1.mes,14,7,UNKNOWN_6e5c,???????,,
+soundnamedom2.mes,soundnamedom2.mes,0,5,,OPテーマ,,OP 테마
+soundnamedom2.mes,soundnamedom2.mes,1,6,UNKNOWN_6e5c,メインテーマ,,메인 테마
+soundnamedom2.mes,soundnamedom2.mes,2,2,UNKNOWN_6e5c,対決,,대결
+soundnamedom2.mes,soundnamedom2.mes,3,4,UNKNOWN_6e5c,ムーディ,,무디
+soundnamedom2.mes,soundnamedom2.mes,4,3,UNKNOWN_6e5c,サッド,,새드
+soundnamedom2.mes,soundnamedom2.mes,5,2,UNKNOWN_6e5c,恐怖,,공포
+soundnamedom2.mes,soundnamedom2.mes,6,5,UNKNOWN_6e5c,雫のテーマ,,시즈쿠의 테마
+soundnamedom2.mes,soundnamedom2.mes,7,7,UNKNOWN_6e5c,ほたるのテーマ,,호타루의 테마
+soundnamedom2.mes,soundnamedom2.mes,8,7,UNKNOWN_6e5c,キサラのテーマ,,키사라의 테마
+soundnamedom2.mes,soundnamedom2.mes,9,7,UNKNOWN_6e5c,フィオのテーマ,,피오의 테마
+soundnamedom2.mes,soundnamedom2.mes,10,7,UNKNOWN_6e5c,ちづるのテーマ,,치즈루의 테마
+soundnamedom2.mes,soundnamedom2.mes,11,7,UNKNOWN_6e5c,マリーのテーマ,,마리의 테마
+soundnamedom2.mes,soundnamedom2.mes,12,8,UNKNOWN_6e5c,マチュアのテーマ,,마츄어의 테마
+soundnamedom2.mes,soundnamedom2.mes,13,7,UNKNOWN_6e5c,アテナのテーマ,,아테나의 테마
+soundnamedom2.mes,soundnamedom2.mes,14,10,UNKNOWN_6e5c,オロチ編メインテーマ,,오로치 편 메인 테마
+soundnamedom2.mes,soundnamedom2.mes,15,7,UNKNOWN_6e5c,???????,,
+soundnamedom3.mes,soundnamedom3.mes,0,6,,OPのテーマ,,OP의 테마
+soundnamedom3.mes,soundnamedom3.mes,1,6,UNKNOWN_6e5c,メインテーマ,,메인 테마
+soundnamedom3.mes,soundnamedom3.mes,2,4,UNKNOWN_6e5c,真剣勝負,,진검승부
+soundnamedom3.mes,soundnamedom3.mes,3,4,UNKNOWN_6e5c,ムーディ,,무디
+soundnamedom3.mes,soundnamedom3.mes,4,3,UNKNOWN_6e5c,サッド,,새드
+soundnamedom3.mes,soundnamedom3.mes,5,8,UNKNOWN_6e5c,ナコルルのテーマ,,나코루루의 테마
+soundnamedom3.mes,soundnamedom3.mes,6,6,UNKNOWN_6e5c,詩乃のテーマ,,시노의 테마
+soundnamedom3.mes,soundnamedom3.mes,7,6,UNKNOWN_6e5c,千夜のテーマ,,센야의 테마
+soundnamedom3.mes,soundnamedom3.mes,8,6,UNKNOWN_6e5c,ミナのテーマ,,미나의 테마
+soundnamedom3.mes,soundnamedom3.mes,9,6,UNKNOWN_6e5c,凛花のテーマ,,린카의 테마
+soundnamedom3.mes,soundnamedom3.mes,10,6,UNKNOWN_6e5c,サヤのテーマ,,사야의 테마
+soundnamedom3.mes,soundnamedom3.mes,11,5,UNKNOWN_6e5c,命のテーマ,,미코토의 테마
+soundnamedom3.mes,soundnamedom3.mes,12,5,UNKNOWN_6e5c,色のテーマ,,시키의 테마
+soundnamedom3.mes,soundnamedom3.mes,13,7,UNKNOWN_6e5c,いろはのテーマ,,이로하의 테마
+soundnamedom3.mes,soundnamedom3.mes,14,7,UNKNOWN_6e5c,???????,,
+dom3chara.mes,dom3chara.mes,0,55,,誕生日：10月11日<6E5C>年<020A>齢：18歳<6E5C>出身地：アイヌモシリ<6E5C>血夜型：AB型<6E5C>身<020A>長：154cm<6E5C>体<020A>重：語らず,,생일: 10월 11일<6E5C>나이<020A>: 18세<6E5C>출신지: 아이누모시리<6E5C>혈액형: AB형<6E5C>신장<020A>: 154cm<6E5C>체중<020A>: 비밀
+dom3chara.mes,dom3chara.mes,1,50,UNKNOWN_6e5c,誕生日：4月15日<6E5C>年<020A>齢：17歳<6E5C>出身地：日本<6E5C>血夜型：B型<6E5C>身<020A>長：158cm<6E5C>体<020A>重：46kg,,생일: 4월 15일<6E5C>나이<020A>: 17세<6E5C>출신지: 일본<6E5C>혈액형: B형<6E5C>신장<020A>: 158cm<6E5C>체중<020A>: 46kg
+dom3chara.mes,dom3chara.mes,2,51,UNKNOWN_6e5c,誕生日：3月6日<6E5C>年<020A>齢：21歳<6E5C>出身地：琉球王国<6E5C>血夜型：AB型<6E5C>身<020A>長：157cm<6E5C>体<020A>重：語らず,,생일: 3월 6일<6E5C>나이<020A>: 21세<6E5C>출신지: 류큐 왕국<6E5C>혈액형: AB형<6E5C>신장<020A>: 157cm<6E5C>체중<020A>: 비밀
+dom3chara.mes,dom3chara.mes,3,47,UNKNOWN_6e5c,誕生日：不明<6E5C>年<020A>齢：16歳<6E5C>出身地：日本<6E5C>血夜型：不明<6E5C>身<020A>長：154cm<6E5C>体<020A>重：43kg,,생일: 불명<6E5C>나이<020A>: 16세<6E5C>출신지: 일본<6E5C>혈액형: 불명<6E5C>신장<020A>: 154cm<6E5C>체중<020A>: 43kg
+dom3chara.mes,dom3chara.mes,4,49,UNKNOWN_6e5c,誕生日：不明<6E5C>年<020A>齢：22歳<6E5C>出身地：イギリス<6E5C>血夜型：不明<6E5C>身<020A>長：168cm<6E5C>体<020A>重：45kg,,생일: 불명<6E5C>나이<020A>: 22세<6E5C>출신지: 영국<6E5C>혈액형: 불명<6E5C>신장<020A>: 168cm<6E5C>체중<020A>: 45kg
+dom3chara.mes,dom3chara.mes,5,47,UNKNOWN_6e5c,誕生日：不明<6E5C>年<020A>齢：19歳<6E5C>出身地：日本<6E5C>血夜型：不明<6E5C>身<020A>長：160cm<6E5C>体<020A>重：44kg,,생일: 불명<6E5C>나이<020A>: 19세<6E5C>출신지: 일본<6E5C>혈액형: 불명<6E5C>신장<020A>: 160cm<6E5C>체중<020A>: 44kg
+dom3chara.mes,dom3chara.mes,6,48,UNKNOWN_6e5c,誕生日：6月6日<6E5C>年<020A>齢：不明<6E5C>出身地：日本<6E5C>血夜型：不明<6E5C>身<020A>長：168cm<6E5C>体<020A>重：44kg,,생일: 6월 6일<6E5C>나이<020A>: 불명<6E5C>출신지: 일본<6E5C>혈액형: 불명<6E5C>신장<020A>: 168cm<6E5C>체중<020A>: 44kg
+dom3chara.mes,dom3chara.mes,7,45,UNKNOWN_6e5c,誕生日：不明<6E5C>年<020A>齢：不明<6E5C>出身地：日本<6E5C>血夜型：不明<6E5C>身<020A>長：160cm<6E5C>体<020A>重：知らず,,생일: 불명<6E5C>나이<020A>: 불명<6E5C>출신지: 일본<6E5C>혈액형: 불명<6E5C>신장<020A>: 160cm<6E5C>체중<020A>: 모름
+dom2chara.mes,dom2chara.mes,0,54,,誕生日：5月3日<6E5C>年齢<020A>：21歳<6E5C>出身地：日本<6E5C>血夜型：A(RH-)型<6E5C>身長<020A>：160cm<6E5C>体重<020A>：48kg,,생일: 5월 3일<6E5C>나이<020A>: 21세<6E5C>출신지: 일본<6E5C>혈액형: A(RH-)형<6E5C>신장<020A>: 160cm<6E5C>체중<020A>: 48kg
+dom2chara.mes,dom2chara.mes,1,50,UNKNOWN_6e5c,誕生日：5月11日<6E5C>年齢<020A>：16歳<6E5C>出身地：日本<6E5C>血夜型：A型<6E5C>身長<020A>：156cm<6E5C>体重<020A>：42kg,,생일: 5월 11일<6E5C>나이<020A>: 16세<6E5C>출신지: 일본<6E5C>혈액형: A형<6E5C>신장<020A>: 156cm<6E5C>체중<020A>: 42kg
+dom2chara.mes,dom2chara.mes,2,51,UNKNOWN_6e5c,誕生日：1月7日<6E5C>年齢<020A>：17歳<6E5C>出身地：イギリス<6E5C>血夜型：B型<6E5C>身長<020A>：161cm<6E5C>体重<020A>：47kg,,생일: 1월 7일<6E5C>나이<020A>: 17세<6E5C>출신지: 영국<6E5C>혈액형: B형<6E5C>신장<020A>: 161cm<6E5C>체중<020A>: 47kg
+dom2chara.mes,dom2chara.mes,3,52,UNKNOWN_6e5c,誕生日：10月2日<6E5C>年齢<020A>：20歳<6E5C>出身地：イタリア<6E5C>血夜型：O型<6E5C>身長<020A>：158cm<6E5C>体重<020A>：43kg,,생일: 10월 2일<6E5C>나이<020A>: 20세<6E5C>출신지: 이탈리아<6E5C>혈액형: O형<6E5C>신장<020A>: 158cm<6E5C>체중<020A>: 43kg
+dom2chara.mes,dom2chara.mes,4,51,UNKNOWN_6e5c,誕生日：6月26日<6E5C>年齢<020A>：25歳<6E5C>出身地：日本<6E5C>血夜型：AB型<6E5C>身長<020A>：169cm<6E5C>体重<020A>：52kg,,생일: 6월 26일<6E5C>나이<020A>: 25세<6E5C>출신지: 일본<6E5C>혈액형: AB형<6E5C>신장<020A>: 169cm<6E5C>체중<020A>: 52kg
+dom2chara.mes,dom2chara.mes,5,52,UNKNOWN_6e5c,誕生日：2月4日<6E5C>年齢<020A>：25歳<6E5C>出身地：アメリカ<6E5C>血夜型：AB型<6E5C>身長<020A>：168cm<6E5C>体重<020A>：49kg,,생일: 2월 4일<6E5C>나이<020A>: 25세<6E5C>출신지: 미국<6E5C>혈액형: AB형<6E5C>신장<020A>: 168cm<6E5C>체중<020A>: 49kg
+dom2chara.mes,dom2chara.mes,6,48,UNKNOWN_6e5c,誕生日：4月8日<6E5C>年齢<020A>：?歳<6E5C>出身地：不明<6E5C>血夜型：O型<6E5C>身長<020A>：177cm<6E5C>体重<020A>：58kg,,생일: 4월 8일<6E5C>나이<020A>: ?세<6E5C>출신지: 불명<6E5C>혈액형: O형<6E5C>신장<020A>: 177cm<6E5C>체중<020A>: 58kg
+dom2chara.mes,dom2chara.mes,7,50,UNKNOWN_6e5c,誕生日：3月14日<6E5C>年齢<020A>：20歳<6E5C>出身地：日本<6E5C>血夜型：B型<6E5C>身長<020A>：163cm<6E5C>体重<020A>：49kg,,생일: 3월 14일<6E5C>나이<020A>: 20세<6E5C>출신지: 일본<6E5C>혈액형: B형<6E5C>신장<020A>: 163cm<6E5C>체중<020A>: 49kg
+playername.mes,playername.mes,0,2,,村上,,
+playername.mes,playername.mes,1,2,UNKNOWN_6e5c,大地,,
+playername.mes,playername.mes,2,2,UNKNOWN_6e5c,天樹,,
+playername.mes,playername.mes,3,1,UNKNOWN_6e5c,優,,
+playername.mes,playername.mes,4,2,UNKNOWN_6e5c,村上,,
+playername.mes,playername.mes,5,3,UNKNOWN_6e5c,大之介,,
+extraopen.mes,extraopen.mes,0,14,UNKNOWN_20a,エキストラが追加されました.,,
+common.mes,common.mes,0,10,UNKNOWN_20a,<0414>123456789,,
+common.mes,common.mes,1,7,UNKNOWN_20a,、.!?!?),,
+endtitledom3.mes,endtitledom3.mes,0,7,,おかえりなさい,,어서 오세요
+endtitledom3.mes,endtitledom3.mes,1,9,UNKNOWN_6e5c,店も忍も大恋愛も!,,가게도 닌자도 대연애도!
+endtitledom3.mes,endtitledom3.mes,2,8,UNKNOWN_6e5c,ウミチムンの喜び,,우미치문의 즐거움
+endtitledom3.mes,endtitledom3.mes,3,9,UNKNOWN_6e5c,天下一の剣豪夫婦?,,천하제일의 검호부부?
+endtitledom3.mes,endtitledom3.mes,4,6,UNKNOWN_6e5c,金色の世界へ,,금빛 세계로
+endtitledom3.mes,endtitledom3.mes,5,8,UNKNOWN_6e5c,天使の生きる場所,,천사가 사는 곳
+endtitledom3.mes,endtitledom3.mes,6,8,UNKNOWN_6e5c,ふたりが紡ぐもの,,두 사람이 자아내는 것
+endtitledom3.mes,endtitledom3.mes,7,9,UNKNOWN_6e5c,旦那様といつまでも,,서방님과 언제까지나
+endtitledom3.mes,endtitledom3.mes,8,10,UNKNOWN_6e5c,拙者とそなたの熱い夏,,소인과 그대의 뜨거운 여름
+endtitledom3.mes,endtitledom3.mes,9,9,UNKNOWN_6e5c,目指す高みは天下一,,목표로 하는 높이는 천하제일
+endtitledom3.mes,endtitledom3.mes,10,6,UNKNOWN_6e5c,夢果てて……,,꿈이 끝나고……
+endtitledom3.mes,endtitledom3.mes,11,6,UNKNOWN_6e5c,ひと夏の体験,,한여름의 체험
+endtitledom3.mes,endtitledom3.mes,12,8,UNKNOWN_6e5c,おっしおきだぁ!,,혼내주마!
+endtitledom3.mes,endtitledom3.mes,13,6,UNKNOWN_6e5c,勝負あり!!,,승부 끝!!
+endtitledom3.mes,endtitledom3.mes,14,7,UNKNOWN_6e5c,???????,,
+endtitledom2.mes,endtitledom2.mes,0,8,,君の手のぬくもり,,너의 손의 온기
+endtitledom2.mes,endtitledom2.mes,1,10,UNKNOWN_6e5c,お兄ちゃんがカレシ?,,오빠가 남자친구?
+endtitledom2.mes,endtitledom2.mes,2,9,UNKNOWN_6e5c,ときめきパラダイス,,두근두근 파라다이스
+endtitledom2.mes,endtitledom2.mes,3,11,UNKNOWN_6e5c,恋のパラシュート降下!,,사랑의 낙하산 강하!
+endtitledom2.mes,endtitledom2.mes,4,6,UNKNOWN_6e5c,護る約束の印,,지키기로 한 약속의 증표
+endtitledom2.mes,endtitledom2.mes,5,7,UNKNOWN_6e5c,取り戻した名前,,되찾은 이름
+endtitledom2.mes,endtitledom2.mes,6,11,UNKNOWN_6e5c,ECSTAC)<020A>816,,
+endtitledom2.mes,endtitledom2.mes,7,7,UNKNOWN_6e5c,朝焼けの前葬曲,,새벽놀 앞의 진혼곡
+endtitledom2.mes,endtitledom2.mes,8,9,UNKNOWN_6e5c,僕の一番大切な君へ,,나의 가장 소중한 너에게
+endtitledom2.mes,endtitledom2.mes,9,5,UNKNOWN_6e5c,ナイトメア,,나이트메어
+endtitledom2.mes,endtitledom2.mes,10,8,UNKNOWN_6e5c,バイスにお任せ!,,바이스에게 맡겨줘!
+endtitledom2.mes,endtitledom2.mes,11,7,UNKNOWN_6e5c,差し出された<9D02>,,
+endtitledom2.mes,endtitledom2.mes,12,10,UNKNOWN_6e5c,R.E.D.D「<0287>:,,
+endtitledom2.mes,endtitledom2.mes,13,7,UNKNOWN_6e5c,???????,,
+endtitledom1.mes,endtitledom1.mes,0,8,,サイキック。ラブ,,"사이킥, 러브"
+endtitledom1.mes,endtitledom1.mes,1,8,UNKNOWN_6e5c,傷だらけのナイト,,상처투성이 나이트
+endtitledom1.mes,endtitledom1.mes,2,6,UNKNOWN_6e5c,甘~い?生活,,달콤~한? 생활
+endtitledom1.mes,endtitledom1.mes,3,7,UNKNOWN_6e5c,アンディと友達,,앤디와 친구
+endtitledom1.mes,endtitledom1.mes,4,9,UNKNOWN_6e5c,ラブエンドだッチ!,,러브엔드라구!
+endtitledom1.mes,endtitledom1.mes,5,8,UNKNOWN_6e5c,人生は修行ッチ!,,인생은 수행이라구!
+endtitledom1.mes,endtitledom1.mes,6,4,UNKNOWN_6e5c,君に乾杯,,너에게 건배
+endtitledom1.mes,endtitledom1.mes,7,6,UNKNOWN_6e5c,子供のままで,,아이인 채로
+endtitledom1.mes,endtitledom1.mes,8,7,UNKNOWN_6e5c,さらなる高みへ,,더 높은 곳으로
+endtitledom1.mes,endtitledom1.mes,9,6,UNKNOWN_6e5c,香澄、旅立つ,,"카스미, 여행을 떠나다"
+endtitledom1.mes,endtitledom1.mes,10,7,UNKNOWN_6e5c,恋もバンドも★,,사랑도 밴드도★
+endtitledom1.mes,endtitledom1.mes,11,6,UNKNOWN_6e5c,夢は世界へ!,,꿈은 세계로!
+endtitledom1.mes,endtitledom1.mes,12,9,UNKNOWN_6e5c,ラブ★カチョーラ!,,러브★카쵸라!
+endtitledom1.mes,endtitledom1.mes,13,10,UNKNOWN_6e5c,ダイアモンドブレイク,,다이아몬드 브레이크
+endtitledom1.mes,endtitledom1.mes,14,6,UNKNOWN_6e5c,手を取合って,,손을 맞잡고
+endtitledom1.mes,endtitledom1.mes,15,7,UNKNOWN_6e5c,サヨナラレオナ,,안녕 레오나
+endtitledom1.mes,endtitledom1.mes,16,9,UNKNOWN_6e5c,夕日に向かって走れ,,석양을 향해 달려라
+endtitledom1.mes,endtitledom1.mes,17,7,UNKNOWN_6e5c,???????,,
+namelist1.mes,namelist1.mes,0,1,,<이름>,,
+namelist1.mes,namelist1.mes,1,2,UNKNOWN_6e5c,<이름:3131>,,
+namelist1.mes,namelist1.mes,2,2,UNKNOWN_6e5c,<이름:3232>,,
+namelist1.mes,namelist1.mes,3,3,UNKNOWN_6e5c,アテナ,,아테나
+namelist1.mes,namelist1.mes,4,3,UNKNOWN_6e5c,レオナ,,레오나
+namelist1.mes,namelist1.mes,5,1,UNKNOWN_6e5c,舞,,마이
+namelist1.mes,namelist1.mes,6,2,UNKNOWN_6e5c,ユリ,,유리
+namelist1.mes,namelist1.mes,7,3,UNKNOWN_6e5c,キング,,킹
+namelist1.mes,namelist1.mes,8,2,UNKNOWN_6e5c,香澄,,카스미
+namelist1.mes,namelist1.mes,9,4,UNKNOWN_6e5c,ジェニー,,제니
+namelist1.mes,namelist1.mes,10,2,UNKNOWN_6e5c,海堂,,카이도
+namelist1.mes,namelist1.mes,11,3,UNKNOWN_6e5c,クーラ,,쿨라
+namelist1.mes,namelist1.mes,12,2,UNKNOWN_6e5c,竜白,,류하쿠
+namelist1.mes,namelist1.mes,13,6,UNKNOWN_6e5c,M<.ビッグ,,M<.빅
+namelist1.mes,namelist1.mes,14,2,UNKNOWN_6e5c,狂也,,쿄야
+namelist1.mes,namelist1.mes,15,5,UNKNOWN_6e5c,ハイデルン,,하이덜른
+namelist1.mes,namelist1.mes,16,4,UNKNOWN_6e5c,アンディ,,앤디
+namelist1.mes,namelist1.mes,17,3,UNKNOWN_6e5c,タクマ,,타쿠마
+namelist1.mes,namelist1.mes,18,5,UNKNOWN_6e5c,<이름:3232>&海堂,,<이름:3232>&카이도
+namelist1.mes,namelist1.mes,19,3,UNKNOWN_6e5c,女の声,,여자 목소리
+namelist1.mes,namelist1.mes,20,4,UNKNOWN_6e5c,観光客1,,관광객1
+namelist1.mes,namelist1.mes,21,4,UNKNOWN_6e5c,観光客2,,관광객2
+namelist1.mes,namelist1.mes,22,7,UNKNOWN_6e5c,クラスメイト1,,반친구1
+namelist1.mes,namelist1.mes,23,7,UNKNOWN_6e5c,クラスメイト2,,반친구2
+namelist1.mes,namelist1.mes,24,9,UNKNOWN_6e5c,クラスメイト1&2,,반친구1&2
+namelist1.mes,namelist1.mes,25,4,UNKNOWN_6e5c,スタッフ,,스태프
+namelist1.mes,namelist1.mes,26,1,UNKNOWN_6e5c,男,,남자
+namelist1.mes,namelist1.mes,27,6,UNKNOWN_6e5c,マネージャー,,매니저
+namelist1.mes,namelist1.mes,28,1,UNKNOWN_6e5c,女,,여자
+namelist1.mes,namelist1.mes,29,3,UNKNOWN_6e5c,みんな,,모두
+namelist1.mes,namelist1.mes,30,1,UNKNOWN_6e5c,?,,?
+namelist1.mes,namelist1.mes,31,3,UNKNOWN_6e5c,謎の男,,수상한 남자
+namelist1.mes,namelist1.mes,32,7,UNKNOWN_6e5c,リーリンナイツ,,리린나이츠
+namelist1.mes,namelist1.mes,33,3,UNKNOWN_6e5c,男の声,,남자 목소리
+namelist1.mes,namelist1.mes,34,2,UNKNOWN_6e5c,審判,,심판
+namelist1.mes,namelist1.mes,35,2,UNKNOWN_6e5c,観客,,관객
+namelist1.mes,namelist1.mes,36,2,UNKNOWN_6e5c,ママ,,엄마
+namelist1.mes,namelist1.mes,37,1,UNKNOWN_6e5c,兄,,형
+namelist1.mes,namelist1.mes,38,3,UNKNOWN_6e5c,不良1,,불량배1
+namelist1.mes,namelist1.mes,39,3,UNKNOWN_6e5c,不良2,,불량배2
+namelist1.mes,namelist1.mes,40,3,UNKNOWN_6e5c,女の子,,여자아이
+namelist1.mes,namelist1.mes,41,2,UNKNOWN_6e5c,手紙,,편지
+namelist1.mes,namelist1.mes,42,3,UNKNOWN_6e5c,使用人,,하인
+namelist1.mes,namelist1.mes,43,2,UNKNOWN_6e5c,半蔵,,한조
+namelist1.mes,namelist1.mes,44,2,UNKNOWN_6e5c,店員,,점원
+namelist1.mes,namelist1.mes,45,2,UNKNOWN_6e5c,担任,,담임
+namelist1.mes,namelist1.mes,46,4,UNKNOWN_6e5c,若い男1,,젊은 남자1
+namelist1.mes,namelist1.mes,47,4,UNKNOWN_6e5c,若い男2,,젊은 남자2
+namelist1.mes,namelist1.mes,48,3,UNKNOWN_6e5c,門下生,,문하생
+namelist1.mes,namelist1.mes,49,3,UNKNOWN_6e5c,部下達,,부하들
+namelist1.mes,namelist1.mes,50,3,UNKNOWN_6e5c,部下1,,부하1
+namelist1.mes,namelist1.mes,51,3,UNKNOWN_6e5c,部下2,,부하2
+namelist1.mes,namelist1.mes,52,3,UNKNOWN_6e5c,部下3,,부하3
+namelist1.mes,namelist1.mes,53,3,UNKNOWN_6e5c,部下4,,부하4
+namelist1.mes,namelist1.mes,54,3,UNKNOWN_6e5c,部下5,,부하5
+namelist1.mes,namelist1.mes,55,1,UNKNOWN_6e5c,雫,,시즈쿠
+namelist1.mes,namelist1.mes,56,3,UNKNOWN_6e5c,ほたる,,호타루
+namelist1.mes,namelist1.mes,57,3,UNKNOWN_6e5c,キサラ,,키사라
+namelist1.mes,namelist1.mes,58,3,UNKNOWN_6e5c,フィオ,,피오
+namelist1.mes,namelist1.mes,59,3,UNKNOWN_6e5c,ちづる,,치즈루
+namelist1.mes,namelist1.mes,60,3,UNKNOWN_6e5c,マリー,,마리
+namelist1.mes,namelist1.mes,61,4,UNKNOWN_6e5c,マチュア,,마츄어
+namelist1.mes,namelist1.mes,62,4,UNKNOWN_6e5c,イトカツ,,이토카츠
+namelist1.mes,namelist1.mes,63,1,UNKNOWN_6e5c,京,,쿄
+namelist1.mes,namelist1.mes,64,2,UNKNOWN_6e5c,八神,,야가미
+namelist1.mes,namelist1.mes,65,1,UNKNOWN_6e5c,庵,,이오리
+namelist1.mes,namelist1.mes,66,3,UNKNOWN_6e5c,バイス,,바이스
+namelist1.mes,namelist1.mes,67,1,UNKNOWN_6e5c,犬,,개
+namelist1.mes,namelist1.mes,68,4,UNKNOWN_6e5c,アントン,,안톤
+namelist1.mes,namelist1.mes,69,4,UNKNOWN_6e5c,男子学生,,남학생
+namelist1.mes,namelist1.mes,70,1,UNKNOWN_6e5c,客,,손님
+namelist1.mes,namelist1.mes,71,5,UNKNOWN_6e5c,シェルミー,,셰르미
+namelist1.mes,namelist1.mes,72,5,UNKNOWN_6e5c,ゲーニッツ,,게닛츠
+namelist1.mes,namelist1.mes,73,4,UNKNOWN_6e5c,ルガール,,루갈
+namelist1.mes,namelist1.mes,74,2,UNKNOWN_6e5c,学生,,학생
+namelist1.mes,namelist1.mes,75,5,UNKNOWN_6e5c,カメラマン,,카메라맨
+namelist1.mes,namelist1.mes,76,3,UNKNOWN_6e5c,キザ男,,느끼한 남자
+namelist1.mes,namelist1.mes,77,4,UNKNOWN_6e5c,女子生徒,,여학생
+namelist1.mes,namelist1.mes,78,5,UNKNOWN_6e5c,子どもたち,,아이들
+namelist1.mes,namelist1.mes,79,5,UNKNOWN_6e5c,工作部先輩,,공작부 선배
+namelist1.mes,namelist1.mes,80,3,UNKNOWN_6e5c,暴走族,,폭주족
+namelist1.mes,namelist1.mes,81,1,UNKNOWN_6e5c,翔,,쇼
+namelist1.mes,namelist1.mes,82,2,UNKNOWN_6e5c,マキ,,마키
+namelist1.mes,namelist1.mes,83,2,UNKNOWN_6e5c,大男,,거한
+namelist1.mes,namelist1.mes,84,4,UNKNOWN_6e5c,ファン1,,팬1
+namelist1.mes,namelist1.mes,85,4,UNKNOWN_6e5c,ファン2,,팬2
+namelist1.mes,namelist1.mes,86,4,UNKNOWN_6e5c,祭り客1,,축제 손님1
+namelist1.mes,namelist1.mes,87,4,UNKNOWN_6e5c,祭り客2,,축제 손님2
+namelist1.mes,namelist1.mes,88,4,UNKNOWN_6e5c,祭り客3,,축제 손님3
+namelist1.mes,namelist1.mes,89,3,UNKNOWN_6e5c,子ども,,아이
+namelist1.mes,namelist1.mes,90,3,UNKNOWN_6e5c,ファン,,팬
+namelist1.mes,namelist1.mes,91,2,UNKNOWN_6e5c,学長,,학장
+namelist1.mes,namelist1.mes,92,3,UNKNOWN_6e5c,婚約者,,약혼자
+namelist1.mes,namelist1.mes,93,1,UNKNOWN_6e5c,社,,야시로
+namelist1.mes,namelist1.mes,94,3,UNKNOWN_6e5c,クリス,,크리스
+namelist1.mes,namelist1.mes,95,3,UNKNOWN_6e5c,事務員,,사무원
+namelist1.mes,namelist1.mes,96,2,UNKNOWN_6e5c,真吾,,신고
+namelist1.mes,namelist1.mes,97,5,UNKNOWN_6e5c,雫&アテナ,,시즈쿠&아테나
+namelist1.mes,namelist1.mes,98,1,UNKNOWN_6e5c,母,,어머니
+namelist1.mes,namelist1.mes,99,2,UNKNOWN_6e5c,……,,
+namelist1.mes,namelist1.mes,100,6,UNKNOWN_6e5c,<이름:3232>&キサラ,,<이름:3232>&키사라
+namelist1.mes,namelist1.mes,101,1,UNKNOWN_6e5c,桑,,쿠와
+namelist1.mes,namelist1.mes,102,2,UNKNOWN_6e5c,全員,,전원
+namelist1.mes,namelist1.mes,103,3,UNKNOWN_6e5c,若い男,,젊은 남자
+namelist1.mes,namelist1.mes,104,3,UNKNOWN_6e5c,若い女,,젊은 여자
+namelist1.mes,namelist1.mes,105,2,UNKNOWN_6e5c,客1,,손님1
+namelist1.mes,namelist1.mes,106,2,UNKNOWN_6e5c,客2,,손님2
+namelist1.mes,namelist1.mes,107,4,UNKNOWN_6e5c,ナコルル,,나코루루
+namelist1.mes,namelist1.mes,108,2,UNKNOWN_6e5c,詩乃,,시노
+namelist1.mes,namelist1.mes,109,2,UNKNOWN_6e5c,千夜,,치요
+namelist1.mes,namelist1.mes,110,2,UNKNOWN_6e5c,ミナ,,미나
+namelist1.mes,namelist1.mes,111,2,UNKNOWN_6e5c,凛花,,린카
+namelist1.mes,namelist1.mes,112,2,UNKNOWN_6e5c,サヤ,,사야
+namelist1.mes,namelist1.mes,113,1,UNKNOWN_6e5c,命,,미코토
+namelist1.mes,namelist1.mes,114,1,UNKNOWN_6e5c,色,,시키
+namelist1.mes,namelist1.mes,115,3,UNKNOWN_6e5c,いろは,,이로하
+namelist1.mes,namelist1.mes,116,3,UNKNOWN_6e5c,狂エ門,,쿄에몬
+namelist1.mes,namelist1.mes,117,3,UNKNOWN_6e5c,覇王丸,,하오마루
+namelist1.mes,namelist1.mes,118,2,UNKNOWN_6e5c,右京,,우쿄
+namelist1.mes,namelist1.mes,119,3,UNKNOWN_6e5c,幻十郎,,겐주로
+namelist1.mes,namelist1.mes,120,3,UNKNOWN_6e5c,男の子,,남자아이
+namelist1.mes,namelist1.mes,121,4,UNKNOWN_6e5c,ママハハ,,새엄마
+namelist1.mes,namelist1.mes,122,3,UNKNOWN_6e5c,鉄之介,,테츠노스케
+namelist1.mes,namelist1.mes,123,5,UNKNOWN_6e5c,チャンプル,,참푸루
+namelist1.mes,namelist1.mes,124,2,UNKNOWN_6e5c,客3,,손님3
+namelist1.mes,namelist1.mes,125,4,UNKNOWN_6e5c,怪しい男,,수상한 남자
+namelist1.mes,namelist1.mes,126,4,UNKNOWN_6e5c,リムルル,,리무루루
+namelist1.mes,namelist1.mes,127,6,UNKNOWN_6e5c,ガルフォード,,갈포드
+namelist1.mes,namelist1.mes,128,3,UNKNOWN_6e5c,パピィ,,포피
+namelist1.mes,namelist1.mes,129,3,UNKNOWN_6e5c,八百屋,,채소가게
+namelist1.mes,namelist1.mes,130,4,UNKNOWN_6e5c,肉まん男,,고기만두 남자
+namelist1.mes,namelist1.mes,131,3,UNKNOWN_6e5c,町人1,,마을 사람1
+namelist1.mes,namelist1.mes,132,3,UNKNOWN_6e5c,町人2,,마을 사람2
+namelist1.mes,namelist1.mes,133,3,UNKNOWN_6e5c,町人3,,마을 사람3
+namelist1.mes,namelist1.mes,134,2,UNKNOWN_6e5c,町人,,마을 사람
+namelist1.mes,namelist1.mes,135,2,UNKNOWN_6e5c,町娘,,마을 처녀
+namelist1.mes,namelist1.mes,136,3,UNKNOWN_6e5c,化け物,,괴물
+namelist1.mes,namelist1.mes,137,1,UNKNOWN_6e5c,猫,,고양이
+namelist1.mes,namelist1.mes,138,3,UNKNOWN_6e5c,舎弟1,,졸개1
+namelist1.mes,namelist1.mes,139,3,UNKNOWN_6e5c,舎弟2,,졸개2
+namelist1.mes,namelist1.mes,140,4,UNKNOWN_6e5c,ゴロツキ,,건달
+namelist1.mes,namelist1.mes,141,2,UNKNOWN_6e5c,舎弟,,졸개
+namelist1.mes,namelist1.mes,142,2,UNKNOWN_6e5c,ユガ,,유가
+namelist1.mes,namelist1.mes,143,4,UNKNOWN_6e5c,やくざ1,,야쿠자1
+namelist1.mes,namelist1.mes,144,4,UNKNOWN_6e5c,やくざ2,,야쿠자2
+namelist1.mes,namelist1.mes,145,2,UNKNOWN_6e5c,暴漢,,폭한
+namelist1.mes,namelist1.mes,146,2,UNKNOWN_6e5c,黒子,,쿠로코
+namelist1.mes,namelist1.mes,147,1,UNKNOWN_6e5c,侍,,사무라이
+namelist1.mes,namelist1.mes,148,2,UNKNOWN_6e5c,夜血,,야케츠
+namelist1.mes,namelist1.mes,149,5,UNKNOWN_6e5c,サヤ。詩乃,,"사야, 시노"
+namelist1.mes,namelist1.mes,150,4,UNKNOWN_6e5c,花ちゃん,,하나짱
+namelist1.mes,namelist1.mes,151,4,UNKNOWN_6e5c,銀髪の男,,은발의 남자
+namelist1.mes,namelist1.mes,152,4,UNKNOWN_6e5c,金髪女性,,금발 여성
+namelist1.mes,namelist1.mes,153,4,UNKNOWN_6e5c,千両役者,,명배우
+namelist1.mes,namelist1.mes,154,2,UNKNOWN_6e5c,和<CE12>,,
+namelist1.mes,namelist1.mes,155,2,UNKNOWN_6e5c,骸羅,,가이라
+namelist1.mes,namelist1.mes,156,4,UNKNOWN_6e5c,隻眼の男,,애꾸눈의 남자
+namelist1.mes,namelist1.mes,157,3,UNKNOWN_6e5c,町民1,,마을 주민1
+namelist1.mes,namelist1.mes,158,3,UNKNOWN_6e5c,町民2,,마을 주민2
+namelist1.mes,namelist1.mes,159,4,UNKNOWN_6e5c,おっかけ,,열성팬
+namelist1.mes,namelist1.mes,160,6,UNKNOWN_6e5c,ナコルルの風,,나코루루의 바람
+namelist1.mes,namelist1.mes,161,2,UNKNOWN_6e5c,赤子,,갓난아기
+namelist1.mes,namelist1.mes,162,2,UNKNOWN_6e5c,祖父,,할아버지
+namelist1.mes,namelist1.mes,163,3,UNKNOWN_6e5c,店員1,,점원1
+namelist1.mes,namelist1.mes,164,3,UNKNOWN_6e5c,店員2,,점원2
+namelist1.mes,namelist1.mes,165,2,UNKNOWN_6e5c,呼込,,호객꾼
+namelist1.mes,namelist1.mes,166,5,UNKNOWN_6e5c,元御庭番衆,,전 오니와반슈
+namelist1.mes,namelist1.mes,167,3,UNKNOWN_6e5c,銃士浪,,쥬시로
+namelist1.mes,namelist1.mes,168,2,UNKNOWN_6e5c,手下,,수하
+namelist1.mes,namelist1.mes,169,3,UNKNOWN_6e5c,手下1,,수하1
+namelist1.mes,namelist1.mes,170,3,UNKNOWN_6e5c,手下2,,수하2
+namelist1.mes,namelist1.mes,171,3,UNKNOWN_6e5c,手下3,,수하3
+namelist1.mes,namelist1.mes,172,2,UNKNOWN_6e5c,巨漢,,거한
+namelist1.mes,namelist1.mes,173,2,UNKNOWN_6e5c,悪魔,,악마
+namelist1.mes,namelist1.mes,174,2,UNKNOWN_6e5c,忍1,,닌자1
+namelist1.mes,namelist1.mes,175,2,UNKNOWN_6e5c,忍2,,닌자2
+namelist1.mes,namelist1.mes,176,2,UNKNOWN_6e5c,忍3,,닌자3
+namelist1.mes,namelist1.mes,177,5,UNKNOWN_6e5c,謎のくノ一,,수상한 여닌자
+namelist1.mes,namelist1.mes,178,4,UNKNOWN_6e5c,手下たち,,수하들
+namelist1.mes,namelist1.mes,179,6,UNKNOWN_6e5c,<이름:3232>&狂エ門,,<이름:3232>&쿄에몬
+namelist1.mes,namelist1.mes,180,7,UNKNOWN_6e5c,通りすがりの男,,지나가던 남자
+namelist1.mes,namelist1.mes,181,5,UNKNOWN_6e5c,つぅちゃん,,츠짱
+namelist1.mes,namelist1.mes,182,3,UNKNOWN_6e5c,未使用,,미사용
+namelist1.mes,namelist1.mes,183,4,UNKNOWN_6e5c,メンバー,,멤버
+namelist1.mes,namelist1.mes,184,4,UNKNOWN_6e5c,子供の声,,아이 목소리
+namelist1.mes,namelist1.mes,185,3,UNKNOWN_6e5c,ジャン,,잔
+namelist1.mes,namelist1.mes,186,2,UNKNOWN_6e5c,実況,,중계
+namelist1.mes,namelist1.mes,187,2,UNKNOWN_6e5c,瑞穂,,미즈호
+namelist1.mes,namelist1.mes,188,3,UNKNOWN_6e5c,オロチ,,오로치
+namelist1.mes,namelist1.mes,189,3,UNKNOWN_6e5c,委員長,,반장
+namelist1.mes,namelist1.mes,190,4,UNKNOWN_6e5c,腐れ外道,,썩어빠진 놈
+namelist1.mes,namelist1.mes,191,1,UNKNOWN_6e5c,儚,,하카나
+dom1chara.mes,dom1chara.mes,0,50,,誕生日：3月14日<6E5C>年齢<020A>：17歳<6E5C>出身地：日本<6E5C>血夜型：B型<6E5C>身長<020A>：163cm<6E5C>体重<020A>：49kg,,생일: 3월 14일<6E5C>나이<020A>: 17세<6E5C>출신지: 일본<6E5C>혈액형: B형<6E5C>신장<020A>: 163cm<6E5C>체중<020A>: 49kg
+dom1chara.mes,dom1chara.mes,1,49,UNKNOWN_6e5c,誕生日：1月1日<6E5C>年齢<020A>：21歳<6E5C>出身地：日本<6E5C>血夜型：B型<6E5C>身長<020A>：165cm<6E5C>体重<020A>：46kg,,생일: 1월 1일<6E5C>나이<020A>: 21세<6E5C>출신지: 일본<6E5C>혈액형: B형<6E5C>신장<020A>: 165cm<6E5C>체중<020A>: 46kg
+dom1chara.mes,dom1chara.mes,2,50,UNKNOWN_6e5c,誕生日：12月7日<6E5C>年齢<020A>：20歳<6E5C>出身地：日本<6E5C>血夜型：A型<6E5C>身長<020A>：168cm<6E5C>体重<020A>：54kg,,생일: 12월 7일<6E5C>나이<020A>: 20세<6E5C>출신지: 일본<6E5C>혈액형: A형<6E5C>신장<020A>: 168cm<6E5C>체중<020A>: 54kg
+dom1chara.mes,dom1chara.mes,3,51,UNKNOWN_6e5c,誕生日：4月8日<6E5C>年齢<020A>：24歳<6E5C>出身地：フランス<6E5C>血夜型：A型<6E5C>身長<020A>：175cm<6E5C>体重<020A>：58kg,,생일: 4월 8일<6E5C>나이<020A>: 24세<6E5C>출신지: 프랑스<6E5C>혈액형: A형<6E5C>신장<020A>: 175cm<6E5C>체중<020A>: 58kg
+dom1chara.mes,dom1chara.mes,4,50,UNKNOWN_6e5c,誕生日：3月29日<6E5C>年齢<020A>：15歳<6E5C>出身地：日本<6E5C>血夜型：B型<6E5C>身長<020A>：154cm<6E5C>体重<020A>：45kg,,생일: 3월 29일<6E5C>나이<020A>: 15세<6E5C>출신지: 일본<6E5C>혈액형: B형<6E5C>신장<020A>: 154cm<6E5C>체중<020A>: 45kg
+dom1chara.mes,dom1chara.mes,5,53,UNKNOWN_6e5c,誕生日：1月23日<6E5C>年齢<020A>：20歳<6E5C>出身地：イギリス<6E5C>血夜型：AB型<6E5C>身長<020A>：167cm<6E5C>体重<020A>：49kg,,생일: 1월 23일<6E5C>나이<020A>: 20세<6E5C>출신지: 영국<6E5C>혈액형: AB형<6E5C>신장<020A>: 167cm<6E5C>체중<020A>: 49kg
+dom1chara.mes,dom1chara.mes,6,50,UNKNOWN_6e5c,誕生日：5月29日<6E5C>年齢<020A>：14歳<6E5C>出身地：不明<6E5C>血夜型：不明<6E5C>身長<020A>：159cm<6E5C>体重<020A>：49kg,,생일: 5월 29일<6E5C>나이<020A>: 14세<6E5C>출신지: 불명<6E5C>혈액형: 불명<6E5C>신장<020A>: 159cm<6E5C>체중<020A>: 49kg
+dom1chara.mes,dom1chara.mes,7,50,UNKNOWN_6e5c,誕生日：1月10日<6E5C>年齢<020A>：17歳<6E5C>出身地：不明<6E5C>血夜型：B型<6E5C>身長<020A>：176cm<6E5C>体重<020A>：66kg,,생일: 1월 10일<6E5C>나이<020A>: 17세<6E5C>출신지: 불명<6E5C>혈액형: B형<6E5C>신장<020A>: 176cm<6E5C>체중<020A>: 66kg
+mapmove.mes,mapmove.mes,0,12,,移動先を選んでください.,,
+nameinput.mes,nameinput.mes,0,13,UNKNOWN_20a,この名前でよろしいですか?,,

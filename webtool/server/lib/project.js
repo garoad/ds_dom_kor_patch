@@ -3,7 +3,7 @@
 // Workspace project-state helper (new for this tool, not a port). Each
 // project lives under webtool/workspace/<name>/ and owns:
 //   unpack/                 - NitroPacker unpack output, never mutated after
-//   translation_export.csv  - master CSV, the translation "save file"
+//   translations/           - per-category split CSVs, the translation "save file"
 //   build/                  - reinsert output (full copy of unpack/ with only
 //                              translated .mes files overwritten)
 //   output/                 - packed .nds output
@@ -40,10 +40,6 @@ function scriptDir(name) {
 
 function csvDir(name) {
   return path.join(projectDir(name), "translations");
-}
-
-function csvPath(name) {
-  return path.join(projectDir(name), "translation_export.csv");
 }
 
 function originalRomPath(name) {
@@ -120,7 +116,6 @@ module.exports = {
   unpackDir,
   scriptDir,
   csvDir,
-  csvPath,
   originalRomPath,
   buildDir,
   buildScriptDir,

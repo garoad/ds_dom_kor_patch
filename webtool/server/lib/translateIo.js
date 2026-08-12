@@ -18,6 +18,13 @@ const NAME_VAR_PREFIX = 0x505c;
 const NAME_VAR_SUFFIXES = new Set([0x3131, 0x3232]);
 const NAME_VAR_RE = /<이름(?::([0-9A-Fa-f]{4}))?>/y;
 
+// See analysis/translate_io.py's PAGE_TURN_TOKEN comment for the full
+// rationale: when a block's last token is this marker, pipeline.js's
+// extractProject() excludes it from the CSV 'source' text entirely (no
+// trailing <485C> for the translator to carry through), and
+// buildFileTokens()/validateRow() append it back automatically.
+const PAGE_TURN_TOKEN = 0x485c;
+
 // Full-width blank tile. Still used to pad translations that encode shorter
 // than the original block's fixed token count (see pipeline.js) -
 // block-length padding is a separate technical concern from visible
@@ -155,15 +162,29 @@ function countPlaceholders(text) {
   return counts;
 }
 
+// 2026-08-12: a translation that's meaningfully shorter or longer than the
+// source naturally needs a different number of line breaks (0x6E5C, used
+// mid-block as an internal page/line break) or page-turns (PAGE_TURN_TOKEN /
+// 0x485C). Requiring an exact count match for these two forced translators
+// to pad/trim text just to keep the count identical instead of writing
+// natural Korean. Exempted from the count check below per user request -
+// every other placeholder (name variables, unknown control codes, etc.)
+// still must match exactly.
+const IGNORED_PLACEHOLDER_CODES = new Set(["485C", "485c", "6E5C", "6e5c"]);
+
 /**
  * Every <HEX> control/formatting placeholder (and the <이름> marker) in the
  * source must appear the same number of times in the translation - order is
- * NOT enforced, only counts. Returns an array of human-readable problem
- * strings (empty = OK).
+ * NOT enforced, only counts (except IGNORED_PLACEHOLDER_CODES above).
+ * Returns an array of human-readable problem strings (empty = OK).
  */
 function validatePlaceholders(srcText, dstText) {
   const sc = countPlaceholders(srcText);
   const dc = countPlaceholders(dstText);
+  for (const code of IGNORED_PLACEHOLDER_CODES) {
+    sc.delete(code);
+    dc.delete(code);
+  }
   const missing = {};
   const extra = {};
   for (const [k, v] of sc) {
@@ -183,6 +204,7 @@ function validatePlaceholders(srcText, dstText) {
 module.exports = {
   NAME_VAR_PREFIX,
   NAME_VAR_SUFFIXES,
+  PAGE_TURN_TOKEN,
   SPACE_TOKEN,
   HALF_SPACE_TOKEN,
   isLiteralGlyph,

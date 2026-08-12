@@ -2,6 +2,7 @@
 
 const express = require("express");
 const fs = require("fs");
+const path = require("path");
 const proj = require("../lib/project");
 const pipeline = require("../lib/pipeline");
 const { translateBatch: macTranslateBatch } = require("../lib/macTranslate");
@@ -105,10 +106,7 @@ router.get("/download", (req, res) => {
 
   const transDir = proj.csvDir(name);
   if (!fs.existsSync(transDir)) {
-    // 혹시 마스터 파일만 존재하는 경우
-    const filePath = proj.csvPath(name);
-    if (!fs.existsSync(filePath)) return res.status(404).json({ error: "CSV 파일이 없습니다. 먼저 생성/갱신하세요" });
-    return res.download(filePath, `${name}_translation_export.csv`);
+    return res.status(404).json({ error: "CSV 파일이 없습니다. 먼저 생성/갱신하세요" });
   }
 
   const zipPath = path.join(proj.projectDir(name), `${name}_translations.zip`);

@@ -41,6 +41,28 @@
 
   <section id="tab-csv" class="tab-panel">
     <h2>번역 CSV</h2>
+    <details class="help-box">
+      <summary>원문/번역에 나오는 제어문자(&lt;XXXX&gt;)가 뭔가요?</summary>
+      <ul>
+        <li><code>&lt;이름&gt;</code>, <code>&lt;이름:3131&gt;</code>, <code>&lt;이름:3232&gt;</code> —
+          플레이어가 입력한 주인공 이름이 게임에서 자동으로 채워지는 자리입니다.
+          반드시 그대로 남겨두되(빼거나 새로 만들면 안 됨), 자연스러운 어순을 위해
+          문장 안 위치를 옮기는 것은 괜찮습니다.</li>
+        <li><code>&lt;485C&gt;</code> — "다음 페이지로 넘기기 위해 입력을 기다림" 제어코드입니다.
+          대부분의 대사 끝에 자동으로 붙어 있던 코드로, 이제 원문/번역 칸에는 아예 표시되지
+          않고 저장 시 자동으로 처리됩니다. 번역이 원문보다 짧아지거나 길어져도 신경 쓸 필요
+          없습니다.</li>
+        <li><code>&lt;6E5C&gt;</code> — 대사창 안에서 줄을 바꾸거나 페이지를 나누는 제어코드입니다.
+          번역 문장의 길이에 맞게 자유롭게 추가하거나 지워도 되며, 원문과 개수가 달라져도
+          오류로 표시되지 않습니다.</li>
+        <li>그 외 <code>&lt;0216&gt;</code>처럼 의미가 아직 밝혀지지 않은 제어코드는 원문에 있는
+          개수와 위치를 그대로 보존해야 합니다. 빠뜨리거나 새로 추가하면 저장/재삽입 시 오류로
+          표시됩니다.</li>
+        <li>대사 한 칸의 길이(토큰 수)는 롬 상에서 고정되어 있습니다. 번역이 원문보다 짧으면
+          빈 칸으로 자동으로 채워지지만, 원문보다 길어지면 오류로 표시되므로 원문 분량에 맞춰
+          작성해 주세요.</li>
+      </ul>
+    </details>
     <button id="btn-extract">CSV 생성/갱신</button>
     <a id="btn-download-csv" class="btn-link" href="#" download>분리 CSV 압축본(ZIP) 다운로드</a>
     <pre id="extract-result" class="result-box"></pre>
@@ -92,10 +114,40 @@
 
   <section id="tab-images" class="tab-panel">
     <h2>이미지 탐색</h2>
+    <details class="help-box">
+      <summary>여러 이미지를 한 번에 교체하려면?</summary>
+      <ul>
+        <li>미리보기 이미지를 "다른 이름으로 저장"하면 원본 파일명(예: <code>dom1char002.png</code>,
+          <code>SNK_LOGO_bg_snkc.png</code>)이 자동으로 붙습니다. 이 파일명을 그대로 유지한 채
+          편집하세요.</li>
+        <li>편집이 끝난 PNG 여러 개를 아래 박스에 한 번에 드래그하거나 선택하면, 파일명이 같은
+          원본 이미지를 프로젝트 전체에서 찾아 자동으로 교체합니다 (탐색 트리에서 하나씩 선택할
+          필요 없음).</li>
+        <li>파일명이 프로젝트 안에 없거나 여러 개와 동시에 일치하면 그 파일은 건너뛰고 결과에
+          이유가 표시됩니다.</li>
+      </ul>
+    </details>
+    <div id="batch-image-dropzone" class="dropzone">
+      PNG 파일 여러 개를 여기로 드래그하거나 클릭해서 선택하세요 (파일명으로 자동 매칭)
+      <input type="file" id="batch-image-input" accept="image/png" multiple hidden />
+    </div>
+    <button id="btn-batch-image-upload" class="btn-action">일괄 교체 실행</button>
+    <pre id="batch-image-result" class="result-box"></pre>
+
     <div id="breadcrumb" class="breadcrumb"></div>
     <div class="image-browser">
       <ul id="file-tree" class="file-tree"></ul>
-      <div id="image-preview" class="image-preview">파일을 선택하세요</div>
+      <div>
+        <div id="image-preview" class="image-preview">파일을 선택하세요</div>
+        <div id="image-dropzone" class="image-dropzone">
+          PNG 파일을 여기로 드래그하거나 클릭해서 선택하세요
+          <input type="file" id="image-upload-input" accept="image/png" hidden />
+        </div>
+        <div class="image-upload-row">
+          <button id="btn-image-upload">이미지 교체</button>
+          <span id="image-upload-status"></span>
+        </div>
+      </div>
     </div>
   </section>
 

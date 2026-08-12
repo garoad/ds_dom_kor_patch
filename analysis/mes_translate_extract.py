@@ -36,6 +36,25 @@ OUTSIDE_MES_FILES = [
     "endtitledom3.mes",
     "endtitledom2.mes",
     "endtitledom1.mes",
+    # Master speaker/NPC name table - index N == the header ID used by
+    # find_dialogue_blocks() to tag a dialogue block's speaker (verified
+    # 2026-08-12 by cross-referencing every known speaker_map.SPEAKER_NAMES/
+    # SPECIAL_NAMES ID against this file's entry at the same index - all
+    # matched exactly). Headerless list format like dom2chara.mes/
+    # playername.mes, so speaker labels for its own rows come out as
+    # UNKNOWN_0x6e5c (the literal separator token, not a real header) -
+    # same pre-existing behavior as those other list files.
+    "namelist1.mes",
+    # dom1chara.mes was missing entirely from this list until 2026-08-12
+    # (dom2chara.mes/dom3chara.mes were already here) - same per-character
+    # profile-card format, just for dom1's cast.
+    "dom1chara.mes",
+    # Short one-off UI prompt strings (map-move / name-confirm dialogs) -
+    # real per-entry headers, NOT the headerless-list pattern, so they get
+    # standard strict length matching on reinsert, not the
+    # LIST_NO_LENGTH_CAP_FILES treatment.
+    "mapmove.mes",
+    "nameinput.mes",
 ]
 
 
@@ -121,7 +140,11 @@ def main():
             total_files += 1
 
         for i, (s, e) in enumerate(real_blocks):
-            text = tio.tokens_to_text(values[s:e])
+            # Hide the trailing page-turn marker from the CSV text entirely
+            # (see tio.PAGE_TURN_TOKEN) - mes_translate_reinsert.py restores
+            # it automatically based on the real on-disk block boundary.
+            text_end = e - 1 if values[e - 1] == tio.PAGE_TURN_TOKEN else e
+            text = tio.tokens_to_text(values[s:text_end])
             header_val = values[s - 1] if s - 1 >= 0 else None
             speaker = speaker_map.speaker_of(header_val) if header_val is not None else None
             csv_data[cat].append({
