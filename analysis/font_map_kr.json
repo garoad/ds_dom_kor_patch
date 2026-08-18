@@ -12417,7 +12417,8 @@
     "430E": {
       "kind": "full",
       "count": 2,
-      "real_tile": 4302
+      "real_tile": 4302,
+      "char": "쏴"
     },
     "5110": {
       "kind": "full",
@@ -13054,8 +13055,7 @@
     "0100": {
       "kind": "full",
       "count": 1,
-      "real_tile": 64,
-      "char": "렷"
+      "real_tile": 64
     },
     "0574": {
       "kind": "full",
@@ -15324,67 +15324,80 @@
     "4106": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4166
+      "real_tile": 4166,
+      "char": "믓"
     },
     "410C": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4172
+      "real_tile": 4172,
+      "char": "낱"
     },
     "4112": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4178
+      "real_tile": 4178,
+      "char": "룔"
     },
     "4114": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4180
+      "real_tile": 4180,
+      "char": "엲"
     },
     "4118": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4184
+      "real_tile": 4184,
+      "char": "렷"
     },
     "4200": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4224
+      "real_tile": 4224,
+      "char": "덯"
     },
     "4202": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4226
+      "real_tile": 4226,
+      "char": "똔"
     },
     "4204": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4228
+      "real_tile": 4228,
+      "char": "멕"
     },
     "420E": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4238
+      "real_tile": 4238,
+      "char": "겟"
     },
     "4216": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4246
+      "real_tile": 4246,
+      "char": "둰"
     },
     "421A": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4250
+      "real_tile": 4250,
+      "char": "읖"
     },
     "4304": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4292
+      "real_tile": 4292,
+      "char": "깉"
     },
     "4310": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4304
+      "real_tile": 4304,
+      "char": "롯"
     },
     "4314": {
       "kind": "full",
@@ -20495,84 +20508,6 @@
       "kind": "half",
       "count": 0,
       "char": "P"
-    },
-    "0102": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 66,
-      "char": "덯"
-    },
-    "0104": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 68,
-      "char": "믓"
-    },
-    "0106": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 70,
-      "char": "낱"
-    },
-    "010A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 74,
-      "char": "룔"
-    },
-    "010E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 78,
-      "char": "똔"
-    },
-    "0110": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 80,
-      "char": "멕"
-    },
-    "0112": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 82,
-      "char": "겟"
-    },
-    "0116": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 86,
-      "char": "둰"
-    },
-    "0118": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 88,
-      "char": "엲"
-    },
-    "011A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 90,
-      "char": "읖"
-    },
-    "011E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 94,
-      "char": "깉"
-    },
-    "0202": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 130,
-      "char": "쏴"
-    },
-    "0206": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 134,
-      "char": "롯"
     },
     "D40C": {
       "kind": "full",

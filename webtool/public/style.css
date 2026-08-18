@@ -151,7 +151,7 @@ table#csv-table textarea {
   resize: vertical;
   box-sizing: border-box;
 }
-.btn-copy-source {
+.btn-copy-source, .btn-copy-ai {
   display: block;
   margin-bottom: 4px;
   padding: 2px 6px;
@@ -160,7 +160,13 @@ table#csv-table textarea {
   background: #eceff1;
   color: #37474f;
 }
-.btn-copy-source:hover { background: #cfd8dc; }
+.btn-copy-source:hover, .btn-copy-ai:hover { background: #cfd8dc; }
+.btn-copy-ai {
+  border-color: #80a4c0;
+  background: #e3eef7;
+  color: #2c5b7a;
+}
+.btn-copy-ai:hover { background: #cfe2ef; }
 
 #btn-save-csv {
   position: fixed;

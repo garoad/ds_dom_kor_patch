@@ -61,12 +61,12 @@ dom2chara.mes,dom2chara.mes,4,51,UNKNOWN_6e5c,誕生日：6月26日<6E5C>年齢<
 dom2chara.mes,dom2chara.mes,5,52,UNKNOWN_6e5c,誕生日：2月4日<6E5C>年齢<020A>：25歳<6E5C>出身地：アメリカ<6E5C>血夜型：AB型<6E5C>身長<020A>：168cm<6E5C>体重<020A>：49kg,,생일: 2월 4일<6E5C>나이<020A>: 25세<6E5C>출신지: 미국<6E5C>혈액형: AB형<6E5C>신장<020A>: 168cm<6E5C>체중<020A>: 49kg
 dom2chara.mes,dom2chara.mes,6,48,UNKNOWN_6e5c,誕生日：4月8日<6E5C>年齢<020A>：?歳<6E5C>出身地：不明<6E5C>血夜型：O型<6E5C>身長<020A>：177cm<6E5C>体重<020A>：58kg,,생일: 4월 8일<6E5C>나이<020A>: ?세<6E5C>출신지: 불명<6E5C>혈액형: O형<6E5C>신장<020A>: 177cm<6E5C>체중<020A>: 58kg
 dom2chara.mes,dom2chara.mes,7,50,UNKNOWN_6e5c,誕生日：3月14日<6E5C>年齢<020A>：20歳<6E5C>出身地：日本<6E5C>血夜型：B型<6E5C>身長<020A>：163cm<6E5C>体重<020A>：49kg,,생일: 3월 14일<6E5C>나이<020A>: 20세<6E5C>출신지: 일본<6E5C>혈액형: B형<6E5C>신장<020A>: 163cm<6E5C>체중<020A>: 49kg
-playername.mes,playername.mes,0,2,,村上,,
-playername.mes,playername.mes,1,2,UNKNOWN_6e5c,大地,,
-playername.mes,playername.mes,2,2,UNKNOWN_6e5c,天樹,,
-playername.mes,playername.mes,3,1,UNKNOWN_6e5c,優,,
-playername.mes,playername.mes,4,2,UNKNOWN_6e5c,村上,,
-playername.mes,playername.mes,5,3,UNKNOWN_6e5c,大之介,,
+playername.mes,playername.mes,0,2,,村上,,무라키
+playername.mes,playername.mes,1,2,UNKNOWN_6e5c,大地,,다이치
+playername.mes,playername.mes,2,2,UNKNOWN_6e5c,天樹,,아마기
+playername.mes,playername.mes,3,1,UNKNOWN_6e5c,優,,유우
+playername.mes,playername.mes,4,2,UNKNOWN_6e5c,村上,,무라키
+playername.mes,playername.mes,5,3,UNKNOWN_6e5c,大之介,,다이치
 extraopen.mes,extraopen.mes,0,14,UNKNOWN_20a,エキストラが追加されました.,,
 common.mes,common.mes,0,10,UNKNOWN_20a,<0414>123456789,,
 common.mes,common.mes,1,7,UNKNOWN_20a,、.!?!?),,

@@ -318,14 +318,17 @@ function renderCsvTable(rows) {
     const tr = document.createElement("tr");
     tr.dataset.block = row.block;
     tr.dataset.source = row.source;
+    tr.dataset.aiDraft = row.ai_draft || "";
+    const maxLen = row.max_len === null || row.max_len === undefined ? "제한없음" : row.max_len;
     tr.innerHTML = `
       <td>${row.block}</td>
-      <td>${row.n_tokens}</td>
+      <td>${maxLen}</td>
       <td>${escapeHtml(row.speaker || "")}</td>
       <td>${escapeHtml(row.source)}</td>
       <td>${escapeHtml(row.ai_draft || "")}</td>
       <td>
         <button type="button" class="btn-copy-source" title="원문을 번역란에 복사">원문 복사</button>
+        <button type="button" class="btn-copy-ai" title="기계번역(초벌번역)을 번역란에 복사">기계번역 복사</button>
         <textarea class="translation-input">${escapeHtml(row.translation || "")}</textarea>
       </td>
       <td class="status-cell"></td>
@@ -335,10 +338,15 @@ function renderCsvTable(rows) {
 }
 
 document.getElementById("csv-table-body").addEventListener("click", (e) => {
-  if (!e.target.classList.contains("btn-copy-source")) return;
   const tr = e.target.closest("tr");
-  tr.querySelector(".translation-input").value = tr.dataset.source;
-  markDirty();
+  if (!tr) return;
+  if (e.target.classList.contains("btn-copy-source")) {
+    tr.querySelector(".translation-input").value = tr.dataset.source;
+    markDirty();
+  } else if (e.target.classList.contains("btn-copy-ai")) {
+    tr.querySelector(".translation-input").value = tr.dataset.aiDraft;
+    markDirty();
+  }
 });
 
 document.getElementById("csv-table-body").addEventListener("input", (e) => {

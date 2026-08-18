@@ -67,6 +67,90 @@ for (const passKinds of [["half"], ["full"]]) {
 // word-spacing (see HALF_SPACE_TOKEN above). Padding still uses SPACE_TOKEN.
 _CHAR_TO_CODE.set(" ", HALF_SPACE_TOKEN);
 
+// 2026-08-18: real-hardware bug report (melonDS) - 「/『 rendered as "!".
+// Pixel-rendered both candidates directly from Font_DOM.nbfc (64B/tile,
+// byte-per-pixel, 2x2 full-width block = offsets {0,1,32,33}): the
+// auto-picked codes (0193 for 「, 0197 for 『) only have ink in their TR+BR
+// quadrants (right half of the cell), while the original shipped script's
+// codes (0314/0318) have ink in TL+BL (left half) - the correct side for a
+// 「/『 corner stroke. This is the same densely-packed punctuation strip
+// (tiles ~205-223) where adjacent glyphs' declared footprints share
+// physical tiles by design; 0193/0197 are simply the "wrong half" of that
+// shared tile pair. User-confirmed fixed on real hardware after pinning to
+// 0314/0318.
+_CHAR_TO_CODE.set("「", 0x0314);
+_CHAR_TO_CODE.set("『", 0x0318);
+
+// 2026-08-18 (re-corrected, same session): went through TWO wrong turns on S
+// before landing here - full history kept because the reasoning at each step
+// looked sound at the time:
+//   1) pinned S to 0x018C "match what vanilla used at this exact position" -
+//      reported by user as still garbled (attributed to this override at the
+//      time, but see step 3 - likely mis-attributed).
+//   2) "fixed" by switching to 0x00CC (half-width) based on an offline pixel
+//      render that showed 0x018C as fragmented pixels and 0x00CC as a clean
+//      glyph - still reported garbled by user afterward.
+//   3) ROOT CAUSE FOUND (user's own suggestion: "원본이 이미 이 문자열을 렌더링하니
+//      그 코드를 그대로 쓰면 되잖아"): the vanilla corpus's OWN copy of the exact
+//      string this bug is about - "『NO MUSIC NO LIFE!』" at
+//      dom1OP_0701_1.mes block 228 (untranslated Japanese OP dialogue) -
+//      already uses 0x018C for every 'S' in it, count=114 across the whole
+//      corpus, real_tile=204. That block undeniably renders correctly on
+//      real hardware right now, in the unpatched ROM, because it's SNK's own
+//      shipped, tested text. That is strictly stronger evidence than the
+//      offline pixel read from step 2, which is now understood to be
+//      unreliable for this exact reason (see
+//      temp/probe_all_half_codes_ingame.py's docstring / the F-Y retraction
+//      above) - the "fragmented" verdict for 0x018C in step 2 was a
+//      misapplication of the pixel-extraction formula, not a real defect.
+//      0x00CC (kind=half, corpus count=1) has comparatively weak evidence -
+//      it's barely used anywhere in the real script, so its "real-hardware
+//      confirmed" status rests entirely on the 2026-08-11 synthetic
+//      plant-test, not on actual shipped usage. Prefer 0x018C: it's the
+//      code SNK's own text generator chose and is proven correct by the mere
+//      fact that dialogue block still displays correctly today.
+// General principle going forward for any Latin letter, established by this
+// episode: trust corpus REAL_TILE/COUNT from font_map_full.json (i.e. what
+// the vanilla game already renders somewhere) over any offline pixel
+// analysis of a candidate tile. Do not re-litigate S without new evidence at
+// least as strong as "vanilla renders this exact code in real, currently-
+// working dialogue".
+_CHAR_TO_CODE.set("S", 0x018c);
+// 'G' (0x00C1, half, corpus count=1) and 'P' (0x00CA, half, corpus count=0)
+// remain on their half-width real-hardware-plant-tested codes (2026-08-11) -
+// unlike S, no conflicting high-count vanilla usage undermines them (full-
+// width alternatives 0x0181/0x018A do exist with much higher counts of 35/29
+// respectively and would also be safe if G/P ever need re-litigating).
+_CHAR_TO_CODE.set("G", 0x00c1);
+_CHAR_TO_CODE.set("P", 0x00ca);
+
+// 2026-08-18 (same session, RETRACTED): briefly assigned F,H,I,J,K,L,M,N,O,
+// R,T,U,V,W,X,Y to 0x00C0/C2-C9/CB/CD-D2 on the theory that pixel-clean data
+// at the {tile, tile+32} vertical-stack offset for each code meant the game
+// would render it half-width, by analogy with G/P/S. User real-hardware
+// re-test (melonDS) showed the alphabet STILL renders exactly as broken as
+// before this "fix". Root cause: temp/probe_all_half_codes_ingame.py's own
+// docstring records that this exact offline pixel-extraction method (incl.
+// this same tile+32 formula) previously produced WRONG glyphs even for
+// already-real-hardware-CONFIRMED half codes (0091/0084/008F/0086) - so
+// "looks clean at the computed offset" never was a valid predictor of how
+// the DS engine actually renders a given code. G/P/S only work because they
+// were each individually planted and melonDS-observed on 2026-08-11 (see
+// formula.description in font_map_full.json); F,H,I,J,K,L,M,N,O,R,T,U,V,W,
+// X,Y were never planted/observed and the corpus offers ~0 real usages to
+// infer "kind" from either - font_map_full.json's automatic classifier
+// never labeled them "half" for a reason: whether the game engine treats an
+// arbitrary code as half- or full-width is apparently NOT simply "does a
+// half-width tile of clean pixel data exist at low-128" - there's a
+// separate, still-unidentified mechanism (likely a fixed lookup table baked
+// into the ROM's code, only populated for the handful of codes the original
+// Japanese script actually used half-width). DO NOT reintroduce this class
+// of fix without an actual in-game probe (plant the exact code into a real
+// dialogue block via NitroPacker, screenshot melonDS) - offline pixel
+// reads, no matter how clean-looking, are not evidence for kind="half".
+// These letters remain on their setdefault-selected full-width codes below
+// (same as before this attempt - known-broken, but not a NEW regression).
+
 function isLiteralGlyph(v, codesMap = mc.CODES_FULL) {
   const e = codesMap[mc.hex4(v)];
   return Boolean(e) && (e.kind === "full" || e.kind === "half") && Boolean(e.char) && Array.from(e.char).length === 1;

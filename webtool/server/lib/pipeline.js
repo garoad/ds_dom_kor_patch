@@ -280,7 +280,74 @@ function fileSummaries(name) {
 }
 
 function rowsForFile(name, fname) {
-  return readCsv(name).filter((r) => r.file === fname);
+  const rows = readCsv(name).filter((r) => r.file === fname);
+  const relPath = rows.find((r) => r.rel_path)?.rel_path;
+  const pageTurnFlags = realBlockPageTurnFlags(name, fname, relPath);
+  return rows.map((r) => ({
+    ...r,
+    max_len: maxLenOf(r, fname, pageTurnFlags ? pageTurnFlags[Number(r.block)] : undefined),
+  }));
+}
+
+/**
+ * Per-block "does this block's real on-disk token end with the hidden
+ * PAGE_TURN_TOKEN" flags, read directly from the pristine unpack/ file -
+ * the same authoritative source buildFileTokens() uses. Returns null if the
+ * file can't be resolved (falls back to detectHasPageTurn's text-based
+ * guess in that case).
+ */
+function realBlockPageTurnFlags(name, fname, relPath) {
+  const unpackDataDir = path.join(proj.unpackDir(name), "data");
+  let srcPath = relPath ? path.join(unpackDataDir, relPath) : path.join(proj.scriptDir(name), fname);
+  if (!fs.existsSync(srcPath)) srcPath = path.join(unpackDataDir, fname);
+  if (!fs.existsSync(srcPath)) return null;
+
+  const values = mc.loadValues(srcPath);
+  const isScript = srcPath.startsWith(path.join(unpackDataDir, "Script"));
+  const blocks = isScript ? realBlocksOf(values) : mc.findDialogueBlocks(values);
+  return blocks.map(([s, e]) => e > s && values[e - 1] === PAGE_TURN_TOKEN);
+}
+
+/**
+ * Fallback used only when the real .mes file can't be resolved (e.g. a
+ * stale/relocated project). Derives hasPageTurn from srcText alone:
+ * tokensToText()/textToTokens() are a 1-token-in/1-symbol-out round trip for
+ * everything except this one deliberate omission, so srcText re-encodes to
+ * exactly expectedTokenCount tokens normally, or expectedTokenCount - 1 when
+ * the marker was hidden. NOTE: tio.textToTokens() only knows the Korean
+ * translation font map (mc.CODES_KR) - it throws on any kanji still present
+ * in an untranslated srcText, which silently falls through to "no marker"
+ * below. That's acceptable here only because this path is a last-resort
+ * fallback; realBlockPageTurnFlags() above (reading the real file) is what
+ * actually matters for the ~97% of blocks that do have the marker.
+ */
+function detectHasPageTurn(srcText, expectedTokenCount) {
+  if (expectedTokenCount === undefined) return false;
+  let srcTokenCount = expectedTokenCount;
+  try {
+    srcTokenCount = tio.textToTokens(srcText).length;
+  } catch (ex) {
+    // srcText contains a kanji (or other) character outside the Korean font
+    // map and can't be re-encoded; fall back to treating it as the
+    // no-marker case since we have no better signal here.
+  }
+  return srcTokenCount === expectedTokenCount - 1;
+}
+
+/**
+ * The usable character budget for a row's translation, for display to the
+ * translator. row.n_tokens is the raw ROM block span, which still includes
+ * the hidden PAGE_TURN_TOKEN slot for ~97% of blocks (see
+ * pipeline.js's extractProject) - showing that raw number as the length
+ * limit is off by one for those rows. Returns null when the file has no
+ * length cap at all (see LIST_NO_LENGTH_CAP_FILES).
+ */
+function maxLenOf(row, fname, hasPageTurnHint) {
+  if (fname === PLAYERNAME_FILE) return PLAYERNAME_MAX_TOKENS;
+  if (LIST_NO_LENGTH_CAP_FILES.has(fname)) return null;
+  const nTokens = Number(row.n_tokens);
+  const hasPageTurn = hasPageTurnHint !== undefined ? hasPageTurnHint : detectHasPageTurn(row.source, nTokens);
+  return hasPageTurn ? nTokens - 1 : nTokens;
 }
 
 /**
@@ -293,18 +360,12 @@ function rowsForFile(name, fname) {
  * PLAYERNAME_FILE comment above) - it only enforces the in-game 3-character
  * name cap.
  *
- * This function has no access to the source .mes file (CSV data only), so
- * it can't check the real block's last token directly to detect a hidden
- * trailing page-turn marker (see tio.PAGE_TURN_TOKEN). Instead it derives
- * the same fact from srcText alone: tokensToText()/textToTokens() are a
- * 1-token-in/1-symbol-out round trip for everything except this one
- * deliberate omission, so srcText re-encodes to exactly expectedTokenCount
- * tokens normally, or expectedTokenCount - 1 when the marker was hidden.
- * buildFileTokens() reads the real file and is the authoritative check;
- * this only has to agree with it closely enough to give useful live
- * feedback.
+ * hasPageTurnHint should come from realBlockPageTurnFlags() (the real file,
+ * authoritative - same source buildFileTokens() uses); this only falls back
+ * to detectHasPageTurn()'s srcText-based guess when the caller couldn't
+ * resolve the real file.
  */
-function validateRow(srcText, dstTextRaw, expectedTokenCount, fname) {
+function validateRow(srcText, dstTextRaw, expectedTokenCount, fname, hasPageTurnHint) {
   const dstText = dstTextRaw && dstTextRaw.length > 0 ? dstTextRaw : srcText;
   const problems = tio.validatePlaceholders(srcText, dstText);
   if (problems.length) return { ok: false, error: problems.join("; ") };
@@ -329,19 +390,8 @@ function validateRow(srcText, dstTextRaw, expectedTokenCount, fname) {
     return { ok: true, tokenCount: tokens.length };
   }
 
-  let hasPageTurn = false;
-  let textExpected = expectedTokenCount;
-  if (expectedTokenCount !== undefined) {
-    let srcTokenCount = expectedTokenCount;
-    try {
-      srcTokenCount = tio.textToTokens(srcText).length;
-    } catch (ex) {
-      // srcText is the original extracted text and should always re-encode
-      // cleanly; fall back to treating it as the no-marker case if not.
-    }
-    hasPageTurn = srcTokenCount === expectedTokenCount - 1;
-    textExpected = hasPageTurn ? expectedTokenCount - 1 : expectedTokenCount;
-  }
+  const hasPageTurn = hasPageTurnHint !== undefined ? hasPageTurnHint : detectHasPageTurn(srcText, expectedTokenCount);
+  const textExpected = hasPageTurn ? expectedTokenCount - 1 : expectedTokenCount;
 
   if (textExpected !== undefined && tokens.length < textExpected) {
     tokens = tokens.concat(Array(textExpected - tokens.length).fill(tio.SPACE_TOKEN));
@@ -359,6 +409,10 @@ function saveFile(name, fname, edits) {
   const editByBlock = new Map(edits.map((e) => [String(e.block), e]));
   const report = [];
 
+  const fileRows = rows.filter((r) => r.file === fname);
+  const relPath = fileRows.find((r) => r.rel_path)?.rel_path;
+  const pageTurnFlags = realBlockPageTurnFlags(name, fname, relPath);
+
   for (const row of rows) {
     if (row.file !== fname) continue;
     if (!editByBlock.has(String(row.block))) continue;
@@ -366,7 +420,8 @@ function saveFile(name, fname, edits) {
     if (item.translation !== undefined) row.translation = item.translation;
     if (item.ai_draft !== undefined) row.ai_draft = item.ai_draft;
 
-    const v = validateRow(row.source, row.translation, Number(row.n_tokens), fname);
+    const hasPageTurnHint = pageTurnFlags ? pageTurnFlags[Number(row.block)] : undefined;
+    const v = validateRow(row.source, row.translation, Number(row.n_tokens), fname, hasPageTurnHint);
     if (!v.ok) {
       report.push({ block: Number(row.block), ok: false, error: v.error });
     } else if (fname !== PLAYERNAME_FILE && !LIST_NO_LENGTH_CAP_FILES.has(fname) && v.tokenCount !== Number(row.n_tokens)) {
@@ -638,11 +693,30 @@ function renderGlyphToTiles(nbfcBuf, numTiles, startTile, glyph) {
     }
   }
 
+  // Canvas is x:[0,10] (11 wide, centred horizontally) y:[2,12] (11 tall,
+  // BOTTOM-aligned - not centred). This must match analysis/apply_font_art.py's
+  // render_glyph_16x16 exactly (GLYPH_X_MIN/MAX/Y_MIN/MAX, paste_x/paste_y) -
+  // that Python renderer is the one validated against real hardware/melonDS.
+  // This JS port previously centred vertically (targetY0 + r + 2), which
+  // put every hangul glyph ~2px higher than the validated Python output -
+  // usually invisible, but for glyphs whose ink straddles the y=8 tile
+  // boundary (e.g. 스/소/쇼, short vowel strokes) it moves pixels into the
+  // wrong sub-tile entirely (2026-08-18, found while diffing a webtool
+  // build's Font_DOM.nbfc against analysis/unpack's after the half-width
+  // danger-zone fix - the two should have been byte-identical for hangul
+  // tiles and weren't).
+  const GLYPH_X_MIN = 0;
+  const GLYPH_X_MAX = 10;
+  const GLYPH_Y_MIN = 2;
+  const GLYPH_Y_MAX = 12;
+  const GLYPH_W = GLYPH_X_MAX - GLYPH_X_MIN + 1;
+
   const { bbox, hex } = glyph;
-  const canvasW = 11;
-  const canvasH = 11;
-  const targetX0 = Math.floor((canvasW - bbox.w) / 2);
-  const targetY0 = Math.floor((canvasH - bbox.h) / 2);
+  let targetX0 = GLYPH_X_MIN + Math.floor((GLYPH_W - bbox.w) / 2);
+  if (targetX0 < GLYPH_X_MIN) targetX0 = GLYPH_X_MIN;
+  if (targetX0 + bbox.w > GLYPH_X_MAX + 1) targetX0 = GLYPH_X_MAX + 1 - bbox.w;
+  let targetY0 = GLYPH_Y_MAX + 1 - bbox.h;
+  if (targetY0 < GLYPH_Y_MIN) targetY0 = GLYPH_Y_MIN;
 
   for (let r = 0; r < bbox.h; r++) {
     const rowHex = hex[r] || "00";
@@ -655,9 +729,8 @@ function renderGlyphToTiles(nbfcBuf, numTiles, startTile, glyph) {
       if (!pixel) continue;
 
       const px = targetX0 + c;
-      const py = targetY0 + r + 2;
-
-      if (px < 0 || px >= 16 || py < 0 || py >= 16) continue;
+      const py = targetY0 + r;
+      if (px < GLYPH_X_MIN || px > GLYPH_X_MAX || py < GLYPH_Y_MIN || py > GLYPH_Y_MAX) continue;
 
       const subTileX = Math.floor(px / 8);
       const subTileY = Math.floor(py / 8);

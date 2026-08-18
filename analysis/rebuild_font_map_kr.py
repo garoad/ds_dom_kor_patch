@@ -85,6 +85,23 @@ def main():
         groups[rt].add(category_of(code, entry))
         group_codes[rt].append(code)
 
+    # 2026-08-18 재조사 17/18: half-width(kind=="half") 코드는 font_map_full.json에
+    # real_tile 필드가 없어 위 groups 계산에서 통째로 빠진다 - G(00C1)/P(00CA)
+    # 같은 half-width 글자가 실제로 차지하는 물리 타일이 안전성 검증에서 보이지
+    # 않는 사각지대였다(temp/build_full_2350_manifest.py와 동일 버그, 그쪽에서
+    # 먼저 발견/수정함 - ANALYSIS_NOTES.md "후속 재조사 15" 참고). half-width
+    # 타일은 {tile, tile+32} 세로 2칸 스택인데, 처음엔 "실제로 코드가 선언된
+    # 반각 타일만" 보호했었다 - 그런데 덯/똔/멕/겟/둰/읖/깉/쏴/롯 9개 한글이
+    # "선언된 반각 코드와는 안 겹치는" 물리 타일(66/78/80/82/86/90/94/130/134)에
+    # 배정됐는데도 실기에서 그 타일+128 위치의 전각 글리프(I/U/m/</...)가
+    # 깨지는 게 확인됨(재조사 17). 사용자 지적대로 half-width는 "타일을 반만
+    # 써서 그리는" 포맷이라 이미 선언된 코드 유무와 무관하게 low_byte 0x80~0xFF
+    # 전체가 반각 뱅크로 취급되는 것으로 보인다 - 즉 위험 타일은 "현재 쓰이는
+    # {t,t+32}"가 아니라 t가 0..127을 다 돌 때 나오는 이론상 전체 범위
+    # {0..127}∪{32..159} = 0~159 전부다. 이 전체 대역을 반각 보호 구역으로
+    # 취급해 한글 후보의 2x2 풋프린트가 조금이라도 겹치면 차단한다.
+    half_tile_cells = set(range(0, 160))
+
     unsafe = []
     for code_key, char in manifest_code_to_char.items():
         v = codes_full.get(code_key)
@@ -94,13 +111,14 @@ def main():
             continue
         rt = v.get("real_tile")
         cats = groups.get(rt, set())
-        if cats not in ({"kanji"}, {"unresolved"}):
-            unsafe.append((code_key, char, rt, cats, group_codes.get(rt, [])))
+        overlaps_half = bool({rt, rt + 1, rt + 32, rt + 33} & half_tile_cells)
+        if cats not in ({"kanji"}, {"unresolved"}) or overlaps_half:
+            unsafe.append((code_key, char, rt, cats, group_codes.get(rt, []), overlaps_half))
 
     if unsafe:
         print(f"\n⛔ SAFETY VIOLATION: {len(unsafe)}개 매니페스트 코드가 안전하지 않은 real_tile 그룹에 속함:")
-        for code_key, char, rt, cats, gcodes in unsafe:
-            print(f"   {code_key}: '{char}' -> tile {rt} categories={sorted(cats)} codes={gcodes}")
+        for code_key, char, rt, cats, gcodes, overlaps_half in unsafe:
+            print(f"   {code_key}: '{char}' -> tile {rt} categories={sorted(cats)} codes={gcodes} overlaps_half={overlaps_half}")
         raise SystemExit("Aborting - unsafe manifest assignments detected!")
     else:
         print("✅ Safety check passed: 모든 매니페스트 코드가 real_tile 배타적 kanji 또는 unresolved 그룹임")
