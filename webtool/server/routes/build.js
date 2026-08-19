@@ -48,6 +48,15 @@ router.post("/reinsert", (req, res) => {
     const problems = [];
 
     for (const [fname, rowsByBlock] of byFile) {
+      let hasTranslation = false;
+      for (const r of rowsByBlock.values()) {
+        if (r.translation && r.translation.trim()) {
+          hasTranslation = true;
+          break;
+        }
+      }
+      if (!hasTranslation) continue;
+
       const { tokens, relPath, problems: fileProblems } = pipeline.buildFileTokens(name, fname, rowsByBlock);
       if (fileProblems.length) {
         filesSkipped += 1;

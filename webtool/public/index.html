@@ -68,6 +68,42 @@
     <a id="btn-download-csv" class="btn-link" href="#" download>분리 CSV 압축본(ZIP) 다운로드</a>
     <pre id="extract-result" class="result-box"></pre>
 
+    <div class="search-box-container">
+      <div class="search-bar">
+        <input type="text" id="csv-search-input" placeholder="전체 대사 검색 (원문, 번역, 화자, 파일명...)" />
+        <select id="csv-search-target">
+          <option value="all">전체 (원문+번역+화자+파일명)</option>
+          <option value="source">원문만</option>
+          <option value="translation">번역만</option>
+          <option value="speaker">화자만</option>
+          <option value="file">파일명만</option>
+        </select>
+        <button id="btn-csv-search" type="button" class="btn-action">🔍 검색</button>
+        <button id="btn-csv-search-clear" type="button" class="btn-secondary hidden">검색 초기화</button>
+      </div>
+      <div id="csv-search-panel" class="search-results-panel hidden">
+        <div class="search-results-header">
+          <span id="csv-search-count"></span>
+          <button id="btn-csv-search-close" type="button" class="btn-close-small" title="검색 결과 닫기">✕</button>
+        </div>
+        <div class="search-results-scroll">
+          <table class="search-results-table">
+            <thead>
+              <tr>
+                <th style="width: 140px;">파일</th>
+                <th style="width: 55px;">블록</th>
+                <th style="width: 90px;">화자</th>
+                <th>원문</th>
+                <th>번역 / AI초벌</th>
+                <th style="width: 80px;">이동</th>
+              </tr>
+            </thead>
+            <tbody id="csv-search-results-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <div class="subtabs" id="csv-group-tabs">
       <button class="subtab-btn active" data-group="dom1">dom1</button>
       <button class="subtab-btn" data-group="dom2">dom2</button>

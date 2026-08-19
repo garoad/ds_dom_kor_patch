@@ -212,7 +212,7 @@ async function refreshFileList() {
   }
 }
 
-function renderFileSelect() {
+function renderFileSelect(targetFileToSelect) {
   const select = document.getElementById("file-select");
   select.innerHTML = "";
   let files = [];
@@ -233,8 +233,12 @@ function renderFileSelect() {
     renderCsvTable([]);
     return;
   }
-  if (files.some((f) => f.file === state.currentFile)) {
-    select.value = state.currentFile;
+  const fileToSelect = targetFileToSelect || state.currentFile;
+  if (fileToSelect && files.some((f) => f.file === fileToSelect)) {
+    select.value = fileToSelect;
+    if (fileToSelect !== state.currentFile) {
+      loadFileRows(fileToSelect);
+    }
   } else {
     loadFileRows(files[0].file);
   }
@@ -246,6 +250,136 @@ document.getElementById("file-select").addEventListener("change", (e) => {
     return;
   }
   loadFileRows(e.target.value);
+});
+
+// ---- CSV 검색 기능 ----
+function escapeRegex(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function highlightKeyword(text, keyword) {
+  if (!text) return "";
+  if (!keyword || !keyword.trim()) return escapeHtml(text);
+  const escaped = escapeHtml(text);
+  const regex = new RegExp(`(${escapeRegex(keyword)})`, "gi");
+  return escaped.replace(regex, `<mark class="search-highlight">$1</mark>`);
+}
+
+async function performCsvSearch() {
+  if (!state.projectName) {
+    alert("먼저 프로젝트를 선택하세요.");
+    return;
+  }
+  const inputEl = document.getElementById("csv-search-input");
+  const query = inputEl.value.trim();
+  if (!query) {
+    alert("검색어를 입력하세요.");
+    return;
+  }
+  const target = document.getElementById("csv-search-target").value;
+  const panel = document.getElementById("csv-search-panel");
+  const countEl = document.getElementById("csv-search-count");
+  const bodyEl = document.getElementById("csv-search-results-body");
+  const clearBtn = document.getElementById("btn-csv-search-clear");
+
+  countEl.textContent = `"${query}" 검색 중...`;
+  bodyEl.innerHTML = "";
+  panel.classList.remove("hidden");
+  clearBtn.classList.remove("hidden");
+
+  try {
+    const data = await api(
+      "GET",
+      `/api/csv/search?name=${encodeURIComponent(state.projectName)}&q=${encodeURIComponent(query)}&target=${encodeURIComponent(target)}`
+    );
+
+    const total = data.total || 0;
+    const results = data.results || [];
+
+    if (total === 0) {
+      countEl.textContent = `검색 결과: 0건 ("${query}")`;
+      bodyEl.innerHTML = `<tr><td colspan="6" style="text-align: center; color: #888; padding: 16px;">일치하는 대사를 찾을 수 없습니다.</td></tr>`;
+      return;
+    }
+
+    countEl.textContent = `검색 결과: 총 ${total}건 ${total > results.length ? `(상위 ${results.length}건 표시)` : ""} ("${query}")`;
+
+    for (const item of results) {
+      const tr = document.createElement("tr");
+      const transText = item.translation || (item.ai_draft ? `[초벌] ${item.ai_draft}` : "");
+      tr.innerHTML = `
+        <td><strong>${escapeHtml(item.file)}</strong></td>
+        <td>${item.block}</td>
+        <td>${escapeHtml(item.speaker || "-")}</td>
+        <td>${highlightKeyword(item.source, query)}</td>
+        <td>${highlightKeyword(transText, query)}</td>
+        <td>
+          <button type="button" class="btn-jump-file" data-file="${escapeHtml(item.file)}" data-block="${item.block}">
+            이동 ➔
+          </button>
+        </td>
+      `;
+      bodyEl.appendChild(tr);
+    }
+  } catch (ex) {
+    countEl.textContent = `검색 오류: ${ex.message}`;
+  }
+}
+
+function clearCsvSearch() {
+  document.getElementById("csv-search-input").value = "";
+  document.getElementById("csv-search-panel").classList.add("hidden");
+  document.getElementById("btn-csv-search-clear").classList.add("hidden");
+  document.getElementById("csv-search-results-body").innerHTML = "";
+}
+
+function closeCsvSearchPanel() {
+  document.getElementById("csv-search-panel").classList.add("hidden");
+}
+
+async function goToFileAndBlock(fname, blockNumber) {
+  if (!confirmDiscardIfDirty()) return;
+
+  let group = "system_common";
+  if (fname.startsWith("dom1")) group = "dom1";
+  else if (fname.startsWith("dom2")) group = "dom2";
+  else if (fname.startsWith("dom3")) group = "dom3";
+
+  state.csvGroup = group;
+  document.querySelectorAll(".subtab-btn").forEach((b) => {
+    b.classList.toggle("active", b.dataset.group === group);
+  });
+
+  renderFileSelect(fname);
+  if (state.currentFile !== fname) {
+    await loadFileRows(fname);
+  }
+
+  setTimeout(() => {
+    const tr = document.querySelector(`#csv-table-body tr[data-block="${blockNumber}"]`);
+    if (tr) {
+      tr.scrollIntoView({ behavior: "smooth", block: "center" });
+      tr.classList.remove("highlight-target-row");
+      void tr.offsetWidth;
+      tr.classList.add("highlight-target-row");
+      const input = tr.querySelector(".translation-input");
+      if (input) input.focus();
+    }
+  }, 100);
+}
+
+document.getElementById("btn-csv-search").addEventListener("click", performCsvSearch);
+document.getElementById("csv-search-input").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") performCsvSearch();
+});
+document.getElementById("btn-csv-search-clear").addEventListener("click", clearCsvSearch);
+document.getElementById("btn-csv-search-close").addEventListener("click", closeCsvSearchPanel);
+document.getElementById("csv-search-results-body").addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn-jump-file");
+  if (!btn) return;
+  const file = btn.dataset.file;
+  const block = Number(btn.dataset.block);
+  goToFileAndBlock(file, block);
 });
 
 document.getElementById("btn-auto-translate").addEventListener("click", () => {

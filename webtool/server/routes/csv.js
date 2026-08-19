@@ -33,6 +33,22 @@ router.get("/files", (req, res) => {
   }
 });
 
+router.get("/search", (req, res) => {
+  const { name, q, target, limit } = req.query;
+  if (!name) return res.status(400).json({ error: "name은 필수입니다" });
+  if (!q || !q.trim()) return res.json({ total: 0, results: [] });
+
+  try {
+    const results = pipeline.searchCsv(name, q.trim(), {
+      target,
+      limit: limit ? parseInt(limit, 10) : 200,
+    });
+    res.json(results);
+  } catch (ex) {
+    res.status(500).json({ error: ex.message });
+  }
+});
+
 router.get("/file/:fname", (req, res) => {
   const { name } = req.query;
   if (!name) return res.status(400).json({ error: "name은 필수입니다" });

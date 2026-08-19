@@ -442,6 +442,32 @@ function saveFile(name, fname, edits) {
   return report;
 }
 
+function isDangerousOpcodeBlock(srcText) {
+  if (!srcText) return false;
+  return (
+    srcText.includes("<000") ||
+    srcText.includes("<001") ||
+    srcText.includes("<002") ||
+    srcText.includes("<003") ||
+    srcText.includes("<004") ||
+    srcText.includes("<005") ||
+    srcText.includes("<006") ||
+    srcText.includes("<007") ||
+    srcText.includes("<008") ||
+    srcText.includes("<009") ||
+    srcText.includes("<00A") ||
+    srcText.includes("<00B") ||
+    srcText.includes("<00C") ||
+    srcText.includes("<00D") ||
+    srcText.includes("<00E") ||
+    srcText.includes("<00F") ||
+    srcText.includes("<FF") ||
+    srcText.includes("<FC") ||
+    srcText.startsWith("<0") ||
+    Boolean(srcText.match(/^[a-zA-Z0-9~,.<>]{1,5}<00/))
+  );
+}
+
 /**
  * Re-derive blocks from the pristine unpack/ file (never from stale CSV
  * offsets) and build the translated token stream. Returns
@@ -490,13 +516,10 @@ function buildFileTokens(name, fname, rowsByBlock) {
     const srcText = row.source;
     const dstText = row.translation && row.translation.length > 0 ? row.translation : srcText;
     const expectedLen = e - s;
-    // Real on-disk block ends with the page-turn marker - it was hidden
-    // from the CSV text by extractProject(); append it back below (see
-    // tio.PAGE_TURN_TOKEN).
     const hasPageTurn = expectedLen > 0 && values[e - 1] === PAGE_TURN_TOKEN;
     const textExpectedLen = hasPageTurn ? expectedLen - 1 : expectedLen;
 
-    if (!row.translation || row.translation === srcText) {
+    if (!row.translation || row.translation === srcText || isDangerousOpcodeBlock(srcText)) {
       out.push(...values.slice(last, s));
       out.push(...values.slice(s, e));
       last = e;
@@ -748,6 +771,56 @@ function renderGlyphToTiles(nbfcBuf, numTiles, startTile, glyph) {
   }
 }
 
+function searchCsv(name, query, options = {}) {
+  const { target = "all", limit = 200 } = options;
+  const rows = readCsv(name);
+  if (!rows || rows.length === 0) {
+    return { total: 0, results: [] };
+  }
+
+  const qLower = query.toLowerCase();
+  const matched = [];
+
+  for (const r of rows) {
+    let isMatch = false;
+    const source = (r.source || "").toLowerCase();
+    const translation = (r.translation || "").toLowerCase();
+    const aiDraft = (r.ai_draft || "").toLowerCase();
+    const speaker = (r.speaker || "").toLowerCase();
+    const file = (r.file || "").toLowerCase();
+
+    if (target === "source") {
+      isMatch = source.includes(qLower);
+    } else if (target === "translation") {
+      isMatch = translation.includes(qLower) || aiDraft.includes(qLower);
+    } else if (target === "speaker") {
+      isMatch = speaker.includes(qLower);
+    } else if (target === "file") {
+      isMatch = file.includes(qLower);
+    } else {
+      isMatch =
+        source.includes(qLower) ||
+        translation.includes(qLower) ||
+        aiDraft.includes(qLower) ||
+        speaker.includes(qLower) ||
+        file.includes(qLower);
+    }
+
+    if (isMatch) {
+      matched.push(r);
+    }
+  }
+
+  const total = matched.length;
+  const sliced = limit > 0 ? matched.slice(0, limit) : matched;
+
+  return {
+    total,
+    query,
+    results: sliced,
+  };
+}
+
 module.exports = {
   FIELDS,
   readCsv,
@@ -755,7 +828,9 @@ module.exports = {
   extractProject,
   fileSummaries,
   rowsForFile,
+  searchCsv,
   saveFile,
   buildFileTokens,
   applyFontArt,
 };
+
