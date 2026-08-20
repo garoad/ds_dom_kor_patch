@@ -442,6 +442,68 @@ function saveFile(name, fname, edits) {
   return report;
 }
 
+// 2026-08-20: isDangerousOpcodeBlock() below blanket-preserves any block
+// whose source text embeds what looks like a control-code/opcode tag,
+// because a handful of such blocks are genuinely raw opcode headers (not
+// dialogue) and translating them shifts fixed-offset fields the engine
+// reads, freezing the game. But the guard is a blunt pattern match - a
+// small number of flagged blocks are dialogue with a LEADING opcode field
+// that happens to also decode as a printable glyph (see dom1Yuri_L01.mes
+// block 0: token 0x0900 is really the block's opcode header's first field,
+// coincidentally also font_map's 'ぉ' glyph). For those, blanket-preserving
+// leaves real dialogue permanently untranslated even though a translation
+// that keeps the opcode prefix byte-for-byte and only replaces the trailing
+// narrative text is perfectly safe. Each entry here must be individually
+// hardware/melonDS-verified before being added - see ANALYSIS_NOTES.md.
+const SAFE_OPCODE_OVERRIDES = new Set([
+  // dom1Yuri_L01.mes block 0: source starts with 0x0900 ('ぉ') as the choice/
+  // scene-transition opcode header's first field, followed by more <00xx>
+  // header fields, then the real narrative text in parens. Translation must
+  // keep 'ぉ' and every header tag untouched and only replace the parenthesized
+  // text, encoding to exactly n_tokens (55) - verified via translateIo.
+  "dom1Yuri_L01.mes:0",
+]);
+
+/**
+ * A translated dangerous-opcode block doesn't have to be all-or-nothing.
+ * Text preservation and token-VALUE preservation are two different things:
+ * textToTokens() picks one canonical raw code per displayed character (see
+ * translateIo.js's G/S/P/「/『 override history), which can differ from
+ * whatever arbitrary raw code the ORIGINAL ROM happened to use for that
+ * character at this specific header position (confirmed 2026-08-20:
+ * dom1King_O0730_0.mes block 57's leading 'G' is raw token 0x0394 in the
+ * source, but textToTokens('G') always encodes to 0x00C1 - re-encoding a
+ * translation that merely LOOKS unchanged would silently corrupt this
+ * header field). So this never re-encodes the header - it finds how many
+ * leading text UNITS (tio.splitUnits) are character-for-character IDENTICAL
+ * between source and translation, then splices the SOURCE's own raw tokens
+ * for that many units (byte-exact, no re-encoding possible) and only
+ * encodes the translation's remaining suffix. Returns null (caller must
+ * fall back to reverting the whole block) when no header prefix survived
+ * untouched, or when what's left over still itself looks dangerous (the
+ * unit-match heuristic isn't a real opcode-boundary parser - if the leftover
+ * suffix text also trips isDangerousOpcodeBlock, we don't have enough
+ * confidence in the split point, so back off and revert the whole block.
+ */
+function computeHeaderSplice(srcValues, srcText, dstText) {
+  const srcUnits = tio.splitUnits(srcText);
+  const dstUnits = tio.splitUnits(dstText);
+  let headerTokenLen = 0;
+  let srcCharLen = 0;
+  let dstCharLen = 0;
+  let i = 0;
+  while (i < srcUnits.length && i < dstUnits.length && srcUnits[i] === dstUnits[i]) {
+    headerTokenLen += tio.unitTokenLength(srcUnits[i]);
+    srcCharLen += srcUnits[i].length;
+    dstCharLen += dstUnits[i].length;
+    i += 1;
+  }
+  if (headerTokenLen === 0 || headerTokenLen > srcValues.length) return null;
+  const srcSuffixText = srcText.slice(srcCharLen);
+  if (isDangerousOpcodeBlock(srcSuffixText)) return null;
+  return { headerTokenLen, srcCharLen, dstCharLen };
+}
+
 function isDangerousOpcodeBlock(srcText) {
   if (!srcText) return false;
   return (
@@ -519,14 +581,33 @@ function buildFileTokens(name, fname, rowsByBlock) {
     const hasPageTurn = expectedLen > 0 && values[e - 1] === PAGE_TURN_TOKEN;
     const textExpectedLen = hasPageTurn ? expectedLen - 1 : expectedLen;
 
-    if (!row.translation || row.translation === srcText || isDangerousOpcodeBlock(srcText)) {
+    if (!row.translation || row.translation === srcText) {
       out.push(...values.slice(last, s));
       out.push(...values.slice(s, e));
       last = e;
       return;
     }
 
-    const placeholderProblems = tio.validatePlaceholders(srcText, dstText);
+    const isSafeOverride = SAFE_OPCODE_OVERRIDES.has(`${fname}:${i}`);
+    let prefixTokens = [];
+    let effectiveSrcText = srcText;
+    let effectiveDstText = dstText;
+
+    if (isDangerousOpcodeBlock(srcText) && !isSafeOverride) {
+      const srcValues = values.slice(s, s + textExpectedLen);
+      const splice = computeHeaderSplice(srcValues, srcText, dstText);
+      if (!splice) {
+        out.push(...values.slice(last, s));
+        out.push(...values.slice(s, e));
+        last = e;
+        return;
+      }
+      prefixTokens = srcValues.slice(0, splice.headerTokenLen);
+      effectiveSrcText = srcText.slice(splice.srcCharLen);
+      effectiveDstText = dstText.slice(splice.dstCharLen);
+    }
+
+    const placeholderProblems = tio.validatePlaceholders(effectiveSrcText, effectiveDstText);
     if (placeholderProblems.length) {
       problems.push(`block ${i}: ${placeholderProblems.join("; ")}`);
       return;
@@ -534,11 +615,12 @@ function buildFileTokens(name, fname, rowsByBlock) {
 
     let newTokens;
     try {
-      newTokens = tio.textToTokens(dstText);
+      newTokens = tio.textToTokens(effectiveDstText);
     } catch (ex) {
       problems.push(`block ${i}: ${ex.message}`);
       return;
     }
+    if (prefixTokens.length) newTokens = prefixTokens.concat(newTokens);
 
     if (fname === PLAYERNAME_FILE) {
       // No fixed-slot constraint here - just the in-game 3-character name

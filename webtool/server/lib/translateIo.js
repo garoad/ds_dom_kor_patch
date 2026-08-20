@@ -285,6 +285,49 @@ function validatePlaceholders(srcText, dstText) {
   return problems;
 }
 
+/**
+ * Split text into the same atomic units tokensToText()/textToTokens() treat
+ * as indivisible: a <이름>/<이름:XXXX> marker, a <HEX> placeholder, or a single
+ * literal character. Used by pipeline.js's header-splice safety check (see
+ * its computeHeaderSplice comment) to find how much of a translated block's
+ * leading text is UNCHANGED from the source, unit-for-unit.
+ */
+function splitUnits(text) {
+  const units = [];
+  let i = 0;
+  while (i < text.length) {
+    NAME_VAR_RE.lastIndex = i;
+    let m = NAME_VAR_RE.exec(text);
+    if (m && m.index === i) {
+      units.push(text.slice(i, NAME_VAR_RE.lastIndex));
+      i = NAME_VAR_RE.lastIndex;
+      continue;
+    }
+    PLACEHOLDER_RE.lastIndex = i;
+    m = PLACEHOLDER_RE.exec(text);
+    if (m && m.index === i) {
+      units.push(text.slice(i, PLACEHOLDER_RE.lastIndex));
+      i = PLACEHOLDER_RE.lastIndex;
+      continue;
+    }
+    units.push(text[i]);
+    i += 1;
+  }
+  return units;
+}
+
+/**
+ * How many raw u16 tokens one splitUnits() unit represents: 2 for a
+ * <이름:XXXX> marker (prefix + suffix token), 1 for everything else (a bare
+ * <이름> marker, a <HEX> placeholder, or a single literal character - every
+ * literal glyph is exactly one token both directions, see tokensToText).
+ */
+function unitTokenLength(unit) {
+  const m = unit.match(/^<이름(?::([0-9A-Fa-f]{4}))?>$/);
+  if (m) return m[1] ? 2 : 1;
+  return 1;
+}
+
 module.exports = {
   NAME_VAR_PREFIX,
   NAME_VAR_SUFFIXES,
@@ -295,4 +338,6 @@ module.exports = {
   tokensToText,
   textToTokens,
   validatePlaceholders,
+  splitUnits,
+  unitTokenLength,
 };

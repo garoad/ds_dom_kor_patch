@@ -4,7 +4,7 @@ dom1Athena_L01.mes,Script/dom1Athena_L01.mes,1,6,주인공,あ、アテナ,"아,
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,2,28,Athena,<이름:3232>!わたしがこの店に来るって<6E5C>言ったの、覚えてたんだ,<이름:3232>! 이 가게에 온다고<6E5C>말한 거 기억했구나,<이름:3232>! 이 가게에 온다고<6E5C>말한 거 기억했구나
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,3,5,주인공,偶然だよ,우연이야,우연이야
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,4,28,Athena,フフ.まぁいいや.ねぇ<이름:3232>、<6E5C>どっちの服がいいと思う?,"후후, 됐어. 있잖아 <이름:3232>,<6E5C>어느 옷이 나아?","후후, 됐어. 있잖아 <이름:3232>,<6E5C>어느 옷이 나아?"
-dom1Athena_L01.mes,Script/dom1Athena_L01.mes,5,11,[선택지],ミニスカートチャイナ服,미니스커트차이나 옷,미니스커트차이나 옷
+dom1Athena_L01.mes,Script/dom1Athena_L01.mes,5,11,[선택지],ミニスカートチャイナ服,미니스커트차이나 옷,미니스커트<6E5C>차이나 옷
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,6,10,주인공,やっぱミニスカかな,역시 미니스커트네,역시 미니스커트네
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,7,14,Athena,えー<이름:3232>、オジサンくさい!,"에~ <이름:3232>,아저씨 같아!","에~ <이름:3232>,아저씨 같아!"
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,8,9,주인공,わ、悪かったなぁ,"우, 미안하네","우, 미안하네"
@@ -13,7 +13,7 @@ dom1Athena_L01.mes,Script/dom1Athena_L01.mes,10,6,Athena,ほんとう?,정말?,�
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,11,15,주인공,ああ.昔っからよく着てたろ?,"응, 전부터 잘 입었잖아?","응, 전부터 잘 입었잖아?"
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,12,11,Athena,あ、同じクラスの子だ,"아, 같은 반 애다","아, 같은 반 애다"
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,13,17,주인공,げ、アテナファンの野郎じゃないか,"헉, 아테나 팬 녀석 아니야","헉, 아테나 팬 녀석 아니야"
-dom1Athena_L01.mes,Script/dom1Athena_L01.mes,14,17,[선택지],アテナから離れるアテナのそばにいる,아테나와 떠난다아테나 곁에있는다,아테나와 떠난다아테나 곁에있는다
+dom1Athena_L01.mes,Script/dom1Athena_L01.mes,14,17,[선택지],アテナから離れるアテナのそばにいる,아테나와 떠난다아테나 곁에있는다,아테나 떠난다<6E5C>아테나 곁에있는다
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,15,4,Athena,<이름:3232>?,<이름:3232>?,<이름:3232>?
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,16,14,주인공,(しーっ.話しかけるなよ),(조용히. 말 걸지 마),(조용히. 말 걸지 마)
 dom1Athena_L01.mes,Script/dom1Athena_L01.mes,17,5,[효과음/내레이션],…………,…………,…………
@@ -32,11 +32,11 @@ dom1Athena_L02.mes,Script/dom1Athena_L02.mes,2,5,[효과음/내레이션],ガチ
 dom1Athena_L02.mes,Script/dom1Athena_L02.mes,3,10,Athena,<이름:3232>!持ってきたよ,<이름:3232>! 가져왔어,<이름:3232>! 가져왔어
 dom1Athena_L02.mes,Script/dom1Athena_L02.mes,4,17,주인공,笹の葉に飾りに短冊か.マメだなぁ,소원 종이 다는구나. 부지런해,소원 종이 다는구나. 부지런해
 dom1Athena_L02.mes,Script/dom1Athena_L02.mes,5,23,Athena,日本の行事は大事にしないとね!<6E5C>入っていい?,일본 행사는 소중히해야지!<6E5C>들어가도 돼?,일본 행사는 소중히해야지!<6E5C>들어가도 돼?
-dom1Athena_L02.mes,Script/dom1Athena_L02.mes,6,9,[선택지],もちろんごめん……,물론이지미안해……,물론이지미안해……
+dom1Athena_L02.mes,Script/dom1Athena_L02.mes,6,9,[선택지],もちろんごめん……,물론이지미안해……,물론이지<6E5C>미안……
 dom1Athena_L02.mes,Script/dom1Athena_L02.mes,7,27,주인공,もちろんいいぜ.でもこの歳で<6E5C>願い事って言ってもなぁ,물론이지. 근데 이 나이에<6E5C>소원이라니 참,물론이지. 근데 이 나이에<6E5C>소원이라니 참
 dom1Athena_L02.mes,Script/dom1Athena_L02.mes,8,40,Athena,信じる者は救われる、だよ.<이름:3232>、<6E5C>わたしが何のお願い事をするか、<6E5C>当ててみて?,"믿는 자는 구원받는다, 잖아.<이름:3232>,<6E5C>내가 무슨 소원을 빌지,<6E5C>맞혀볼래?","믿는 자는 구원받는다, 잖아.<이름:3232>,<6E5C>내가 무슨 소원을 빌지,<6E5C>맞혀볼래?"
 dom1Athena_L02.mes,Script/dom1Athena_L02.mes,9,4,주인공,えぇ?,에?,에?
-dom1Athena_L02.mes,Script/dom1Athena_L02.mes,10,13,[선택지],コンサートの成功恋愛の成就,콘서트 성공사랑의 성취,콘서트 성공사랑의 성취
+dom1Athena_L02.mes,Script/dom1Athena_L02.mes,10,13,[선택지],コンサートの成功恋愛の成就,콘서트 성공사랑의 성취,콘서트 성공<6E5C>사랑의 성취
 dom1Athena_L02.mes,Script/dom1Athena_L02.mes,11,17,주인공,やっぱり、コンサートの成功だろ?,"역시, 콘서트 성공이겠지?","역시, 콘서트 성공이겠지?"
 dom1Athena_L02.mes,Script/dom1Athena_L02.mes,12,21,Athena,それは自分の力でちゃんと成功<6E5C>させるよ!,그건 내 힘으로 꼭 성공<6E5C>시킬 거야!,그건 내 힘으로 꼭 성공<6E5C>시킬 거야!
 dom1Athena_L02.mes,Script/dom1Athena_L02.mes,13,9,주인공,じゃあ、なんだよ,"그럼, 뭔데","그럼, 뭔데"
@@ -68,12 +68,12 @@ dom1Athena_L03.mes,Script/dom1Athena_L03.mes,2,4,주인공,アテナ,아테나,�
 dom1Athena_L03.mes,Script/dom1Athena_L03.mes,3,32,Athena,<이름:3232>、もうきもだめしした?<6E5C>わたしまだなんだ.<6E5C>仕事してたから,"<이름:3232>,벌써 담력시험 했어?<6E5C>나 아직 안 했는데.<6E5C>일하느라","<이름:3232>,벌써 담력시험 했어?<6E5C>나 아직 안 했는데.<6E5C>일하느라"
 dom1Athena_L03.mes,Script/dom1Athena_L03.mes,4,5,주인공,大変だな,힘들겠네,힘들겠네
 dom1Athena_L03.mes,Script/dom1Athena_L03.mes,5,12,Athena,今からいっしょに行こ?,지금 같이 갈까?,지금 같이 갈까?
-dom1Athena_L03.mes,Script/dom1Athena_L03.mes,6,13,[선택지],いいぜ行っても面白くないぜ,좋아가도 재미없어,좋아가도 재미없어
+dom1Athena_L03.mes,Script/dom1Athena_L03.mes,6,13,[선택지],いいぜ行っても面白くないぜ,좋아가도 재미없어,좋아<6E5C>가도 재미없어
 dom1Athena_L03.mes,Script/dom1Athena_L03.mes,7,4,주인공,いいぜ,좋아,좋아
 dom1Athena_L03.mes,Script/dom1Athena_L03.mes,8,8,Athena,手、つなごうよ,"손, 잡자","손, 잡자"
 dom1Athena_L03.mes,Script/dom1Athena_L03.mes,9,7,주인공,え?なんで?,어? 왜?,어? 왜?
 dom1Athena_L03.mes,Script/dom1Athena_L03.mes,10,25,Athena,<이름:3232>は昔っから怖がりでしょ?<6E5C>遠慮しなくていいよ,<이름:3232>는 전부터 겁쟁이잖아?<6E5C>사양 안 해도 돼,<이름:3232>는 전부터 겁쟁이잖아?<6E5C>사양 안 해도 돼
-dom1Athena_L03.mes,Script/dom1Athena_L03.mes,11,16,[선택지],バカにするな!怖いのはアテナだろ,놀리지마!무서운 건 아테나잖아,놀리지마!무서운 건 아테나잖아
+dom1Athena_L03.mes,Script/dom1Athena_L03.mes,11,16,[선택지],バカにするな!怖いのはアテナだろ,놀리지마!무서운 건 아테나잖아,놀리지마!<6E5C>무서운건 아테나잖아
 dom1Athena_L03.mes,Script/dom1Athena_L03.mes,12,9,주인공,バカにするなよ!,놀리지 마!,놀리지 마!
 dom1Athena_L03.mes,Script/dom1Athena_L03.mes,13,21,Athena,もう、そんなに怒らなくてもいい<6E5C>じゃない,"정말, 그렇게까지 화 안 내도<6E5C>되잖아","정말, 그렇게까지 화 안 내도<6E5C>되잖아"
 dom1Athena_L03.mes,Script/dom1Athena_L03.mes,14,14,주인공,いいからさっさと行こうぜ!,됐으니까 얼른 가자!,됐으니까 얼른 가자!
@@ -113,7 +113,7 @@ dom1Athena_L04.mes,Script/dom1Athena_L04.mes,12,12,Athena,うん.ありがとう
 dom1Athena_L04.mes,Script/dom1Athena_L04.mes,13,4,주인공,あれ?,어라?,어라?
 dom1Athena_L04.mes,Script/dom1Athena_L04.mes,14,7,Athena,どうしたの?,왜 그래?,왜 그래?
 dom1Athena_L04.mes,Script/dom1Athena_L04.mes,15,21,주인공,あそこを歩いてるの、レオナじゃ<6E5C>ないか?,"저기 걷고 있는 거,레오나 아<6E5C>니야?","저기 걷고 있는 거,레오나 아<6E5C>니야?"
-dom1Athena_L04.mes,Script/dom1Athena_L04.mes,16,11,[선택지],呼び止める呼び止めない,불러세운다안 부른다,불러세운다안 부른다
+dom1Athena_L04.mes,Script/dom1Athena_L04.mes,16,11,[선택지],呼び止める呼び止めない,불러세운다안 부른다,불러세운다<6E5C>안 부른다
 dom1Athena_L04.mes,Script/dom1Athena_L04.mes,17,15,[선택지],G<0001><0000><0020><0012><0002>おーい、レオナ!,"G<0001><0000><0020><0012><0002>이봐, 레오나!","G<0001><0000><0020><0012><0002>이봐, 레오나!"
 dom1Athena_L04.mes,Script/dom1Athena_L04.mes,18,5,Leona,…………,…………,…………
 dom1Athena_L04.mes,Script/dom1Athena_L04.mes,19,11,주인공,おはよ.何してんだ?,안녕. 뭐해?,안녕. 뭐해?
@@ -145,7 +145,7 @@ dom1Athena_L05.mes,Script/dom1Athena_L05.mes,7,11,주인공,え、そんなこ�
 dom1Athena_L05.mes,Script/dom1Athena_L05.mes,8,10,Athena,ふーん.どうかな?,흐응. 글쎄?,흐응. 글쎄?
 dom1Athena_L05.mes,Script/dom1Athena_L05.mes,9,5,주인공,なんだよ,뭐야,뭐야
 dom1Athena_L05.mes,Script/dom1Athena_L05.mes,10,24,Athena,わたしのコンサート、31日だよ.<6E5C>来てくれる?,"내 콘서트, 31일이야.<6E5C>와줄 거지?","내 콘서트, 31일이야.<6E5C>와줄 거지?"
-dom1Athena_L05.mes,Script/dom1Athena_L05.mes,11,7,[선택지],行くわからない,간다모르겠다,간다모르겠다
+dom1Athena_L05.mes,Script/dom1Athena_L05.mes,11,7,[선택지],行くわからない,간다모르겠다,간다<6E5C>모르겠다
 dom1Athena_L05.mes,Script/dom1Athena_L05.mes,12,7,주인공,ああ、行くよ,"응, 갈게","응, 갈게"
 dom1Athena_L05.mes,Script/dom1Athena_L05.mes,13,12,Athena,ほんとう!?約束だよ?,정말!? 약속이다?,정말!? 약속이다?
 dom1Athena_L05.mes,Script/dom1Athena_L05.mes,14,17,주인공,ああ.歌詞、トチったりすんなよ?,"응. 가사,틀리거나 하지 마?","응. 가사,틀리거나 하지 마?"
@@ -163,7 +163,7 @@ dom1Athena_L06.mes,Script/dom1Athena_L06.mes,5,11,주인공,アテナか.どう�
 dom1Athena_L06.mes,Script/dom1Athena_L06.mes,6,6,Athena,……ゴメン,……미안,……미안
 dom1Athena_L06.mes,Script/dom1Athena_L06.mes,7,3,주인공,え?,에?,에?
 dom1Athena_L06.mes,Script/dom1Athena_L06.mes,8,49,Athena,今夜の花火大会、急に仕事が入って<6E5C>行けなくなっちゃったの<485C>絶対に<이름:3232>と見るって<6E5C>約束したのに……,"오늘 밤 불꽃놀이,갑자기 일이 생겨서<6E5C>못 가게 됐어<485C>절대로 <이름:3232>랑 본다고<6E5C>약속했는데……","오늘 밤 불꽃놀이,갑자기 일이 생겨서<6E5C>못 가게 됐어<485C>절대로 <이름:3232>랑 본다고<6E5C>약속했는데……"
-dom1Athena_L06.mes,Script/dom1Athena_L06.mes,9,22,[선택지],仕事じゃしかたないよいっしょに見たかったのに,일이면 어쩔 수 없지같이 보고 싶었는데,일이면 어쩔 수 없지같이 보고 싶었는데
+dom1Athena_L06.mes,Script/dom1Athena_L06.mes,9,22,[선택지],仕事じゃしかたないよいっしょに見たかったのに,일이면 어쩔 수 없지같이 보고 싶었는데,일이면 어쩔 수 없지<6E5C>같이 보고 싶었는데
 dom1Athena_L06.mes,Script/dom1Athena_L06.mes,10,11,주인공,仕事じゃしかたないよ,일이면 어쩔수 없지,일이면 어쩔수 없지
 dom1Athena_L06.mes,Script/dom1Athena_L06.mes,11,15,Athena,うん…….ほんとうにゴメンッ,응…… 정말 미안해,응…… 정말 미안해
 dom1Athena_L06.mes,Script/dom1Athena_L06.mes,12,9,주인공,そんなに謝るなよ,사과하지 마,사과하지 마
@@ -197,7 +197,7 @@ dom1Athena_L07.mes,Script/dom1Athena_L07.mes,7,15,주인공,おう!じゃ、ま�
 dom1Athena_L07.mes,Script/dom1Athena_L07.mes,8,21,Athena,そうだなぁ.おみやげを買いに<6E5C>行きたいな,글쎄. 기념품 사러<6E5C>가고 싶은데,글쎄. 기념품 사러<6E5C>가고 싶은데
 dom1Athena_L07.mes,Script/dom1Athena_L07.mes,9,13,주인공,い、いきなりおみやげかよ,"가, 갑자기 기념품이냐","가, 갑자기 기념품이냐"
 dom1Athena_L07.mes,Script/dom1Athena_L07.mes,10,26,Athena,ねぇ、スタッフへのおみやげ、<6E5C>どっちがいいと思う?,"있잖아,스태프 기념품,<6E5C>뭐가 나을 것 같아?","있잖아,스태프 기념품,<6E5C>뭐가 나을 것 같아?"
-dom1Athena_L07.mes,Script/dom1Athena_L07.mes,11,18,[선택지],もみじまんじゅうクッキーの詰め合わせ,모미지만주쿠키 세트,모미지만주쿠키 세트
+dom1Athena_L07.mes,Script/dom1Athena_L07.mes,11,18,[선택지],もみじまんじゅうクッキーの詰め合わせ,모미지만주쿠키 세트,모미지만주<6E5C>쿠키 세트
 dom1Athena_L07.mes,Script/dom1Athena_L07.mes,12,28,[선택지],N<0001><0000><0038><002C><0002>もみじまんじゅうなんて、<6E5C>いいんじゃないか,"N<0001><0000><0038><002C><0002>모미지만주 정도면,<6E5C>괜찮지 않을까","N<0001><0000><0038><002C><0002>모미지만주 정도면,<6E5C>괜찮지 않을까"
 dom1Athena_L07.mes,Script/dom1Athena_L07.mes,13,14,Athena,そうだね!わたしも大好き!,그렇지! 나도 좋아해!,그렇지! 나도 좋아해!
 dom1Athena_L07.mes,Script/dom1Athena_L07.mes,14,26,주인공,アテナ、むかし食いすぎて腹壊した<6E5C>ことあったもんな,"아테나,전에 너무 먹어서 배탈<6E5C>난 적 있었잖아","아테나,전에 너무 먹어서 배탈<6E5C>난 적 있었잖아"
@@ -231,7 +231,7 @@ dom1Athena_L08.mes,Script/dom1Athena_L08.mes,5,37,주인공,でも…….アイ�
 dom1Athena_L08.mes,Script/dom1Athena_L08.mes,6,50,Athena,そんなの関係ないよ!<485C>今日は芸能人じゃなくて、<6E5C>ただの麻宮アテナとして<6E5C><이름:3232>と遊びに来てるんだもん,"그런 거 상관없어!<485C>오늘은 연예인이 아니라,<6E5C>그냥 아사미야 아테나로<6E5C><이름:3232>랑 놀러온 거니까","그런 거 상관없어!<485C>오늘은 연예인이 아니라,<6E5C>그냥 아사미야 아테나로<6E5C><이름:3232>랑 놀러온 거니까"
 dom1Athena_L08.mes,Script/dom1Athena_L08.mes,7,43,주인공,そうだけど…….もう、周りには<6E5C>アイドルの麻宮アテナだって<6E5C>こと、バレてるみたいだぜ,"그렇긴 한데…… 이미 주변엔<6E5C>아이돌 아사미야 아테나라는<6E5C>거, 들킨 것 같은데","그렇긴 한데…… 이미 주변엔<6E5C>아이돌 아사미야 아테나라는<6E5C>거, 들킨 것 같은데"
 dom1Athena_L08.mes,Script/dom1Athena_L08.mes,8,24,Athena,え?あ……ほんとだ.<6E5C>みんなじろじろ見てる……,어?아……진짜네.<6E5C>다들 빤히 보고 있어……,어?아……진짜네.<6E5C>다들 빤히 보고 있어……
-dom1Athena_L08.mes,Script/dom1Athena_L08.mes,9,13,[선택지],かまわず遊ぶアテナをかばう,안 쓴다아테나 감싼다,안 쓴다아테나 감싼다
+dom1Athena_L08.mes,Script/dom1Athena_L08.mes,9,13,[선택지],かまわず遊ぶアテナをかばう,안 쓴다아테나 감싼다,안 쓴다<6E5C>아테나 감싼다
 dom1Athena_L08.mes,Script/dom1Athena_L08.mes,10,28,주인공,まぁいっか.海の中に入ったらわか<6E5C>らねぇよな.遊ぼうぜ,뭐 어때. 바다에 들어가면 모<6E5C>를 거야. 놀자,뭐 어때. 바다에 들어가면 모<6E5C>를 거야. 놀자
 dom1Athena_L08.mes,Script/dom1Athena_L08.mes,11,5,Athena,う、うん,"으, 응","으, 응"
 dom1Athena_L08.mes,Script/dom1Athena_L08.mes,12,11,UNKNOWN_14,あのー、すいませーん,"저기, 죄송한데요","저기, 죄송한데요"
@@ -254,7 +254,7 @@ dom1Athena_L09.mes,Script/dom1Athena_L09.mes,2,5,[효과음/내레이션],ガチ
 dom1Athena_L09.mes,Script/dom1Athena_L09.mes,3,15,Athena,<이름:3232>!お誕生日、おめでとう!,"<이름:3232>! 생일, 축하해!","<이름:3232>! 생일, 축하해!"
 dom1Athena_L09.mes,Script/dom1Athena_L09.mes,4,12,주인공,……ほんとうに来たんだ,……진짜로 왔구나,……진짜로 왔구나
 dom1Athena_L09.mes,Script/dom1Athena_L09.mes,5,14,Athena,なぁに?嬉しくなさそうな顔,뭐야? 안 기쁜 얼굴이네,뭐야? 안 기쁜 얼굴이네
-dom1Athena_L09.mes,Script/dom1Athena_L09.mes,6,12,[선택지],そ、そうかな……違うよ!,"그, 그런가……아니야!","그, 그런가……아니야!"
+dom1Athena_L09.mes,Script/dom1Athena_L09.mes,6,12,[선택지],そ、そうかな……違うよ!,"그, 그런가……아니야!","그,그런가……<6E5C>아니야!"
 dom1Athena_L09.mes,Script/dom1Athena_L09.mes,7,20,주인공,そ、そうか……?そ、そんなこと<6E5C>ないよ,"그,그런가……?그,그런 거<6E5C>아니야","그,그런가……?그,그런 거<6E5C>아니야"
 dom1Athena_L09.mes,Script/dom1Athena_L09.mes,8,16,Athena,……<이름:3232>、いま誰のこと考えた?,"…<이름:3232>,지금 누구 생각했어?","…<이름:3232>,지금 누구 생각했어?"
 dom1Athena_L09.mes,Script/dom1Athena_L09.mes,9,11,주인공,え!?いや、別に……,"에!?아니,딱히……","에!?아니,딱히……"
@@ -419,7 +419,7 @@ dom1Athena_O0727_2.mes,Script/dom1Athena_O0727_2.mes,16,20,Athena,はい、す�
 dom1Athena_O0727_2.mes,Script/dom1Athena_O0727_2.mes,17,6,주인공,あ、アテナ,"아,아테나","아,아테나"
 dom1Athena_O0727_2.mes,Script/dom1Athena_O0727_2.mes,18,55,UNKNOWN_1b,あ、そうか、きみ急遮派遣された<6E5C>ライブスタッフやな!<485C>そら助かるわ.じゃ、さっそく<6E5C>やけど設営してくれるか!,"아,그렇제,니 급하게 파견된<6E5C>라이브 스태프제!<485C>도움되겠구먼.그라믄,바로<6E5C>설영 좀 해주겠나!","아,그렇제,니 급하게 파견된<6E5C>라이브 스태프제!<485C>도움되겠구먼.그라믄,바로<6E5C>설영 좀 해주겠나!"
 dom1Athena_O0727_2.mes,Script/dom1Athena_O0727_2.mes,19,4,주인공,えぇ?,에?,에?
-dom1Athena_O0727_2.mes,Script/dom1Athena_O0727_2.mes,20,9,[선택지],手伝うアテナを探す,돕기아테나 찾기,돕기아테나 찾기
+dom1Athena_O0727_2.mes,Script/dom1Athena_O0727_2.mes,20,9,[선택지],手伝うアテナを探す,돕기아테나 찾기,돕기<6E5C>아테나 찾기
 dom1Athena_O0727_2.mes,Script/dom1Athena_O0727_2.mes,21,28,[선택지],<1818><0001><0000><0038><002C><0002>わ、わかりました.何をしたら<6E5C>いいですか?,"<1818><0001><0000><0038><002C><0002>네, 알겠습니다. 뭘 하면<6E5C>될까요?","<1818><0001><0000><0038><002C><0002>네, 알겠습니다. 뭘 하면<6E5C>될까요?"
 dom1Athena_O0727_2.mes,Script/dom1Athena_O0727_2.mes,22,20,UNKNOWN_1b,せやな、まずは機材を搬入して<6E5C>くれんか,"그래, 일단 장비를 반입해<6E5C>주겠나","그래, 일단 장비를 반입해<6E5C>주겠나"
 dom1Athena_O0727_2.mes,Script/dom1Athena_O0727_2.mes,23,3,주인공,はい,네,네
@@ -631,7 +631,7 @@ dom1Athena_O0728_0.mes,Script/dom1Athena_O0728_0.mes,14,20,주인공,ふぅ、�
 dom1Athena_O0728_0.mes,Script/dom1Athena_O0728_0.mes,15,26,Jenny,8月はアテナと遊ぶヨテイ、<6E5C>イッパイ立ててるのん?,"8월엔 아테나랑 놀 계획,<6E5C>잔뜩 세워놨니이?","8월엔 아테나랑 놀 계획,<6E5C>잔뜩 세워놨니이?"
 dom1Athena_O0728_0.mes,Script/dom1Athena_O0728_0.mes,16,25,주인공,そんなわけないでしょ、あっちは<6E5C>超多忙なんだから,"그럴 리가요, 그앤<6E5C>완전 바쁜데","그럴 리가요, 그앤<6E5C>완전 바쁜데"
 dom1Athena_O0728_0.mes,Script/dom1Athena_O0728_0.mes,17,40,Jenny,でも、<이름:3232>とアテナはイイ仲なん<6E5C>でしょ?だったら仕事なんて<6E5C>カンケーないわよ!,"근데, <이름:3232>랑 아테나는 좋은<6E5C>사이잖니? 그럼 일 같은 건<6E5C>상관없지!","근데, <이름:3232>랑 아테나는 좋은<6E5C>사이잖니? 그럼 일 같은 건<6E5C>상관없지!"
-dom1Athena_O0728_0.mes,Script/dom1Athena_O0728_0.mes,18,21,[선택지],そんな仲じゃないですそりゃ遊びたいですけど,그런 사이 아녜요그야 놀고 싶긴 한데요,그런 사이 아녜요그야 놀고 싶긴 한데요
+dom1Athena_O0728_0.mes,Script/dom1Athena_O0728_0.mes,18,21,[선택지],そんな仲じゃないですそりゃ遊びたいですけど,그런 사이 아녜요그야 놀고 싶긴 한데요,그런 사이 아녜요<6E5C>그야놀고 싶긴 한데요
 dom1Athena_O0728_0.mes,Script/dom1Athena_O0728_0.mes,19,20,[선택지],<011C><0001><0000><0028><001C><0002>そんなイイ仲じゃないですよ,<011C><0001><0000><0028><001C><0002>그런 좋은 사이 아니에요,<011C><0001><0000><0028><001C><0002>그런 좋은 사이 아니에요
 dom1Athena_O0728_0.mes,Script/dom1Athena_O0728_0.mes,20,25,Jenny,フーン?強がっちゃって、<6E5C>まだまだオコチャマね!,"흐응? 강한 척하기는,<6E5C>아직 애기구나!","흐응? 강한 척하기는,<6E5C>아직 애기구나!"
 dom1Athena_O0728_0.mes,Script/dom1Athena_O0728_0.mes,21,11,주인공,どういう意味ですか!,무슨 뜻이에요!,무슨 뜻이에요!
@@ -646,7 +646,7 @@ dom1Athena_O0728_1.mes,Script/dom1Athena_O0728_1.mes,0,4,[효과음/내레이션
 dom1Athena_O0728_1.mes,Script/dom1Athena_O0728_1.mes,1,31,Jenny,キャーキャー!けっこうカッコ<6E5C>イイバンドじゃない!<6E5C>ヤフ~★,꺄악꺄악! 꽤 멋진<6E5C>밴드잖아! 야호~★,꺄악꺄악! 꽤 멋진<6E5C>밴드잖아! 야호~★
 dom1Athena_O0728_1.mes,Script/dom1Athena_O0728_1.mes,2,17,주인공,よかったですね、お望みのロックで,"다행이네요, 원하시던 록이라서","다행이네요, 원하시던 록이라서"
 dom1Athena_O0728_1.mes,Script/dom1Athena_O0728_1.mes,3,16,Jenny,<이름:3232>もいっしょに見ようよ~ん★,<이름:3232>도 같이 보자아~★,<이름:3232>도 같이 보자아~★
-dom1Athena_O0728_1.mes,Script/dom1Athena_O0728_1.mes,4,10,[선택지],いっしょに見る見ない,같이 본다안 본다,같이 본다안 본다
+dom1Athena_O0728_1.mes,Script/dom1Athena_O0728_1.mes,4,10,[선택지],いっしょに見る見ない,같이 본다안 본다,같이 본다<6E5C>안 본다
 dom1Athena_O0728_1.mes,Script/dom1Athena_O0728_1.mes,5,13,주인공,はいはい、見てあげますよ,"네네, 봐 드릴게요","네네, 봐 드릴게요"
 dom1Athena_O0728_1.mes,Script/dom1Athena_O0728_1.mes,6,10,Jenny,キャー!サイコー!,꺄악! 최고야!,꺄악! 최고야!
 dom1Athena_O0728_1.mes,Script/dom1Athena_O0728_1.mes,7,5,주인공,…………,…………,…………
@@ -697,7 +697,7 @@ dom1Athena_O0728_2.mes,Script/dom1Athena_O0728_2.mes,26,23,주인공,そうで�
 dom1Athena_O0728_2.mes,Script/dom1Athena_O0728_2.mes,27,14,Jenny,まぁ、女のカンってヤツねん,"뭐,여자의 감이란 거지이","뭐,여자의 감이란 거지이"
 dom1Athena_O0728_2.mes,Script/dom1Athena_O0728_2.mes,28,3,주인공,はぁ,허어,허어
 dom1Athena_O0728_2.mes,Script/dom1Athena_O0728_2.mes,29,16,Jenny,……<이름:3232>、こころあたりあるの?,"……<이름:3232>, 짚이는 거 있어?","……<이름:3232>, 짚이는 거 있어?"
-dom1Athena_O0728_2.mes,Script/dom1Athena_O0728_2.mes,30,7,[선택지],あるわからない,있다모르겠다,있다모르겠다
+dom1Athena_O0728_2.mes,Script/dom1Athena_O0728_2.mes,30,7,[선택지],あるわからない,있다모르겠다,있다<6E5C>모르겠다
 dom1Athena_O0728_2.mes,Script/dom1Athena_O0728_2.mes,31,11,[선택지],",<0001><0000><0018><000A><0002>……はい",",<0001><0000><0018><000A><0002>…… 네",",<0001><0000><0018><000A><0002>…… 네"
 dom1Athena_O0728_2.mes,Script/dom1Athena_O0728_2.mes,32,34,Jenny,ソゥ.それは、<이름:3232>にしかわかって<6E5C>あげられないコトかもしれないわね,"쏘우. 그건, <이름:3232>밖에는<6E5C>몰라줄 수 있는 일일지도 모르겠네","쏘우. 그건, <이름:3232>밖에는<6E5C>몰라줄 수 있는 일일지도 모르겠네"
 dom1Athena_O0728_2.mes,Script/dom1Athena_O0728_2.mes,33,2,주인공,?,?,?
@@ -724,7 +724,7 @@ dom1Athena_O0728_3.mes,Script/dom1Athena_O0728_3.mes,11,33,UNKNOWN_17,アテナ�
 dom1Athena_O0728_3.mes,Script/dom1Athena_O0728_3.mes,12,13,Athena,もちろん忘れたりしないわ,물론 잊지 않을 거야,물론 잊지 않을 거야
 dom1Athena_O0728_3.mes,Script/dom1Athena_O0728_3.mes,13,30,Jenny,……でも、アテナはみんなとの<6E5C>おはなしでイソガシーみたいね,"……근데, 아테나는 다들이랑<6E5C>얘기하느라 바빠 보이네","……근데, 아테나는 다들이랑<6E5C>얘기하느라 바빠 보이네"
 dom1Athena_O0728_3.mes,Script/dom1Athena_O0728_3.mes,14,7,주인공,みたいですね,그러네요,그러네요
-dom1Athena_O0728_3.mes,Script/dom1Athena_O0728_3.mes,15,9,[선택지],帰るジェニーと話す,간다제니얘기한다,간다제니얘기한다
+dom1Athena_O0728_3.mes,Script/dom1Athena_O0728_3.mes,15,9,[선택지],帰るジェニーと話す,간다제니얘기한다,간다<6E5C>제니얘기한다
 dom1Athena_O0728_3.mes,Script/dom1Athena_O0728_3.mes,16,30,주인공,みんなと話すこともいっぱいあるで<6E5C>しょう.俺、もう帰ります,"다들이랑 할 얘기도 많을<6E5C>텐데요. 저, 그만 갈게요","다들이랑 할 얘기도 많을<6E5C>텐데요. 저, 그만 갈게요"
 dom1Athena_O0728_3.mes,Script/dom1Athena_O0728_3.mes,17,14,Jenny,アラン、そぉ.……イイノ?,"아란,그래애.…괜찮니?","아란,그래애.…괜찮니?"
 dom1Athena_O0728_3.mes,Script/dom1Athena_O0728_3.mes,18,23,주인공,俺とアテナはいつでも話せますから<6E5C>……たぶん,저희는 언제든 얘기할<6E5C>수 있으니까요…아마,저희는 언제든 얘기할<6E5C>수 있으니까요…아마
@@ -801,7 +801,7 @@ dom1Athena_O0729_2.mes,Script/dom1Athena_O0729_2.mes,4,27,주인공,何かあっ
 dom1Athena_O0729_2.mes,Script/dom1Athena_O0729_2.mes,5,5,Athena,…………,…………,…………
 dom1Athena_O0729_2.mes,Script/dom1Athena_O0729_2.mes,6,12,주인공,黙ってちゃわからないよ,입 다물면 모르잖아,입 다물면 모르잖아
 dom1Athena_O0729_2.mes,Script/dom1Athena_O0729_2.mes,7,5,Athena,…………,…………,…………
-dom1Athena_O0729_2.mes,Script/dom1Athena_O0729_2.mes,8,14,[선택지],はっきり言えよ!顔を近づける,확실히 말해!얼굴 들이댄다,확실히 말해!얼굴 들이댄다
+dom1Athena_O0729_2.mes,Script/dom1Athena_O0729_2.mes,8,14,[선택지],はっきり言えよ!顔を近づける,확실히 말해!얼굴 들이댄다,확실히 말해!<6E5C>얼굴들이댄다
 dom1Athena_O0729_2.mes,Script/dom1Athena_O0729_2.mes,9,15,[선택지],<0134><0001><0000><0020><0012><0002>はっきり言えよ!,<0134><0001><0000><0020><0012><0002>확실히 말해!,<0134><0001><0000><0020><0012><0002>확실히 말해!
 dom1Athena_O0729_2.mes,Script/dom1Athena_O0729_2.mes,10,2,Athena,!,!,!
 dom1Athena_O0729_2.mes,Script/dom1Athena_O0729_2.mes,11,46,주인공,俺はおまえみたいに、相手の感情を<6E5C>読めたりしないんだからさ、言って<6E5C>くれないとわからないよ,"난 너처럼, 상대의 감정을<6E5C>읽거나 못 하니까, 말해<6E5C>주지 않으면 몰라","난 너처럼, 상대의 감정을<6E5C>읽거나 못 하니까, 말해<6E5C>주지 않으면 몰라"
