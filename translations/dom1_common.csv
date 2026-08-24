@@ -1,13 +1,13 @@
 file,rel_path,block,n_tokens,speaker,source,ai_draft,translation
 dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,0,17,주인공,さーて、次はどこに行こうかな……,"자, 다음은 어디로 가볼까……","자, 다음은 어디로 가볼까……"
-dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,1,35,[선택지],々<0001><0002><004B><0003><0001><0018><0002><0029><FFDC><0000><0000><0000><0000><0000><0030><0022><0002>さて、次はどこに行こうかな……あ,,
+dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,1,35,[선택지],々<0001><0002><004B><0003><0001><0018><0002><0029><FFDC><0000><0000><0000><0000><0000><0030><0022><0002>さて、次はどこに行こうかな……あ,,"々<0001><0002><004B><0003><0001><0018><0002><0029><FFDC><0000><0000><0000><0000><0000><0030><0022><0002>자, 다음은 어디로 가볼까……"
 dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,2,21,주인공,こんにちは.買い出しですか、<6E5C>キングさん,안녕하세요.<6E5C> 장 보러 나오셨어요?,안녕하세요.<6E5C> 장 보러 나오셨어요?
 dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,3,14,King,ここらへんは酒が安いからね,이 근처가 술이 싸거든,이 근처가 술이 싸거든
 dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,4,23,주인공,そこのお店なんか、安いビールが<6E5C>ありますよね,저 가게는 싼 맥주도<6E5C> 있잖아요,저 가게는 싼 맥주도<6E5C> 있잖아요
 dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,5,5,King,そうそう,그렇지,그렇지
 dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,6,7,King,……<이름:3131>君?,……<이름:3131>군?,……<이름:3131>군?
 dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,7,14,주인공,あ、じゃあ俺はこのへんで~,"아, 그럼 전 이쯤에서~","아, 그럼 전 이쯤에서~"
-dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,8,23,UNKNOWN_01,『<0001><0000><0030><0022><0002>さて、次はどこに行こうかな……あ,,
+dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,8,23,UNKNOWN_01,『<0001><0000><0030><0022><0002>さて、次はどこに行こうかな……あ,,『<0001><0000><0030><0022><0002>그럼、다음으로 가볼까나
 dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,9,9,Kula,……(ペロペロ),……(날름날름),……(날름날름)
 dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,10,24,주인공,(クーラだ.<6E5C>キャンディーくわえてご機嫌だな),(쿨라잖아.<6E5C> 사탕 물고 기분 좋아보이네),(쿨라잖아.<6E5C> 사탕 물고 기분 좋아보이네)
 dom1DefScn_Afternoon.mes,Script/dom1DefScn_Afternoon.mes,11,2,Kula,!,!,!
@@ -47,7 +47,7 @@ dom1DefScn_Kyokugen.mes,Script/dom1DefScn_Kyokugen.mes,3,21,UNKNOWN_1f,そうか
 dom1DefScn_Kyokugen.mes,Script/dom1DefScn_Kyokugen.mes,4,3,주인공,げっ,헉,헉
 dom1DefScn_Kyokugen.mes,Script/dom1DefScn_Kyokugen.mes,5,15,UNKNOWN_1f,さあさあ、かかってこぬかッ!,"자, 자, 덤벼 보거라!","자, 자, 덤벼 보거라!"
 dom1DefScn_Kyokugen.mes,Script/dom1DefScn_Kyokugen.mes,6,13,주인공,いえいえ!失礼しま~す!,아뇨! 실례합니다~!,아뇨! 실례합니다~!
-dom1DefScn_Morning.mes,Script/dom1DefScn_Morning.mes,0,44,레오나 아버지,6<0001><0002><0005><0003><0005><0018><0001><0029>m<0000><0000><0000><0000><0002><0005><0003><000C><0018><0001><0029><04DC><0000><0000><0000><0000><0010><0005><0000><0000><0000><0000><0000><001C><0010><FFFF>♪ピピピピ……,,
+dom1DefScn_Morning.mes,Script/dom1DefScn_Morning.mes,0,44,레오나 아버지,6<0001><0002><0005><0003><0005><0018><0001><0029>m<0000><0000><0000><0000><0002><0005><0003><000C><0018><0001><0029><04DC><0000><0000><0000><0000><0010><0005><0000><0000><0000><0000><0000><001C><0010><FFFF>♪ピピピピ……,,6<0001><0002><0005><0003><0005><0018><0001><0029>m<0000><0000><0000><0000><0002><0005><0003><000C><0018><0001><0029><04DC><0000><0000><0000><0000><0010><0005><0000><0000><0000><0000><0000><001C><0010><FFFF>♪삐삐삐삐……
 dom1DefScn_Morning.mes,Script/dom1DefScn_Morning.mes,1,16,주인공,ふぁ~あ.今日もいい天気だなぁ,하아~암. 오늘도 날씨 좋네,하아~암. 오늘도 날씨 좋네
 dom1DefScn_Morning.mes,Script/dom1DefScn_Morning.mes,2,8,Athena,おはよう、<이름:3232>,"좋은아침,<이름:3232>","좋은아침,<이름:3232>"
 dom1DefScn_Morning.mes,Script/dom1DefScn_Morning.mes,3,15,주인공,おう.アテナは今日も元気だな,"어,아테나 오늘도 팔팔하네","어,아테나 오늘도 팔팔하네"

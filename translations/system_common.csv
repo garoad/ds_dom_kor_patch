@@ -318,4 +318,4 @@ dom1chara.mes,dom1chara.mes,5,53,UNKNOWN_6e5c,誕生日：1月23日<6E5C>年齢<
 dom1chara.mes,dom1chara.mes,6,50,UNKNOWN_6e5c,誕生日：5月29日<6E5C>年齢<020A>：14歳<6E5C>出身地：不明<6E5C>血夜型：不明<6E5C>身長<020A>：159cm<6E5C>体重<020A>：49kg,,생일: 5월 29일<6E5C>나이<020A>: 14세<6E5C>출신지: 불명<6E5C>혈액형: 불명<6E5C>신장<020A>: 159cm<6E5C>체중<020A>: 49kg
 dom1chara.mes,dom1chara.mes,7,50,UNKNOWN_6e5c,誕生日：1月10日<6E5C>年齢<020A>：17歳<6E5C>出身地：不明<6E5C>血夜型：B型<6E5C>身長<020A>：176cm<6E5C>体重<020A>：66kg,,생일: 1월 10일<6E5C>나이<020A>: 17세<6E5C>출신지: 불명<6E5C>혈액형: B형<6E5C>신장<020A>: 176cm<6E5C>체중<020A>: 66kg
 mapmove.mes,mapmove.mes,0,12,,移動先を選んでください.,이동할 곳 선택하세요.,이동할 곳 선택하세요.
-nameinput.mes,nameinput.mes,0,13,UNKNOWN_20a,この名前でよろしいですか?,이름으로 하시겠습니까?,이름으로 하시겠습니까?
+nameinput.mes,nameinput.mes,0,13,UNKNOWN_20a,この名前でよろしいですか?,이름으로 하시겠습니까?,이 이름으로 할까요?
