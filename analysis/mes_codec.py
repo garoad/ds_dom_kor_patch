@@ -112,12 +112,46 @@ def find_dialogue_blocks(values):
     def kind_of(v):
         return CODES.get("%04X" % v, {}).get("kind")
 
+    # Sentinels deliberately tagged 'full' in font_map_full.json despite not
+    # being real characters (see translate_io.py's NAME_VAR_PREFIX/
+    # PAGE_TURN_TOKEN) - they mark meaningful content-adjacent positions
+    # (name-insertion point, page-turn boundary) and are valid block-start
+    # anchors even standing alone with nothing after them but a terminator.
+    _SENTINEL_STARTS = {0x505C, 0x485C}
+
+    def is_real_glyph_start(i2):
+        """True if values[i2] is a trustworthy text-glyph block start.
+
+        decode_value()'s 'full' classification is a pure value-range test
+        (bank!=0 and within the tile table) - it can't tell a real glyph
+        from a header/parameter value that coincidentally falls in the same
+        numeric range (e.g. 0x0100, seen only as a call-scene header token
+        in *_O0727_0.mes, never inside real text - see ANALYSIS_NOTES.md
+        "깨진 숫자 프리픽스 버그 근본원인 규명"). A 'full' code is trusted as a
+        real block start only if it's independently corroborated: either it
+        already has a corpus-confirmed 'char' label, or the very next token
+        is itself full/half (part of a multi-glyph run, as real text always
+        is), or it's one of the known no-char sentinels above. Genuine
+        single-token blocks (e.g. '♪', a lone kanji from namelist1.mes) all
+        have a 'char' label already, so they still pass; isolated
+        coincidental-range header values (no char, followed by ctrl, not a
+        sentinel) are the only thing this excludes.
+        """
+        v = values[i2]
+        if kind_of(v) != "full":
+            return False
+        if v in _SENTINEL_STARTS:
+            return True
+        if CODES.get("%04X" % v, {}).get("char") is not None:
+            return True
+        return i2 + 1 < len(values) and kind_of(values[i2 + 1]) in ("full", "half")
+
     blocks = []
     prev_term_end = 0
     for t in terms:
         start = None
         for i2 in range(prev_term_end, t):
-            if kind_of(values[i2]) == "full":
+            if is_real_glyph_start(i2):
                 start = i2
                 break
         if start is not None:

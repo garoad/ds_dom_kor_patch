@@ -105,12 +105,40 @@ MANUAL_FULL_CODES = {
 
 # code(hex, no 0x prefix, uppercase) -> char, from visual re-transcription of
 # fullcodes_correct_batch_0000.png .. _1500.png (16 batches, ~1591 codes).
+#
+# 2026-08-25 correction: 0193/0197/0198/0282/0283/0284 were originally
+# mistranscribed as Japanese brackets/punctuation (「/『/』/</:/>) during the
+# manual visual batch pass. Corpus cross-checks (`GAME START!!`, `MER06`,
+# `AMP wi<0284>h HIROKI`, `Show m<0197> Cou<0282>a<0199>e~`/"Courage",
+# `<0189><0198> Figh<0284><0197><0282><0283>`/"Of Fighters", and namelist1.mes's
+# `M<0282>.ビッグ`/"Mr.ビッグ") show these are actually lowercase Latin
+# a/e/f/r/s/t (real_tile 211/215/216/258/259/260 - part of the same lowercase
+# alphabet run as already-confirmed 0195=c/0199=g/019A=h/019B=i/019E=m/0280=o/
+# 0285=u/0286=w). See ANALYSIS_NOTES.md for the reversed "40 aliases" false
+# lead this superseded.
+#
+# 2026-08-25 second pass: orochiendroll.mes (DS staff credits roll, dense
+# clean English text) resolved the remaining gaps in this same run via whole
+# -word corpus matches: "Debug"->0194=b, "Sound"/"Design"/"Background"/
+# "Produce"->0196=d, "Planning"/"Original"->019D=l, "Nintendo"/"Design"/
+# "Main"->019F=n, "Graphic"/"program"->0281=p, "EXECUTIVE"->0191=X/018F=V,
+# "PLAYMORE"/"ECSTACY"/"Yuka"->0192=Y, "Thanks for playing you!"/"R.E.D.Days"
+# (endtitledom2.mes)->0287=y. 0194/0196 were previously (wrongly) believed to
+# be genuine 「/」 brackets - re-checked corpus-wide, those two codes ONLY ever
+# appear in orochiendroll.mes, never in dialogue files, so that belief was a
+# mix-up with the visually-identical but distinct bank-03 codes 0314/0316
+# (confirmed real brackets/punctuation via common.mes's glyph-catalog block).
+# 019C/9D02 remain resolved separately (9D02='盃' via strindex.mes kanji-index
+# adjacency + visual tile match); 0288 ("yu#uko" in orochiendroll.mes, single
+# context only) is still UNRESOLVED - do not guess from one occurrence.
 FULL_CHARS = {
 # --- batch 0000: punctuation / digits / letters / hiragana start ---
 "0412": "♪",
 "0404": ">",
-"0182": "/", "0193": "「", "0196": "」", "0197": "『", "0198": "』", "0214": "。",
-"0218": "?", "021A": "!", "0282": "<", "0283": ":", "0284": ">", "0304": "~",
+"0182": "/", "0191": "X", "0192": "Y", "0193": "a", "0194": "b", "0196": "d",
+"0197": "e", "0198": "f", "018F": "V", "019D": "l", "019F": "n", "0214": "。",
+"0218": "?", "021A": "!", "0281": "p", "0282": "r", "0283": "s", "0284": "t",
+"0287": "y", "9D02": "盃", "0304": "~",
 "0306": "…", "0310": "(", "0312": ")", "020E": ".", "0406": "%", "0408": "#",
 "020C": "、", "021E": "ー", "021C": "々", "0300": "―", "030C": "“", "030E": "”",
 "0314": "「", "0316": "」",

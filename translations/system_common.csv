@@ -91,13 +91,13 @@ endtitledom2.mes,endtitledom2.mes,2,9,UNKNOWN_6e5c,ときめきパラダイス,,
 endtitledom2.mes,endtitledom2.mes,3,11,UNKNOWN_6e5c,恋のパラシュート降下!,,사랑의 낙하산 강하!
 endtitledom2.mes,endtitledom2.mes,4,6,UNKNOWN_6e5c,護る約束の印,,지키기로 한 약속의 증표
 endtitledom2.mes,endtitledom2.mes,5,7,UNKNOWN_6e5c,取り戻した名前,,되찾은 이름
-endtitledom2.mes,endtitledom2.mes,6,11,UNKNOWN_6e5c,ECSTAC)<020A>816,,
+endtitledom2.mes,endtitledom2.mes,6,11,UNKNOWN_6e5c,ECSTACY<020A>816,,엑스터시<020A>816
 endtitledom2.mes,endtitledom2.mes,7,7,UNKNOWN_6e5c,朝焼けの前葬曲,,새벽놀 앞의 진혼곡
 endtitledom2.mes,endtitledom2.mes,8,9,UNKNOWN_6e5c,僕の一番大切な君へ,,나의 가장 소중한 너에게
 endtitledom2.mes,endtitledom2.mes,9,5,UNKNOWN_6e5c,ナイトメア,,나이트메어
 endtitledom2.mes,endtitledom2.mes,10,8,UNKNOWN_6e5c,バイスにお任せ!,,바이스에게 맡겨줘!
-endtitledom2.mes,endtitledom2.mes,11,7,UNKNOWN_6e5c,差し出された<9D02>,,
-endtitledom2.mes,endtitledom2.mes,12,10,UNKNOWN_6e5c,R.E.D.D「<0287>:,,
+endtitledom2.mes,endtitledom2.mes,11,7,UNKNOWN_6e5c,差し出された盃,,건네받은 술잔
+endtitledom2.mes,endtitledom2.mes,12,10,UNKNOWN_6e5c,R.E.D.Days,,R.E.D.데이즈
 endtitledom2.mes,endtitledom2.mes,13,7,UNKNOWN_6e5c,???????,,
 endtitledom1.mes,endtitledom1.mes,0,8,,サイキック。ラブ,,"사이킥, 러브"
 endtitledom1.mes,endtitledom1.mes,1,8,UNKNOWN_6e5c,傷だらけのナイト,,상처투성이 나이트
@@ -271,7 +271,7 @@ namelist1.mes,namelist1.mes,150,4,UNKNOWN_6e5c,花ちゃん,,하나짱
 namelist1.mes,namelist1.mes,151,4,UNKNOWN_6e5c,銀髪の男,,은발의 남자
 namelist1.mes,namelist1.mes,152,4,UNKNOWN_6e5c,金髪女性,,금발 여성
 namelist1.mes,namelist1.mes,153,4,UNKNOWN_6e5c,千両役者,,명배우
-namelist1.mes,namelist1.mes,154,2,UNKNOWN_6e5c,和<CE12>,,
+namelist1.mes,namelist1.mes,154,2,UNKNOWN_6e5c,和狆,니코친,니코친
 namelist1.mes,namelist1.mes,155,2,UNKNOWN_6e5c,骸羅,,가이라
 namelist1.mes,namelist1.mes,156,4,UNKNOWN_6e5c,隻眼の男,,애꾸눈의 남자
 namelist1.mes,namelist1.mes,157,3,UNKNOWN_6e5c,町民1,,마을 주민1
@@ -317,5 +317,5 @@ dom1chara.mes,dom1chara.mes,4,50,UNKNOWN_6e5c,誕生日：3月29日<6E5C>年齢<
 dom1chara.mes,dom1chara.mes,5,53,UNKNOWN_6e5c,誕生日：1月23日<6E5C>年齢<020A>：20歳<6E5C>出身地：イギリス<6E5C>血夜型：AB型<6E5C>身長<020A>：167cm<6E5C>体重<020A>：49kg,,생일: 1월 23일<6E5C>나이<020A>: 20세<6E5C>출신지: 영국<6E5C>혈액형: AB형<6E5C>신장<020A>: 167cm<6E5C>체중<020A>: 49kg
 dom1chara.mes,dom1chara.mes,6,50,UNKNOWN_6e5c,誕生日：5月29日<6E5C>年齢<020A>：14歳<6E5C>出身地：不明<6E5C>血夜型：不明<6E5C>身長<020A>：159cm<6E5C>体重<020A>：49kg,,생일: 5월 29일<6E5C>나이<020A>: 14세<6E5C>출신지: 불명<6E5C>혈액형: 불명<6E5C>신장<020A>: 159cm<6E5C>체중<020A>: 49kg
 dom1chara.mes,dom1chara.mes,7,50,UNKNOWN_6e5c,誕生日：1月10日<6E5C>年齢<020A>：17歳<6E5C>出身地：不明<6E5C>血夜型：B型<6E5C>身長<020A>：176cm<6E5C>体重<020A>：66kg,,생일: 1월 10일<6E5C>나이<020A>: 17세<6E5C>출신지: 불명<6E5C>혈액형: B형<6E5C>신장<020A>: 176cm<6E5C>체중<020A>: 66kg
-mapmove.mes,mapmove.mes,0,12,,移動先を選んでください.,이동할 곳 선택하세요.,이동할 곳 선택하세요.
+mapmove.mes,mapmove.mes,0,12,,移動先を選んでください.,이동할 곳 선택하세요.,이동할 곳을 선택하세요
 nameinput.mes,nameinput.mes,0,13,UNKNOWN_20a,この名前でよろしいですか?,이름으로 하시겠습니까?,이 이름으로 할까요?

@@ -2660,13 +2660,13 @@
       "kind": "full",
       "count": 96,
       "real_tile": 258,
-      "char": "<"
+      "char": "r"
     },
     "0193": {
       "kind": "full",
       "count": 96,
       "real_tile": 211,
-      "char": "「"
+      "char": "a"
     },
     "2E1C": {
       "kind": "full",
@@ -2940,7 +2940,7 @@
       "kind": "full",
       "count": 83,
       "real_tile": 215,
-      "char": "『"
+      "char": "e"
     },
     "470E": {
       "kind": "full",
@@ -3549,7 +3549,7 @@
       "kind": "full",
       "count": 57,
       "real_tile": 223,
-      "char": "『"
+      "char": "n"
     },
     "5412": {
       "kind": "full",
@@ -3944,7 +3944,7 @@
       "kind": "full",
       "count": 47,
       "real_tile": 260,
-      "char": ">"
+      "char": "t"
     },
     "0008": {
       "kind": "ctrl",
@@ -4521,7 +4521,7 @@
       "kind": "full",
       "count": 35,
       "real_tile": 216,
-      "char": "『"
+      "char": "f"
     },
     "9C0C": {
       "kind": "full",
@@ -4926,7 +4926,7 @@
       "kind": "full",
       "count": 29,
       "real_tile": 214,
-      "char": "」"
+      "char": "d"
     },
     "050A": {
       "kind": "full",
@@ -5056,7 +5056,7 @@
       "kind": "full",
       "count": 27,
       "real_tile": 259,
-      "char": ":"
+      "char": "s"
     },
     "6E18": {
       "kind": "full",
@@ -6515,7 +6515,8 @@
     "0281": {
       "kind": "full",
       "count": 15,
-      "real_tile": 257
+      "real_tile": 257,
+      "char": "p"
     },
     "2906": {
       "kind": "full",
@@ -7090,7 +7091,7 @@
       "kind": "full",
       "count": 11,
       "real_tile": 210,
-      "char": ")"
+      "char": "Y"
     },
     "B310": {
       "kind": "full",
@@ -7916,7 +7917,7 @@
       "kind": "full",
       "count": 8,
       "real_tile": 212,
-      "char": "「"
+      "char": "b"
     },
     "0048": {
       "kind": "ctrl",
@@ -8493,7 +8494,8 @@
     "0287": {
       "kind": "full",
       "count": 7,
-      "real_tile": 263
+      "real_tile": 263,
+      "char": "y"
     },
     "571E": {
       "kind": "full",
@@ -8837,7 +8839,8 @@
     "019D": {
       "kind": "full",
       "count": 6,
-      "real_tile": 221
+      "real_tile": 221,
+      "char": "l"
     },
     "1F02": {
       "kind": "full",
@@ -12568,7 +12571,8 @@
     "9D02": {
       "kind": "full",
       "count": 0,
-      "real_tile": 10050
+      "real_tile": 10050,
+      "char": "盃"
     },
     "B30A": {
       "kind": "full",
@@ -12609,7 +12613,8 @@
     "018F": {
       "kind": "full",
       "count": 2,
-      "real_tile": 207
+      "real_tile": 207,
+      "char": "V"
     },
     "5E14": {
       "kind": "full",
@@ -13254,7 +13259,8 @@
     "0191": {
       "kind": "full",
       "count": 1,
-      "real_tile": 209
+      "real_tile": 209,
+      "char": "X"
     },
     "0302": {
       "kind": "full",

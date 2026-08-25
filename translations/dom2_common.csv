@@ -333,7 +333,7 @@ dom2HZR_Downtown.mes,Script/dom2HZR_Downtown.mes,4,22,주인공,……僕、け�
 dom2HZR_Downtown.mes,Script/dom2HZR_Downtown.mes,5,16,주인공,(特に手がかりはなし、か……),,
 dom2HZR_Downtown.mes,Script/dom2HZR_Downtown.mes,6,28,주인공,なんだか町全体の風景がよどんで<6E5C>見える……気のせいかな,,
 dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,0,12,[효과음/내레이션],♪カランコロンカラ~ン,,
-dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,1,16,UNKNOWN_01,<0174><0001><0000><0020><0014><002C>いらっしゃいませ~,,
+dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,1,10,UNKNOWN_0x2c,いらっしゃいませ~,,
 dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,2,22,주인공,あ、双子のウエイトレスさん.<6E5C>え~っと……,,
 dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,3,19,UNKNOWN_2c,サリーよ.<6E5C>今、お水を持ってくるわね,,
 dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,4,19,주인공,どうも.<6E5C>今日も学生でいっぱいだなぁ,,
