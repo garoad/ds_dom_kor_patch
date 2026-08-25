@@ -206,11 +206,11 @@ dom1Mai_L07_2.mes,Script/dom1Mai_L07_2.mes,18,13,Mai,あれ、おいしくなか
 dom1Mai_L07_2.mes,Script/dom1Mai_L07_2.mes,19,17,주인공,いや、これはこれで、個性的で……,"아뇨, 이건 이거대로……","아뇨, 이건 이거대로……"
 dom1Mai_L07_2.mes,Script/dom1Mai_L07_2.mes,20,7,Mai,……ごめんね,…… 미안해,…… 미안해
 dom1Mai_L07_2.mes,Script/dom1Mai_L07_2.mes,21,15,주인공,(なんか気まずい空気が……),(뭔가 어색한분위기가……),(뭔가 어색한분위기가……)
-dom1Mai_L08.mes,Script/dom1Mai_L08.mes,0,44,Mai,ありがとう、<이름:3232>君.そろそろ<6E5C>実家に顔を出さなきゃって思って<6E5C>たし、ちょうどよかったわ,"고마워, <이름:3232>야. 안 그래도<6E5C>슬슬 본가에 들러야겠다 싶었는데<6E5C>, 마침 잘됐어","고마워, <이름:3232>야. 안 그래도<6E5C>슬슬 본가에 들러야겠다 싶었는데<6E5C>, 마침 잘됐어"
+dom1Mai_L08.mes,Script/dom1Mai_L08.mes,0,44,Mai,ありがとう、<이름:3232>君.そろそろ<6E5C>実家に顔を出さなきゃって思って<6E5C>たし、ちょうどよかったわ,"고마워, <이름:3232>군. 안 그래도<6E5C>슬슬 본가에 들러야겠다 싶었는데<6E5C>, 마침 잘됐어","고마워, <이름:3232>군. 안 그래도<6E5C>슬슬 본가에 들러야겠다 싶었는데<6E5C>, 마침 잘됐어"
 dom1Mai_L08.mes,Script/dom1Mai_L08.mes,1,21,주인공,舞さんの実家って、この近くなんで<6E5C>すか?,마이 씨네 본가가 이 근처인가요<6E5C>?,마이 씨네 본가가 이 근처인가요<6E5C>?
 dom1Mai_L08.mes,Script/dom1Mai_L08.mes,2,9,Mai,ええ.すぐそこよ,응 바로 저기야,응 바로 저기야
 dom1Mai_L08.mes,Script/dom1Mai_L08.mes,3,22,주인공,じゃあ、俺はその辺をブラブラしと<6E5C>きますよ,그럼 저는 근처나<6E5C>좀 돌아다니고있을게요,그럼 저는 근처나<6E5C>좀 돌아다니고있을게요
-dom1Mai_L08.mes,Script/dom1Mai_L08.mes,4,33,Mai,うん.<6E5C><이름:3232>君は観光を楽しんでね.<6E5C>夜に一緒に温泉に行きましょう,"응.<6E5C><이름:3232>야, 관광 잘 즐기고 있어.<6E5C>밤에 같이 온천 가자","응.<6E5C><이름:3232>야, 관광 잘 즐기고 있어.<6E5C>밤에 같이 온천 가자"
+dom1Mai_L08.mes,Script/dom1Mai_L08.mes,4,33,Mai,うん.<6E5C><이름:3232>君は観光を楽しんでね.<6E5C>夜に一緒に温泉に行きましょう,"응.<6E5C><이름:3232>군, 관광 잘 즐기고 있어.<6E5C>밤에 같이 온천 가자","응.<6E5C><이름:3232>군, 관광 잘 즐기고 있어.<6E5C>밤에 같이 온천 가자"
 dom1Mai_L08.mes,Script/dom1Mai_L08.mes,5,7,주인공,わかりました,알겠습니다,알겠습니다
 dom1Mai_L08.mes,Script/dom1Mai_L08.mes,6,32,주인공,(とは言ってみたものの、ひとりで<6E5C>回っても楽しくないなぁ……),(그렇게 말은 했지만 혼자<6E5C>돌아다녀 봤자 재미없는데……),(그렇게 말은 했지만 혼자<6E5C>돌아다녀 봤자 재미없는데……)
 dom1Mai_L08.mes,Script/dom1Mai_L08.mes,7,4,UNKNOWN_21,<이름:3131>!,<이름:3131>!,<이름:3131>!
@@ -276,7 +276,7 @@ dom1Mai_L10.mes,Script/dom1Mai_L10.mes,1,3,주인공,はい,네,네
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,2,4,[효과음/내레이션],ガチャ,달칵,달칵
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,3,26,Mai,さあ、今日は腕によりをかけて<6E5C>ごちそうを作るわよ!,자 오늘은 솜씨 발휘해서<6E5C>진수성찬 만들 거야!,자 오늘은 솜씨 발휘해서<6E5C>진수성찬 만들 거야!
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,4,10,주인공,気合い入ってますね,기합 들어가있네요,기합 들어가있네요
-dom1Mai_L10.mes,Script/dom1Mai_L10.mes,5,16,Mai,<이름:3232>君は適当に休んでていいわよ,<이름:3232>야 넌 편하게 쉬고 있어,<이름:3232>야 넌 편하게 쉬고 있어
+dom1Mai_L10.mes,Script/dom1Mai_L10.mes,5,16,Mai,<이름:3232>君は適当に休んでていいわよ,<이름:3232>군 넌 편하게 쉬고 있어,<이름:3232>군 넌 편하게 쉬고 있어
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,6,27,주인공,(いつもこれくらい優しかったら<6E5C>最高なんだけどなぁ),(항상 이만큼 다정하면<6E5C>정말 좋을 텐데),(항상 이만큼 다정하면<6E5C>정말 좋을 텐데)
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,7,3,Mai,……,……,……
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,8,3,주인공,……,……,……
@@ -288,7 +288,7 @@ dom1Mai_L10.mes,Script/dom1Mai_L10.mes,13,5,Mai,できた!,다됐다!,다됐다!
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,14,8,주인공,待ってました!,기다렸어요!,기다렸어요!
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,15,27,Mai,さ、座って座って.不知火舞の豪華<6E5C>おせちフルコースよ,자 앉아 앉아.<6E5C>시라누이 마이표 오세치 풀코스야,자 앉아 앉아.<6E5C>시라누이 마이표 오세치 풀코스야
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,16,12,주인공,す、すげえ……プロ級だ,우와…… 프로급이네,우와…… 프로급이네
-dom1Mai_L10.mes,Script/dom1Mai_L10.mes,17,15,Mai,<이름:3232>君、お誕生日おめでと~!,"<이름:3232>야, 생일 축하해~!","<이름:3232>야, 생일 축하해~!"
+dom1Mai_L10.mes,Script/dom1Mai_L10.mes,17,15,Mai,<이름:3232>君、お誕生日おめでと~!,"<이름:3232>군, 생일 축하해~!","<이름:3232>군, 생일 축하해~!"
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,18,12,주인공,ありがとうございます!,감사합니다!,감사합니다!
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,19,11,Mai,それじゃ、食べようか,"그럼, 먹을까","그럼, 먹을까"
 dom1Mai_L10.mes,Script/dom1Mai_L10.mes,20,11,주인공,はい!いただきます!,네! 잘먹겠습니다!,네! 잘먹겠습니다!
@@ -998,7 +998,7 @@ dom1Mai_O0730_0.mes,Script/dom1Mai_O0730_0.mes,40,14,Mai,そうよ、あの人�
 dom1Mai_O0730_0.mes,Script/dom1Mai_O0730_0.mes,41,19,주인공,うわ、ジェニー先生じゃない<6E5C>ですか!,"우와, 제니 선생님<6E5C>아니에요!","우와, 제니 선생님<6E5C>아니에요!"
 dom1Mai_O0730_0.mes,Script/dom1Mai_O0730_0.mes,42,8,Jenny,ハーイ!<이름:3232>!,하이! <이름:3232>!,하이! <이름:3232>!
 dom1Mai_O0730_0.mes,Script/dom1Mai_O0730_0.mes,43,22,주인공,あの、おふたりは知り合いだったん<6E5C>ですか?,"저, 두 분이 아는 사이<6E5C>였어요?","저, 두 분이 아는 사이<6E5C>였어요?"
-dom1Mai_O0730_0.mes,Script/dom1Mai_O0730_0.mes,44,67,Mai,違うわよ.ここへ来たら朝早くから<6E5C>ハイテンションで歌ってる人が<6E5C>いたから、<485C>協力してもらうことにしたの.<6E5C><이름:3232>君こそ、知り合いなの?,"아니야. 여기 왔더니 아침 일찍부터<6E5C>텐션 높게 노래 부르는 사람이<6E5C>있길래,<485C>도와달라고 했지.<6E5C><이름:3232>야말로 아는 사이야?","아니야. 여기 왔더니 아침 일찍부터<6E5C>텐션 높게 노래 부르는 사람이<6E5C>있길래,<485C>도와달라고 했지.<6E5C><이름:3232>야말로 아는 사이야?"
+dom1Mai_O0730_0.mes,Script/dom1Mai_O0730_0.mes,44,67,Mai,違うわよ.ここへ来たら朝早くから<6E5C>ハイテンションで歌ってる人が<6E5C>いたから、<485C>協力してもらうことにしたの.<6E5C><이름:3232>君こそ、知り合いなの?,"아니야. 여기 왔더니 아침 일찍부터<6E5C>텐션 높게 노래 부르는 사람이<6E5C>있길래,<485C>도와달라 했지.<6E5C><이름:3232>군이야말로 아는 사이야?","아니야. 여기 왔더니 아침 일찍부터<6E5C>텐션 높게 노래 부르는 사람이<6E5C>있길래,<485C>도와달라 했지.<6E5C><이름:3232>군이야말로 아는 사이야?"
 dom1Mai_O0730_0.mes,Script/dom1Mai_O0730_0.mes,45,17,주인공,俺の学校の、教育実習の先生ですよ,제 학교 교생 선생님이에요,제 학교 교생 선생님이에요
 dom1Mai_O0730_0.mes,Script/dom1Mai_O0730_0.mes,46,11,Jenny,イエーイ!ヨロシク!,예이! 잘 부탁해!,예이! 잘 부탁해!
 dom1Mai_O0730_0.mes,Script/dom1Mai_O0730_0.mes,47,29,Mai,よろしく、ジェニー.それで、<6E5C>例のものは持っててくれた?,"잘 부탁해, 제니. 그런데,<6E5C>그거 가져다 줬어?","잘 부탁해, 제니. 그런데,<6E5C>그거 가져다 줬어?"
@@ -1287,20 +1287,20 @@ dom1Mai_S05.mes,Script/dom1Mai_S05.mes,31,31,Mai,ありがとう…….<이름:3
 dom1Mai_S05.mes,Script/dom1Mai_S05.mes,32,8,주인공,そうですか……,그런가요……,그런가요……
 dom1Mai_S05.mes,Script/dom1Mai_S05.mes,33,3,Mai,……,……,……
 dom1Mai_S05.mes,Script/dom1Mai_S05.mes,34,19,주인공,(舞さん、辛そうな顔してた<6E5C>な……),(마이 씨 힘든 표정<6E5C>이었어……),(마이 씨 힘든 표정<6E5C>이었어……)
-dom1Mai_S06.mes,Script/dom1Mai_S06.mes,0,7,Mai,<이름:3232>く~ん!,<이름:3232>야아!,<이름:3232>야아!
+dom1Mai_S06.mes,Script/dom1Mai_S06.mes,0,7,Mai,<이름:3232>く~ん!,<이름:3232>군~!,<이름:3232>군~!
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,1,9,주인공,(あ、舞さんだ),(아 마이씨다),(아 마이씨다)
-dom1Mai_S06.mes,Script/dom1Mai_S06.mes,2,21,Yuri,あれ~<이름:3232>君じゃない.<6E5C>何やってんのぉ?,어라 <이름:3232>야 아니야.<6E5C>뭐 하고 있어?,어라 <이름:3232>야 아니야.<6E5C>뭐 하고 있어?
+dom1Mai_S06.mes,Script/dom1Mai_S06.mes,2,21,Yuri,あれ~<이름:3232>君じゃない.<6E5C>何やってんのぉ?,어라 <이름:3232>군 아니야.<6E5C>뭐 하고 있어?,어라 <이름:3232>군 아니야.<6E5C>뭐 하고 있어?
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,3,36,주인공,どうも、こんにちは.ていうか、<6E5C>おふたりはいつの間にそんな<6E5C>仲良しに?,안녕하세요. 근데 두 분은<6E5C>언제 이렇게 친해지셨어요?,안녕하세요. 근데 두 분은<6E5C>언제 이렇게 친해지셨어요?
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,4,16,Yuri,けっこう前から仲良しだよ!ね?,꽤 전부터 친했어! 그치?,꽤 전부터 친했어! 그치?
-dom1Mai_S06.mes,Script/dom1Mai_S06.mes,5,21,Mai,そうそう.<이름:3232>君が知らなかった<6E5C>だけだよ,맞아. <이름:3232>야가 몰랐던<6E5C>것뿐이야,맞아. <이름:3232>야가 몰랐던<6E5C>것뿐이야
+dom1Mai_S06.mes,Script/dom1Mai_S06.mes,5,21,Mai,そうそう.<이름:3232>君が知らなかった<6E5C>だけだよ,맞아. <이름:3232>군이 몰랐던<6E5C>것뿐이야,맞아. <이름:3232>군이 몰랐던<6E5C>것뿐이야
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,6,11,주인공,は、はぁ、そうですか,"아, 아, 그런가요","아, 아, 그런가요"
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,7,56,주인공,(な、なんだ……このふたりから、<6E5C>同じオーラを感じる<485C>この無茶しそうな感じ……<6E5C>これが意気投合のきっかけか?),"(뭐, 뭐지…… 이 둘한테서<6E5C>같은 기운이 느껴져<485C>이 무모한 느낌……<6E5C>이게 의기투합의 계기인가?)","(뭐, 뭐지…… 이 둘한테서<6E5C>같은 기운이 느껴져<485C>이 무모한 느낌……<6E5C>이게 의기투합의 계기인가?)"
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,8,17,Mai,コラ、おかしなこと考えてるでしょ,"야, 이상한 생각 하고 있지","야, 이상한 생각 하고 있지"
-dom1Mai_S06.mes,Script/dom1Mai_S06.mes,9,12,Yuri,ん~そうなの、<이름:3232>君?,"그래, <이름:3232>야?","그래, <이름:3232>야?"
+dom1Mai_S06.mes,Script/dom1Mai_S06.mes,9,12,Yuri,ん~そうなの、<이름:3232>君?,"그래, <이름:3232>군?","그래, <이름:3232>군?"
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,10,14,주인공,い、いや、めっそうもない!,"아, 아니 절대 아녜요!","아, 아니 절대 아녜요!"
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,11,23,주인공,(こんな最強コンビに勝てるわけね<6E5C>えよ……),(이런 최강 콤비를 이길수가<6E5C>없잖아……),(이런 최강 콤비를 이길수가<6E5C>없잖아……)
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,12,38,주인공,(あ、ユリさんだ.<6E5C>一緒にいるのは舞さんか.<6E5C>できれば顔を合わせずに……),(아 유리씨다.<6E5C>같이 있는 건 마이씨네.<6E5C>가능하면 안 마주치고……),(아 유리씨다.<6E5C>같이 있는 건 마이씨네.<6E5C>가능하면 안 마주치고……)
-dom1Mai_S06.mes,Script/dom1Mai_S06.mes,13,5,Yuri,<이름:3232>君!,<이름:3232>야!,<이름:3232>야!
+dom1Mai_S06.mes,Script/dom1Mai_S06.mes,13,5,Yuri,<이름:3232>君!,<이름:3232>군!,<이름:3232>군!
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,14,10,주인공,(し、しまった~),"(아, 아차……)","(아, 아차……)"
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,15,38,주인공,あ、あれ、ユリさんと舞さんじゃな<6E5C>いですか!ぜんぜん気づきません<6E5C>でしたよ,"어, 어라, 유리씨랑 마이씨<6E5C>아니세요! 전혀 못 알아<6E5C>차렸어요","어, 어라, 유리씨랑 마이씨<6E5C>아니세요! 전혀 못 알아<6E5C>차렸어요"
 dom1Mai_S06.mes,Script/dom1Mai_S06.mes,16,13,Mai,逃げようとしてたでしょ?,도망치려고 했죠?,도망치려고 했죠?
@@ -1333,7 +1333,7 @@ dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,16,42,UNKNOWN_2a,ようこそい�
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,17,17,주인공,(い、いよいよか……緊張するな),(드 드디어인가…… 긴장되네),(드 드디어인가…… 긴장되네)
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,18,7,주인공,失礼します!,실례합니다!,실례합니다!
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,19,16,주인공,(うわ~舞さん、きれいだ……),"(와아, 마이씨 예쁘다……)","(와아, 마이씨 예쁘다……)"
-dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,20,6,Mai,<이름:3232>君……,<이름:3232>야……,<이름:3232>야……
+dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,20,6,Mai,<이름:3232>君……,<이름:3232>군……,<이름:3232>군……
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,21,6,주인공,舞さん……,마이씨……,마이씨……
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,22,23,Mai,ふつつか者ですが、よろしく<6E5C>お願いいたします,"부족한 사람이지만, 잘<6E5C>부탁드립니다","부족한 사람이지만, 잘<6E5C>부탁드립니다"
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,23,25,주인공,そ、そんな.こちらこそ、よろしく<6E5C>お願いします!,"아, 아닙니다. 저야말로 잘<6E5C>부탁드립니다!","아, 아닙니다. 저야말로 잘<6E5C>부탁드립니다!"
@@ -1351,14 +1351,14 @@ dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,34,10,Mai,もう我慢できな�
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,35,12,주인공,ちょ、ちょっと舞さん?,"자, 잠깐 마이씨?","자, 잠깐 마이씨?"
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,36,25,Mai,私はウェディングドレスが<6E5C>着たいって言ったのに!,나는 웨딩드레스가<6E5C>입고 싶다고 했는데!,나는 웨딩드레스가<6E5C>입고 싶다고 했는데!
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,37,27,UNKNOWN_2b,馬鹿もーん!不知火流の正装は<6E5C>和服に決まっとろうが!,바보야! 시라누이류 정장은<6E5C>당연히 일본옷이다!,바보야! 시라누이류 정장은<6E5C>당연히 일본옷이다!
-dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,38,23,Mai,そんなこと知らないわよ!<6E5C><이름:3232>君、行くわよ!,"그런 거 몰라!<6E5C><이름:3232>야, 가자!","그런 거 몰라!<6E5C><이름:3232>야, 가자!"
+dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,38,23,Mai,そんなこと知らないわよ!<6E5C><이름:3232>君、行くわよ!,"그런 거 몰라!<6E5C><이름:3232>군, 가자!","그런 거 몰라!<6E5C><이름:3232>군, 가자!"
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,39,13,주인공,え、ちょっと、舞さん!?,"어, 잠깐, 마이씨!?","어, 잠깐, 마이씨!?"
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,40,26,주인공,(さ、最後の最後まで引っ張り回さ<6E5C>れるのかよ……),"(끝, 끝까지 끌려 다니는<6E5C>건가……)","(끝, 끝까지 끌려 다니는<6E5C>건가……)"
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,41,12,Mai,やっと帰ってこれたわね,겨우 돌아왔네,겨우 돌아왔네
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,42,6,주인공,ええ、まあ,"네, 뭐","네, 뭐"
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,43,3,Mai,何よ,뭐야,뭐야
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,44,25,주인공,いえ、なんでもありません.<6E5C>お帰りなさい、舞さん,아뇨 아무것도 아니에요.<6E5C>다녀오셨어요 마이씨,아뇨 아무것도 아니에요.<6E5C>다녀오셨어요 마이씨
-dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,45,12,Mai,うん、ただいま.<이름:3232>君,응 다녀왔어. <이름:3232>야,응 다녀왔어. <이름:3232>야
+dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,45,12,Mai,うん、ただいま.<이름:3232>君,응 다녀왔어. <이름:3232>군,응 다녀왔어. <이름:3232>군
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,46,11,주인공,俺、約束守りましたよ,"저, 약속 지켰어요","저, 약속 지켰어요"
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,47,9,Mai,うん……信じてた,응…… 믿었어,응…… 믿었어
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,48,20,주인공,これで、ずっと一緒にいられるんで<6E5C>すね,이제 계속 같이 있을 수<6E5C>있는거네요,이제 계속 같이 있을 수<6E5C>있는거네요
@@ -1369,7 +1369,7 @@ dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,52,4,[효과음/내레이션],チ
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,53,10,주인공,!<020A>ま、舞さん!?,!<020A>마 마이씨!?,!<020A>마 마이씨!?
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,54,12,Mai,ヘヘ、ほっぺでごめんね,"헤헤, 볼이라 미안해","헤헤, 볼이라 미안해"
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,55,15,주인공,い、いえ、とんでもない……!,"아, 아뇨, 별말씀을……!","아, 아뇨, 별말씀을……!"
-dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,56,15,Mai,これからもよろしくね、<이름:3232>君,앞으로도 잘 부탁해 <이름:3232>야,앞으로도 잘 부탁해 <이름:3232>야
+dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,56,15,Mai,これからもよろしくね、<이름:3232>君,앞으로도 잘 부탁해 <이름:3232>군,앞으로도 잘 부탁해 <이름:3232>군
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,57,10,주인공,こちらこそ、舞さん,"저야말로, 마이씨","저야말로, 마이씨"
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,58,17,Mai,もうその舞さんっていうのやめてよ,이제 그 마이씨라는 거 그만해,이제 그 마이씨라는 거 그만해
 dom1Mai_ending1.mes,Script/dom1Mai_ending1.mes,59,7,주인공,え、でも……,어 근데……,어 근데……

@@ -92,6 +92,50 @@ def get_category(path):
 # Raw token IDs for the literal phrase "次のページ" ("next page")
 _NEXT_PAGE_TOKENS = (0x5904, 0xB0A, 0x1102, 0x21E, 0xE1E)
 
+# Character names (as they appear in Script text, from namelist1.mes) used by
+# real "who do you want to call?" / character-select choice menus. Some of
+# these menus legitimately end with a "次のページ" (next page) option to page
+# through more names when there are more than fit on one screen, which is the
+# exact same trailing-token signature leftover dev sound-test menus end with
+# (see is_debug_menu_block). Also includes "1人で行く" (go it alone), a
+# standalone non-name option seen on the last page of the same style of menu.
+# Sorted longest-first so segmentation below can't short-match a name that's
+# a prefix of a longer one.
+_HEROINE_CHOICE_NAMES = sorted([
+    "アテナ", "舞", "ユリ", "キング", "香澄", "ジェニー", "クーラ", "レオナ",
+    "雫", "ほたる", "キサラ", "フィオ", "ちづる", "マリー", "マチュア",
+    "ナコルル", "詩乃", "ミナ", "凛花", "サヤ", "命", "色", "いろは",
+], key=len, reverse=True)
+
+_CHOICE_OPTION_TEXTS = sorted(_HEROINE_CHOICE_NAMES + ["1人で行く"], key=len, reverse=True)
+
+
+def _is_heroine_name_choice(text):
+    """True if text ENDS WITH a non-empty run of known choice-menu option
+    texts (character names, or the standalone "go it alone" option) - a
+    real character-select choice block, as opposed to leftover dev menu
+    text that happens to share the same next-page trailer.
+
+    Matches from the end rather than requiring the whole text to match:
+    some real choice-menu blocks (e.g. dom1MEZ01.mes's page-2/page-3
+    continuations) have a binary icon-assignment preamble before the
+    plain-text option list, which decodes to stray glyph artifacts that
+    would break a from-the-start match (see ANALYSIS_NOTES.md 2026-08-25
+    "다음페이지 2/3페이지 선택지 누락"). Verified corpus-wide this doesn't
+    pick up any of the genuine dev sound/BGM-test menus, whose junk text
+    (e.g. "のテーマ") breaks the match at the first non-name character."""
+    remaining = text
+    matched = False
+    while remaining:
+        for name in _CHOICE_OPTION_TEXTS:
+            if remaining.endswith(name):
+                remaining = remaining[:-len(name)]
+                matched = True
+                break
+        else:
+            break
+    return matched
+
 
 def is_debug_menu_block(values):
     """Leftover dev QA menu entries that match the real dialogue box shape
@@ -100,6 +144,9 @@ def is_debug_menu_block(values):
         return True
     n = len(_NEXT_PAGE_TOKENS)
     if len(values) >= n and tuple(values[-n:]) == _NEXT_PAGE_TOKENS:
+        prefix_text = tio.tokens_to_text(values[:-n])
+        if _is_heroine_name_choice(prefix_text):
+            return False
         return True
     return False
 
