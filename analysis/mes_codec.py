@@ -119,7 +119,7 @@ def find_dialogue_blocks(values):
     # anchors even standing alone with nothing after them but a terminator.
     _SENTINEL_STARTS = {0x505C, 0x485C}
 
-    def is_real_glyph_start(i2):
+    def is_real_glyph_start(i2, t):
         """True if values[i2] is a trustworthy text-glyph block start.
 
         decode_value()'s 'full' classification is a pure value-range test
@@ -128,30 +128,47 @@ def find_dialogue_blocks(values):
         numeric range (e.g. 0x0100, seen only as a call-scene header token
         in *_O0727_0.mes, never inside real text - see ANALYSIS_NOTES.md
         "깨진 숫자 프리픽스 버그 근본원인 규명"). A 'full' code is trusted as a
-        real block start only if it's independently corroborated: either it
-        already has a corpus-confirmed 'char' label, or the very next token
-        is itself full/half (part of a multi-glyph run, as real text always
-        is), or it's one of the known no-char sentinels above. Genuine
-        single-token blocks (e.g. '♪', a lone kanji from namelist1.mes) all
-        have a 'char' label already, so they still pass; isolated
-        coincidental-range header values (no char, followed by ctrl, not a
-        sentinel) are the only thing this excludes.
+        real block start only if it's independently corroborated: either
+        it's one of the known no-char sentinels above, or the very next
+        token is itself full/half (part of a multi-glyph run, as real text
+        always is), or it already has a corpus-confirmed 'char' label AND
+        stands truly alone (immediately followed by the box terminator at
+        `t`) - matching genuine single-token blocks like '♪' or a lone
+        kanji in namelist1.mes.
+
+        Without the "immediately before terminator" condition, a
+        char-labeled value can still be a false positive: repeated menu/
+        list structures pad each item with a decrementing counter param
+        whose value coincidentally lands on a char-labeled tile (e.g.
+        0x0144='tu', 0x0134='bc' in dom3HZR.mes block 0) but is followed by
+        many more control tokens before the real text run starts - not a
+        real glyph, just numeric coincidence like 0x0100 above, just with
+        the added coincidence of also matching a char label from
+        elsewhere in the corpus.
+
+        'blank' (a corpus-confirmed rendered space, e.g. after a
+        stand-alone '!' reaction mark - seen 108x across the corpus, as in
+        dom3TrainingINT.mes "!<space>そんな、肺病がそこまで……") counts as a
+        real-content follow-on token alongside full/half, since it's a
+        rendered character, not raw ctrl noise.
         """
         v = values[i2]
         if kind_of(v) != "full":
             return False
         if v in _SENTINEL_STARTS:
             return True
-        if CODES.get("%04X" % v, {}).get("char") is not None:
+        if i2 + 1 < len(values) and kind_of(values[i2 + 1]) in ("full", "half", "blank"):
             return True
-        return i2 + 1 < len(values) and kind_of(values[i2 + 1]) in ("full", "half")
+        if i2 + 1 == t and CODES.get("%04X" % v, {}).get("char") is not None:
+            return True
+        return False
 
     blocks = []
     prev_term_end = 0
     for t in terms:
         start = None
         for i2 in range(prev_term_end, t):
-            if is_real_glyph_start(i2):
+            if is_real_glyph_start(i2, t):
                 start = i2
                 break
         if start is not None:

@@ -13,7 +13,7 @@ dom3TrainingMain.mes,Script/dom3TrainingMain.mes,10,20,주인공,え?あ、え~�
 dom3TrainingMain.mes,Script/dom3TrainingMain.mes,11,11,Iroha,お出かけ……ですか?,,
 dom3TrainingMain.mes,Script/dom3TrainingMain.mes,12,38,주인공,ああ、男たるもの、町に出て修行を<6E5C>積まねばね!<6E5C>え~っと、どこに行こうかな,,
 dom3TrainingMain.mes,Script/dom3TrainingMain.mes,13,11,[선택지],剣術道場寺子屋橘城下町,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,14,43,UNKNOWN_29,<011C><0000><0000><0000><0000><0011><0001><0000><0000><0000><0000><0006><000A><0009><0000><0000><0001><000F><0000><0000><0000><0000><0000><002A><0000><0000><0000><0000><0000><0010><0009><0000><0000><0000><0000><0000><0014><0008><FFFF>ゴ~ン,,
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,14,4,[효과음/내레이션],ゴ~ン,,
 dom3TrainingMain.mes,Script/dom3TrainingMain.mes,15,31,Iroha,おはようございます、旦那様!<6E5C>今日はどちらにお出かけですか?,,
 dom3TrainingMain.mes,Script/dom3TrainingMain.mes,16,11,[선택지],剣術道場寺子屋橘城下町,,
 dom3TrainingMain.mes,Script/dom3TrainingMain.mes,17,12,Iroha,いってらっしゃいませ!,,
