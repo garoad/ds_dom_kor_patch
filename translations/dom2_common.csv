@@ -1,7 +1,7 @@
 file,rel_path,block,n_tokens,speaker,source,ai_draft,translation
-dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,0,12,주인공,ん……?ゲーニッツ先生,음? 게이니츠 선생님,음? 게이니츠 선생님
+dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,0,12,주인공,ん……?ゲーニッツ先生,음? 게닛츠 선생님,음? 게닛츠 선생님
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,1,16,Goenitz,神よ……私をお導きください……,신이시여…… 저를 인도하소서,신이시여…… 저를 인도하소서
-dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,2,40,주인공,(い、祈ってる!そういえば、<6E5C>ゲーニッツ先生って牧師も<6E5C>やってるんだったよな),(기도 중이야! 그러고 보니<6E5C>게이니츠 선생님 목사님도<6E5C>겸하고 계셨었지),(기도 중이야! 그러고 보니<6E5C>게이니츠 선생님 목사님도<6E5C>겸하고 계셨었지)
+dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,2,40,주인공,(い、祈ってる!そういえば、<6E5C>ゲーニッツ先生って牧師も<6E5C>やってるんだったよな),(기도 중이야! 그러고 보니<6E5C>게닛츠 선생님 목사님도<6E5C>겸하고 계셨었지),(기도 중이야! 그러고 보니<6E5C>게닛츠 선생님 목사님도<6E5C>겸하고 계셨었지)
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,3,22,주인공,(ど、どこかに導かれていったのか<6E5C>な……),(어딘가로 인도되어 가버<6E5C>린 걸까……),(어딘가로 인도되어 가버<6E5C>린 걸까……)
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,4,15,Shizuku,<이름:3131>くん、レポート進んでる?,"<이름:3131>군, 리포트 진행돼?","<이름:3131>군, 리포트 진행돼?"
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,5,9,주인공,閉かないでよ……,묻지 말아줘……,묻지 말아줘……
@@ -41,7 +41,7 @@ dom2ENC_T3_Afternoon.mes,Script/dom2ENC_T3_Afternoon.mes,6,23,Chizuru,あら、<
 dom2ENC_T3_Afternoon.mes,Script/dom2ENC_T3_Afternoon.mes,7,26,주인공,お祓いしてもらったらレポート<6E5C>終わりますかねぇ……,액막이 받으면 리포트가<6E5C>끝나려나요……,액막이 받으면 리포트가<6E5C>끝나려나요……
 dom2ENC_T3_Afternoon.mes,Script/dom2ENC_T3_Afternoon.mes,8,26,Chizuru,当神社では、そのようなご相談は<6E5C>承っておりませんわ,"저희 신사에서는, 그런 상담은<6E5C>받지 않아요","저희 신사에서는, 그런 상담은<6E5C>받지 않아요"
 dom2ENC_T3_Afternoon.mes,Script/dom2ENC_T3_Afternoon.mes,9,6,주인공,ですよねぇ,그렇겠죠,그렇겠죠
-dom2ENC_T3_Afternoon.mes,Script/dom2ENC_T3_Afternoon.mes,10,10,주인공,あ、ゲーニッツ先生,게이니츠 선생님,게이니츠 선생님
+dom2ENC_T3_Afternoon.mes,Script/dom2ENC_T3_Afternoon.mes,10,10,주인공,あ、ゲーニッツ先生,게닛츠 선생님,게닛츠 선생님
 dom2ENC_T3_Afternoon.mes,Script/dom2ENC_T3_Afternoon.mes,11,28,Goenitz,おや、これはこれは<이름:3131>君.<6E5C>レポートもせずに余裕ですね,"이런, 이거 참 <이름:3131>군<6E5C>리포트도 안 하고 여유롭네","이런, 이거 참 <이름:3131>군<6E5C>리포트도 안 하고 여유롭네"
 dom2ENC_T3_Afternoon.mes,Script/dom2ENC_T3_Afternoon.mes,12,15,주인공,いや、余裕というわけでは……,"아뇨, 여유롭다기보다는……","아뇨, 여유롭다기보다는……"
 dom2ENC_T3_Afternoon.mes,Script/dom2ENC_T3_Afternoon.mes,13,34,Goenitz,ふふ、留年で人より1年長く刻まれ<6E5C>る学園生活もいいかもしれませんね,후후 유급으로 남들보다 1년 더<6E5C>긴 학원생활도 나쁘지 않겠네,후후 유급으로 남들보다 1년 더<6E5C>긴 학원생활도 나쁘지 않겠네
@@ -221,14 +221,14 @@ dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,8,27,UNKNOWN_47,だいじょうぶ?
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,9,3,주인공,!!,!!,!!
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,10,7,UNKNOWN_47,どうかした?,무슨 일이야,무슨 일이야
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,11,25,주인공,……なんで、僕の家にいる!!<6E5C>お前は、お前は……,"……왜 내 집에 있어!!<6E5C>너, 너는……","……왜 내 집에 있어!!<6E5C>너, 너는……"
-dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,12,13,주인공,シェルミー……だよな……,셰르미…… 맞지……,셰르미…… 맞지……
+dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,12,13,주인공,シェルミー……だよな……,셀미…… 맞지……,셀미…… 맞지……
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,13,19,UNKNOWN_47,ねぼけてるの?<6E5C>朝ごはんできてるわよ,잠이 안 깬 거야?<6E5C>아침 다 됐어,잠이 안 깬 거야?<6E5C>아침 다 됐어
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,14,7,주인공,あ、ああ……,아…… 아아,아…… 아아
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,15,16,UNKNOWN_47,私、今日はちょっと遅くなるから,나 오늘 좀 늦을 거야,나 오늘 좀 늦을 거야
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,16,5,주인공,うん……,응……,응……
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,17,6,주인공,(あれ?),(어라?),(어라?)
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,18,37,UNKNOWN_47,<이름:3232>はいいよね、夏休みだから<6E5C>ぼーっとできて……ちょっと、<6E5C>閉いてるの?,"<이름:3232>는 좋겠다, 방학이니<6E5C>편해서…… 근데<6E5C>정신 어디 판 거야?","<이름:3232>는 좋겠다, 방학이니<6E5C>편해서…… 근데<6E5C>정신 어디 판 거야?"
-dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,19,31,주인공,シェルミー.<6E5C>僕、ふたり募らしをしていた<6E5C>ような気がするんだ,"셰르미.<6E5C>나, 둘이서 살고 있었던<6E5C>것 같은 느낌이 들어","셰르미.<6E5C>나, 둘이서 살고 있었던<6E5C>것 같은 느낌이 들어"
+dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,19,31,주인공,シェルミー.<6E5C>僕、ふたり募らしをしていた<6E5C>ような気がするんだ,"셀미.<6E5C>나, 둘이서 살고 있었던<6E5C>것 같은 느낌이 들어","셀미.<6E5C>나, 둘이서 살고 있었던<6E5C>것 같은 느낌이 들어"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,20,27,UNKNOWN_47,やあねえ.<6E5C>ずっとふたりで募らしてるじゃない<6E5C>、私と,"무슨 소리야.<6E5C>계속 둘이서 살고 있잖아<6E5C>, 나랑","무슨 소리야.<6E5C>계속 둘이서 살고 있잖아<6E5C>, 나랑"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,21,18,주인공,そうだったっけ……?<6E5C>誰か別の……,그랬던가……?<6E5C>누군가 다른……,그랬던가……?<6E5C>누군가 다른……
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,22,31,UNKNOWN_47,別のぉ!?<6E5C>まさか<이름:3232>、浮気でも<6E5C>したんじゃないでしょうね!,"다른 사람!?<6E5C>설마 <이름:3232>, 바람이라도<6E5C>피운 거 아니야!","다른 사람!?<6E5C>설마 <이름:3232>, 바람이라도<6E5C>피운 거 아니야!"
@@ -268,14 +268,14 @@ dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,55,22,UNKNOWN_47,そんなの、は
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,56,63,UNKNOWN_47,あなたに妹はいない<485C>世話焼きの幼なじみも、<6E5C>心安い友達も、頼りになる先輩も、<6E5C>誰もいないの<485C>はじめからいないの.<6E5C>わかった?,"너한테 여동생은 없어<485C>참견쟁이 소꿉친구도,<6E5C>편한 친구도, 의지할 선배도,<6E5C>아무도 없어<485C>처음부터 없었어.<6E5C>알겠어?","너한테 여동생은 없어<485C>참견쟁이 소꿉친구도,<6E5C>편한 친구도, 의지할 선배도,<6E5C>아무도 없어<485C>처음부터 없었어.<6E5C>알겠어?"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,57,11,주인공,……ガ……ガガガ……,"……끄, 끄기긱……","……끄, 끄기긱……"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,58,37,UNKNOWN_47,あなたは私だけ見ていればいいの.<6E5C>それ以外、何も存在しない.<6E5C>わかった?,너는 나만 보면 돼.<6E5C>그 외엔 아무것도 존재하지 않아.<6E5C>알겠어?,너는 나만 보면 돼.<6E5C>그 외엔 아무것도 존재하지 않아.<6E5C>알겠어?
-dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,59,48,주인공,そうだよね.愛してるよシェルミー<6E5C>.どうでもいいことで悩んでたなぁ<6E5C>今日は.さ、夕食にしようよ,"맞아. 사랑해 셰르미<6E5C>. 별것도 아닌 일로 고민했었네<6E5C>오늘은. 자, 저녁 먹자","맞아. 사랑해 셰르미<6E5C>. 별것도 아닌 일로 고민했었네<6E5C>오늘은. 자, 저녁 먹자"
+dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,59,48,주인공,そうだよね.愛してるよシェルミー<6E5C>.どうでもいいことで悩んでたなぁ<6E5C>今日は.さ、夕食にしようよ,"맞아. 사랑해 셀미<6E5C>. 별것도 아닌 일로 고민했었네<6E5C>오늘은. 자, 저녁 먹자","맞아. 사랑해 셀미<6E5C>. 별것도 아닌 일로 고민했었네<6E5C>오늘은. 자, 저녁 먹자"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,60,19,UNKNOWN_47,そうね.<6E5C><이름:3232>、今夜は何が食べたい?,"그러게.<6E5C><이름:3232>, 오늘 뭐 먹을래?","그러게.<6E5C><이름:3232>, 오늘 뭐 먹을래?"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,61,15,주인공,なんでもいいよ.ハラペコだ!,아무거나 좋아. 배고파!,아무거나 좋아. 배고파!
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,62,10,UNKNOWN_47,ふふっ.待っててね,"후훗, 기다려","후훗, 기다려"
-dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,63,41,주인공,今日の僕はどうかしてたなぁ.<6E5C>まったく時間を無駄にしたよ.<6E5C>愛してるよシェルミー,오늘의 나는 좀 이상했네.<6E5C>완전히 시간 낭비했어.<6E5C>사랑해 셰르미,오늘의 나는 좀 이상했네.<6E5C>완전히 시간 낭비했어.<6E5C>사랑해 셰르미
-dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,64,43,주인공,悩むことなんて何もない生活だね.<6E5C>おっ、焼き魚の匂いがするぞ.<6E5C>愛してるよシェルミー,"고민할 것 하나 없는 생활이네.<6E5C>오, 생선 굽는 냄새가 나네.<6E5C>사랑해 셰르미","고민할 것 하나 없는 생활이네.<6E5C>오, 생선 굽는 냄새가 나네.<6E5C>사랑해 셰르미"
-dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,65,50,주인공,でもなんだろう、胸が冷たいな.<6E5C>愛してるよシェルミー<485C>さびしくて凍えそうだ.<6E5C>愛してるよシェルミー,"근데 뭘까, 가슴이 차갑네.<6E5C>사랑해 셰르미<485C>외로워서 얼어붙을 것 같아.<6E5C>사랑해 셰르미","근데 뭘까, 가슴이 차갑네.<6E5C>사랑해 셰르미<485C>외로워서 얼어붙을 것 같아.<6E5C>사랑해 셰르미"
-dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,66,49,주인공,君だけを愛してるよシェルミー愛し<6E5C>てるシェルミー愛してるシェルミー<6E5C>愛してる愛してる愛してる……,너만을 사랑해 셰르미 사랑<6E5C>해 셰르미 사랑해 셰르미<6E5C>사랑해 사랑해 사랑해……,너만을 사랑해 셰르미 사랑<6E5C>해 셰르미 사랑해 셰르미<6E5C>사랑해 사랑해 사랑해……
+dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,63,41,주인공,今日の僕はどうかしてたなぁ.<6E5C>まったく時間を無駄にしたよ.<6E5C>愛してるよシェルミー,오늘의 나는 좀 이상했네.<6E5C>완전히 시간 낭비했어.<6E5C>사랑해 셀미,오늘의 나는 좀 이상했네.<6E5C>완전히 시간 낭비했어.<6E5C>사랑해 셀미
+dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,64,43,주인공,悩むことなんて何もない生活だね.<6E5C>おっ、焼き魚の匂いがするぞ.<6E5C>愛してるよシェルミー,"고민할 것 하나 없는 생활이네.<6E5C>오, 생선 굽는 냄새가 나네.<6E5C>사랑해 셀미","고민할 것 하나 없는 생활이네.<6E5C>오, 생선 굽는 냄새가 나네.<6E5C>사랑해 셀미"
+dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,65,50,주인공,でもなんだろう、胸が冷たいな.<6E5C>愛してるよシェルミー<485C>さびしくて凍えそうだ.<6E5C>愛してるよシェルミー,"근데 뭘까, 가슴이 차갑네.<6E5C>사랑해 셀미<485C>외로워서 얼어붙을 것 같아.<6E5C>사랑해 셀미","근데 뭘까, 가슴이 차갑네.<6E5C>사랑해 셀미<485C>외로워서 얼어붙을 것 같아.<6E5C>사랑해 셀미"
+dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,66,49,주인공,君だけを愛してるよシェルミー愛し<6E5C>てるシェルミー愛してるシェルミー<6E5C>愛してる愛してる愛してる……,너만을 사랑해 셀미 사랑<6E5C>해 셀미 사랑해 셀미<6E5C>사랑해 사랑해 사랑해……,너만을 사랑해 셀미 사랑<6E5C>해 셀미 사랑해 셀미<6E5C>사랑해 사랑해 사랑해……
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,67,24,Shizuku,すごい、シナリオをぜんぶ読んで<6E5C>くれたんだね!,"대단해, 시나리오를 전부 읽어<6E5C>줬구나!","대단해, 시나리오를 전부 읽어<6E5C>줬구나!"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,68,35,Shizuku,これは私たちからのささやかな<6E5C>プレゼントです.<6E5C>受け取ってください!,이건 저희가 드리는 작은<6E5C>선물이에요.<6E5C>받아주세요!,이건 저희가 드리는 작은<6E5C>선물이에요.<6E5C>받아주세요!
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,69,12,UNKNOWN_66,おめでとうございます!,축하드려요!,축하드려요!
@@ -429,7 +429,7 @@ dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,4,18,[선택지],ちづるマリー�
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,5,18,[선택지],サブキャラ次のページキャラテスト終了,서브캐릭터다음페이지캐릭터테스트종료,서브캐릭터다음페이지캐릭터테스트종료
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,6,4,[효과음/내레이션],クリス,크리스,크리스
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,7,2,[효과음/내레이션],社,야,야
-dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,8,6,[효과음/내레이션],シェルミー,셰르미,셰르미
+dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,8,6,[효과음/내레이션],シェルミー,셀미,셀미
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,9,5,[효과음/내레이션],ルガール,루갈,루갈
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,10,4,[효과음/내레이션],キング,킹,킹
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,11,5,[효과음/내레이션],ケンスウ,켄스우,켄스우
