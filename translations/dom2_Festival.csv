@@ -260,7 +260,7 @@ dom2Festival.mes,Script/dom2Festival.mes,257,3,주인공,……,……,……
 dom2Festival.mes,Script/dom2Festival.mes,258,24,Shizuku,あ、ごめんね.<6E5C>お祭りの最後にこんなこと言って,"아, 미안해.<6E5C>축제 끝에 이런 말 해서","아, 미안해.<6E5C>축제 끝에 이런 말 해서"
 dom2Festival.mes,Script/dom2Festival.mes,259,24,주인공,巳沢さんのさびしさは、<6E5C>どうすれば癒えるのかな,"미사와 씨의 외로움은,<6E5C>어떻게 해야 나을까","미사와 씨의 외로움은,<6E5C>어떻게 해야 나을까"
 dom2Festival.mes,Script/dom2Festival.mes,260,26,Shizuku,わからない.<6E5C>……誰かが抱きしめてくれたら、<6E5C>かな,"모르겠어.<6E5C>…… 누군가 안아준다면,<6E5C>그럴까","모르겠어.<6E5C>…… 누군가 안아준다면,<6E5C>그럴까"
-dom2Festival.mes,Script/dom2Festival.mes,261,13,[선택지],抱きしめる誰かって、誰に?,안아줌<6E5C>누구한테?,안아줌<6E5C>누구한테?
+dom2Festival.mes,Script/dom2Festival.mes,261,13,[선택지],抱きしめる誰かって、誰に?,안아줌<6E5C>누구한테?,안아줌\누구한테?
 dom2Festival.mes,Script/dom2Festival.mes,262,4,[효과음/내레이션],ギュッ,꼭,꼭
 dom2Festival.mes,Script/dom2Festival.mes,263,4,Shizuku,あ……,아……,아……
 dom2Festival.mes,Script/dom2Festival.mes,264,3,주인공,……,……,……
@@ -305,7 +305,7 @@ dom2Festival.mes,Script/dom2Festival.mes,302,26,주인공,どうした?ああ、
 dom2Festival.mes,Script/dom2Festival.mes,303,22,주인공,ごめん、ごめん.<6E5C>もう子どもじゃないもんな,"미안, 미안.<6E5C>이제 애가 아니지","미안, 미안.<6E5C>이제 애가 아니지"
 dom2Festival.mes,Script/dom2Festival.mes,304,11,Hotaru,えっ、あっ、ぅぅ……,"엇, 아, 으으……","엇, 아, 으으……"
 dom2Festival.mes,Script/dom2Festival.mes,305,14,주인공,……なんだ?真っ赤になって,……왜 그래? 새빨개져서,……왜 그래? 새빨개져서
-dom2Festival.mes,Script/dom2Festival.mes,306,13,[선택지],たずねるもう一度手をつなぐ,물어봄<6E5C>다시손잡기,물어봄<6E5C>다시손잡기
+dom2Festival.mes,Script/dom2Festival.mes,306,13,[선택지],たずねるもう一度手をつなぐ,물어봄<6E5C>다시손잡기,물어봄\다시손잡기
 dom2Festival.mes,Script/dom2Festival.mes,307,20,주인공,言いたいことがあるならはっきり<6E5C>言えよ,할 말 있으면 확실하게<6E5C>말해,할 말 있으면 확실하게<6E5C>말해
 dom2Festival.mes,Script/dom2Festival.mes,308,5,Hotaru,……ぅぅ,……으으,……으으
 dom2Festival.mes,Script/dom2Festival.mes,309,12,주인공,わかった、トイレだな?,"알았다, 화장실이지?","알았다, 화장실이지?"
@@ -326,7 +326,7 @@ dom2Festival.mes,Script/dom2Festival.mes,323,5,주인공,違うよ!,아니야!,�
 dom2Festival.mes,Script/dom2Festival.mes,324,36,Kisarah,なーんだ.ボクは<이름:3232>クンの<6E5C>コト、みんなに見せびらかしたい<6E5C>けどな~?,"뭐야. 나는 <이름:3232>군<6E5C>얘기, 다들한테 자랑하고<6E5C>싶은데~?","뭐야. 나는 <이름:3232>군<6E5C>얘기, 다들한테 자랑하고<6E5C>싶은데~?"
 dom2Festival.mes,Script/dom2Festival.mes,325,5,주인공,……え?,……어?,……어?
 dom2Festival.mes,Script/dom2Festival.mes,326,28,Kisarah,だけど、いっぱい回ってちょっと<6E5C>疲れたかな.まだ回る?,"근데, 많이 돌았더니 좀<6E5C>피곤하네. 더 돌래?","근데, 많이 돌았더니 좀<6E5C>피곤하네. 더 돌래?"
-dom2Festival.mes,Script/dom2Festival.mes,327,4,[선택지],回る休む,돈다<6E5C>쉬,돈다<6E5C>쉬
+dom2Festival.mes,Script/dom2Festival.mes,327,4,[선택지],回る休む,돈다<6E5C>쉬,돈다\쉬
 dom2Festival.mes,Script/dom2Festival.mes,328,22,주인공,せっかくのお祭りだし、<6E5C>もっと見て回ろうよ,"모처럼 축제니까,<6E5C>더 둘러보자","모처럼 축제니까,<6E5C>더 둘러보자"
 dom2Festival.mes,Script/dom2Festival.mes,329,11,Kisarah,そーお?まーいーけど,그래?뭐 상관없지만,그래?뭐 상관없지만
 dom2Festival.mes,Script/dom2Festival.mes,330,22,주인공,お腹もすいたし……あ、<6E5C>たこ焼き食べよう!,"배도 고프고…… 아,<6E5C>타코야키 먹자!","배도 고프고…… 아,<6E5C>타코야키 먹자!"
@@ -360,7 +360,7 @@ dom2Festival.mes,Script/dom2Festival.mes,357,6,주인공,……フィオ,…… 
 dom2Festival.mes,Script/dom2Festival.mes,358,12,Fio,ごめんなさいですぅ……,죄송해요오……,죄송해요오……
 dom2Festival.mes,Script/dom2Festival.mes,359,23,주인공,……うん.<6E5C>まぁ、誰もケガしないでよかったよ,……응.<6E5C>뭐 아무도 안 다쳐서 다행이야,……응.<6E5C>뭐 아무도 안 다쳐서 다행이야
 dom2Festival.mes,Script/dom2Festival.mes,360,6,Fio,はいぃ……,네에……,네에……
-dom2Festival.mes,Script/dom2Festival.mes,361,10,[선택지],次があるよ反省しなよ,다음 있어<6E5C>반성해,다음 있어<6E5C>반성해
+dom2Festival.mes,Script/dom2Festival.mes,361,10,[선택지],次があるよ反省しなよ,다음 있어<6E5C>반성해,다음 있어\반성해
 dom2Festival.mes,Script/dom2Festival.mes,362,22,주인공,次がんばればいいじゃないか.<6E5C>落ち込むなよ,다음에 잘하면 되잖아.<6E5C>기죽지 마,다음에 잘하면 되잖아.<6E5C>기죽지 마
 dom2Festival.mes,Script/dom2Festival.mes,363,7,Fio,<이름:3232>さん……,<이름:3232>씨……,<이름:3232>씨……
 dom2Festival.mes,Script/dom2Festival.mes,364,20,주인공,フィオといると、<6E5C>退屈しなくて楽しいよ,피오랑 있으면<6E5C>지루하지 않고 즐거워,피오랑 있으면<6E5C>지루하지 않고 즐거워
@@ -375,7 +375,7 @@ dom2Festival.mes,Script/dom2Festival.mes,372,17,Fio,そ、そうですね.ごめ
 dom2Festival.mes,Script/dom2Festival.mes,373,10,Chizuru,とても楽しかったわ,정말 즐거웠어,정말 즐거웠어
 dom2Festival.mes,Script/dom2Festival.mes,374,27,Chizuru,でも、なにかもうひとつくらい思い<6E5C>出がほしいわね……,그런데 뭔가 하나 더 추억이<6E5C>있었으면 좋겠네……,그런데 뭔가 하나 더 추억이<6E5C>있었으면 좋겠네……
 dom2Festival.mes,Script/dom2Festival.mes,375,19,주인공,(思い出……<6E5C>どんなのがいいのかな),(추억……<6E5C>어떤 게 좋을까),(추억……<6E5C>어떤 게 좋을까)
-dom2Festival.mes,Script/dom2Festival.mes,376,16,[선택지],ロマンティックにビューティフルに,낭만적으로<6E5C>아름답게,낭만적으로<6E5C>아름답게
+dom2Festival.mes,Script/dom2Festival.mes,376,16,[선택지],ロマンティックにビューティフルに,낭만적으로<6E5C>아름답게,낭만적으로\아름답게
 dom2Festival.mes,Script/dom2Festival.mes,377,14,주인공,ちょっと待っててください!,잠깐만 기다려 주세요!,잠깐만 기다려 주세요!
 dom2Festival.mes,Script/dom2Festival.mes,378,3,Chizuru,え?,네?,네?
 dom2Festival.mes,Script/dom2Festival.mes,379,8,[효과음/내레이션],タッタッタ……,다다닥……,다다닥……
@@ -436,7 +436,7 @@ dom2Festival.mes,Script/dom2Festival.mes,433,12,Mary,やってみせてちょう
 dom2Festival.mes,Script/dom2Festival.mes,434,3,주인공,え?,어?,어?
 dom2Festival.mes,Script/dom2Festival.mes,435,26,Mary,このゲームがインチキじゃない<6E5C>ことを、私に証明して,"이 게임이 사기가 아니란 걸,<6E5C>나한테 증명해봐","이 게임이 사기가 아니란 걸,<6E5C>나한테 증명해봐"
 dom2Festival.mes,Script/dom2Festival.mes,436,9,주인공,わ、わかりました,"아, 알겠어요","아, 알겠어요"
-dom2Festival.mes,Script/dom2Festival.mes,437,20,[선택지],狙いを定めて一発必中慎重に狙って計画的に,한 방에 명중<6E5C>신중하고 계획적으로,한 방에 명중<6E5C>신중하고 계획적으로
+dom2Festival.mes,Script/dom2Festival.mes,437,20,[선택지],狙いを定めて一発必中慎重に狙って計画的に,한 방에 명중<6E5C>신중하고 계획적으로,한 방에 명중\신중하고 계획적으로
 dom2Festival.mes,Script/dom2Festival.mes,438,6,[효과음/내레이션],ゴクッ……,꿀꺽……,꿀꺽……
 dom2Festival.mes,Script/dom2Festival.mes,439,4,[효과음/내레이션],スーッ,스윽,스윽
 dom2Festival.mes,Script/dom2Festival.mes,440,4,[효과음/내레이션],ポチャ,퐁당,퐁당
@@ -456,7 +456,7 @@ dom2Festival.mes,Script/dom2Festival.mes,453,9,Mary,今日はありがとう,오
 dom2Festival.mes,Script/dom2Festival.mes,454,21,Mature,あぁ、素敵よ……!<6E5C>どれもすばらしいわ!,"아아, 멋져……!<6E5C>다들 훌륭하네!","아아, 멋져……!<6E5C>다들 훌륭하네!"
 dom2Festival.mes,Script/dom2Festival.mes,455,15,주인공,(え、えらいテンションだな),"(어, 텐션 장난 아니네)","(어, 텐션 장난 아니네)"
 dom2Festival.mes,Script/dom2Festival.mes,456,26,Mature,ゾクゾクするわ……あなたもわかる<6E5C>でしょ、この……,"짜릿하네…… 너도 알겠지,<6E5C>이……","짜릿하네…… 너도 알겠지,<6E5C>이……"
-dom2Festival.mes,Script/dom2Festival.mes,457,14,[선택지],高揚感ですね!緊張感ですね!,고양감이네요!<6E5C>긴장감!,고양감이네요!<6E5C>긴장감!
+dom2Festival.mes,Script/dom2Festival.mes,457,14,[선택지],高揚感ですね!緊張感ですね!,고양감이네요!<6E5C>긴장감!,고양감이네요!\긴장감!
 dom2Festival.mes,Script/dom2Festival.mes,458,30,주인공,高揚感ですね!<6E5C>お祭りって、独特の空気が<6E5C>ありますもんね!,고양감이네요!<6E5C>축제란 건 독특한 분위기가<6E5C>있으니까요!,고양감이네요!<6E5C>축제란 건 독특한 분위기가<6E5C>있으니까요!
 dom2Festival.mes,Script/dom2Festival.mes,459,28,Mature,フフフ、さすが私の教え子ねぇ、<6E5C>よくわかってるじゃない,"후후후, 역시 내 제자답네,<6E5C>잘 알고 있잖아","후후후, 역시 내 제자답네,<6E5C>잘 알고 있잖아"
 dom2Festival.mes,Script/dom2Festival.mes,460,17,주인공,いや、僕は教え子ってわけじゃ……,아뇨 저는 제자는 아니라서……,아뇨 저는 제자는 아니라서……
@@ -483,7 +483,7 @@ dom2Festival.mes,Script/dom2Festival.mes,480,28,UNKNOWN_1e,あの…….<6E5C>�
 dom2Festival.mes,Script/dom2Festival.mes,481,2,Athena,!,!,!
 dom2Festival.mes,Script/dom2Festival.mes,482,35,UNKNOWN_5a,やはり!麻宮さんと会えるとは<6E5C>光栄ですね.<6E5C>サインをいただけますか?,역시! 아사미야 씨를 만나다니<6E5C>영광이네요. 사인 받을까요?,역시! 아사미야 씨를 만나다니<6E5C>영광이네요. 사인 받을까요?
 dom2Festival.mes,Script/dom2Festival.mes,483,17,주인공,やっぱりファンに見つかったか……,역시 팬한테 들켰나……,역시 팬한테 들켰나……
-dom2Festival.mes,Script/dom2Festival.mes,484,13,[선택지],サインを拒むアテナに任せる,사인거부<6E5C>아테나에맡김,사인거부<6E5C>아테나에맡김
+dom2Festival.mes,Script/dom2Festival.mes,484,13,[선택지],サインを拒むアテナに任せる,사인거부<6E5C>아테나에맡김,사인거부\아테나에맡김
 dom2Festival.mes,Script/dom2Festival.mes,485,23,주인공,すみません、<6E5C>ちょっと今日は勘弁してください,"죄송해요,<6E5C>오늘은 좀 봐주세요","죄송해요,<6E5C>오늘은 좀 봐주세요"
 dom2Festival.mes,Script/dom2Festival.mes,486,45,UNKNOWN_5a,今日は?この日をどれだけ待った<6E5C>と思うんです!苦情は受け付けま<6E5C>せんよ.お引き取り下さい,오늘요? 이 날을 얼마나 기다렸는지<6E5C>아세요! 불만은 안 받아요.<6E5C>그냥 가세요,오늘요? 이 날을 얼마나 기다렸는지<6E5C>아세요! 불만은 안 받아요.<6E5C>그냥 가세요
 dom2Festival.mes,Script/dom2Festival.mes,487,15,주인공,でも、今日は被女の休日……!,하지만 오늘 휴일인데……!,하지만 오늘 휴일인데……!
@@ -503,7 +503,7 @@ dom2Festival.mes,Script/dom2Festival.mes,500,5,주인공,麻宮……,아사미�
 dom2Festival.mes,Script/dom2Festival.mes,501,28,Athena,やっぱり、わたしなんかがお祭りに<6E5C>来ちゃダメだったんだ,"역시, 내가 축제에<6E5C>오면 안 됐던 거야","역시, 내가 축제에<6E5C>오면 안 됐던 거야"
 dom2Festival.mes,Script/dom2Festival.mes,502,23,Athena,<이름:3131>くんにも迷惑かけちゃった.<6E5C>……帰るね?,<이름:3131>군한테 폐 끼치고 말았네.<6E5C>……갈게?,<이름:3131>군한테 폐 끼치고 말았네.<6E5C>……갈게?
 dom2Festival.mes,Script/dom2Festival.mes,503,5,주인공,待って!,기다려!,기다려!
-dom2Festival.mes,Script/dom2Festival.mes,504,10,[선택지],手をにぎる抱きしめる,손잡기<6E5C>안아줌,손잡기<6E5C>안아줌
+dom2Festival.mes,Script/dom2Festival.mes,504,10,[선택지],手をにぎる抱きしめる,손잡기<6E5C>안아줌,손잡기\안아줌
 dom2Festival.mes,Script/dom2Festival.mes,505,4,[효과음/내레이션],ギュッ,꼭,꼭
 dom2Festival.mes,Script/dom2Festival.mes,506,5,Athena,あっ……,앗……,앗……
 dom2Festival.mes,Script/dom2Festival.mes,507,33,주인공,僕のことは気にしないで.<6E5C>ほら、まだ開いている店も<6E5C>あるんだから,"나는 신경 쓰지 마.<6E5C>봐, 아직 열려 있는 가게도<6E5C>있으니까","나는 신경 쓰지 마.<6E5C>봐, 아직 열려 있는 가게도<6E5C>있으니까"
@@ -524,7 +524,7 @@ dom2Festival.mes,Script/dom2Festival.mes,521,19,Athena,……でも、今日だ�
 dom2Festival.mes,Script/dom2Festival.mes,522,3,주인공,え?,어?,어?
 dom2Festival.mes,Script/dom2Festival.mes,523,23,Athena,こんな目にあうの、<6E5C>今日だけじゃないでしょ?,이런 일 당하는 거<6E5C>오늘뿐만은 아니잖아?,이런 일 당하는 거<6E5C>오늘뿐만은 아니잖아?
 dom2Festival.mes,Script/dom2Festival.mes,524,15,Athena,昨日の夜、マネージャーが……,"어젯밤, 매니저가……","어젯밤, 매니저가……"
-dom2Festival.mes,Script/dom2Festival.mes,525,11,[선택지],気にしないで知らないよ,신경 쓰지 마<6E5C>몰라,신경 쓰지 마<6E5C>몰라
+dom2Festival.mes,Script/dom2Festival.mes,525,11,[선택지],気にしないで知らないよ,신경 쓰지 마<6E5C>몰라,신경 쓰지 마\몰라
 dom2Festival.mes,Script/dom2Festival.mes,526,33,주인공,僕のことは気にしないで.<6E5C>ほら、まだ開いている店も<6E5C>あるんだから,"나는 신경 쓰지 마.<6E5C>봐, 아직 열려 있는 가게도<6E5C>있으니까","나는 신경 쓰지 마.<6E5C>봐, 아직 열려 있는 가게도<6E5C>있으니까"
 dom2Festival.mes,Script/dom2Festival.mes,527,3,Athena,……,……,……
 dom2Festival.mes,Script/dom2Festival.mes,528,32,주인공,回ろう?<6E5C>まだ、祭りは終わってない.<6E5C>ゆっくり楽しんでいこうよ,돌아볼까?<6E5C>아직 축제는 안 끝났어.<6E5C>천천히 즐기면서 가자,돌아볼까?<6E5C>아직 축제는 안 끝났어.<6E5C>천천히 즐기면서 가자

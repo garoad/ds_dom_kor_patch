@@ -5,7 +5,7 @@ dom2Chizuru_L01.mes,Script/dom2Chizuru_L01.mes,2,7,주인공,あ、神楽先輩,
 dom2Chizuru_L01.mes,Script/dom2Chizuru_L01.mes,3,11,Chizuru,あら、そっけないわね,"어머, 쌀쌀맞네","어머, 쌀쌀맞네"
 dom2Chizuru_L01.mes,Script/dom2Chizuru_L01.mes,4,22,Chizuru,私に会いに来てくれたわけでは<6E5C>ないのかしら,날 만나러 온 건 아닌가 보네,날 만나러 온 건 아닌가 보네
 dom2Chizuru_L01.mes,Script/dom2Chizuru_L01.mes,5,30,주인공,(もしかしたらフィオがいるかなと<6E5C>思って来たんだけど……),(혹시 피오가 있을까 해서<6E5C>온 건데……),(혹시 피오가 있을까 해서<6E5C>온 건데……)
-dom2Chizuru_L01.mes,Script/dom2Chizuru_L01.mes,6,19,[선택지],友だちを探しに来た神楽先輩に会いに来た,친구 찾으러 왔다선배 만나러 왔다,친구 찾으러 왔다선배 만나러 왔다
+dom2Chizuru_L01.mes,Script/dom2Chizuru_L01.mes,6,19,[선택지],友だちを探しに来た神楽先輩に会いに来た,친구 찾으러 왔다선배 만나러 왔다,친구 찾으러 왔다\선배 만나러 왔다
 dom2Chizuru_L01.mes,Script/dom2Chizuru_L01.mes,7,19,주인공,いえ、今日は友だちを探しに……<6E5C>あ!,"아뇨, 친구를 찾으러……<6E5C>앗!","아뇨, 친구를 찾으러……<6E5C>앗!"
 dom2Chizuru_L01.mes,Script/dom2Chizuru_L01.mes,8,7,[효과음/내레이션],ずってーん!,쿠당탕!,쿠당탕!
 dom2Chizuru_L01.mes,Script/dom2Chizuru_L01.mes,9,6,UNKNOWN_1e,いたたた…,아야야……,아야야……
@@ -45,7 +45,7 @@ dom2Chizuru_L02.mes,Script/dom2Chizuru_L02.mes,10,33,Kyo,へっ、当然だろ.�
 dom2Chizuru_L02.mes,Script/dom2Chizuru_L02.mes,11,38,Chizuru,少し柔らかくしようかとも思ったん<6E5C>だけど、あまり跳ねるように<6E5C>してもね……,"조금 부드럽게 할까 했는데,<6E5C>너무 튀는 것도 그렇고……","조금 부드럽게 할까 했는데,<6E5C>너무 튀는 것도 그렇고……"
 dom2Chizuru_L02.mes,Script/dom2Chizuru_L02.mes,12,39,Kyo,なに言ってんだよ.それも醒酬味<6E5C>じゃねぇか.なぁ<이름:3232>.<6E5C>お前もそう思うだろ?,무슨 소리야. 그것도 묘미<6E5C>아니냐. 야 <이름:3232>.<6E5C>너도 그렇게 생각하지?,무슨 소리야. 그것도 묘미<6E5C>아니냐. 야 <이름:3232>.<6E5C>너도 그렇게 생각하지?
 dom2Chizuru_L02.mes,Script/dom2Chizuru_L02.mes,13,10,주인공,え?あ、えっと……,네? 그게……,네? 그게……
-dom2Chizuru_L02.mes,Script/dom2Chizuru_L02.mes,14,16,[선택지],今のままでいい改造したほうがいい,이대로가 좋다개조하는 게 좋다,이대로가 좋다개조하는 게 좋다
+dom2Chizuru_L02.mes,Script/dom2Chizuru_L02.mes,14,16,[선택지],今のままでいい改造したほうがいい,이대로가 좋다개조하는 게 좋다,이대로가 좋다\개조하는 게 좋다
 dom2Chizuru_L02.mes,Script/dom2Chizuru_L02.mes,15,32,주인공,よ、よくわからないですけど、<6E5C>今のままでいいんじゃないですか?,"자, 잘 모르겠지만, 지금<6E5C>이대로가 좋지 않을까요?","자, 잘 모르겠지만, 지금<6E5C>이대로가 좋지 않을까요?"
 dom2Chizuru_L02.mes,Script/dom2Chizuru_L02.mes,16,11,Chizuru,よく言ったわ、<이름:3131>君,"잘 말했어, <이름:3131>군","잘 말했어, <이름:3131>군"
 dom2Chizuru_L02.mes,Script/dom2Chizuru_L02.mes,17,28,Chizuru,私のバイクはデリケートなんだから<6E5C>、このままでいいのよ,"내 오토바이는 섬세하니까,<6E5C>이대로가 좋은 거야","내 오토바이는 섬세하니까,<6E5C>이대로가 좋은 거야"
@@ -109,7 +109,7 @@ dom2Chizuru_L04.mes,Script/dom2Chizuru_L04.mes,17,36,Mature,鼻でもつまん�
 dom2Chizuru_L04.mes,Script/dom2Chizuru_L04.mes,18,15,주인공,ちょ、ちょっとマチュアさん?,"자, 잠깐 마츄어 씨?","자, 잠깐 마츄어 씨?"
 dom2Chizuru_L04.mes,Script/dom2Chizuru_L04.mes,19,16,Mature,なにかしら、私を止めるつもり?,"뭘까, 날 말릴 생각이야?","뭘까, 날 말릴 생각이야?"
 dom2Chizuru_L04.mes,Script/dom2Chizuru_L04.mes,20,10,주인공,(う……こ、怖い),(무서워……),(무서워……)
-dom2Chizuru_L04.mes,Script/dom2Chizuru_L04.mes,21,23,[선택지],や、やめてあげてくださいぼ、僕には止められない,그만해 주세요저는 말릴 수 없어요,그만해 주세요저는 말릴 수 없어요
+dom2Chizuru_L04.mes,Script/dom2Chizuru_L04.mes,21,23,[선택지],や、やめてあげてくださいぼ、僕には止められない,그만해 주세요저는 말릴 수 없어요,그만해 주세요\저는 말릴 수 없어요
 dom2Chizuru_L04.mes,Script/dom2Chizuru_L04.mes,22,44,주인공,神楽先輩って、いつもすごく忙しい<6E5C>人なんです.お願いですから、<6E5C>寝かせてあげてください,"카구라 선배는, 늘 엄청 바쁜<6E5C>사람이에요. 부탁이니까,<6E5C>재워 주세요","카구라 선배는, 늘 엄청 바쁜<6E5C>사람이에요. 부탁이니까,<6E5C>재워 주세요"
 dom2Chizuru_L04.mes,Script/dom2Chizuru_L04.mes,23,12,주인공,(い、言っちゃった!),"(마, 말해버렸다!)","(마, 말해버렸다!)"
 dom2Chizuru_L04.mes,Script/dom2Chizuru_L04.mes,24,3,Mature,……,……,……
@@ -187,7 +187,7 @@ dom2Chizuru_L09.mes,Script/dom2Chizuru_L09.mes,7,12,UNKNOWN_50,あぁ?なんだ�
 dom2Chizuru_L09.mes,Script/dom2Chizuru_L09.mes,8,20,주인공,(し、しまった!<6E5C>つい大きな声を……),(아차! 나도 모르게<6E5C>소리를……),(아차! 나도 모르게<6E5C>소리를……)
 dom2Chizuru_L09.mes,Script/dom2Chizuru_L09.mes,9,14,UNKNOWN_50,関係ねぇ奴はすっこんでろ!,상관없는 놈은 빠져!,상관없는 놈은 빠져!
 dom2Chizuru_L09.mes,Script/dom2Chizuru_L09.mes,10,10,주인공,(ど、どうしよう),"(어, 어쩌지)","(어, 어쩌지)"
-dom2Chizuru_L09.mes,Script/dom2Chizuru_L09.mes,11,14,[선택지],ちづるを助けるとりあえず謝る,치즈루 돕기우선 사과하기,치즈루 돕기우선 사과하기
+dom2Chizuru_L09.mes,Script/dom2Chizuru_L09.mes,11,14,[선택지],ちづるを助けるとりあえず謝る,치즈루 돕기우선 사과하기,치즈루 돕기\우선 사과하기
 dom2Chizuru_L09.mes,Script/dom2Chizuru_L09.mes,12,21,주인공,あ、あの、その人、<6E5C>僕の知り合いなんです,"저, 저기, 그 사람, 제<6E5C>지인이에요","저, 저기, 그 사람, 제<6E5C>지인이에요"
 dom2Chizuru_L09.mes,Script/dom2Chizuru_L09.mes,13,12,UNKNOWN_50,あぁ?だからなんだよ!,아? 그래서 뭐!,아? 그래서 뭐!
 dom2Chizuru_L09.mes,Script/dom2Chizuru_L09.mes,14,11,주인공,やめてあげてください,그만해 주세요,그만해 주세요
@@ -269,7 +269,7 @@ dom2Chizuru_M01.mes,Script/dom2Chizuru_M01.mes,8,11,Chizuru,いえ、なんで�
 dom2Chizuru_M01.mes,Script/dom2Chizuru_M01.mes,9,26,Chizuru,ごめんなさい.またの日にして<6E5C>いただけないかしら?,미안해. 다른 날로<6E5C>해줄 수 있을까?,미안해. 다른 날로<6E5C>해줄 수 있을까?
 dom2Chizuru_M01.mes,Script/dom2Chizuru_M01.mes,10,14,주인공,え、今日はダメなんですか?,오늘은 안 되는 거예요?,오늘은 안 되는 거예요?
 dom2Chizuru_M01.mes,Script/dom2Chizuru_M01.mes,11,12,Chizuru,そうなの.ごめんなさい,그래. 미안해,그래. 미안해
-dom2Chizuru_M01.mes,Script/dom2Chizuru_M01.mes,12,10,[선택지],食い下がるあきらめる,더 매달린다포기한다,더 매달린다포기한다
+dom2Chizuru_M01.mes,Script/dom2Chizuru_M01.mes,12,10,[선택지],食い下がるあきらめる,더 매달린다포기한다,더 매달린다\포기한다
 dom2Chizuru_M01.mes,Script/dom2Chizuru_M01.mes,13,10,주인공,そこをなんとか……,그러지 말고……,그러지 말고……
 dom2Chizuru_M01.mes,Script/dom2Chizuru_M01.mes,14,19,Chizuru,しつこい男はちづるに<6E5C>嫌われましてよ,끈질긴 남잔 치즈루한테<6E5C>미움받아요,끈질긴 남잔 치즈루한테<6E5C>미움받아요
 dom2Chizuru_M01.mes,Script/dom2Chizuru_M01.mes,15,3,주인공,え?,어?,어?
@@ -317,7 +317,7 @@ dom2Chizuru_M03.mes,Script/dom2Chizuru_M03.mes,9,19,주인공,はい.<6E5C>じ�
 dom2Chizuru_M03.mes,Script/dom2Chizuru_M03.mes,10,8,Chizuru,なにか悩み事?,고민 있어?,고민 있어?
 dom2Chizuru_M03.mes,Script/dom2Chizuru_M03.mes,11,48,주인공,自分に守れるものって、どれくらい<6E5C>あるのかな……なんてことを考えて<6E5C>たら、眠れなくなっちゃって,"나한테 지킬 수 있는 게<6E5C>얼마나 있을까…… 그런 생각을<6E5C>하다 보니, 잠이 안 왔어요","나한테 지킬 수 있는 게<6E5C>얼마나 있을까…… 그런 생각을<6E5C>하다 보니, 잠이 안 왔어요"
 dom2Chizuru_M03.mes,Script/dom2Chizuru_M03.mes,12,12,Chizuru,護りたいものがあるの?,지키고 싶은 거 있어,지키고 싶은 거 있어
-dom2Chizuru_M03.mes,Script/dom2Chizuru_M03.mes,13,16,[선택지],はい、ありますいえ、特にないです,"네, 있어요딱히 없어요","네, 있어요딱히 없어요"
+dom2Chizuru_M03.mes,Script/dom2Chizuru_M03.mes,13,16,[선택지],はい、ありますいえ、特にないです,"네, 있어요딱히 없어요","네, 있어요\딱히 없어요"
 dom2Chizuru_M03.mes,Script/dom2Chizuru_M03.mes,14,19,주인공,守らなくちゃいけないものが<6E5C>あります,지켜야 할 게 있어요,지켜야 할 게 있어요
 dom2Chizuru_M03.mes,Script/dom2Chizuru_M03.mes,15,16,Chizuru,……そう.なら、胸を張りなさい,"…… 그래. 그럼, 당당해져","…… 그래. 그럼, 당당해져"
 dom2Chizuru_M03.mes,Script/dom2Chizuru_M03.mes,16,3,주인공,え?,어?,어?
@@ -339,7 +339,7 @@ dom2Chizuru_M04.mes,Script/dom2Chizuru_M04.mes,7,14,Chizuru,誘ってくれる�
 dom2Chizuru_M04.mes,Script/dom2Chizuru_M04.mes,8,22,주인공,誰かに誘われたらいっしょに<6E5C>回るんですか?,누가 초대하면 같이<6E5C>돌아다니실 거예요?,누가 초대하면 같이<6E5C>돌아다니실 거예요?
 dom2Chizuru_M04.mes,Script/dom2Chizuru_M04.mes,9,26,Chizuru,ふふ、素敵な殿方に誘われたら、<6E5C>考えなくもないわね,"후후, 멋진 남자면<6E5C>생각해볼지도","후후, 멋진 남자면<6E5C>생각해볼지도"
 dom2Chizuru_M04.mes,Script/dom2Chizuru_M04.mes,10,8,주인공,素敵な殿方……,멋진 남자……,멋진 남자……
-dom2Chizuru_M04.mes,Script/dom2Chizuru_M04.mes,11,12,[선택지],誘ってみる僕じゃ無理だな,초대해본다난 무리겠지,초대해본다난 무리겠지
+dom2Chizuru_M04.mes,Script/dom2Chizuru_M04.mes,11,12,[선택지],誘ってみる僕じゃ無理だな,초대해본다난 무리겠지,초대해본다\난 무리겠지
 dom2Chizuru_M04.mes,Script/dom2Chizuru_M04.mes,12,38,주인공,あ、あの、もしよかったら、<6E5C>夏祭りは僕といっしょに<6E5C>回ってもらえませんか?,"저, 저기, 괜찮으시면,<6E5C>축제 저랑 같이 돌아주실래요?","저, 저기, 괜찮으시면,<6E5C>축제 저랑 같이 돌아주실래요?"
 dom2Chizuru_M04.mes,Script/dom2Chizuru_M04.mes,13,16,주인공,素敵な殿方ではないですけど……,멋진 남자는 아니지만……,멋진 남자는 아니지만……
 dom2Chizuru_M04.mes,Script/dom2Chizuru_M04.mes,14,26,Chizuru,ふふ、いいわよ.<6E5C>当日までに、素敵な殿方になってね,"후후, 좋아.<6E5C>당일까지, 멋진 남자가 되어줘","후후, 좋아.<6E5C>당일까지, 멋진 남자가 되어줘"
@@ -411,7 +411,7 @@ dom2Chizuru_S03.mes,Script/dom2Chizuru_S03.mes,8,7,UNKNOWN_1e,騒がしいわね
 dom2Chizuru_S03.mes,Script/dom2Chizuru_S03.mes,9,14,Chizuru,いったい何事かしら、草薙京,"무슨 일이야, 쿠사나기","무슨 일이야, 쿠사나기"
 dom2Chizuru_S03.mes,Script/dom2Chizuru_S03.mes,10,20,Kyo,神楽か……ちっ、<6E5C>べつになんでもねぇよ,카구라냐…… 흥<6E5C>딱히 아무것도 아냐,카구라냐…… 흥<6E5C>딱히 아무것도 아냐
 dom2Chizuru_S03.mes,Script/dom2Chizuru_S03.mes,11,8,주인공,あ、草薙先輩!,선배!,선배!
-dom2Chizuru_S03.mes,Script/dom2Chizuru_S03.mes,12,8,[선택지],見送る追いかける,배웅한다뒤쫓는다,배웅한다뒤쫓는다
+dom2Chizuru_S03.mes,Script/dom2Chizuru_S03.mes,12,8,[선택지],見送る追いかける,배웅한다뒤쫓는다,배웅한다\뒤쫓는다
 dom2Chizuru_S03.mes,Script/dom2Chizuru_S03.mes,13,12,주인공,あぁ、行っちゃった……,"아, 가버렸다……","아, 가버렸다……"
 dom2Chizuru_S03.mes,Script/dom2Chizuru_S03.mes,14,18,Chizuru,<이름:3131>君、あなた草薙と<6E5C>お知り合い?,"<이름:3131>군, 쿠사나기랑<6E5C>아는 사이?","<이름:3131>군, 쿠사나기랑<6E5C>아는 사이?"
 dom2Chizuru_S03.mes,Script/dom2Chizuru_S03.mes,15,17,주인공,あ、はい.ゼミの先輩だったんです,"아, 네. 세미나 선배였어요","아, 네. 세미나 선배였어요"
@@ -745,7 +745,7 @@ dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,46,18,UNKNOWN_1e,<이름:3131>、
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,47,8,주인공,あ、バイスさん,"아, 바이스","아, 바이스"
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,48,32,UNKNOWN_42,そのふたりに首を突っ込むのは<6E5C>やめておけ.<6E5C>お前もケガをするぞ,저 둘 사이에 끼어드는 건<6E5C>그만둬.<6E5C>너도 다칠 거야,저 둘 사이에 끼어드는 건<6E5C>그만둬.<6E5C>너도 다칠 거야
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,49,7,주인공,は、はぁ……,"네, 넵……","네, 넵……"
-dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,50,21,[선택지],でも、放っとけないですよたしかにそうですね,못 본 척은 못 해요확실히 그러네요,못 본 척은 못 해요확실히 그러네요
+dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,50,21,[선택지],でも、放っとけないですよたしかにそうですね,못 본 척은 못 해요확실히 그러네요,못 본 척은 못 해요\확실히 그러네요
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,51,26,주인공,でも、放っとけないですよ.<6E5C>一触即発じゃないですか,그래도 못 본 척은 못 해요.<6E5C>일촉즉발이잖아요,그래도 못 본 척은 못 해요.<6E5C>일촉즉발이잖아요
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,52,37,UNKNOWN_42,まぁお前が止められると言うので<6E5C>あれば、あえて邪魔しようとは<6E5C>思わないが,"뭐 네가 말릴 수 있다고<6E5C>한다면야, 딱히 방해할<6E5C>생각은 없다만","뭐 네가 말릴 수 있다고<6E5C>한다면야, 딱히 방해할<6E5C>생각은 없다만"
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,53,28,주인공,う……たしかに、僕がこのふたりを<6E5C>止められるわけがない,"윽…… 확실히, 이 둘을<6E5C>말릴 수 있을 리 없지","윽…… 확실히, 이 둘을<6E5C>말릴 수 있을 리 없지"
@@ -771,7 +771,7 @@ dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,72,13,Shizuku,君子危うきに�
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,73,12,Shizuku,行きましょう、<이름:3131>くん,"가자, <이름:3131>군","가자, <이름:3131>군"
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,74,8,주인공,あ、えっと……,"아, 그게……","아, 그게……"
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,75,41,주인공,(神楽先輩といっしょに来たん<6E5C>だよな……このまま放って<6E5C>帰っていいものかどうか),(카구라 선배랑 같이 왔는데<6E5C>말이지…… 이대로 두고<6E5C>돌아가도 되는 걸까),(카구라 선배랑 같이 왔는데<6E5C>말이지…… 이대로 두고<6E5C>돌아가도 되는 걸까)
-dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,76,14,[선택지],うん、そうだね先に帰っててよ,"응, 그렇지먼저 가 있어","응, 그렇지먼저 가 있어"
+dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,76,14,[선택지],うん、そうだね先に帰っててよ,"응, 그렇지먼저 가 있어","응, 그렇지\먼저 가 있어"
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,77,13,주인공,うん、そうだね、帰ろうか,"응, 그렇지, 돌아갈까","응, 그렇지, 돌아갈까"
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,78,17,주인공,(当分あれは続きそうだしな……),(당분간 계속되겠지……),(당분간 계속되겠지……)
 dom2Chizuru_X02.mes,Script/dom2Chizuru_X02.mes,79,32,주인공,悪いけど、先に帰っててよ.<6E5C>僕、神楽先輩といっしょに<6E5C>来たんだ,"미안하지만, 먼저 가 있어.<6E5C>나 선배랑 같이<6E5C>온 거라서","미안하지만, 먼저 가 있어.<6E5C>나 선배랑 같이<6E5C>온 거라서"
@@ -860,7 +860,7 @@ dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,28,24,주인공,そうですか�
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,29,14,Kagura Maya,おそらく、50人はいるわね,"아마, 50명은 될 거야","아마, 50명은 될 거야"
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,30,32,주인공,えぇぇぇ!?<6E5C>そんなの僕たちふたりじゃ<6E5C>相手できないでしょう!,에에엑!?<6E5C>그런 거 우리 둘이서는<6E5C>상대 못 하잖아요!,에에엑!?<6E5C>그런 거 우리 둘이서는<6E5C>상대 못 하잖아요!
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,31,13,Kagura Maya,では、どうすると言うの?,"그럼, 어쩌자는 거야?","그럼, 어쩌자는 거야?"
-dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,32,11,[선택지],警察を呼ぶ助っ人を呼ぶ,경찰 신고지원군 요청,경찰 신고지원군 요청
+dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,32,11,[선택지],警察を呼ぶ助っ人を呼ぶ,경찰 신고지원군 요청,경찰 신고\지원군 요청
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,33,13,주인공,け、警察を呼びましょう!,"겨, 경찰을 불러요!","겨, 경찰을 불러요!"
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,34,9,Kagura Maya,……それはダメよ,……그건 안 돼,……그건 안 돼
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,35,8,주인공,どうしてです?,왜요?,왜요?
@@ -959,7 +959,7 @@ dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,127,38,주인공,いい加減に�
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,128,26,주인공,それを、負けた腹いせにマキさん<6E5C>まで巻き込んで……,그걸 진 화풀이로 마키 씨<6E5C>까지 끌어들여서……,그걸 진 화풀이로 마키 씨<6E5C>까지 끌어들여서……
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,129,12,UNKNOWN_51,だからなんだってんだ?,그래서 뭐 어쩌라고?,그래서 뭐 어쩌라고?
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,130,9,주인공,お前も男なら……,너도 남자라면,너도 남자라면
-dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,131,17,[선택지],女の子に手を上げるな!拳で勝負だ!,여자에게 손대지 마!주먹으로!,여자에게 손대지 마!주먹으로!
+dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,131,17,[선택지],女の子に手を上げるな!拳で勝負だ!,여자에게 손대지 마!주먹으로!,여자에게 손대지 마!\주먹으로!
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,132,17,주인공,男なら……女の子に手を出すなよ!,남자면…… 여자애한테 손대지마,남자면…… 여자애한테 손대지마
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,133,6,UNKNOWN_51,くっ……!,큭……!,큭……!
 dom2Chizuru_X03.mes,Script/dom2Chizuru_X03.mes,134,15,주인공,だから、僕が相手になってやる,"그러니까, 내가 상대해주지","그러니까, 내가 상대해주지"
@@ -1097,7 +1097,7 @@ dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,10,10,주인공,どうしたん�
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,11,36,Chizuru,昨日のお礼をきちんとしたくて、<6E5C>お昼でもいっしょにどうかしらと<6E5C>思って,"어제 답례를 제대로 하고 싶어서,<6E5C>점심이라도 같이 어떨까<6E5C>싶어서","어제 답례를 제대로 하고 싶어서,<6E5C>점심이라도 같이 어떨까<6E5C>싶어서"
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,12,32,주인공,(う~ん……昨日のことがあって<6E5C>あんまり眠れなかったんだよな),(으음……어제 그 일 때문에<6E5C>별로 못 잤단 말이지),(으음……어제 그 일 때문에<6E5C>별로 못 잤단 말이지)
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,13,26,주인공,(食欲もないし……今日はかんべん<6E5C>してほしいなぁ),(입맛도 없고……오늘은 좀<6E5C>봐줬으면 좋겠는데),(입맛도 없고……오늘은 좀<6E5C>봐줬으면 좋겠는데)
-dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,14,14,[선택지],寝不足なんです食欲ないんです,잠이 부족해요식욕이 없어요,잠이 부족해요식욕이 없어요
+dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,14,14,[선택지],寝不足なんです食欲ないんです,잠이 부족해요식욕이 없어요,잠이 부족해요\식욕이 없어요
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,15,17,주인공,申し訳ないですけど、寝不足で……,"죄송하지만, 잠이 부족해서……","죄송하지만, 잠이 부족해서……"
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,16,37,주인공,(昨日のショックであんまり<6E5C>眠れなかったとは、かっこ悪くて<6E5C>言えないな),"(어제 충격 때문에 별로<6E5C>못 잤다고는, 쪽팔려서<6E5C>말 못 하지)","(어제 충격 때문에 별로<6E5C>못 잤다고는, 쪽팔려서<6E5C>말 못 하지)"
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,17,13,Chizuru,そう……それは困ったわね,그래……그거 곤란하네,그래……그거 곤란하네
@@ -1228,19 +1228,19 @@ dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,141,36,Kagura Maya,問題は全�
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,142,4,주인공,はい!,네!,네!
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,143,9,Kagura Maya,では……第1問!,그럼 제1문제!,그럼 제1문제!
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,144,43,Kagura Maya,27日のネオジオワールドでの<6E5C>デートのとき、バイクレースゲーム<6E5C>で勝ったのはどっち?,"27일 네오지오 월드에서의<6E5C>데이트, 바이크 레이스 게임<6E5C>에서 이긴 건 누구?","27일 네오지오 월드에서의<6E5C>데이트, 바이크 레이스 게임<6E5C>에서 이긴 건 누구?"
-dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,145,5,[선택지],ちづるマキ,치즈루마키,치즈루마키
+dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,145,5,[선택지],ちづるマキ,치즈루마키,치즈루\마키
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,146,8,Kagura Maya,続いて第2問!,다음 2문제!,다음 2문제!
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,147,16,Kagura Maya,ちづるが好きな飲み物はどっち?,치즈루가 좋아하는 음료는?,치즈루가 좋아하는 음료는?
-dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,148,19,[선택지],あったかトマトジューススッパイおしるこ,따뜻한 토마토주스새콤한 호박죽,따뜻한 토마토주스새콤한 호박죽
+dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,148,19,[선택지],あったかトマトジューススッパイおしるこ,따뜻한 토마토주스새콤한 호박죽,따뜻한 토마토주스\새콤한 호박죽
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,149,8,Kagura Maya,続いて第3問!,다음 3문제!,다음 3문제!
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,150,35,Kagura Maya,28日の朝、神楽神社でバイクの<6E5C>メンテナンスをしていたのは<6E5C>どっち?,28일 아침 카구라 신사에서 바이크를<6E5C>정비하고 있던 건<6E5C>누구?,28일 아침 카구라 신사에서 바이크를<6E5C>정비하고 있던 건<6E5C>누구?
-dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,151,5,[선택지],マキちづる,마키치즈루,마키치즈루
+dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,151,5,[선택지],マキちづる,마키치즈루,마키\치즈루
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,152,8,Kagura Maya,続いて第4問!,다음 4문제!,다음 4문제!
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,153,40,Kagura Maya,昨日のバイクレースの際、<6E5C>ちづるがノーブレーキで川へ<6E5C>ダイブした理由はどっち?,"어제 레이스 때,<6E5C>치즈루가 브레이크 없이 강에<6E5C>뛰어든 이유는?","어제 레이스 때,<6E5C>치즈루가 브레이크 없이 강에<6E5C>뛰어든 이유는?"
-dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,154,27,[선택지],比類なき勇気を示すためアクセルとブレーキを間違えたため,남다른 용기를 보이려고액셀과 브레이크를 착각해서,남다른 용기를 보이려고액셀과 브레이크를 착각해서
+dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,154,27,[선택지],比類なき勇気を示すためアクセルとブレーキを間違えたため,남다른 용기를 보이려고액셀과 브레이크를 착각해서,남다른 용기를 보이려고\액셀과 브레이크를 착각해서
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,155,17,Kagura Maya,では……いよいよ最後の問題です!,자 드디어 마지막 문제입니다!,자 드디어 마지막 문제입니다!
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,156,24,Kagura Maya,<이름:3131><이름:3232>……あなたが本当に<6E5C>好きなのはどっち?,<이름:3131><이름:3232>……네가<6E5C>좋아하는 건 어느 쪽?,<이름:3131><이름:3232>……네가<6E5C>좋아하는 건 어느 쪽?
-dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,157,13,[선택지],私服のあなた巫女服のあなた,사복인 너무녀복인 너,사복인 너무녀복인 너
+dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,157,13,[선택지],私服のあなた巫女服のあなた,사복인 너무녀복인 너,사복인 너\무녀복인 너
 dom2Chizuru_X04.mes,Script/dom2Chizuru_X04.mes,158,9,Kagura Maya,……わかりました,……알겠습니다,……알겠습니다
 dom2Chizuru_ending1.mes,Script/dom2Chizuru_ending1.mes,0,16,Kagura Maya,……それでは、結果を発表します,"그럼, 결과를 발표하겠습니다","그럼, 결과를 발표하겠습니다"
 dom2Chizuru_ending1.mes,Script/dom2Chizuru_ending1.mes,1,10,Kagura Maya,今回のテストは……,이번 테스트는……,이번 테스트는……

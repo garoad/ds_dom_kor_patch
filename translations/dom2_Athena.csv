@@ -24,7 +24,7 @@ dom2Athena_L01.mes,Script/dom2Athena_L01.mes,21,17,Kisarah,どーしたの?懐�
 dom2Athena_L01.mes,Script/dom2Athena_L01.mes,22,30,주인공,いや、なんかもう、あの同級生の頃<6E5C>とは世界が違いすぎて……,"아니, 뭔가, 그때랑은<6E5C>세계가 너무 달라서……","아니, 뭔가, 그때랑은<6E5C>세계가 너무 달라서……"
 dom2Athena_L01.mes,Script/dom2Athena_L01.mes,23,24,Kisarah,まぁ、今や知らない人はいないって<6E5C>感じだからね,"뭐, 이제 모르는 사람 없다는<6E5C>느낌이니까","뭐, 이제 모르는 사람 없다는<6E5C>느낌이니까"
 dom2Athena_L01.mes,Script/dom2Athena_L01.mes,24,35,Kisarah,じゃー<이름:3232>クンは、かつての<6E5C>クラスメイトより身近な<6E5C>友達の方が大事?,"그럼 <이름:3232>군은, 옛날<6E5C>반 친구보다 가까운<6E5C>친구가 더 소중해?","그럼 <이름:3232>군은, 옛날<6E5C>반 친구보다 가까운<6E5C>친구가 더 소중해?"
-dom2Athena_L01.mes,Script/dom2Athena_L01.mes,25,17,[선택지],クラスメイトも大事身近な友達が大事,반친구도소중해가까운친구가소중해,반친구도소중해가까운친구가소중해
+dom2Athena_L01.mes,Script/dom2Athena_L01.mes,25,17,[선택지],クラスメイトも大事身近な友達が大事,반친구도소중해가까운친구가소중해,반친구도소중해\가까운친구가소중해
 dom2Athena_L01.mes,Script/dom2Athena_L01.mes,26,13,주인공,そんなのどっちも大事だよ,그건 둘 다 소중해,그건 둘 다 소중해
 dom2Athena_L01.mes,Script/dom2Athena_L01.mes,27,34,주인공,麻宮とはもう普通に話せる関係じゃ<6E5C>ないけど、大事な友達だと思ってる,"아사미야랑 편한 사이는<6E5C>아니지만, 소중한 친구라 생각해","아사미야랑 편한 사이는<6E5C>아니지만, 소중한 친구라 생각해"
 dom2Athena_L01.mes,Script/dom2Athena_L01.mes,28,16,Kisarah,エ~?このトップアイドルとぉ?,에~? 이 톱 아이돌보다?,에~? 이 톱 아이돌보다?
@@ -56,7 +56,7 @@ dom2Athena_L02.mes,Script/dom2Athena_L02.mes,15,11,Athena,フフッ、ありが�
 dom2Athena_L02.mes,Script/dom2Athena_L02.mes,16,31,주인공,たしか、卒業の前に上京してた<6E5C>けど、今はこっちに戻ってるの?,"분명, 졸업 전에 상경했었는데<6E5C>지금은 돌아온 거야?","분명, 졸업 전에 상경했었는데<6E5C>지금은 돌아온 거야?"
 dom2Athena_L02.mes,Script/dom2Athena_L02.mes,17,31,Athena,うん.世界ツアーが終わって、<6E5C>やっと長めのオフをもらえたんだ,"응. 세계 투어가 끝나서,<6E5C>드디어 긴 휴가를 받았거든","응. 세계 투어가 끝나서,<6E5C>드디어 긴 휴가를 받았거든"
 dom2Athena_L02.mes,Script/dom2Athena_L02.mes,18,23,Athena,しばらくは地元でゆっくり過ごそう<6E5C>と思って!,당분간 고향에서 느긋하게<6E5C>지낼까 싶어서!,당분간 고향에서 느긋하게<6E5C>지낼까 싶어서!
-dom2Athena_L02.mes,Script/dom2Athena_L02.mes,19,14,[선택지],でも、元気ない?元気そうだな,기운 없어?<6E5C>넘쳐 보이는데,기운 없어?<6E5C>넘쳐 보이는데
+dom2Athena_L02.mes,Script/dom2Athena_L02.mes,19,14,[선택지],でも、元気ない?元気そうだな,기운 없어?<6E5C>넘쳐 보이는데,기운 없어?\넘쳐 보이는데
 dom2Athena_L02.mes,Script/dom2Athena_L02.mes,20,19,주인공,でも、あまり元気ないんじゃ<6E5C>ないか?,"그런데, 별로 기운 없는<6E5C>거 아냐","그런데, 별로 기운 없는<6E5C>거 아냐"
 dom2Athena_L02.mes,Script/dom2Athena_L02.mes,21,8,Athena,……どうして?,……왜?,……왜?
 dom2Athena_L02.mes,Script/dom2Athena_L02.mes,22,36,주인공,いや、疲れてるだけかな?<6E5C>……さっきだって、よろめいた<6E5C>って言ってたし,"아니, 그냥 피곤한가?<6E5C>……아까도, 휘청거렸다고<6E5C>했었잖아","아니, 그냥 피곤한가?<6E5C>……아까도, 휘청거렸다고<6E5C>했었잖아"
@@ -109,7 +109,7 @@ dom2Athena_L03.mes,Script/dom2Athena_L03.mes,31,22,Athena,ううん……わた�
 dom2Athena_L03.mes,Script/dom2Athena_L03.mes,32,3,주인공,え?,어?,어?
 dom2Athena_L03.mes,Script/dom2Athena_L03.mes,33,36,Athena,<이름:3131>くんは……麻宮アテナは<6E5C>変わらない方がよかった?<6E5C>変わったらダメ?,<이름:3131>군은……아사미야는<6E5C>안 변하는 게 좋았어?<6E5C>변하면 안 돼?,<이름:3131>군은……아사미야는<6E5C>안 변하는 게 좋았어?<6E5C>변하면 안 돼?
 dom2Athena_L03.mes,Script/dom2Athena_L03.mes,34,5,주인공,…………,…………,…………
-dom2Athena_L03.mes,Script/dom2Athena_L03.mes,35,19,[선택지],変わってもかまわない変わってなんかない,변해도 상관없어변한 거 없어,변해도 상관없어변한 거 없어
+dom2Athena_L03.mes,Script/dom2Athena_L03.mes,35,19,[선택지],変わってもかまわない変わってなんかない,변해도 상관없어변한 거 없어,변해도 상관없어\변한 거 없어
 dom2Athena_L03.mes,Script/dom2Athena_L03.mes,36,12,주인공,変わってもかまわないよ,변해도 상관없어,변해도 상관없어
 dom2Athena_L03.mes,Script/dom2Athena_L03.mes,37,35,주인공,あれからもう3年も経ってるん<6E5C>だよ?変わるのがあたりまえ<6E5C>じゃないか,그로부터 벌써 3년이나<6E5C>지났잖아? 변하는 게<6E5C>당연하지 않아?,그로부터 벌써 3년이나<6E5C>지났잖아? 변하는 게<6E5C>당연하지 않아?
 dom2Athena_L03.mes,Script/dom2Athena_L03.mes,38,32,Athena,……フフッ、<이름:3131>くんが変わった<6E5C>トコも、わたし発見しちゃった!,"……후훗, <이름:3131>군이 변한<6E5C>부분도, 나 발견해버렸어!","……후훗, <이름:3131>군이 변한<6E5C>부분도, 나 발견해버렸어!"
@@ -143,7 +143,7 @@ dom2Athena_L04.mes,Script/dom2Athena_L04.mes,10,25,Athena,そうだね…….こ
 dom2Athena_L04.mes,Script/dom2Athena_L04.mes,11,32,Athena,ひょっとして騒がれたい?<6E5C>『麻宮アテナが恋人と密会!?』<6E5C>って,"혹시 소란 나고 싶어?<6E5C>『아사미야, 애인과 밀회!?』라고","혹시 소란 나고 싶어?<6E5C>『아사미야, 애인과 밀회!?』라고"
 dom2Athena_L04.mes,Script/dom2Athena_L04.mes,12,17,주인공,もぉ、悪かったって.からかうなよ,"진짜, 미안하다니까.<6E5C>놀리지마","진짜, 미안하다니까.<6E5C>놀리지마"
 dom2Athena_L04.mes,Script/dom2Athena_L04.mes,13,28,Athena,フフッ?もしそーなったら、<6E5C><이름:3131>くんはどーするのかな?,"후훗? 만약 그렇게 되면,<6E5C><이름:3131>군은 어떻게 할래?","후훗? 만약 그렇게 되면,<6E5C><이름:3131>군은 어떻게 할래?"
-dom2Athena_L04.mes,Script/dom2Athena_L04.mes,14,13,[선택지],どうもしないもちろん逃げる,아무것도 안 해도망친다,아무것도 안 해도망친다
+dom2Athena_L04.mes,Script/dom2Athena_L04.mes,14,13,[선택지],どうもしないもちろん逃げる,아무것도 안 해도망친다,아무것도 안 해\도망친다
 dom2Athena_L04.mes,Script/dom2Athena_L04.mes,15,8,주인공,どうもしないよ,안 해,안 해
 dom2Athena_L04.mes,Script/dom2Athena_L04.mes,16,3,Athena,え?,어?,어?
 dom2Athena_L04.mes,Script/dom2Athena_L04.mes,17,35,주인공,だって、ただクラスメイトが<6E5C>会ってるだけなんだろう?<6E5C>堂々としてるよ,"그야, 그냥 반 친구끼리<6E5C>만나는 것뿐이잖아?<6E5C>당당할 거야","그야, 그냥 반 친구끼리<6E5C>만나는 것뿐이잖아?<6E5C>당당할 거야"
@@ -212,7 +212,7 @@ dom2Athena_L05_2.mes,Script/dom2Athena_L05_2.mes,4,23,주인공,(いつのまに
 dom2Athena_L05_2.mes,Script/dom2Athena_L05_2.mes,5,43,Athena,ちょっと<이름:3131><이름:3232>~!さっきか<6E5C>ら飲んでないじゃないの~!<6E5C>なによ、わたしジャマなの?,"잠깐 <이름:3131><이름:3232>~!<6E5C>아까부터 안 마시고 있잖아~!<6E5C>뭐야, 나 방해되는 거야?","잠깐 <이름:3131><이름:3232>~!<6E5C>아까부터 안 마시고 있잖아~!<6E5C>뭐야, 나 방해되는 거야?"
 dom2Athena_L05_2.mes,Script/dom2Athena_L05_2.mes,6,26,Shizuku,<이름:3131>くんはどっちが大事なの?<6E5C>はっきり言ってよー!,<이름:3131>군은 누가 더<6E5C>소중해? 확실히 말해줘~!,<이름:3131>군은 누가 더<6E5C>소중해? 확실히 말해줘~!
 dom2Athena_L05_2.mes,Script/dom2Athena_L05_2.mes,7,7,주인공,……はいぃ?,……네에?,……네에?
-dom2Athena_L05_2.mes,Script/dom2Athena_L05_2.mes,8,14,[선택지],とりあえず雫とりあえずアテナ,일단시즈쿠일단아테나,일단시즈쿠일단아테나
+dom2Athena_L05_2.mes,Script/dom2Athena_L05_2.mes,8,14,[선택지],とりあえず雫とりあえずアテナ,일단시즈쿠일단아테나,일단시즈쿠\일단아테나
 dom2Athena_L05_2.mes,Script/dom2Athena_L05_2.mes,9,32,주인공,ハハハ……どっちも大事だよー.<6E5C>でも強いて言えば巳沢さんかなー,하하하……둘 다 소중해.<6E5C>근데 하나 고르면<6E5C>미사와 씨려나,하하하……둘 다 소중해.<6E5C>근데 하나 고르면<6E5C>미사와 씨려나
 dom2Athena_L05_2.mes,Script/dom2Athena_L05_2.mes,10,26,Shizuku,わーい!じゃあ、夏祭りも私と<6E5C>一緒だね?決まりーっ,"와아! 그럼, 여름 축제도<6E5C>나랑 같이지? 결정","와아! 그럼, 여름 축제도<6E5C>나랑 같이지? 결정"
 dom2Athena_L05_2.mes,Script/dom2Athena_L05_2.mes,11,7,주인공,え?あ、うん,어? 응,어? 응
@@ -258,7 +258,7 @@ dom2Athena_L09.mes,Script/dom2Athena_L09.mes,16,40,Hotaru,昔、お兄ちゃん�
 dom2Athena_L09.mes,Script/dom2Athena_L09.mes,17,6,주인공,ほたる……,호타루……,호타루……
 dom2Athena_L09.mes,Script/dom2Athena_L09.mes,18,25,Hotaru,お兄ちゃん、今もお友達?<6E5C>それとも友達以上なの?,"오빠, 지금도 친구야?<6E5C>아님 친구 이상이야?","오빠, 지금도 친구야?<6E5C>아님 친구 이상이야?"
 dom2Athena_L09.mes,Script/dom2Athena_L09.mes,19,38,Hotaru,東京に行ったアテナさんとまだ交流<6E5C>があるなんて、ほたる知らなかった<6E5C>な……,"도쿄 간 아테나 씨랑 아직<6E5C>연락한다니, 호타루 몰랐네……","도쿄 간 아테나 씨랑 아직<6E5C>연락한다니, 호타루 몰랐네……"
-dom2Athena_L09.mes,Script/dom2Athena_L09.mes,20,6,[선택지],友達友達以上,친구그 이상,친구그 이상
+dom2Athena_L09.mes,Script/dom2Athena_L09.mes,20,6,[선택지],友達友達以上,친구그 이상,친구\그 이상
 dom2Athena_L09.mes,Script/dom2Athena_L09.mes,21,23,주인공,バカ、何言ってんだよ.<6E5C>友達に決まってるだろ,"바보, 무슨 말이야.<6E5C>친구가 당연하잖아","바보, 무슨 말이야.<6E5C>친구가 당연하잖아"
 dom2Athena_L09.mes,Script/dom2Athena_L09.mes,22,47,Hotaru,ふーん.そっか.そうだよね、<6E5C>アテナさんはアイドルだもんね<485C>あ、ほたる買い物に行ってくるね!,"흐응. 그렇구나. 그러네,<6E5C>아테나 씨는 아이돌이니까<485C>아, 호타루 장 보고 올게!","흐응. 그렇구나. 그러네,<6E5C>아테나 씨는 아이돌이니까<485C>아, 호타루 장 보고 올게!"
 dom2Athena_L09.mes,Script/dom2Athena_L09.mes,23,5,[효과음/내레이션],バタンッ,쾅,쾅
@@ -332,7 +332,7 @@ dom2Athena_L10.mes,Script/dom2Athena_L10.mes,40,28,Athena,もう、迷惑かけ�
 dom2Athena_L10.mes,Script/dom2Athena_L10.mes,41,31,Athena,また、仕事ばかりのアイドル。麻宮<6E5C>アテナに戻るから、安心して,"다시 일만 하는 아이돌로<6E5C>돌아갈 테니, 안심해","다시 일만 하는 아이돌로<6E5C>돌아갈 테니, 안심해"
 dom2Athena_L10.mes,Script/dom2Athena_L10.mes,42,32,Athena,それだけ言いたかったの.<6E5C><이름:3131>くん、ありがとう.<6E5C>さよなら……,"그 말이 하고 싶었어.<6E5C><이름:3131>군, 고마워.<6E5C>안녕……","그 말이 하고 싶었어.<6E5C><이름:3131>군, 고마워.<6E5C>안녕……"
 dom2Athena_L10.mes,Script/dom2Athena_L10.mes,43,5,주인공,待てよ!,기다려!,기다려!
-dom2Athena_L10.mes,Script/dom2Athena_L10.mes,44,14,[선택지],元気出せよさよならなんて嫌だ,기운 내라안녕은 싫어,기운 내라안녕은 싫어
+dom2Athena_L10.mes,Script/dom2Athena_L10.mes,44,14,[선택지],元気出せよさよならなんて嫌だ,기운 내라안녕은 싫어,기운 내라\안녕은 싫어
 dom2Athena_L10.mes,Script/dom2Athena_L10.mes,45,29,주인공,元気、出せよ.そんな悲しい顔で<6E5C>さよならなんて、言うなよ,"기운 내.<6E5C>그렇게 슬픈 얼굴로<6E5C>안녕이라니, 말하지마","기운 내.<6E5C>그렇게 슬픈 얼굴로<6E5C>안녕이라니, 말하지마"
 dom2Athena_L10.mes,Script/dom2Athena_L10.mes,46,7,Athena,<이름:3131>くん……,<이름:3131>군……,<이름:3131>군……
 dom2Athena_L10.mes,Script/dom2Athena_L10.mes,47,35,주인공,僕の知ってる麻宮アテナは、<6E5C>いつも元気だぞ?<6E5C>そんな暗い顔じゃないよ,"내가 아는 아테나는,<6E5C>항상 씩씩하잖아? 어두운<6E5C>얼굴이 아니야","내가 아는 아테나는,<6E5C>항상 씩씩하잖아? 어두운<6E5C>얼굴이 아니야"
@@ -459,7 +459,7 @@ dom2Athena_X01.mes,Script/dom2Athena_X01.mes,41,13,UNKNOWN_59,わー、アテナ
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,42,9,주인공,あ、子どもが……,"아, 애가……","아, 애가……"
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,43,28,Athena,どうしよう、人が集まったら.<6E5C>夏祭りみたいなことに……,"어떡하지, 사람 모이면.<6E5C>여름축제 때처럼……","어떡하지, 사람 모이면.<6E5C>여름축제 때처럼……"
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,44,3,주인공,麻宮,저기,저기
-dom2Athena_X01.mes,Script/dom2Athena_X01.mes,45,8,[선택지],肩を抱く手を握る,어깨안기손잡기,어깨안기손잡기
+dom2Athena_X01.mes,Script/dom2Athena_X01.mes,45,8,[선택지],肩を抱く手を握る,어깨안기손잡기,어깨안기\손잡기
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,46,3,[효과음/내레이션],ぐっ,꽉,꽉
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,47,2,Athena,!,!,!
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,48,17,주인공,大丈夫だよ、ちゃんと僕が守るから,"괜찮아, 내가 확실히 지킬게","괜찮아, 내가 확실히 지킬게"
@@ -494,7 +494,7 @@ dom2Athena_X01.mes,Script/dom2Athena_X01.mes,76,37,Athena,もぉ!せっかく、
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,77,14,주인공,あ、考えたらそれはすごいな,"아, 생각해보니 대단하네","아, 생각해보니 대단하네"
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,78,28,Athena,やっと気づいた?エヘヘ、<6E5C>リクエストにお応えしますよ?,"이제야 알았어? 에헤헤,<6E5C>신청곡 받아드릴게요?","이제야 알았어? 에헤헤,<6E5C>신청곡 받아드릴게요?"
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,79,11,주인공,ほんと?じゃあね……,진짜? 그럼……,진짜? 그럼……
-dom2Athena_X01.mes,Script/dom2Athena_X01.mes,80,22,[선택지],サイコ。ソルジャー傷だらけのトゥルー。ハート,사이코 솔저상처투성이 트루 하트,사이코 솔저상처투성이 트루 하트
+dom2Athena_X01.mes,Script/dom2Athena_X01.mes,80,22,[선택지],サイコ。ソルジャー傷だらけのトゥルー。ハート,사이코 솔저상처투성이 트루 하트,사이코 솔저\상처투성이 트루 하트
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,81,16,주인공,「サイコ。ソルジャー」を1曲!,「사이코 솔저」로 한 곡!,「사이코 솔저」로 한 곡!
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,82,19,Athena,やっぱり、アテナといえば<6E5C>それかな?,"역시, 아테나 하면<6E5C>그거려나?","역시, 아테나 하면<6E5C>그거려나?"
 dom2Athena_X01.mes,Script/dom2Athena_X01.mes,83,43,주인공,そうだね.これを生で、<6E5C>しかもひとりで聴けると思うと……<6E5C>クラスメイト冥利につきるな,"그러네. 이걸 라이브로,<6E5C>그것도 혼자 들을 수 있다니……<6E5C>반 친구라 다행이네","그러네. 이걸 라이브로,<6E5C>그것도 혼자 들을 수 있다니……<6E5C>반 친구라 다행이네"
@@ -594,7 +594,7 @@ dom2Athena_X02.mes,Script/dom2Athena_X02.mes,60,11,주인공,その方が、僕�
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,61,11,Athena,<이름:3131>くん……でも……,<이름:3131>군……근데……,<이름:3131>군……근데……
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,62,4,주인공,でも?,근데?,근데?
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,63,34,Athena,……嫌じゃない?大地の話.<6E5C>わたしが話しても、なんとも<6E5C>思わない?,"……싫지 않아? 다이치 얘기.<6E5C>내가 얘기해도, 아무렇지<6E5C>않아","……싫지 않아? 다이치 얘기.<6E5C>내가 얘기해도, 아무렇지<6E5C>않아"
-dom2Athena_X02.mes,Script/dom2Athena_X02.mes,64,9,[선택지],本当は嫌嫌じゃない,정말 싫어안 싫어,정말 싫어안 싫어
+dom2Athena_X02.mes,Script/dom2Athena_X02.mes,64,9,[선택지],本当は嫌嫌じゃない,정말 싫어안 싫어,정말 싫어\안 싫어
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,65,20,주인공,……本当は……あまり、<6E5C>嬉しくないけど,"……사실은……별로,<6E5C>기쁘지 않지만","……사실은……별로,<6E5C>기쁘지 않지만"
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,66,8,Athena,……どうして?,……왜?,……왜?
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,67,9,주인공,どうしてって……,왜냐면……,왜냐면……
@@ -664,7 +664,7 @@ dom2Athena_X02.mes,Script/dom2Athena_X02.mes,130,10,주인공,だって、何に
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,131,5,Athena,他には?,다른 애,다른 애
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,132,3,주인공,え?,어?,어?
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,133,16,Athena,他には、そんな女の子、いない?,"다른 사람, 그런 애 없어","다른 사람, 그런 애 없어"
-dom2Athena_X02.mes,Script/dom2Athena_X02.mes,134,7,[선택지],いないいるかも,없어있을지도,없어있을지도
+dom2Athena_X02.mes,Script/dom2Athena_X02.mes,134,7,[선택지],いないいるかも,없어있을지도,없어\있을지도
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,135,9,주인공,そんなのいないよ,그런 사람 없어,그런 사람 없어
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,136,7,Athena,ほんとう~?,정말~?,정말~?
 dom2Athena_X02.mes,Script/dom2Athena_X02.mes,137,27,주인공,いたら僕が教えてほしいよ.<6E5C>ほんとに何もないんだから,있으면 나도 알고 싶어.<6E5C>정말 아무것도 없으니까,있으면 나도 알고 싶어.<6E5C>정말 아무것도 없으니까
@@ -855,7 +855,7 @@ dom2Athena_X04.mes,Script/dom2Athena_X04.mes,39,4,[효과음/내레이션],ぎ�
 dom2Athena_X04.mes,Script/dom2Athena_X04.mes,40,7,Athena,<이름:3131>くん……,<이름:3131>군……,<이름:3131>군……
 dom2Athena_X04.mes,Script/dom2Athena_X04.mes,41,16,주인공,麻宮……閉きたいことがあるんだ,"아사미야, 물어보고 싶어","아사미야, 물어보고 싶어"
 dom2Athena_X04.mes,Script/dom2Athena_X04.mes,42,8,Athena,閉きたいこと?,묻고 싶어?,묻고 싶어?
-dom2Athena_X04.mes,Script/dom2Athena_X04.mes,43,9,[선택지],僕のこと失恋のこと,내 얘기실연 얘기,내 얘기실연 얘기
+dom2Athena_X04.mes,Script/dom2Athena_X04.mes,43,9,[선택지],僕のこと失恋のこと,내 얘기실연 얘기,내 얘기\실연 얘기
 dom2Athena_X04.mes,Script/dom2Athena_X04.mes,44,35,주인공,今の正直な気持ちでいい.<6E5C>麻宮が僕をどう思ってるのか、<6E5C>教えてほしい,"지금 솔직한 마음이면 돼.<6E5C>날 어떻게 생각하는지,<6E5C>알려줘","지금 솔직한 마음이면 돼.<6E5C>날 어떻게 생각하는지,<6E5C>알려줘"
 dom2Athena_X04.mes,Script/dom2Athena_X04.mes,45,10,Athena,<이름:3131>くんのこと……,<이름:3131>군 얘기……,<이름:3131>군 얘기……
 dom2Athena_X04.mes,Script/dom2Athena_X04.mes,46,41,주인공,僕の気持ちは、もうわかってると<6E5C>思う.それにいますぐ答えて<6E5C>くれってわけじゃない,"내 마음은, 이미 알고 있을<6E5C>거야. 그리고 당장 대답해달란<6E5C>것도 아니야","내 마음은, 이미 알고 있을<6E5C>거야. 그리고 당장 대답해달란<6E5C>것도 아니야"
@@ -976,20 +976,20 @@ dom2Athena_X05.mes,Script/dom2Athena_X05.mes,41,44,UNKNOWN_1b,しょーもない
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,42,44,UNKNOWN_1b,アテナの落ち込みようったら、<6E5C>なかったで.もうあんな、<6E5C>傷ついたアテナは見たくないんや,아테나가 얼마나 침울했는지<6E5C>몰라. 이제 상처받은<6E5C>아테나는 보고 싶지 않아,아테나가 얼마나 침울했는지<6E5C>몰라. 이제 상처받은<6E5C>아테나는 보고 싶지 않아
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,43,23,UNKNOWN_1b,ここで終わらすんが、<6E5C>傷が浅くて一番ええんや,여기서 끝내는 게<6E5C>제일 안 아파,여기서 끝내는 게<6E5C>제일 안 아파
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,44,8,주인공,でも、でも……,근데……,근데……
-dom2Athena_X05.mes,Script/dom2Athena_X05.mes,45,23,[선택지],僕はアテナを守ります!僕はアテナが大好きです!,저는 아테나를 지킬 거예요!정말 좋아해요!,저는 아테나를 지킬 거예요!정말 좋아해요!
+dom2Athena_X05.mes,Script/dom2Athena_X05.mes,45,23,[선택지],僕はアテナを守ります!僕はアテナが大好きです!,저는 아테나를 지킬 거예요!정말 좋아해요!,저는 아테나를 지킬 거예요!\정말 좋아해요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,46,12,주인공,僕はアテナを守ります!,아테나를 지켜요!,아테나를 지켜요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,47,13,주인공,僕はアテナが大好きです!,아테나가 정말 좋아요!,아테나가 정말 좋아요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,48,20,UNKNOWN_1b,アテナがトップアイドルでも<6E5C>平気なんか,톱 아이돌이라도 괜찮은 거냐,톱 아이돌이라도 괜찮은 거냐
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,49,11,UNKNOWN_1b,会えなくてもええんか,못 만나도 되냐,못 만나도 되냐
-dom2Athena_X05.mes,Script/dom2Athena_X05.mes,50,25,[선택지],会えなくても平気です!会えないなら会いに行きます!,못 만나도 괜찮아요!만나러 갈 거예요!,못 만나도 괜찮아요!만나러 갈 거예요!
+dom2Athena_X05.mes,Script/dom2Athena_X05.mes,50,25,[선택지],会えなくても平気です!会えないなら会いに行きます!,못 만나도 괜찮아요!만나러 갈 거예요!,못 만나도 괜찮아요!\만나러 갈 거예요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,51,12,주인공,会えなくても平気です!,못 만나도 괜찮아요!,못 만나도 괜찮아요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,52,15,주인공,会えないなら会いに行きます!,만나러 갈 거예요!,만나러 갈 거예요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,53,25,UNKNOWN_1b,24時間マスコミに追いかけられる<6E5C>ことになるで?,24시간 매스컴한테<6E5C>쫓기게 된다고?,24시간 매스컴한테<6E5C>쫓기게 된다고?
-dom2Athena_X05.mes,Script/dom2Athena_X05.mes,54,14,[선택지],追い払います!逃げ切ります!,쫓아내죠!따돌리죠!,쫓아내죠!따돌리죠!
+dom2Athena_X05.mes,Script/dom2Athena_X05.mes,54,14,[선택지],追い払います!逃げ切ります!,쫓아내죠!따돌리죠!,쫓아내죠!\따돌리죠!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,55,8,주인공,追い払います!,쫓아낼게요!,쫓아낼게요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,56,8,주인공,逃げ切ります!,따돌릴게요!,따돌릴게요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,57,30,UNKNOWN_1b,どんなことがあっても、アテナを<6E5C>幸せにするって誓えるんか!,"어떤 일 있어도, 아테나<6E5C>행복하게 맹세해!","어떤 일 있어도, 아테나<6E5C>행복하게 맹세해!"
-dom2Athena_X05.mes,Script/dom2Athena_X05.mes,58,25,[선택지],アテナだけは幸せにします!ふたりで幸せになります!,아테나만 행복하게!둘이 행복해질 거예요!,아테나만 행복하게!둘이 행복해질 거예요!
+dom2Athena_X05.mes,Script/dom2Athena_X05.mes,58,25,[선택지],アテナだけは幸せにします!ふたりで幸せになります!,아테나만 행복하게!둘이 행복해질 거예요!,아테나만 행복하게!\둘이 행복해질 거예요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,59,14,주인공,アテナだけは幸せにします!,아테나 행복하게 할게요!,아테나 행복하게 할게요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,60,13,주인공,ふたりで幸せになります!,둘이 행복해질 거예요!,둘이 행복해질 거예요!
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,61,7,UNKNOWN_1b,……まぁええ,……뭐 됐다,……뭐 됐다
@@ -1010,7 +1010,7 @@ dom2Athena_X05.mes,Script/dom2Athena_X05.mes,75,14,Athena,<이름:3131>くん、
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,76,3,주인공,え?,어?,어?
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,77,33,Athena,3年前は、そんな強引な性格じゃ<6E5C>なかったよ.もっとおとなしかった,"3년 전엔, 그렇게 억지스러운<6E5C>성격 아니었어. 더 얌전했어","3년 전엔, 그렇게 억지스러운<6E5C>성격 아니었어. 더 얌전했어"
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,78,13,Athena,……どうして変わったの?,……왜 변한 거야?,……왜 변한 거야?
-dom2Athena_X05.mes,Script/dom2Athena_X05.mes,79,16,[선택지],大人になったんだ麻宮が変えたんだ,어른이 됐어아사미야 덕분이야,어른이 됐어아사미야 덕분이야
+dom2Athena_X05.mes,Script/dom2Athena_X05.mes,79,16,[선택지],大人になったんだ麻宮が変えたんだ,어른이 됐어아사미야 덕분이야,어른이 됐어\아사미야 덕분이야
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,80,42,주인공,……大人になったんだよ.もう僕も<6E5C>高校生の<이름:3131><이름:3232>じゃない.<6E5C>麻宮だってそうだろ?,……어른이 된 거야.<6E5C>나도 고교생<6E5C><이름:3131><이름:3232>가 아니야.<485C>아사미야도 그렇잖아?,……어른이 된 거야.<6E5C>나도 고교생<6E5C><이름:3131><이름:3232>가 아니야.<485C>아사미야도 그렇잖아?
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,81,7,Athena,わたしは……,나는……,나는……
 dom2Athena_X05.mes,Script/dom2Athena_X05.mes,82,31,주인공,傷つくことに怖がるのはやめよう.<6E5C>一緒に大人になろうよ、麻宮,"상처받는 걸 두려워 말자.<6E5C>같이 어른이 되자, 아사미야","상처받는 걸 두려워 말자.<6E5C>같이 어른이 되자, 아사미야"

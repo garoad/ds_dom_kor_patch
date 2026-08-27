@@ -14,7 +14,7 @@ dom1Leona_L01.mes,Script/dom1Leona_L01.mes,11,22,주인공,チェッ、わかっ
 dom1Leona_L01.mes,Script/dom1Leona_L01.mes,12,3,Leona,……,……,……
 dom1Leona_L01.mes,Script/dom1Leona_L01.mes,13,23,주인공,……なあ、レオナは短冊になんて<6E5C>書いたんだ?,"……저기, 레오나는 쪽지에 뭐라고<6E5C>썼어?","……저기, 레오나는 쪽지에 뭐라고<6E5C>썼어?"
 dom1Leona_L01.mes,Script/dom1Leona_L01.mes,14,6,Leona,べつに……,딱히……,딱히……
-dom1Leona_L01.mes,Script/dom1Leona_L01.mes,15,15,[선택지],さらに追及する自分の願いを話す,더 캐묻기소원 말하기,더 캐묻기소원 말하기
+dom1Leona_L01.mes,Script/dom1Leona_L01.mes,15,15,[선택지],さらに追及する自分の願いを話す,더 캐묻기소원 말하기,더 캐묻기\소원 말하기
 dom1Leona_L01.mes,Script/dom1Leona_L01.mes,16,11,주인공,レオナの願いって何?,레오나 소원이뭔데?,레오나 소원이뭔데?
 dom1Leona_L01.mes,Script/dom1Leona_L01.mes,17,19,Leona,……人に話すようなことじゃないか<6E5C>ら,……남한테 말할 만한 게아니니<6E5C>까,……남한테 말할 만한 게아니니<6E5C>까
 dom1Leona_L01.mes,Script/dom1Leona_L01.mes,18,39,주인공,お、おい、どこ行くんだよ!何、<6E5C>あと全部俺ひとりでやれってこと?<6E5C>マジかよ!,"어, 어디 가는 거야!뭐야<6E5C>나머지 다 나 혼자 하라는 거야?<6E5C>진짜냐!","어, 어디 가는 거야!뭐야<6E5C>나머지 다 나 혼자 하라는 거야?<6E5C>진짜냐!"
@@ -29,7 +29,7 @@ dom1Leona_L02.mes,Script/dom1Leona_L02.mes,0,9,주인공,おはよう、レオ�
 dom1Leona_L02.mes,Script/dom1Leona_L02.mes,1,5,Leona,おはよう,안녕,안녕
 dom1Leona_L02.mes,Script/dom1Leona_L02.mes,2,56,주인공,もう閉いた?今日、旧校舎で<6E5C>きもだめしやるって<485C>昼間でも真っ暗で<6E5C>けっこう怖いらしいぜ.<6E5C>レオナはどうすんだ?,벌써 들었어?오늘 구교사에서<6E5C>담력시험 한다던데<485C>낮에도 캄캄해서<6E5C>꽤 무섭다더라.<6E5C>레오나는 어때?,벌써 들었어?오늘 구교사에서<6E5C>담력시험 한다던데<485C>낮에도 캄캄해서<6E5C>꽤 무섭다더라.<6E5C>레오나는 어때?
 dom1Leona_L02.mes,Script/dom1Leona_L02.mes,3,8,Leona,……わからない,……모르겠어,……모르겠어
-dom1Leona_L02.mes,Script/dom1Leona_L02.mes,4,6,[선택지],誘う誘わない,부름안 부름,부름안 부름
+dom1Leona_L02.mes,Script/dom1Leona_L02.mes,4,6,[선택지],誘う誘わない,부름안 부름,부름\안 부름
 dom1Leona_L02.mes,Script/dom1Leona_L02.mes,5,12,주인공,俺と一緒に行かないか?,나랑 같이 안 갈래?,나랑 같이 안 갈래?
 dom1Leona_L02.mes,Script/dom1Leona_L02.mes,6,7,Leona,ええ、いいわ,"그래, 좋아","그래, 좋아"
 dom1Leona_L02.mes,Script/dom1Leona_L02.mes,7,15,주인공,よし、それじゃ放課後に教室で,"좋아, 방과후에 교실에서","좋아, 방과후에 교실에서"
@@ -98,7 +98,7 @@ dom1Leona_L05.mes,Script/dom1Leona_L05.mes,1,6,Leona,……花火?,……불꽃?
 dom1Leona_L05.mes,Script/dom1Leona_L05.mes,2,26,주인공,おいおい、まさか花火を知らないっ<6E5C>てことはないよな,어이어이 설마 불꽃놀이 모른<6E5C>다는 건 아니겠지,어이어이 설마 불꽃놀이 모른<6E5C>다는 건 아니겠지
 dom1Leona_L05.mes,Script/dom1Leona_L05.mes,3,27,Leona,閉いたことはあるわ.でも、実際に<6E5C>見たことはない……,들어본 적은 있어.근데 실제로<6E5C>본 적은 없어……,들어본 적은 있어.근데 실제로<6E5C>본 적은 없어……
 dom1Leona_L05.mes,Script/dom1Leona_L05.mes,4,10,주인공,そ、そうなんだ……,"그, 그렇구나……","그, 그렇구나……"
-dom1Leona_L05.mes,Script/dom1Leona_L05.mes,5,9,[선택지],一緒に見るわかれる,같이 본다헤어진다,같이 본다헤어진다
+dom1Leona_L05.mes,Script/dom1Leona_L05.mes,5,9,[선택지],一緒に見るわかれる,같이 본다헤어진다,같이 본다\헤어진다
 dom1Leona_L05.mes,Script/dom1Leona_L05.mes,6,13,주인공,じゃあ、一緒に見に行くか,"그럼, 같이 보러 갈까","그럼, 같이 보러 갈까"
 dom1Leona_L05.mes,Script/dom1Leona_L05.mes,7,6,Leona,……そうね,……그래,……그래
 dom1Leona_L05.mes,Script/dom1Leona_L05.mes,8,21,주인공,まぁ、興味ない人にはないよな.<6E5C>じゃあな,뭐 관심 없으면 그렇겠지.<6E5C>그럼 간다,뭐 관심 없으면 그렇겠지.<6E5C>그럼 간다
@@ -116,7 +116,7 @@ dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,9,44,주인공,(行っちゃっ�
 dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,10,6,Leona,きれい……,예쁘다……,예쁘다……
 dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,11,7,주인공,そ、そうだな,"그, 그렇네","그, 그렇네"
 dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,12,20,주인공,(なんかレオナ、いつもと違う<6E5C>な……),(왠지 레오나 평소랑 다른<6E5C>데……),(왠지 레오나 평소랑 다른<6E5C>데……)
-dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,13,9,[선택지],手を握るそばに寄る,손 잡기옆에 가기,손 잡기옆에 가기
+dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,13,9,[선택지],手を握るそばに寄る,손 잡기옆에 가기,손 잡기\옆에 가기
 dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,14,2,Leona,!,!,!
 dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,15,20,주인공,(あ、あれ、怒るかと思ったけ<6E5C>ど……),"(어, 어라, 화낼 줄 알았는<6E5C>데)","(어, 어라, 화낼 줄 알았는<6E5C>데)"
 dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,16,3,Leona,……,……,……
@@ -129,7 +129,7 @@ dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,22,3,Leona,……,……,……
 dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,23,8,주인공,……きれいだな,……예쁘네,……예쁘네
 dom1Leona_L05_2.mes,Script/dom1Leona_L05_2.mes,24,5,Leona,……ええ,……응,……응
 dom1Leona_L06.mes,Script/dom1Leona_L06.mes,0,30,주인공,(あれ、レオナと一緒にいるのは<6E5C>……こないだのおっさんだ),"(어라, 레오나 옆 사람은<6E5C>……저번에 그 아저씨잖아)","(어라, 레오나 옆 사람은<6E5C>……저번에 그 아저씨잖아)"
-dom1Leona_L06.mes,Script/dom1Leona_L06.mes,1,11,[선택지],声をかける声をかけない,말걸기말안걸기,말걸기말안걸기
+dom1Leona_L06.mes,Script/dom1Leona_L06.mes,1,11,[선택지],声をかける声をかけない,말걸기말안걸기,말걸기\말안걸기
 dom1Leona_L06.mes,Script/dom1Leona_L06.mes,2,8,주인공,お~い、レオナ,"야, 레오나~","야, 레오나~"
 dom1Leona_L06.mes,Script/dom1Leona_L06.mes,3,3,Leona,……,……,……
 dom1Leona_L06.mes,Script/dom1Leona_L06.mes,4,8,레오나 아버지,レオナ、被は?,레오나 얘는?,레오나 얘는?
@@ -217,7 +217,7 @@ dom1Leona_L09.mes,Script/dom1Leona_L09.mes,3,12,주인공,レオナ、どうし�
 dom1Leona_L09.mes,Script/dom1Leona_L09.mes,4,14,Leona,誕生日だって閉いたから……,생일이라고 들어서……,생일이라고 들어서……
 dom1Leona_L09.mes,Script/dom1Leona_L09.mes,5,10,주인공,そっか.それで……,그렇구나. 그래서,그렇구나. 그래서
 dom1Leona_L09.mes,Script/dom1Leona_L09.mes,6,23,Leona,イリュージョンで、一緒に祝おうと<6E5C>思って……,"일루전에서, 같이 축하하려고<6E5C>생각해서……","일루전에서, 같이 축하하려고<6E5C>생각해서……"
-dom1Leona_L09.mes,Script/dom1Leona_L09.mes,7,7,[선택지],一緒に行く断る,간다거절,간다거절
+dom1Leona_L09.mes,Script/dom1Leona_L09.mes,7,7,[선택지],一緒に行く断る,간다거절,간다\거절
 dom1Leona_L09.mes,Script/dom1Leona_L09.mes,8,26,주인공,お祝いしてくれんのか!?<6E5C>サンキュー、行こう行こう,"축하해 주는 거야!?<6E5C> 고마워, 가자 가자","축하해 주는 거야!?<6E5C> 고마워, 가자 가자"
 dom1Leona_L09.mes,Script/dom1Leona_L09.mes,9,25,King,いらっしゃい、<이름:3131>君.<6E5C>お父さんもお待ちかねだぞ,"어서 오게, <이름:3131>군.<6E5C> 아버님도 기다리시네","어서 오게, <이름:3131>군.<6E5C> 아버님도 기다리시네"
 dom1Leona_L09.mes,Script/dom1Leona_L09.mes,10,8,주인공,お、お父さん?,"아, 아버지?","아, 아버지?"
@@ -239,7 +239,7 @@ dom1Leona_L09_2.mes,Script/dom1Leona_L09_2.mes,6,7,주인공,そうだな……,
 dom1Leona_L10.mes,Script/dom1Leona_L10.mes,0,26,주인공,(フゥ……なんかここに来ると落ち<6E5C>着くんだよなぁ),(후……왠지 여기 오면<6E5C> 마음이 편해지네),(후……왠지 여기 오면<6E5C> 마음이 편해지네)
 dom1Leona_L10.mes,Script/dom1Leona_L10.mes,1,29,주인공,あれ、レオナじゃないか.<6E5C>どうしたんだ、そんな顔して……,"어라, 레오나잖아.<6E5C> 왜 그래, 그런 표정 짓고……","어라, 레오나잖아.<6E5C> 왜 그래, 그런 표정 짓고……"
 dom1Leona_L10.mes,Script/dom1Leona_L10.mes,2,16,Leona,もう、会えないかもしれない……,"이제, 못 만날지도 몰라……","이제, 못 만날지도 몰라……"
-dom1Leona_L10.mes,Script/dom1Leona_L10.mes,3,12,[선택지],あとを追うあとを追わない,쫓는다안쫓는다,쫓는다안쫓는다
+dom1Leona_L10.mes,Script/dom1Leona_L10.mes,3,12,[선택지],あとを追うあとを追わない,쫓는다안쫓는다,쫓는다\안쫓는다
 dom1Leona_L10.mes,Script/dom1Leona_L10.mes,4,8,주인공,(……いない),(……없어),(……없어)
 dom1Leona_L10.mes,Script/dom1Leona_L10.mes,5,10,주인공,(ここにもいない),(여기도 없어),(여기도 없어)
 dom1Leona_L10.mes,Script/dom1Leona_L10.mes,6,19,주인공,(レオナ……<6E5C>どこに行ったんだよ!),(레오나……<6E5C> 어디 간 거야!),(레오나……<6E5C> 어디 간 거야!)
@@ -257,7 +257,7 @@ dom1Leona_M01.mes,Script/dom1Leona_M01.mes,1,32,주인공,(何か話してるみ
 dom1Leona_M01.mes,Script/dom1Leona_M01.mes,2,25,주인공,(あ、どっか行っちゃったよ.<6E5C>誰だったんだろう),"(아, 어디 가버렸네.<6E5C>누구였을까)","(아, 어디 가버렸네.<6E5C>누구였을까)"
 dom1Leona_M01.mes,Script/dom1Leona_M01.mes,3,4,주인공,レオナ,레오나,레오나
 dom1Leona_M01.mes,Script/dom1Leona_M01.mes,4,3,Leona,……,……,……
-dom1Leona_M01.mes,Script/dom1Leona_M01.mes,5,9,[선택지],今の人は?散歩か?,저 사람? 산책?,저 사람? 산책?
+dom1Leona_M01.mes,Script/dom1Leona_M01.mes,5,9,[선택지],今の人は?散歩か?,저 사람? 산책?,저 사람?\ 산책?
 dom1Leona_M01.mes,Script/dom1Leona_M01.mes,6,15,주인공,よう.今の人、誰だったんだ?,그렇군<0001><0000><002C><001E><0002> 그 사람 누구였을까?, 그 사람 누구였을까?
 dom1Leona_M01.mes,Script/dom1Leona_M01.mes,7,13,Leona,……アナタには関係ないわ,……당신과 상관없어,……당신과 상관없어
 dom1Leona_M01.mes,Script/dom1Leona_M01.mes,8,21,주인공,う…….で、でもさ、気になるじゃ<6E5C>ないか,"윽…….그, 그래도<6E5C>궁금하잖아","윽…….그, 그래도<6E5C>궁금하잖아"
@@ -281,7 +281,7 @@ dom1Leona_M02.mes,Script/dom1Leona_M02.mes,0,21,주인공,レオナ、こんな�
 dom1Leona_M02.mes,Script/dom1Leona_M02.mes,1,6,Leona,……探し物,…찾는 중,…찾는 중
 dom1Leona_M02.mes,Script/dom1Leona_M02.mes,2,11,주인공,なんか落としたのか?,뭔가 떨어뜨렸어?,뭔가 떨어뜨렸어?
 dom1Leona_M02.mes,Script/dom1Leona_M02.mes,3,12,Leona,ええ、サングラスを……,"응, 선글라스를……","응, 선글라스를……"
-dom1Leona_M02.mes,Script/dom1Leona_M02.mes,4,12,[선택지],一緒に探す一緒に探さない,같이 찾기같이 안 찾기,같이 찾기같이 안 찾기
+dom1Leona_M02.mes,Script/dom1Leona_M02.mes,4,12,[선택지],一緒に探す一緒に探さない,같이 찾기같이 안 찾기,같이 찾기\같이 안 찾기
 dom1Leona_M02.mes,Script/dom1Leona_M02.mes,5,17,주인공,そっか.よし、一緒に探してやるよ,그렇구나. 좋아 같이 찾아줄게,그렇구나. 좋아 같이 찾아줄게
 dom1Leona_M02.mes,Script/dom1Leona_M02.mes,6,6,Leona,ありがとう,고마워,고마워
 dom1Leona_M02.mes,Script/dom1Leona_M02.mes,7,8,주인공,見つからないな,못 찾겠네,못 찾겠네
@@ -547,7 +547,7 @@ dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,250,63,Kaidou,テメェは何
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,251,7,주인공,あ、あそこ?,"아, 거기?","아, 거기?"
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,252,45,Kaidou,そんなことまで知るかよ!<485C>そんだけ必死で探してんなら、<6E5C>心当たりくらいあるんじゃねぇのか,"그것까지 내가 알아!<485C>그렇게 필사적으로 찾으면,<6E5C>짚이는 데 있을 거 아니냐","그것까지 내가 알아!<485C>그렇게 필사적으로 찾으면,<6E5C>짚이는 데 있을 거 아니냐"
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,253,11,주인공,心当たりといえば……,짚이는 데라면……,짚이는 데라면……
-dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,254,8,[선택지],河川敷工場観光地,강변공장관광지,강변공장관광지
+dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,254,8,[선택지],河川敷工場観光地,강변공장관광지,강변\공장\관광지
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,255,35,주인공,(い、いない……しまった!ここ<6E5C>じゃなかったのか!<6E5C>と、すれば……),"(어, 없다……이런! 여기가<6E5C>아니었나!<6E5C>그럼……)","(어, 없다……이런! 여기가<6E5C>아니었나!<6E5C>그럼……)"
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,256,15,주인공,ハァ、ハァ……あ、あれは……,"헉, 헉…… 아, 저건……","헉, 헉…… 아, 저건……"
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,257,6,주인공,レオナ!!,레오나!!,레오나!!
@@ -556,7 +556,7 @@ dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,259,12,주인공,や、やっ
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,260,12,Leona,……何を、しているの?,……뭐 하는 거야?,……뭐 하는 거야?
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,261,13,주인공,レオナを探してたんだよ!,레오나 찾고 있었어!,레오나 찾고 있었어!
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,262,6,Leona,……なぜ?,……왜?,……왜?
-dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,263,17,[선택지],親父さんに頼まれて会いたかったから,아버님 부탁으로 만나고 싶어서,아버님 부탁으로 만나고 싶어서
+dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,263,17,[선택지],親父さんに頼まれて会いたかったから,아버님 부탁으로 만나고 싶어서,아버님 부탁으로\ 만나고 싶어서
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,264,17,주인공,レオナの親父さんに頼まれたんだよ,레오나 아버님 부탁을 받았어,레오나 아버님 부탁을 받았어
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,265,8,Leona,そう、父に……,그래……아빠가,그래……아빠가
 dom1Leona_O0727_0.mes,Script/dom1Leona_O0727_0.mes,266,20,주인공,なんで黙っていなくなったりしたん<6E5C>だよ,왜 말도 없이 사라졌던<6E5C> 거야,왜 말도 없이 사라졌던<6E5C> 거야
@@ -652,7 +652,7 @@ dom1Leona_O0728_1.mes,Script/dom1Leona_O0728_1.mes,8,48,주인공,そ、そう�
 dom1Leona_O0728_1.mes,Script/dom1Leona_O0728_1.mes,9,8,Leona,……わかったわ,……알았어,……알았어
 dom1Leona_O0728_1.mes,Script/dom1Leona_O0728_1.mes,10,9,주인공,よ、よし、行こう,"좋, 좋아 가자","좋, 좋아 가자"
 dom1Leona_O0728_1.mes,Script/dom1Leona_O0728_1.mes,11,25,주인공,けっこういろいろやってるな.<6E5C>どれを観ようか……,꽤 다양하게 하네.<6E5C>뭘 볼까……,꽤 다양하게 하네.<6E5C>뭘 볼까……
-dom1Leona_O0728_1.mes,Script/dom1Leona_O0728_1.mes,12,34,[선택지],兵士は戦場へ帰る恐怖、血の戦悵みなしご訪ねて三千里パン工場のヒーロー,"전장의 병사공포, 피의 전율고아 찾아 삼천리빵공장 히어로","전장의 병사공포, 피의 전율고아 찾아 삼천리빵공장 히어로"
+dom1Leona_O0728_1.mes,Script/dom1Leona_O0728_1.mes,12,34,[선택지],兵士は戦場へ帰る恐怖、血の戦悵みなしご訪ねて三千里パン工場のヒーロー,"전장의 병사공포, 피의 전율고아 찾아 삼천리빵공장 히어로","전장의 병사\공포, 피의 전율\고아 찾아 삼천리\빵공장 히어로"
 dom1Leona_O0728_1_2.mes,Script/dom1Leona_O0728_1_2.mes,0,12,주인공,よし、この映画にしよう,좋아 이 영화로 하자,좋아 이 영화로 하자
 dom1Leona_O0728_1_2.mes,Script/dom1Leona_O0728_1_2.mes,1,3,Leona,……,……,……
 dom1Leona_O0728_1_2.mes,Script/dom1Leona_O0728_1_2.mes,2,26,주인공,(職業軍人の父親が戦場で命を落と<6E5C>す話だった……),(직업군인 아버지가<6E5C>전장서 전사한 이야기……),(직업군인 아버지가<6E5C>전장서 전사한 이야기……)
@@ -713,7 +713,7 @@ dom1Leona_O0729_1.mes,Script/dom1Leona_O0729_1.mes,14,6,Leona,それに……,�
 dom1Leona_O0729_1.mes,Script/dom1Leona_O0729_1.mes,15,3,주인공,ん?,응?,응?
 dom1Leona_O0729_1.mes,Script/dom1Leona_O0729_1.mes,16,11,Leona,いえ、なんでもないわ,아냐 아무것도 아냐,아냐 아무것도 아냐
 dom1Leona_O0729_1.mes,Script/dom1Leona_O0729_1.mes,17,13,주인공,なんだよ、言いかけて……,"뭐야, 말하다 말고……","뭐야, 말하다 말고……"
-dom1Leona_O0729_1.mes,Script/dom1Leona_O0729_1.mes,18,11,[선택지],追及するそっとしておく,추궁한다가만히 둔다,추궁한다가만히 둔다
+dom1Leona_O0729_1.mes,Script/dom1Leona_O0729_1.mes,18,11,[선택지],追及するそっとしておく,추궁한다가만히 둔다,추궁한다\가만히 둔다
 dom1Leona_O0729_1.mes,Script/dom1Leona_O0729_1.mes,19,24,주인공,途中でやめられると、すごい気持ち<6E5C>悪いんだけど,중간에 그만두면<6E5C>기분이 되게 께름칙한데,중간에 그만두면<6E5C>기분이 되게 께름칙한데
 dom1Leona_O0729_1.mes,Script/dom1Leona_O0729_1.mes,20,9,Leona,……ごめんなさい,……미안해,……미안해
 dom1Leona_O0729_1.mes,Script/dom1Leona_O0729_1.mes,21,46,주인공,よかったら、話してくれないか?<6E5C>頼りないかもしれないけど、俺には<6E5C>なんでも話してほしいんだ,"괜찮으면, 말해줄 수 없을까?<6E5C>미덥지 않을지도 모르지만, 나<6E5C>한테는 뭐든 얘기해줘","괜찮으면, 말해줄 수 없을까?<6E5C>미덥지 않을지도 모르지만, 나<6E5C>한테는 뭐든 얘기해줘"
@@ -806,7 +806,7 @@ dom1Leona_O0730_3.mes,Script/dom1Leona_O0730_3.mes,38,8,Leona,……がんばっ
 dom1Leona_O0730_3.mes,Script/dom1Leona_O0730_3.mes,39,11,주인공,あれ、もう帰るのか?,"어, 벌써 가?","어, 벌써 가?"
 dom1Leona_O0730_3.mes,Script/dom1Leona_O0730_3.mes,40,21,Leona,ええ、手紙を渡したかっただけだか<6E5C>ら……,"응, 편지만 전해주고 싶었<6E5C>어……","응, 편지만 전해주고 싶었<6E5C>어……"
 dom1Leona_O0730_3.mes,Script/dom1Leona_O0730_3.mes,41,6,주인공,そっか……,그렇구나…,그렇구나…
-dom1Leona_O0730_3.mes,Script/dom1Leona_O0730_3.mes,42,8,[선택지],見送る引き止める,배웅한다붙잡는다,배웅한다붙잡는다
+dom1Leona_O0730_3.mes,Script/dom1Leona_O0730_3.mes,42,8,[선택지],見送る引き止める,배웅한다붙잡는다,배웅한다\붙잡는다
 dom1Leona_O0730_3.mes,Script/dom1Leona_O0730_3.mes,43,14,주인공,それじゃ、気をつけて帰れよ,"그럼, 조심해서 가","그럼, 조심해서 가"
 dom1Leona_O0730_3.mes,Script/dom1Leona_O0730_3.mes,44,3,Leona,ええ,응,응
 dom1Leona_O0730_3.mes,Script/dom1Leona_O0730_3.mes,45,46,주인공,(よーし、俺も明日までがんばって<6E5C>勉強だ!……って言っても、なん<6E5C>の勉強すればいいんだ?),"(좋아, 나도 내일까지 열심히<6E5C>공부다!……라고 해도, 뭘<6E5C>공부해야 하는 거지?)","(좋아, 나도 내일까지 열심히<6E5C>공부다!……라고 해도, 뭘<6E5C>공부해야 하는 거지?)"
@@ -870,7 +870,7 @@ dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,23,13,레오나 아버지,よ
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,24,3,주인공,はい,네,네
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,25,37,레오나 아버지,問題は全部で5問.私が決めた<6E5C>合格ラインより多く正解<6E5C>すれば、君の勝ちだ,문제는 전부 5문제다 내가 정한<6E5C>합격선보다 많이 맞히면<6E5C>네 승리다,문제는 전부 5문제다 내가 정한<6E5C>합격선보다 많이 맞히면<6E5C>네 승리다
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,26,49,레오나 아버지,しかしもし合格ライン以下の<6E5C>成績だった場合は……<485C>レオナは次の赴任地に連れて行く!<6E5C>わかったな?,하지만 만약 합격선 이하<6E5C>성적이라면……<485C>레오나는 다음 부임지로 데려간다!<6E5C>알았나?,하지만 만약 합격선 이하<6E5C>성적이라면……<485C>레오나는 다음 부임지로 데려간다!<6E5C>알았나?
-dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,27,16,[선택지],わかりましたもう一度お願いします,알겠습니다다시 부탁드립니다,알겠습니다다시 부탁드립니다
+dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,27,16,[선택지],わかりましたもう一度お願いします,알겠습니다다시 부탁드립니다,알겠습니다\다시 부탁드립니다
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,28,16,주인공,わかりました.始めてください!,알겠습니다. 시작하세요!,알겠습니다. 시작하세요!
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,29,32,레오나 아버지,よし、では……ちょっと待て<6E5C>レオナ、どうして<이름:3131>の方へ<6E5C>行く?,"좋아, 그럼…… 잠깐<6E5C>레오나 왜 <이름:3131> 쪽으로<6E5C>가는 거지?","좋아, 그럼…… 잠깐<6E5C>레오나 왜 <이름:3131> 쪽으로<6E5C>가는 거지?"
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,30,3,Leona,……,……,……
@@ -879,23 +879,23 @@ dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,32,16,주인공,俺たちの�
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,33,34,레오나 아버지,……親の愛ほど報われぬものはない<6E5C>な…….いいだろう、では行くぞ!,"……부모 사랑만큼 안 갚아지는<6E5C>것도 없지……. 좋다, 가자!","……부모 사랑만큼 안 갚아지는<6E5C>것도 없지……. 좋다, 가자!"
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,34,4,주인공,……!,……!,……!
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,35,22,레오나 아버지,<이름:3131>とレオナが初めて出会った<6E5C>場所はどこ?,<이름:3131>랑 레오나가 처음 만난<6E5C>곳은 어디?,<이름:3131>랑 레오나가 처음 만난<6E5C>곳은 어디?
-dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,36,14,[선택지],学校の教室OROCHi繁華街,학교교실오로치번화가,학교교실오로치번화가
+dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,36,14,[선택지],学校の教室OROCHi繁華街,학교교실오로치번화가,학교교실\오로치\번화가
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,37,9,레오나 아버지,では次の問題だ!,다음 문제다!,다음 문제다!
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,38,4,주인공,……!,……!,……!
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,39,21,레오나 아버지,レオナの通う学園の名前は次のうち<6E5C>どれ?,레오나 학교 이름은 다음<6E5C>중 뭐?,레오나 학교 이름은 다음<6E5C>중 뭐?
-dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,40,16,[선택지],K.O.F.学園清泉学園雷門学園,KOF학원세이센학원라이몬학원,KOF학원세이센학원라이몬학원
+dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,40,16,[선택지],K.O.F.学園清泉学園雷門学園,KOF학원세이센학원라이몬학원,KOF학원\세이센학원\라이몬학원
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,41,9,레오나 아버지,では次の問題だ!,다음 문제다!,다음 문제다!
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,42,4,주인공,……!,……!,……!
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,43,16,레오나 아버지,レオナのいるクラスは何年何組?,레오나 반은 몇 학년 몇반?,레오나 반은 몇 학년 몇반?
-dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,44,12,[선택지],3年A組3年B組3年C組,3년A반3년B반3년C반,3년A반3년B반3년C반
+dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,44,12,[선택지],3年A組3年B組3年C組,3년A반3년B반3년C반,3년A반\3년B반\3년C반
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,45,9,레오나 아버지,では次の問題だ!,다음 문제다!,다음 문제다!
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,46,4,주인공,……!,……!,……!
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,47,10,레오나 아버지,レオナの趣味は何?,레오나 취미는뭐?,레오나 취미는뭐?
-dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,48,16,[선택지],インターネット工場見学ハイキング,인터넷공장견학하이킹,인터넷공장견학하이킹
+dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,48,16,[선택지],インターネット工場見学ハイキング,인터넷공장견학하이킹,인터넷\공장견학\하이킹
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,49,9,레오나 아버지,では次の問題だ!,다음 문제다!,다음 문제다!
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,50,4,주인공,……!,……!,……!
 dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,51,17,레오나 아버지,街中でレオナが探していたものは?,거리에서 레오나가 찾던 건?,거리에서 레오나가 찾던 건?
-dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,52,8,[선택지],ペット友だち両親,동물친구부모님,동물친구부모님
+dom1Leona_O0731_1.mes,Script/dom1Leona_O0731_1.mes,52,8,[선택지],ペット友だち両親,동물친구부모님,동물\친구\부모님
 dom1Leona_S01.mes,Script/dom1Leona_S01.mes,0,17,주인공,レオナじゃないか.何やってんだ?,레오나잖아. 뭐 하는 거야?,레오나잖아. 뭐 하는 거야?
 dom1Leona_S01.mes,Script/dom1Leona_S01.mes,1,6,Leona,……べつに,……딱히,……딱히
 dom1Leona_S01.mes,Script/dom1Leona_S01.mes,2,14,주인공,(か、会話が続かない……),(대화가 안 이어져……),(대화가 안 이어져……)
@@ -905,14 +905,14 @@ dom1Leona_S01.mes,Script/dom1Leona_S01.mes,5,18,주인공,(ダメだ!<6E5C>俺�
 dom1Leona_S01.mes,Script/dom1Leona_S01.mes,6,9,주인공,じゃ、じゃあな!,그 그럼 간다!,그 그럼 간다!
 dom1Leona_S01.mes,Script/dom1Leona_S01.mes,7,3,Leona,……,……,……
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,0,10,주인공,(あれ、レオナだ),<5014><0000><0000><0001><0002><0005><0003><000A><0030><0001><0002><0018><0003><0001><0024><0002><0002><0015><0003><0000><0018><0002><0029><1134><0000><0000><0000><0000><0002><0030><0003><0000><0234><0001><0018><0003><0000><0002><0000><0001><002A><0000><0000><0000><0000><0000><000E><000A><FFFF><0000><0000><0000><0000><0020><0014><0002>(어 레오나잖아),(어 레오나잖아)
-dom1Leona_S02.mes,Script/dom1Leona_S02.mes,1,11,[선택지],声をかけるあとをつける,말걸기미행하기,말걸기<6E5C>미행하기
+dom1Leona_S02.mes,Script/dom1Leona_S02.mes,1,11,[선택지],声をかけるあとをつける,말걸기미행하기,말걸기\미행하기
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,2,16,주인공,お~い、レオナ.何やってんだ?,이봐 레오나 뭐 하는 거야?,이봐 레오나 뭐 하는 거야?
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,3,10,Leona,……なんでもないわ,……아무것도아니야,……아무것도아니야
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,4,25,주인공,(あ~行っちゃったよ.謎が多いや<6E5C>つだなぁ……),(아 가버렸네. 수수께끼투성이 녀석이네……),(아 가버렸네. 수수께끼투성이 녀석이네……)
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,5,23,주인공,(あ、動き出した!どこに行くん<6E5C>だろう……),"(아, 움직였다! 어디 가는 거지……)","(아, 움직였다! 어디 가는 거지……)"
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,6,23,주인공,(あ~見失った!しかし謎が多い<6E5C>奴だな……),(놓치고 말았다! 수수께끼투성이네……),(놓치고 말았다! 수수께끼투성이네……)
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,7,15,주인공,(むむ!またもレオナ発見!),(음! 또 레오나 발견!),(음! 또 레오나 발견!)
-dom1Leona_S02.mes,Script/dom1Leona_S02.mes,8,11,[선택지],声をかけるあとをつける,말걸기미행하기,말걸기<6E5C>미행하기
+dom1Leona_S02.mes,Script/dom1Leona_S02.mes,8,11,[선택지],声をかけるあとをつける,말걸기미행하기,말걸기\미행하기
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,9,16,주인공,お~い、レオナ.何やってんだ?,이봐 레오나 뭐 하는 거야?,이봐 레오나 뭐 하는 거야?
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,10,10,Leona,……なんでもないわ,……아무것도아니야,……아무것도아니야
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,11,23,주인공,(あ~行っちゃったよ.謎が多い奴<6E5C>だな……),"(아, 가버렸네. 수수께끼투성이네……)","(아, 가버렸네. 수수께끼투성이네……)"
@@ -920,7 +920,7 @@ dom1Leona_S02.mes,Script/dom1Leona_S02.mes,12,23,주인공,(あ、動き出し�
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,13,15,주인공,(ここに用があるのか……?),(여기 볼일 있나……?),(여기 볼일 있나……?)
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,14,20,주인공,(あ!また消えた!忍者か、あ<6E5C>いつは),(아! 또 사라졌어! 닌자냐 저놈),(아! 또 사라졌어! 닌자냐 저놈)
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,15,13,주인공,(またまたレオナ発見!),(또또 레오나 발견!),(또또 레오나 발견!)
-dom1Leona_S02.mes,Script/dom1Leona_S02.mes,16,11,[선택지],声をかけるあとをつける,말걸기미행하기,말걸기<6E5C>미행하기
+dom1Leona_S02.mes,Script/dom1Leona_S02.mes,16,11,[선택지],声をかけるあとをつける,말걸기미행하기,말걸기\미행하기
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,17,16,주인공,お~い、レオナ.何やってんだ?,이봐 레오나 뭐 하는 거야?,이봐 레오나 뭐 하는 거야?
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,18,10,Leona,……なんでもないわ,……아무것도아니야,……아무것도아니야
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,19,23,주인공,(あ~行っちゃったよ.謎が多い奴<6E5C>だな……),"(아, 가버렸네. 수수께끼투성이네……)","(아, 가버렸네. 수수께끼투성이네……)"
@@ -930,7 +930,7 @@ dom1Leona_S02.mes,Script/dom1Leona_S02.mes,22,22,주인공,(ここに用があ�
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,23,47,주인공,(お、立ち止まった.ついに目的地<6E5C>か.ん?なんかキョロキョロして<6E5C>るな……何を見てるんだ?),"(오, 멈춰 섰다. 드디어 목적지인가. 음? 두리번거리네…… 뭘 보는 거지?)","(오, 멈춰 섰다. 드디어 목적지인가. 음? 두리번거리네…… 뭘 보는 거지?)"
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,24,39,주인공,(しまった!見失った!一瞬目<6E5C>を離した隙に……グリーンベレー<6E5C>か、あいつは),"(아차! 놓치고 말았다! 눈을 뗀 사이에…… 그린베레였나, 저 녀석)","(아차! 놓치고 말았다! 눈을 뗀 사이에…… 그린베레였나, 저 녀석)"
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,25,11,주인공,(出た!レオナだ!),(떴다!레오나다!),(떴다!레오나다!)
-dom1Leona_S02.mes,Script/dom1Leona_S02.mes,26,11,[선택지],声をかけるあとをつける,말걸기미행하기,말걸기<6E5C>미행하기
+dom1Leona_S02.mes,Script/dom1Leona_S02.mes,26,11,[선택지],声をかけるあとをつける,말걸기미행하기,말걸기\미행하기
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,27,16,주인공,お~い、レオナ.何やってんだ?,이봐 레오나 뭐 하는 거야?,이봐 레오나 뭐 하는 거야?
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,28,10,Leona,……なんでもないわ,……아무것도아니야,……아무것도아니야
 dom1Leona_S02.mes,Script/dom1Leona_S02.mes,29,23,주인공,(あ~行っちゃったよ.謎が多い奴<6E5C>だな……),"(아, 가버렸네. 수수께끼투성이네……)","(아, 가버렸네. 수수께끼투성이네……)"

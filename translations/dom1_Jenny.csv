@@ -18,7 +18,7 @@ dom1Jenny_L01.mes,Script/dom1Jenny_L01.mes,15,56,주인공,すごい騒ぎ様だ
 dom1Jenny_L01.mes,Script/dom1Jenny_L01.mes,16,34,Jenny,これがホントのアタシの姿よんっ!<6E5C>ガッコウでは遠慮してるんだから~,이게 진짜 내 모습이라구!<6E5C>학교에서는 참고 있는 거니까~,이게 진짜 내 모습이라구!<6E5C>학교에서는 참고 있는 거니까~
 dom1Jenny_L01.mes,Script/dom1Jenny_L01.mes,17,10,주인공,(アレでかよ……),(그거였냐……),(그거였냐……)
 dom1Jenny_L01.mes,Script/dom1Jenny_L01.mes,18,29,Jenny,でも、<이름:3232>に会うなんて意外だった<6E5C>わ.音楽、好きなのん?,근데<이름:3232>를 만날 줄은 몰랐어<6E5C>. 음악 좋아해?,근데<이름:3232>를 만날 줄은 몰랐어<6E5C>. 음악 좋아해?
-dom1Jenny_L01.mes,Script/dom1Jenny_L01.mes,19,14,[선택지],好きです格闘技の方が好きです,좋아해요격투기가 더 좋아요,좋아해요<6E5C>격투기가 더좋아요
+dom1Jenny_L01.mes,Script/dom1Jenny_L01.mes,19,14,[선택지],好きです格闘技の方が好きです,좋아해요격투기가 더 좋아요,좋아해요\격투기가 더좋아요
 dom1Jenny_L01.mes,Script/dom1Jenny_L01.mes,20,9,주인공,ええ、好きですよ,"네, 좋아해요","네, 좋아해요"
 dom1Jenny_L01.mes,Script/dom1Jenny_L01.mes,21,30,Jenny,アタシもダイスキ!<6E5C>ナカマが身近にいて、<6E5C>うれしいわーん★,나도 완전 좋아해!<6E5C>동료가 가까이 있어서<6E5C>기뻐~★,나도 완전 좋아해!<6E5C>동료가 가까이 있어서<6E5C>기뻐~★
 dom1Jenny_L01.mes,Script/dom1Jenny_L01.mes,22,27,주인공,(ほんとうに、イキイキしてるな、<6E5C>ジェニー先生……),"(정말 활기차네,<6E5C> 제니 선생님……)","(정말 활기차네,<6E5C> 제니 선생님……)"
@@ -59,7 +59,7 @@ dom1Jenny_L02.mes,Script/dom1Jenny_L02.mes,30,1,[효과음/내레이션],♪,♪
 dom1Jenny_L02.mes,Script/dom1Jenny_L02.mes,31,2,[효과음/내레이션],♪,♪,♪
 dom1Jenny_L02.mes,Script/dom1Jenny_L02.mes,32,5,주인공,…………,…………,…………
 dom1Jenny_L02.mes,Script/dom1Jenny_L02.mes,33,22,Jenny,ヤフー!<이름:3232>、アタシの歌は<6E5C>どうだった~?,"야호!<이름:3232>, 내 노래<6E5C> 괜찮았어~?","야호!<이름:3232>, 내 노래<6E5C> 괜찮았어~?"
-dom1Jenny_L02.mes,Script/dom1Jenny_L02.mes,34,24,[선택지],何言ってるのかわからなかったですスゴイですね……,무슨 말인지 모르겠어요대단하네요……,무슨 말인지 모르겠어요<6E5C>대단하네요……
+dom1Jenny_L02.mes,Script/dom1Jenny_L02.mes,34,24,[선택지],何言ってるのかわからなかったですスゴイですね……,무슨 말인지 모르겠어요대단하네요……,무슨 말인지 모르겠어요\대단하네요……
 dom1Jenny_L02.mes,Script/dom1Jenny_L02.mes,35,22,주인공,いや、何言ってるのかわからなかっ<6E5C>たですよ,"아니, 무슨 말인지 모르겠<6E5C>더라고요","아니, 무슨 말인지 모르겠<6E5C>더라고요"
 dom1Jenny_L02.mes,Script/dom1Jenny_L02.mes,36,17,Jenny,モオ!<6E5C>悲しいラブソングなのに!,무우!<6E5C>슬픈 러브송인데!,무우!<6E5C>슬픈 러브송인데!
 dom1Jenny_L02.mes,Script/dom1Jenny_L02.mes,37,19,주인공,(でも、英語で歌われても<6E5C>なぁ……),(근데 영어로 부르면<6E5C>모르지……),(근데 영어로 부르면<6E5C>모르지……)
@@ -97,7 +97,7 @@ dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,0,19,주인공,(まだ誰か教室に
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,1,19,Jenny,<이름:3232>~★<6E5C>ひとりでナニしてるのーん?,<이름:3232>~★<6E5C>혼자 뭐 하는 거야?,<이름:3232>~★<6E5C>혼자 뭐 하는 거야?
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,2,12,주인공,ジェニー先生.別に……,선생님. 딱히……,선생님. 딱히……
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,3,26,Jenny,ンじゃ、センセイといっしょに<6E5C>キモダメシ行かない?,그럼 선생님이랑 같이<6E5C>담력시험 갈래?,그럼 선생님이랑 같이<6E5C>담력시험 갈래?
-dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,4,6,[선택지],行く行かない,갈래안 갈래,갈래<6E5C>안갈래
+dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,4,6,[선택지],行く行かない,갈래안 갈래,갈래\안갈래
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,5,14,주인공,先生はまだ見てないんですか,선생님은 안 보셨어요?,선생님은 안 보셨어요?
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,6,41,Jenny,そーなのよん.ひとりっきりじゃ<6E5C>こわくて…….だから<이름:3232>、<6E5C>つきあってくれない?,"그렇다니까. 혼자서는<6E5C>무서워서……. 그러니까<이름:3232>,<6E5C>같이 가주지 않을래?","그렇다니까. 혼자서는<6E5C>무서워서……. 그러니까<이름:3232>,<6E5C>같이 가주지 않을래?"
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,7,6,주인공,いいですよ,좋아요,좋아요
@@ -109,7 +109,7 @@ dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,12,7,[효과음/내레이션],うら�
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,13,7,Jenny,ハハハハハ!,하하하하!,하하하하!
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,14,24,Jenny,ありがとう<이름:3232>!<6E5C>とってもおもしろかったわん!,고마워<이름:3232>!<6E5C>진짜 재밌었어!,고마워<이름:3232>!<6E5C>진짜 재밌었어!
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,15,5,주인공,…………,…………,…………
-dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,16,23,[선택지],笑ってどうするんですか!俺も面白かったです……,웃으면 어떡해요! 저도 재밌었어요……,웃으면 어떡해요!<6E5C>저도 재밌었어요……
+dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,16,23,[선택지],笑ってどうするんですか!俺も面白かったです……,웃으면 어떡해요! 저도 재밌었어요……,웃으면 어떡해요!\저도 재밌었어요……
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,17,13,주인공,笑ってどうするんですか!,웃으면 어떡해요!,웃으면 어떡해요!
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,18,3,Jenny,ン?,응?,응?
 dom1Jenny_L03.mes,Script/dom1Jenny_L03.mes,19,20,주인공,(日本の夏の風物詩も台無し<6E5C>だな……),(일본 여름 풍물도 망가졌<6E5C>네……),(일본 여름 풍물도 망가졌<6E5C>네……)
@@ -141,7 +141,7 @@ dom1Jenny_L04.mes,Script/dom1Jenny_L04.mes,18,36,Jenny,アタシ、<이름:3232>
 dom1Jenny_L04.mes,Script/dom1Jenny_L04.mes,19,32,Kaidou,オレは海堂狂也だ.<6E5C>美人じゃねーか.<6E5C>うまくやってんなぁ、<이름:3131>,"나는 카이도 쿄야다.<6E5C>미인이잖아.<6E5C>잘하고 있네,<이름:3131>","나는 카이도 쿄야다.<6E5C>미인이잖아.<6E5C>잘하고 있네,<이름:3131>"
 dom1Jenny_L04.mes,Script/dom1Jenny_L04.mes,20,14,주인공,どう、うまくやるんだよ……,뭐가 잘한다는 거야……,뭐가 잘한다는 거야……
 dom1Jenny_L04.mes,Script/dom1Jenny_L04.mes,21,17,Jenny,よーし、3人でライブたのしもー★,"좋아, 셋이서 라이브 즐기자★","좋아, 셋이서 라이브 즐기자★"
-dom1Jenny_L04.mes,Script/dom1Jenny_L04.mes,22,20,[선택지],こんな奴ほっときましょう別にいいですけど,이런 놈 무시해요딱히 상관없는데요,이런 놈 무시해요<6E5C>딱히 상관없는데요
+dom1Jenny_L04.mes,Script/dom1Jenny_L04.mes,22,20,[선택지],こんな奴ほっときましょう別にいいですけど,이런 놈 무시해요딱히 상관없는데요,이런 놈 무시해요\딱히 상관없는데요
 dom1Jenny_L04.mes,Script/dom1Jenny_L04.mes,23,24,주인공,こんな奴ほっといて、ふたりで楽し<6E5C>みましょうよ,"이런 놈 무시하고, 둘이서 즐<6E5C>겨요","이런 놈 무시하고, 둘이서 즐<6E5C>겨요"
 dom1Jenny_L04.mes,Script/dom1Jenny_L04.mes,24,33,Jenny,アラン.アタシとの仲を、ダレにも<6E5C>ジャマされたくないってワケェ?,아란. 나랑 사이를 아무한테도<6E5C>방해받기 싫다는 거야?,아란. 나랑 사이를 아무한테도<6E5C>방해받기 싫다는 거야?
 dom1Jenny_L04.mes,Script/dom1Jenny_L04.mes,25,17,주인공,(海堂が嫌ってだけですけど……),(카이도가 싫을 뿐인데……),(카이도가 싫을 뿐인데……)
@@ -177,7 +177,7 @@ dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,15,16,Jenny,ベリーグー!スゴイ
 dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,16,17,주인공,いや、ちょっと弾いてみただけです,"아뇨, 그냥 좀 쳐본 거예요","아뇨, 그냥 좀 쳐본 거예요"
 dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,17,42,Jenny,技術はマダマダだけど、センスは<6E5C>あるわ.<이름:3232>、夏休みにアタシと<6E5C>つきあってみない?,"기술은 아직이지만, 센스는<6E5C>있어.<이름:3232>, 여름방학에 나랑<6E5C>사귀어볼래?","기술은 아직이지만, 센스는<6E5C>있어.<이름:3232>, 여름방학에 나랑<6E5C>사귀어볼래?"
 dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,18,4,주인공,え!?,네!?,네!?
-dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,19,18,[선택지],ライブですか?デートならいいですけど,라이브요?데이트라면 좋은데요,라이브요?<6E5C>데이트라면 좋은데요
+dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,19,18,[선택지],ライブですか?デートならいいですけど,라이브요?데이트라면 좋은데요,라이브요?\데이트라면 좋은데요
 dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,20,8,주인공,ライブですか?,라이브인가요?,라이브인가요?
 dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,21,5,Jenny,そーよん,그렇지~,그렇지~
 dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,22,24,주인공,いっしょに見るのは、つきあっても<6E5C>いいですけど,"같이 보는 거라면, 사귀어도<6E5C>괜찮은데요","같이 보는 거라면, 사귀어도<6E5C>괜찮은데요"
@@ -189,7 +189,7 @@ dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,27,11,주인공,そーゆーわけじ
 dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,28,40,Jenny,あまったれた性格ね!夏休みの<6E5C>あいだもセンセイがビシバシ<6E5C>指導してあげるわん!,응석받이 성격이네!여름방학<6E5C>동안에도 선생님이 빡세게<6E5C>지도해줄게!,응석받이 성격이네!여름방학<6E5C>동안에도 선생님이 빡세게<6E5C>지도해줄게!
 dom1Jenny_L05.mes,Script/dom1Jenny_L05.mes,29,28,주인공,(なんで夏休みにまで説教されない<6E5C>といけないんだ……),(왜 여름방학까지 잔소리를<6E5C>들어야 하는 거지……),(왜 여름방학까지 잔소리를<6E5C>들어야 하는 거지……)
 dom1Jenny_L06.mes,Script/dom1Jenny_L06.mes,0,83,주인공,(……ん?あそこにいるのは<6E5C>ジェニー先生だ……<6E5C>浴衣を着てるぞ<485C>花火大会だから気合入ってるん<6E5C>だなぁ<485C>……ひとりみたいだし、いっしょに<6E5C>見ようかな.どうしようかな),"(……응? 저기 있는 건<6E5C>제니 선생님이다……<6E5C>유카타를 입고 있네<485C>불꽃놀이 대회라서 힘줬나<6E5C>보다<485C>……혼자인 것 같은데, 같이<6E5C>볼까. 어떡할까)","(……응? 저기 있는 건<6E5C>제니 선생님이다……<6E5C>유카타를 입고 있네<485C>불꽃놀이 대회라서 힘줬나<6E5C>보다<485C>……혼자인 것 같은데, 같이<6E5C>볼까. 어떡할까)"
-dom1Jenny_L06.mes,Script/dom1Jenny_L06.mes,1,25,[선택지],ジェニーといっしょに見るジェニーといっしょに見ない,제니랑 같이 본다제니랑 같이 안 본다,제니랑 같이 본다<6E5C>제니랑 같이 안 본다
+dom1Jenny_L06.mes,Script/dom1Jenny_L06.mes,1,25,[선택지],ジェニーといっしょに見るジェニーといっしょに見ない,제니랑 같이 본다제니랑 같이 안 본다,제니랑 같이 본다\제니랑 같이 안 본다
 dom1Jenny_L06.mes,Script/dom1Jenny_L06.mes,2,25,주인공,ジェニー先生!いっしょに河川敷<6E5C>に行きましょう!,제니 선생님!같이 강변으로<6E5C>가요!,제니 선생님!같이 강변으로<6E5C>가요!
 dom1Jenny_L06.mes,Script/dom1Jenny_L06.mes,3,4,Jenny,<이름:3232>!,<이름:3232>!,<이름:3232>!
 dom1Jenny_L06.mes,Script/dom1Jenny_L06.mes,4,29,주인공,(ジェニー先生といると騒がしいか<6E5C>らな……やめておくか),(제니 선생님이랑 있으면 시끄<6E5C>러우니까……그만둘까),(제니 선생님이랑 있으면 시끄<6E5C>러우니까……그만둘까)
@@ -207,7 +207,7 @@ dom1Jenny_L06_2.mes,Script/dom1Jenny_L06_2.mes,10,9,Jenny,ヒ。ミ。ツよー�
 dom1Jenny_L06_2.mes,Script/dom1Jenny_L06_2.mes,11,31,주인공,はぁ…….でも、日本は好きなんで<6E5C>すね.浴衣、似合ってますよ,허…….그래도 일본 좋아하<6E5C>시네요. 유카타 잘 어울려요,허…….그래도 일본 좋아하<6E5C>시네요. 유카타 잘 어울려요
 dom1Jenny_L06_2.mes,Script/dom1Jenny_L06_2.mes,12,7,Jenny,サンキュウ~,생큐~,생큐~
 dom1Jenny_L06_2.mes,Script/dom1Jenny_L06_2.mes,13,42,주인공,(今日のジェニー先生は、なんだか<6E5C>しおらしいや.浴衣のせいかな.<6E5C>いろっぽい……),(오늘 제니 선생님은 왠지<6E5C>얌전하네. 유카타 때문인가.<6E5C>색기 있어……),(오늘 제니 선생님은 왠지<6E5C>얌전하네. 유카타 때문인가.<6E5C>색기 있어……)
-dom1Jenny_L06_2.mes,Script/dom1Jenny_L06_2.mes,14,24,[선택지],いつもとぜんぜん違いますねだまっていっしょに見る,평소랑 완전 다르네요말없이 같이 본다,평소랑 완전 다르네요<6E5C>말없이 같이 본다
+dom1Jenny_L06_2.mes,Script/dom1Jenny_L06_2.mes,14,24,[선택지],いつもとぜんぜん違いますねだまっていっしょに見る,평소랑 완전 다르네요말없이 같이 본다,평소랑 완전 다르네요\말없이 같이 본다
 dom1Jenny_L06_2.mes,Script/dom1Jenny_L06_2.mes,15,14,주인공,いつもとぜんぜん違いますね,평소랑 완전 다르네요,평소랑 완전 다르네요
 dom1Jenny_L06_2.mes,Script/dom1Jenny_L06_2.mes,16,17,Jenny,いつものアタシって、どーゆーの?,평소 내가 어떤데?,평소 내가 어떤데?
 dom1Jenny_L06_2.mes,Script/dom1Jenny_L06_2.mes,17,12,주인공,人騒がせでうるさい……,시끄러운 사람이야……,시끄러운 사람이야……
@@ -227,7 +227,7 @@ dom1Jenny_L07.mes,Script/dom1Jenny_L07.mes,4,25,Jenny,いくにきまってる�
 dom1Jenny_L07.mes,Script/dom1Jenny_L07.mes,5,12,주인공,初めてでしたっけ、温泉,"처음이었나요, 온천","처음이었나요, 온천"
 dom1Jenny_L07.mes,Script/dom1Jenny_L07.mes,6,23,Jenny,そーよん.いっしょにはいってくれ<6E5C>るわよね?,그렇다구.같이 들어가<6E5C>줄 거지?,그렇다구.같이 들어가<6E5C>줄 거지?
 dom1Jenny_L07.mes,Script/dom1Jenny_L07.mes,7,5,주인공,えぇ!?,네에!?,네에!?
-dom1Jenny_L07.mes,Script/dom1Jenny_L07.mes,8,13,[선택지],無理でしょ!マジっすか!?,무리죠!진심이에요!?,무리죠!<6E5C>진심이에요!?
+dom1Jenny_L07.mes,Script/dom1Jenny_L07.mes,8,13,[선택지],無理でしょ!マジっすか!?,무리죠!진심이에요!?,무리죠!\진심이에요!?
 dom1Jenny_L07.mes,Script/dom1Jenny_L07.mes,9,12,주인공,無理でしょ、そんなの!,"무리죠, 그런 건!","무리죠, 그런 건!"
 dom1Jenny_L07.mes,Script/dom1Jenny_L07.mes,10,28,Jenny,モォ、かたいわね~.せっかく<6E5C>アタシとお泊まりなのに~,"모오, 고지식하네~.모처럼<6E5C>나랑 같이 자는 건데~","모오, 고지식하네~.모처럼<6E5C>나랑 같이 자는 건데~"
 dom1Jenny_L07.mes,Script/dom1Jenny_L07.mes,11,41,주인공,(ほ、本気で言ってるのか?<6E5C>からかわれてるだけなのか?<6E5C>……あーもーわからん!),"(지, 진심으로 하는 말인가?<6E5C>놀리는 거겠지?<6E5C>……아 진짜 모르겠다!)","(지, 진심으로 하는 말인가?<6E5C>놀리는 거겠지?<6E5C>……아 진짜 모르겠다!)"
@@ -255,7 +255,7 @@ dom1Jenny_L08.mes,Script/dom1Jenny_L08.mes,9,4,주인공,競泳?,경영?,경영?
 dom1Jenny_L08.mes,Script/dom1Jenny_L08.mes,10,23,Jenny,どっちが遠くまでおよげるか、<6E5C>キョーソーよ!,"누가 더 멀리 헤엄치는지,<6E5C>경쟁이라구!","누가 더 멀리 헤엄치는지,<6E5C>경쟁이라구!"
 dom1Jenny_L08.mes,Script/dom1Jenny_L08.mes,11,20,주인공,それでどうやって新しい姿見るん<6E5C>ですか,그걸로 어떻게 새 모습 보는<6E5C>건가요,그걸로 어떻게 새 모습 보는<6E5C>건가요
 dom1Jenny_L08.mes,Script/dom1Jenny_L08.mes,12,15,Jenny,いーから!するの?しないの?,됐으니까!할 거야 말 거야,됐으니까!할 거야 말 거야
-dom1Jenny_L08.mes,Script/dom1Jenny_L08.mes,13,17,[선택지],負けませんよ!それより遊びましょう,안 져요!그것보다 놀자구요,안 져요!<6E5C>그것보다 놀자구요
+dom1Jenny_L08.mes,Script/dom1Jenny_L08.mes,13,17,[선택지],負けませんよ!それより遊びましょう,안 져요!그것보다 놀자구요,안 져요!\그것보다 놀자구요
 dom1Jenny_L08.mes,Script/dom1Jenny_L08.mes,14,12,주인공,よーし、負けませんよ!,"좋아, 안 져요!","좋아, 안 져요!"
 dom1Jenny_L08.mes,Script/dom1Jenny_L08.mes,15,10,Jenny,そーこなくっちゃ★,그거지★,그거지★
 dom1Jenny_L08.mes,Script/dom1Jenny_L08.mes,16,12,Jenny,ンじゃ、いくわよ……?,"그럼, 간다……?","그럼, 간다……?"
@@ -292,7 +292,7 @@ dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,0,4,Jenny,<이름:3232>★,<이름:32
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,1,32,주인공,あれ、ジェニー先生.<6E5C>イリュージョンの前で何してるん<6E5C>ですか?,"어라, 제니 선생님.<6E5C>일루전 앞에서 뭐 하세요?","어라, 제니 선생님.<6E5C>일루전 앞에서 뭐 하세요?"
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,2,28,Jenny,フフンッ.これから時間ある?<6E5C>ちょっとつきあわなーい?,후훙.이제부터 시간 있어?<6E5C>잠깐 같이 안 갈래용?,후훙.이제부터 시간 있어?<6E5C>잠깐 같이 안 갈래용?
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,3,4,주인공,え……,어……,어……
-dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,4,10,[선택지],付き合う付き合わない,간다안간다,간다<6E5C>안간다
+dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,4,10,[선택지],付き合う付き合わない,간다안간다,간다\안간다
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,5,9,주인공,ええ、よろこんで,"네, 좋아요","네, 좋아요"
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,6,24,Jenny,ヤフ~!じゃ、イリュージョンに<6E5C>入りましょん!,"야호~!그럼, 일루전에<6E5C>들어가자용!","야호~!그럼, 일루전에<6E5C>들어가자용!"
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,7,12,[효과음/내레이션],♪カランコロンカラ~ン,♪딸랑딸랑딸랑~,♪딸랑딸랑딸랑~
@@ -312,7 +312,7 @@ dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,20,13,주인공,(う、うれしく�
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,21,24,Jenny,ふたりのために、アタシうたっ<6E5C>ちゃうわよーん★,"둘을 위해서, 내가 노래<6E5C>불러줄게용★","둘을 위해서, 내가 노래<6E5C>불러줄게용★"
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,22,4,주인공,歌う?,노래?,노래?
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,23,41,Jenny,そーよん!海堂クンはドラム叩い<6E5C>てくれるし、<이름:3232>もベースひいて<6E5C>くれるでしょー?,"그렇다구!카이도 군은 드럼 쳐<6E5C>주고, <이름:3232>도 베이스 쳐<6E5C>주면 되잖아?","그렇다구!카이도 군은 드럼 쳐<6E5C>주고, <이름:3232>도 베이스 쳐<6E5C>주면 되잖아?"
-dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,24,9,[선택지],弾く見るだけにする,치는 건 보기만,친다<6E5C>보기만 한다
+dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,24,9,[선택지],弾く見るだけにする,치는 건 보기만,친다\보기만 한다
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,25,14,주인공,もうヤケです.弾きますよ!,<0001><0000><0028><001C><0002>에라 모르겠다.칠게요!,에라 모르겠다.칠게요!
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,26,5,Jenny,ヤフー!,야호!,야호!
 dom1Jenny_L09.mes,Script/dom1Jenny_L09.mes,27,10,Kaidou,ヨーシ、いくぜ!!,"좋아, 간다!!","좋아, 간다!!"
@@ -352,7 +352,7 @@ dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,17,1,[효과음/내레이션],♪,♪
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,18,2,[효과음/내레이션],♪,♪,♪
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,19,38,주인공,(す、すげー!なんて迫力のある<6E5C>ライブ……見てるだけでワクワクし<6E5C>てくる),(대단해!이런 박력있는<6E5C>라이브라니……보기만 해도 두근두근<6E5C>해진다),(대단해!이런 박력있는<6E5C>라이브라니……보기만 해도 두근두근<6E5C>해진다)
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,20,11,Jenny,<이름:3232>!ごカンソウは?,<이름:3232>!감상은?,<이름:3232>!감상은?
-dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,21,18,[선택지],もっと見たいです!俺もやりたいです!,더 보고 싶어요!저도 하고 싶어요,더 보고 싶어요!<6E5C>저도하고 싶어요
+dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,21,18,[선택지],もっと見たいです!俺もやりたいです!,더 보고 싶어요!저도 하고 싶어요,더 보고 싶어요!\저도하고 싶어요
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,22,10,주인공,もっと見たいです!,<0001><0000><0020><0014><0002>더 보고 싶어요!,더 보고 싶어요!
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,23,28,Jenny,ヨーシみんな!もっともっとヒート<6E5C>アップするわよーん!,좋아 얘들아!더더욱 열기<6E5C>올려볼게용!,좋아 얘들아!더더욱 열기<6E5C>올려볼게용!
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,24,6,UNKNOWN_20,オーーー!,오오오!,오오오!
@@ -464,7 +464,7 @@ dom1Jenny_O0727_1.mes,Script/dom1Jenny_O0727_1.mes,16,78,Jenny,あたりまえ�
 dom1Jenny_O0727_1.mes,Script/dom1Jenny_O0727_1.mes,17,6,주인공,バンド……,밴드……,밴드……
 dom1Jenny_O0727_1.mes,Script/dom1Jenny_O0727_1.mes,18,30,Jenny,イヤなの?<이름:3232>にとってアタシは<6E5C>センセイ?それともナカマ?,싫은 거야? <이름:3232>한테 나는<6E5C>선생님? 아니면 동료?,싫은 거야? <이름:3232>한테 나는<6E5C>선생님? 아니면 동료?
 dom1Jenny_O0727_1.mes,Script/dom1Jenny_O0727_1.mes,19,6,주인공,そんな……,그런……,그런……
-dom1Jenny_O0727_1.mes,Script/dom1Jenny_O0727_1.mes,20,4,[선택지],先生仲間,선생동료,샘<6E5C>동료
+dom1Jenny_O0727_1.mes,Script/dom1Jenny_O0727_1.mes,20,4,[선택지],先生仲間,선생동료,샘\동료
 dom1Jenny_O0727_1.mes,Script/dom1Jenny_O0727_1.mes,21,48,주인공,やっぱり、ジェニー先生はジェニー<6E5C>先生ですよ.いきなり同じ仲間とし<6E5C>て接しろって言われても……,"역시, 제니 선생님은 제니<6E5C>선생님이에요. 갑자기 같은 동료처럼<6E5C>대하라고 해도……","역시, 제니 선생님은 제니<6E5C>선생님이에요. 갑자기 같은 동료처럼<6E5C>대하라고 해도……"
 dom1Jenny_O0727_1.mes,Script/dom1Jenny_O0727_1.mes,22,5,Jenny,ソゥ……,그래……,그래……
 dom1Jenny_O0727_1.mes,Script/dom1Jenny_O0727_1.mes,23,67,주인공,(……俺、冷たいかな?ジェニー<6E5C>先生は上下関係なく俺と接したいっ<6E5C>てことだよな……<485C>それはすごくうれしいけど、<6E5C>でもとまどうぜ……),"(……나, 차갑나? 제니<6E5C>선생님은 위아래 상관없이 나랑 지내고<6E5C>싶다는 거지……<485C>그거 기쁘긴 한데,<6E5C>그래도 당황스럽네)","(……나, 차갑나? 제니<6E5C>선생님은 위아래 상관없이 나랑 지내고<6E5C>싶다는 거지……<485C>그거 기쁘긴 한데,<6E5C>그래도 당황스럽네)"
@@ -529,7 +529,7 @@ dom1Jenny_O0727_4.mes,Script/dom1Jenny_O0727_4.mes,4,20,주인공,はい.何か�
 dom1Jenny_O0727_4.mes,Script/dom1Jenny_O0727_4.mes,5,21,Jenny,……アタシといっぱい熱中してくれ<6E5C>てる?,나랑 같이 잔뜩 몰두해주<6E5C>고 있어?,나랑 같이 잔뜩 몰두해주<6E5C>고 있어?
 dom1Jenny_O0727_4.mes,Script/dom1Jenny_O0727_4.mes,6,4,주인공,ええ!,네!,네!
 dom1Jenny_O0727_4.mes,Script/dom1Jenny_O0727_4.mes,7,17,Jenny,じゃ、明日も練習がんばろうねん!,"그럼, 내일도 연습 힘내자!","그럼, 내일도 연습 힘내자!"
-dom1Jenny_O0727_4.mes,Script/dom1Jenny_O0727_4.mes,8,17,[선택지],もちろんです!デートもしましょう!,물론이죠! 데이트도 해요!,물론이죠! 데이트도 해요!
+dom1Jenny_O0727_4.mes,Script/dom1Jenny_O0727_4.mes,8,17,[선택지],もちろんです!デートもしましょう!,물론이죠! 데이트도 해요!,물론이죠! \데이트도 해요!
 dom1Jenny_O0727_4.mes,Script/dom1Jenny_O0727_4.mes,9,8,주인공,もちろんです!,물론이죠!,물론이죠!
 dom1Jenny_O0727_4.mes,Script/dom1Jenny_O0727_4.mes,10,24,Jenny,ヒュ~♪たよりにしてるわ!<6E5C>しからばグッバイ!,휴~♪ 믿음직해!<6E5C>그럼 굿바이!,휴~♪ 믿음직해!<6E5C>그럼 굿바이!
 dom1Jenny_O0727_4.mes,Script/dom1Jenny_O0727_4.mes,11,8,주인공,はい.また明日,네.내일 봐요,네.내일 봐요
@@ -582,7 +582,7 @@ dom1Jenny_O0728_2.mes,Script/dom1Jenny_O0728_2.mes,16,7,Jenny,……ゴメンね
 dom1Jenny_O0728_2.mes,Script/dom1Jenny_O0728_2.mes,17,14,주인공,どうしたんですか、いきなり,"왜 그래요, 갑자기","왜 그래요, 갑자기"
 dom1Jenny_O0728_2.mes,Script/dom1Jenny_O0728_2.mes,18,63,Jenny,ゴーインに<이름:3232>をバンドに引き<6E5C>入れて、ムチャな練習ばっかり<6E5C>させて……アタシ勝手だよね<485C>ホントはイヤんなってるよ<6E5C>ねん……?,"억지로 <이름:3232>를 밴드에<6E5C>끌어들여서, 무리한 연습만<6E5C>시키고…… 나 제멋대로지<485C>사실은 싫어졌<6E5C>지?……","억지로 <이름:3232>를 밴드에<6E5C>끌어들여서, 무리한 연습만<6E5C>시키고…… 나 제멋대로지<485C>사실은 싫어졌<6E5C>지?……"
 dom1Jenny_O0728_2.mes,Script/dom1Jenny_O0728_2.mes,19,32,주인공,(……いきなり弱気になるなんて、<6E5C>どうしたんだ、ジェニー……),"(……갑자기 약한 소리 하다니,<6E5C>왜 그러지, 제니……)","(……갑자기 약한 소리 하다니,<6E5C>왜 그러지, 제니……)"
-dom1Jenny_O0728_2.mes,Script/dom1Jenny_O0728_2.mes,20,22,[선택지],気楽にやりましょうよ自分の意志でやってますよ,편하게해요제 뜻대로 하는 거예요,편하게해요<6E5C>제 뜻대로 하는 거예요
+dom1Jenny_O0728_2.mes,Script/dom1Jenny_O0728_2.mes,20,22,[선택지],気楽にやりましょうよ自分の意志でやってますよ,편하게해요제 뜻대로 하는 거예요,편하게해요\제 뜻대로 하는 거예요
 dom1Jenny_O0728_2.mes,Script/dom1Jenny_O0728_2.mes,21,44,주인공,そんな落ち込んだりしないでくだ<6E5C>さいよ.もっと気楽にやったらいい<6E5C>じゃないですか、ね!,"그렇게 풀 죽지 좀 마<6E5C>세요.더 편하게 해도<6E5C>되잖아요, 네!","그렇게 풀 죽지 좀 마<6E5C>세요.더 편하게 해도<6E5C>되잖아요, 네!"
 dom1Jenny_O0728_2.mes,Script/dom1Jenny_O0728_2.mes,22,5,Jenny,<이름:3232>……,<이름:3232>……,<이름:3232>……
 dom1Jenny_O0728_2.mes,Script/dom1Jenny_O0728_2.mes,23,7,주인공,ジェニー……,제니……,제니……
@@ -603,7 +603,7 @@ dom1Jenny_O0728_2.mes,Script/dom1Jenny_O0728_2.mes,37,5,주인공,うぷ……,�
 dom1Jenny_O0728_3.mes,Script/dom1Jenny_O0728_3.mes,0,29,Jenny,じゃー今日はおっしまーい★<6E5C><이름:3232>どんどん上達してるよん!,자~ 오늘은 끝~★<6E5C><이름:3232> 점점 늘고 있어!,자~ 오늘은 끝~★<6E5C><이름:3232> 점점 늘고 있어!
 dom1Jenny_O0728_3.mes,Script/dom1Jenny_O0728_3.mes,1,8,주인공,ほんとですか?,정말요?,정말요?
 dom1Jenny_O0728_3.mes,Script/dom1Jenny_O0728_3.mes,2,43,Jenny,ウン、スゴイスゴイ!ご褒美に、<6E5C>いまからどっか連れていってあげ<6E5C>よー!どこがイーイ?,"응, 대단해 대단해! 상으로,<6E5C>지금부터 어디 데려가<6E5C>줄게! 어디가 좋아?","응, 대단해 대단해! 상으로,<6E5C>지금부터 어디 데려가<6E5C>줄게! 어디가 좋아?"
-dom1Jenny_O0728_3.mes,Script/dom1Jenny_O0728_3.mes,3,13,[선택지],OROCHiネオジオランド,OROCHi네오지오랜드,OROCHi<6E5C>네오지오랜드
+dom1Jenny_O0728_3.mes,Script/dom1Jenny_O0728_3.mes,3,13,[선택지],OROCHiネオジオランド,OROCHi네오지오랜드,OROCHi\네오지오랜드
 dom1Jenny_O0728_3.mes,Script/dom1Jenny_O0728_3.mes,4,21,주인공,OROCHiにライブ見に行き<6E5C>ませんか?,OROCHi에 라이브 보러<6E5C>갈래요?,OROCHi에 라이브 보러<6E5C>갈래요?
 dom1Jenny_O0728_3.mes,Script/dom1Jenny_O0728_3.mes,5,39,Jenny,イイね~.今日のOROCHiはアテナの<6E5C>シークレットライブだしね!<6E5C>イコイコ,좋지~. 오늘 OROCHi는 아테나<6E5C>시크릿 라이브잖아!<6E5C>가자가자,좋지~. 오늘 OROCHi는 아테나<6E5C>시크릿 라이브잖아!<6E5C>가자가자
 dom1Jenny_O0728_3.mes,Script/dom1Jenny_O0728_3.mes,6,20,주인공,あ、そーなんですか?知らなかっ<6E5C>たです,"아, 그래요? 몰랐<6E5C>어요","아, 그래요? 몰랐<6E5C>어요"
@@ -650,7 +650,7 @@ dom1Jenny_O0728_4.mes,Script/dom1Jenny_O0728_4.mes,4,9,Jenny,<이름:3232>はな
 dom1Jenny_O0728_4.mes,Script/dom1Jenny_O0728_4.mes,5,5,주인공,え?俺?,응?나?,응?나?
 dom1Jenny_O0728_4.mes,Script/dom1Jenny_O0728_4.mes,6,28,Jenny,将来なりたい夢ならダレだって持っ<6E5C>てるでしょ?<이름:3232>は?,장래에 되고 싶은 꿈이라면<6E5C>누구나 있잖아?<이름:3232>는?,장래에 되고 싶은 꿈이라면<6E5C>누구나 있잖아?<이름:3232>는?
 dom1Jenny_O0728_4.mes,Script/dom1Jenny_O0728_4.mes,7,5,주인공,俺は……,저는……,저는……
-dom1Jenny_O0728_4.mes,Script/dom1Jenny_O0728_4.mes,8,18,[선택지],べつにないです今はベースが楽しいです,딱히없어요지금은베이스가즐거워요,딱히없어요<6E5C>지금은베이스가즐거워요
+dom1Jenny_O0728_4.mes,Script/dom1Jenny_O0728_4.mes,8,18,[선택지],べつにないです今はベースが楽しいです,딱히없어요지금은베이스가즐거워요,딱히없어요\지금은베이스가즐거워요
 dom1Jenny_O0728_4.mes,Script/dom1Jenny_O0728_4.mes,9,9,주인공,べつにないですよ,딱히 없어요,딱히 없어요
 dom1Jenny_O0728_4.mes,Script/dom1Jenny_O0728_4.mes,10,48,Jenny,モォ!夢もないなんておもしろく<6E5C>ないわねん!そんなんじゃホント<6E5C>にイイ演葬なんてできないわよ!,뭐야! 꿈도 없다니 재미없<6E5C>잖아! 그러면 진짜<6E5C>좋은 무대 같은 건 못 해!,뭐야! 꿈도 없다니 재미없<6E5C>잖아! 그러면 진짜<6E5C>좋은 무대 같은 건 못 해!
 dom1Jenny_O0728_4.mes,Script/dom1Jenny_O0728_4.mes,11,11,주인공,そ、そうですか……?,"그, 그런가요……?","그, 그런가요……?"
@@ -747,7 +747,7 @@ dom1Jenny_O0729_3.mes,Script/dom1Jenny_O0729_3.mes,6,7,[효과음/내레이션],
 dom1Jenny_O0729_3.mes,Script/dom1Jenny_O0729_3.mes,7,8,Jenny,その調子よん!,그 기세야!,그 기세야!
 dom1Jenny_O0729_3.mes,Script/dom1Jenny_O0729_3.mes,8,8,주인공,はい!……はぁ,네!…하아,네!…하아
 dom1Jenny_O0729_3.mes,Script/dom1Jenny_O0729_3.mes,9,24,Jenny,つかれたみたいね.<6E5C>そろそろキューケーしましょ,피곤한가 보네.<6E5C>슬슬 휴식하자,피곤한가 보네.<6E5C>슬슬 휴식하자
-dom1Jenny_O0729_3.mes,Script/dom1Jenny_O0729_3.mes,10,10,[선택지],まだまだ!そうですね,아직이요! 그러네요,아직이요!<6E5C>그러네요
+dom1Jenny_O0729_3.mes,Script/dom1Jenny_O0729_3.mes,10,10,[선택지],まだまだ!そうですね,아직이요! 그러네요,아직이요!\그러네요
 dom1Jenny_O0729_3.mes,Script/dom1Jenny_O0729_3.mes,11,23,주인공,まだまだいけますよ!もっと練習<6E5C>しましょう!,아직 더 할 수 있어요!<6E5C>더 연습해요!,아직 더 할 수 있어요!<6E5C>더 연습해요!
 dom1Jenny_O0729_3.mes,Script/dom1Jenny_O0729_3.mes,12,5,Jenny,<이름:3232>……,<이름:3232>…,<이름:3232>…
 dom1Jenny_O0729_3.mes,Script/dom1Jenny_O0729_3.mes,13,7,주인공,ジェニー……,제니…,제니…
@@ -824,7 +824,7 @@ dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,29,5,Jenny,…………,…�
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,30,7,주인공,ジェニー……,제니……,제니……
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,31,17,Jenny,……こうなったら殺るしかないわね,……이제 해치우는 수밖에,……이제 해치우는 수밖에
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,32,5,주인공,えぇ!?,에엑!?,에엑!?
-dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,33,26,[선택지],わかりました、殺りましょうあんなやつに負けませんよ!,"알겠어요, 해치우죠! 저런 놈한테 안 져요!","알겠어요, 해치우죠! 저런 놈한테 안 져요!"
+dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,33,26,[선택지],わかりました、殺りましょうあんなやつに負けませんよ!,"알겠어요, 해치우죠! 저런 놈한테 안 져요!","알겠어요, 해치우죠! \저런 놈한테 안 져요!"
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,34,31,주인공,わかりました、殺りましょう.<6E5C>海堂のやつをシメちゃいましょう,"알겠어요, 해치우죠.<6E5C>카이도 녀석을 손봐줍시다","알겠어요, 해치우죠.<6E5C>카이도 녀석을 손봐줍시다"
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,35,19,Jenny,ナニ言ってるの、殺られるのは<6E5C><이름:3232>よ,"무슨 소리야, 당하는 건<6E5C><이름:3232>이야","무슨 소리야, 당하는 건<6E5C><이름:3232>이야"
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,36,3,주인공,え?,어?,어?
@@ -864,7 +864,7 @@ dom1Jenny_O0730_4.mes,Script/dom1Jenny_O0730_4.mes,2,48,Jenny,アハハ!もー�
 dom1Jenny_O0730_4.mes,Script/dom1Jenny_O0730_4.mes,3,17,주인공,はい.……じゃあ、おやすみなさい,네. ……그럼 안녕히 주무세요,네. ……그럼 안녕히 주무세요
 dom1Jenny_O0730_4.mes,Script/dom1Jenny_O0730_4.mes,4,7,Jenny,グンナ~イ★,굿나잇★,굿나잇★
 dom1Jenny_O0730_4.mes,Script/dom1Jenny_O0730_4.mes,5,5,주인공,…………,…………,…………
-dom1Jenny_O0730_4.mes,Script/dom1Jenny_O0730_4.mes,6,10,[선택지],部屋に戻る学校に行く,방으로학교로,방으로<6E5C>학교로
+dom1Jenny_O0730_4.mes,Script/dom1Jenny_O0730_4.mes,6,10,[선택지],部屋に戻る学校に行く,방으로학교로,방으로\학교로
 dom1Jenny_O0730_4.mes,Script/dom1Jenny_O0730_4.mes,7,79,주인공,(いよいよ明日はコンテストか……<6E5C>あれよあれよという間に話が進ん<6E5C>で、まだ現実感がないな……<485C>まぁ考えても緊張するだけだ.<6E5C>さっさと寝て明日にそなえよう!),(드디어 내일이 콘테스트인가……<6E5C>순식간에 일이 진행돼<6E5C>서 아직 실감이 안 나네……<485C>뭐 생각해도 긴장만 되지.<6E5C>얼른 자고 내일을 대비하자!),(드디어 내일이 콘테스트인가……<6E5C>순식간에 일이 진행돼<6E5C>서 아직 실감이 안 나네……<485C>뭐 생각해도 긴장만 되지.<6E5C>얼른 자고 내일을 대비하자!)
 dom1Jenny_O0730_4.mes,Script/dom1Jenny_O0730_4.mes,8,4,[효과음/내레이션],パチン,딸깍,딸깍
 dom1Jenny_O0730_4.mes,Script/dom1Jenny_O0730_4.mes,9,44,주인공,(…………ダメだな.気持ちが<6E5C>高ぶってなかなか寝つけ…………<6E5C>ぐー……ぐー、ぐー……),(……안 되겠네. 마음이<6E5C>들떠서 좀처럼 잠이 안 들……<6E5C>쿨쿨쿨……),(……안 되겠네. 마음이<6E5C>들떠서 좀처럼 잠이 안 들……<6E5C>쿨쿨쿨……)
@@ -923,7 +923,7 @@ dom1Jenny_O0731_1.mes,Script/dom1Jenny_O0731_1.mes,15,49,UNKNOWN_b7,いいさ.�
 dom1Jenny_O0731_1.mes,Script/dom1Jenny_O0731_1.mes,16,5,Jenny,…………,…………,…………
 dom1Jenny_O0731_1.mes,Script/dom1Jenny_O0731_1.mes,17,33,주인공,ちょ、ちょっと待ってよ!そんな<6E5C>簡単にあきらめていいんですか!?,"자, 잠깐만!그렇게 쉽게<6E5C>포기해도 되는 거예요!?","자, 잠깐만!그렇게 쉽게<6E5C>포기해도 되는 거예요!?"
 dom1Jenny_O0731_1.mes,Script/dom1Jenny_O0731_1.mes,18,5,Jenny,<이름:3232>……,<이름:3232>……,<이름:3232>……
-dom1Jenny_O0731_1.mes,Script/dom1Jenny_O0731_1.mes,19,22,[선택지],強行的にやりましょう!父親を説得しましょう!,강행합시다!아버지를 설득하자구요!,강행합시다!<6E5C>아버지를 설득하자구요!
+dom1Jenny_O0731_1.mes,Script/dom1Jenny_O0731_1.mes,19,22,[선택지],強行的にやりましょう!父親を説得しましょう!,강행합시다!아버지를 설득하자구요!,강행합시다!\아버지를 설득하자구요!
 dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,0,16,주인공,強行的にやっちゃいましょうよ!,강행하자구요!,강행하자구요!
 dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,1,9,UNKNOWN_b7,そんなムチャな!,무모한 짓이야!,무모한 짓이야!
 dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,2,68,주인공,どれだけ大きな財閥か知らない<6E5C>けど、もうはじまりかけてる<6E5C>コンテストを中止するなんて<485C>できませんよ.やっちゃえば<6E5C>なんとかなりますよ!,"얼마나 큰 재벌인지 모르지만,<6E5C>벌써 시작되려는<6E5C>대회를 중지시키다니<485C>말이 안 돼요.그냥 해<6E5C>버리면 어떻게든 될 거예요!","얼마나 큰 재벌인지 모르지만,<6E5C>벌써 시작되려는<6E5C>대회를 중지시키다니<485C>말이 안 돼요.그냥 해<6E5C>버리면 어떻게든 될 거예요!"
@@ -989,19 +989,19 @@ dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,28,1,[효과음/내레이션]
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,29,2,[효과음/내레이션],♪,♪,♪
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,30,16,Jenny,<이름:3232>、“ローリングサンダー”!,"<이름:3232>, “롤링 썬더”!","<이름:3232>, “롤링 썬더”!"
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,31,4,주인공,はい!,네!,네!
-dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,32,36,[선택지],F#m7 G#m7C#m7 G#m7C#m7 A#m7F#m7 A#m7,F#m7 G#m7C#m7 G#m7C#m7 A#m7F#m7 A#m7,F#m7 G#m7C#m7 G#m7C#m7 A#m7F#m7 A#m7
+dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,32,36,[선택지],F#m7 G#m7C#m7 G#m7C#m7 A#m7F#m7 A#m7,F#m7 G#m7C#m7 G#m7C#m7 A#m7F#m7 A#m7,F#m7 G#m7\C#m7 G#m7\C#m7 A#m7\F#m7 A#m7
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,33,7,[효과음/내레이션],♪~♪♪~♪,♪~♪♪~♪,♪~♪♪~♪
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,34,4,[효과음/내레이션],♪~♪,♪~♪,♪~♪
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,35,16,Jenny,ヤフー!“クレイジーイワン”!,야후!“크레이지 이반”!,야후!“크레이지 이반”!
-dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,36,64,[선택지],F#m7 G#m7 A#m7-5G#m7 G#m7 G#m7-5G#m7 C#m7 A#m7-5G#m7 G#m7 A#m7-5,F#m7 G#m7 A#m7-5G#m7 G#m7 G#m7-5G#m7 C#m7 A#m7-5G#m7 G#m7 A#m7-5,F#m7 G#m7 A#m7-5G#m7 G#m7 G#m7-5G#m7 C#m7 A#m7-5G#m7 G#m7 A#m7-5
+dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,36,64,[선택지],F#m7 G#m7 A#m7-5G#m7 G#m7 G#m7-5G#m7 C#m7 A#m7-5G#m7 G#m7 A#m7-5,F#m7 G#m7 A#m7-5G#m7 G#m7 G#m7-5G#m7 C#m7 A#m7-5G#m7 G#m7 A#m7-5,F#m7 G#m7 A#m7-5\G#m7 G#m7 G#m7-5\G#m7 C#m7 A#m7-5\G#m7 G#m7 A#m7-5
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,37,7,[효과음/내레이션],♪~♪♪~♪,♪~♪♪~♪,♪~♪♪~♪
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,38,4,[효과음/내레이션],♪~♪,♪~♪,♪~♪
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,39,24,Jenny,ハイホ~!おつぎは“メニメニ<6E5C>トーピードゥ”!,하이호~!다음은 “메니메니<6E5C>토피도”!,하이호~!다음은 “메니메니<6E5C>토피도”!
-dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,40,60,[선택지],AM7 G#m7 B C#m7AM7 C#m7 B C#m7AM7 C#m7 B G#m7AM7 G#m7 B G#m7,AM7 G#m7 B C#m7AM7 C#m7 B C#m7AM7 C#m7 B G#m7AM7 G#m7 B G#m7,AM7 G#m7 B C#m7AM7 C#m7 B C#m7AM7 C#m7 B G#m7AM7 G#m7 B G#m7
+dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,40,60,[선택지],AM7 G#m7 B C#m7AM7 C#m7 B C#m7AM7 C#m7 B G#m7AM7 G#m7 B G#m7,AM7 G#m7 B C#m7AM7 C#m7 B C#m7AM7 C#m7 B G#m7AM7 G#m7 B G#m7,AM7 G#m7 B C#m7\AM7 C#m7 B C#m7\AM7 C#m7 B G#m7\AM7 G#m7 B G#m7
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,41,7,[효과음/내레이션],♪~♪♪~♪,♪~♪♪~♪,♪~♪♪~♪
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,42,4,[효과음/내레이션],♪~♪,♪~♪,♪~♪
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,43,29,Jenny,ラスト、いっくわよ~ん!<6E5C>“アンニュイ。マドモアゼル”!,"마지막, 간다~용!<6E5C>“앙뉘, 마드모아젤”!","마지막, 간다~용!<6E5C>“앙뉘, 마드모아젤”!"
-dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,44,80,[선택지],AM7 G#m7 F#m7 B G#m7AM7 C#m7 C#m7 B G#m7AM7 C#m7 F#m7 B C#m7AM7 C#m7 F#m7 B G#m7,AM7 G#m7 F#m7 B G#m7AM7 C#m7 C#m7 B G#m7AM7 C#m7 F#m7 B C#m7AM7 C#m7 F#m7 B G#m7,AM7 G#m7 F#m7 B G#m7AM7 C#m7 C#m7 B G#m7AM7 C#m7 F#m7 B C#m7AM7 C#m7 F#m7 B G#m7
+dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,44,80,[선택지],AM7 G#m7 F#m7 B G#m7AM7 C#m7 C#m7 B G#m7AM7 C#m7 F#m7 B C#m7AM7 C#m7 F#m7 B G#m7,AM7 G#m7 F#m7 B G#m7AM7 C#m7 C#m7 B G#m7AM7 C#m7 F#m7 B C#m7AM7 C#m7 F#m7 B G#m7,AM7 G#m7 F#m7 B G#m7\AM7 C#m7 C#m7 B G#m7\AM7 C#m7 F#m7 B C#m7\AM7 C#m7 F#m7 B G#m7
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,45,7,[효과음/내레이션],♪~♪♪~♪,♪~♪♪~♪,♪~♪♪~♪
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,46,4,[효과음/내레이션],♪~♪,♪~♪,♪~♪
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,47,24,Jenny,<이름:3232>サイコー!アタシいま<6E5C>すっごくキモチイ~★,<이름:3232> 최고!나 지금<6E5C>완전 기분 째져~★,<이름:3232> 최고!나 지금<6E5C>완전 기분 째져~★

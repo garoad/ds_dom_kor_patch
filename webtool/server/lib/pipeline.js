@@ -72,6 +72,29 @@ const LIST_NO_LENGTH_CAP_FILES = new Set([
 // buildFileTokens()/validateRow() below.
 const PAGE_TURN_TOKEN = tio.PAGE_TURN_TOKEN;
 
+// [선택지] (choice-prompt) blocks store the exact byte-length split points
+// for up to FIVE options in the five header tokens immediately before the
+// block's own speaker/header field: values[s-6], values[s-5], values[s-4],
+// values[s-3], values[s-2] (in order, one slot per option; unused trailing
+// slots are 0). Originally believed (2026-08-27, live melonDS test) to be a
+// 2-slot-only mechanism (773/870 = 89% of header==0x0 blocks matching
+// values[s-6]+values[s-5] == 2*token_count) - generalized the same day
+// after a user-flagged real 3-option case confirmed sum(values[s-6:s-1])
+// == 2*token_count holds for ALL 870 header==0x0 blocks with no exceptions
+// (see ANALYSIS_NOTES.md "Task E 재개 (10)"). This field is fixed to the
+// ORIGINAL Japanese split points and is never recomputed for the
+// translation, so without this, a choice translation always visually
+// splits at the same byte offsets as the Japanese regardless of where the
+// Korean text's natural boundaries fall. Mirrors mes_translate_reinsert.py.
+const CHOICE_SPEAKER = "[선택지]";
+// 2026-08-27: switched from the "<6E5C>" convention to a bare "\" - "<6E5C>"
+// is ALSO the corpus-wide literal-line-break notation (46k+ occurrences
+// across every speaker), so reusing it as the choice-split marker meant the
+// same text meant two different things depending on context. "\" never
+// otherwise appears in translation text. See ANALYSIS_NOTES.md "Task E 재개 (9)".
+const CHOICE_SPLIT_MARK = "\\";
+const CHOICE_HEADER_SLOTS = 5; // values[s-6], values[s-5], values[s-4], values[s-3], values[s-2]
+
 const OUTSIDE_MES_FILES = [
   "soundnamedom1.mes",
   "soundnamedom2.mes",
@@ -448,21 +471,12 @@ function saveFile(name, fname, edits) {
 // dialogue) and translating them shifts fixed-offset fields the engine
 // reads, freezing the game. But the guard is a blunt pattern match - a
 // small number of flagged blocks are dialogue with a LEADING opcode field
-// that happens to also decode as a printable glyph (see dom1Yuri_L01.mes
-// block 0: token 0x0900 is really the block's opcode header's first field,
-// coincidentally also font_map's 'ぉ' glyph). For those, blanket-preserving
-// leaves real dialogue permanently untranslated even though a translation
-// that keeps the opcode prefix byte-for-byte and only replaces the trailing
-// narrative text is perfectly safe. Each entry here must be individually
-// hardware/melonDS-verified before being added - see ANALYSIS_NOTES.md.
-const SAFE_OPCODE_OVERRIDES = new Set([
-  // dom1Yuri_L01.mes block 0: source starts with 0x0900 ('ぉ') as the choice/
-  // scene-transition opcode header's first field, followed by more <00xx>
-  // header fields, then the real narrative text in parens. Translation must
-  // keep 'ぉ' and every header tag untouched and only replace the parenthesized
-  // text, encoding to exactly n_tokens (55) - verified via translateIo.
-  "dom1Yuri_L01.mes:0",
-]);
+// that happens to also decode as a printable glyph. Those are now caught
+// generically by the boundaryHeaderLen check in buildFileTokens() below
+// (see its comment) instead of needing a per-file override here, so this
+// set is intentionally empty - kept as an escape hatch for any future case
+// the generic check can't handle on its own.
+const SAFE_OPCODE_OVERRIDES = new Set([]);
 
 /**
  * A translated dangerous-opcode block doesn't have to be all-or-nothing.
@@ -577,9 +591,6 @@ function buildFileTokens(name, fname, rowsByBlock) {
     const row = rowsByBlock.get(i);
     const srcText = row.source;
     const dstText = row.translation && row.translation.length > 0 ? row.translation : srcText;
-    const expectedLen = e - s;
-    const hasPageTurn = expectedLen > 0 && values[e - 1] === PAGE_TURN_TOKEN;
-    const textExpectedLen = hasPageTurn ? expectedLen - 1 : expectedLen;
 
     if (!row.translation || row.translation === srcText) {
       out.push(...values.slice(last, s));
@@ -588,12 +599,40 @@ function buildFileTokens(name, fname, rowsByBlock) {
       return;
     }
 
-    const isSafeOverride = SAFE_OPCODE_OVERRIDES.has(`${fname}:${i}`);
-    let prefixTokens = [];
+    // 2026-08-27: findDialogueBlocks()'s backward-scan classifies a token's
+    // "kind" (full/half/ctrl) using font_map_kr, so a block can start
+    // earlier here than the extraction tool computed it (whatever leading
+    // opcode/header tokens happen to also decode as printable KR glyphs get
+    // swallowed into the block). When that happens, `source`/`translation`
+    // only ever covered the narrower text the extractor actually showed a
+    // translator - CSV's n_tokens is that narrower length, not (e - s).
+    // Re-encoding dstText against the true (wider) length pads the gap with
+    // SPACE_TOKEN, silently destroying the hidden header (confirmed live in
+    // dom1Yuri_L01.mes block 0 and dom1Jenny_L04.mes block 0 - see
+    // ANALYSIS_NOTES.md 2026-08-27). Detect the drift generically from the
+    // length mismatch itself and splice the extra leading tokens back in
+    // byte-exact from `values`, rather than needing a per-file override -
+    // this covers every block with the same drift, not just ones a human
+    // happened to notice and hardware-verify one at a time.
+    const fullLen = e - s;
+    const hasPageTurn = fullLen > 0 && values[e - 1] === PAGE_TURN_TOKEN;
+    const textExpectedLen = hasPageTurn ? fullLen - 1 : fullLen;
+
+    // n_tokens includes the trailing page-turn token when present (same
+    // units as textExpectedLen + 1), so this compares like-for-like against
+    // fullLen. prefixTokens gets concatenated back onto the encoded text
+    // below before the textExpectedLen check, so that check must stay
+    // against the FULL block length here, not the shrunk post-header
+    // length - the header contributes to the same total.
+    const csvLen = Number(row.n_tokens) || 0;
+    const boundaryHeaderLen = fullLen > csvLen ? fullLen - csvLen : 0;
+    const contentStart = s + boundaryHeaderLen;
+
+    let prefixTokens = boundaryHeaderLen > 0 ? values.slice(s, contentStart) : [];
     let effectiveSrcText = srcText;
     let effectiveDstText = dstText;
 
-    if (isDangerousOpcodeBlock(srcText) && !isSafeOverride) {
+    if (boundaryHeaderLen === 0 && isDangerousOpcodeBlock(srcText)) {
       const srcValues = values.slice(s, s + textExpectedLen);
       const splice = computeHeaderSplice(srcValues, srcText, dstText);
       if (!splice) {
@@ -607,67 +646,127 @@ function buildFileTokens(name, fname, rowsByBlock) {
       effectiveDstText = dstText.slice(splice.dstCharLen);
     }
 
-    const placeholderProblems = tio.validatePlaceholders(effectiveSrcText, effectiveDstText);
-    if (placeholderProblems.length) {
-      problems.push(`block ${i}: ${placeholderProblems.join("; ")}`);
-      return;
-    }
+    // [선택지] blocks: if the translator marked explicit option boundaries
+    // with CHOICE_SPLIT_MARK (1-4 marks = 2-5 options), and the block's
+    // original header matches the "clean N-option" pattern (see
+    // CHOICE_SPEAKER comment above), split+encode each option separately
+    // and patch the header's own split-point fields (values[s-6..s-2]) to
+    // match the translation's boundaries instead of the original Japanese
+    // ones. Gated to boundaryHeaderLen === 0 (the normal, non-drifted case)
+    // so this never interacts with the header-splice drift-correction path
+    // above. `s - 6 >= last` guards against reading into the previous
+    // block's own region on the (currently never-observed) chance the
+    // header is narrower than 6 tokens.
+    const choiceSplitCount = row.speaker === CHOICE_SPEAKER ? dstText.split(CHOICE_SPLIT_MARK).length - 1 : 0;
+    const choiceHeaderSum =
+      s - 6 >= 0 ? values[s - 6] + values[s - 5] + values[s - 4] + values[s - 3] + values[s - 2] : null;
+    const isChoiceSplit =
+      row.speaker === CHOICE_SPEAKER &&
+      boundaryHeaderLen === 0 &&
+      s - 6 >= last &&
+      choiceSplitCount >= 1 &&
+      choiceSplitCount <= CHOICE_HEADER_SLOTS - 1 &&
+      choiceHeaderSum === 2 * textExpectedLen;
 
     let newTokens;
-    try {
-      newTokens = tio.textToTokens(effectiveDstText);
-    } catch (ex) {
-      problems.push(`block ${i}: ${ex.message}`);
-      return;
-    }
-    if (prefixTokens.length) newTokens = prefixTokens.concat(newTokens);
+    let choiceHeaderPatch = null;
 
-    if (fname === PLAYERNAME_FILE) {
-      // No fixed-slot constraint here - just the in-game 3-character name
-      // cap (see PLAYERNAME_FILE comment above).
-      if (newTokens.length > PLAYERNAME_MAX_TOKENS) {
+    if (isChoiceSplit) {
+      const optTexts = dstText.split(CHOICE_SPLIT_MARK);
+      const placeholderProblems = tio.validatePlaceholders(effectiveSrcText, effectiveDstText);
+      if (placeholderProblems.length) {
+        problems.push(`block ${i}: ${placeholderProblems.join("; ")}`);
+        return;
+      }
+      let optTokens;
+      try {
+        optTokens = optTexts.map((t) => tio.textToTokens(t));
+      } catch (ex) {
+        problems.push(`block ${i}: ${ex.message}`);
+        return;
+      }
+      const total = optTokens.reduce((sum, t) => sum + t.length, 0);
+      if (total > textExpectedLen) {
         problems.push(
-          `block ${i}: player name too long - encodes to ${newTokens.length} characters, ` +
-            `but names are capped at ${PLAYERNAME_MAX_TOKENS} in-game`
+          `block ${i}: choice options too long - encode to ${total} tokens combined, ` +
+            `original allows ${textExpectedLen}`
         );
         return;
       }
-      out.push(...values.slice(last, s));
-      out.push(...newTokens);
-      last = e;
-      return;
-    }
+      if (total < textExpectedLen) {
+        // Padding is absorbed into the last option's byte length below, so
+        // the header fields' sum stays identical to the original.
+        const lastIdx = optTokens.length - 1;
+        optTokens[lastIdx] = optTokens[lastIdx].concat(Array(textExpectedLen - total).fill(tio.SPACE_TOKEN));
+      }
+      newTokens = optTokens.flat();
+      const lengths = optTokens.map((t) => t.length * 2);
+      while (lengths.length < CHOICE_HEADER_SLOTS) lengths.push(0);
+      choiceHeaderPatch = lengths;
+    } else {
+      if (!SAFE_OPCODE_OVERRIDES.has(`${fname}:${i}`)) {
+        const placeholderProblems = tio.validatePlaceholders(effectiveSrcText, effectiveDstText);
+        if (placeholderProblems.length) {
+          problems.push(`block ${i}: ${placeholderProblems.join("; ")}`);
+          return;
+        }
+      }
 
-    if (LIST_NO_LENGTH_CAP_FILES.has(fname)) {
-      // No length constraint at all (see LIST_NO_LENGTH_CAP_FILES comment
-      // above) - hardware-confirmed for namelist1.mes only so far; the
-      // other files here are the same experiment, pending their own
-      // real hardware/melonDS confirmation.
-      out.push(...values.slice(last, s));
-      out.push(...newTokens);
-      last = e;
-      return;
-    }
+      try {
+        newTokens = tio.textToTokens(effectiveDstText);
+      } catch (ex) {
+        problems.push(`block ${i}: ${ex.message}`);
+        return;
+      }
+      if (prefixTokens.length) newTokens = prefixTokens.concat(newTokens);
 
-    if (newTokens.length < textExpectedLen) {
-      // Pad with trailing space tokens rather than failing the block - a
-      // shorter translation is safe to pad, unlike a longer one (which
-      // would have to drop content to fit and is still reported below).
-      // Padded against textExpectedLen (excluding the page-turn marker, if
-      // any) so the marker appended below always ends up last - see
-      // tio.PAGE_TURN_TOKEN for why it must never be pushed off the end by
-      // padding. Uses tio.SPACE_TOKEN (full-width) - see its comment for
-      // why the half-width blank is not used.
-      newTokens = newTokens.concat(Array(textExpectedLen - newTokens.length).fill(tio.SPACE_TOKEN));
-    }
+      if (fname === PLAYERNAME_FILE) {
+        // No fixed-slot constraint here - just the in-game 3-character name
+        // cap (see PLAYERNAME_FILE comment above).
+        if (newTokens.length > PLAYERNAME_MAX_TOKENS) {
+          problems.push(
+            `block ${i}: player name too long - encodes to ${newTokens.length} characters, ` +
+              `but names are capped at ${PLAYERNAME_MAX_TOKENS} in-game`
+          );
+          return;
+        }
+        out.push(...values.slice(last, s));
+        out.push(...newTokens);
+        last = e;
+        return;
+      }
 
-    if (newTokens.length !== textExpectedLen) {
-      problems.push(
-        `block ${i}: token count mismatch - original has ${textExpectedLen} tokens, ` +
-          `translation encodes to ${newTokens.length} (longer). Dialogue blocks ` +
-          "must keep an identical token count or the game hangs on real hardware/melonDS."
-      );
-      return;
+      if (LIST_NO_LENGTH_CAP_FILES.has(fname)) {
+        // No length constraint at all (see LIST_NO_LENGTH_CAP_FILES comment
+        // above) - hardware-confirmed for namelist1.mes only so far; the
+        // other files here are the same experiment, pending their own
+        // real hardware/melonDS confirmation.
+        out.push(...values.slice(last, s));
+        out.push(...newTokens);
+        last = e;
+        return;
+      }
+
+      if (newTokens.length < textExpectedLen) {
+        // Pad with trailing space tokens rather than failing the block - a
+        // shorter translation is safe to pad, unlike a longer one (which
+        // would have to drop content to fit and is still reported below).
+        // Padded against textExpectedLen (excluding the page-turn marker, if
+        // any) so the marker appended below always ends up last - see
+        // tio.PAGE_TURN_TOKEN for why it must never be pushed off the end by
+        // padding. Uses tio.SPACE_TOKEN (full-width) - see its comment for
+        // why the half-width blank is not used.
+        newTokens = newTokens.concat(Array(textExpectedLen - newTokens.length).fill(tio.SPACE_TOKEN));
+      }
+
+      if (newTokens.length !== textExpectedLen) {
+        problems.push(
+          `block ${i}: token count mismatch - original has ${textExpectedLen} tokens, ` +
+            `translation encodes to ${newTokens.length} (longer). Dialogue blocks ` +
+            "must keep an identical token count or the game hangs on real hardware/melonDS."
+        );
+        return;
+      }
     }
 
     if (hasPageTurn) {
@@ -675,6 +774,13 @@ function buildFileTokens(name, fname, rowsByBlock) {
     }
 
     out.push(...values.slice(last, s));
+    if (choiceHeaderPatch) {
+      out[out.length - 6] = choiceHeaderPatch[0];
+      out[out.length - 5] = choiceHeaderPatch[1];
+      out[out.length - 4] = choiceHeaderPatch[2];
+      out[out.length - 3] = choiceHeaderPatch[3];
+      out[out.length - 2] = choiceHeaderPatch[4];
+    }
     out.push(...newTokens);
     last = e;
   });

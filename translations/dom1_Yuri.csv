@@ -1,5 +1,5 @@
 file,rel_path,block,n_tokens,speaker,source,ai_draft,translation
-dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,0,31,주인공,(そういえば、ユリさんが師範して<6E5C>る道場って、ここだったな),"<0001><0011><0000><0000><0000><0000><0000><0006><000A><0008><0000><0000><0001><002A><0000><0000><0000><0000><0000><0000><004C><003E><0002>(그러고보니, 유리씨가 사범으로 있는 도장이 여기였구나)",(그러고보니 유리씨가 사범으로 있는<6E5C>도장이 여기였구나)
+dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,0,31,주인공,(そういえば、ユリさんが師範して<6E5C>る道場って、ここだったな),(그러고보니 유리씨가 사범으로 있는<6E5C>도장이 여기였구나),(그러고보니 유리씨가 사범으로 있는<6E5C>도장이 여기였구나)
 dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,1,4,[효과음/내레이션],ガラッ,끼익,끼익
 dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,2,7,주인공,こんにちはー,안녕하세요~,안녕하세요~
 dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,3,6,[효과음/내레이션],バキンッ★,빠지직★,빠지직★
@@ -14,7 +14,7 @@ dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,11,31,Yuri,来てくれたんだね.あ
 dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,12,20,주인공,いや、今ケガしたばっかりなんです<6E5C>けど,"아니, 저 방금 막 다친 참인데요","아니, 저 방금 막 다친 참인데요"
 dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,13,16,Yuri,若いんだからだいじょうぶッチ!,젊으니까 괜찮치!,젊으니까 괜찮치!
 dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,14,5,주인공,…………,……,……
-dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,15,16,[선택지],やりましょう!休憩させてください,하죠!쉬게 해주세요,하죠!<6E5C>쉬게 해주세요
+dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,15,16,[선택지],やりましょう!休憩させてください,하죠!쉬게 해주세요,하죠!\쉬게 해주세요
 dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,16,16,주인공,わかりましたよ、やりましょう!,"알겠어요, 하죠!","알겠어요, 하죠!"
 dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,17,14,Yuri,さすが!それでこそ男の子!,역시!그게 진짜 남자지!,역시!그게 진짜 남자지!
 dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,18,16,UNKNOWN_1a,ほぅ.威勢だけはイイじゃねーか,"허, 기세만은 좋잖아","허, 기세만은 좋잖아"
@@ -45,11 +45,11 @@ dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,42,7,주인공,は、はぁ……,"예,
 dom1Yuri_L01.mes,Script/dom1Yuri_L01.mes,43,20,주인공,(とんでもない所に来ちゃった<6E5C>な……),(엄청난 곳에 와버렸<6E5C>네……),(엄청난 곳에 와버렸<6E5C>네……)
 dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,0,17,주인공,今日は普通に稽古してるのかな……,오늘은 평소대로 수련하려나……,오늘은 평소대로 수련하려나……
 dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,1,60,Yuri,あら、<이름:3232>くん.よく来たね.<6E5C>今日はね、小学生の部の子が、<6E5C>笹の葉に短冊をかざってるの<485C><이름:3232>くんも仲間に入ってくれる?,"어머, <이름:3232>군.잘 왔네.<6E5C>오늘은, 초등부 애들이,<6E5C>조릿대에 소원 종이 다는 거<485C><이름:3232>군도 같이 껴줄래?","어머, <이름:3232>군.잘 왔네.<6E5C>오늘은, 초등부 애들이,<6E5C>조릿대에 소원 종이 다는 거<485C><이름:3232>군도 같이 껴줄래?"
-dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,2,6,[선택지],入る入らない,낀다안 낀다,낀다<6E5C>안낀다
+dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,2,6,[선택지],入る入らない,낀다안 낀다,낀다\안낀다
 dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,3,13,주인공,お邪魔してもいいですか?,껴도 되나요?,껴도 되나요?
 dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,4,22,Yuri,もっちろん!<이름:3232>くんもお願い<6E5C>ゴトしてよ!,그럼!<이름:3232>군도 소원<6E5C>빌어봐!,그럼!<이름:3232>군도 소원<6E5C>빌어봐!
 dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,5,6,주인공,そーだなぁ,글쎄다,글쎄다
-dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,6,15,[선택지],お金持ちになりたい強くなりたい,부자 되고 싶다강해지고 싶다,부자되고 싶다<6E5C>강해지고 싶다
+dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,6,15,[선택지],お金持ちになりたい強くなりたい,부자 되고 싶다강해지고 싶다,부자되고 싶다\강해지고 싶다
 dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,7,17,주인공,お金持ちになりたいって書こうかな,부자가 되고 싶다고 쓸까나,부자가 되고 싶다고 쓸까나
 dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,8,13,Yuri,え~.つまらない夢だなぁ,에~.시시한 꿈이네,에~.시시한 꿈이네
 dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,9,15,주인공,そうですか?普通だと思うけど,그런가요?평범한 것 같은데,그런가요?평범한 것 같은데
@@ -74,7 +74,7 @@ dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,27,27,주인공,あ、イベントし�
 dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,28,13,Yuri,そう?じゃ、また今度ね~,"그래?그럼, 다음에~","그래?그럼, 다음에~"
 dom1Yuri_L02.mes,Script/dom1Yuri_L02.mes,29,19,주인공,(さすがに小学生の相手は<6E5C>なあ……),(역시 초등학생 상대는<6E5C>좀……),(역시 초등학생 상대는<6E5C>좀……)
 dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,0,12,Yuri,あら、<이름:3232>くん.稽古?,"어머, <이름:3232>군.수련?","어머, <이름:3232>군.수련?"
-dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,1,24,[선택지],ユリをきもだめしに誘うユリをきもだめしに誘わない,유리를 담력시험에 부른다안 부른다,유리를 담력시험에 부른다<6E5C>안 부른다
+dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,1,24,[선택지],ユリをきもだめしに誘うユリをきもだめしに誘わない,유리를 담력시험에 부른다안 부른다,유리를 담력시험에 부른다\안 부른다
 dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,2,26,주인공,いえ、今日はユリさんをきもだめし<6E5C>に誘おうと思って,"<0001><0000><0040><0034><0002>아뇨, 오늘은 유리씨를 담력시험<6E5C>에 초대하려고요","아뇨, 오늘은 유리씨를 담력시험에 초대하려고요"
 dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,3,7,Yuri,きもだめし?,담력시험?,담력시험?
 dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,4,41,주인공,今、清泉学園できもだめしやってる<6E5C>んですよ.よかったら、いっしょに<6E5C>見ませんか?,"지금, 청천학원에서 담력시험<6E5C>하고 있거든요.괜찮으면, 같이<6E5C>보러 갈래요?","지금, 청천학원에서 담력시험<6E5C>하고 있거든요.괜찮으면, 같이<6E5C>보러 갈래요?"
@@ -84,7 +84,7 @@ dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,7,5,UNKNOWN_1a,<이름:3131>~~,<이름:
 dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,8,21,Kaidou,ユリ師範を誘うとは、<6E5C>いい度胸じゃねーか,"유리 사범을 초대하다니,<6E5C>배짱 좋잖아","유리 사범을 초대하다니,<6E5C>배짱 좋잖아"
 dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,9,20,주인공,オバケより気味の悪いヤツが出てき<6E5C>たな,유령보다 기분 나쁜 놈이 나<6E5C>왔네,유령보다 기분 나쁜 놈이 나<6E5C>왔네
 dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,10,25,Kaidou,んだとぉ?テメェ、ここでオレと<6E5C>決着つけるかよ!,"뭐라고?짜식, 여기서 나랑<6E5C>결판낼 거냐!","뭐라고?짜식, 여기서 나랑<6E5C>결판낼 거냐!"
-dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,11,6,[선택지],戦う無視する,싸운다무시,싸운다<6E5C>무시
+dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,11,6,[선택지],戦う無視する,싸운다무시,싸운다\무시
 dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,12,11,주인공,よし、望むところだ!,좋아 바라는 바다!,좋아 바라는 바다!
 dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,13,7,Kaidou,おっしゃあ!,오샤아!,오샤아!
 dom1Yuri_L03.mes,Script/dom1Yuri_L03.mes,14,16,Yuri,コラー!ふたりともやめるッチ!,이놈들!둘 다 그만두치!,이놈들!둘 다 그만두치!
@@ -136,7 +136,7 @@ dom1Yuri_L04.mes,Script/dom1Yuri_L04.mes,17,21,주인공,そうだったんで�
 dom1Yuri_L04.mes,Script/dom1Yuri_L04.mes,18,14,Yuri,もぅ慣れっこ.よゆうッチ!,이제 익숙해.여유치!,이제 익숙해.여유치!
 dom1Yuri_L04.mes,Script/dom1Yuri_L04.mes,19,51,주인공,(……だから自転車も修理に出せな<6E5C>いのか…….そんな苦労も垣間みせ<6E5C>ず、ユリさんはいつも笑顔で……),"(……자전거 수리도 못 맡<6E5C>기는구나…….그런 고생도 티<6E5C>안 내고, 유리씬 늘 웃는데……)","(……자전거 수리도 못 맡<6E5C>기는구나…….그런 고생도 티<6E5C>안 내고, 유리씬 늘 웃는데……)"
 dom1Yuri_L04.mes,Script/dom1Yuri_L04.mes,20,16,Yuri,どうしたの?目がうるんでるけど,왜 그래?눈이 촉촉한데,왜 그래?눈이 촉촉한데
-dom1Yuri_L04.mes,Script/dom1Yuri_L04.mes,21,29,[선택지],困ったことがあったら言って下さい!道場までおんぶしますよ!,힘든 일 있으면 말해요!도장까지 업어드릴게요!,힘든 일 있으면 말해요!<6E5C>도장까지 업어드릴게요!
+dom1Yuri_L04.mes,Script/dom1Yuri_L04.mes,21,29,[선택지],困ったことがあったら言って下さい!道場までおんぶしますよ!,힘든 일 있으면 말해요!도장까지 업어드릴게요!,힘든 일 있으면 말해요!\도장까지 업어드릴게요!
 dom1Yuri_L04.mes,Script/dom1Yuri_L04.mes,22,26,주인공,困ったことがあったら、俺になんで<6E5C>も言って下さい!,"<0001><0000><0040><0034><0002>힘든 일 있으면, 저한테 뭐<6E5C>든 말해요!","힘든 일 있으면, 저한테 뭐<6E5C>든 말해요!"
 dom1Yuri_L04.mes,Script/dom1Yuri_L04.mes,23,28,Yuri,ホント!?じゃあ、新しい門下生<6E5C>を100人連れてきて!,"정말!?그럼, 새 문하생<6E5C>100명 데려와!","정말!?그럼, 새 문하생<6E5C>100명 데려와!"
 dom1Yuri_L04.mes,Script/dom1Yuri_L04.mes,24,4,주인공,え……,어……,어……
@@ -166,7 +166,7 @@ dom1Yuri_L05.mes,Script/dom1Yuri_L05.mes,12,55,Kaidou,ユリ師範がどれほ�
 dom1Yuri_L05.mes,Script/dom1Yuri_L05.mes,13,9,주인공,だったらなんだよ,그래서 뭐냐고,그래서 뭐냐고
 dom1Yuri_L05.mes,Script/dom1Yuri_L05.mes,14,40,Kaidou,部外者が口出すなって言ってんだ.<6E5C>テメェはただ、デートがしてぇだけ<6E5C>なんだろ?,"외부인이 참견하지 마라.<6E5C>넌 그냥, 데이트하고 싶은<6E5C>거잖냐?","외부인이 참견하지 마라.<6E5C>넌 그냥, 데이트하고 싶은<6E5C>거잖냐?"
 dom1Yuri_L05.mes,Script/dom1Yuri_L05.mes,15,4,Yuri,え……,어……,어……
-dom1Yuri_L05.mes,Script/dom1Yuri_L05.mes,16,16,[선택지],だまってろ!そんなんじゃねぇよ!,닥쳐!그런 거 아니거든!,닥쳐!<6E5C>그런 거 아니거든!
+dom1Yuri_L05.mes,Script/dom1Yuri_L05.mes,16,16,[선택지],だまってろ!そんなんじゃねぇよ!,닥쳐!그런 거 아니거든!,닥쳐!\그런 거 아니거든!
 dom1Yuri_L05.mes,Script/dom1Yuri_L05.mes,17,13,주인공,うるせぇな、だまってろ!,"시끄럽다, 닥쳐!","시끄럽다, 닥쳐!"
 dom1Yuri_L05.mes,Script/dom1Yuri_L05.mes,18,8,Kaidou,ハン、図星かよ,"흥, 정곡이냐","흥, 정곡이냐"
 dom1Yuri_L05.mes,Script/dom1Yuri_L05.mes,19,10,주인공,やんのかよ、海堂!,"해볼래, 카이도!","해볼래, 카이도!"
@@ -226,7 +226,7 @@ dom1Yuri_L07.mes,Script/dom1Yuri_L07.mes,20,16,Kaidou,今、ユリ師範が温�
 dom1Yuri_L07.mes,Script/dom1Yuri_L07.mes,21,3,주인공,はぁ,하아,하아
 dom1Yuri_L07.mes,Script/dom1Yuri_L07.mes,22,10,Kaidou,のぞきに行こうぜ!,훔쳐보러 가자!,훔쳐보러 가자!
 dom1Yuri_L07.mes,Script/dom1Yuri_L07.mes,23,5,주인공,えぇ!?,에엥!?,에엥!?
-dom1Yuri_L07.mes,Script/dom1Yuri_L07.mes,24,6,[선택지],行く行かない,간다안 간다,간다<6E5C>안간다
+dom1Yuri_L07.mes,Script/dom1Yuri_L07.mes,24,6,[선택지],行く行かない,간다안 간다,간다\안간다
 dom1Yuri_L07.mes,Script/dom1Yuri_L07.mes,25,9,주인공,ほ……ほんとに?,"<0001><0000><0020><0012><0002>저, 정말로?","저, 정말로?"
 dom1Yuri_L07.mes,Script/dom1Yuri_L07.mes,26,27,Kaidou,さすがはオレ様の宿敵だな.<6E5C>さっそく乗り気じゃねぇか,역시 오레사마의 숙적답네.<6E5C>바로 넘어오잖아,역시 오레사마의 숙적답네.<6E5C>바로 넘어오잖아
 dom1Yuri_L07.mes,Script/dom1Yuri_L07.mes,27,12,주인공,別にそんなわけじゃ……,딱히 그런 건 아닌데,딱히 그런 건 아닌데
@@ -252,7 +252,7 @@ dom1Yuri_L08.mes,Script/dom1Yuri_L08.mes,3,17,Yuri,ヤダ、そんなにじっ�
 dom1Yuri_L08.mes,Script/dom1Yuri_L08.mes,4,19,주인공,(ユリさんが、モジモジして<6E5C>る……),"(유리 씨, 안절부절<6E5C>하네……)","(유리 씨, 안절부절<6E5C>하네……)"
 dom1Yuri_L08.mes,Script/dom1Yuri_L08.mes,5,22,Yuri,み、水着なんて久しぶり.<6E5C>……変じゃない?,"수, 수영복 오랜만이야.<6E5C>……이상해?","수, 수영복 오랜만이야.<6E5C>……이상해?"
 dom1Yuri_L08.mes,Script/dom1Yuri_L08.mes,6,9,주인공,あ、や、その……,"아, 그게……","아, 그게……"
-dom1Yuri_L08.mes,Script/dom1Yuri_L08.mes,7,11,[선택지],色っぽいです可愛いです,섹시해요귀여워요,섹시해요<6E5C>귀여워요
+dom1Yuri_L08.mes,Script/dom1Yuri_L08.mes,7,11,[선택지],色っぽいです可愛いです,섹시해요귀여워요,섹시해요\귀여워요
 dom1Yuri_L08.mes,Script/dom1Yuri_L08.mes,8,8,주인공,色っぽいですよ,섹시해요,섹시해요
 dom1Yuri_L08.mes,Script/dom1Yuri_L08.mes,9,10,Yuri,えぇ!?色っぽい?,에!? 섹시해?,에!? 섹시해?
 dom1Yuri_L08.mes,Script/dom1Yuri_L08.mes,10,3,주인공,はい,네,네
@@ -300,7 +300,7 @@ dom1Yuri_L09.mes,Script/dom1Yuri_L09.mes,25,4,[효과음/내레이션],パクッ
 dom1Yuri_L09.mes,Script/dom1Yuri_L09.mes,26,6,UNKNOWN_12,あまっっっ,달아아아,달아아아
 dom1Yuri_L09.mes,Script/dom1Yuri_L09.mes,27,32,Yuri,ユリ特製の甘口カレーだよ!いっ<6E5C>ぱいあるから、残さず食べてね!,유리표 순한 카레야!<6E5C>많이 있으니까 남기지 말고 먹어!,유리표 순한 카레야!<6E5C>많이 있으니까 남기지 말고 먹어!
 dom1Yuri_L09.mes,Script/dom1Yuri_L09.mes,28,7,UNKNOWN_12,は、はい……,"네, 네……","네, 네……"
-dom1Yuri_L09.mes,Script/dom1Yuri_L09.mes,29,12,[선택지],後片付けするおかわりする,설거지한다더 먹는다,설거지한다<6E5C>더 먹는다
+dom1Yuri_L09.mes,Script/dom1Yuri_L09.mes,29,12,[선택지],後片付けするおかわりする,설거지한다더 먹는다,설거지한다\더 먹는다
 dom1Yuri_L09.mes,Script/dom1Yuri_L09.mes,30,5,[효과음/내레이션],ぱくぱく,냠냠,냠냠
 dom1Yuri_L09.mes,Script/dom1Yuri_L09.mes,31,16,주인공,ごちそうさま!俺、片付けます!,잘 먹었습니다! 치울게요!,잘 먹었습니다! 치울게요!
 dom1Yuri_L09.mes,Script/dom1Yuri_L09.mes,32,23,Kaidou,テメェ、点数かせごうと<6E5C>しやがって、もぐもぐ,"너, 점수 좀 따보겠다고<6E5C>그러네 우물우물","너, 점수 좀 따보겠다고<6E5C>그러네 우물우물"
@@ -350,7 +350,7 @@ dom1Yuri_L10.mes,Script/dom1Yuri_L10.mes,24,13,UNKNOWN_2e,かのじょー、か�
 dom1Yuri_L10.mes,Script/dom1Yuri_L10.mes,25,24,UNKNOWN_2f,そんなヤツほっといて、いっしょに<6E5C>お茶しない?,그런 애 놔두고 우리랑<6E5C>차 한잔 안 할래?,그런 애 놔두고 우리랑<6E5C>차 한잔 안 할래?
 dom1Yuri_L10.mes,Script/dom1Yuri_L10.mes,26,3,Yuri,!?,!?,!?
 dom1Yuri_L10.mes,Script/dom1Yuri_L10.mes,27,12,주인공,(げ、ナンパか……?),(헉 헌팅인가……?),(헉 헌팅인가……?)
-dom1Yuri_L10.mes,Script/dom1Yuri_L10.mes,28,11,[선택지],やめろよふたりで逃げる,그만해둘이서 도망친다,그만해<6E5C>둘이서도망친다
+dom1Yuri_L10.mes,Script/dom1Yuri_L10.mes,28,11,[선택지],やめろよふたりで逃げる,그만해둘이서 도망친다,그만해\둘이서도망친다
 dom1Yuri_L10.mes,Script/dom1Yuri_L10.mes,29,10,주인공,迷惑だろ、やめろよ,"민폐잖아, 그만해","민폐잖아, 그만해"
 dom1Yuri_L10.mes,Script/dom1Yuri_L10.mes,30,13,UNKNOWN_2e,うるせーな、関係ねーだろ,"시끄럽네, 상관없잖아","시끄럽네, 상관없잖아"
 dom1Yuri_L10.mes,Script/dom1Yuri_L10.mes,31,28,주인공,(どうしよう.ここでモメると、<6E5C>ユリさんに迷惑が……),(어쩌지. 여기서 싸우면<6E5C>유리 씨한테 민폐가……),(어쩌지. 여기서 싸우면<6E5C>유리 씨한테 민폐가……)
@@ -402,7 +402,7 @@ dom1Yuri_O0727_0.mes,Script/dom1Yuri_O0727_0.mes,14,49,주인공,あーもう、
 dom1Yuri_O0727_0.mes,Script/dom1Yuri_O0727_0.mes,15,5,[효과음/내레이션],バタン!,쾅!,쾅!
 dom1Yuri_O0727_0.mes,Script/dom1Yuri_O0727_0.mes,16,49,주인공,(……とは言え、どこに行こうか.<6E5C>こんな俺でも、ユリさんは極限流で<6E5C>必要としてくれるんだろうか?,"(……라고는 해도, 어디로 갈까.<6E5C>이런 나라도, 유리 씨는 극한류에서<6E5C>필요로 해줄까?","(……라고는 해도, 어디로 갈까.<6E5C>이런 나라도, 유리 씨는 극한류에서<6E5C>필요로 해줄까?"
 dom1Yuri_O0727_0.mes,Script/dom1Yuri_O0727_0.mes,17,52,주인공,極限流に行けば、芯のある男になれ<6E5C>るのか……<485C>いやいや、そんな風に頼ってる<6E5C>時点でダメじゃないのか?),"(……그래도, 어디로 갈까.<6E5C>이런 나라도 유리 씨는 극한류에서<6E5C>필요로 해줄까?","(……그래도, 어디로 갈까.<6E5C>이런 나라도 유리 씨는 극한류에서<6E5C>필요로 해줄까?"
-dom1Yuri_O0727_0.mes,Script/dom1Yuri_O0727_0.mes,18,18,[선택지],極限流道場へ行くネオジオランドへ行く,도장에 간다네오지오랜드 간다,도장에 간다<6E5C>네오지오랜드 간다
+dom1Yuri_O0727_0.mes,Script/dom1Yuri_O0727_0.mes,18,18,[선택지],極限流道場へ行くネオジオランドへ行く,도장에 간다네오지오랜드 간다,도장에 간다\네오지오랜드 간다
 dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,0,19,주인공,(とにかく、前に進まないと<6E5C>な……),(아무튼 앞으로 나아가야<6E5C>지……),(아무튼 앞으로 나아가야<6E5C>지……)
 dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,1,8,Yuri,あら、<이름:3232>くん,"어머, <이름:3232>군","어머, <이름:3232>군"
 dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,2,22,주인공,こんにちはユリさん.<6E5C>先日はどうも……へへ,안녕하세요.<6E5C>요전엔 감사했어요…헤헤,안녕하세요.<6E5C>요전엔 감사했어요…헤헤
@@ -419,7 +419,7 @@ dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,12,3,주인공,!?,!?,!?
 dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,13,31,Yuri,うれしいッチ!<이름:3232>くんが入って<6E5C>くれたら、道場も活気づくよ!,"기쁘치!<이름:3232>군이 들어와<6E5C>주면, 도장도 활기 넘칠 거야!","기쁘치!<이름:3232>군이 들어와<6E5C>주면, 도장도 활기 넘칠 거야!"
 dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,14,20,주인공,そんなに喜んでくれるなんて、<6E5C>光栄です,"그렇게 기뻐해주시다니,<6E5C>영광이에요","그렇게 기뻐해주시다니,<6E5C>영광이에요"
 dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,15,43,Yuri,でも、どうして決心したの?<6E5C>門下生にならなくても、今まで<6E5C>みたいな稽古ならできたのに,근데 왜 결심했어?<6E5C>문하생이 안 돼도 지금까지<6E5C>처럼 수련할 수 있었을 텐데,근데 왜 결심했어?<6E5C>문하생이 안 돼도 지금까지<6E5C>처럼 수련할 수 있었을 텐데
-dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,16,22,[선택지],大事な人を守りたいから自分自身を高めたいから,소중한 사람 지키려고자신을 높이려고,소중한 사람 지키려고<6E5C>자신을 높이려고
+dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,16,22,[선택지],大事な人を守りたいから自分自身を高めたいから,소중한 사람 지키려고자신을 높이려고,소중한 사람 지키려고\자신을 높이려고
 dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,17,16,주인공,大事な人を守りたいからです……,소중한 사람 지키려고……,소중한 사람 지키려고……
 dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,18,8,Yuri,……大事な人?,……그 사람?,……그 사람?
 dom1Yuri_O0727_1.mes,Script/dom1Yuri_O0727_1.mes,19,48,주인공,あ、いや、深い意味じゃなくて、<6E5C>この前ユリさんにかっこわるいとこ<6E5C>見せちゃったから、それで……,"아, 아니, 별 뜻은 없고,<6E5C>요전에 유리 씨한테 한심한 모습<6E5C>보여버려서, 그래서……","아, 아니, 별 뜻은 없고,<6E5C>요전에 유리 씨한테 한심한 모습<6E5C>보여버려서, 그래서……"
@@ -446,14 +446,14 @@ dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,0,30,Yuri,よ~し、じゃあ�
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,1,4,Kaidou,押忍!,오스!,오스!
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,2,6,주인공,お、押忍!,"오,오스!","오,오스!"
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,3,7,Yuri,拳を握って!,주먹을쥐고!,주먹을쥐고!
-dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,4,19,[선택지],第二関節に親指をそろえる親指を握り込む,둘째 관절 엄지 맞추기엄지 말아쥐기,둘째 관절 엄지 맞추기<6E5C>엄지말아쥐기
+dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,4,19,[선택지],第二関節に親指をそろえる親指を握り込む,둘째 관절 엄지 맞추기엄지 말아쥐기,둘째 관절 엄지 맞추기\엄지말아쥐기
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,5,6,주인공,こうですね,이렇게요,이렇게요
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,6,23,Yuri,そう!手をケガしないように気を<6E5C>つけるッチ!,맞아! 손 안 다치게 조심<6E5C>하치!,맞아! 손 안 다치게 조심<6E5C>하치!
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,7,8,주인공,こうでしたっけ,이랬었나요,이랬었나요
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,8,24,Yuri,それじゃ手をケガしちゃうよ!<6E5C>基本を忘れたの?,그러면 손 다친다고!<6E5C>기본을 잊은 거야?,그러면 손 다친다고!<6E5C>기본을 잊은 거야?
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,9,7,주인공,しまった……,아차……,아차……
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,10,8,Yuri,次は前屈立ち!,전굴서기!,전굴서기!
-dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,11,22,[선택지],前足を直角に曲げる両足を前に向けて腰を下げる,앞발 직각 굽히기양발 앞으로 허리 낮추기,앞발 직각 굽히기<6E5C>양발 앞으로허리 낮추기
+dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,11,22,[선택지],前足を直角に曲げる両足を前に向けて腰を下げる,앞발 직각 굽히기양발 앞으로 허리 낮추기,앞발 직각 굽히기\양발 앞으로허리 낮추기
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,12,6,주인공,こうですね,이렇게요,이렇게요
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,13,9,Yuri,そう!その調子!,맞아! 그느낌!,맞아! 그느낌!
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,14,7,주인공,こうですか?,이런가요?,이런가요?
@@ -465,7 +465,7 @@ dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,19,11,주인공,はい、がん
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,20,26,Yuri,今日の<이름:3232>くんはボーっと<6E5C>してるよ!しっかりして!,오늘 <이름:3232>군은 멍하니<6E5C>있네! 정신 차려!,오늘 <이름:3232>군은 멍하니<6E5C>있네! 정신 차려!
 dom1Yuri_O0727_2.mes,Script/dom1Yuri_O0727_2.mes,21,8,주인공,すいません……,죄송해요……,죄송해요……
 dom1Yuri_O0727_3.mes,Script/dom1Yuri_O0727_3.mes,0,31,Yuri,じゃあ次は組み手ね.あたしと<6E5C>海堂くんと、どっちと組みたい?,그럼 다음 대련이야.나랑<6E5C>카이도중에 누구랑 하고 싶어?,그럼 다음 대련이야.나랑<6E5C>카이도중에 누구랑 하고 싶어?
-dom1Yuri_O0727_3.mes,Script/dom1Yuri_O0727_3.mes,1,4,[선택지],ユリ海堂,유리카이,유리카이
+dom1Yuri_O0727_3.mes,Script/dom1Yuri_O0727_3.mes,1,4,[선택지],ユリ海堂,유리카이,유리\카이
 dom1Yuri_O0727_3.mes,Script/dom1Yuri_O0727_3.mes,2,13,주인공,ユリさん、お願いします!,"유리 씨, 부탁드려요!","유리 씨, 부탁드려요!"
 dom1Yuri_O0727_3.mes,Script/dom1Yuri_O0727_3.mes,3,20,Yuri,よーし、じゃあ思いっきり突いてみ<6E5C>て!,"좋아, 그럼 힘껏 찔러<6E5C>봐!","좋아, 그럼 힘껏 찔러<6E5C>봐!"
 dom1Yuri_O0727_3.mes,Script/dom1Yuri_O0727_3.mes,4,13,주인공,え……ユリさんにですか?,네……유리 씨한테요?,네……유리 씨한테요?
@@ -550,7 +550,7 @@ dom1Yuri_O0728_1.mes,Script/dom1Yuri_O0728_1.mes,28,15,Yuri,じゃ、今度は<�
 dom1Yuri_O0728_1.mes,Script/dom1Yuri_O0728_1.mes,29,16,주인공,ええっ!?今の技はちょっと……,엣!?방금 그 기술은 좀……,엣!?방금 그 기술은 좀……
 dom1Yuri_O0728_1.mes,Script/dom1Yuri_O0728_1.mes,30,44,Yuri,わかってる!極限流名物の氷柱<6E5C>割りかビール瓶切りをやって<6E5C>もらうッチ!どっちがいーい?,알고 있어!극한류 고드름<6E5C>깨기나 맥주병 자르기 해달라는<6E5C>거치!어느쪽이 좋아?,알고 있어!극한류 고드름<6E5C>깨기나 맥주병 자르기 해달라는<6E5C>거치!어느쪽이 좋아?
 dom1Yuri_O0728_1.mes,Script/dom1Yuri_O0728_1.mes,31,13,주인공,な、なんですかそれは!?,"뭐, 뭐예요 그게!?","뭐, 뭐예요 그게!?"
-dom1Yuri_O0728_1.mes,Script/dom1Yuri_O0728_1.mes,32,10,[선택지],氷柱割りビール瓶切り,고드름깨기맥주자르기,고드름깨기<6E5C>맥주자름
+dom1Yuri_O0728_1.mes,Script/dom1Yuri_O0728_1.mes,32,10,[선택지],氷柱割りビール瓶切り,고드름깨기맥주자르기,고드름깨기\맥주자름
 dom1Yuri_O0728_1.mes,Script/dom1Yuri_O0728_1.mes,33,14,주인공,じゃ、じゃあ氷柱割りを……,그럼 고드름 깨기를……,그럼 고드름 깨기를……
 dom1Yuri_O0728_1.mes,Script/dom1Yuri_O0728_1.mes,34,28,Yuri,オッケー!4枚の氷柱を積んだか<6E5C>ら思いっきり割るッチ!,오케이!고드름 4장 쌓았으니<6E5C>있는 힘껏 깰 거치!,오케이!고드름 4장 쌓았으니<6E5C>있는 힘껏 깰 거치!
 dom1Yuri_O0728_1.mes,Script/dom1Yuri_O0728_1.mes,35,8,주인공,よ、よーし……,"조, 좋아……","조, 좋아……"
@@ -575,7 +575,7 @@ dom1Yuri_O0728_2.mes,Script/dom1Yuri_O0728_2.mes,2,44,Yuri,アハハ、<이름:3
 dom1Yuri_O0728_2.mes,Script/dom1Yuri_O0728_2.mes,3,21,주인공,お昼か……ユリさんはどうするんで<6E5C>すか?,점심인가……유리씨 뭐 하<6E5C>실 거예요?,점심인가……유리씨 뭐 하<6E5C>실 거예요?
 dom1Yuri_O0728_2.mes,Script/dom1Yuri_O0728_2.mes,4,14,Yuri,あたしはお手製のカレーだよ,난 직접 만든 카레야,난 직접 만든 카레야
 dom1Yuri_O0728_2.mes,Script/dom1Yuri_O0728_2.mes,5,7,주인공,カレーか……,카레인가……,카레인가……
-dom1Yuri_O0728_2.mes,Script/dom1Yuri_O0728_2.mes,6,25,[선택지],俺も食べさせてください外でいっしょに食べませんか?,저도 먹게 해주세요밖에서 같이 먹을래요?,저도 먹게 해주세요<6E5C>밖에서 같이 먹을래요?
+dom1Yuri_O0728_2.mes,Script/dom1Yuri_O0728_2.mes,6,25,[선택지],俺も食べさせてください外でいっしょに食べませんか?,저도 먹게 해주세요밖에서 같이 먹을래요?,저도 먹게 해주세요\밖에서 같이 먹을래요?
 dom1Yuri_O0728_2.mes,Script/dom1Yuri_O0728_2.mes,7,23,주인공,俺も、ユリさんのカレー食べさせて<6E5C>ください!,"저도, 유리 씨 카레 먹게 해<6E5C>주세요!","저도, 유리 씨 카레 먹게 해<6E5C>주세요!"
 dom1Yuri_O0728_2.mes,Script/dom1Yuri_O0728_2.mes,8,14,Yuri,え?お子様用のカレーだよ?,어?어린이용 카레인데?,어?어린이용 카레인데?
 dom1Yuri_O0728_2.mes,Script/dom1Yuri_O0728_2.mes,9,8,주인공,食べたいです!,먹고 싶어요!,먹고 싶어요!
@@ -601,7 +601,7 @@ dom1Yuri_O0728_3.mes,Script/dom1Yuri_O0728_3.mes,7,4,주인공,まぁな,그래,
 dom1Yuri_O0728_3.mes,Script/dom1Yuri_O0728_3.mes,8,30,Kaidou,まさかホントに極限流に入っちまう<6E5C>とはな…….意外だったぜ,설마 진짜로 극한류에 들어갈<6E5C>줄이야…….의외였어,설마 진짜로 극한류에 들어갈<6E5C>줄이야…….의외였어
 dom1Yuri_O0728_3.mes,Script/dom1Yuri_O0728_3.mes,9,10,주인공,自分でもそう思うよ,나도 그리 생각해,나도 그리 생각해
 dom1Yuri_O0728_3.mes,Script/dom1Yuri_O0728_3.mes,10,65,Kaidou,オマエ、どうせユリ師範が目当てで<6E5C>入ったんだろ?<485C>そういうよこしまな気持ちじゃ、<6E5C>ぜってー強くなれねぇぜ.<6E5C>あきらめたらどうだ?,"너, 어차피 유리 사범님 노리고<6E5C>들어온 거지?<485C>그런 불순한 마음가짐으론,<6E5C>절대 강해질 수 없어.<6E5C>포기하는 게 어때?","너, 어차피 유리 사범님 노리고<6E5C>들어온 거지?<485C>그런 불순한 마음가짐으론,<6E5C>절대 강해질 수 없어.<6E5C>포기하는 게 어때?"
-dom1Yuri_O0728_3.mes,Script/dom1Yuri_O0728_3.mes,11,15,[선택지],そんなんじゃないよそうかもなぁ,그런거 아니야그럴지도 모르지,그런거아니야<6E5C>그럴지도 모르지
+dom1Yuri_O0728_3.mes,Script/dom1Yuri_O0728_3.mes,11,15,[선택지],そんなんじゃないよそうかもなぁ,그런거 아니야그럴지도 모르지,그런거아니야\그럴지도 모르지
 dom1Yuri_O0728_3.mes,Script/dom1Yuri_O0728_3.mes,12,10,주인공,そんなんじゃないよ,그런 거 아니야,그런 거 아니야
 dom1Yuri_O0728_3.mes,Script/dom1Yuri_O0728_3.mes,13,11,Kaidou,しらばっくれんなよ!,시치미 떼지 마!,시치미 떼지 마!
 dom1Yuri_O0728_3.mes,Script/dom1Yuri_O0728_3.mes,14,24,주인공,……体をきたえなおしたいっていう<6E5C>のは本当だぜ,……몸을 다시 단련하고 싶다는<6E5C>건 진짜야,……몸을 다시 단련하고 싶다는<6E5C>건 진짜야
@@ -643,7 +643,7 @@ dom1Yuri_O0729_0.mes,Script/dom1Yuri_O0729_0.mes,14,30,Kasumi,……極限流は
 dom1Yuri_O0729_0.mes,Script/dom1Yuri_O0729_0.mes,15,26,Kasumi,……先輩とて例外ではない!<6E5C>この場で決着をつける!,선배도 예외 아니다!<6E5C>이 자리서 결판낸다!,선배도 예외 아니다!<6E5C>이 자리서 결판낸다!
 dom1Yuri_O0729_0.mes,Script/dom1Yuri_O0729_0.mes,16,14,주인공,げぇ、口調が変わってる……,"헉, 말투가 바뀌었어……","헉, 말투가 바뀌었어……"
 dom1Yuri_O0729_0.mes,Script/dom1Yuri_O0729_0.mes,17,11,Kasumi,覚悟……よろしいな!,각오…되어 있겠지!,각오…되어 있겠지!
-dom1Yuri_O0729_0.mes,Script/dom1Yuri_O0729_0.mes,18,6,[선택지],戦う説得する,전투설득,전투<6E5C>설득
+dom1Yuri_O0729_0.mes,Script/dom1Yuri_O0729_0.mes,18,6,[선택지],戦う説得する,전투설득,전투\설득
 dom1Yuri_O0729_1.mes,Script/dom1Yuri_O0729_1.mes,0,60,주인공,香澄……たしかにおまえが<6E5C>ショックを受けるのも無理ないよ<485C>柔剣部にいながら、おまえに<6E5C>黙って極限流に入ったのは悪かった,카스미…확실히 네가<6E5C>충격받는 것도 무리 아니야<485C>유검부에 있으면서 너한테<6E5C>말없이 극한류 들어간 건 미안했다,카스미…확실히 네가<6E5C>충격받는 것도 무리 아니야<485C>유검부에 있으면서 너한테<6E5C>말없이 극한류 들어간 건 미안했다
 dom1Yuri_O0729_1.mes,Script/dom1Yuri_O0729_1.mes,1,13,Kasumi,言い訳など閉きたくない!,변명 들을 생각 없어!,변명 들을 생각 없어!
 dom1Yuri_O0729_1.mes,Script/dom1Yuri_O0729_1.mes,2,53,주인공,あぁ、おまえが言っても閉かない<6E5C>やつだってことは、先輩の俺が<6E5C>よく知ってる<485C>よし、来い!相手してやるぜ!,"그래, 네가 말해도 안 들을<6E5C>녀석이란 건, 선배인 내가<6E5C>잘 알아<485C>좋아, 덤벼!상대해주마!","그래, 네가 말해도 안 들을<6E5C>녀석이란 건, 선배인 내가<6E5C>잘 알아<485C>좋아, 덤벼!상대해주마!"
@@ -695,7 +695,7 @@ dom1Yuri_O0729_2.mes,Script/dom1Yuri_O0729_2.mes,5,5,주인공,でも……,그�
 dom1Yuri_O0729_2.mes,Script/dom1Yuri_O0729_2.mes,6,55,Yuri,……家族が突然いなくなるって、<6E5C>つらいよね……<485C>何かにあたらないと<6E5C>やってられないよね……あたしも<6E5C>わかるよ,"……가족이 갑자기 사라진다는 거,<6E5C>힘들지……<485C>뭔가에 화풀이라도 안 하면<6E5C>못 견디지……나도<6E5C>알아","……가족이 갑자기 사라진다는 거,<6E5C>힘들지……<485C>뭔가에 화풀이라도 안 하면<6E5C>못 견디지……나도<6E5C>알아"
 dom1Yuri_O0729_2.mes,Script/dom1Yuri_O0729_2.mes,7,5,주인공,…………,…………,…………
 dom1Yuri_O0729_2.mes,Script/dom1Yuri_O0729_2.mes,8,50,Yuri,あっ、ごめん!ちょっとむかしのこ<6E5C>と思い出しちゃった.今はぜんぜん<6E5C>悲しくないから、気にしないで!,"앗, 미안!잠깐 옛날 일<6E5C>이 생각났어.지금은 전혀<6E5C>안 슬프니까, 신경 쓰지 마!","앗, 미안!잠깐 옛날 일<6E5C>이 생각났어.지금은 전혀<6E5C>안 슬프니까, 신경 쓰지 마!"
-dom1Yuri_O0729_2.mes,Script/dom1Yuri_O0729_2.mes,9,17,[선택지],無理しないでください俺がいますよ!,무리하지 마세요제가 있잖아요!,무리하지 마세요<6E5C>제가 있잖아요!
+dom1Yuri_O0729_2.mes,Script/dom1Yuri_O0729_2.mes,9,17,[선택지],無理しないでください俺がいますよ!,무리하지 마세요제가 있잖아요!,무리하지 마세요\제가 있잖아요!
 dom1Yuri_O0729_2.mes,Script/dom1Yuri_O0729_2.mes,10,12,주인공,無理しないでください!,무리하지 마세요!,무리하지 마세요!
 dom1Yuri_O0729_2.mes,Script/dom1Yuri_O0729_2.mes,11,3,Yuri,え?,네?,네?
 dom1Yuri_O0729_2.mes,Script/dom1Yuri_O0729_2.mes,12,89,주인공,母親を亡くすなんて、<6E5C>つらくてあたりまえですよ<485C>月日で悲しみが薄れていっても、<6E5C>けっして無くなるもんじゃ<6E5C>ないと思います<485C>……大人になったって、思いきり<6E5C>悲しんでもいいんですよ,"어머니를 여의다니,<6E5C>힘든 게 당연해요<485C>세월이 지나 슬픔이 옅어져도,<6E5C>결코 사라지는 게<6E5C>아니라고 생각해요<485C>……어른이 되어도, 마음껏<6E5C>슬퍼해도 되는 거예요","어머니를 여의다니,<6E5C>힘든 게 당연해요<485C>세월이 지나 슬픔이 옅어져도,<6E5C>결코 사라지는 게<6E5C>아니라고 생각해요<485C>……어른이 되어도, 마음껏<6E5C>슬퍼해도 되는 거예요"
@@ -720,7 +720,7 @@ dom1Yuri_O0729_3.mes,Script/dom1Yuri_O0729_3.mes,4,16,Yuri,あたし、明日は
 dom1Yuri_O0729_3.mes,Script/dom1Yuri_O0729_3.mes,5,3,주인공,え?,네?,네?
 dom1Yuri_O0729_3.mes,Script/dom1Yuri_O0729_3.mes,6,37,Yuri,明日は父が指導する日なの.<6E5C><이름:3232>くん、父の指導受ける?<6E5C>……まだ早いかな,"내일은 아버지가 지도하는 날.<6E5C><이름:3232>군, 지도받아볼래?<6E5C>…이른가","내일은 아버지가 지도하는 날.<6E5C><이름:3232>군, 지도받아볼래?<6E5C>…이른가"
 dom1Yuri_O0729_3.mes,Script/dom1Yuri_O0729_3.mes,7,5,주인공,…………,…………,…………
-dom1Yuri_O0729_3.mes,Script/dom1Yuri_O0729_3.mes,8,21,[선택지],お父様にご挨拶しますユリさんとデートします,아버님께 인사합니다유리씨와 데이트합니다,아버님께인사합니다<6E5C>유리씨와 데이트합니다
+dom1Yuri_O0729_3.mes,Script/dom1Yuri_O0729_3.mes,8,21,[선택지],お父様にご挨拶しますユリさんとデートします,아버님께 인사합니다유리씨와 데이트합니다,아버님께인사합니다\유리씨와 데이트합니다
 dom1Yuri_O0729_3.mes,Script/dom1Yuri_O0729_3.mes,9,14,주인공,お、お父様にご挨拶します!,아버님께 인사드릴게요!,아버님께 인사드릴게요!
 dom1Yuri_O0729_3.mes,Script/dom1Yuri_O0729_3.mes,10,7,Yuri,ごあいさつ?,인사?,인사?
 dom1Yuri_O0729_3.mes,Script/dom1Yuri_O0729_3.mes,11,33,주인공,門下生となったのだから、やはり師<6E5C>匠には挨拶をしておかないと……,"문하생이 되었으니, 역시 스<6E5C>승님께는 인사를 드려야……","문하생이 되었으니, 역시 스<6E5C>승님께는 인사를 드려야……"
@@ -753,7 +753,7 @@ dom1Yuri_O0730_0.mes,Script/dom1Yuri_O0730_0.mes,4,24,주인공,いえ!……今
 dom1Yuri_O0730_0.mes,Script/dom1Yuri_O0730_0.mes,5,22,Yuri,うん、たまにはね.……おかしくな<6E5C>いかな?,응 가끔은 이래야지……이상하<6E5C>지 않아?,응 가끔은 이래야지……이상하<6E5C>지 않아?
 dom1Yuri_O0730_0.mes,Script/dom1Yuri_O0730_0.mes,6,13,주인공,すごく似合ってますって!,엄청 잘 어울려요!,엄청 잘 어울려요!
 dom1Yuri_O0730_0.mes,Script/dom1Yuri_O0730_0.mes,7,14,Yuri,フフ……なんか照れくさいな,후후……왠지 부끄럽네,후후……왠지 부끄럽네
-dom1Yuri_O0730_0.mes,Script/dom1Yuri_O0730_0.mes,8,23,[선택지],可愛いワンピースですねきれいなイヤリングですね,귀여운 원피스네요.예쁜 귀걸이네요,귀여운 원피스네요<6E5C>예쁜 귀걸이네요
+dom1Yuri_O0730_0.mes,Script/dom1Yuri_O0730_0.mes,8,23,[선택지],可愛いワンピースですねきれいなイヤリングですね,귀여운 원피스네요.예쁜 귀걸이네요,귀여운 원피스네요\예쁜 귀걸이네요
 dom1Yuri_O0730_0.mes,Script/dom1Yuri_O0730_0.mes,9,12,주인공,可愛いワンピースですね,귀여운 원피스네요,귀여운 원피스네요
 dom1Yuri_O0730_0.mes,Script/dom1Yuri_O0730_0.mes,10,27,Yuri,そぅ……?スカートってはきなれ<6E5C>ないから歩きにくいな,그래……? 치마는 익숙하지<6E5C>않아서 걷기 불편하네,그래……? 치마는 익숙하지<6E5C>않아서 걷기 불편하네
 dom1Yuri_O0730_0.mes,Script/dom1Yuri_O0730_0.mes,11,21,주인공,こけそうになったら俺が支えてあげ<6E5C>ますよ,넘어질 것 같으면 제가 잡아<6E5C>드릴게요,넘어질 것 같으면 제가 잡아<6E5C>드릴게요
@@ -781,7 +781,7 @@ dom1Yuri_O0730_2.mes,Script/dom1Yuri_O0730_2.mes,1,26,Yuri,そぅねぇ……静
 dom1Yuri_O0730_2.mes,Script/dom1Yuri_O0730_2.mes,2,5,주인공,…………,……,……
 dom1Yuri_O0730_2.mes,Script/dom1Yuri_O0730_2.mes,3,7,Yuri,どうしたの?,왜 그래?,왜 그래?
 dom1Yuri_O0730_2.mes,Script/dom1Yuri_O0730_2.mes,4,9,주인공,……ユリさん……,……유리 씨……,……유리 씨……
-dom1Yuri_O0730_2.mes,Script/dom1Yuri_O0730_2.mes,5,29,[선택지],変なものでも食べたんですか?俺といるの楽しくないんですか?,이상한 거라도 먹었어요? 저랑 있는 게 재미없어요?,이상한 거라도 먹었어요?<6E5C> 저랑 있는 게 재미없어요?
+dom1Yuri_O0730_2.mes,Script/dom1Yuri_O0730_2.mes,5,29,[선택지],変なものでも食べたんですか?俺といるの楽しくないんですか?,이상한 거라도 먹었어요? 저랑 있는 게 재미없어요?,이상한 거라도 먹었어요?\ 저랑 있는 게 재미없어요?
 dom1Yuri_O0730_2.mes,Script/dom1Yuri_O0730_2.mes,6,15,주인공,変なものでも食べたんですか?,이상한 거라도 먹었어요?,이상한 거라도 먹었어요?
 dom1Yuri_O0730_2.mes,Script/dom1Yuri_O0730_2.mes,7,4,Yuri,えぇ?,에?,에?
 dom1Yuri_O0730_2.mes,Script/dom1Yuri_O0730_2.mes,8,48,주인공,……今日のユリさんおかしいです.<6E5C>ずっと上の空です.お腹が痛いんで<6E5C>しょう?正直に言って下さい,……오늘 유리 씨 이상해요.<6E5C>계속 멍하니 있고요 배가 아<6E5C>픈 거죠? 솔직히 말해주세요,……오늘 유리 씨 이상해요.<6E5C>계속 멍하니 있고요 배가 아<6E5C>픈 거죠? 솔직히 말해주세요
@@ -903,7 +903,7 @@ dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,5,27,Yuri,稽古を思い出し
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,6,9,주인공,ユリさんの技を?,유리씨 기술?,유리씨 기술?
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,7,14,Yuri,拳を思いっきりぶつけるの!,주먹 힘껏 부딪쳐!,주먹 힘껏 부딪쳐!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,8,5,주인공,拳を……,주먹……,주먹……
-dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,9,9,[선택지],龍煌拳虎煌拳虎煌拳,용황권호황권호황권,용황권호황권호황권
+dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,9,9,[선택지],龍煌拳虎煌拳虎煌拳,용황권호황권호황권,용황권\호황권\호황권
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,10,5,주인공,これだ!,이거다!,이거다!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,11,5,[효과음/내레이션],バキィ!,빠직!,빠직!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,12,6,UNKNOWN_32,ぐわぁぁぁ,으아아악,으아아악
@@ -916,7 +916,7 @@ dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,18,7,Yuri,<이름:3232>くん�
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,19,8,UNKNOWN_33,なめるなよー!,까불지 마!,까불지 마!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,20,14,Yuri,<이름:3232>くん!拳を突き上げて!,<이름:3232>군! 주먹을 올려쳐!,<이름:3232>군! 주먹을 올려쳐!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,21,10,주인공,拳を突き上げる……,주먹 올려친다……,주먹 올려친다……
-dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,22,6,[선택지],空牙空刀雷牙,공아공도뢰아,공아공도뢰아
+dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,22,6,[선택지],空牙空刀雷牙,공아공도뢰아,공아\공도\뢰아
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,23,5,주인공,これだ!,이거다!,이거다!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,24,5,[효과음/내레이션],バキィ!,빠직!,빠직!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,25,6,UNKNOWN_33,ぐわぁぁぁ,으아아악,으아아악
@@ -929,7 +929,7 @@ dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,31,7,Yuri,<이름:3232>くん�
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,32,12,UNKNOWN_34,だまってやられてろー!,닥치고 당해라!,닥치고 당해라!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,33,10,Yuri,<이름:3232>くん!舞って!,<이름:3232>군! 춤춰!,<이름:3232>군! 춤춰!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,34,6,주인공,ま、舞う?,춤을?,춤을?
-dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,35,12,[선택지],飛燕烈孔龍虎烈孔猛虎烈孔,비연열공용호열공맹호열공,비연열공용호열공맹호열공
+dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,35,12,[선택지],飛燕烈孔龍虎烈孔猛虎烈孔,비연열공용호열공맹호열공,비연열공\용호열공\맹호열공
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,36,5,주인공,これだ!,이거다!,이거다!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,37,5,[효과음/내레이션],バキィ!,빠직!,빠직!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,38,6,UNKNOWN_34,ぐわぁぁぁ,으아아악,으아아악
@@ -942,7 +942,7 @@ dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,44,7,Yuri,<이름:3232>くん�
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,45,11,UNKNOWN_35,まだやる気かこらぁ!,아직도 덤빌 거냐!,아직도 덤빌 거냐!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,46,12,Yuri,<이름:3232>くん!連なる打撃!,<이름:3232>군! 연속 타격!,<이름:3232>군! 연속 타격!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,47,7,주인공,連なる打撃?,연속 타격?,연속 타격?
-dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,48,15,[선택지],飛燕鳳凰脚飛燕鳳来脚飛燕鳳翼脚,비연봉황각비연봉래각비연봉익각,비연봉황각비연봉래각비연봉익각
+dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,48,15,[선택지],飛燕鳳凰脚飛燕鳳来脚飛燕鳳翼脚,비연봉황각비연봉래각비연봉익각,비연봉황각\비연봉래각\비연봉익각
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,49,5,주인공,これだ!,이거다!,이거다!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,50,5,[효과음/내레이션],バキィ!,빠직!,빠직!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,51,6,UNKNOWN_35,ぐわぁぁぁ,으아아악,으아아악
@@ -955,7 +955,7 @@ dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,57,7,Yuri,<이름:3232>くん�
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,58,12,UNKNOWN_36,いいかげんくたばれー!,적당히 좀 죽어라!,적당히 좀 죽어라!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,59,16,Yuri,<이름:3232>くん!ヒップアタックッチ!,<이름:3232>군! 힙 어택치!,<이름:3232>군! 힙 어택치!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,60,11,주인공,ひ、ひっぷあたっく?,"히, 힙 어택?","히, 힙 어택?"
-dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,61,6,[선택지],<9B1C>翼鬼翼燕翼,<9B1C>익귀익연익,<9B1C>익귀익연익
+dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,61,6,[선택지],<9B1C>翼鬼翼燕翼,<9B1C>익귀익연익,<9B1C>익\귀익\연익
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,62,5,주인공,これだ!,이거다!,이거다!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,63,5,[효과음/내레이션],バキィ!,빠직!,빠직!
 dom1Yuri_O0731_1.mes,Script/dom1Yuri_O0731_1.mes,64,6,UNKNOWN_36,ぐわぁぁぁ,으아아악,으아아악
@@ -1152,7 +1152,7 @@ dom1Yuri_S05.mes,Script/dom1Yuri_S05.mes,19,6,주인공,……ゲップ,……�
 dom1Yuri_S05.mes,Script/dom1Yuri_S05.mes,20,48,Yuri,<이름:3232>くん、いいトコロに!今ね、<6E5C>小学生に指導してるトコなんだけ<6E5C>ど、練習相手になってくれない?,"<이름:3232>군, 마침 잘 왔어!지금,<6E5C>초등학생 지도하던 참인데,<6E5C>연습 상대 좀 해줄래?","<이름:3232>군, 마침 잘 왔어!지금,<6E5C>초등학생 지도하던 참인데,<6E5C>연습 상대 좀 해줄래?"
 dom1Yuri_S05.mes,Script/dom1Yuri_S05.mes,21,9,주인공,小学生のですか?,초등학생요?,초등학생요?
 dom1Yuri_S05.mes,Script/dom1Yuri_S05.mes,22,4,Yuri,うん!,응!,응!
-dom1Yuri_S05.mes,Script/dom1Yuri_S05.mes,23,17,[선택지],やりますそれよりユリさんと組みたい,"할래요, 유리 씨와 겨뤄요","할래요, 유리 씨와 겨뤄요"
+dom1Yuri_S05.mes,Script/dom1Yuri_S05.mes,23,17,[선택지],やりますそれよりユリさんと組みたい,"할래요, 유리 씨와 겨뤄요","할래요,\ 유리 씨와 겨뤄요"
 dom1Yuri_S05.mes,Script/dom1Yuri_S05.mes,24,12,주인공,わかりました、やります,"알겠어요, 할게요","알겠어요, 할게요"
 dom1Yuri_S05.mes,Script/dom1Yuri_S05.mes,25,6,Yuri,ありがとー,고마워,고마워
 dom1Yuri_S05.mes,Script/dom1Yuri_S05.mes,26,27,주인공,(相手は小学生だからな、<6E5C>手加減してやらないと……),"(상대는 초등학생이니까,<6E5C>살살 해줘야지……)","(상대는 초등학생이니까,<6E5C>살살 해줘야지……)"
@@ -1199,7 +1199,7 @@ dom1Yuri_S09.mes,Script/dom1Yuri_S09.mes,4,44,Kaidou,最近、おまえの後輩
 dom1Yuri_S09.mes,Script/dom1Yuri_S09.mes,5,31,주인공,か、香澄のやつか…….あいつ、<6E5C>極限流を目の敵にしてるもんな,"카, 카스미인가…….그앤<6E5C>극한류를 눈엣가시로 여기잖아","카, 카스미인가…….그앤<6E5C>극한류를 눈엣가시로 여기잖아"
 dom1Yuri_S09.mes,Script/dom1Yuri_S09.mes,6,39,Kaidou,しかたないって、逆恨みされてイイ<6E5C>迷惑だぜ!おまえはどっちの味方<6E5C>なんだよ!,"어쩔 수 없다니, 괜한 원한 사서<6E5C>민폐다!넌 대체 누구 편<6E5C>이냐고!","어쩔 수 없다니, 괜한 원한 사서<6E5C>민폐다!넌 대체 누구 편<6E5C>이냐고!"
 dom1Yuri_S09.mes,Script/dom1Yuri_S09.mes,7,4,주인공,え……,어……,어……
-dom1Yuri_S09.mes,Script/dom1Yuri_S09.mes,8,14,[선택지],ユリさんの味方だ香澄の味方だ,유리 편이다 카스미 편이다,유리 편이다<6E5C>카스미 편이다
+dom1Yuri_S09.mes,Script/dom1Yuri_S09.mes,8,14,[선택지],ユリさんの味方だ香澄の味方だ,유리 편이다 카스미 편이다,유리 편이다\카스미 편이다
 dom1Yuri_S09.mes,Script/dom1Yuri_S09.mes,9,12,주인공,俺はユリさんの味方だよ,난 유리 씨 편이야,난 유리 씨 편이야
 dom1Yuri_S09.mes,Script/dom1Yuri_S09.mes,10,29,Kaidou,そーかよ.だったら後輩のこと、<6E5C>テメェがなんとかしろよ!,"그러냐.그럼 후배 일은,<6E5C>네가 알아서 해결해!","그러냐.그럼 후배 일은,<6E5C>네가 알아서 해결해!"
 dom1Yuri_S09.mes,Script/dom1Yuri_S09.mes,11,14,주인공,(そんなこと言っても……),(그런 말을 해도……),(그런 말을 해도……)

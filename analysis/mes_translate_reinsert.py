@@ -71,6 +71,41 @@ LIST_NO_LENGTH_CAP_FILES = {
 # See tio.PAGE_TURN_TOKEN for how the trailing page-turn marker is hidden
 # from the CSV text and re-appended here automatically.
 
+# [선택지] (choice-prompt) blocks store the exact byte-length split points
+# for up to FIVE options in the five header tokens immediately before the
+# block's own speaker/header field: values[s-6], values[s-5], values[s-4],
+# values[s-3], values[s-2] (in order, one slot per option; unused trailing
+# slots are 0). Originally believed (2026-08-27, live melonDS test) to be a
+# 2-slot-only mechanism (values[s-6]+values[s-5] == 2*token_count matching
+# 773/870 = 89% of header==0x0 blocks) - generalized the same day after a
+# user-flagged real 3-option case (dom1Kasumi_O0727_1.mes block1,
+# "舞さんかな|キングさんかな|ユリさんかな" = 5/7/6 tokens -> values[s-6..s-4]
+# = 10/14/12, values[s-3]=values[s-2]=0) prompted a corpus-wide re-check:
+# sum(values[s-6:s-1]) == 2*token_count holds for ALL 870 header==0x0 blocks
+# with NO exceptions (the earlier 11% "mismatch" was blocks with 3-5 options,
+# not a different mechanism - see ANALYSIS_NOTES.md "Task E 재개 (10)"). A
+# handful of blocks (long multi-page monologues rendered via the unrelated
+# list-render force-terminate path, e.g. dom1Leona_O0727_0.mes block6) also
+# satisfy this sum coincidentally but have 6+ segments - the <=4-marker cap
+# below excludes them automatically, so no separate detection is needed.
+# This field is fixed to the ORIGINAL Japanese split points and is never
+# recomputed for the translation, so without this, a choice translation
+# always visually splits at the same byte offsets as the Japanese regardless
+# of where the Korean text's natural boundaries fall. Originally reused the
+# pre-existing "<6E5C>" convention (already used by 98 rows to force a split
+# via the DIFFERENT list-renderer hard-terminate mechanism, see
+# ANALYSIS_NOTES.md "Task E 재개 (5)") as a translator-facing split-point
+# marker here too - see ANALYSIS_NOTES.md "Task E 재개 (7)"/(8).
+# 2026-08-27: switched to a bare "\" instead - "<6E5C>" is ALSO the corpus-wide
+# literal-line-break notation (46k+ occurrences across every speaker, see
+# IGNORED_PLACEHOLDER_CODES in translate_io.py), so reusing it as the choice-
+# split marker meant the exact same text meant two different things depending
+# on context. "\" never otherwise appears in translation text (verified corpus-
+# wide) so there is no such collision. See ANALYSIS_NOTES.md "Task E 재개 (9)".
+CHOICE_SPEAKER = "[선택지]"
+CHOICE_SPLIT_MARK = "\\"
+CHOICE_HEADER_SLOTS = 5  # values[s-6], values[s-5], values[s-4], values[s-3], values[s-2]
+
 
 def load_csv(path):
     by_file = defaultdict(dict)
@@ -142,63 +177,103 @@ def build_file(fname, rows_by_block):
             problems.append(f"block {i}: " + "; ".join(block_problems))
             continue
 
-        try:
-            new_tokens = tio.text_to_tokens(dst_text)
-        except ValueError as ex:
-            problems.append(f"block {i}: {ex}")
-            continue
-
-        if fname == PLAYERNAME_FILE:
-            # No fixed-slot constraint here - just the in-game 3-character
-            # name cap (see PLAYERNAME_FILE comment above).
-            if len(new_tokens) > PLAYERNAME_MAX_TOKENS:
+        # [선택지] blocks: if the translator marked explicit option
+        # boundaries with CHOICE_SPLIT_MARK (1-4 marks = 2-5 options), and
+        # the block's original header matches the "clean N-option" pattern
+        # (see CHOICE_SPEAKER comment above), split+encode each option
+        # separately and patch the header's own split-point fields
+        # (values[s-6..s-2]) to match the translation's boundaries instead
+        # of the original Japanese ones. `s - 6 >= last` guards against
+        # reading into the previous block's own region on the (currently
+        # never-observed) chance the header is narrower than 6 tokens.
+        choice_header_patch = None
+        split_count = dst_text.count(CHOICE_SPLIT_MARK)
+        if (row.get("speaker") == CHOICE_SPEAKER
+                and s - 6 >= last
+                and 1 <= split_count <= CHOICE_HEADER_SLOTS - 1
+                and sum(values[s - 6:s - 1]) == 2 * text_expected_len):
+            opt_texts = dst_text.split(CHOICE_SPLIT_MARK)
+            try:
+                opt_tokens = [tio.text_to_tokens(t) for t in opt_texts]
+            except ValueError as ex:
+                problems.append(f"block {i}: {ex}")
+                continue
+            total = sum(len(t) for t in opt_tokens)
+            if total > text_expected_len:
                 problems.append(
-                    f"block {i}: player name too long - encodes to "
-                    f"{len(new_tokens)} characters, but names are capped at "
-                    f"{PLAYERNAME_MAX_TOKENS} in-game"
+                    f"block {i}: choice options too long - encode to {total} "
+                    f"tokens combined, original allows {text_expected_len}"
                 )
                 continue
-            out.extend(values[last:s])
-            out.extend(new_tokens)
-            last = e
-            continue
+            if total < text_expected_len:
+                # Padding is absorbed into the last option's byte length
+                # below, so the header fields' sum stays identical to the
+                # original.
+                opt_tokens[-1] = opt_tokens[-1] + [tio.SPACE_TOKEN] * (text_expected_len - total)
+            new_tokens = [tok for opt in opt_tokens for tok in opt]
+            lengths = [len(opt) * 2 for opt in opt_tokens]
+            lengths += [0] * (CHOICE_HEADER_SLOTS - len(lengths))
+            choice_header_patch = tuple(lengths)
+        else:
+            try:
+                new_tokens = tio.text_to_tokens(dst_text)
+            except ValueError as ex:
+                problems.append(f"block {i}: {ex}")
+                continue
 
-        if fname in LIST_NO_LENGTH_CAP_FILES:
-            # No length constraint at all (see LIST_NO_LENGTH_CAP_FILES
-            # comment above) - hardware-confirmed for namelist1.mes only so
-            # far; the other files here are the same experiment, pending
-            # their own real hardware/melonDS confirmation.
-            out.extend(values[last:s])
-            out.extend(new_tokens)
-            last = e
-            continue
+            if fname == PLAYERNAME_FILE:
+                # No fixed-slot constraint here - just the in-game 3-character
+                # name cap (see PLAYERNAME_FILE comment above).
+                if len(new_tokens) > PLAYERNAME_MAX_TOKENS:
+                    problems.append(
+                        f"block {i}: player name too long - encodes to "
+                        f"{len(new_tokens)} characters, but names are capped at "
+                        f"{PLAYERNAME_MAX_TOKENS} in-game"
+                    )
+                    continue
+                out.extend(values[last:s])
+                out.extend(new_tokens)
+                last = e
+                continue
 
-        if len(new_tokens) < text_expected_len:
-            # Pad with trailing space tokens rather than failing the block -
-            # a shorter translation is safe to pad, unlike a longer one
-            # (which would have to drop content to fit and is still reported
-            # below). Padded against text_expected_len (excluding the
-            # page-turn marker, if any) so the marker appended below always
-            # ends up last - see tio.PAGE_TURN_TOKEN for why it must never
-            # be pushed off the end by padding. Uses tio.SPACE_TOKEN
-            # (full-width) - see its comment for why the half-width blank is
-            # not used.
-            new_tokens = new_tokens + [tio.SPACE_TOKEN] * (text_expected_len - len(new_tokens))
+            if fname in LIST_NO_LENGTH_CAP_FILES:
+                # No length constraint at all (see LIST_NO_LENGTH_CAP_FILES
+                # comment above) - hardware-confirmed for namelist1.mes only so
+                # far; the other files here are the same experiment, pending
+                # their own real hardware/melonDS confirmation.
+                out.extend(values[last:s])
+                out.extend(new_tokens)
+                last = e
+                continue
 
-        if len(new_tokens) != text_expected_len:
-            problems.append(
-                f"block {i}: token count mismatch - original has {text_expected_len} "
-                f"tokens, translation encodes to {len(new_tokens)} (longer). "
-                "Dialogue blocks must keep an identical token count or the game "
-                "hangs on real hardware/melonDS (confirmed 2026-08-05). Shorten "
-                "the wording."
-            )
-            continue
+            if len(new_tokens) < text_expected_len:
+                # Pad with trailing space tokens rather than failing the block -
+                # a shorter translation is safe to pad, unlike a longer one
+                # (which would have to drop content to fit and is still reported
+                # below). Padded against text_expected_len (excluding the
+                # page-turn marker, if any) so the marker appended below always
+                # ends up last - see tio.PAGE_TURN_TOKEN for why it must never
+                # be pushed off the end by padding. Uses tio.SPACE_TOKEN
+                # (full-width) - see its comment for why the half-width blank is
+                # not used.
+                new_tokens = new_tokens + [tio.SPACE_TOKEN] * (text_expected_len - len(new_tokens))
+
+            if len(new_tokens) != text_expected_len:
+                problems.append(
+                    f"block {i}: token count mismatch - original has {text_expected_len} "
+                    f"tokens, translation encodes to {len(new_tokens)} (longer). "
+                    "Dialogue blocks must keep an identical token count or the game "
+                    "hangs on real hardware/melonDS (confirmed 2026-08-05). Shorten "
+                    "the wording."
+                )
+                continue
 
         if has_page_turn:
             new_tokens = new_tokens + [tio.PAGE_TURN_TOKEN]
 
         out.extend(values[last:s])
+        if choice_header_patch:
+            out[-6], out[-5], out[-4], out[-3], out[-2] = choice_header_patch
         out.extend(new_tokens)
         last = e
 

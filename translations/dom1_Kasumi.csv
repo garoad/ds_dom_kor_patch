@@ -3,7 +3,7 @@ dom1Kasumi_L01.mes,Script/dom1Kasumi_L01.mes,0,25,주인공,(香澄に見つか�
 dom1Kasumi_L01.mes,Script/dom1Kasumi_L01.mes,1,9,주인공,うわ、なんだ!?,"우와, 뭐야!?","우와, 뭐야!?"
 dom1Kasumi_L01.mes,Script/dom1Kasumi_L01.mes,2,32,주인공,なんだよ、七夕の短冊が飛んできた<6E5C>だけか.びっくりさせんなよな,"뭐야, 칠석 소원 쪽지가 날아온<6E5C>것뿐이잖아. 놀라지 마","뭐야, 칠석 소원 쪽지가 날아온<6E5C>것뿐이잖아. 놀라지 마"
 dom1Kasumi_L01.mes,Script/dom1Kasumi_L01.mes,3,13,주인공,(お、なんか書いてある),"(오, 뭔가 써 있네)","(오, 뭔가 써 있네)"
-dom1Kasumi_L01.mes,Script/dom1Kasumi_L01.mes,4,6,[선택지],読む読まない,읽기안읽기,읽기<6E5C>안읽기
+dom1Kasumi_L01.mes,Script/dom1Kasumi_L01.mes,4,6,[선택지],読む読まない,읽기안읽기,읽기\안읽기
 dom1Kasumi_L01.mes,Script/dom1Kasumi_L01.mes,5,47,주인공,え~っと……打倒極限流、父さまが<6E5C>見つかりますように、先輩がちゃん<6E5C>と部活に来ますように……,"타도 극한류, 아버지를<6E5C>찾을 수 있기를, 선배가 제대로<6E5C>동아리에 나오기를……","타도 극한류, 아버지를<6E5C>찾을 수 있기를, 선배가 제대로<6E5C>동아리에 나오기를……"
 dom1Kasumi_L01.mes,Script/dom1Kasumi_L01.mes,6,4,Kasumi,先輩!,선배!,선배!
 dom1Kasumi_L01.mes,Script/dom1Kasumi_L01.mes,7,7,주인공,この声は……,이 소리……,이 소리……
@@ -26,7 +26,7 @@ dom1Kasumi_L02.mes,Script/dom1Kasumi_L02.mes,1,22,Kasumi,あ、先輩!いよい�
 dom1Kasumi_L02.mes,Script/dom1Kasumi_L02.mes,2,16,주인공,なんでそんなに嬉しそうなんだよ,왜 그렇게 좋아하는 거야,왜 그렇게 좋아하는 거야
 dom1Kasumi_L02.mes,Script/dom1Kasumi_L02.mes,3,29,Kasumi,わたしホラー映画が大好きなん<6E5C>です.先輩も行きますよね?,저 공포 영화를 정말 좋아하는<6E5C>데요.선배도 가시죠?,저 공포 영화를 정말 좋아하는<6E5C>데요.선배도 가시죠?
 dom1Kasumi_L02.mes,Script/dom1Kasumi_L02.mes,4,10,주인공,どうしようかな……,어떻게 할까……,어떻게 할까……
-dom1Kasumi_L02.mes,Script/dom1Kasumi_L02.mes,5,6,[선택지],行く行かない,간다안간다,간다<6E5C>안간다
+dom1Kasumi_L02.mes,Script/dom1Kasumi_L02.mes,5,6,[선택지],行く行かない,간다안간다,간다\안간다
 dom1Kasumi_L02.mes,Script/dom1Kasumi_L02.mes,6,23,주인공,行こう……かな.<6E5C>でもきもだめしってなぁ……,가야겠지……<6E5C>근데 담력시험이라니……,가야겠지……<6E5C>근데 담력시험이라니……
 dom1Kasumi_L02.mes,Script/dom1Kasumi_L02.mes,7,50,Kasumi,わかりました.<6E5C>そんなに怖いのなら、わたしが<6E5C>付いて行ってあげます<485C>今日の夜、ここで待ってますから,"알겠습니다.<6E5C>그렇게 무서우시면, 제가<6E5C>따라가 드릴게요<485C>오늘 밤, 여기서 기다리고 있을게요","알겠습니다.<6E5C>그렇게 무서우시면, 제가<6E5C>따라가 드릴게요<485C>오늘 밤, 여기서 기다리고 있을게요"
 dom1Kasumi_L02.mes,Script/dom1Kasumi_L02.mes,8,16,주인공,(行っちまった……まぁいいか),(가버렸네…… 뭐 됐나),(가버렸네…… 뭐 됐나)
@@ -126,7 +126,7 @@ dom1Kasumi_L05.mes,Script/dom1Kasumi_L05.mes,4,24,Kasumi,いろいろ考える�
 dom1Kasumi_L05.mes,Script/dom1Kasumi_L05.mes,5,11,주인공,親父さんのこととか?,아버님 일이라던가?,아버님 일이라던가?
 dom1Kasumi_L05.mes,Script/dom1Kasumi_L05.mes,6,33,Kasumi,ええ、それもあります.あと、先輩<6E5C>をいかに稽古に連れ出すか、とか,"네,그것도 있어요.그리고, 선배<6E5C>를 수련에 데려갈지,라든가","네,그것도 있어요.그리고, 선배<6E5C>를 수련에 데려갈지,라든가"
 dom1Kasumi_L05.mes,Script/dom1Kasumi_L05.mes,7,29,주인공,気苦労かけて悪かったよ.おわびっ<6E5C>てわけじゃないけど……,신경 쓰게 해서 미안했어.사과<6E5C>라긴 뭐하지만……,신경 쓰게 해서 미안했어.사과<6E5C>라긴 뭐하지만……
-dom1Kasumi_L05.mes,Script/dom1Kasumi_L05.mes,8,19,[선택지],花火大会に行かないか一発殴らせてやるよ,불꽃놀이 가자고 하기한 대 때려주기,불꽃놀이가자고하기<6E5C>한대때려주기
+dom1Kasumi_L05.mes,Script/dom1Kasumi_L05.mes,8,19,[선택지],花火大会に行かないか一発殴らせてやるよ,불꽃놀이 가자고 하기한 대 때려주기,불꽃놀이가자고하기\한대때려주기
 dom1Kasumi_L05.mes,Script/dom1Kasumi_L05.mes,9,46,주인공,今日の花火大会、一緒に行かない<6E5C>か?たくさん人が集まるから、親父<6E5C>さんも来るかもしれないし,"오늘 불꽃놀이,같이 가지<6E5C>않을래? 사람이 모이니까, 아버님<6E5C>도 오실지도 몰라서","오늘 불꽃놀이,같이 가지<6E5C>않을래? 사람이 모이니까, 아버님<6E5C>도 오실지도 몰라서"
 dom1Kasumi_L05.mes,Script/dom1Kasumi_L05.mes,10,13,Kasumi,そうですね、行きましょう,"그러네요, 가시죠","그러네요, 가시죠"
 dom1Kasumi_L05.mes,Script/dom1Kasumi_L05.mes,11,30,주인공,よし、それじゃ一回帰って、着替え<6E5C>て河川敷で待ち合わせよう,"좋아,그럼 일단 집에 가서,<6E5C>갈아입고 강변에서 만나자","좋아,그럼 일단 집에 가서,<6E5C>갈아입고 강변에서 만나자"
@@ -140,7 +140,7 @@ dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,1,24,주인공,そうだな.け
 dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,2,9,Kasumi,あ!<020A>父さま!?,아!<020A>아버지!?,아!<020A>아버지!?
 dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,3,9,주인공,お、おい、香澄!,"야, 카스미!","야, 카스미!"
 dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,4,15,주인공,(走って行っちゃったよ……),(뛰어가 버렸네……),(뛰어가 버렸네……)
-dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,5,14,[선택지],あとを追う戻ってくるのを待つ,뒤쫓기기다리기,뒤쫓기<6E5C>기다리기
+dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,5,14,[선택지],あとを追う戻ってくるのを待つ,뒤쫓기기다리기,뒤쫓기\기다리기
 dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,6,32,주인공,(こう人が多いと、前に進むのも<6E5C>大変だな……っと、見つけた!),(이렇게 사람 많으면 앞으로<6E5C>나가기도 힘드네……찾았다!),(이렇게 사람 많으면 앞으로<6E5C>나가기도 힘드네……찾았다!)
 dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,7,4,주인공,香澄!,카스미,카스미
 dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,8,24,Kasumi,見失っちゃいました……人違いだっ<6E5C>たのかな……,놓쳐버렸어요……사람을 잘못<6E5C>봤나 봐요……,놓쳐버렸어요……사람을 잘못<6E5C>봤나 봐요……
@@ -156,7 +156,7 @@ dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,17,6,[효과음/내레이션],�
 dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,18,40,주인공,(し、しまった……ここで重ね<6E5C>当てを繰り出されるとは、<6E5C>予想できなかった……),"(아, 아차……여기서 설마<6E5C>포갬타가 나올 줄은,<6E5C>예상 못 했다……)","(아, 아차……여기서 설마<6E5C>포갬타가 나올 줄은,<6E5C>예상 못 했다……)"
 dom1Kasumi_L05_2.mes,Script/dom1Kasumi_L05_2.mes,19,10,Kasumi,わたし、帰ります!,"저, 갈게요!","저, 갈게요!"
 dom1Kasumi_L06.mes,Script/dom1Kasumi_L06.mes,0,26,주인공,(ん?なんか人だかりができ<6E5C>てるぞ.なんだろう?),(응? 뭔가 사람들이 모여<6E5C>있네. 뭐지?),(응? 뭔가 사람들이 모여<6E5C>있네. 뭐지?)
-dom1Kasumi_L06.mes,Script/dom1Kasumi_L06.mes,1,10,[선택지],見に行く見に行かない,보러가기안보러가기,보러가기<6E5C>안보러가기
+dom1Kasumi_L06.mes,Script/dom1Kasumi_L06.mes,1,10,[선택지],見に行く見に行かない,보러가기안보러가기,보러가기\안보러가기
 dom1Kasumi_L06.mes,Script/dom1Kasumi_L06.mes,2,13,UNKNOWN_13,極限流、覚悟よろしいか!,"극한류, 각오됐느냐!","극한류, 각오됐느냐!"
 dom1Kasumi_L06.mes,Script/dom1Kasumi_L06.mes,3,14,주인공,(こ、この声はまさか……),"(이 목소리, 설마……)","(이 목소리, 설마……)"
 dom1Kasumi_L06.mes,Script/dom1Kasumi_L06.mes,4,4,주인공,香澄!,카스미,카스미
@@ -218,7 +218,7 @@ dom1Kasumi_L07.mes,Script/dom1Kasumi_L07.mes,14,15,Kaidou,お?おう.なんか�
 dom1Kasumi_L07.mes,Script/dom1Kasumi_L07.mes,15,10,Kasumi,覚悟、よろしいか!,각오는 되셨는지!,각오는 되셨는지!
 dom1Kasumi_L07.mes,Script/dom1Kasumi_L07.mes,16,3,Kaidou,は?,뭐?,뭐?
 dom1Kasumi_L07.mes,Script/dom1Kasumi_L07.mes,17,7,주인공,(まずい!),(큰일!),(큰일!)
-dom1Kasumi_L07.mes,Script/dom1Kasumi_L07.mes,18,11,[선택지],香澄を止める様子を見る,카스미를 말린다,말린다<6E5C>지켜본다
+dom1Kasumi_L07.mes,Script/dom1Kasumi_L07.mes,18,11,[선택지],香澄を止める様子を見る,카스미를 말린다,말린다\지켜본다
 dom1Kasumi_L07.mes,Script/dom1Kasumi_L07.mes,19,14,주인공,ちょ、ちょっと待て、香澄!,"잠, 잠깐만, 카스미!","잠, 잠깐만, 카스미!"
 dom1Kasumi_L07.mes,Script/dom1Kasumi_L07.mes,20,15,Kasumi,先輩!どうして止めるんです!,선배!왜 말리시는 겁니까!,선배!왜 말리시는 겁니까!
 dom1Kasumi_L07.mes,Script/dom1Kasumi_L07.mes,21,17,주인공,止めなきゃ大変なことになるからだ,말리지 않으면 큰일 나니까,말리지 않으면 큰일 나니까
@@ -283,7 +283,7 @@ dom1Kasumi_L09.mes,Script/dom1Kasumi_L09.mes,5,8,주인공,……デートの?,�
 dom1Kasumi_L09.mes,Script/dom1Kasumi_L09.mes,6,6,Kasumi,部活です!,동아리요!,동아리요!
 dom1Kasumi_L09.mes,Script/dom1Kasumi_L09.mes,7,48,주인공,(う~ん、実は今日って、俺の誕生<6E5C>日なんだよな…….今日くらいは<6E5C>ゆっくり過ごしたいけど……),"(음~,실은 오늘이 내 생일<6E5C>인데……오늘만이라도<6E5C>느긋하게 보내고 싶은데……)","(음~,실은 오늘이 내 생일<6E5C>인데……오늘만이라도<6E5C>느긋하게 보내고 싶은데……)"
 dom1Kasumi_L09.mes,Script/dom1Kasumi_L09.mes,8,8,주인공,なあ、香澄……,"저기,카스미…","저기,카스미…"
-dom1Kasumi_L09.mes,Script/dom1Kasumi_L09.mes,9,22,[선택지],支度するから少し待って俺、今日は誕生日なんだ,준비할 테니 잠깐만.오늘 내 생일이야,준비할 테니 잠깐만.오늘 내 생일이야
+dom1Kasumi_L09.mes,Script/dom1Kasumi_L09.mes,9,22,[선택지],支度するから少し待って俺、今日は誕生日なんだ,준비할 테니 잠깐만.오늘 내 생일이야,준비할 테니 잠깐만.\오늘 내 생일이야
 dom1Kasumi_L09.mes,Script/dom1Kasumi_L09.mes,10,20,주인공,わかった.<6E5C>支度するから少し待ってくれ,알았어.<6E5C>준비할 테니 잠깐 기다려,알았어.<6E5C>준비할 테니 잠깐 기다려
 dom1Kasumi_L09.mes,Script/dom1Kasumi_L09.mes,11,3,Kasumi,はい,네,네
 dom1Kasumi_L09.mes,Script/dom1Kasumi_L09.mes,12,7,[효과음/내레이션],ごそごそ……,부스럭……,부스럭……
@@ -420,9 +420,9 @@ dom1Kasumi_O0727_0.mes,Script/dom1Kasumi_O0727_0.mes,40,3,Kasumi,……,……,�
 dom1Kasumi_O0727_0.mes,Script/dom1Kasumi_O0727_0.mes,41,40,주인공,よ、よし!<020A>とりあえず街へ出て、<6E5C>超重ね当てのヒントをくれそうな<6E5C>人を探そう!,"좋,좋아!<020A>일단 시내로 나가서,<6E5C>초포갬타 힌트를 줄만한<6E5C>사람을 찾자!","좋,좋아!<020A>일단 시내로 나가서,<6E5C>초포갬타 힌트를 줄만한<6E5C>사람을 찾자!"
 dom1Kasumi_O0727_0.mes,Script/dom1Kasumi_O0727_0.mes,42,4,Kasumi,はい!,네!,네!
 dom1Kasumi_O0727_1.mes,Script/dom1Kasumi_O0727_1.mes,0,22,주인공,(さて、何か知ってそうな人といえ<6E5C>ば……),"(자, 뭔가 알 만한 사람이라면<6E5C>……)","(자, 뭔가 알 만한 사람이라면<6E5C>……)"
-dom1Kasumi_O0727_1.mes,Script/dom1Kasumi_O0727_1.mes,1,18,[선택지],舞さんかなキングさんかなユリさんかな,마이씨려나킹씨려나유리씨려나,마이씨려나<6E5C>킹씨려나<6E5C>유리씨려나
-dom1Kasumi_O0727_1.mes,Script/dom1Kasumi_O0727_1.mes,2,13,[선택지],キングさんかなユリさんかな,킹씨려나유리씨려나,킹씨려나<6E5C>유리씨려나
-dom1Kasumi_O0727_1.mes,Script/dom1Kasumi_O0727_1.mes,3,11,[선택지],舞さんかなユリさんかな,마이씨려나유리씨려나,마이씨려나<6E5C>유리씨려나
+dom1Kasumi_O0727_1.mes,Script/dom1Kasumi_O0727_1.mes,1,18,[선택지],舞さんかなキングさんかなユリさんかな,마이씨려나킹씨려나유리씨려나,마이씨려나\킹씨려나\유리씨려나
+dom1Kasumi_O0727_1.mes,Script/dom1Kasumi_O0727_1.mes,2,13,[선택지],キングさんかなユリさんかな,킹씨려나유리씨려나,킹씨려나\유리씨려나
+dom1Kasumi_O0727_1.mes,Script/dom1Kasumi_O0727_1.mes,3,11,[선택지],舞さんかなユリさんかな,마이씨려나유리씨려나,마이씨려나\유리씨려나
 dom1Kasumi_O0727_1.mes,Script/dom1Kasumi_O0727_1.mes,4,6,[선택지],ユリさんかな,유리씨려나,유리씨려나
 dom1Kasumi_O0727_1.mes,Script/dom1Kasumi_O0727_1.mes,5,12,[선택지],舞さんかなキングさんかな,마이씨려나킹씨려나,마이씨려나킹씨려나
 dom1Kasumi_O0727_1.mes,Script/dom1Kasumi_O0727_1.mes,6,7,[선택지],キングさんかな,킹씨려나,킹씨려나
@@ -545,16 +545,16 @@ dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,6,9,Kasumi,と、言います�
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,7,14,주인공,とりあえず、実践してみよう,"일단, 실전으로 해보자","일단, 실전으로 해보자"
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,8,4,Kasumi,はい!,네!,네!
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,9,11,주인공,まず、構えからだ……,먼저 자세부터다……,먼저 자세부터다……
-dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,10,22,[선택지],拳に力を込める丹田に力を込める両足を踏ん張る,주먹에 힘줌 단전에 힘줌 두발 버팀,주먹에 힘줌 단전에 힘줌 두발 버팀
+dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,10,22,[선택지],拳に力を込める丹田に力を込める両足を踏ん張る,주먹에 힘줌 단전에 힘줌 두발 버팀,주먹에 힘줌\단전에 힘줌\두발 버팀
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,11,31,Kasumi,先輩!そのような構えでは重ね当<6E5C>ては本来の力を発揮しません!,선배! 그런 자세로는 포갬타<6E5C>가 본래 힘을 못 냅니다!,선배! 그런 자세로는 포갬타<6E5C>가 본래 힘을 못 냅니다!
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,12,29,주인공,そ、そうだったか?え~っと……<6E5C>どうするんだったかな……,"그, 그랬나?어~ 음……<6E5C>어떻게 하는 거였더라……","그, 그랬나?어~ 음……<6E5C>어떻게 하는 거였더라……"
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,13,16,Kasumi,そうです、先輩!次は受けです!,맞아요! 다음은 받기예요!,맞아요! 다음은 받기예요!
-dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,14,28,[선택지],流れにたゆたう落ち葉揺らぐことなき巨木すべてを見切る疾風,하늘대는 낙엽 흔들림없는 거목 모든 걸 뚫는 질풍,하늘대는 낙엽 흔들림없는 거목 모든 걸 뚫는 질풍
+dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,14,28,[선택지],流れにたゆたう落ち葉揺らぐことなき巨木すべてを見切る疾風,하늘대는 낙엽 흔들림없는 거목 모든 걸 뚫는 질풍,하늘대는 낙엽\흔들림없는 거목\모든 걸 뚫는 질풍
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,15,56,Kasumi,先輩!重ね当ての極意は、相手の<6E5C>力をかわすのでも受け止めるのでも<6E5C>なく、受け流すことにあるんです!<485C>もう一度!,"선배! 포갬타 극의는 상대<6E5C>힘을 피함도 받아냄도<6E5C>아닌, 흘려보내는 데 있습니다!<485C>다시 한번!","선배! 포갬타 극의는 상대<6E5C>힘을 피함도 받아냄도<6E5C>아닌, 흘려보내는 데 있습니다!<485C>다시 한번!"
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,16,22,주인공,かわすでもなく、受け止めるでも<6E5C>なく……か,"피함도 아니고, 받아냄도<6E5C>아니고…… 라","피함도 아니고, 받아냄도<6E5C>아니고…… 라"
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,17,31,주인공,丹田に力を込め、されど体は流れに<6E5C>たゆたう落ち葉のごとく……,"단전에 힘을 담되, 몸은 물결에<6E5C>하늘대는 낙엽처럼……","단전에 힘을 담되, 몸은 물결에<6E5C>하늘대는 낙엽처럼……"
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,18,13,Kasumi,そうです、先輩!最後は!,맞아요! 마지막은!,맞아요! 마지막은!
-dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,19,25,[선택지],気を開放する気合い一閃カウンター気持ちを込めて祈る,기개방 기합일섬 카운터 마음담아기도,기개방 기합일섬 카운터 마음담아기도
+dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,19,25,[선택지],気を開放する気合い一閃カウンター気持ちを込めて祈る,기개방 기합일섬 카운터 마음담아기도,기개방\기합일섬 카운터\마음담아기도
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,20,44,Kasumi,なんですかそれは!そんなことで<6E5C>は超重ね当てはおろか、重ね当て<6E5C>すらおぼつきませんよ!,"그게 뭔가요! 그런 걸로<6E5C>는 초포갬타는커녕, 포갬타<6E5C>조차 위태롭습니다!","그게 뭔가요! 그런 걸로<6E5C>는 초포갬타는커녕, 포갬타<6E5C>조차 위태롭습니다!"
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,21,13,주인공,わ、悪い.次は真剣に……,"아, 미안.진지하게……","아, 미안.진지하게……"
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,22,23,주인공,相手の攻撃を受け流しつつ……気を<6E5C>開放する!,상대 공격을 흘리면서…… 기를<6E5C>개방한다!,상대 공격을 흘리면서…… 기를<6E5C>개방한다!
@@ -571,7 +571,7 @@ dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,32,25,Kasumi,構えの前、受
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,33,55,주인공,そうだ.<6E5C>そのどこかのタイミングで相手の<6E5C>気を巻き込むことができれば、<485C>重ね当ての威力は飛躍的に<6E5C>増すはずだ,맞아.<6E5C>그중 어딘가 타이밍에서 상대<6E5C>기를 끌어들일 수 있다면<485C>포갬타 위력은 비약적으로<6E5C>늘어날 거야,맞아.<6E5C>그중 어딘가 타이밍에서 상대<6E5C>기를 끌어들일 수 있다면<485C>포갬타 위력은 비약적으로<6E5C>늘어날 거야
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,34,20,Kasumi,先輩はどのタイミングだと<6E5C>思いますか?,선배는 어느 타이밍이라<6E5C>생각하세요?,선배는 어느 타이밍이라<6E5C>생각하세요?
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,35,7,주인공,そうだな……,글쎄……,글쎄……
-dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,36,16,[선택지],構えの前受けの前開放の前開放の後,자세전 받기전 개방전 개방후,자세전 받기전 개방전 개방후
+dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,36,16,[선택지],構えの前受けの前開放の前開放の後,자세전 받기전 개방전 개방후,자세전\받기전\개방전\개방후
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,37,12,주인공,やっぱり、構えの前かな,"역시, 자세 전이려나","역시, 자세 전이려나"
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,38,6,Kasumi,なぜです?,어째서죠?,어째서죠?
 dom1Kasumi_O0728.mes,Script/dom1Kasumi_O0728.mes,39,50,주인공,機先を制して相手の気を飲み込むこ<6E5C>とで、相手の動きを御して、自分の<6E5C>ペースに持ち込める気がするんだ,선수쳐서 상대 기를 삼켜버리<6E5C>면 상대 움직임 제어하고 내<6E5C>페이스로 끌 수 있을 것 같아,선수쳐서 상대 기를 삼켜버리<6E5C>면 상대 움직임 제어하고 내<6E5C>페이스로 끌 수 있을 것 같아
@@ -660,7 +660,7 @@ dom1Kasumi_O0729_0.mes,Script/dom1Kasumi_O0729_0.mes,5,24,주인공,おはよう
 dom1Kasumi_O0729_0.mes,Script/dom1Kasumi_O0729_0.mes,6,35,Kasumi,はい.少しでも早く超重ね当てを<6E5C>体得しようと思って、<6E5C>稽古してました,네. 조금이라도 빨리 초포갬타를<6E5C>익히려고<6E5C>수련하고 있었어요,네. 조금이라도 빨리 초포갬타를<6E5C>익히려고<6E5C>수련하고 있었어요
 dom1Kasumi_O0729_0.mes,Script/dom1Kasumi_O0729_0.mes,7,19,주인공,ん?お前、その右腕はどうし<6E5C>たんだ?,응? 너 그 오른팔<6E5C>왜 그러냐?,응? 너 그 오른팔<6E5C>왜 그러냐?
 dom1Kasumi_O0729_0.mes,Script/dom1Kasumi_O0729_0.mes,8,35,Kasumi,あ、これですか?技を出す呼吸を<6E5C>間違えて、少しひねってしまい<6E5C>ました,"아, 이거요? 기술을 쓰는 호흡을<6E5C>잘못해서, 조금 삐끗<6E5C>했어요","아, 이거요? 기술을 쓰는 호흡을<6E5C>잘못해서, 조금 삐끗<6E5C>했어요"
-dom1Kasumi_O0729_0.mes,Script/dom1Kasumi_O0729_0.mes,9,6,[선택지],怒る心配する,화냄걱정,화냄<6E5C>걱정
+dom1Kasumi_O0729_0.mes,Script/dom1Kasumi_O0729_0.mes,9,6,[선택지],怒る心配する,화냄걱정,화냄\걱정
 dom1Kasumi_O0729_0.mes,Script/dom1Kasumi_O0729_0.mes,10,31,주인공,この大事な時期に何をやってん<6E5C>だよ.自己管理も大切な修行だろ,이 중요한 때 뭐 하는<6E5C>거냐. 자기관리도 수련이야,이 중요한 때 뭐 하는<6E5C>거냐. 자기관리도 수련이야
 dom1Kasumi_O0729_0.mes,Script/dom1Kasumi_O0729_0.mes,11,8,Kasumi,……すみません,……죄송해요,……죄송해요
 dom1Kasumi_O0729_0.mes,Script/dom1Kasumi_O0729_0.mes,12,37,주인공,ったく……もうひとりでの稽古は<6E5C>ダメだぞ.<6E5C>香澄はすぐにムチャするからな,칫……혼자서 하는 수련은<6E5C>이제 안 돼.<6E5C>카스미는 금방 무리하니까,칫……혼자서 하는 수련은<6E5C>이제 안 돼.<6E5C>카스미는 금방 무리하니까
@@ -753,7 +753,7 @@ dom1Kasumi_O0730_0.mes,Script/dom1Kasumi_O0730_0.mes,25,17,Kasumi,先輩には�
 dom1Kasumi_O0730_0.mes,Script/dom1Kasumi_O0730_0.mes,26,3,주인공,何?,뭐?,뭐?
 dom1Kasumi_O0730_0.mes,Script/dom1Kasumi_O0730_0.mes,27,67,Kasumi,先輩にわたしの気持ちなんて<6E5C>わからないんです<485C>もう放っておいてください.<6E5C>今まで修行に付き合ってくだ<6E5C>さって、ありがとうございました,"선배님은 제 마음 같은 건<6E5C>모르는 거예요<485C>이제 그냥 내버려두세요.<6E5C>지금까지 수련에 함께해주<6E5C>셔서, 감사했습니다","선배님은 제 마음 같은 건<6E5C>모르는 거예요<485C>이제 그냥 내버려두세요.<6E5C>지금까지 수련에 함께해주<6E5C>셔서, 감사했습니다"
 dom1Kasumi_O0730_0.mes,Script/dom1Kasumi_O0730_0.mes,28,4,주인공,……!,……!,……!
-dom1Kasumi_O0730_0.mes,Script/dom1Kasumi_O0730_0.mes,29,8,[선택지],顔をぶつなだめる,때리기달래기,때리기<6E5C>달래기
+dom1Kasumi_O0730_0.mes,Script/dom1Kasumi_O0730_0.mes,29,8,[선택지],顔をぶつなだめる,때리기달래기,때리기\달래기
 dom1Kasumi_O0730_0.mes,Script/dom1Kasumi_O0730_0.mes,30,5,[효과음/내레이션],パシッ!,찰싹!,찰싹!
 dom1Kasumi_O0730_0.mes,Script/dom1Kasumi_O0730_0.mes,31,25,Kasumi,!<020A>何をするんですか!女の顔を<6E5C>ぶつなんて……!,!<020A>뭐예요! 여자 얼굴을<6E5C>때리다니……!,!<020A>뭐예요! 여자 얼굴을<6E5C>때리다니……!
 dom1Kasumi_O0730_0.mes,Script/dom1Kasumi_O0730_0.mes,32,3,주인공,……,……,……
@@ -936,10 +936,10 @@ dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,86,14,Kaidou,その減ら�
 dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,87,5,UNKNOWN_22,始め!!,시작!!,시작!!
 dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,88,15,Kaidou,さっさと終わらせてもらうぜ!,빨리 끝내주마!,빨리 끝내주마!
 dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,89,24,주인공,……これは、超重ね当てか!なら<6E5C>こっちも……!,"……이건, 초중첩타인가!그럼<6E5C>나도……!","……이건, 초중첩타인가!그럼<6E5C>나도……!"
-dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,90,22,[선택지],拳に力を込める両足を踏ん張る丹田に力を込める,주먹에힘담는다두다리로버틴다단전에힘을모은다,주먹에힘담는다두다리로버틴다단전에힘을모은다
-dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,91,28,[선택지],揺らぐことなき巨木流れにたゆたう落ち葉すべてを見切る疾風,흔들림없는거목물결에흔들리는낙엽모든것을간파하는질풍,흔들림없는거목물결에흔들리는낙엽모든것을간파하는질풍
-dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,92,18,[선택지],気を逸らす気を巻き込む気を受け止める,기를흘린다기를감는다기를받아낸다,기를흘린다기를감는다기를받아낸다
-dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,93,25,[선택지],気を開放する気合い一閃カウンター気持ちを込めて祈る,기를개방한다기합일섬카운터마음담아기도한다,기를개방한다기합일섬카운터마음담아기도한다
+dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,90,22,[선택지],拳に力を込める両足を踏ん張る丹田に力を込める,주먹에힘담는다두다리로버틴다단전에힘을모은다,주먹에힘담는다\두다리로버틴다\단전에힘을모은다
+dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,91,28,[선택지],揺らぐことなき巨木流れにたゆたう落ち葉すべてを見切る疾風,흔들림없는거목물결에흔들리는낙엽모든것을간파하는질풍,흔들림없는거목\물결에흔들리는낙엽\모든것을간파하는질풍
+dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,92,18,[선택지],気を逸らす気を巻き込む気を受け止める,기를흘린다기를감는다기를받아낸다,기를흘린다\기를감는다\기를받아낸다
+dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,93,25,[선택지],気を開放する気合い一閃カウンター気持ちを込めて祈る,기를개방한다기합일섬카운터마음담아기도한다,기를개방한다\기합일섬카운터\마음담아기도한다
 dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,94,8,[효과음/내레이션],ズドォォォン!,ズドォォォン!,ズドォォォン!
 dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,95,9,주인공,うわ!しまった!,으악!이런!,으악!이런!
 dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,96,25,Kaidou,ハッ、なんだ<이름:3131>.テメェは<6E5C>やっぱりその程度かよ,"하, 뭐냐 <이름:3131>.네놈은<6E5C>역시 그 정도였냐","하, 뭐냐 <이름:3131>.네놈은<6E5C>역시 그 정도였냐"
@@ -981,7 +981,7 @@ dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,131,35,주인공,(そうだ
 dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,132,24,주인공,丹田に力を!たゆたう落ち葉で!<6E5C>気を巻き込み!,단전에힘을!흔들리는낙엽으로!<6E5C>기를감아든다!,단전에힘을!흔들리는낙엽으로!<6E5C>기를감아든다!
 dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,133,17,Kaidou,その技はもう通用しねぇんだよ!!,그 기술 이제 안 통한다고!!,그 기술 이제 안 통한다고!!
 dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,134,17,주인공,!<020A>ここでもうひとつ何かを……!,!<020A>여기서하나 더 뭔가를……!,!<020A>여기서하나 더 뭔가를……!
-dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,135,13,[선택지],心を無に相手を無視もう無理,마음비우기상대무시이제무리,마음비우기상대무시이제무리
+dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,135,13,[선택지],心を無に相手を無視もう無理,마음비우기상대무시이제무리,마음비우기\상대무시\이제무리
 dom1Kasumi_O0731_1.mes,Script/dom1Kasumi_O0731_1.mes,136,23,주인공,(違う違う、あきらめてどうするん<6E5C>だ……!),(아니야 아니야 포기하면<6E5C>안 되지……!),(아니야 아니야 포기하면<6E5C>안 되지……!)
 dom1Kasumi_S01.mes,Script/dom1Kasumi_S01.mes,0,15,주인공,(たまには道場に顔を出すか),(가끔은 도장에 가볼까),(가끔은 도장에 가볼까)
 dom1Kasumi_S01.mes,Script/dom1Kasumi_S01.mes,1,4,Kasumi,先輩!,선배!,선배!

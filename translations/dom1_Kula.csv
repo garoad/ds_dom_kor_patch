@@ -13,7 +13,7 @@ dom1Kula_L01.mes,Script/dom1Kula_L01.mes,10,14,주인공,格闘ゲームか.よ�
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,11,8,Kula,負けないもん!,안 질거야!,안 질거야!
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,12,10,[효과음/내레이션],バキ<020A>ドカ<020A>ドーン,퍽<020A>퍼벅<020A>쾅,퍽<020A>퍼벅<020A>쾅
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,13,36,주인공,(う、けっこう強いな、クーラ.<6E5C>どうしよう……本気出しちゃおう<6E5C>かな),"(음, 꽤 강하네, 쿨라.<6E5C>어쩌지…… 진심으로 해<6E5C>볼까)","(음, 꽤 강하네, 쿨라.<6E5C>어쩌지…… 진심으로 해<6E5C>볼까)"
-dom1Kula_L01.mes,Script/dom1Kula_L01.mes,14,8,[선택지],本気で勝つ負ける,이긴다진다,이긴다진다
+dom1Kula_L01.mes,Script/dom1Kula_L01.mes,14,8,[선택지],本気で勝つ負ける,이긴다진다,이긴다\진다
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,15,6,[효과음/내레이션],K.O.!,K.O.!,K.O.!
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,16,5,Kula,…………,……,……
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,17,33,주인공,(……女の子相手に本気出す<6E5C>なんて、おとなげなかった<6E5C>かな……),(………여자애 상대로 진심을<6E5C>내다니 어른답지 못했<6E5C>나……),(………여자애 상대로 진심을<6E5C>내다니 어른답지 못했<6E5C>나……)
@@ -39,7 +39,7 @@ dom1Kula_L02.mes,Script/dom1Kula_L02.mes,7,24,Kula,……こんなコトで、�
 dom1Kula_L02.mes,Script/dom1Kula_L02.mes,8,3,주인공,え?,어?,어?
 dom1Kula_L02.mes,Script/dom1Kula_L02.mes,9,26,Kula,叶うんだったらクーラも書く<6E5C>よ…….ねぇ、叶うの?,"이뤄지면 쿨라도 쓸<6E5C>래…….있잖아, 이뤄져?","이뤄지면 쿨라도 쓸<6E5C>래…….있잖아, 이뤄져?"
 dom1Kula_L02.mes,Script/dom1Kula_L02.mes,10,11,주인공,うーん……そうだなぁ,음……글쎄,음……글쎄
-dom1Kula_L02.mes,Script/dom1Kula_L02.mes,11,12,[선택지],信じれば叶うよ気休めだよ,믿으면 이뤄져기분탓이야,믿으면 이뤄져기분탓이야
+dom1Kula_L02.mes,Script/dom1Kula_L02.mes,11,12,[선택지],信じれば叶うよ気休めだよ,믿으면 이뤄져기분탓이야,믿으면 이뤄져\기분탓이야
 dom1Kula_L02.mes,Script/dom1Kula_L02.mes,12,8,주인공,信じれば叶うよ,믿으면 이뤄져,믿으면 이뤄져
 dom1Kula_L02.mes,Script/dom1Kula_L02.mes,13,5,Kula,ホント?,정말?,정말?
 dom1Kula_L02.mes,Script/dom1Kula_L02.mes,14,35,주인공,ああ、だからクーラも書きなよ.<6E5C>手に持ってるの、クーラの短冊<6E5C>だろ?,"그래, 그러니까 써봐.<6E5C>손에 든 거, 쿨라 소원<6E5C>지잖아?","그래, 그러니까 써봐.<6E5C>손에 든 거, 쿨라 소원<6E5C>지잖아?"
@@ -67,7 +67,7 @@ dom1Kula_L03.mes,Script/dom1Kula_L03.mes,9,5,주인공,いや……,아니……
 dom1Kula_L03.mes,Script/dom1Kula_L03.mes,10,13,Kaidou,楽しかったよなー?クーラ,재밌었지? 쿨라,재밌었지? 쿨라
 dom1Kula_L03.mes,Script/dom1Kula_L03.mes,11,6,Kula,フツーだよ,그냥그래,그냥그래
 dom1Kula_L03.mes,Script/dom1Kula_L03.mes,12,13,주인공,(なんかムカつくな……),(왠지 짜증나네……),(왠지 짜증나네……)
-dom1Kula_L03.mes,Script/dom1Kula_L03.mes,13,24,[선택지],今度は俺と行こうぜそんなヤツといても面白くないぞ,다음엔 나랑 가자그런 놈이랑 재미없어,다음엔 나랑 가자그런 놈이랑 재미없어
+dom1Kula_L03.mes,Script/dom1Kula_L03.mes,13,24,[선택지],今度は俺と行こうぜそんなヤツといても面白くないぞ,다음엔 나랑 가자그런 놈이랑 재미없어,다음엔 나랑 가자\그런 놈이랑 재미없어
 dom1Kula_L03.mes,Script/dom1Kula_L03.mes,14,9,주인공,……なぁ、クーラ,"……저기, 쿨라","……저기, 쿨라"
 dom1Kula_L03.mes,Script/dom1Kula_L03.mes,15,4,Kula,なに?,왜?,왜?
 dom1Kula_L03.mes,Script/dom1Kula_L03.mes,16,10,주인공,今度は俺と行こうぜ,다음엔 나랑 가자,다음엔 나랑 가자
@@ -101,7 +101,7 @@ dom1Kula_L04.mes,Script/dom1Kula_L04.mes,8,7,Kula,コレ取って!,이거잡아�
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,9,3,주인공,え?,어?,어?
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,10,9,Kula,このぬいぐるみ!,이 인형!,이 인형!
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,11,12,주인공,あぁ、クレーンゲームか,"아, 인형 잡기구나","아, 인형 잡기구나"
-dom1Kula_L04.mes,Script/dom1Kula_L04.mes,12,13,[선택지],取ってあげる話の続きをする,잡아줄게이야기 계속하기,잡아줄게이야기 계속하기
+dom1Kula_L04.mes,Script/dom1Kula_L04.mes,12,13,[선택지],取ってあげる話の続きをする,잡아줄게이야기 계속하기,잡아줄게\이야기 계속하기
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,13,13,[선택지],……よーし、やってみるか,"……좋아, 해볼까","……좋아, 해볼까"
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,14,5,Kula,ヤッタ!,야호!,야호!
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,15,10,주인공,次はどれが欲しい?,다음은 뭐갖고파?,다음은 뭐갖고파?
@@ -144,7 +144,7 @@ dom1Kula_L05.mes,Script/dom1Kula_L05.mes,11,25,Kula,じゃー、これから3人
 dom1Kula_L05.mes,Script/dom1Kula_L05.mes,12,8,Kaidou,げぇ、3人で?,우엑 셋이서?,우엑 셋이서?
 dom1Kula_L05.mes,Script/dom1Kula_L05.mes,13,22,주인공,まぁ、クーラが喜ぶならそれでいい<6E5C>けど……,"뭐, 쿨라가 좋다면 그걸로<6E5C>됐지만……","뭐, 쿨라가 좋다면 그걸로<6E5C>됐지만……"
 dom1Kula_L05.mes,Script/dom1Kula_L05.mes,14,13,Kula,決まり!ネェ、ドコいく?,결정!근데 어디 갈까?,결정!근데 어디 갈까?
-dom1Kula_L05.mes,Script/dom1Kula_L05.mes,15,17,[선택지],カラオケに行こう甘いもの食べようか,카라오케 가자단 거 먹을까,카라오케 가자단 거 먹을까
+dom1Kula_L05.mes,Script/dom1Kula_L05.mes,15,17,[선택지],カラオケに行こう甘いもの食べようか,카라오케 가자단 거 먹을까,카라오케 가자\단 거 먹을까
 dom1Kula_L05.mes,Script/dom1Kula_L05.mes,16,14,주인공,じゃあ、カラオケに行こうか,"그럼, 카라오케에 가자","그럼, 카라오케에 가자"
 dom1Kula_L05.mes,Script/dom1Kula_L05.mes,17,23,Kula,エ~.ヒトが多いトコキラーイ!<6E5C>つまんない!,엥. 사람 많은 데 싫어!<6E5C>재미없어!,엥. 사람 많은 데 싫어!<6E5C>재미없어!
 dom1Kula_L05.mes,Script/dom1Kula_L05.mes,18,17,Kaidou,ハッ.しょうもねぇヤツだなテメェ,"흥. 한심한 놈이네, 너는","흥. 한심한 놈이네, 너는"
@@ -171,7 +171,7 @@ dom1Kula_L05.mes,Script/dom1Kula_L05.mes,38,5,Kaidou,待てよ!,기다려!,기�
 dom1Kula_L05.mes,Script/dom1Kula_L05.mes,39,35,주인공,(……行っちゃった.<6E5C>いったいクーラの家族って、<6E5C>どーなってんだ?),(……가버렸네.<6E5C>대체 쿨라네 가족은<6E5C>어떻게 된 거야?),(……가버렸네.<6E5C>대체 쿨라네 가족은<6E5C>어떻게 된 거야?)
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,0,24,주인공,あ、クーラ!?なんでこんなとこ<6E5C>ろにいるんだ?,"아, 쿨라!?<6E5C>왜 여기 있는 거야?","아, 쿨라!?<6E5C>왜 여기 있는 거야?"
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,1,15,Kula,べつにいーでしょ.ナニか用?,딱히 상관없잖아 뭔 용건?,딱히 상관없잖아 뭔 용건?
-dom1Kula_L06.mes,Script/dom1Kula_L06.mes,2,16,[선택지],花火大会に誘う花火大会に誘わない,초대하기초대안하기,초대하기초대안하기
+dom1Kula_L06.mes,Script/dom1Kula_L06.mes,2,16,[선택지],花火大会に誘う花火大会に誘わない,초대하기초대안하기,초대하기\초대안하기
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,3,23,주인공,あのさ、今日、花火大会があるって<6E5C>知ってる?,"있잖아, 오늘 불꽃놀이 있는 거<6E5C>알아?","있잖아, 오늘 불꽃놀이 있는 거<6E5C>알아?"
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,4,3,Kula,うん,응,응
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,5,22,주인공,もし、誰とも見る約束してないなら<6E5C>俺と……,혹시 아무하고도 약속 안했으면<6E5C>나랑……,혹시 아무하고도 약속 안했으면<6E5C>나랑……
@@ -185,7 +185,7 @@ dom1Kula_L06.mes,Script/dom1Kula_L06.mes,12,9,주인공,花火、嫌いなの?,�
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,13,16,Kaidou,クーラは人込みが嫌いなんだよな,쿨라는 사람 많은 데 싫어해,쿨라는 사람 많은 데 싫어해
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,14,13,Kula,火も人込みもダイキライ!,불도 인파도 싫어!,불도 인파도 싫어!
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,15,7,주인공,そっかぁ……,그렇구나……,그렇구나……
-dom1Kula_L06.mes,Script/dom1Kula_L06.mes,16,24,[선택지],人の少ないところで見ようでも、近い方がキレイだぜ,사람 적은 데서 보자그래도 가까운 게 예뻐,사람 적은 데서 보자그래도 가까운 게 예뻐
+dom1Kula_L06.mes,Script/dom1Kula_L06.mes,16,24,[선택지],人の少ないところで見ようでも、近い方がキレイだぜ,사람 적은 데서 보자그래도 가까운 게 예뻐,사람 적은 데서 보자\그래도 가까운 게 예뻐
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,17,16,주인공,じゃ、人の少ないところで見よう,"그럼, 사람 적은 데서 보자","그럼, 사람 적은 데서 보자"
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,18,10,Kula,そんなトコあるの?,그런 데가 있어?,그런 데가 있어?
 dom1Kula_L06.mes,Script/dom1Kula_L06.mes,19,8,주인공,あるよ.探せば,있어. 찾으면,있어. 찾으면
@@ -226,7 +226,7 @@ dom1Kula_L07.mes,Script/dom1Kula_L07.mes,7,19,주인공,(電話の声がほと�
 dom1Kula_L07.mes,Script/dom1Kula_L07.mes,8,13,Kula,クーラ、おなかもすいたぁ,"쿨라, 배도 고파","쿨라, 배도 고파"
 dom1Kula_L07.mes,Script/dom1Kula_L07.mes,9,17,주인공,そうだな、じゃあ甘いもの食べよう,"그래, 그럼 단 거 먹자","그래, 그럼 단 거 먹자"
 dom1Kula_L07.mes,Script/dom1Kula_L07.mes,10,11,Kula,うん!ナニ食べるの?,응! 뭐 먹을거야?,응! 뭐 먹을거야?
-dom1Kula_L07.mes,Script/dom1Kula_L07.mes,11,14,[선택지],いちごのシャーベットあんみつ,딸기 셔벗안미츠,딸기 셔벗안미츠
+dom1Kula_L07.mes,Script/dom1Kula_L07.mes,11,14,[선택지],いちごのシャーベットあんみつ,딸기 셔벗안미츠,딸기 셔벗\안미츠
 dom1Kula_L07.mes,Script/dom1Kula_L07.mes,12,16,주인공,いちごのシャーベットにしようか,딸기 셔벗으로 할까,딸기 셔벗으로 할까
 dom1Kula_L07.mes,Script/dom1Kula_L07.mes,13,10,Kula,ワーイ!ダイスキ!,야호! 완전좋아!,야호! 완전좋아!
 dom1Kula_L07.mes,Script/dom1Kula_L07.mes,14,30,주인공,よかった.来てくれたんだから、<6E5C>遠慮せずにいっぱい食べろよ,다행이다. 와줬으니까<6E5C>사양 말고 많이 먹어,다행이다. 와줬으니까<6E5C>사양 말고 많이 먹어
@@ -257,7 +257,7 @@ dom1Kula_L08.mes,Script/dom1Kula_L08.mes,7,6,주인공,あ……海堂,아…카
 dom1Kula_L08.mes,Script/dom1Kula_L08.mes,8,20,Kaidou,クーラ!オレの頭はスイカじゃ<6E5C>ねーぞ!,쿠라! 내 머리는 수박이<6E5C>아니라고!,쿠라! 내 머리는 수박이<6E5C>아니라고!
 dom1Kula_L08.mes,Script/dom1Kula_L08.mes,9,10,Kula,逃げちゃダメだよ~,도망치면 안 돼,도망치면 안 돼
 dom1Kula_L08.mes,Script/dom1Kula_L08.mes,10,11,주인공,わー、こっちに来る!,왓 이쪽으로 온다!,왓 이쪽으로 온다!
-dom1Kula_L08.mes,Script/dom1Kula_L08.mes,11,15,[선택지],一目さんに逃げる果敢に付き合う,일단 도망친다용감히 맞선다,일단 도망친다용감히 맞선다
+dom1Kula_L08.mes,Script/dom1Kula_L08.mes,11,15,[선택지],一目さんに逃げる果敢に付き合う,일단 도망친다용감히 맞선다,일단 도망친다\용감히 맞선다
 dom1Kula_L08.mes,Script/dom1Kula_L08.mes,12,20,Kaidou,テメェ!逃げるなんて男らしく<6E5C>ねーぞ!,네 이놈! 도망치다니사내답지<6E5C>못해!,네 이놈! 도망치다니사내답지<6E5C>못해!
 dom1Kula_L08.mes,Script/dom1Kula_L08.mes,13,20,Kula,逃げちゃダメって言ってるのに、<6E5C><이름:3232>!,"도망치면 안 된다고 했잖아,<6E5C><이름:3232>!","도망치면 안 된다고 했잖아,<6E5C><이름:3232>!"
 dom1Kula_L08.mes,Script/dom1Kula_L08.mes,14,32,주인공,だって、あきらかにそれスイカ割り<6E5C>じゃないだろ!狙ってるだろ!,"아니, 저거 딱 봐도 수박 깨기<6E5C>아니잖아! 나 노리잖아!","아니, 저거 딱 봐도 수박 깨기<6E5C>아니잖아! 나 노리잖아!"
@@ -284,7 +284,7 @@ dom1Kula_L09.mes,Script/dom1Kula_L09.mes,2,12,주인공,今日、俺の誕生日
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,3,4,Kula,フーン,흐응,흐응
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,4,8,주인공,フーンって……,흐응이라니……,흐응이라니……
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,5,23,주인공,(俺の誕生日なんてどうでもいいの<6E5C>かな……),(내 생일 같은 건아무래도<6E5C>상관없나……),(내 생일 같은 건아무래도<6E5C>상관없나……)
-dom1Kula_L09.mes,Script/dom1Kula_L09.mes,6,19,[선택지],それでもクーラに祝ってもらうあきらめる,그래도 쿠라한테 축하받는다포기한다,그래도 쿠라한테 축하받는다포기한다
+dom1Kula_L09.mes,Script/dom1Kula_L09.mes,6,19,[선택지],それでもクーラに祝ってもらうあきらめる,그래도 쿠라한테 축하받는다포기한다,그래도 쿠라한테 축하받는다\포기한다
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,7,27,주인공,だから、なんでもいいから祝ってほ<6E5C>しいんだ、クーラに,그러니까 뭐든 좋으니까<6E5C>쿠라가 축하해 줬으면 해,그러니까 뭐든 좋으니까<6E5C>쿠라가 축하해 줬으면 해
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,8,16,Kula,クーラのプレゼントが欲しいの?,쿠라 선물 받고 싶은 거야?,쿠라 선물 받고 싶은 거야?
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,9,21,주인공,うん.クーラがくれるならなんでも<6E5C>いいし,응 쿠라가 주는 거라면 뭐든<6E5C>좋으니까,응 쿠라가 주는 거라면 뭐든<6E5C>좋으니까
@@ -297,7 +297,7 @@ dom1Kula_L09.mes,Script/dom1Kula_L09.mes,15,13,주인공,げ、海堂と同じ�
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,16,33,Kaidou,テメェなんかに、クーラから<6E5C>プレゼントをもらう資格<6E5C>ねーんだよ!,"네놈 따위한테, 쿠라한테<6E5C>선물 받을 자격<6E5C>같은 거 없다고!","네놈 따위한테, 쿠라한테<6E5C>선물 받을 자격<6E5C>같은 거 없다고!"
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,17,22,주인공,そんなのおまえが決めること<6E5C>じゃねーだろ!,그런 건 네가 정할 일<6E5C>아니잖아!,그런 건 네가 정할 일<6E5C>아니잖아!
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,18,14,Kaidou,上等だぁ、勝負するかぁ!?,좋다 이거지 승부할까!?,좋다 이거지 승부할까!?
-dom1Kula_L09.mes,Script/dom1Kula_L09.mes,19,15,[선택지],ゲームで勝負するケンカで決める,게임으로 붙는다싸움한다,게임으로 붙는다싸움한다
+dom1Kula_L09.mes,Script/dom1Kula_L09.mes,19,15,[선택지],ゲームで勝負するケンカで決める,게임으로 붙는다싸움한다,게임으로 붙는다\싸움한다
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,20,21,주인공,よーし、じゃあ対戦ゲームで決めよ<6E5C>うぜ!,"좋아, 그럼 대전 게임으로 정하<6E5C>자!","좋아, 그럼 대전 게임으로 정하<6E5C>자!"
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,21,23,Kaidou,おぅ!勝った方が、クーラから<6E5C>プレゼントな!,오! 이기는 쪽이 쿠라한테<6E5C>선물 받는다!,오! 이기는 쪽이 쿠라한테<6E5C>선물 받는다!
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,22,4,주인공,ああ!,그래!,그래!
@@ -331,7 +331,7 @@ dom1Kula_L10.mes,Script/dom1Kula_L10.mes,13,4,주인공,は!?,뭐!?,뭐!?
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,14,77,Kula,みつけて、会って、話したの.<6E5C>クーラもあんな家飛び出せって<6E5C>言われたから、<485C>ずっとお兄ちゃんのそばに<6E5C>いたいから、クーラも家出<6E5C>するんだ.じゃあね、<이름:3232>,"찾아서, 만나서, 얘기했어.<6E5C>쿠라도 그런 집 나오라고<6E5C>말해서,<485C>계속 오빠 곁에<6E5C>있고 싶으니까, 쿠라도 가출<6E5C>할 거야. 그럼 안녕, <이름:3232>","찾아서, 만나서, 얘기했어.<6E5C>쿠라도 그런 집 나오라고<6E5C>말해서,<485C>계속 오빠 곁에<6E5C>있고 싶으니까, 쿠라도 가출<6E5C>할 거야. 그럼 안녕, <이름:3232>"
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,15,12,주인공,ちょ、ちょっと待てよ!,"자, 잠깐 기다려!","자, 잠깐 기다려!"
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,16,4,Kula,なに?,왜?,왜?
-dom1Kula_L10.mes,Script/dom1Kula_L10.mes,17,14,[선택지],絶対ダメだ!それでいいのか?,절대 안 돼!그래도 돼?,절대 안 돼!그래도 돼?
+dom1Kula_L10.mes,Script/dom1Kula_L10.mes,17,14,[선택지],絶対ダメだ!それでいいのか?,절대 안 돼!그래도 돼?,절대 안 돼!\그래도 돼?
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,18,7,주인공,絶対ダメだ!,절대 안돼!,절대 안돼!
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,19,5,Kula,…………,…………,…………
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,20,41,주인공,それじゃクーラまでグレるのか?<6E5C>そんなことしたらママも悲しむぞ!<6E5C>早く家に帰れ!,그럼 쿠라까지 삐뚤어질 거야?<6E5C>그러면 엄마도 슬퍼한다고!<6E5C>얼른 집에 가!,그럼 쿠라까지 삐뚤어질 거야?<6E5C>그러면 엄마도 슬퍼한다고!<6E5C>얼른 집에 가!
@@ -392,7 +392,7 @@ dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,34,36,Kula,ヤだ.お兄ちゃ�
 dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,35,12,Kaidou,クーラ……(がっくり),쿨라……(풀썩),쿨라……(풀썩)
 dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,36,27,주인공,でも、ここにいると危ない目にもあ<6E5C>うぞ!いいのかよ!,여기 있으면 위험할<6E5C>수도 있어! 괜찮냐!,여기 있으면 위험할<6E5C>수도 있어! 괜찮냐!
 dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,37,25,Kula,お兄ちゃんが守ってくれるもん.<6E5C>ダイジョーブだよ,오빠가 지켜줄 건데.<6E5C>괜찮단 말이야,오빠가 지켜줄 건데.<6E5C>괜찮단 말이야
-dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,38,20,[선택지],そんなに兄貴がいーのかよ俺だって守れるよ,그렇게 형이 좋냐<6E5C>나도 지킬 수 있어,그렇게 형이 좋냐<6E5C>나도 지킬 수 있어
+dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,38,20,[선택지],そんなに兄貴がいーのかよ俺だって守れるよ,그렇게 형이 좋냐<6E5C>나도 지킬 수 있어,그렇게 형이 좋냐\나도 지킬 수 있어
 dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,39,14,주인공,そんなに兄貴がいーのかよ!,그렇게 형이 좋냐!,그렇게 형이 좋냐!
 dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,40,2,Kula,?,?,?
 dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,41,28,주인공,いい加減、兄貴から卒業しろよ!<6E5C>子供じゃねーんだから!,이제 그만 형 졸업 좀 해!<6E5C>어린애도 아니잖아!,이제 그만 형 졸업 좀 해!<6E5C>어린애도 아니잖아!
@@ -414,7 +414,7 @@ dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,56,2,UNKNOWN_12,!,!,!
 dom1Kula_O0727_0.mes,Script/dom1Kula_O0727_0.mes,57,12,UNKNOWN_25,おまえら……昨日の奴か,너희…… 어제그놈이냐,너희…… 어제그놈이냐
 dom1Kula_O0727_1.mes,Script/dom1Kula_O0727_1.mes,0,13,UNKNOWN_25,おまえらはクーラの何だ?,너희는 쿨라의 뭐냐?,너희는 쿨라의 뭐냐?
 dom1Kula_O0727_1.mes,Script/dom1Kula_O0727_1.mes,1,7,주인공,え?その……,어?그게……,어?그게……
-dom1Kula_O0727_1.mes,Script/dom1Kula_O0727_1.mes,2,10,[선택지],友達です知り合いです,친구<6E5C>아는 사이,친구<6E5C>아는 사이
+dom1Kula_O0727_1.mes,Script/dom1Kula_O0727_1.mes,2,10,[선택지],友達です知り合いです,친구<6E5C>아는 사이,친구\아는 사이
 dom1Kula_O0727_1.mes,Script/dom1Kula_O0727_1.mes,3,6,주인공,友達です!,친구예요!,친구예요!
 dom1Kula_O0727_1.mes,Script/dom1Kula_O0727_1.mes,4,15,Kula,トモダチ?トモダチってなに?,친구? 친구가 뭔데?,친구? 친구가 뭔데?
 dom1Kula_O0727_1.mes,Script/dom1Kula_O0727_1.mes,5,4,주인공,ガクッ,털썩,털썩
@@ -552,23 +552,23 @@ dom1Kula_O0728_1.mes,Script/dom1Kula_O0728_1.mes,24,35,주인공,おい!どう�
 dom1Kula_O0728_1.mes,Script/dom1Kula_O0728_1.mes,25,54,UNKNOWN_24,……わかりました.では、貴方がた<6E5C>がうちの娘に会うのにふさわしい人<6E5C>物かどうか、<485C>テストさせていただきます,"……알겠어요. 그럼, 두 사람이<6E5C>우리 딸을 만날 자격이 있는<6E5C>사람인지,<485C>시험해 보도록 하겠어요","……알겠어요. 그럼, 두 사람이<6E5C>우리 딸을 만날 자격이 있는<6E5C>사람인지,<485C>시험해 보도록 하겠어요"
 dom1Kula_O0728_1.mes,Script/dom1Kula_O0728_1.mes,26,9,UNKNOWN_12,う~ん、やっぱり,"음, 역시","음, 역시"
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,0,20,[효과음/내레이션],第1問<020A>クーラのファミリーネーム<6E5C>は?,1번 문제<020A>쿠라의 성은 뭘까?,1번 문제<020A>쿠라의 성은 뭘까?
-dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,1,10,[선택지],ダイアモンドダイアナ,다이아몬드다이아나,다이아몬드다이아나
+dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,1,10,[선택지],ダイアモンドダイアナ,다이아몬드다이아나,다이아몬드\다이아나
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,2,7,[효과음/내레이션],◎ピンポーン,딩동댕,딩동댕
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,3,4,[효과음/내레이션],×ブー,부우,부우
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,4,14,[효과음/내레이션],第2問<020A>クーラの誕生日は?,2번 문제<020A>쿠라 생일은?,2번 문제<020A>쿠라 생일은?
-dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,5,11,[선택지],10月12日5月29日,10월12일5월29일,10월12일5월29일
+dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,5,11,[선택지],10月12日5月29日,10월12일5월29일,10월12일\5월29일
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,6,4,[효과음/내레이션],×ブー,부우,부우
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,7,7,[효과음/내레이션],◎ピンポーン,딩동댕,딩동댕
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,8,14,[효과음/내레이션],第3問<020A>クーラの血夜型は?,3번 문제<020A>쿠라 혈액형?,3번 문제<020A>쿠라 혈액형?
-dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,9,5,[선택지],AB型不明,AB형불명,AB형불명
+dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,9,5,[선택지],AB型不明,AB형불명,AB형\불명
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,10,4,[효과음/내레이션],×ブー,부우,부우
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,11,7,[효과음/내레이션],◎ピンポーン,딩동댕,딩동댕
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,12,16,[효과음/내레이션],第4問<020A>クーラの大切なものは?,4번 문제<020A>쿠라 소중한 것?,4번 문제<020A>쿠라 소중한 것?
-dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,13,10,[선택지],キャンディートモダチ,캔디친구,캔디친구
+dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,13,10,[선택지],キャンディートモダチ,캔디친구,캔디\친구
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,14,7,[효과음/내레이션],◎ピンポーン,딩동댕,딩동댕
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,15,4,[효과음/내레이션],×ブー,부우,부우
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,16,19,[효과음/내레이션],第5問<020A>クーラの得意なスポーツ<6E5C>は?,5번 문제<020A>쿠라의 특기 스포츠는?,5번 문제<020A>쿠라의 특기 스포츠는?
-dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,17,10,[선택지],バトミントンスケート,배드민턴스케이트,배드민턴스케이트
+dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,17,10,[선택지],バトミントンスケート,배드민턴스케이트,배드민턴\스케이트
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,18,4,[효과음/내레이션],×ブー,부우,부우
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,19,7,[효과음/내레이션],◎ピンポーン,딩동댕,딩동댕
 dom1Kula_O0728_2.mes,Script/dom1Kula_O0728_2.mes,20,38,UNKNOWN_24,その程度の知識じゃうちの娘と会う<6E5C>資格はございません.お引きとりく<6E5C>ださい,그 정도 지식으론 우리 딸을<6E5C>만날 자격이 없어요. 돌아가<6E5C>주세요,그 정도 지식으론 우리 딸을<6E5C>만날 자격이 없어요. 돌아가<6E5C>주세요
@@ -612,7 +612,7 @@ dom1Kula_O0728_4.mes,Script/dom1Kula_O0728_4.mes,1,26,Kaidou,イーだろ!明日
 dom1Kula_O0728_4.mes,Script/dom1Kula_O0728_4.mes,2,34,주인공,脳天気なやつ…….無断で家を抜け<6E5C>出させるなんて責任重大だってのに,생각 없는 녀석…….몰래 집을<6E5C>나가게 하다니 책임 막중한데,생각 없는 녀석…….몰래 집을<6E5C>나가게 하다니 책임 막중한데
 dom1Kula_O0728_4.mes,Script/dom1Kula_O0728_4.mes,3,54,Kaidou,自分で言ったんじゃねーか!<485C>だいたいクーラと親しいワケでも<6E5C>ねーのに、やけに熱心だな<6E5C>オマエ.好きなのか?,"네가 그렇게 말했잖아!<485C>애초에 쿨라랑 친한 것도<6E5C>아니면서, 되게 열심이네<6E5C>너. 좋아하는 거냐?","네가 그렇게 말했잖아!<485C>애초에 쿨라랑 친한 것도<6E5C>아니면서, 되게 열심이네<6E5C>너. 좋아하는 거냐?"
 dom1Kula_O0728_4.mes,Script/dom1Kula_O0728_4.mes,4,5,주인공,えぇ!?,뭐!?,뭐!?
-dom1Kula_O0728_4.mes,Script/dom1Kula_O0728_4.mes,5,16,[선택지],可愛い妹だと思う好きかもしれない,귀여운 여동생 같다좋아할지도,귀여운 여동생 같다좋아할지도
+dom1Kula_O0728_4.mes,Script/dom1Kula_O0728_4.mes,5,16,[선택지],可愛い妹だと思う好きかもしれない,귀여운 여동생 같다좋아할지도,귀여운 여동생 같다\좋아할지도
 dom1Kula_O0728_4.mes,Script/dom1Kula_O0728_4.mes,6,27,주인공,いや…….可愛くて、妹みたいだ<6E5C>なぁとは思うけど……,아니…….귀엽고 여동생 같다<6E5C>고는 생각하지만……,아니…….귀엽고 여동생 같다<6E5C>고는 생각하지만……
 dom1Kula_O0728_4.mes,Script/dom1Kula_O0728_4.mes,7,15,Kaidou,ハッ!ありきたりなセリフだな,핫! 완전 뻔한 대사네,핫! 완전 뻔한 대사네
 dom1Kula_O0728_4.mes,Script/dom1Kula_O0728_4.mes,8,16,주인공,そーゆーおまえはどーなんだよ!,그러는 너는 어떤데!,그러는 너는 어떤데!
@@ -643,7 +643,7 @@ dom1Kula_O0729_0.mes,Script/dom1Kula_O0729_0.mes,8,24,Kaidou,おいおい、ア�
 dom1Kula_O0729_0.mes,Script/dom1Kula_O0729_0.mes,9,9,Kula,うけとめてねー!,받아줘!,받아줘!
 dom1Kula_O0729_0.mes,Script/dom1Kula_O0729_0.mes,10,8,주인공,んなムチャな!,그런 무모한!,그런 무모한!
 dom1Kula_O0729_0.mes,Script/dom1Kula_O0729_0.mes,11,9,Kaidou,ウワッ、落ちる!,으악 떨어진다!,으악 떨어진다!
-dom1Kula_O0729_0.mes,Script/dom1Kula_O0729_0.mes,12,12,[선택지],左でキャッチ右でキャッチ,왼손받기오른손받기,왼손받기오른손받기
+dom1Kula_O0729_0.mes,Script/dom1Kula_O0729_0.mes,12,12,[선택지],左でキャッチ右でキャッチ,왼손받기오른손받기,왼손받기\오른손받기
 dom1Kula_O0729_0.mes,Script/dom1Kula_O0729_0.mes,13,4,주인공,わーっ,으악,으악
 dom1Kula_O0729_0.mes,Script/dom1Kula_O0729_0.mes,14,4,[효과음/내레이션],ヒュー,휘이잉,휘이잉
 dom1Kula_O0729_0.mes,Script/dom1Kula_O0729_0.mes,15,5,[효과음/내레이션],ドシン!,쿵!,쿵!
@@ -671,7 +671,7 @@ dom1Kula_O0729_1.mes,Script/dom1Kula_O0729_1.mes,3,51,주인공,(……クーラ
 dom1Kula_O0729_1.mes,Script/dom1Kula_O0729_1.mes,4,6,[효과음/내레이션],ドカーン!,콰쾅!,콰쾅!
 dom1Kula_O0729_1.mes,Script/dom1Kula_O0729_1.mes,5,12,Kaidou,チクショー、やられた!,"젠장, 당했다!","젠장, 당했다!"
 dom1Kula_O0729_1.mes,Script/dom1Kula_O0729_1.mes,6,25,Kula,キャハハ!狂也よわーい!ネェ、<6E5C><이름:3232>もやろーよぉ,"캬하하!쿄야 약하다!있잖아,<6E5C><이름:3232>도 하자아","캬하하!쿄야 약하다!있잖아,<6E5C><이름:3232>도 하자아"
-dom1Kula_O0729_1.mes,Script/dom1Kula_O0729_1.mes,7,16,[선택지],見てるだけでいいヨーシ、どれだ?,"그냥 볼래좋아, 어디?","그냥 볼래좋아, 어디?"
+dom1Kula_O0729_1.mes,Script/dom1Kula_O0729_1.mes,7,16,[선택지],見てるだけでいいヨーシ、どれだ?,"그냥 볼래좋아, 어디?","그냥 볼래\좋아, 어디?"
 dom1Kula_O0729_1.mes,Script/dom1Kula_O0729_1.mes,8,15,주인공,いや、俺は見てるだけでいいよ,"아니, 난 그냥 볼게","아니, 난 그냥 볼게"
 dom1Kula_O0729_1.mes,Script/dom1Kula_O0729_1.mes,9,26,주인공,(クーラの笑顔見てるだけで、<6E5C>なんだか落ち着くや),(쿨라 웃는 얼굴 보는 것만<6E5C>으로 마음이편해),(쿨라 웃는 얼굴 보는 것만<6E5C>으로 마음이편해)
 dom1Kula_O0729_1.mes,Script/dom1Kula_O0729_1.mes,10,19,Kula,エー、<이름:3232>つまんなーい.<6E5C>もぅ帰るー,"에이, <이름:3232>재미없어.<6E5C>그만 갈래","에이, <이름:3232>재미없어.<6E5C>그만 갈래"
@@ -707,7 +707,7 @@ dom1Kula_O0729_2.mes,Script/dom1Kula_O0729_2.mes,20,9,[효과음/내레이션],�
 dom1Kula_O0729_2.mes,Script/dom1Kula_O0729_2.mes,21,34,Kula,モー、うるさいなぁ.食べたいなら<6E5C>食べたらいーじゃん.ハイ、あ~ん,"정말, 시끄럽네.먹고 싶으면<6E5C>먹으면 되잖아.자, 아앙","정말, 시끄럽네.먹고 싶으면<6E5C>먹으면 되잖아.자, 아앙"
 dom1Kula_O0729_2.mes,Script/dom1Kula_O0729_2.mes,22,3,주인공,!!,!!,!!
 dom1Kula_O0729_2.mes,Script/dom1Kula_O0729_2.mes,23,84,주인공,(こっ、このフォークにささった<6E5C>生クリームたっぷりのいちごを<6E5C>食べるかどうかは、<485C>男が問われるところ…….<6E5C>食べたいけれど、海堂もキングさん<6E5C>もいるし……しかし……),"(이, 이 포크에 박힌<6E5C>생크림 가득 올라간 딸기를<6E5C>먹을지 말지가,<485C>남자로서 시험받는 순간……<6E5C>먹고 싶지만, 카이도랑 킹 씨<6E5C>도 있고……하지만……)","(이, 이 포크에 박힌<6E5C>생크림 가득 올라간 딸기를<6E5C>먹을지 말지가,<485C>남자로서 시험받는 순간……<6E5C>먹고 싶지만, 카이도랑 킹 씨<6E5C>도 있고……하지만……)"
-dom1Kula_O0729_2.mes,Script/dom1Kula_O0729_2.mes,24,17,[선택지],恥を捨てて食べる男の意地で食べない,쪽팔려도먹기남자답게참기,쪽팔려도먹기남자답게참기
+dom1Kula_O0729_2.mes,Script/dom1Kula_O0729_2.mes,24,17,[선택지],恥を捨てて食べる男の意地で食べない,쪽팔려도먹기남자답게참기,쪽팔려도먹기\남자답게참기
 dom1Kula_O0729_2.mes,Script/dom1Kula_O0729_2.mes,25,7,주인공,(えーい!),(에라!),(에라!)
 dom1Kula_O0729_2.mes,Script/dom1Kula_O0729_2.mes,26,5,[효과음/내레이션],ぱくんっ,덥석,덥석
 dom1Kula_O0729_2.mes,Script/dom1Kula_O0729_2.mes,27,7,Kula,オイシーイ?,맛있어?,맛있어?
@@ -767,7 +767,7 @@ dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,3,30,Kaidou,そんなこと考�
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,4,4,주인공,えぇ?,엥?,엥?
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,5,4,[효과음/내레이션],ヒュー,휘잉,휘잉
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,6,5,주인공,うわぁ!,으악!,으악!
-dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,7,12,[선택지],左でキャッチ右でキャッチ,왼손받기오른손받기,왼손받기오른손받기
+dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,7,12,[선택지],左でキャッチ右でキャッチ,왼손받기오른손받기,왼손받기\오른손받기
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,8,5,[선택지],ドシン!,쿵!,쿵!
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,9,5,[효과음/내레이션],…………,……,……
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,10,16,Kula,狂也ナイスキャッチ!うまいね!,쿄야 나이스캐치!잘한다!,쿄야 나이스캐치!잘한다!
@@ -864,7 +864,7 @@ dom1Kula_O0730_4.mes,Script/dom1Kula_O0730_4.mes,4,37,Kaidou,……ヘッ、し�
 dom1Kula_O0730_4.mes,Script/dom1Kula_O0730_4.mes,5,3,주인공,え?,어?,어?
 dom1Kula_O0730_4.mes,Script/dom1Kula_O0730_4.mes,6,45,Kaidou,あんなスゲェケンカ見たのひさしぶ<6E5C>りだ.ワクワクするぜ.明日はオレ<6E5C>も負けてらんねーぞ!,저런 대단한 싸움 본 거 오랜만<6E5C>이다. 두근대는데 내일은 나<6E5C>도 질 순 없다고!,저런 대단한 싸움 본 거 오랜만<6E5C>이다. 두근대는데 내일은 나<6E5C>도 질 순 없다고!
 dom1Kula_O0730_4.mes,Script/dom1Kula_O0730_4.mes,7,13,주인공,……おまえもやるつもりか,……너도 할 생각이냐,……너도 할 생각이냐
-dom1Kula_O0730_4.mes,Script/dom1Kula_O0730_4.mes,8,21,[선택지],俺ひとりでいいよふたりで兄貴の助太刀しよう,나 혼자면 돼<6E5C>둘이서 형님을 돕자,나 혼자면 돼<6E5C>둘이서 형님을 돕자
+dom1Kula_O0730_4.mes,Script/dom1Kula_O0730_4.mes,8,21,[선택지],俺ひとりでいいよふたりで兄貴の助太刀しよう,나 혼자면 돼<6E5C>둘이서 형님을 돕자,나 혼자면 돼\둘이서 형님을 돕자
 dom1Kula_O0730_4.mes,Script/dom1Kula_O0730_4.mes,9,17,주인공,俺ひとりでいいよ.おまえは来るな,혼자면 돼. 넌 오지 마,혼자면 돼. 넌 오지 마
 dom1Kula_O0730_4.mes,Script/dom1Kula_O0730_4.mes,10,63,Kaidou,アァン!?テメーだけでクーラに<6E5C>いいトコ見せようって魂胆か!<485C>そーはいくかよ!オレ様がクーラ<6E5C>のヒーローになってやるんだよ!,아앙!? 네놈 혼자 쿨라한테<6E5C>폼 잡으려는 속셈이냐!<485C>그렇겐 안 되지! 이 몸이 쿨라<6E5C>의 히어로가 되어주겠다!,아앙!? 네놈 혼자 쿨라한테<6E5C>폼 잡으려는 속셈이냐!<485C>그렇겐 안 되지! 이 몸이 쿨라<6E5C>의 히어로가 되어주겠다!
 dom1Kula_O0730_4.mes,Script/dom1Kula_O0730_4.mes,11,9,주인공,ヒ、ヒーロー……,"히, 히어로……","히, 히어로……"
@@ -945,47 +945,47 @@ dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,23,4,주인공,あぁ!,으아!,
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,24,6,UNKNOWN_26,消えろォ!,사라져라!,사라져라!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,25,12,주인공,(よし、やってやる!),"(좋아, 해주겠어!)","(좋아, 해주겠어!)"
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,26,10,[효과음/내레이션],<アイントリガー>,<アイントリガー>,<アイントリガー>
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,27,5,[선택지],右下右下A,우하우하A,우하우하A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,28,4,[선택지],下右下A,하우하A,하우하A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,29,3,[선택지],右下A,우하A,우하A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,27,5,[선택지],右下右下A,우하우하A,우\하\우하\A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,28,4,[선택지],下右下A,하우하A,하\우하\A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,29,3,[선택지],右下A,우하A,우하\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,30,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,31,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,32,2,[선택지],下A,하A,하A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,31,2,[선택지],右下,우하,우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,32,2,[선택지],下A,하A,하\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,33,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,34,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,35,3,[선택지],下右下,하우하,하우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,36,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,37,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,38,4,[선택지],右右下A,우우하A,우우하A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,39,3,[선택지],右下A,우하A,우하A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,34,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,35,3,[선택지],下右下,하우하,하\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,36,2,[선택지],右下,우하,우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,37,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,38,4,[선택지],右右下A,우우하A,우\우하\A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,39,3,[선택지],右下A,우하A,우하\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,40,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,41,2,[선택지],右下,우하,우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,41,2,[선택지],右下,우하,우하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,42,2,[선택지],右A,우A,우A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,43,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,44,1,[선택지],右,우,우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,45,3,[선택지],右右下,우우하,우우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,46,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,47,1,[선택지],右,우,우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,48,3,[선택지],右下A,우하A,우하A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,49,2,[선택지],下A,하A,하A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,44,1,[선택지],右,우,우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,45,3,[선택지],右右下,우우하,우\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,46,2,[선택지],右下,우하,우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,47,1,[선택지],右,우,우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,48,3,[선택지],右下A,우하A,우\하\A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,49,2,[선택지],下A,하A,하\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,50,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,51,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,52,2,[선택지],右A,우A,우A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,51,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,52,2,[선택지],右A,우A,우\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,53,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,54,1,[선택지],右,우,우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,55,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,56,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,57,1,[선택지],右,우,우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,58,4,[선택지],右下右下,우하우하,우하우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,59,3,[선택지],下右下,하우하,하우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,60,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,61,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,62,3,[선택지],右右下,우우하,우우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,63,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,64,1,[선택지],右,우,우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,65,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,66,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,67,1,[선택지],右,우,우
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,54,1,[선택지],右,우,우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,55,2,[선택지],右下,우하,우\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,56,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,57,1,[선택지],右,우,우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,58,4,[선택지],右下右下,우하우하,우\하\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,59,3,[선택지],下右下,하우하,하\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,60,2,[선택지],右下,우하,우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,61,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,62,3,[선택지],右右下,우우하,우\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,63,2,[선택지],右下,우하,우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,64,1,[선택지],右,우,우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,65,2,[선택지],右下,우하,우\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,66,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,67,1,[선택지],右,우,우\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,68,6,주인공,くらぇぇ!,받아라!,받아라!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,69,7,[효과음/내레이션],バキィィィ!,퍼어억!,퍼어억!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,70,8,UNKNOWN_26,ぐあああああ!,크아아아악!,크아아아악!
@@ -997,47 +997,47 @@ dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,75,4,주인공,くそっ,젠장
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,76,10,UNKNOWN_26,ガーキーどーもー!,으아 잘 가라고!,으아 잘 가라고!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,77,2,주인공,!,!,!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,78,9,[효과음/내레이션],<クロウバイツ>,<クロウバイツ>,<クロウバイツ>
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,79,5,[선택지],右下A右下,우하A우하,우하A우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,80,4,[선택지],下A右下,하A우하,하A우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,81,3,[선택지],A右下,A우하,A우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,82,2,[선택지],右下,우하,우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,79,5,[선택지],右下A右下,우하A우하,우\하\A\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,80,4,[선택지],下A右下,하A우하,하\A\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,81,3,[선택지],A右下,A우하,A\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,82,2,[선택지],右下,우하,우하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,83,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,84,3,[선택지],下右下,하우하,하우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,85,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,86,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,87,2,[선택지],下A,하A,하A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,84,3,[선택지],下右下,하우하,하\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,85,2,[선택지],右下,우하,우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,86,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,87,2,[선택지],下A,하A,하\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,88,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,89,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,90,4,[선택지],右A右下,우A우하,우A우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,91,3,[선택지],A右下,A우하,A우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,92,2,[선택지],右下,우하,우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,89,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,90,4,[선택지],右A右下,우A우하,우\A\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,91,3,[선택지],A右下,A우하,A\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,92,2,[선택지],右下,우하,우하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,93,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,94,3,[선택지],右右下,우우하,우우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,95,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,96,1,[선택지],右,우,우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,97,2,[선택지],右A,우A,우A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,94,3,[선택지],右右下,우우하,우\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,95,2,[선택지],右下,우하,우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,96,1,[선택지],右,우,우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,97,2,[선택지],右A,우A,우\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,98,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,99,1,[선택지],右,우,우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,100,4,[선택지],右下右下,우하우하,우하우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,101,3,[선택지],下右下,하우하,하우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,102,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,103,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,104,3,[선택지],右右下,우우하,우우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,105,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,106,1,[선택지],右,우,우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,107,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,108,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,109,1,[선택지],右,우,우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,110,3,[선택지],右下A,우하A,우하A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,111,2,[선택지],下A,하A,하A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,99,1,[선택지],右,우,우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,100,4,[선택지],右下右下,우하우하,우\하\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,101,3,[선택지],下右下,하우하,하\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,102,2,[선택지],右下,우하,우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,103,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,104,3,[선택지],右右下,우우하,우\우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,105,2,[선택지],右下,우하,우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,106,1,[선택지],右,우,우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,107,2,[선택지],右下,우하,우\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,108,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,109,1,[선택지],右,우,우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,110,3,[선택지],右下A,우하A,우\하\A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,111,2,[선택지],下A,하A,하\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,112,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,113,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,114,2,[선택지],右A,우A,우A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,113,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,114,2,[선택지],右A,우A,우\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,115,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,116,1,[선택지],右,우,우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,117,2,[선택지],右下,우하,우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,118,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,119,1,[선택지],右,우,우
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,116,1,[선택지],右,우,우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,117,2,[선택지],右下,우하,우\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,118,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,119,1,[선택지],右,우,우\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,120,6,주인공,くらぇぇ!,받아라!,받아라!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,121,7,[효과음/내레이션],バキィィィ!,퍼어억!,퍼어억!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,122,8,UNKNOWN_26,ぐあああああ!,크아아아악!,크아아아악!
@@ -1049,46 +1049,46 @@ dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,127,4,주인공,くそっ,젠�
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,128,16,UNKNOWN_27,次はアタシだにゃ~.アチョー!,이번엔 내 차례다냥. 아뵤!,이번엔 내 차례다냥. 아뵤!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,129,2,주인공,!,!,!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,130,11,[효과음/내레이션],<ミニッツスパイク>,<미닛츠 스파이크>,<미닛츠 스파이크>
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,131,5,[선택지],B左左下下,B좌좌하하,B좌좌하하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,132,4,[선택지],左左下下,좌좌하하,좌좌하하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,133,3,[선택지],左下下,좌하하,좌하하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,134,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,135,2,[선택지],左下,좌하,좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,136,2,[선택지],左下,좌하,좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,137,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,138,1,[선택지],左,좌,좌
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,139,3,[선택지],左左下,좌좌하,좌좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,140,2,[선택지],左下,좌하,좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,141,1,[선택지],左,좌,좌
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,142,4,[선택지],B左下下,B좌하하,B좌하하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,143,3,[선택지],左下下,좌하하,좌하하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,144,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,145,2,[선택지],左下,좌하,좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,146,2,[선택지],B下,B하,B하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,147,1,[선택지],下,하,하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,131,5,[선택지],B左左下下,B좌좌하하,B\좌\좌하\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,132,4,[선택지],左左下下,좌좌하하,좌\좌하\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,133,3,[선택지],左下下,좌하하,좌하\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,134,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,135,2,[선택지],左下,좌하,좌하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,136,2,[선택지],左下,좌하,좌\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,137,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,138,1,[선택지],左,좌,좌\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,139,3,[선택지],左左下,좌좌하,좌\좌하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,140,2,[선택지],左下,좌하,좌하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,141,1,[선택지],左,좌,좌\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,142,4,[선택지],B左下下,B좌하하,B\좌하\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,143,3,[선택지],左下下,좌하하,좌하\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,144,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,145,2,[선택지],左下,좌하,좌하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,146,2,[선택지],B下,B하,B\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,147,1,[선택지],下,하,하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,148,1,[선택지],B,B,B
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,149,3,[선택지],B左下,B좌하,B좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,150,2,[선택지],左下,좌하,좌하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,149,3,[선택지],B左下,B좌하,B\좌하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,150,2,[선택지],左下,좌하,좌하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,151,1,[선택지],B,B,B
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,152,3,[선택지],B左下,B좌하,B좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,153,2,[선택지],左下,좌하,좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,154,1,[선택지],下,하,하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,155,1,[선택지],左,좌,좌
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,156,2,[선택지],B下,B하,B하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,157,1,[선택지],下,하,하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,152,3,[선택지],B左下,B좌하,B\좌\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,153,2,[선택지],左下,좌하,좌\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,154,1,[선택지],下,하,하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,155,1,[선택지],左,좌,좌\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,156,2,[선택지],B下,B하,B\하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,157,1,[선택지],下,하,하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,158,1,[선택지],B,B,B
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,159,2,[선택지],B左,B좌,B좌
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,160,1,[선택지],左,좌,좌
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,159,2,[선택지],B左,B좌,B\좌
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,160,1,[선택지],左,좌,좌\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,161,1,[선택지],B,B,B
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,162,4,[선택지],B左左下,B좌좌하,B좌좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,163,3,[선택지],左左下,좌좌하,좌좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,164,2,[선택지],左下,좌하,좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,165,1,[선택지],左,좌,좌
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,162,4,[선택지],B左左下,B좌좌하,B\좌\좌하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,163,3,[선택지],左左下,좌좌하,좌\좌하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,164,2,[선택지],左下,좌하,좌하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,165,1,[선택지],左,좌,좌\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,166,3,[선택지],B左下,B좌하,B좌하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,167,2,[선택지],左下,좌하,좌하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,167,2,[선택지],左下,좌하,좌하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,168,1,[선택지],B,B,B
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,169,2,[선택지],B左,B좌,B좌
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,170,1,[선택지],左,좌,좌
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,169,2,[선택지],B左,B좌,B\좌
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,170,1,[선택지],左,좌,좌\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,171,1,[선택지],B,B,B
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,172,6,주인공,くらぇぇ!,받아라앗!,받아라앗!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,173,7,[효과음/내레이션],バキィィィ!,빠지지직!,빠지지직!
@@ -1101,47 +1101,47 @@ dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,179,4,주인공,くそっ,젠�
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,180,15,UNKNOWN_27,うりゃ!<020A>うりゃ!<020A>うりゃ!,얍!<020A>얍!<020A>얍!,얍!<020A>얍!<020A>얍!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,181,2,주인공,!,!,!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,182,10,[효과음/내레이션],<ヒートドライブ>,<히트 드라이브>,<히트 드라이브>
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,183,12,[선택지],右下。右A下。右下右。下,우하.우A하.우하우.하,우하.우A하.우하우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,184,8,[선택지],A下。右下右。下,A하.우하우.하,A하.우하우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,185,7,[선택지],下。右下右。下,하.우하우.하,하.우하우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,186,3,[선택지],右。下,우.하,우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,187,4,[선택지],下。右下,하.우하,하.우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,188,4,[선택지],A右。下,A우.하,A우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,189,3,[선택지],右。下,우.하,우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,183,12,[선택지],右下。右A下。右下右。下,우하.우A하.우하우.하,우하.우\A\하.우하\우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,184,8,[선택지],A下。右下右。下,A하.우하우.하,A\하.우하\우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,185,7,[선택지],下。右下右。下,하.우하우.하,하.우하\우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,186,3,[선택지],右。下,우.하,우.하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,187,4,[선택지],下。右下,하.우하,하.우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,188,4,[선택지],A右。下,A우.하,A\우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,189,3,[선택지],右。下,우.하,우.하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,190,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,191,5,[선택지],A下。右下,A하.우하,A하.우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,192,4,[선택지],下。右下,하.우하,하.우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,191,5,[선택지],A下。右下,A하.우하,A\하.우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,192,4,[선택지],下。右下,하.우하,하.우하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,193,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,194,11,[선택지],右下。右下。右下右。下,우하.우하.우하우.하,우하.우하.우하우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,195,7,[선택지],下。右下右。下,하.우하우.하,하.우하우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,196,3,[선택지],右。下,우.하,우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,197,4,[선택지],下。右下,하.우하,하.우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,198,7,[선택지],右下。右右。下,우하.우우.하,우하.우우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,199,3,[선택지],右。下,우.하,우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,200,4,[선택지],右下。右,우하.우,우하.우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,201,8,[선택지],右下。右下。右下,우하.우하.우하,우하.우하.우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,202,4,[선택지],下。右下,하.우하,하.우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,203,4,[선택지],右下。右,우하.우,우하.우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,204,8,[선택지],右下。右A右。下,우하.우A우.하,우하.우A우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,205,4,[선택지],A右。下,A우.하,A우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,206,3,[선택지],右。下,우.하,우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,194,11,[선택지],右下。右下。右下右。下,우하.우하.우하우.하,우하.우\하.우하\우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,195,7,[선택지],下。右下右。下,하.우하우.하,하.우하\우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,196,3,[선택지],右。下,우.하,우.하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,197,4,[선택지],下。右下,하.우하,하.우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,198,7,[선택지],右下。右右。下,우하.우우.하,우하.우\우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,199,3,[선택지],右。下,우.하,우.하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,200,4,[선택지],右下。右,우하.우,우하.우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,201,8,[선택지],右下。右下。右下,우하.우하.우하,우하.우\하.우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,202,4,[선택지],下。右下,하.우하,하.우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,203,4,[선택지],右下。右,우하.우,우하.우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,204,8,[선택지],右下。右A右。下,우하.우A우.하,우하.우\A\우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,205,4,[선택지],A右。下,A우.하,A\우.하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,206,3,[선택지],右。下,우.하,우.하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,207,1,[선택지],A,A,A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,208,7,[선택지],右下。右右。下,우하.우우.하,우하.우우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,209,3,[선택지],右。下,우.하,우.하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,210,4,[선택지],右下。右,우하.우,우하.우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,211,5,[선택지],右下。右A,우하.우A,우하.우A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,209,3,[선택지],右。下,우.하,우.하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,210,4,[선택지],右下。右,우하.우,우하.우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,211,5,[선택지],右下。右A,우하.우A,우하.우\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,212,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,213,4,[선택지],右下。右,우하.우,우하.우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,214,9,[선택지],右下。右A下。右下,우하.우A하.우하,우하.우A하.우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,215,5,[선택지],A下。右下,A하.우하,A하.우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,216,4,[선택지],下。右下,하.우하,하.우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,213,4,[선택지],右下。右,우하.우,우하.우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,214,9,[선택지],右下。右A下。右下,우하.우A하.우하,우하.우\A\하.우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,215,5,[선택지],A下。右下,A하.우하,A\하.우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,216,4,[선택지],下。右下,하.우하,하.우하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,217,1,[선택지],A,A,A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,218,8,UNKNOWN_29,右下。右下。右下,우하.우하.우하,우하.우하.우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,219,4,[선택지],下。右下,하.우하,하.우하
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,220,4,[선택지],右下。右,우하.우,우하.우
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,221,5,[선택지],右下。右A,우하.우A,우하.우A
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,219,4,[선택지],下。右下,하.우하,하.우하\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,220,4,[선택지],右下。右,우하.우,우하.우\
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,221,5,[선택지],右下。右A,우하.우A,우하.우\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,222,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,223,4,[선택지],右下。右,우하.우,우하.우
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,223,4,[선택지],右下。右,우하.우,우하.우\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,224,6,주인공,くらぇぇ!,받아라앗!,받아라앗!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,225,7,[효과음/내레이션],バキィィィ!,빠지지직!,빠지지직!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,226,8,UNKNOWN_27,ぐあああああ!,으아아아악!,으아아아악!
@@ -1201,7 +1201,7 @@ dom1Kula_O0731_3.mes,Script/dom1Kula_O0731_3.mes,20,36,UNKNOWN_25,関係ねぇ�
 dom1Kula_O0731_3.mes,Script/dom1Kula_O0731_3.mes,21,5,주인공,その……,그게……,그게……
 dom1Kula_O0731_3.mes,Script/dom1Kula_O0731_3.mes,22,33,UNKNOWN_25,クーラを守りてぇのか、てめぇ.<6E5C>だったら俺を倒す自信が<6E5C>あるか?,쿨라를 지키고 싶은 거냐 너.<6E5C>그럼 날 이길 자신은<6E5C>있냐?,쿨라를 지키고 싶은 거냐 너.<6E5C>그럼 날 이길 자신은<6E5C>있냐?
 dom1Kula_O0731_3.mes,Script/dom1Kula_O0731_3.mes,23,5,주인공,えぇ!?,뭐!?,뭐!?
-dom1Kula_O0731_3.mes,Script/dom1Kula_O0731_3.mes,24,14,[선택지],あります!それはちょっと……,있음!그건 좀……,있음!그건 좀……
+dom1Kula_O0731_3.mes,Script/dom1Kula_O0731_3.mes,24,14,[선택지],あります!それはちょっと……,있음!그건 좀……,있음!\그건 좀……
 dom1Kula_O0731_3.mes,Script/dom1Kula_O0731_3.mes,25,6,주인공,あります!,있어요!,있어요!
 dom1Kula_O0731_3.mes,Script/dom1Kula_O0731_3.mes,26,5,Kula,<이름:3232>……,<이름:3232>……,<이름:3232>……
 dom1Kula_O0731_3.mes,Script/dom1Kula_O0731_3.mes,27,22,UNKNOWN_25,……フッ、まぁいい.もぅ帰れ.<6E5C>俺は疲れた,"……흥, 됐다.그만 가.<6E5C>나 피곤해","……흥, 됐다.그만 가.<6E5C>나 피곤해"
