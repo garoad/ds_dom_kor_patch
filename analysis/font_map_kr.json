@@ -15,8 +15,8 @@
     "full_width_total": 3389,
     "full_width_labeled": 1566,
     "full_width_unlabeled": 1823,
-    "hangul_mapped": 2353,
-    "hangul_budget": 2350,
+    "hangul_mapped": 2354,
+    "hangul_budget": 2351,
     "rebuild_note": "Rebuilt by rebuild_font_map_kr.py from full_2350_hangul_manifest.json. Safety is verified per real_tile group (all codes sharing a physical tile must belong to a single safe category - kanji or unresolved), not per-code. Hiragana, Katakana, punctuation, keep-category and sentinel control codes are 100% preserved."
   },
   "codes": {
@@ -2663,13 +2663,13 @@
       "kind": "full",
       "count": 96,
       "real_tile": 258,
-      "char": "<"
+      "char": "r"
     },
     "0193": {
       "kind": "full",
       "count": 96,
       "real_tile": 211,
-      "char": "「"
+      "char": "a"
     },
     "2E1C": {
       "kind": "full",
@@ -2943,7 +2943,7 @@
       "kind": "full",
       "count": 83,
       "real_tile": 215,
-      "char": "『"
+      "char": "e"
     },
     "470E": {
       "kind": "full",
@@ -3552,7 +3552,7 @@
       "kind": "full",
       "count": 57,
       "real_tile": 223,
-      "char": "『"
+      "char": "n"
     },
     "5412": {
       "kind": "full",
@@ -3726,7 +3726,7 @@
       "kind": "full",
       "count": 52,
       "real_tile": 12742,
-      "char": "띡"
+      "char": "쌥"
     },
     "3200": {
       "kind": "full",
@@ -3947,7 +3947,7 @@
       "kind": "full",
       "count": 47,
       "real_tile": 260,
-      "char": ">"
+      "char": "t"
     },
     "0008": {
       "kind": "ctrl",
@@ -4524,7 +4524,7 @@
       "kind": "full",
       "count": 35,
       "real_tile": 216,
-      "char": "『"
+      "char": "f"
     },
     "9C0C": {
       "kind": "full",
@@ -4929,7 +4929,7 @@
       "kind": "full",
       "count": 29,
       "real_tile": 214,
-      "char": "」"
+      "char": "d"
     },
     "050A": {
       "kind": "full",
@@ -4989,7 +4989,7 @@
       "kind": "full",
       "count": 28,
       "real_tile": 5070,
-      "char": "슌"
+      "char": "돋"
     },
     "C11E": {
       "kind": "full",
@@ -5059,7 +5059,7 @@
       "kind": "full",
       "count": 27,
       "real_tile": 259,
-      "char": ":"
+      "char": "s"
     },
     "6E18": {
       "kind": "full",
@@ -5071,7 +5071,7 @@
       "kind": "full",
       "count": 27,
       "real_tile": 1752,
-      "char": "몀"
+      "char": "괆"
     },
     "A21C": {
       "kind": "full",
@@ -5131,7 +5131,7 @@
       "kind": "full",
       "count": 26,
       "real_tile": 11988,
-      "char": "읩"
+      "char": "숟"
     },
     "1006": {
       "kind": "full",
@@ -6094,7 +6094,7 @@
       "kind": "full",
       "count": 18,
       "real_tile": 7432,
-      "char": "멊"
+      "char": "륑"
     },
     "3318": {
       "kind": "full",
@@ -6387,7 +6387,7 @@
       "kind": "full",
       "count": 16,
       "real_tile": 9884,
-      "char": "왛"
+      "char": "빚"
     },
     "651E": {
       "kind": "full",
@@ -6518,7 +6518,8 @@
     "0281": {
       "kind": "full",
       "count": 15,
-      "real_tile": 257
+      "real_tile": 257,
+      "char": "p"
     },
     "2906": {
       "kind": "full",
@@ -6596,7 +6597,7 @@
       "kind": "full",
       "count": 14,
       "real_tile": 1940,
-      "char": "읐"
+      "char": "굶"
     },
     "B70C": {
       "kind": "full",
@@ -6710,13 +6711,13 @@
       "kind": "full",
       "count": 13,
       "real_tile": 4240,
-      "char": "앟"
+      "char": "눼"
     },
     "5B1A": {
       "kind": "full",
       "count": 13,
       "real_tile": 5850,
-      "char": "옸"
+      "char": "듕"
     },
     "BF14": {
       "kind": "full",
@@ -6752,7 +6753,7 @@
       "kind": "full",
       "count": 13,
       "real_tile": 1418,
-      "char": "깄"
+      "char": "걺"
     },
     "7918": {
       "kind": "full",
@@ -6782,7 +6783,7 @@
       "kind": "full",
       "count": 13,
       "real_tile": 9480,
-      "char": "궘"
+      "char": "뷩"
     },
     "6E12": {
       "kind": "full",
@@ -6848,7 +6849,7 @@
       "kind": "full",
       "count": 13,
       "real_tile": 6422,
-      "char": "젷"
+      "char": "뗐"
     },
     "CE16": {
       "kind": "full",
@@ -6860,7 +6861,7 @@
       "kind": "full",
       "count": 13,
       "real_tile": 13078,
-      "char": "놤"
+      "char": "쐽"
     },
     "4704": {
       "kind": "full",
@@ -6883,7 +6884,7 @@
       "kind": "full",
       "count": 12,
       "real_tile": 7440,
-      "char": "넪"
+      "char": "륙"
     },
     "0012": {
       "kind": "ctrl",
@@ -6917,7 +6918,7 @@
       "kind": "full",
       "count": 12,
       "real_tile": 4692,
-      "char": "즤"
+      "char": "덛"
     },
     "A31C": {
       "kind": "full",
@@ -6947,7 +6948,7 @@
       "kind": "full",
       "count": 12,
       "real_tile": 2378,
-      "char": "잏"
+      "char": "깎"
     },
     "004C": {
       "kind": "ctrl",
@@ -6982,7 +6983,7 @@
       "kind": "full",
       "count": 12,
       "real_tile": 4546,
-      "char": "웄"
+      "char": "늉"
     },
     "BE1E": {
       "kind": "full",
@@ -7000,7 +7001,7 @@
       "kind": "full",
       "count": 12,
       "real_tile": 12682,
-      "char": "릐"
+      "char": "싻"
     },
     "8A04": {
       "kind": "full",
@@ -7018,7 +7019,7 @@
       "kind": "full",
       "count": 12,
       "real_tile": 3412,
-      "char": "핬"
+      "char": "꿩"
     },
     "7D1E": {
       "kind": "full",
@@ -7030,13 +7031,13 @@
       "kind": "full",
       "count": 12,
       "real_tile": 4188,
-      "char": "닜"
+      "char": "뇹"
     },
     "8500": {
       "kind": "full",
       "count": 12,
       "real_tile": 8512,
-      "char": "샸"
+      "char": "뱁"
     },
     "3718": {
       "kind": "full",
@@ -7048,7 +7049,7 @@
       "kind": "full",
       "count": 12,
       "real_tile": 12890,
-      "char": "싀"
+      "char": "썹"
     },
     "6008": {
       "kind": "full",
@@ -7070,7 +7071,7 @@
       "kind": "full",
       "count": 11,
       "real_tile": 3394,
-      "char": "긌"
+      "char": "꿎"
     },
     "0044": {
       "kind": "ctrl",
@@ -7087,13 +7088,13 @@
       "kind": "full",
       "count": 11,
       "real_tile": 6484,
-      "char": "맜"
+      "char": "뗬"
     },
     "0192": {
       "kind": "full",
       "count": 11,
       "real_tile": 210,
-      "char": ")"
+      "char": "Y"
     },
     "B310": {
       "kind": "full",
@@ -7111,7 +7112,7 @@
       "kind": "full",
       "count": 11,
       "real_tile": 10688,
-      "char": "읺"
+      "char": "뽁"
     },
     "3610": {
       "kind": "full",
@@ -7159,7 +7160,7 @@
       "kind": "full",
       "count": 11,
       "real_tile": 6470,
-      "char": "앖"
+      "char": "뗑"
     },
     "8F0E": {
       "kind": "full",
@@ -7171,13 +7172,13 @@
       "kind": "full",
       "count": 11,
       "real_tile": 12360,
-      "char": "웟"
+      "char": "쉿"
     },
     "2414": {
       "kind": "full",
       "count": 11,
       "real_tile": 2324,
-      "char": "엤"
+      "char": "긁"
     },
     "C804": {
       "kind": "full",
@@ -7195,7 +7196,7 @@
       "kind": "full",
       "count": 11,
       "real_tile": 7816,
-      "char": "겞"
+      "char": "묑"
     },
     "511C": {
       "kind": "full",
@@ -7207,7 +7208,7 @@
       "kind": "full",
       "count": 11,
       "real_tile": 5468,
-      "char": "짔"
+      "char": "뒝"
     },
     "1812": {
       "kind": "full",
@@ -7255,7 +7256,7 @@
       "kind": "full",
       "count": 11,
       "real_tile": 10244,
-      "char": "믜"
+      "char": "뺍"
     },
     "5300": {
       "kind": "full",
@@ -7273,13 +7274,13 @@
       "kind": "full",
       "count": 10,
       "real_tile": 3974,
-      "char": "맀"
+      "char": "넒"
     },
     "CA16": {
       "kind": "full",
       "count": 10,
       "real_tile": 12950,
-      "char": "핟"
+      "char": "쏵"
     },
     "A116": {
       "kind": "full",
@@ -7309,7 +7310,7 @@
       "kind": "full",
       "count": 10,
       "real_tile": 12872,
-      "char": "곴"
+      "char": "썅"
     },
     "031C": {
       "kind": "full",
@@ -7321,7 +7322,7 @@
       "kind": "full",
       "count": 10,
       "real_tile": 5776,
-      "char": "싰"
+      "char": "듈"
     },
     "3106": {
       "kind": "full",
@@ -7333,13 +7334,13 @@
       "kind": "full",
       "count": 10,
       "real_tile": 11604,
-      "char": "엏"
+      "char": "셸"
     },
     "C90A": {
       "kind": "full",
       "count": 10,
       "real_tile": 12874,
-      "char": "놰"
+      "char": "썲"
     },
     "6F06": {
       "kind": "full",
@@ -7435,7 +7436,7 @@
       "kind": "full",
       "count": 10,
       "real_tile": 3538,
-      "char": "힜"
+      "char": "꿱"
     },
     "790E": {
       "kind": "full",
@@ -7477,7 +7478,7 @@
       "kind": "full",
       "count": 10,
       "real_tile": 6218,
-      "char": "늤"
+      "char": "떳"
     },
     "4410": {
       "kind": "full",
@@ -7507,7 +7508,7 @@
       "kind": "full",
       "count": 10,
       "real_tile": 6030,
-      "char": "갆"
+      "char": "땜"
     },
     "320E": {
       "kind": "full",
@@ -7531,7 +7532,7 @@
       "kind": "full",
       "count": 9,
       "real_tile": 9990,
-      "char": "얺"
+      "char": "빳"
     },
     "3614": {
       "kind": "full",
@@ -7589,13 +7590,13 @@
       "kind": "full",
       "count": 9,
       "real_tile": 11218,
-      "char": "잆"
+      "char": "삯"
     },
     "4116": {
       "kind": "full",
       "count": 9,
       "real_tile": 4182,
-      "char": "읂"
+      "char": "뇟"
     },
     "7A06": {
       "kind": "full",
@@ -7619,13 +7620,13 @@
       "kind": "full",
       "count": 9,
       "real_tile": 13204,
-      "char": "젔"
+      "char": "얠"
     },
     "3C18": {
       "kind": "full",
       "count": 9,
       "real_tile": 3864,
-      "char": "뢔"
+      "char": "뀝"
     },
     "2708": {
       "kind": "full",
@@ -7637,7 +7638,7 @@
       "kind": "full",
       "count": 9,
       "real_tile": 2014,
-      "char": "옿"
+      "char": "궂"
     },
     "7208": {
       "kind": "full",
@@ -7667,13 +7668,13 @@
       "kind": "full",
       "count": 9,
       "real_tile": 11486,
-      "char": "즜"
+      "char": "섈"
     },
     "9D0E": {
       "kind": "full",
       "count": 9,
       "real_tile": 10062,
-      "char": "믕"
+      "char": "뺄"
     },
     "3F1E": {
       "kind": "full",
@@ -7709,7 +7710,7 @@
       "kind": "full",
       "count": 9,
       "real_tile": 1864,
-      "char": "즚"
+      "char": "굳"
     },
     "9F02": {
       "kind": "full",
@@ -7769,19 +7770,19 @@
       "kind": "full",
       "count": 9,
       "real_tile": 9160,
-      "char": "놌"
+      "char": "붇"
     },
     "9012": {
       "kind": "full",
       "count": 9,
       "real_tile": 9234,
-      "char": "랃"
+      "char": "붊"
     },
     "3608": {
       "kind": "full",
       "count": 9,
       "real_tile": 3464,
-      "char": "릈"
+      "char": "꿰"
     },
     "840E": {
       "kind": "full",
@@ -7793,7 +7794,7 @@
       "kind": "full",
       "count": 9,
       "real_tile": 7748,
-      "char": "럈"
+      "char": "몲"
     },
     "2F04": {
       "kind": "full",
@@ -7805,13 +7806,13 @@
       "kind": "full",
       "count": 9,
       "real_tile": 9554,
-      "char": "깋"
+      "char": "뷴"
     },
     "7C0A": {
       "kind": "full",
       "count": 9,
       "real_tile": 7946,
-      "char": "롮"
+      "char": "뭍"
     },
     "900C": {
       "kind": "full",
@@ -7823,7 +7824,7 @@
       "kind": "full",
       "count": 9,
       "real_tile": 5150,
-      "char": "슸"
+      "char": "돛"
     },
     "AF1A": {
       "kind": "full",
@@ -7835,7 +7836,7 @@
       "kind": "full",
       "count": 8,
       "real_tile": 3224,
-      "char": "밨"
+      "char": "꾕"
     },
     "8C1A": {
       "kind": "full",
@@ -7877,13 +7878,13 @@
       "kind": "full",
       "count": 8,
       "real_tile": 6280,
-      "char": "궀"
+      "char": "뗌"
     },
     "7B04": {
       "kind": "full",
       "count": 8,
       "real_tile": 7876,
-      "char": "옪"
+      "char": "묾"
     },
     "C014": {
       "kind": "full",
@@ -7907,7 +7908,7 @@
       "kind": "full",
       "count": 8,
       "real_tile": 11914,
-      "char": "뫠"
+      "char": "쇰"
     },
     "008B": {
       "kind": "half",
@@ -7919,7 +7920,7 @@
       "kind": "full",
       "count": 8,
       "real_tile": 212,
-      "char": "「"
+      "char": "b"
     },
     "0048": {
       "kind": "ctrl",
@@ -7947,7 +7948,7 @@
       "kind": "full",
       "count": 8,
       "real_tile": 11592,
-      "char": "덨"
+      "char": "섦"
     },
     "131C": {
       "kind": "full",
@@ -7983,7 +7984,7 @@
       "kind": "full",
       "count": 8,
       "real_tile": 10330,
-      "char": "듰"
+      "char": "뻑"
     },
     "5006": {
       "kind": "full",
@@ -8001,7 +8002,7 @@
       "kind": "full",
       "count": 8,
       "real_tile": 4508,
-      "char": "잫"
+      "char": "늅"
     },
     "0404": {
       "kind": "full",
@@ -8013,19 +8014,19 @@
       "kind": "full",
       "count": 8,
       "real_tile": 6742,
-      "char": "좄"
+      "char": "뜁"
     },
     "6D1A": {
       "kind": "full",
       "count": 8,
       "real_tile": 7002,
-      "char": "흢"
+      "char": "럇"
     },
     "AD02": {
       "kind": "full",
       "count": 8,
       "real_tile": 11074,
-      "char": "헜"
+      "char": "쁨"
     },
     "8C0A": {
       "kind": "full",
@@ -8079,19 +8080,19 @@
       "kind": "full",
       "count": 8,
       "real_tile": 12932,
-      "char": "븒"
+      "char": "쏢"
     },
     "4814": {
       "kind": "full",
       "count": 8,
       "real_tile": 4628,
-      "char": "쎠"
+      "char": "덖"
     },
     "C61A": {
       "kind": "full",
       "count": 8,
       "real_tile": 12698,
-      "char": "흤"
+      "char": "쌕"
     },
     "911E": {
       "kind": "full",
@@ -8103,7 +8104,7 @@
       "kind": "full",
       "count": 8,
       "real_tile": 10590,
-      "char": "븨"
+      "char": "뼝"
     },
     "7800": {
       "kind": "full",
@@ -8115,13 +8116,13 @@
       "kind": "full",
       "count": 8,
       "real_tile": 1750,
-      "char": "멌"
+      "char": "곯"
     },
     "A502": {
       "kind": "full",
       "count": 8,
       "real_tile": 10562,
-      "char": "낞"
+      "char": "뼙"
     },
     "561E": {
       "kind": "full",
@@ -8133,7 +8134,7 @@
       "kind": "full",
       "count": 8,
       "real_tile": 9758,
-      "char": "긶"
+      "char": "븃"
     },
     "4708": {
       "kind": "full",
@@ -8145,7 +8146,7 @@
       "kind": "full",
       "count": 8,
       "real_tile": 13260,
-      "char": "믔"
+      "char": "얾"
     },
     "1904": {
       "kind": "full",
@@ -8187,7 +8188,7 @@
       "kind": "full",
       "count": 7,
       "real_tile": 10378,
-      "char": "롰"
+      "char": "뻠"
     },
     "1A16": {
       "kind": "full",
@@ -8235,13 +8236,13 @@
       "kind": "full",
       "count": 7,
       "real_tile": 4416,
-      "char": "킀"
+      "char": "뉵"
     },
     "8E1E": {
       "kind": "full",
       "count": 7,
       "real_tile": 9118,
-      "char": "샇"
+      "char": "뵙"
     },
     "7A0E": {
       "kind": "full",
@@ -8253,7 +8254,7 @@
       "kind": "full",
       "count": 7,
       "real_tile": 3284,
-      "char": "긩"
+      "char": "꿋"
     },
     "8C08": {
       "kind": "full",
@@ -8265,19 +8266,19 @@
       "kind": "full",
       "count": 7,
       "real_tile": 7424,
-      "char": "솠"
+      "char": "륏"
     },
     "741C": {
       "kind": "full",
       "count": 7,
       "real_tile": 7452,
-      "char": "둫"
+      "char": "률"
     },
     "2C04": {
       "kind": "full",
       "count": 7,
       "real_tile": 2820,
-      "char": "싈"
+      "char": "꺾"
     },
     "2E08": {
       "kind": "full",
@@ -8295,7 +8296,7 @@
       "kind": "full",
       "count": 7,
       "real_tile": 5060,
-      "char": "읎"
+      "char": "덮"
     },
     "002E": {
       "kind": "ctrl",
@@ -8348,7 +8349,7 @@
       "kind": "full",
       "count": 7,
       "real_tile": 12036,
-      "char": "믁"
+      "char": "숱"
     },
     "003E": {
       "kind": "ctrl",
@@ -8371,7 +8372,7 @@
       "kind": "full",
       "count": 7,
       "real_tile": 6720,
-      "char": "겍"
+      "char": "뜀"
     },
     "150A": {
       "kind": "full",
@@ -8407,13 +8408,13 @@
       "kind": "full",
       "count": 7,
       "real_tile": 4616,
-      "char": "웋"
+      "char": "닳"
     },
     "6A18": {
       "kind": "full",
       "count": 7,
       "real_tile": 6808,
-      "char": "돘"
+      "char": "띈"
     },
     "C806": {
       "kind": "full",
@@ -8467,13 +8468,13 @@
       "kind": "full",
       "count": 7,
       "real_tile": 6212,
-      "char": "잍"
+      "char": "떱"
     },
     "790C": {
       "kind": "full",
       "count": 7,
       "real_tile": 7756,
-      "char": "벟"
+      "char": "묍"
     },
     "570A": {
       "kind": "full",
@@ -8496,19 +8497,20 @@
     "0287": {
       "kind": "full",
       "count": 7,
-      "real_tile": 263
+      "real_tile": 263,
+      "char": "y"
     },
     "571E": {
       "kind": "full",
       "count": 6,
       "real_tile": 5598,
-      "char": "핳"
+      "char": "뒷"
     },
     "7312": {
       "kind": "full",
       "count": 6,
       "real_tile": 7378,
-      "char": "홌"
+      "char": "륌"
     },
     "2404": {
       "kind": "full",
@@ -8543,7 +8545,7 @@
       "kind": "full",
       "count": 6,
       "real_tile": 7516,
-      "char": "닣"
+      "char": "륩"
     },
     "0600": {
       "kind": "full",
@@ -8590,7 +8592,7 @@
       "kind": "full",
       "count": 6,
       "real_tile": 1882,
-      "char": "랂"
+      "char": "굵"
     },
     "8E16": {
       "kind": "full",
@@ -8602,7 +8604,7 @@
       "kind": "full",
       "count": 6,
       "real_tile": 2830,
-      "char": "잪"
+      "char": "껫"
     },
     "3804": {
       "kind": "full",
@@ -8620,7 +8622,7 @@
       "kind": "full",
       "count": 6,
       "real_tile": 3786,
-      "char": "긓"
+      "char": "뀜"
     },
     "9502": {
       "kind": "full",
@@ -8632,7 +8634,7 @@
       "kind": "full",
       "count": 6,
       "real_tile": 6342,
-      "char": "빘"
+      "char": "뗍"
     },
     "5218": {
       "kind": "full",
@@ -8649,25 +8651,25 @@
       "kind": "full",
       "count": 6,
       "real_tile": 7960,
-      "char": "몼"
+      "char": "뭬"
     },
     "440C": {
       "kind": "full",
       "count": 6,
       "real_tile": 4364,
-      "char": "긘"
+      "char": "뉩"
     },
     "B01A": {
       "kind": "full",
       "count": 6,
       "real_tile": 11290,
-      "char": "삲"
+      "char": "샵"
     },
     "1300": {
       "kind": "full",
       "count": 6,
       "real_tile": 1216,
-      "char": "눘"
+      "char": "갉"
     },
     "530A": {
       "kind": "full",
@@ -8697,7 +8699,7 @@
       "kind": "full",
       "count": 6,
       "real_tile": 4104,
-      "char": "괐"
+      "char": "넓"
     },
     "AC12": {
       "kind": "full",
@@ -8709,7 +8711,7 @@
       "kind": "full",
       "count": 6,
       "real_tile": 6350,
-      "char": "얐"
+      "char": "뗏"
     },
     "4900": {
       "kind": "full",
@@ -8727,7 +8729,7 @@
       "kind": "full",
       "count": 6,
       "real_tile": 4174,
-      "char": "댠"
+      "char": "뇝"
     },
     "3E14": {
       "kind": "full",
@@ -8751,31 +8753,31 @@
       "kind": "full",
       "count": 6,
       "real_tile": 3548,
-      "char": "놊"
+      "char": "꿴"
     },
     "2D1E": {
       "kind": "full",
       "count": 6,
       "real_tile": 2910,
-      "char": "뢘"
+      "char": "꼽"
     },
     "B206": {
       "kind": "full",
       "count": 6,
       "real_tile": 11398,
-      "char": "엫"
+      "char": "섀"
     },
     "5F18": {
       "kind": "full",
       "count": 6,
       "real_tile": 6104,
-      "char": "옶"
+      "char": "땟"
     },
     "1418": {
       "kind": "full",
       "count": 6,
       "real_tile": 1304,
-      "char": "좬"
+      "char": "걔"
     },
     "210E": {
       "kind": "full",
@@ -8799,13 +8801,13 @@
       "kind": "full",
       "count": 6,
       "real_tile": 9116,
-      "char": "맢"
+      "char": "뵘"
     },
     "7618": {
       "kind": "full",
       "count": 6,
       "real_tile": 7576,
-      "char": "챃"
+      "char": "릊"
     },
     "450E": {
       "kind": "full",
@@ -8840,7 +8842,8 @@
     "019D": {
       "kind": "full",
       "count": 6,
-      "real_tile": 221
+      "real_tile": 221,
+      "char": "l"
     },
     "1F02": {
       "kind": "full",
@@ -8858,7 +8861,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 6536,
-      "char": "좂"
+      "char": "뙨"
     },
     "0184": {
       "kind": "full",
@@ -8870,7 +8873,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 4124,
-      "char": "밦"
+      "char": "놂"
     },
     "006C": {
       "kind": "ctrl",
@@ -8892,7 +8895,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 8768,
-      "char": "짛"
+      "char": "볍"
     },
     "B10E": {
       "kind": "full",
@@ -8904,7 +8907,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 6868,
-      "char": "햔"
+      "char": "띕"
     },
     "0512": {
       "kind": "full",
@@ -8922,13 +8925,13 @@
       "kind": "full",
       "count": 5,
       "real_tile": 12314,
-      "char": "닪"
+      "char": "쉴"
     },
     "521A": {
       "kind": "full",
       "count": 5,
       "real_tile": 5274,
-      "char": "욶"
+      "char": "됫"
     },
     "3212": {
       "kind": "full",
@@ -8964,7 +8967,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 12802,
-      "char": "훊"
+      "char": "쌩"
     },
     "6E06": {
       "kind": "full",
@@ -8976,7 +8979,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 9474,
-      "char": "앋"
+      "char": "뷜"
     },
     "0058": {
       "kind": "ctrl",
@@ -8992,7 +8995,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 9414,
-      "char": "븡"
+      "char": "붸"
     },
     "7C1A": {
       "kind": "full",
@@ -9086,43 +9089,43 @@
       "kind": "full",
       "count": 5,
       "real_tile": 5134,
-      "char": "핞"
+      "char": "돐"
     },
     "6F1A": {
       "kind": "full",
       "count": 5,
       "real_tile": 7130,
-      "char": "줐"
+      "char": "뢨"
     },
     "471A": {
       "kind": "full",
       "count": 5,
       "real_tile": 4570,
-      "char": "욌"
+      "char": "닯"
     },
     "C104": {
       "kind": "full",
       "count": 5,
       "real_tile": 12356,
-      "char": "톴"
+      "char": "쉼"
     },
     "861E": {
       "kind": "full",
       "count": 5,
       "real_tile": 8606,
-      "char": "먄"
+      "char": "벋"
     },
     "A814": {
       "kind": "full",
       "count": 5,
       "real_tile": 10772,
-      "char": "닎"
+      "char": "뿅"
     },
     "C406": {
       "kind": "full",
       "count": 5,
       "real_tile": 12550,
-      "char": "캰"
+      "char": "슝"
     },
     "6D14": {
       "kind": "full",
@@ -9157,7 +9160,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 9608,
-      "char": "걶"
+      "char": "븀"
     },
     "9B18": {
       "kind": "full",
@@ -9169,13 +9172,13 @@
       "kind": "full",
       "count": 5,
       "real_tile": 8962,
-      "char": "낪"
+      "char": "볜"
     },
     "5A18": {
       "kind": "full",
       "count": 5,
       "real_tile": 5784,
-      "char": "핐"
+      "char": "듐"
     },
     "B218": {
       "kind": "full",
@@ -9217,7 +9220,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 12178,
-      "char": "젙"
+      "char": "쉔"
     },
     "7102": {
       "kind": "full",
@@ -9241,7 +9244,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 5888,
-      "char": "앆"
+      "char": "듦"
     },
     "5F1E": {
       "kind": "full",
@@ -9253,13 +9256,13 @@
       "kind": "full",
       "count": 5,
       "real_tile": 13268,
-      "char": "깂"
+      "char": "엌"
     },
     "4308": {
       "kind": "full",
       "count": 5,
       "real_tile": 4296,
-      "char": "뚸"
+      "char": "뉨"
     },
     "006F": {
       "kind": "ctrl",
@@ -9270,7 +9273,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 8584,
-      "char": "귾"
+      "char": "뱍"
     },
     "640E": {
       "kind": "full",
@@ -9288,7 +9291,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 5982,
-      "char": "옺"
+      "char": "땍"
     },
     "2416": {
       "kind": "full",
@@ -9317,7 +9320,7 @@
       "kind": "full",
       "count": 5,
       "real_tile": 1816,
-      "char": "맇"
+      "char": "굅"
     },
     "790A": {
       "kind": "full",
@@ -9377,7 +9380,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 4236,
-      "char": "눊"
+      "char": "눋"
     },
     "8916": {
       "kind": "full",
@@ -9407,7 +9410,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 12700,
-      "char": "곻"
+      "char": "쌤"
     },
     "0406": {
       "kind": "full",
@@ -9437,25 +9440,25 @@
       "kind": "full",
       "count": 4,
       "real_tile": 10458,
-      "char": "엪"
+      "char": "뼁"
     },
     "CE06": {
       "kind": "full",
       "count": 4,
       "real_tile": 13190,
-      "char": "걉"
+      "char": "씜"
     },
     "2F12": {
       "kind": "full",
       "count": 4,
       "real_tile": 3026,
-      "char": "쯘"
+      "char": "꽝"
     },
     "B50E": {
       "kind": "full",
       "count": 4,
       "real_tile": 11598,
-      "char": "싷"
+      "char": "섧"
     },
     "8810": {
       "kind": "full",
@@ -9479,7 +9482,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 5328,
-      "char": "엖"
+      "char": "뒀"
     },
     "9316": {
       "kind": "full",
@@ -9525,7 +9528,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 3400,
-      "char": "룼"
+      "char": "꿜"
     },
     "006B": {
       "kind": "ctrl",
@@ -9554,7 +9557,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 8280,
-      "char": "쎤"
+      "char": "및"
     },
     "181C": {
       "kind": "full",
@@ -9589,13 +9592,13 @@
       "kind": "full",
       "count": 4,
       "real_tile": 11982,
-      "char": "홊"
+      "char": "숏"
     },
     "A710": {
       "kind": "full",
       "count": 4,
       "real_tile": 10704,
-      "char": "좐"
+      "char": "뽑"
     },
     "9F16": {
       "kind": "full",
@@ -9613,7 +9616,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 7106,
-      "char": "앚"
+      "char": "롑"
     },
     "7C0E": {
       "kind": "full",
@@ -9649,7 +9652,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 4554,
-      "char": "짆"
+      "char": "늚"
     },
     "2818": {
       "kind": "full",
@@ -9697,7 +9700,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 9028,
-      "char": "넡"
+      "char": "뵉"
     },
     "0612": {
       "kind": "full",
@@ -9709,19 +9712,19 @@
       "kind": "full",
       "count": 4,
       "real_tile": 7570,
-      "char": "픙"
+      "char": "륫"
     },
     "670E": {
       "kind": "full",
       "count": 4,
       "real_tile": 6606,
-      "char": "쌰"
+      "char": "뚬"
     },
     "261E": {
       "kind": "full",
       "count": 4,
       "real_tile": 2462,
-      "char": "숬"
+      "char": "깸"
     },
     "3016": {
       "kind": "full",
@@ -9733,7 +9736,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 3932,
-      "char": "씼"
+      "char": "넋"
     },
     "471C": {
       "kind": "full",
@@ -9751,19 +9754,19 @@
       "kind": "full",
       "count": 4,
       "real_tile": 6096,
-      "char": "쟜"
+      "char": "땝"
     },
     "250C": {
       "kind": "full",
       "count": 4,
       "real_tile": 2380,
-      "char": "잢"
+      "char": "깖"
     },
     "A100": {
       "kind": "full",
       "count": 4,
       "real_tile": 10304,
-      "char": "젰"
+      "char": "뺐"
     },
     "5708": {
       "kind": "full",
@@ -9775,31 +9778,31 @@
       "kind": "full",
       "count": 4,
       "real_tile": 7370,
-      "char": "틌"
+      "char": "륄"
     },
     "5208": {
       "kind": "full",
       "count": 4,
       "real_tile": 5256,
-      "char": "곃"
+      "char": "됨"
     },
     "A70C": {
       "kind": "full",
       "count": 4,
       "real_tile": 10700,
-      "char": "뎋"
+      "char": "뽐"
     },
     "6D16": {
       "kind": "full",
       "count": 4,
       "real_tile": 6998,
-      "char": "욨"
+      "char": "띳"
     },
     "6B0E": {
       "kind": "full",
       "count": 4,
       "real_tile": 6862,
-      "char": "됸"
+      "char": "띔"
     },
     "8006": {
       "kind": "full",
@@ -9823,13 +9826,13 @@
       "kind": "full",
       "count": 4,
       "real_tile": 8010,
-      "char": "딯"
+      "char": "뮬"
     },
     "C91C": {
       "kind": "full",
       "count": 4,
       "real_tile": 12892,
-      "char": "빖"
+      "char": "쏀"
     },
     "4F08": {
       "kind": "full",
@@ -9847,7 +9850,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 10500,
-      "char": "왤"
+      "char": "뼉"
     },
     "2402": {
       "kind": "full",
@@ -9894,7 +9897,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 5460,
-      "char": "됀"
+      "char": "뒈"
     },
     "3504": {
       "kind": "full",
@@ -9912,7 +9915,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 2496,
-      "char": "엍"
+      "char": "깹"
     },
     "571A": {
       "kind": "full",
@@ -9942,7 +9945,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 11848,
-      "char": "힣"
+      "char": "쇗"
     },
     "381E": {
       "kind": "full",
@@ -9966,13 +9969,13 @@
       "kind": "full",
       "count": 4,
       "real_tile": 13140,
-      "char": "녛"
+      "char": "쓺"
     },
     "7302": {
       "kind": "full",
       "count": 4,
       "real_tile": 7362,
-      "char": "웊"
+      "char": "뤽"
     },
     "6512": {
       "kind": "full",
@@ -9990,7 +9993,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 3920,
-      "char": "몮"
+      "char": "낡"
     },
     "0518": {
       "kind": "full",
@@ -10002,13 +10005,13 @@
       "kind": "full",
       "count": 4,
       "real_tile": 10056,
-      "char": "둤"
+      "char": "빽"
     },
     "140A": {
       "kind": "full",
       "count": 4,
       "real_tile": 1290,
-      "char": "눤"
+      "char": "갊"
     },
     "6902": {
       "kind": "full",
@@ -10026,7 +10029,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 10130,
-      "char": "늫"
+      "char": "뺌"
     },
     "6B16": {
       "kind": "full",
@@ -10074,7 +10077,7 @@
       "kind": "full",
       "count": 4,
       "real_tile": 12114,
-      "char": "릲"
+      "char": "쉑"
     },
     "6910": {
       "kind": "full",
@@ -10116,7 +10119,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 12752,
-      "char": "먔"
+      "char": "쌨"
     },
     "671C": {
       "kind": "full",
@@ -10128,7 +10131,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 12998,
-      "char": "멯"
+      "char": "쏸"
     },
     "3802": {
       "kind": "full",
@@ -10152,7 +10155,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 12498,
-      "char": "벘"
+      "char": "슛"
     },
     "0F18": {
       "kind": "full",
@@ -10194,7 +10197,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 3264,
-      "char": "끘"
+      "char": "꿇"
     },
     "5014": {
       "kind": "full",
@@ -10206,7 +10209,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 13196,
-      "char": "맆"
+      "char": "얇"
     },
     "5B02": {
       "kind": "full",
@@ -10218,7 +10221,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 2836,
-      "char": "랎"
+      "char": "꼇"
     },
     "6816": {
       "kind": "full",
@@ -10230,7 +10233,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 11844,
-      "char": "둖"
+      "char": "쇔"
     },
     "9A0C": {
       "kind": "full",
@@ -10242,13 +10245,13 @@
       "kind": "full",
       "count": 3,
       "real_tile": 2954,
-      "char": "줗"
+      "char": "꽂"
     },
     "281C": {
       "kind": "full",
       "count": 3,
       "real_tile": 2588,
-      "char": "렜"
+      "char": "꺅"
     },
     "9914": {
       "kind": "full",
@@ -10260,7 +10263,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 6924,
-      "char": "밓"
+      "char": "띱"
     },
     "3702": {
       "kind": "full",
@@ -10278,25 +10281,25 @@
       "kind": "full",
       "count": 3,
       "real_tile": 12612,
-      "char": "즡"
+      "char": "슭"
     },
     "7C10": {
       "kind": "full",
       "count": 3,
       "real_tile": 7952,
-      "char": "훟"
+      "char": "뭡"
     },
     "6716": {
       "kind": "full",
       "count": 3,
       "real_tile": 6614,
-      "char": "믤"
+      "char": "뛴"
     },
     "9B12": {
       "kind": "full",
       "count": 3,
       "real_tile": 9938,
-      "char": "훘"
+      "char": "빪"
     },
     "430A": {
       "kind": "full",
@@ -10308,7 +10311,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 6166,
-      "char": "맅"
+      "char": "떫"
     },
     "B308": {
       "kind": "full",
@@ -10325,31 +10328,31 @@
       "kind": "full",
       "count": 3,
       "real_tile": 2176,
-      "char": "릘"
+      "char": "궷"
     },
     "A812": {
       "kind": "full",
       "count": 3,
       "real_tile": 10770,
-      "char": "곦"
+      "char": "뽕"
     },
     "401E": {
       "kind": "full",
       "count": 3,
       "real_tile": 4126,
-      "char": "븠"
+      "char": "뇜"
     },
     "6F16": {
       "kind": "full",
       "count": 3,
       "real_tile": 7126,
-      "char": "싢"
+      "char": "롓"
     },
     "AF16": {
       "kind": "full",
       "count": 3,
       "real_tile": 11222,
-      "char": "앻"
+      "char": "삵"
     },
     "5D1A": {
       "kind": "full",
@@ -10372,13 +10375,13 @@
       "kind": "full",
       "count": 3,
       "real_tile": 7956,
-      "char": "읭"
+      "char": "뭣"
     },
     "B818": {
       "kind": "full",
       "count": 3,
       "real_tile": 11800,
-      "char": "삾"
+      "char": "솖"
     },
     "6F04": {
       "kind": "full",
@@ -10390,7 +10393,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 5906,
-      "char": "앛"
+      "char": "땋"
     },
     "7608": {
       "kind": "full",
@@ -10426,13 +10429,13 @@
       "kind": "full",
       "count": 3,
       "real_tile": 11404,
-      "char": "랼"
+      "char": "섄"
     },
     "931A": {
       "kind": "full",
       "count": 3,
       "real_tile": 9434,
-      "char": "쳘"
+      "char": "뷕"
     },
     "2606": {
       "kind": "full",
@@ -10456,7 +10459,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 11102,
-      "char": "캈"
+      "char": "삣"
     },
     "6F0A": {
       "kind": "full",
@@ -10468,7 +10471,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 13064,
-      "char": "뭈"
+      "char": "쐰"
     },
     "5408": {
       "kind": "full",
@@ -10485,7 +10488,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 13070,
-      "char": "뜽"
+      "char": "쐴"
     },
     "CB02": {
       "kind": "full",
@@ -10509,7 +10512,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 11586,
-      "char": "닁"
+      "char": "섣"
     },
     "6708": {
       "kind": "full",
@@ -10527,7 +10530,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 4496,
-      "char": "젛"
+      "char": "늄"
     },
     "4414": {
       "kind": "full",
@@ -10557,7 +10560,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 4562,
-      "char": "훕"
+      "char": "닒"
     },
     "641A": {
       "kind": "full",
@@ -10569,7 +10572,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 12250,
-      "char": "깒"
+      "char": "쉠"
     },
     "0090": {
       "kind": "half",
@@ -10617,7 +10620,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 9802,
-      "char": "줜"
+      "char": "븅"
     },
     "C800": {
       "kind": "full",
@@ -10629,7 +10632,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 3138,
-      "char": "갷"
+      "char": "꾈"
     },
     "240C": {
       "kind": "full",
@@ -10665,7 +10668,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 3734,
-      "char": "딚"
+      "char": "뀐"
     },
     "050E": {
       "kind": "full",
@@ -10683,31 +10686,31 @@
       "kind": "full",
       "count": 3,
       "real_tile": 9176,
-      "char": "캏"
+      "char": "붉"
     },
     "BF12": {
       "kind": "full",
       "count": 3,
       "real_tile": 12242,
-      "char": "햠"
+      "char": "쉘"
     },
     "1708": {
       "kind": "full",
       "count": 3,
       "real_tile": 1480,
-      "char": "틍"
+      "char": "곕"
     },
     "2C1E": {
       "kind": "full",
       "count": 3,
       "real_tile": 2846,
-      "char": "즣"
+      "char": "꼈"
     },
     "1514": {
       "kind": "full",
       "count": 3,
       "real_tile": 1364,
-      "char": "핱"
+      "char": "걘"
     },
     "7602": {
       "kind": "full",
@@ -10749,7 +10752,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 3914,
-      "char": "댱"
+      "char": "끓"
     },
     "2612": {
       "kind": "full",
@@ -10761,19 +10764,19 @@
       "kind": "full",
       "count": 3,
       "real_tile": 8722,
-      "char": "긒"
+      "char": "벧"
     },
     "311A": {
       "kind": "full",
       "count": 3,
       "real_tile": 3162,
-      "char": "읻"
+      "char": "꾑"
     },
     "7200": {
       "kind": "full",
       "count": 3,
       "real_tile": 7296,
-      "char": "닶"
+      "char": "룅"
     },
     "5D0E": {
       "kind": "full",
@@ -10785,25 +10788,25 @@
       "kind": "full",
       "count": 3,
       "real_tile": 2890,
-      "char": "웂"
+      "char": "꼍"
     },
     "4508": {
       "kind": "full",
       "count": 3,
       "real_tile": 4424,
-      "char": "츼"
+      "char": "뉼"
     },
     "8616": {
       "kind": "full",
       "count": 3,
       "real_tile": 8598,
-      "char": "븬"
+      "char": "뱝"
     },
     "5810": {
       "kind": "full",
       "count": 3,
       "real_tile": 5648,
-      "char": "덦"
+      "char": "뒹"
     },
     "C718": {
       "kind": "full",
@@ -10857,7 +10860,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 3912,
-      "char": "빊"
+      "char": "끎"
     },
     "5818": {
       "kind": "full",
@@ -10869,19 +10872,19 @@
       "kind": "full",
       "count": 3,
       "real_tile": 7310,
-      "char": "갢"
+      "char": "룝"
     },
     "2F10": {
       "kind": "full",
       "count": 3,
       "real_tile": 3024,
-      "char": "럾"
+      "char": "꽜"
     },
     "6A02": {
       "kind": "full",
       "count": 3,
       "real_tile": 6786,
-      "char": "곹"
+      "char": "뜹"
     },
     "9D12": {
       "kind": "full",
@@ -10898,13 +10901,13 @@
       "kind": "full",
       "count": 3,
       "real_tile": 7764,
-      "char": "즨"
+      "char": "묏"
     },
     "CA00": {
       "kind": "full",
       "count": 3,
       "real_tile": 12928,
-      "char": "끠"
+      "char": "쏟"
     },
     "7900": {
       "kind": "full",
@@ -10928,19 +10931,19 @@
       "kind": "full",
       "count": 3,
       "real_tile": 5504,
-      "char": "뤃"
+      "char": "뒬"
     },
     "8514": {
       "kind": "full",
       "count": 3,
       "real_tile": 8532,
-      "char": "셓"
+      "char": "뱃"
     },
     "7100": {
       "kind": "full",
       "count": 3,
       "real_tile": 7232,
-      "char": "긜"
+      "char": "룃"
     },
     "9D14": {
       "kind": "full",
@@ -10970,7 +10973,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 6860,
-      "char": "싵"
+      "char": "띌"
     },
     "7610": {
       "kind": "full",
@@ -10988,7 +10991,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 10306,
-      "char": "힎"
+      "char": "뺑"
     },
     "340C": {
       "kind": "full",
@@ -11000,25 +11003,25 @@
       "kind": "full",
       "count": 3,
       "real_tile": 10572,
-      "char": "띴"
+      "char": "뼛"
     },
     "1F00": {
       "kind": "full",
       "count": 3,
       "real_tile": 1984,
-      "char": "넎"
+      "char": "굻"
     },
     "7A14": {
       "kind": "full",
       "count": 3,
       "real_tile": 7828,
-      "char": "딭"
+      "char": "묫"
     },
     "7812": {
       "kind": "full",
       "count": 3,
       "real_tile": 7698,
-      "char": "촜"
+      "char": "맒"
     },
     "2C18": {
       "kind": "full",
@@ -11042,7 +11045,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 1408,
-      "char": "젒"
+      "char": "걜"
     },
     "1304": {
       "kind": "full",
@@ -11060,31 +11063,31 @@
       "kind": "full",
       "count": 3,
       "real_tile": 9308,
-      "char": "핪"
+      "char": "붰"
     },
     "7F18": {
       "kind": "full",
       "count": 3,
       "real_tile": 8152,
-      "char": "헸"
+      "char": "밂"
     },
     "BB1A": {
       "kind": "full",
       "count": 3,
       "real_tile": 11994,
-      "char": "죰"
+      "char": "숯"
     },
     "B012": {
       "kind": "full",
       "count": 3,
       "real_tile": 11282,
-      "char": "죴"
+      "char": "삶"
     },
     "CE10": {
       "kind": "full",
       "count": 3,
       "real_tile": 13200,
-      "char": "댤"
+      "char": "얜"
     },
     "CA0C": {
       "kind": "full",
@@ -11114,13 +11117,13 @@
       "kind": "full",
       "count": 3,
       "real_tile": 3714,
-      "char": "둴"
+      "char": "뀁"
     },
     "C30A": {
       "kind": "full",
       "count": 3,
       "real_tile": 12490,
-      "char": "렎"
+      "char": "슉"
     },
     "1408": {
       "kind": "full",
@@ -11132,7 +11135,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 2944,
-      "char": "혾"
+      "char": "꼿"
     },
     "5A12": {
       "kind": "full",
@@ -11150,13 +11153,13 @@
       "kind": "full",
       "count": 3,
       "real_tile": 3102,
-      "char": "닚"
+      "char": "꾄"
     },
     "3D16": {
       "kind": "full",
       "count": 3,
       "real_tile": 3926,
-      "char": "늖"
+      "char": "낢"
     },
     "D002": {
       "kind": "full",
@@ -11168,13 +11171,13 @@
       "kind": "full",
       "count": 3,
       "real_tile": 6784,
-      "char": "겂"
+      "char": "뜅"
     },
     "3A1A": {
       "kind": "full",
       "count": 3,
       "real_tile": 3738,
-      "char": "섮"
+      "char": "뀔"
     },
     "AC04": {
       "kind": "full",
@@ -11186,7 +11189,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 10368,
-      "char": "긤"
+      "char": "뻗"
     },
     "920E": {
       "kind": "full",
@@ -11198,7 +11201,7 @@
       "kind": "full",
       "count": 3,
       "real_tile": 6490,
-      "char": "욯"
+      "char": "똴"
     },
     "A51C": {
       "kind": "full",
@@ -11252,25 +11255,25 @@
       "kind": "full",
       "count": 2,
       "real_tile": 13278,
-      "char": "샂"
+      "char": "엶"
     },
     "600C": {
       "kind": "full",
       "count": 2,
       "real_tile": 6156,
-      "char": "숳"
+      "char": "땡"
     },
     "BA0E": {
       "kind": "full",
       "count": 2,
       "real_tile": 11918,
-      "char": "옽"
+      "char": "쇱"
     },
     "6718": {
       "kind": "full",
       "count": 2,
       "real_tile": 6616,
-      "char": "씅"
+      "char": "뛸"
     },
     "0073": {
       "kind": "ctrl",
@@ -11292,7 +11295,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 11532,
-      "char": "묭"
+      "char": "섕"
     },
     "00B4": {
       "kind": "half",
@@ -11303,13 +11306,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 5120,
-      "char": "왰"
+      "char": "돎"
     },
     "7A16": {
       "kind": "full",
       "count": 2,
       "real_tile": 7830,
-      "char": "렣"
+      "char": "묽"
     },
     "9218": {
       "kind": "full",
@@ -11321,7 +11324,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 11908,
-      "char": "헿"
+      "char": "쇘"
     },
     "7700": {
       "kind": "full",
@@ -11339,13 +11342,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 3038,
-      "char": "킈"
+      "char": "꽥"
     },
     "300E": {
       "kind": "full",
       "count": 2,
       "real_tile": 3086,
-      "char": "죨"
+      "char": "꽹"
     },
     "004B": {
       "kind": "ctrl",
@@ -11356,7 +11359,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 10394,
-      "char": "댰"
+      "char": "뻣"
     },
     "A91A": {
       "kind": "full",
@@ -11368,13 +11371,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 8542,
-      "char": "솞"
+      "char": "뱉"
     },
     "7D02": {
       "kind": "full",
       "count": 2,
       "real_tile": 8002,
-      "char": "붠"
+      "char": "뮐"
     },
     "3416": {
       "kind": "full",
@@ -11392,7 +11395,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 13056,
-      "char": "몺"
+      "char": "쐈"
     },
     "02C8": {
       "kind": "full",
@@ -11404,7 +11407,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 10884,
-      "char": "앹"
+      "char": "뿟"
     },
     "811E": {
       "kind": "full",
@@ -11416,7 +11419,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 10838,
-      "char": "눵"
+      "char": "뿜"
     },
     "0075": {
       "kind": "ctrl",
@@ -11427,13 +11430,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 8718,
-      "char": "겮"
+      "char": "벚"
     },
     "9B1E": {
       "kind": "full",
       "count": 2,
       "real_tile": 9950,
-      "char": "숞"
+      "char": "빱"
     },
     "0076": {
       "kind": "ctrl",
@@ -11454,7 +11457,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 7496,
-      "char": "땨"
+      "char": "륨"
     },
     "4918": {
       "kind": "full",
@@ -11466,13 +11469,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 2896,
-      "char": "믾"
+      "char": "꼲"
     },
     "381A": {
       "kind": "full",
       "count": 2,
       "real_tile": 3610,
-      "char": "뤈"
+      "char": "뀀"
     },
     "710A": {
       "kind": "full",
@@ -11484,19 +11487,19 @@
       "kind": "full",
       "count": 2,
       "real_tile": 3140,
-      "char": "츴"
+      "char": "꾐"
     },
     "2316": {
       "kind": "full",
       "count": 2,
       "real_tile": 2262,
-      "char": "숼"
+      "char": "귓"
     },
     "6004": {
       "kind": "full",
       "count": 2,
       "real_tile": 6148,
-      "char": "놩"
+      "char": "땠"
     },
     "9314": {
       "kind": "full",
@@ -11508,13 +11511,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 7700,
-      "char": "믒"
+      "char": "맺"
     },
     "3A0C": {
       "kind": "full",
       "count": 2,
       "real_tile": 3724,
-      "char": "긊"
+      "char": "뀄"
     },
     "2D0C": {
       "kind": "full",
@@ -11526,7 +11529,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 10314,
-      "char": "횽"
+      "char": "뺙"
     },
     "2502": {
       "kind": "full",
@@ -11550,7 +11553,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 4746,
-      "char": "햘"
+      "char": "덞"
     },
     "CA14": {
       "kind": "full",
@@ -11562,19 +11565,19 @@
       "kind": "full",
       "count": 2,
       "real_tile": 6160,
-      "char": "듮"
+      "char": "떪"
     },
     "2304": {
       "kind": "full",
       "count": 2,
       "real_tile": 2244,
-      "char": "돊"
+      "char": "귑"
     },
     "B412": {
       "kind": "full",
       "count": 2,
       "real_tile": 11538,
-      "char": "햤"
+      "char": "섞"
     },
     "CB10": {
       "kind": "full",
@@ -11592,7 +11595,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 10264,
-      "char": "욚"
+      "char": "뺏"
     },
     "6A1C": {
       "kind": "full",
@@ -11604,7 +11607,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 11530,
-      "char": "좰"
+      "char": "섐"
     },
     "0108": {
       "kind": "full",
@@ -11622,13 +11625,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 9092,
-      "char": "둉"
+      "char": "뵐"
     },
     "5B1C": {
       "kind": "full",
       "count": 2,
       "real_tile": 5852,
-      "char": "샆"
+      "char": "듣"
     },
     "6E1C": {
       "kind": "full",
@@ -11669,13 +11672,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 9880,
-      "char": "릏"
+      "char": "빎"
     },
     "2208": {
       "kind": "full",
       "count": 2,
       "real_tile": 2184,
-      "char": "맚"
+      "char": "귁"
     },
     "CF18": {
       "kind": "full",
@@ -11699,7 +11702,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 12302,
-      "char": "탛"
+      "char": "쉥"
     },
     "B504": {
       "kind": "full",
@@ -11741,13 +11744,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 11544,
-      "char": "앦"
+      "char": "섟"
     },
     "7010": {
       "kind": "full",
       "count": 2,
       "real_tile": 7184,
-      "char": "섷"
+      "char": "룁"
     },
     "B10A": {
       "kind": "full",
@@ -11765,7 +11768,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 13122,
-      "char": "돵"
+      "char": "쑵"
     },
     "4A02": {
       "kind": "full",
@@ -11789,7 +11792,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 4234,
-      "char": "딀"
+      "char": "뇻"
     },
     "AE18": {
       "kind": "full",
@@ -11807,7 +11810,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 1420,
-      "char": "뫌"
+      "char": "겯"
     },
     "04A0": {
       "kind": "full",
@@ -11825,7 +11828,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 8972,
-      "char": "릔"
+      "char": "볶"
     },
     "BF1C": {
       "kind": "full",
@@ -11837,7 +11840,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 6612,
-      "char": "헚"
+      "char": "뛔"
     },
     "A310": {
       "kind": "full",
@@ -11855,19 +11858,19 @@
       "kind": "full",
       "count": 2,
       "real_tile": 1792,
-      "char": "뤌"
+      "char": "괩"
     },
     "BA14": {
       "kind": "full",
       "count": 2,
       "real_tile": 11924,
-      "char": "퐤"
+      "char": "쇳"
     },
     "721E": {
       "kind": "full",
       "count": 2,
       "real_tile": 7326,
-      "char": "닾"
+      "char": "뤠"
     },
     "7310": {
       "kind": "full",
@@ -11885,25 +11888,25 @@
       "kind": "full",
       "count": 2,
       "real_tile": 10502,
-      "char": "뵬"
+      "char": "뼘"
     },
     "821A": {
       "kind": "full",
       "count": 2,
       "real_tile": 8346,
-      "char": "놸"
+      "char": "밞"
     },
     "7D18": {
       "kind": "full",
       "count": 2,
       "real_tile": 8024,
-      "char": "숸"
+      "char": "뮴"
     },
     "611A": {
       "kind": "full",
       "count": 2,
       "real_tile": 6234,
-      "char": "뽜"
+      "char": "떽"
     },
     "061C": {
       "kind": "full",
@@ -11933,13 +11936,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 2500,
-      "char": "옫"
+      "char": "깻"
     },
     "2104": {
       "kind": "full",
       "count": 2,
       "real_tile": 2116,
-      "char": "긑"
+      "char": "궤"
     },
     "7110": {
       "kind": "full",
@@ -11957,13 +11960,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 11030,
-      "char": "쬬"
+      "char": "쁑"
     },
     "931C": {
       "kind": "full",
       "count": 2,
       "real_tile": 9436,
-      "char": "긨"
+      "char": "뷘"
     },
     "9F08": {
       "kind": "full",
@@ -11980,7 +11983,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 7320,
-      "char": "뫤"
+      "char": "룟"
     },
     "0800": {
       "kind": "full",
@@ -11997,7 +12000,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 3592,
-      "char": "릆"
+      "char": "꿸"
     },
     "9F0E": {
       "kind": "full",
@@ -12020,7 +12023,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 11792,
-      "char": "옝"
+      "char": "솎"
     },
     "3B0C": {
       "kind": "full",
@@ -12032,7 +12035,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 13274,
-      "char": "뢜"
+      "char": "엮"
     },
     "5508": {
       "kind": "full",
@@ -12056,7 +12059,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 4814,
-      "char": "믑"
+      "char": "덟"
     },
     "1210": {
       "kind": "full",
@@ -12086,7 +12089,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 1748,
-      "char": "붔"
+      "char": "곬"
     },
     "C10C": {
       "kind": "full",
@@ -12098,7 +12101,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 5592,
-      "char": "뱔"
+      "char": "뒵"
     },
     "B30C": {
       "kind": "full",
@@ -12122,7 +12125,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 2586,
-      "char": "굑"
+      "char": "깼"
     },
     "440A": {
       "kind": "full",
@@ -12140,7 +12143,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 10946,
-      "char": "뿨"
+      "char": "뿡"
     },
     "6B0A": {
       "kind": "full",
@@ -12152,7 +12155,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 8974,
-      "char": "룮"
+      "char": "뵀"
     },
     "410A": {
       "kind": "full",
@@ -12164,13 +12167,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 8132,
-      "char": "뇼"
+      "char": "뮷"
     },
     "7A0C": {
       "kind": "full",
       "count": 2,
       "real_tile": 7820,
-      "char": "핲"
+      "char": "묩"
     },
     "491E": {
       "kind": "full",
@@ -12182,7 +12185,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 8394,
-      "char": "럄"
+      "char": "밟"
     },
     "7F14": {
       "kind": "full",
@@ -12194,13 +12197,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 4112,
-      "char": "슶"
+      "char": "녘"
     },
     "CC1A": {
       "kind": "full",
       "count": 2,
       "real_tile": 13082,
-      "char": "닏"
+      "char": "쑴"
     },
     "9C1C": {
       "kind": "full",
@@ -12211,13 +12214,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 12096,
-      "char": "뻰"
+      "char": "숲"
     },
     "1C1E": {
       "kind": "full",
       "count": 2,
       "real_tile": 1822,
-      "char": "슿"
+      "char": "굇"
     },
     "7604": {
       "kind": "full",
@@ -12229,19 +12232,19 @@
       "kind": "full",
       "count": 2,
       "real_tile": 12306,
-      "char": "벊"
+      "char": "쉭"
     },
     "CA10": {
       "kind": "full",
       "count": 2,
       "real_tile": 12944,
-      "char": "밯"
+      "char": "쏩"
     },
     "910A": {
       "kind": "full",
       "count": 2,
       "real_tile": 9290,
-      "char": "콨"
+      "char": "붚"
     },
     "A702": {
       "kind": "full",
@@ -12253,19 +12256,19 @@
       "kind": "full",
       "count": 2,
       "real_tile": 2376,
-      "char": "봈"
+      "char": "긺"
     },
     "1912": {
       "kind": "full",
       "count": 2,
       "real_tile": 1618,
-      "char": "닡"
+      "char": "곗"
     },
     "2F0E": {
       "kind": "full",
       "count": 2,
       "real_tile": 3022,
-      "char": "엩"
+      "char": "꽐"
     },
     "1B1C": {
       "kind": "full",
@@ -12277,7 +12280,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 7746,
-      "char": "꽀"
+      "char": "멎"
     },
     "CC0C": {
       "kind": "full",
@@ -12295,7 +12298,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 9564,
-      "char": "늩"
+      "char": "뷸"
     },
     "2B0C": {
       "kind": "full",
@@ -12307,7 +12310,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 8704,
-      "char": "뇸"
+      "char": "벎"
     },
     "6F14": {
       "kind": "full",
@@ -12319,7 +12322,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 11934,
-      "char": "긕"
+      "char": "숍"
     },
     "3116": {
       "kind": "full",
@@ -12341,13 +12344,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 11742,
-      "char": "쁴"
+      "char": "솅"
     },
     "A906": {
       "kind": "full",
       "count": 2,
       "real_tile": 10822,
-      "char": "돖"
+      "char": "뿍"
     },
     "5118": {
       "kind": "full",
@@ -12388,13 +12391,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 10582,
-      "char": "녓"
+      "char": "뼜"
     },
     "AD16": {
       "kind": "full",
       "count": 2,
       "real_tile": 11094,
-      "char": "댬"
+      "char": "삡"
     },
     "B314": {
       "kind": "full",
@@ -12430,19 +12433,19 @@
       "kind": "full",
       "count": 2,
       "real_tile": 8850,
-      "char": "싄"
+      "char": "볕"
     },
     "2512": {
       "kind": "full",
       "count": 2,
       "real_tile": 2386,
-      "char": "엢"
+      "char": "깩"
     },
     "350C": {
       "kind": "full",
       "count": 2,
       "real_tile": 3404,
-      "char": "넿"
+      "char": "꿨"
     },
     "AB14": {
       "kind": "full",
@@ -12460,7 +12463,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 4624,
-      "char": "얂"
+      "char": "닻"
     },
     "2A1E": {
       "kind": "full",
@@ -12472,13 +12475,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 7706,
-      "char": "깧"
+      "char": "멂"
     },
     "4F00": {
       "kind": "full",
       "count": 2,
       "real_tile": 5056,
-      "char": "굾"
+      "char": "덫"
     },
     "C80C": {
       "kind": "full",
@@ -12496,7 +12499,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 2192,
-      "char": "젆"
+      "char": "귐"
     },
     "B512": {
       "kind": "full",
@@ -12508,13 +12511,13 @@
       "kind": "full",
       "count": 2,
       "real_tile": 13144,
-      "char": "뉸"
+      "char": "쓿"
     },
     "8218": {
       "kind": "full",
       "count": 2,
       "real_tile": 8344,
-      "char": "븧"
+      "char": "밗"
     },
     "7B12": {
       "kind": "full",
@@ -12538,19 +12541,19 @@
       "kind": "full",
       "count": 2,
       "real_tile": 11344,
-      "char": "냏"
+      "char": "샷"
     },
     "8906": {
       "kind": "full",
       "count": 2,
       "real_tile": 8774,
-      "char": "힡"
+      "char": "볏"
     },
     "BD02": {
       "kind": "full",
       "count": 2,
       "real_tile": 12098,
-      "char": "욷"
+      "char": "쉐"
     },
     "9C16": {
       "kind": "full",
@@ -12572,7 +12575,8 @@
     "9D02": {
       "kind": "full",
       "count": 0,
-      "real_tile": 10050
+      "real_tile": 10050,
+      "char": "빻"
     },
     "B30A": {
       "kind": "full",
@@ -12584,7 +12588,7 @@
       "kind": "full",
       "count": 2,
       "real_tile": 7176,
-      "char": "줂"
+      "char": "룀"
     },
     "1214": {
       "kind": "full",
@@ -12613,7 +12617,8 @@
     "018F": {
       "kind": "full",
       "count": 2,
-      "real_tile": 207
+      "real_tile": 207,
+      "char": "V"
     },
     "5E14": {
       "kind": "full",
@@ -12747,13 +12752,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 13214,
-      "char": "칺"
+      "char": "얹"
     },
     "CD0E": {
       "kind": "full",
       "count": 1,
       "real_tile": 13134,
-      "char": "눖"
+      "char": "쒼"
     },
     "069C": {
       "kind": "full",
@@ -12823,37 +12828,37 @@
       "kind": "full",
       "count": 1,
       "real_tile": 13130,
-      "char": "궇"
+      "char": "쒔"
     },
     "CE0E": {
       "kind": "full",
       "count": 1,
       "real_tile": 13198,
-      "char": "룠"
+      "char": "얕"
     },
     "CC02": {
       "kind": "full",
       "count": 1,
       "real_tile": 13058,
-      "char": "씄"
+      "char": "쐤"
     },
     "CE18": {
       "kind": "full",
       "count": 1,
       "real_tile": 13208,
-      "char": "졘"
+      "char": "얩"
     },
     "CD10": {
       "kind": "full",
       "count": 1,
       "real_tile": 13136,
-      "char": "먐"
+      "char": "쓩"
     },
     "CD0C": {
       "kind": "full",
       "count": 1,
       "real_tile": 13132,
-      "char": "섾"
+      "char": "쒜"
     },
     "CF06": {
       "kind": "full",
@@ -12910,7 +12915,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 13312,
-      "char": "얎"
+      "char": "엷"
     },
     "02D0": {
       "kind": "full",
@@ -12950,7 +12955,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 13150,
-      "char": "짒"
+      "char": "씐"
     },
     "0388": {
       "kind": "full",
@@ -13008,7 +13013,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 13186,
-      "char": "졋"
+      "char": "씔"
     },
     "015C": {
       "kind": "full",
@@ -13044,7 +13049,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1628,
-      "char": "굠"
+      "char": "곪"
     },
     "011C": {
       "kind": "full",
@@ -13073,7 +13078,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 13194,
-      "char": "줭"
+      "char": "앎"
     },
     "00B8": {
       "kind": "half",
@@ -13192,13 +13197,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 13258,
-      "char": "봏"
+      "char": "얽"
     },
     "CD1A": {
       "kind": "full",
       "count": 1,
       "real_tile": 13146,
-      "char": "햑"
+      "char": "씁"
     },
     "CC18": {
       "kind": "full",
@@ -13237,7 +13242,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 13074,
-      "char": "즎"
+      "char": "쐼"
     },
     "CF16": {
       "kind": "full",
@@ -13258,7 +13263,8 @@
     "0191": {
       "kind": "full",
       "count": 1,
-      "real_tile": 209
+      "real_tile": 209,
+      "char": "X"
     },
     "0302": {
       "kind": "full",
@@ -13275,7 +13281,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 396,
-      "char": "줎"
+      "char": "좼"
     },
     "0610": {
       "kind": "full",
@@ -13291,7 +13297,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 406,
-      "char": "졓"
+      "char": "좽"
     },
     "061A": {
       "kind": "full",
@@ -13354,7 +13360,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 526,
-      "char": "랳"
+      "char": "죔"
     },
     "0414": {
       "kind": "full",
@@ -13371,25 +13377,25 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1174,
-      "char": "핮"
+      "char": "죗"
     },
     "1218": {
       "kind": "full",
       "count": 1,
       "real_tile": 1176,
-      "char": "픅"
+      "char": "죙"
     },
     "1302": {
       "kind": "full",
       "count": 1,
       "real_tile": 1218,
-      "char": "쵼"
+      "char": "줅"
     },
     "1308": {
       "kind": "full",
       "count": 1,
       "real_tile": 1224,
-      "char": "탆"
+      "char": "줆"
     },
     "130A": {
       "kind": "full",
@@ -13401,31 +13407,31 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1232,
-      "char": "넶"
+      "char": "줴"
     },
     "1312": {
       "kind": "full",
       "count": 1,
       "real_tile": 1234,
-      "char": "릥"
+      "char": "쥑"
     },
     "1314": {
       "kind": "full",
       "count": 1,
       "real_tile": 1236,
-      "char": "칳"
+      "char": "쥠"
     },
     "1316": {
       "kind": "full",
       "count": 1,
       "real_tile": 1238,
-      "char": "꾠"
+      "char": "쥡"
     },
     "1318": {
       "kind": "full",
       "count": 1,
       "real_tile": 1240,
-      "char": "쉉"
+      "char": "쥣"
     },
     "131A": {
       "kind": "full",
@@ -13437,7 +13443,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1246,
-      "char": "둄"
+      "char": "쥴"
     },
     "1404": {
       "kind": "full",
@@ -13449,7 +13455,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1286,
-      "char": "낗"
+      "char": "쥼"
     },
     "140C": {
       "kind": "full",
@@ -13461,13 +13467,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1294,
-      "char": "닞"
+      "char": "짊"
     },
     "1410": {
       "kind": "full",
       "count": 1,
       "real_tile": 1296,
-      "char": "덭"
+      "char": "짢"
     },
     "1412": {
       "kind": "full",
@@ -13485,13 +13491,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1306,
-      "char": "힢"
+      "char": "짭"
     },
     "1502": {
       "kind": "full",
       "count": 1,
       "real_tile": 1346,
-      "char": "횼"
+      "char": "짯"
     },
     "1508": {
       "kind": "full",
@@ -13503,13 +13509,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1362,
-      "char": "뎝"
+      "char": "짹"
     },
     "1518": {
       "kind": "full",
       "count": 1,
       "real_tile": 1368,
-      "char": "넢"
+      "char": "짼"
     },
     "151A": {
       "kind": "full",
@@ -13527,7 +13533,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1414,
-      "char": "멚"
+      "char": "쨀"
     },
     "160E": {
       "kind": "full",
@@ -13539,7 +13545,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1430,
-      "char": "샣"
+      "char": "쨈"
     },
     "161C": {
       "kind": "full",
@@ -13551,7 +13557,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1472,
-      "char": "홸"
+      "char": "쨉"
     },
     "1702": {
       "kind": "full",
@@ -13563,43 +13569,43 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1478,
-      "char": "싕"
+      "char": "쨋"
     },
     "170C": {
       "kind": "full",
       "count": 1,
       "real_tile": 1484,
-      "char": "삤"
+      "char": "쨍"
     },
     "170E": {
       "kind": "full",
       "count": 1,
       "real_tile": 1486,
-      "char": "듵"
+      "char": "쨘"
     },
     "1712": {
       "kind": "full",
       "count": 1,
       "real_tile": 1490,
-      "char": "걓"
+      "char": "쨩"
     },
     "1714": {
       "kind": "full",
       "count": 1,
       "real_tile": 1492,
-      "char": "긎"
+      "char": "쩍"
     },
     "1716": {
       "kind": "full",
       "count": 1,
       "real_tile": 1494,
-      "char": "뢌"
+      "char": "쩜"
     },
     "1718": {
       "kind": "full",
       "count": 1,
       "real_tile": 1496,
-      "char": "녆"
+      "char": "쩝"
     },
     "171A": {
       "kind": "full",
@@ -13611,13 +13617,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1502,
-      "char": "좉"
+      "char": "쩟"
     },
     "1804": {
       "kind": "full",
       "count": 1,
       "real_tile": 1540,
-      "char": "횸"
+      "char": "쩠"
     },
     "180A": {
       "kind": "full",
@@ -13635,7 +13641,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1550,
-      "char": "헡"
+      "char": "쩡"
     },
     "1816": {
       "kind": "full",
@@ -13647,13 +13653,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1560,
-      "char": "춨"
+      "char": "쩽"
     },
     "181E": {
       "kind": "full",
       "count": 1,
       "real_tile": 1566,
-      "char": "볺"
+      "char": "쪘"
     },
     "1902": {
       "kind": "full",
@@ -13665,13 +13671,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1606,
-      "char": "됵"
+      "char": "쫌"
     },
     "1908": {
       "kind": "full",
       "count": 1,
       "real_tile": 1608,
-      "char": "쏬"
+      "char": "쫍"
     },
     "190A": {
       "kind": "full",
@@ -13689,7 +13695,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1614,
-      "char": "꿌"
+      "char": "쫏"
     },
     "1910": {
       "kind": "full",
@@ -13701,7 +13707,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1622,
-      "char": "쿈"
+      "char": "쫑"
     },
     "1918": {
       "kind": "full",
@@ -13713,67 +13719,67 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1626,
-      "char": "밒"
+      "char": "쫙"
     },
     "191C": {
       "kind": "full",
       "count": 1,
       "real_tile": 1628,
-      "char": "굠"
+      "char": "곪"
     },
     "191E": {
       "kind": "full",
       "count": 1,
       "real_tile": 1630,
-      "char": "묬"
+      "char": "쫠"
     },
     "1A00": {
       "kind": "full",
       "count": 1,
       "real_tile": 1664,
-      "char": "닀"
+      "char": "쫬"
     },
     "1A02": {
       "kind": "full",
       "count": 1,
       "real_tile": 1666,
-      "char": "눰"
+      "char": "쫴"
     },
     "1A04": {
       "kind": "full",
       "count": 1,
       "real_tile": 1668,
-      "char": "킿"
+      "char": "쬈"
     },
     "1A06": {
       "kind": "full",
       "count": 1,
       "real_tile": 1670,
-      "char": "뢈"
+      "char": "쬐"
     },
     "1A0A": {
       "kind": "full",
       "count": 1,
       "real_tile": 1674,
-      "char": "뎟"
+      "char": "쬔"
     },
     "1A10": {
       "kind": "full",
       "count": 1,
       "real_tile": 1680,
-      "char": "솼"
+      "char": "쬘"
     },
     "1A12": {
       "kind": "full",
       "count": 1,
       "real_tile": 1682,
-      "char": "릳"
+      "char": "쬠"
     },
     "1A14": {
       "kind": "full",
       "count": 1,
       "real_tile": 1684,
-      "char": "잲"
+      "char": "쬡"
     },
     "1A18": {
       "kind": "full",
@@ -13791,7 +13797,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1734,
-      "char": "겺"
+      "char": "쭁"
     },
     "1B08": {
       "kind": "full",
@@ -13803,13 +13809,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1738,
-      "char": "뫨"
+      "char": "쭐"
     },
     "1B0C": {
       "kind": "full",
       "count": 1,
       "real_tile": 1740,
-      "char": "뒁"
+      "char": "쭘"
     },
     "1B0E": {
       "kind": "full",
@@ -13821,7 +13827,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1754,
-      "char": "룺"
+      "char": "쭙"
     },
     "1C02": {
       "kind": "full",
@@ -13845,7 +13851,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1802,
-      "char": "렿"
+      "char": "쭝"
     },
     "1C10": {
       "kind": "full",
@@ -13857,7 +13863,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1810,
-      "char": "앺"
+      "char": "쭸"
     },
     "1C14": {
       "kind": "full",
@@ -13869,25 +13875,25 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1818,
-      "char": "댛"
+      "char": "쭹"
     },
     "1D04": {
       "kind": "full",
       "count": 1,
       "real_tile": 1860,
-      "char": "묨"
+      "char": "쮜"
     },
     "1D10": {
       "kind": "full",
       "count": 1,
       "real_tile": 1872,
-      "char": "엦"
+      "char": "쮸"
     },
     "1D12": {
       "kind": "full",
       "count": 1,
       "real_tile": 1874,
-      "char": "늼"
+      "char": "쯧"
     },
     "1D16": {
       "kind": "full",
@@ -13899,19 +13905,19 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1880,
-      "char": "횩"
+      "char": "쯩"
     },
     "1D1C": {
       "kind": "full",
       "count": 1,
       "real_tile": 1884,
-      "char": "솸"
+      "char": "찜"
     },
     "1E00": {
       "kind": "full",
       "count": 1,
       "real_tile": 1920,
-      "char": "멑"
+      "char": "찝"
     },
     "1E02": {
       "kind": "full",
@@ -13923,7 +13929,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1924,
-      "char": "딍"
+      "char": "찢"
     },
     "1E0E": {
       "kind": "full",
@@ -13953,13 +13959,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1948,
-      "char": "숪"
+      "char": "찧"
     },
     "1E1E": {
       "kind": "full",
       "count": 1,
       "real_tile": 1950,
-      "char": "몁"
+      "char": "챔"
     },
     "1F04": {
       "kind": "full",
@@ -13971,7 +13977,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 1990,
-      "char": "셯"
+      "char": "챕"
     },
     "1F08": {
       "kind": "full",
@@ -13989,7 +13995,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2002,
-      "char": "웒"
+      "char": "챗"
     },
     "1F18": {
       "kind": "full",
@@ -14013,13 +14019,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2076,
-      "char": "젮"
+      "char": "챘"
     },
     "210C": {
       "kind": "full",
       "count": 1,
       "real_tile": 2124,
-      "char": "욦"
+      "char": "챦"
     },
     "2110": {
       "kind": "full",
@@ -14031,31 +14037,31 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2132,
-      "char": "팧"
+      "char": "챰"
     },
     "2118": {
       "kind": "full",
       "count": 1,
       "real_tile": 2136,
-      "char": "눡"
+      "char": "챵"
     },
     "211A": {
       "kind": "full",
       "count": 1,
       "real_tile": 2138,
-      "char": "쿴"
+      "char": "쳅"
     },
     "2202": {
       "kind": "full",
       "count": 1,
       "real_tile": 2178,
-      "char": "롹"
+      "char": "쳇"
     },
     "220A": {
       "kind": "full",
       "count": 1,
       "real_tile": 2186,
-      "char": "믙"
+      "char": "쳤"
     },
     "220E": {
       "kind": "full",
@@ -14067,7 +14073,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2194,
-      "char": "퐀"
+      "char": "쳰"
     },
     "2214": {
       "kind": "full",
@@ -14079,19 +14085,19 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2204,
-      "char": "겥"
+      "char": "촁"
     },
     "221E": {
       "kind": "full",
       "count": 1,
       "real_tile": 2206,
-      "char": "쁭"
+      "char": "촙"
     },
     "2300": {
       "kind": "full",
       "count": 1,
       "real_tile": 2240,
-      "char": "뜼"
+      "char": "촛"
     },
     "2302": {
       "kind": "full",
@@ -14109,19 +14115,19 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2258,
-      "char": "햏"
+      "char": "촬"
     },
     "231E": {
       "kind": "full",
       "count": 1,
       "real_tile": 2270,
-      "char": "쎨"
+      "char": "촹"
     },
     "2408": {
       "kind": "full",
       "count": 1,
       "real_tile": 2312,
-      "char": "젚"
+      "char": "쵠"
     },
     "240A": {
       "kind": "full",
@@ -14139,13 +14145,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2328,
-      "char": "읞"
+      "char": "쵤"
     },
     "241A": {
       "kind": "full",
       "count": 1,
       "real_tile": 2330,
-      "char": "롵"
+      "char": "쵬"
     },
     "2500": {
       "kind": "full",
@@ -14157,7 +14163,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2372,
-      "char": "돴"
+      "char": "쵭"
     },
     "250E": {
       "kind": "full",
@@ -14169,7 +14175,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2384,
-      "char": "뱡"
+      "char": "쵯"
     },
     "2514": {
       "kind": "full",
@@ -14181,7 +14187,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2390,
-      "char": "묙"
+      "char": "쵱"
     },
     "251A": {
       "kind": "full",
@@ -14193,7 +14199,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2396,
-      "char": "늭"
+      "char": "춈"
     },
     "2600": {
       "kind": "full",
@@ -14229,25 +14235,25 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2444,
-      "char": "븰"
+      "char": "춥"
     },
     "260E": {
       "kind": "full",
       "count": 1,
       "real_tile": 2446,
-      "char": "옉"
+      "char": "춧"
     },
     "2610": {
       "kind": "full",
       "count": 1,
       "real_tile": 2448,
-      "char": "젾"
+      "char": "췌"
     },
     "2614": {
       "kind": "full",
       "count": 1,
       "real_tile": 2452,
-      "char": "즢"
+      "char": "췐"
     },
     "2616": {
       "kind": "full",
@@ -14271,7 +14277,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2508,
-      "char": "뭥"
+      "char": "췬"
     },
     "270E": {
       "kind": "full",
@@ -14283,25 +14289,25 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2512,
-      "char": "몐"
+      "char": "췰"
     },
     "2712": {
       "kind": "full",
       "count": 1,
       "real_tile": 2514,
-      "char": "꽌"
+      "char": "췸"
     },
     "2714": {
       "kind": "full",
       "count": 1,
       "real_tile": 2516,
-      "char": "랞"
+      "char": "췹"
     },
     "2718": {
       "kind": "full",
       "count": 1,
       "real_tile": 2520,
-      "char": "돰"
+      "char": "췻"
     },
     "271E": {
       "kind": "full",
@@ -14325,19 +14331,19 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2568,
-      "char": "둢"
+      "char": "췽"
     },
     "280A": {
       "kind": "full",
       "count": 1,
       "real_tile": 2570,
-      "char": "쯰"
+      "char": "츈"
     },
     "280C": {
       "kind": "full",
       "count": 1,
       "real_tile": 2572,
-      "char": "칞"
+      "char": "츌"
     },
     "2810": {
       "kind": "full",
@@ -14355,19 +14361,19 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2580,
-      "char": "윴"
+      "char": "츔"
     },
     "281E": {
       "kind": "full",
       "count": 1,
       "real_tile": 2590,
-      "char": "뎧"
+      "char": "츙"
     },
     "2900": {
       "kind": "full",
       "count": 1,
       "real_tile": 2624,
-      "char": "홨"
+      "char": "칟"
     },
     "2902": {
       "kind": "full",
@@ -14379,31 +14385,31 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2628,
-      "char": "툔"
+      "char": "칡"
     },
     "2908": {
       "kind": "full",
       "count": 1,
       "real_tile": 2632,
-      "char": "즸"
+      "char": "캑"
     },
     "290A": {
       "kind": "full",
       "count": 1,
       "real_tile": 2634,
-      "char": "줨"
+      "char": "캡"
     },
     "290C": {
       "kind": "full",
       "count": 1,
       "real_tile": 2636,
-      "char": "낂"
+      "char": "캣"
     },
     "2910": {
       "kind": "full",
       "count": 1,
       "real_tile": 2640,
-      "char": "맿"
+      "char": "캤"
     },
     "2912": {
       "kind": "full",
@@ -14415,43 +14421,43 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2644,
-      "char": "쌴"
+      "char": "캭"
     },
     "2916": {
       "kind": "full",
       "count": 1,
       "real_tile": 2646,
-      "char": "팋"
+      "char": "컁"
     },
     "2918": {
       "kind": "full",
       "count": 1,
       "real_tile": 2648,
-      "char": "믱"
+      "char": "컫"
     },
     "291C": {
       "kind": "full",
       "count": 1,
       "real_tile": 2652,
-      "char": "찺"
+      "char": "켁"
     },
     "291E": {
       "kind": "full",
       "count": 1,
       "real_tile": 2654,
-      "char": "쩬"
+      "char": "켑"
     },
     "2A00": {
       "kind": "full",
       "count": 1,
       "real_tile": 2688,
-      "char": "쳈"
+      "char": "켓"
     },
     "2A02": {
       "kind": "full",
       "count": 1,
       "real_tile": 2690,
-      "char": "봰"
+      "char": "켬"
     },
     "2A04": {
       "kind": "full",
@@ -14463,7 +14469,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2694,
-      "char": "깞"
+      "char": "켭"
     },
     "2A08": {
       "kind": "full",
@@ -14475,7 +14481,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2702,
-      "char": "껬"
+      "char": "켯"
     },
     "2A10": {
       "kind": "full",
@@ -14487,7 +14493,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2708,
-      "char": "샎"
+      "char": "켱"
     },
     "2A1C": {
       "kind": "full",
@@ -14505,13 +14511,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2762,
-      "char": "벖"
+      "char": "콥"
     },
     "2B12": {
       "kind": "full",
       "count": 1,
       "real_tile": 2770,
-      "char": "굈"
+      "char": "콧"
     },
     "2B18": {
       "kind": "full",
@@ -14523,49 +14529,49 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2778,
-      "char": "홤"
+      "char": "콱"
     },
     "2B1C": {
       "kind": "full",
       "count": 1,
       "real_tile": 2780,
-      "char": "갾"
+      "char": "콸"
     },
     "2B1E": {
       "kind": "full",
       "count": 1,
       "real_tile": 2782,
-      "char": "즴"
+      "char": "쾀"
     },
     "2C06": {
       "kind": "full",
       "count": 1,
       "real_tile": 2822,
-      "char": "렚"
+      "char": "쾡"
     },
     "2C08": {
       "kind": "full",
       "count": 1,
       "real_tile": 2824,
-      "char": "힏"
+      "char": "쾰"
     },
     "2C12": {
       "kind": "full",
       "count": 1,
       "real_tile": 2834,
-      "char": "넏"
+      "char": "쿱"
     },
     "2C1C": {
       "kind": "full",
       "count": 1,
       "real_tile": 2844,
-      "char": "훖"
+      "char": "쿳"
     },
     "2D00": {
       "kind": "full",
       "count": 1,
       "real_tile": 2880,
-      "char": "맂"
+      "char": "퀀"
     },
     "2D02": {
       "kind": "full",
@@ -14595,7 +14601,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2906,
-      "char": "혛"
+      "char": "퀄"
     },
     "2E02": {
       "kind": "full",
@@ -14607,13 +14613,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2948,
-      "char": "돡"
+      "char": "퀑"
     },
     "2E06": {
       "kind": "full",
       "count": 1,
       "real_tile": 2950,
-      "char": "냡"
+      "char": "퀘"
     },
     "2E0C": {
       "kind": "full",
@@ -14631,7 +14637,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 2960,
-      "char": "븞"
+      "char": "퀭"
     },
     "2F0A": {
       "kind": "full",
@@ -14649,13 +14655,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3032,
-      "char": "녤"
+      "char": "퀵"
     },
     "2F1C": {
       "kind": "full",
       "count": 1,
       "real_tile": 3036,
-      "char": "뼌"
+      "char": "퀸"
     },
     "3004": {
       "kind": "full",
@@ -14667,13 +14673,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3080,
-      "char": "싾"
+      "char": "퀼"
     },
     "300A": {
       "kind": "full",
       "count": 1,
       "real_tile": 3082,
-      "char": "렆"
+      "char": "큄"
     },
     "3010": {
       "kind": "full",
@@ -14691,7 +14697,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3092,
-      "char": "줙"
+      "char": "큅"
     },
     "3108": {
       "kind": "full",
@@ -14708,7 +14714,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3160,
-      "char": "퉀"
+      "char": "큇"
     },
     "311E": {
       "kind": "full",
@@ -14720,19 +14726,19 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3202,
-      "char": "셊"
+      "char": "큉"
     },
     "3204": {
       "kind": "full",
       "count": 1,
       "real_tile": 3204,
-      "char": "킪"
+      "char": "큔"
     },
     "3208": {
       "kind": "full",
       "count": 1,
       "real_tile": 3208,
-      "char": "갂"
+      "char": "큘"
     },
     "320A": {
       "kind": "full",
@@ -14767,13 +14773,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3228,
-      "char": "싲"
+      "char": "큠"
     },
     "321E": {
       "kind": "full",
       "count": 1,
       "real_tile": 3230,
-      "char": "퍈"
+      "char": "탉"
     },
     "3306": {
       "kind": "full",
@@ -14791,25 +14797,25 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3330,
-      "char": "렪"
+      "char": "탬"
     },
     "340E": {
       "kind": "full",
       "count": 1,
       "real_tile": 3342,
-      "char": "캆"
+      "char": "탭"
     },
     "3412": {
       "kind": "full",
       "count": 1,
       "real_tile": 3346,
-      "char": "켔"
+      "char": "탯"
     },
     "3506": {
       "kind": "full",
       "count": 1,
       "real_tile": 3398,
-      "char": "뫔"
+      "char": "탰"
     },
     "350E": {
       "kind": "full",
@@ -14833,25 +14839,25 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3414,
-      "char": "얶"
+      "char": "탱"
     },
     "3518": {
       "kind": "full",
       "count": 1,
       "real_tile": 3416,
-      "char": "엋"
+      "char": "턍"
     },
     "351E": {
       "kind": "full",
       "count": 1,
       "real_tile": 3422,
-      "char": "즥"
+      "char": "턺"
     },
     "3600": {
       "kind": "full",
       "count": 1,
       "real_tile": 3456,
-      "char": "굫"
+      "char": "텁"
     },
     "3602": {
       "kind": "full",
@@ -14863,7 +14869,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3468,
-      "char": "뭆"
+      "char": "텃"
     },
     "360E": {
       "kind": "full",
@@ -14881,13 +14887,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3478,
-      "char": "몋"
+      "char": "텍"
     },
     "361A": {
       "kind": "full",
       "count": 1,
       "real_tile": 3482,
-      "char": "댆"
+      "char": "템"
     },
     "3700": {
       "kind": "full",
@@ -14917,7 +14923,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3550,
-      "char": "뻴"
+      "char": "텝"
     },
     "3806": {
       "kind": "full",
@@ -14935,13 +14941,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3606,
-      "char": "낧"
+      "char": "텟"
     },
     "3818": {
       "kind": "full",
       "count": 1,
       "real_tile": 3608,
-      "char": "뇡"
+      "char": "텼"
     },
     "381C": {
       "kind": "full",
@@ -14953,25 +14959,25 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3648,
-      "char": "릤"
+      "char": "톈"
     },
     "3902": {
       "kind": "full",
       "count": 1,
       "real_tile": 3650,
-      "char": "뤔"
+      "char": "톳"
     },
     "3904": {
       "kind": "full",
       "count": 1,
       "real_tile": 3652,
-      "char": "왒"
+      "char": "톺"
     },
     "3906": {
       "kind": "full",
       "count": 1,
       "real_tile": 3654,
-      "char": "앧"
+      "char": "퇀"
     },
     "3908": {
       "kind": "full",
@@ -14995,25 +15001,25 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3668,
-      "char": "셚"
+      "char": "퇸"
     },
     "3916": {
       "kind": "full",
       "count": 1,
       "real_tile": 3670,
-      "char": "슾"
+      "char": "툇"
     },
     "3918": {
       "kind": "full",
       "count": 1,
       "real_tile": 3672,
-      "char": "밮"
+      "char": "툉"
     },
     "3A00": {
       "kind": "full",
       "count": 1,
       "real_tile": 3712,
-      "char": "윾"
+      "char": "툽"
     },
     "3A06": {
       "kind": "full",
@@ -15043,19 +15049,19 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3732,
-      "char": "긿"
+      "char": "툿"
     },
     "3A18": {
       "kind": "full",
       "count": 1,
       "real_tile": 3736,
-      "char": "뇅"
+      "char": "퉜"
     },
     "3B00": {
       "kind": "full",
       "count": 1,
       "real_tile": 3776,
-      "char": "쎼"
+      "char": "퉤"
     },
     "3B08": {
       "kind": "full",
@@ -15067,73 +15073,73 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3790,
-      "char": "붛"
+      "char": "튁"
     },
     "3B10": {
       "kind": "full",
       "count": 1,
       "real_tile": 3792,
-      "char": "뽸"
+      "char": "튄"
     },
     "3B12": {
       "kind": "full",
       "count": 1,
       "real_tile": 3794,
-      "char": "팒"
+      "char": "튈"
     },
     "3B14": {
       "kind": "full",
       "count": 1,
       "real_tile": 3796,
-      "char": "캴"
+      "char": "튐"
     },
     "3B1C": {
       "kind": "full",
       "count": 1,
       "real_tile": 3804,
-      "char": "괙"
+      "char": "튑"
     },
     "3C00": {
       "kind": "full",
       "count": 1,
       "real_tile": 3840,
-      "char": "왭"
+      "char": "튕"
     },
     "3C02": {
       "kind": "full",
       "count": 1,
       "real_tile": 3842,
-      "char": "릠"
+      "char": "튠"
     },
     "3C04": {
       "kind": "full",
       "count": 1,
       "real_tile": 3844,
-      "char": "싔"
+      "char": "튤"
     },
     "3C06": {
       "kind": "full",
       "count": 1,
       "real_tile": 3846,
-      "char": "핺"
+      "char": "튬"
     },
     "3C08": {
       "kind": "full",
       "count": 1,
       "real_tile": 3848,
-      "char": "쉄"
+      "char": "튱"
     },
     "3C0A": {
       "kind": "full",
       "count": 1,
       "real_tile": 3850,
-      "char": "뫅"
+      "char": "튿"
     },
     "3C0E": {
       "kind": "full",
       "count": 1,
       "real_tile": 3854,
-      "char": "뎂"
+      "char": "틂"
     },
     "3C10": {
       "kind": "full",
@@ -15151,7 +15157,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3862,
-      "char": "궆"
+      "char": "틉"
     },
     "3C1E": {
       "kind": "full",
@@ -15175,19 +15181,19 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3908,
-      "char": "빝"
+      "char": "틋"
     },
     "3D0E": {
       "kind": "full",
       "count": 1,
       "real_tile": 3918,
-      "char": "젇"
+      "char": "틘"
     },
     "3D12": {
       "kind": "full",
       "count": 1,
       "real_tile": 3922,
-      "char": "뫁"
+      "char": "틜"
     },
     "3D1A": {
       "kind": "full",
@@ -15211,7 +15217,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3972,
-      "char": "젢"
+      "char": "틤"
     },
     "3E0C": {
       "kind": "full",
@@ -15223,13 +15229,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 3982,
-      "char": "좜"
+      "char": "틥"
     },
     "3E10": {
       "kind": "full",
       "count": 1,
       "real_tile": 3984,
-      "char": "뤙"
+      "char": "팎"
     },
     "3E1A": {
       "kind": "full",
@@ -15253,7 +15259,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 4032,
-      "char": "헪"
+      "char": "팖"
     },
     "3F02": {
       "kind": "full",
@@ -15265,13 +15271,13 @@
       "kind": "full",
       "count": 1,
       "real_tile": 4038,
-      "char": "딮"
+      "char": "팥"
     },
     "3F0C": {
       "kind": "full",
       "count": 1,
       "real_tile": 4044,
-      "char": "둈"
+      "char": "팩"
     },
     "3F0E": {
       "kind": "full",
@@ -15283,7 +15289,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 4052,
-      "char": "윘"
+      "char": "팸"
     },
     "3F16": {
       "kind": "full",
@@ -15295,31 +15301,31 @@
       "kind": "full",
       "count": 1,
       "real_tile": 4056,
-      "char": "됄"
+      "char": "팹"
     },
     "4000": {
       "kind": "full",
       "count": 1,
       "real_tile": 4096,
-      "char": "갮"
+      "char": "팻"
     },
     "4016": {
       "kind": "full",
       "count": 1,
       "real_tile": 4118,
-      "char": "늗"
+      "char": "팼"
     },
     "4018": {
       "kind": "full",
       "count": 1,
       "real_tile": 4120,
-      "char": "냤"
+      "char": "팽"
     },
     "4104": {
       "kind": "full",
       "count": 1,
       "real_tile": 4164,
-      "char": "괨"
+      "char": "퍅"
     },
     "4106": {
       "kind": "full",
@@ -15343,7 +15349,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 4180,
-      "char": "엲"
+      "char": "펍"
     },
     "4118": {
       "kind": "full",
@@ -15355,7 +15361,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 4224,
-      "char": "덯"
+      "char": "펏"
     },
     "4202": {
       "kind": "full",
@@ -15379,7 +15385,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 4246,
-      "char": "둰"
+      "char": "펙"
     },
     "421A": {
       "kind": "full",
@@ -15391,7 +15397,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 4292,
-      "char": "깉"
+      "char": "펨"
     },
     "4310": {
       "kind": "full",
@@ -15402,212 +15408,254 @@
     "4314": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4308
+      "real_tile": 4308,
+      "char": "펩"
     },
     "4318": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4312
+      "real_tile": 4312,
+      "char": "펫"
     },
     "4402": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4354
+      "real_tile": 4354,
+      "char": "펭"
     },
     "4412": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4370
+      "real_tile": 4370,
+      "char": "폄"
     },
     "4416": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4374
+      "real_tile": 4374,
+      "char": "폅"
     },
     "4418": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4376
+      "real_tile": 4376,
+      "char": "폈"
     },
     "441A": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4378
+      "real_tile": 4378,
+      "char": "폘"
     },
     "441C": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4380
+      "real_tile": 4380,
+      "char": "폡"
     },
     "441E": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4382
+      "real_tile": 4382,
+      "char": "폣"
     },
     "4504": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4420
+      "real_tile": 4420,
+      "char": "폽"
     },
     "4506": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4422
+      "real_tile": 4422,
+      "char": "폿"
     },
     "450A": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4426
+      "real_tile": 4426,
+      "char": "퐝"
     },
     "4512": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4434
+      "real_tile": 4434,
+      "char": "푄"
     },
     "4516": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4438
+      "real_tile": 4438,
+      "char": "푠"
     },
     "451A": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4442
+      "real_tile": 4442,
+      "char": "푤"
     },
     "4602": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4482
+      "real_tile": 4482,
+      "char": "푭"
     },
     "4604": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4484
+      "real_tile": 4484,
+      "char": "푯"
     },
     "4606": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4486
+      "real_tile": 4486,
+      "char": "푿"
     },
     "4608": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4488
+      "real_tile": 4488,
+      "char": "풂"
     },
     "4614": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4500
+      "real_tile": 4500,
+      "char": "풉"
     },
     "4618": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4504
+      "real_tile": 4504,
+      "char": "풋"
     },
     "461A": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4506
+      "real_tile": 4506,
+      "char": "풩"
     },
     "461E": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4510
+      "real_tile": 4510,
+      "char": "퓐"
     },
     "4710": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4560
+      "real_tile": 4560,
+      "char": "퓔"
     },
     "4714": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4564
+      "real_tile": 4564,
+      "char": "퓜"
     },
     "4716": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4566
+      "real_tile": 4566,
+      "char": "퓟"
     },
     "471E": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4574
+      "real_tile": 4574,
+      "char": "퓨"
     },
     "4802": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4610
+      "real_tile": 4610,
+      "char": "퓬"
     },
     "4804": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4612
+      "real_tile": 4612,
+      "char": "퓰"
     },
     "480A": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4618
+      "real_tile": 4618,
+      "char": "퓸"
     },
     "4812": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4626
+      "real_tile": 4626,
+      "char": "퓻"
     },
     "4816": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4630
+      "real_tile": 4630,
+      "char": "퓽"
     },
     "4818": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4632
+      "real_tile": 4632,
+      "char": "픕"
     },
     "481C": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4636
+      "real_tile": 4636,
+      "char": "픗"
     },
     "481E": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4638
+      "real_tile": 4638,
+      "char": "핏"
     },
     "4902": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4674
+      "real_tile": 4674,
+      "char": "헒"
     },
     "4906": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4678
+      "real_tile": 4678,
+      "char": "혤"
     },
     "490C": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4684
+      "real_tile": 4684,
+      "char": "혭"
     },
     "490E": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4686
+      "real_tile": 4686,
+      "char": "홅"
     },
     "4912": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4690
+      "real_tile": 4690,
+      "char": "홧"
     },
     "4916": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4694
+      "real_tile": 4694,
+      "char": "홱"
     },
     "491A": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4698
+      "real_tile": 4698,
+      "char": "횃"
     },
     "491C": {
       "kind": "full",
@@ -15617,137 +15665,164 @@
     "4A00": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4736
+      "real_tile": 4736,
+      "char": "횅"
     },
     "4A04": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4740
+      "real_tile": 4740,
+      "char": "횝"
     },
     "4A06": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4742
+      "real_tile": 4742,
+      "char": "횟"
     },
     "4A0C": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4748
+      "real_tile": 4748,
+      "char": "횡"
     },
     "4A0E": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4750
+      "real_tile": 4750,
+      "char": "횹"
     },
     "4A10": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4752
+      "real_tile": 4752,
+      "char": "횻"
     },
     "4A18": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4760
+      "real_tile": 4760,
+      "char": "훑"
     },
     "4A1C": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4764
+      "real_tile": 4764,
+      "char": "훰"
     },
     "4B00": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4800
+      "real_tile": 4800,
+      "char": "훼"
     },
     "4B02": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4802
+      "real_tile": 4802,
+      "char": "훽"
     },
     "4B04": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4804
+      "real_tile": 4804,
+      "char": "휀"
     },
     "4B06": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4806
+      "real_tile": 4806,
+      "char": "휄"
     },
     "4B0A": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4810
+      "real_tile": 4810,
+      "char": "휑"
     },
     "4B14": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4820
+      "real_tile": 4820,
+      "char": "휙"
     },
     "4B16": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4822
+      "real_tile": 4822,
+      "char": "휠"
     },
     "4B18": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4824
+      "real_tile": 4824,
+      "char": "휨"
     },
     "4B1E": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4830
+      "real_tile": 4830,
+      "char": "휫"
     },
     "4C00": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4864
+      "real_tile": 4864,
+      "char": "휭"
     },
     "4C02": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4866
+      "real_tile": 4866,
+      "char": "휵"
     },
     "4C06": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4870
+      "real_tile": 4870,
+      "char": "휼"
     },
     "4C08": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4872
+      "real_tile": 4872,
+      "char": "흄"
     },
     "4C12": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4882
+      "real_tile": 4882,
+      "char": "흇"
     },
     "4C16": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4886
+      "real_tile": 4886,
+      "char": "흉"
     },
     "4C1C": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4892
+      "real_tile": 4892,
+      "char": "흗"
     },
     "4D00": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4928
+      "real_tile": 4928,
+      "char": "흙"
     },
     "4D02": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4930
+      "real_tile": 4930,
+      "char": "흼"
     },
     "4D08": {
       "kind": "full",
       "count": 1,
-      "real_tile": 4936
+      "real_tile": 4936,
+      "char": "흽"
     },
     "4D0C": {
       "kind": "full",
@@ -17468,7 +17543,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 658,
-      "char": "궅"
+      "char": "죕"
     },
     "8506": {
       "kind": "full",
@@ -18962,7 +19037,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 11028,
-      "char": "꺈"
+      "char": "쀼"
     },
     "AC1E": {
       "kind": "full",
@@ -19619,7 +19694,7 @@
       "kind": "full",
       "count": 1,
       "real_tile": 12368,
-      "char": "댝"
+      "char": "슁"
     },
     "C116": {
       "kind": "full",
@@ -20100,7 +20175,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13316,
-      "char": "묺"
+      "char": "옙"
     },
     "D006": {
       "kind": "full",
@@ -20130,7 +20205,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13326,
-      "char": "쟇"
+      "char": "옭"
     },
     "D010": {
       "kind": "full",
@@ -20148,7 +20223,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13332,
-      "char": "쯜"
+      "char": "옮"
     },
     "D016": {
       "kind": "full",
@@ -20160,7 +20235,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13336,
-      "char": "텰"
+      "char": "옰"
     },
     "D01A": {
       "kind": "full",
@@ -20172,19 +20247,19 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13340,
-      "char": "왆"
+      "char": "옻"
     },
     "D01E": {
       "kind": "full",
       "count": 0,
       "real_tile": 13342,
-      "char": "곺"
+      "char": "왯"
     },
     "D100": {
       "kind": "full",
       "count": 0,
       "real_tile": 13376,
-      "char": "즹"
+      "char": "욋"
     },
     "D102": {
       "kind": "full",
@@ -20196,25 +20271,25 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13380,
-      "char": "룜"
+      "char": "욹"
     },
     "D106": {
       "kind": "full",
       "count": 0,
       "real_tile": 13382,
-      "char": "숐"
+      "char": "욺"
     },
     "D108": {
       "kind": "full",
       "count": 0,
       "real_tile": 13384,
-      "char": "읶"
+      "char": "웩"
     },
     "D10A": {
       "kind": "full",
       "count": 0,
       "real_tile": 13386,
-      "char": "잋"
+      "char": "웬"
     },
     "D10C": {
       "kind": "full",
@@ -20232,13 +20307,13 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13392,
-      "char": "렅"
+      "char": "웰"
     },
     "D112": {
       "kind": "full",
       "count": 0,
       "real_tile": 13394,
-      "char": "놕"
+      "char": "웸"
     },
     "D114": {
       "kind": "full",
@@ -20268,13 +20343,13 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13404,
-      "char": "픘"
+      "char": "웹"
     },
     "D11E": {
       "kind": "full",
       "count": 0,
       "real_tile": 13406,
-      "char": "봘"
+      "char": "웽"
     },
     "D200": {
       "kind": "full",
@@ -20316,7 +20391,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13452,
-      "char": "갏"
+      "char": "윕"
     },
     "D20E": {
       "kind": "full",
@@ -20328,7 +20403,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13456,
-      "char": "놑"
+      "char": "윗"
     },
     "D212": {
       "kind": "full",
@@ -20346,7 +20421,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13462,
-      "char": "볌"
+      "char": "윱"
     },
     "D218": {
       "kind": "full",
@@ -20358,7 +20433,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13466,
-      "char": "덶"
+      "char": "윳"
     },
     "D21C": {
       "kind": "full",
@@ -20370,7 +20445,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13470,
-      "char": "웧"
+      "char": "윷"
     },
     "D300": {
       "kind": "full",
@@ -20388,7 +20463,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13508,
-      "char": "섵"
+      "char": "읊"
     },
     "D306": {
       "kind": "full",
@@ -20400,25 +20475,25 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13512,
-      "char": "좠"
+      "char": "읔"
     },
     "D30A": {
       "kind": "full",
       "count": 0,
       "real_tile": 13514,
-      "char": "쌋"
+      "char": "읾"
     },
     "D30C": {
       "kind": "full",
       "count": 0,
       "real_tile": 13516,
-      "char": "엃"
+      "char": "잚"
     },
     "D30E": {
       "kind": "full",
       "count": 0,
       "real_tile": 13518,
-      "char": "엗"
+      "char": "쟎"
     },
     "D310": {
       "kind": "full",
@@ -20436,13 +20511,13 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13524,
-      "char": "탼"
+      "char": "쟤"
     },
     "D316": {
       "kind": "full",
       "count": 0,
       "real_tile": 13526,
-      "char": "뗜"
+      "char": "쟨"
     },
     "D318": {
       "kind": "full",
@@ -20454,7 +20529,7 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13530,
-      "char": "낺"
+      "char": "쟬"
     },
     "D31C": {
       "kind": "full",
@@ -20466,19 +20541,19 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13534,
-      "char": "룍"
+      "char": "졺"
     },
     "D400": {
       "kind": "full",
       "count": 0,
       "real_tile": 13568,
-      "char": "웆"
+      "char": "좆"
     },
     "D402": {
       "kind": "full",
       "count": 0,
       "real_tile": 13570,
-      "char": "슽"
+      "char": "좇"
     },
     "D404": {
       "kind": "full",
@@ -20496,13 +20571,13 @@
       "kind": "full",
       "count": 0,
       "real_tile": 13576,
-      "char": "읳"
+      "char": "좝"
     },
     "D40A": {
       "kind": "full",
       "count": 0,
       "real_tile": 13578,
-      "char": "읋"
+      "char": "좟"
     },
     "00CA": {
       "kind": "half",
@@ -20514,12 +20589,6 @@
       "count": 0,
       "real_tile": 13580,
       "char": "펄"
-    },
-    "D40E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13582,
-      "char": "듷"
     },
     "D410": {
       "kind": "full",
@@ -20539,29 +20608,11 @@
       "real_tile": 13588,
       "char": "숄"
     },
-    "D416": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13590,
-      "char": "읬"
-    },
     "D418": {
       "kind": "full",
       "count": 0,
       "real_tile": 13592,
       "char": "웜"
-    },
-    "D41A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13594,
-      "char": "헣"
-    },
-    "D41C": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13596,
-      "char": "듼"
     },
     "D41E": {
       "kind": "full",
@@ -20581,18 +20632,6 @@
       "real_tile": 13634,
       "char": "훤"
     },
-    "D504": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13636,
-      "char": "굥"
-    },
-    "D506": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13638,
-      "char": "흫"
-    },
     "D508": {
       "kind": "full",
       "count": 0,
@@ -20611,23 +20650,11 @@
       "real_tile": 13644,
       "char": "돕"
     },
-    "D50E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13646,
-      "char": "럲"
-    },
     "D510": {
       "kind": "full",
       "count": 0,
       "real_tile": 13648,
       "char": "찐"
-    },
-    "D512": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13650,
-      "char": "칬"
     },
     "D514": {
       "kind": "full",
@@ -20646,12 +20673,6 @@
       "count": 0,
       "real_tile": 13656,
       "char": "뱐"
-    },
-    "D51A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13658,
-      "char": "낐"
     },
     "D51C": {
       "kind": "full",
@@ -20683,29 +20704,11 @@
       "real_tile": 13700,
       "char": "뷔"
     },
-    "D606": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13702,
-      "char": "녾"
-    },
     "D608": {
       "kind": "full",
       "count": 0,
       "real_tile": 13704,
       "char": "램"
-    },
-    "D60A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13706,
-      "char": "릾"
-    },
-    "D60C": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13708,
-      "char": "륺"
     },
     "D60E": {
       "kind": "full",
@@ -20713,29 +20716,11 @@
       "real_tile": 13710,
       "char": "샜"
     },
-    "D610": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13712,
-      "char": "됼"
-    },
-    "D612": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13714,
-      "char": "섢"
-    },
     "D614": {
       "kind": "full",
       "count": 0,
       "real_tile": 13716,
       "char": "윌"
-    },
-    "D616": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13718,
-      "char": "걌"
     },
     "D618": {
       "kind": "full",
@@ -20743,41 +20728,11 @@
       "real_tile": 13720,
       "char": "홉"
     },
-    "D61A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13722,
-      "char": "믛"
-    },
-    "D61C": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13724,
-      "char": "잩"
-    },
     "D61E": {
       "kind": "full",
       "count": 0,
       "real_tile": 13726,
       "char": "돗"
-    },
-    "D700": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13760,
-      "char": "겧"
-    },
-    "D702": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13762,
-      "char": "읙"
-    },
-    "D704": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13764,
-      "char": "곲"
     },
     "D706": {
       "kind": "full",
@@ -20785,41 +20740,11 @@
       "real_tile": 13766,
       "char": "샘"
     },
-    "D708": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13768,
-      "char": "싮"
-    },
-    "D70A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13770,
-      "char": "슪"
-    },
-    "D70C": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13772,
-      "char": "밚"
-    },
-    "D70E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13774,
-      "char": "롷"
-    },
     "D710": {
       "kind": "full",
       "count": 0,
       "real_tile": 13776,
       "char": "쌌"
-    },
-    "D712": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13778,
-      "char": "믠"
     },
     "D714": {
       "kind": "full",
@@ -20832,30 +20757,6 @@
       "count": 0,
       "real_tile": 13782,
       "char": "쑨"
-    },
-    "D718": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13784,
-      "char": "뚀"
-    },
-    "D71A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13786,
-      "char": "걈"
-    },
-    "D71C": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13788,
-      "char": "젹"
-    },
-    "D71E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13790,
-      "char": "킸"
     },
     "D800": {
       "kind": "full",
@@ -20887,12 +20788,6 @@
       "real_tile": 13832,
       "char": "쌈"
     },
-    "D80A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13834,
-      "char": "굲"
-    },
     "D80C": {
       "kind": "full",
       "count": 0,
@@ -20905,12 +20800,6 @@
       "real_tile": 13838,
       "char": "홋"
     },
-    "D810": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13840,
-      "char": "솧"
-    },
     "D812": {
       "kind": "full",
       "count": 0,
@@ -20922,18 +20811,6 @@
       "count": 0,
       "real_tile": 13844,
       "char": "끽"
-    },
-    "D816": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13846,
-      "char": "눨"
-    },
-    "D818": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13848,
-      "char": "뢀"
     },
     "D81A": {
       "kind": "full",
@@ -20958,12 +20835,6 @@
       "count": 0,
       "real_tile": 13888,
       "char": "눕"
-    },
-    "D902": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13890,
-      "char": "덚"
     },
     "D904": {
       "kind": "full",
@@ -21061,18 +20932,6 @@
       "real_tile": 13954,
       "char": "댐"
     },
-    "DA04": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13956,
-      "char": "딦"
-    },
-    "DA06": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13958,
-      "char": "듢"
-    },
     "DA08": {
       "kind": "full",
       "count": 0,
@@ -21091,24 +20950,6 @@
       "real_tile": 13964,
       "char": "빗"
     },
-    "DA0E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13966,
-      "char": "졶"
-    },
-    "DA10": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13968,
-      "char": "읃"
-    },
-    "DA12": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13970,
-      "char": "랕"
-    },
     "DA14": {
       "kind": "full",
       "count": 0,
@@ -21120,12 +20961,6 @@
       "count": 0,
       "real_tile": 13974,
       "char": "셤"
-    },
-    "DA18": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 13976,
-      "char": "헎"
     },
     "DA1A": {
       "kind": "full",
@@ -21157,12 +20992,6 @@
       "real_tile": 14018,
       "char": "팜"
     },
-    "DB04": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14020,
-      "char": "옾"
-    },
     "DB06": {
       "kind": "full",
       "count": 0,
@@ -21175,41 +21004,17 @@
       "real_tile": 14024,
       "char": "쒀"
     },
-    "DB0A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14026,
-      "char": "돟"
-    },
-    "DB0C": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14028,
-      "char": "놴"
-    },
     "DB0E": {
       "kind": "full",
       "count": 0,
       "real_tile": 14030,
       "char": "햄"
     },
-    "DB10": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14032,
-      "char": "힚"
-    },
     "DB12": {
       "kind": "full",
       "count": 0,
       "real_tile": 14034,
       "char": "흖"
-    },
-    "DB14": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14036,
-      "char": "넚"
     },
     "DB16": {
       "kind": "full",
@@ -21283,29 +21088,11 @@
       "real_tile": 14092,
       "char": "뜰"
     },
-    "DC0E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14094,
-      "char": "팄"
-    },
     "DC10": {
       "kind": "full",
       "count": 0,
       "real_tile": 14096,
       "char": "왱"
-    },
-    "DC12": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14098,
-      "char": "늢"
-    },
-    "DC14": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14100,
-      "char": "먾"
     },
     "DC16": {
       "kind": "full",
@@ -21318,12 +21105,6 @@
       "count": 0,
       "real_tile": 14104,
       "char": "돨"
-    },
-    "DC1A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14106,
-      "char": "홓"
     },
     "DC1C": {
       "kind": "full",
@@ -21343,12 +21124,6 @@
       "real_tile": 14144,
       "char": "팍"
     },
-    "DD02": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14146,
-      "char": "줠"
-    },
     "DD04": {
       "kind": "full",
       "count": 0,
@@ -21361,29 +21136,11 @@
       "real_tile": 14150,
       "char": "뽄"
     },
-    "DD08": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14152,
-      "char": "뎜"
-    },
     "DD0A": {
       "kind": "full",
       "count": 0,
       "real_tile": 14154,
       "char": "맴"
-    },
-    "DD0C": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14156,
-      "char": "밊"
-    },
-    "DD0E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14158,
-      "char": "믆"
     },
     "DD10": {
       "kind": "full",
@@ -21421,41 +21178,17 @@
       "real_tile": 14170,
       "char": "갭"
     },
-    "DD1C": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14172,
-      "char": "겒"
-    },
     "DD1E": {
       "kind": "full",
       "count": 0,
       "real_tile": 14174,
       "char": "똬"
     },
-    "DE00": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14208,
-      "char": "롢"
-    },
     "DE02": {
       "kind": "full",
       "count": 0,
       "real_tile": 14210,
       "char": "율"
-    },
-    "DE04": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14212,
-      "char": "앲"
-    },
-    "DE06": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14214,
-      "char": "즬"
     },
     "DE08": {
       "kind": "full",
@@ -21469,53 +21202,11 @@
       "real_tile": 14218,
       "char": "뵨"
     },
-    "DE0C": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14220,
-      "char": "닽"
-    },
-    "DE0E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14222,
-      "char": "웉"
-    },
-    "DE10": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14224,
-      "char": "빟"
-    },
     "DE12": {
       "kind": "full",
       "count": 0,
       "real_tile": 14226,
       "char": "첼"
-    },
-    "DE14": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14228,
-      "char": "뫃"
-    },
-    "DE16": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14230,
-      "char": "픠"
-    },
-    "DE18": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14232,
-      "char": "낲"
-    },
-    "DE1A": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14234,
-      "char": "껠"
     },
     "DE1C": {
       "kind": "full",
@@ -21541,18 +21232,6 @@
       "real_tile": 14274,
       "char": "괼"
     },
-    "DF04": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14276,
-      "char": "눟"
-    },
-    "DF06": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14278,
-      "char": "솒"
-    },
     "DF08": {
       "kind": "full",
       "count": 0,
@@ -21571,35 +21250,17 @@
       "real_tile": 14284,
       "char": "엊"
     },
-    "DF0E": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14286,
-      "char": "뎍"
-    },
     "DF10": {
       "kind": "full",
       "count": 0,
       "real_tile": 14288,
       "char": "깊"
     },
-    "DF12": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14290,
-      "char": "굤"
-    },
     "DF14": {
       "kind": "full",
       "count": 0,
       "real_tile": 14292,
       "char": "텅"
-    },
-    "DF16": {
-      "kind": "full",
-      "count": 0,
-      "real_tile": 14294,
-      "char": "쵀"
     },
     "DF18": {
       "kind": "full",

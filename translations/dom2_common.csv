@@ -7,7 +7,7 @@ dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,4,15,Shizuku,<이름:31
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,5,9,주인공,閉かないでよ……,묻지 말아줘……,묻지 말아줘……
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,6,23,Shizuku,アハハ、こんなところで遊んでてい<6E5C>いのかな?,"아하하, 여기서 놀아도<6E5C>괜찮은 걸까?","아하하, 여기서 놀아도<6E5C>괜찮은 걸까?"
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,7,14,Shizuku,ちゃんとやらないと留年だよ,제대로 안 하면 유급이야,제대로 안 하면 유급이야
-dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,8,12,주인공,意地悪だな、巳沢さんは,심술맞네 미사와 씨는,심술맞네 미사와 씨는
+dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,8,12,주인공,意地悪だな、巳沢さんは,심술궂네 미사와 씨는,심술궂네 미사와 씨는
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,9,7,Shizuku,フフ、ごめん,"후후, 미안","후후, 미안"
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,10,7,Mary,Hi、<이름:3131>君,Hi <이름:3131>군,Hi <이름:3131>군
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,11,17,주인공,あ、マリーさん.お仕事中ですか?,"아, 마리 씨 근무 중이세요?","아, 마리 씨 근무 중이세요?"
@@ -17,7 +17,7 @@ dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,14,21,주인공,朽ち�
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,15,15,Mary,そ、そう……今度試してみるわ,"그, 그래…… 담에 가볼게","그, 그래…… 담에 가볼게"
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,16,5,주인공,あ……!,아……!,아……!
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,17,17,Mature,どうしたのかしら、驚いた顔をして,"왜 그럴까, 놀란 얼굴을 하고","왜 그럴까, 놀란 얼굴을 하고"
-dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,18,15,UNKNOWN_42,おい、なにを固まってるんだ?,이봐 뭘 그리 얼어 있어?,이봐 뭘 그리 얼어 있어?
+dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,18,15,UNKNOWN_42,おい、なにを固まってるんだ?,이봐 뭘 그리 굳어 있어?,이봐 뭘 그리 굳어 있어?
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,19,7,주인공,あ、その……,아 그게……,아 그게……
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,20,28,Mature,私たちのあまりの美しさに言葉を<6E5C>失ってしまったのかしら,우리의 너무나 아름다운 모습에<6E5C>말을 잃어버린 걸까,우리의 너무나 아름다운 모습에<6E5C>말을 잃어버린 걸까
 dom2ENC_T2_Afternoon.mes,Script/dom2ENC_T2_Afternoon.mes,21,9,UNKNOWN_42,フフ、可愛い奴だ,"후후, 귀엽네","후후, 귀엽네"
@@ -55,7 +55,7 @@ dom2ENC_T3_Afternoon.mes,Script/dom2ENC_T3_Afternoon.mes,20,15,주인공,今度�
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,0,7,[효과음/내레이션],ピピピピ……,삐삐삐삐……,삐삐삐삐……
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,1,8,주인공,いってきまーす,다녀올게요~,다녀올게요~
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,2,17,주인공,(さて、授業だ……緊張するなぁ),"(자, 수업이다…… 긴장되네)","(자, 수업이다…… 긴장되네)"
-dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,3,13,[효과음/내레이션],キーンコーンカーンコーン,딩동댕동,딩동댕동
+dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,3,13,[효과음/내레이션],キーンコーンカーンコーン,땡땡땡땡,땡땡땡땡
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,4,19,Kisarah,起立、礼!<6E5C>ありがとうございましたー,"차렷, 경례!<6E5C>감사합니다~","차렷, 경례!<6E5C>감사합니다~"
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,5,7,UNKNOWN_1e,<이름:3131><이름:3232>……,<이름:3131><이름:3232>……,<이름:3131><이름:3232>……
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,6,6,주인공,八神先輩!,야가미선배,야가미선배
@@ -66,7 +66,7 @@ dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,10,11,UNKNOWN_1e,しっか�
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,11,28,주인공,草薙先輩……不安なら先輩が<6E5C>しっかり指導してくださいよ,쿠사나기 선배…… 불안하면 그냥<6E5C>직접 지도해주세요,쿠사나기 선배…… 불안하면 그냥<6E5C>직접 지도해주세요
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,12,22,Kyo,俺ならともかく、<6E5C>おまえなら大丈夫だって!,"나라면 몰라도,<6E5C>너라면 괜찮다니까!","나라면 몰라도,<6E5C>너라면 괜찮다니까!"
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,13,15,주인공,(教師ってこれでいいのか?),(교사가 이래도 되나?),(교사가 이래도 되나?)
-dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,14,17,주인공,ふう.今日はどうだったのかな……,후우. 오늘은 어떠했으려나……,후우. 오늘은 어떠했으려나……
+dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,14,17,주인공,ふう.今日はどうだったのかな……,후우. 오늘은 어땠으려나……,후우. 오늘은 어땠으려나……
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,15,15,Kisarah,<이름:3131>先生は教え方、上手ですよ,"<이름:3131>샘, 잘 가르치던데요","<이름:3131>샘, 잘 가르치던데요"
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,16,16,주인공,あ、ありがとう.キサラ……さん,"아, 고마워. 키사라…… 씨","아, 고마워. 키사라…… 씨"
 dom2ENC_T3_Morning.mes,Script/dom2ENC_T3_Morning.mes,17,19,Kisarah,頼りにしてますよ、<6E5C>セ。ン。セ。イ!,"믿고 있어요,<6E5C>선。생。님!","믿고 있어요,<6E5C>선。생。님!"
@@ -122,7 +122,7 @@ dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,30,17,주인공,……�
 dom2ENC_T4_Morning.mes,Script/dom2ENC_T4_Morning.mes,0,7,[효과음/내레이션],ピピピピ……,삐삐삐삐……,삐삐삐삐……
 dom2ENC_T4_Morning.mes,Script/dom2ENC_T4_Morning.mes,1,11,Hotaru,おはよう、お兄ちゃん,"좋은 아침, 오빠","좋은 아침, 오빠"
 dom2ENC_T4_Morning.mes,Script/dom2ENC_T4_Morning.mes,2,10,주인공,ほたる、眠そうだな,호타루 졸린가 봐,호타루 졸린가 봐
-dom2ENC_T4_Morning.mes,Script/dom2ENC_T4_Morning.mes,3,23,Hotaru,いいんだもん……夏休みだから<6E5C>ゴロゴロしても,"괜찮단 말이야, 여름방학이니까<6E5C>빈둥거려도","괜찮단 말이야, 여름방학이니까<6E5C>빈둥거려도"
+dom2ENC_T4_Morning.mes,Script/dom2ENC_T4_Morning.mes,3,23,Hotaru,いいんだもん……夏休みだから<6E5C>ゴロゴロしても,"괜찮단 말이야, 여름방학이니까<6E5C>뒹굴어도","괜찮단 말이야, 여름방학이니까<6E5C>뒹굴어도"
 dom2ENC_T4_Morning.mes,Script/dom2ENC_T4_Morning.mes,4,7,[효과음/내레이션],ピピピピ……,삐삐삐삐……,삐삐삐삐……
 dom2ENC_T4_Morning.mes,Script/dom2ENC_T4_Morning.mes,5,6,주인공,おはよ……,좋은 아침,좋은 아침
 dom2ENC_T4_Morning.mes,Script/dom2ENC_T4_Morning.mes,6,17,주인공,(っと……僕しかいないんだった),(참…… 나밖에 없었지),(참…… 나밖에 없었지)
@@ -222,12 +222,12 @@ dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,9,3,주인공,!!,!!,!!
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,10,7,UNKNOWN_47,どうかした?,무슨 일이야,무슨 일이야
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,11,25,주인공,……なんで、僕の家にいる!!<6E5C>お前は、お前は……,"……왜 내 집에 있어!!<6E5C>너, 너는……","……왜 내 집에 있어!!<6E5C>너, 너는……"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,12,13,주인공,シェルミー……だよな……,셀미…… 맞지……,셀미…… 맞지……
-dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,13,19,UNKNOWN_47,ねぼけてるの?<6E5C>朝ごはんできてるわよ,잠이 안 깬 거야?<6E5C>아침 다 됐어,잠이 안 깬 거야?<6E5C>아침 다 됐어
+dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,13,19,UNKNOWN_47,ねぼけてるの?<6E5C>朝ごはんできてるわよ,잠이 안 깼어?<6E5C>아침 다 됐어,잠이 안 깼어?<6E5C>아침 다 됐어
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,14,7,주인공,あ、ああ……,아…… 아아,아…… 아아
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,15,16,UNKNOWN_47,私、今日はちょっと遅くなるから,나 오늘 좀 늦을 거야,나 오늘 좀 늦을 거야
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,16,5,주인공,うん……,응……,응……
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,17,6,주인공,(あれ?),(어라?),(어라?)
-dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,18,37,UNKNOWN_47,<이름:3232>はいいよね、夏休みだから<6E5C>ぼーっとできて……ちょっと、<6E5C>閉いてるの?,"<이름:3232>는 좋겠다, 방학이니<6E5C>편해서…… 근데<6E5C>정신 어디 판 거야?","<이름:3232>는 좋겠다, 방학이니<6E5C>편해서…… 근데<6E5C>정신 어디 판 거야?"
+dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,18,37,UNKNOWN_47,<이름:3232>はいいよね、夏休みだから<6E5C>ぼーっとできて……ちょっと、<6E5C>閉いてるの?,"<이름:3232>는 좋겠다, 방학이니<6E5C>편해서…… 근데<6E5C>듣고 있어?","<이름:3232>는 좋겠다, 방학이니<6E5C>편해서…… 근데<6E5C>듣고 있어?"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,19,31,주인공,シェルミー.<6E5C>僕、ふたり募らしをしていた<6E5C>ような気がするんだ,"셀미.<6E5C>나, 둘이서 살고 있었던<6E5C>것 같은 느낌이 들어","셀미.<6E5C>나, 둘이서 살고 있었던<6E5C>것 같은 느낌이 들어"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,20,27,UNKNOWN_47,やあねえ.<6E5C>ずっとふたりで募らしてるじゃない<6E5C>、私と,"무슨 소리야.<6E5C>계속 둘이서 살고 있잖아<6E5C>, 나랑","무슨 소리야.<6E5C>계속 둘이서 살고 있잖아<6E5C>, 나랑"
 dom2Ed_Shermie.mes,Script/dom2Ed_Shermie.mes,21,18,주인공,そうだったっけ……?<6E5C>誰か別の……,그랬던가……?<6E5C>누군가 다른……,그랬던가……?<6E5C>누군가 다른……
@@ -344,8 +344,8 @@ dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,8,14,주인공,えぇ?や……
 dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,9,16,주인공,(特に手がかりはなし、か……),(딱히 단서는 없나……),(딱히 단서는 없나……)
 dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,10,28,주인공,なんだか町全体の風景がよどんで<6E5C>見える……気のせいかな,왠지 거리 전체 풍경이 탁해<6E5C>보여…… 기분 탓인가,왠지 거리 전체 풍경이 탁해<6E5C>보여…… 기분 탓인가
 dom2HZR_Kagura.mes,Script/dom2HZR_Kagura.mes,0,31,주인공,何かお願いごとでもしてこようかな<6E5C>.賽銭は10円くらいで……,뭔가 소원이나 빌어볼까<6E5C>. 새전은 10엔 정도로……,뭔가 소원이나 빌어볼까<6E5C>. 새전은 10엔 정도로……
-dom2HZR_Kagura.mes,Script/dom2HZR_Kagura.mes,1,8,[효과음/내레이션],チチッ<020A>チチチ,찍<020A>찍찍,찍<020A>찍찍
-dom2HZR_Kagura.mes,Script/dom2HZR_Kagura.mes,2,27,주인공,ん?この鳥は……ちづる先輩の<6E5C>飼ってる、チーちゃん?,"응? 이 새는…… 치즈루 선배가<6E5C>기르는, 치짱?","응? 이 새는…… 치즈루 선배가<6E5C>기르는, 치짱?"
+dom2HZR_Kagura.mes,Script/dom2HZR_Kagura.mes,1,8,[효과음/내레이션],チチッ<020A>チチチ,짹<020A>짹짹,짹<020A>짹짹
+dom2HZR_Kagura.mes,Script/dom2HZR_Kagura.mes,2,27,주인공,ん?この鳥は……ちづる先輩の<6E5C>飼ってる、チーちゃん?,"응? 이 새는…… 치즈루 선배가<6E5C>기르는, 치쨩?","응? 이 새는…… 치즈루 선배가<6E5C>기르는, 치쨩?"
 dom2HZR_Kagura.mes,Script/dom2HZR_Kagura.mes,3,5,[효과음/내레이션],チチッ!,찍!,찍!
 dom2HZR_Kagura.mes,Script/dom2HZR_Kagura.mes,4,20,주인공,ああっ!<6E5C>僕のサイフから500円玉を!,아앗!<6E5C>내 지갑에서 500엔짜리를!,아앗!<6E5C>내 지갑에서 500엔짜리를!
 dom2HZR_Kagura.mes,Script/dom2HZR_Kagura.mes,5,5,[효과음/내레이션],ゴトンッ,덜그럭,덜그럭
@@ -683,18 +683,18 @@ dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,39,10,주인공,ん?なんだ、今�
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,40,6,[효과음/내레이션],ピチチ……,삐삐……,삐삐……
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,41,3,[효과음/내레이션],パタ,파닥,파닥
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,42,8,주인공,あ…….小鳥?,아…… 새?,아…… 새?
-dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,43,10,UNKNOWN_1e,こら、チーちゃん!,"이놈, 치짱!","이놈, 치짱!"
+dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,43,10,UNKNOWN_1e,こら、チーちゃん!,"이놈, 치쨩!","이놈, 치쨩!"
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,44,4,주인공,ん……,음……,음……
-dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,45,20,UNKNOWN_1e,だめでしょ、チーちゃん、<6E5C>おいたしちゃ,"안 되지, 치짱,<6E5C>장난치면","안 되지, 치짱,<6E5C>장난치면"
+dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,45,20,UNKNOWN_1e,だめでしょ、チーちゃん、<6E5C>おいたしちゃ,"안 되지, 치쨩,<6E5C>장난치면","안 되지, 치쨩,<6E5C>장난치면"
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,46,6,주인공,神楽先輩?,선배?,선배?
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,47,15,Chizuru,あら……どなただったかしら?,어머…… 누구셨더라?,어머…… 누구셨더라?
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,48,21,주인공,あ、そっか、神楽先輩は知らない<6E5C>ですよね,"아, 그렇지, 카구라 선배는<6E5C>모르시죠","아, 그렇지, 카구라 선배는<6E5C>모르시죠"
-dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,49,37,주인공,僕、神楽先輩と同じ清泉大学の<6E5C>3回生、<이름:3131><이름:3232>っていいます.<6E5C>初めまして,카구라 선배와 같은 세이센대<6E5C>3학년 <이름:3131><이름:3232>입니다.<6E5C>반갑습니다,카구라 선배와 같은 세이센대<6E5C>3학년 <이름:3131><이름:3232>입니다.<6E5C>반갑습니다
+dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,49,37,주인공,僕、神楽先輩と同じ清泉大学の<6E5C>3回生、<이름:3131><이름:3232>っていいます.<6E5C>初めまして,카구라 선배와 같은 세이센대<6E5C>3학년 <이름:3131><이름:3232>입니다.<6E5C>뵙겠습니다,카구라 선배와 같은 세이센대<6E5C>3학년 <이름:3131><이름:3232>입니다.<6E5C>뵙겠습니다
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,50,24,Chizuru,まぁ、後輩なのね.<6E5C>初めまして、神楽ちづるです,"어머, 후배구나.<6E5C>반가워 카구라 치즈루예요","어머, 후배구나.<6E5C>반가워 카구라 치즈루예요"
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,51,22,Chizuru,どうして私の名前をご存知だったの<6E5C>かしら?,어떻게 제 이름을 알고<6E5C>계셨을까요?,어떻게 제 이름을 알고<6E5C>계셨을까요?
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,52,38,주인공,大学院生で巫女さんをしてる美人が<6E5C>いるって、友達の間で有名だった<6E5C>から……,대학원생인데 무녀인<6E5C>미인이 있다고 친구들 사이에서<6E5C>유명했거든요……,대학원생인데 무녀인<6E5C>미인이 있다고 친구들 사이에서<6E5C>유명했거든요……
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,53,8,Chizuru,あら、嬉しいわ,"어머, 기쁘네","어머, 기쁘네"
-dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,54,21,Chizuru,美人だなんて、良いお友達をお持ち<6E5C>なのね,"미인이라니, 좋은 친구를<6E5C>가졌네요","미인이라니, 좋은 친구를<6E5C>가졌네요"
+dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,54,21,Chizuru,美人だなんて、良いお友達をお持ち<6E5C>なのね,"미인이라니, 좋은 친구를<6E5C>뒀네요","미인이라니, 좋은 친구를<6E5C>뒀네요"
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,55,28,주인공,(……友達は「変わった人だ」、<6E5C>とも言ってたけど……),(……친구는 '특이한 사람'이라고도<6E5C>했었지만……),(……친구는 '특이한 사람'이라고도<6E5C>했었지만……)
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,56,16,주인공,(それは言わないでおこうっと),(그건 말 안 하는 걸로),(그건 말 안 하는 걸로)
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,57,20,Chizuru,それで、神楽神社になにかご用<6E5C>かしら?,"그래서, 신사에 무슨 일<6E5C>이신가요?","그래서, 신사에 무슨 일<6E5C>이신가요?"
@@ -722,7 +722,7 @@ dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,78,16,주인공,あの……また来
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,79,72,Chizuru,いいわよ.ただ、私もたまには大学<6E5C>に顔を出さないといけないし、<485C>17日の夏祭りの準備があるから、<6E5C>いつでも時間をとれるって<6E5C>わけじゃないけどね,"그래.<6E5C>다만 나도 가끔 대학에<6E5C>얼굴 비쳐야 하고,<485C>17일 여름 축제 준비도<6E5C>있으니까, 언제든 시간<6E5C>낼 수 있는 건 아니지만","그래.<6E5C>다만 나도 가끔 대학에<6E5C>얼굴 비쳐야 하고,<485C>17일 여름 축제 준비도<6E5C>있으니까, 언제든 시간<6E5C>낼 수 있는 건 아니지만"
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,80,23,주인공,ありがとうございます!<6E5C>それじゃ、また来ます,"감사합니다!<6E5C>그럼, 또 올게요","감사합니다!<6E5C>그럼, 또 올게요"
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,81,14,Chizuru,また、いつでもいらっしゃい,"또, 언제든지 오렴","또, 언제든지 오렴"
-dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,82,15,Chizuru,ほら、チーちゃん、戻るわよ!,"자, 치짱, 돌아가자!","자, 치짱, 돌아가자!"
+dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,82,15,Chizuru,ほら、チーちゃん、戻るわよ!,"자, 치쨩, 돌아가자!","자, 치쨩, 돌아가자!"
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,83,4,[효과음/내레이션],ピチチ,삐약,삐약
 dom2OP_0701_4.mes,Script/dom2OP_0701_4.mes,84,6,[효과음/내레이션],パタタ……,파닥……,파닥……
 dom2OP_0701_5.mes,Script/dom2OP_0701_5.mes,0,9,주인공,(……静かだな),(……조용하네),(……조용하네)
@@ -853,7 +853,7 @@ dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,73,44,주인공,平気だよ、巳沢
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,74,48,Shizuku,そう?ほんとうは、マチュアさんと<6E5C>ふたりっきりの個人授業を受けたい<6E5C>って思ってるんじゃなぁい?,"그래? 사실은, 마츄어 씨랑<6E5C>단둘이 개인 수업 받고<6E5C>싶은 거 아니야?","그래? 사실은, 마츄어 씨랑<6E5C>단둘이 개인 수업 받고<6E5C>싶은 거 아니야?"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,75,15,주인공,えぇ!?そんなわけないだろ?,에엥!? 그럴 리 없잖아?,에엥!? 그럴 리 없잖아?
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,76,6,Shizuku,どうかなぁ,글쎄다,글쎄다
-dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,77,25,주인공,いじわるだな、巳沢さんは!<6E5C>早くゼミに行こうよ!,"심술맞네, 미사와 씨는!<6E5C>얼른 세미나 가자!","심술맞네, 미사와 씨는!<6E5C>얼른 세미나 가자!"
+dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,77,25,주인공,いじわるだな、巳沢さんは!<6E5C>早くゼミに行こうよ!,"심술궂네, 미사와 씨는!<6E5C>얼른 세미나 가자!","심술궂네, 미사와 씨는!<6E5C>얼른 세미나 가자!"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,78,4,Shizuku,フフッ,후훗,후훗
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,79,22,주인공,(……女の人ってみんな怖いな、<6E5C>やれやれ),"(……여자들은 다들 무섭네,<6E5C>어휴)","(……여자들은 다들 무섭네,<6E5C>어휴)"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,80,17,주인공,あれ?ゲーニッツ先生、きてないな,어라? 게닛츠 선생님 안 왔네,어라? 게닛츠 선생님 안 왔네
@@ -889,7 +889,7 @@ dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,109,21,Fio,あっ、それイイで�
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,110,41,Fio,わたし、神楽神社で作業してると<6E5C>思うんで、他にも思いついたら<6E5C>教えてくださいね!,"저, 카구라 신사에서<6E5C>작업할 거니까, 다른 것도<6E5C>생각나면 알려주세요!","저, 카구라 신사에서<6E5C>작업할 거니까, 다른 것도<6E5C>생각나면 알려주세요!"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,111,9,주인공,うん、任せといて,"응, 맡겨둬","응, 맡겨둬"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,112,50,주인공,(って、安諸け合いしてだいじょう<6E5C>ぶかな……どうも困ってる人を見る<6E5C>と、放っておけないんだよなぁ),"(라고, 함부로 약속해도<6E5C>되나…… 아무래도 곤란한 사람<6E5C>보면, 못 지나치는구나)","(라고, 함부로 약속해도<6E5C>되나…… 아무래도 곤란한 사람<6E5C>보면, 못 지나치는구나)"
-dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,113,50,주인공,ところでさ、フィオはどうしてこの<6E5C>ゼミを取ってるの?専門はカイロプ<6E5C>ラクティックじゃなかったっけ?,"근데, 피오는 왜 이<6E5C>세미나 하는 거야? 전공은<6E5C>카이로프랙틱 아니었어?","근데, 피오는 왜 이<6E5C>세미나 하는 거야? 전공은<6E5C>카이로프랙틱 아니었어?"
+dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,113,50,주인공,ところでさ、フィオはどうしてこの<6E5C>ゼミを取ってるの?専門はカイロプ<6E5C>ラクティックじゃなかったっけ?,"근데, 피오는 왜 이<6E5C>세미나 듣는 거야? 전공은<6E5C>카이로프랙틱 아니었어?","근데, 피오는 왜 이<6E5C>세미나 듣는 거야? 전공은<6E5C>카이로프랙틱 아니었어?"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,114,25,Fio,わたし、日本の伝統文化にすごく<6E5C>興味があるんです,"저, 일본 전통문화에 굉장히<6E5C>관심 있거든요","저, 일본 전통문화에 굉장히<6E5C>관심 있거든요"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,115,42,Shizuku,そっか、フィオはイタリアから<6E5C>来たんだったね.それじゃ最近<6E5C>ゼミがないのは残念だね,"그렇구나, 피오는 이탈리아에서<6E5C>왔었지. 그럼 요즘 세미나<6E5C>없는 게 아쉽겠네","그렇구나, 피오는 이탈리아에서<6E5C>왔었지. 그럼 요즘 세미나<6E5C>없는 게 아쉽겠네"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,116,32,Fio,いえ、自分ひとりでも勉強できる<6E5C>ことっていっぱいありますから!,"아뇨, 혼자서도 공부할 수<6E5C>있는 게 잔뜩 있으니까요!","아뇨, 혼자서도 공부할 수<6E5C>있는 게 잔뜩 있으니까요!"
@@ -925,7 +925,7 @@ dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,145,6,주인공,神楽先輩!,선배!
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,146,37,Chizuru,こんにちは、<이름:3131>君、昨日は我が<6E5C>神楽神社にお越しいただいて、<6E5C>ありがとう,"안녕, <이름:3131> 군,<6E5C>어제는 우리 카구라 신사에<6E5C>와줘서 고마워","안녕, <이름:3131> 군,<6E5C>어제는 우리 카구라 신사에<6E5C>와줘서 고마워"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,147,11,주인공,いえいえ、こちらこそ,"아뇨아뇨, 저야말로","아뇨아뇨, 저야말로"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,148,13,Shizuku,あ、私、同じ3回生の……,"아, 저 같은 3학년…","아, 저 같은 3학년…"
-dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,149,13,Chizuru,巳沢雫さんね.初めまして,미사와 시즈쿠.<6E5C>반가워,미사와 시즈쿠.<6E5C>반가워
+dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,149,13,Chizuru,巳沢雫さんね.初めまして,미사와 시즈쿠.<6E5C>뵐게요,미사와 시즈쿠.<6E5C>뵐게요
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,150,13,Shizuku,え…….どうして名前を?,네…….어떻게 이름을?,네…….어떻게 이름을?
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,151,29,Chizuru,院生の間でも、可愛い後輩がいる<6E5C>って噂は流れてるものよ?,"원생들 사이에도, 귀여운<6E5C>후배가 있단 소문 돌아","원생들 사이에도, 귀여운<6E5C>후배가 있단 소문 돌아"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,152,8,Shizuku,そ、そんな……,"그, 그런……","그, 그런……"
@@ -937,7 +937,7 @@ dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,157,32,주인공,うん、優しい�
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,158,39,주인공,でも神社に仕える人って大変なんだ<6E5C>なぁ.なんだか、住む世界が違うっ<6E5C>て感じだ,근데 신사 일하는 사람은<6E5C>힘들겠다. 사는 세계가<6E5C>다르다는 느낌이야,근데 신사 일하는 사람은<6E5C>힘들겠다. 사는 세계가<6E5C>다르다는 느낌이야
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,159,42,Shizuku,……あ、あの、神楽先輩?<6E5C>出口でしたらこっちですけど…….<6E5C>そっちはトイレですよ?,"……저, 저기, 카구라 선배?<6E5C>출구는 이쪽인데요……<6E5C>그쪽은 화장실이에요?","……저, 저기, 카구라 선배?<6E5C>출구는 이쪽인데요……<6E5C>그쪽은 화장실이에요?"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,160,5,주인공,…………,…………,…………
-dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,161,32,Chizuru,……ほほほ、大学って広いから、<6E5C>たまに迷子になっちゃうのよねぇ,"……호호호, 대학이 커서,<6E5C>가끔 길 잃어버리네","……호호호, 대학이 커서,<6E5C>가끔 길 잃어버리네"
+dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,161,32,Chizuru,……ほほほ、大学って広いから、<6E5C>たまに迷子になっちゃうのよねぇ,"……호호호, 대학은 넓어서,<6E5C>가끔 길 잃어버리네","……호호호, 대학은 넓어서,<6E5C>가끔 길 잃어버리네"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,162,16,Chizuru,……ではみなさん、ごきげんよう,"……그럼 다들, 안녕히","……그럼 다들, 안녕히"
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,163,5,[효과음/내레이션],…………,…………,…………
 dom2OP_0702_2.mes,Script/dom2OP_0702_2.mes,164,5,주인공,…………,…………,…………
@@ -1005,7 +1005,7 @@ dom2OP_0702_4.mes,Script/dom2OP_0702_4.mes,13,14,주인공,き、閉こえちゃ
 dom2OP_0702_4.mes,Script/dom2OP_0702_4.mes,14,20,Iori,京!!俺のライブをけなしに<6E5C>来たのか?,쿄!! 내 라이브 깔보러<6E5C>온 거냐?,쿄!! 내 라이브 깔보러<6E5C>온 거냐?
 dom2OP_0702_4.mes,Script/dom2OP_0702_4.mes,15,40,Kyo,何言ってんだよ、<6E5C>ちゃんと観に来てやってんだろ?<6E5C>早く演葬してくれよ、庵サマッ,"뭔 소리야, 제대로<6E5C>보러 와준 거잖아? 빨리 끝장<6E5C>내 봐, 이오리 나리","뭔 소리야, 제대로<6E5C>보러 와준 거잖아? 빨리 끝장<6E5C>내 봐, 이오리 나리"
 dom2OP_0702_4.mes,Script/dom2OP_0702_4.mes,16,27,Iori,よかろう!葬でるのは貴様の<6E5C>悲鳴だ、京ォォォォォ!!,"좋다! 연주해줄 건 네놈<6E5C>비명이다, 쿄오오오!!","좋다! 연주해줄 건 네놈<6E5C>비명이다, 쿄오오오!!"
-dom2OP_0702_4.mes,Script/dom2OP_0702_4.mes,17,6,[효과음/내레이션],ガシャーン,와장창,와장창
+dom2OP_0702_4.mes,Script/dom2OP_0702_4.mes,17,6,[효과음/내레이션],ガシャーン,쨍그랑,쨍그랑
 dom2OP_0702_4.mes,Script/dom2OP_0702_4.mes,18,6,[효과음/내레이션],ドシャーン,콰과광,콰과광
 dom2OP_0702_4.mes,Script/dom2OP_0702_4.mes,19,14,주인공,わーっ!クラブが潰れる!!,으악! 클럽 무너진다!!,으악! 클럽 무너진다!!
 dom2OP_0702_4.mes,Script/dom2OP_0702_4.mes,20,25,주인공,この人達、大学の頃と<6E5C>ぜんぜん変わってないよー!,"이 사람들, 대학 때랑<6E5C>하나도 안 변했어!","이 사람들, 대학 때랑<6E5C>하나도 안 변했어!"

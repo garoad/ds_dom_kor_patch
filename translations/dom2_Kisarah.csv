@@ -181,7 +181,7 @@ dom2Kisarah_L06.mes,Script/dom2Kisarah_L06.mes,16,8,Kyo,なんだよ、八神,"�
 dom2Kisarah_L06.mes,Script/dom2Kisarah_L06.mes,17,22,Iori,お前のそのたるみきった態度が<6E5C>許せんのだ!,네놈의 그 해이한 태도를<6E5C>용서 못한다!,네놈의 그 해이한 태도를<6E5C>용서 못한다!
 dom2Kisarah_L06.mes,Script/dom2Kisarah_L06.mes,18,42,Iori,貴様はそれでも教師か!<6E5C>俺の指導がいかに優れているか、<6E5C>この試験で思い知るがいい!,네놈이 그러고도 교사냐!<6E5C>내 지도가 얼마나 뛰어난지<6E5C>이 시험으로 느껴봐라!,네놈이 그러고도 교사냐!<6E5C>내 지도가 얼마나 뛰어난지<6E5C>이 시험으로 느껴봐라!
 dom2Kisarah_L06.mes,Script/dom2Kisarah_L06.mes,19,34,Kyo,ったく、わかっちゃいねえ.<6E5C>生徒を指導する?<6E5C>おこがましいぜ、八神,"흥, 하나도 모르는군.<6E5C>학생을 지도한다고?<6E5C>가소롭다, 야가미","흥, 하나도 모르는군.<6E5C>학생을 지도한다고?<6E5C>가소롭다, 야가미"
-dom2Kisarah_L06.mes,Script/dom2Kisarah_L06.mes,20,44,Kyo,教育とは互いに磨きあうもの、<6E5C>教師が教えられるのは勉強だけさ.<6E5C>お前は縛りすぎなんだよ,"교육은 서로 갈고닦는 거야,<6E5C>교사가 가르칠 건 공부뿐.<6E5C>넌 너무 조여","교육은 서로 갈고닦는 거야,<6E5C>교사가 가르칠 건 공부뿐.<6E5C>넌 너무 조여"
+dom2Kisarah_L06.mes,Script/dom2Kisarah_L06.mes,20,44,Kyo,教育とは互いに磨きあうもの、<6E5C>教師が教えられるのは勉強だけさ.<6E5C>お前は縛りすぎなんだよ,"교육은 서로 갈고닦는 거야,<6E5C>교사가 가르칠 건 공부뿐.<6E5C>넌 너무 옭아매는 거야","교육은 서로 갈고닦는 거야,<6E5C>교사가 가르칠 건 공부뿐.<6E5C>넌 너무 옭아매는 거야"
 dom2Kisarah_L06.mes,Script/dom2Kisarah_L06.mes,21,20,주인공,草薙先輩は勉強すら<6E5C>教えてませんけどね,쿠사나기 선배는<6E5C>공부 안 가르치던데,쿠사나기 선배는<6E5C>공부 안 가르치던데
 dom2Kisarah_L06.mes,Script/dom2Kisarah_L06.mes,22,13,Kyo,じゃあ<이름:3232>、後は任せたぜ,"그럼 <이름:3232>, 맡긴다","그럼 <이름:3232>, 맡긴다"
 dom2Kisarah_L06.mes,Script/dom2Kisarah_L06.mes,23,17,주인공,えっ?試験、見届けないんですか?,"네? 시험, 안 지켜보세요?","네? 시험, 안 지켜보세요?"
@@ -862,7 +862,7 @@ dom2Kisarah_X03.mes,Script/dom2Kisarah_X03.mes,49,19,Shizuku,えぇ?いきなり
 dom2Kisarah_X03.mes,Script/dom2Kisarah_X03.mes,50,21,주인공,もう、僕にはさっぱり…….<6E5C>お手上げだよ,"정말, 전혀…….<6E5C>두 손 다 들었어","정말, 전혀…….<6E5C>두 손 다 들었어"
 dom2Kisarah_X03.mes,Script/dom2Kisarah_X03.mes,51,35,Shizuku,それってひょっとして……<6E5C>この前お店に連れてきてくれた<6E5C>被女のこと?,그거 혹시……<6E5C>저번에 가게에 데려왔던<6E5C>여자친구 얘기?,그거 혹시……<6E5C>저번에 가게에 데려왔던<6E5C>여자친구 얘기?
 dom2Kisarah_X03.mes,Script/dom2Kisarah_X03.mes,52,21,주인공,えっ、だからキサラは<6E5C>被女じゃなくて……,"엣, 키사라는<6E5C>여자친구 아니라고……","엣, 키사라는<6E5C>여자친구 아니라고……"
-dom2Kisarah_X03.mes,Script/dom2Kisarah_X03.mes,53,13,Shizuku,やっぱり、その子のことだ,"역시, 그 애 얘기구나","역시, 그 애 얘기구나"
+dom2Kisarah_X03.mes,Script/dom2Kisarah_X03.mes,53,13,Shizuku,やっぱり、その子のことだ,"역시, 걔 얘기구나","역시, 걔 얘기구나"
 dom2Kisarah_X03.mes,Script/dom2Kisarah_X03.mes,54,5,주인공,…………,…………,…………
 dom2Kisarah_X03.mes,Script/dom2Kisarah_X03.mes,55,13,Shizuku,で、ケンカしちゃったの?,"그래서, 싸운 거야?","그래서, 싸운 거야?"
 dom2Kisarah_X03.mes,Script/dom2Kisarah_X03.mes,56,31,주인공,ケンカっていうか、僕が約束を<6E5C>忘れたせいで、怒らせてしまって,"싸움이라기보다, 내가 약속을<6E5C>잊어버려서 화나게 했어","싸움이라기보다, 내가 약속을<6E5C>잊어버려서 화나게 했어"
@@ -988,7 +988,7 @@ dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,63,6,[효과음/내레이션],ブ
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,64,5,주인공,わぁっ!,으왓!,으왓!
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,65,10,Kyo,へへ……燃えたろ?,헤헤……뜨겁지?,헤헤……뜨겁지?
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,66,21,주인공,い、今、目の前に淡が…….<6E5C>気のせいか?,눈앞에 불꽃이…….<6E5C>기분 탓인가?,눈앞에 불꽃이…….<6E5C>기분 탓인가?
-dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,67,29,주인공,(……僕は、キサラのことを軽く<6E5C>見ていたのかもしれない),"(……나는, 키사라를 우습게<6E5C>보고 있었는지도 몰라)","(……나는, 키사라를 우습게<6E5C>보고 있었는지도 몰라)"
+dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,67,29,주인공,(……僕は、キサラのことを軽く<6E5C>見ていたのかもしれない),"(……나는, 키사라를 가볍게<6E5C>보고 있었는지도 몰라)","(……나는, 키사라를 가볍게<6E5C>보고 있었는지도 몰라)"
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,68,33,주인공,(長くいすぎたせいで、昔の約束<6E5C>ぐらい……と思ってしまったんだ),(너무 오래 함께해서 옛날 약속<6E5C>쯤이야 하고 생각한 거야),(너무 오래 함께해서 옛날 약속<6E5C>쯤이야 하고 생각한 거야)
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,69,67,주인공,(キサラが過去に約束事で傷を受け<6E5C>たことも知らないで)<485C>(でも僕は決して、キサラの<6E5C>ことをどうでもいい存在だと<6E5C>思ってたことは……),(키사라가 과거에 약속 때문에 상처받은<6E5C>줄도 모르고)<485C>(하지만 절대 키사라를<6E5C>아무래도 좋은 존재라고<6E5C>생각한 적은……),(키사라가 과거에 약속 때문에 상처받은<6E5C>줄도 모르고)<485C>(하지만 절대 키사라를<6E5C>아무래도 좋은 존재라고<6E5C>생각한 적은……)
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,70,10,UNKNOWN_1e,あれ、お兄ちゃん?,"어, 오빠?","어, 오빠?"
@@ -1031,11 +1031,11 @@ dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,106,11,Chizuru,どういうこと
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,107,29,주인공,……10年前、この神社のどこかに<6E5C>カプセルをうめたんです,"……10년 전, 이 신사 어딘가에<6E5C>통을 묻었거든요","……10년 전, 이 신사 어딘가에<6E5C>통을 묻었거든요"
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,108,40,주인공,紙の入った小さなカプセルです.<6E5C>僕はそれを探し、<6E5C>掘り出さないといけないんです,"종이가 든 작은 통이에요.<6E5C>전 그걸 찾아서,<6E5C>파내야만 해요","종이가 든 작은 통이에요.<6E5C>전 그걸 찾아서,<6E5C>파내야만 해요"
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,109,13,주인공,どうか、お願いします……,"부디, 부탁드려요……","부디, 부탁드려요……"
-dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,110,16,Chizuru,タイムカプセル、ということね?,"타임 통, 그런 거네?","타임 통, 그런 거네?"
+dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,110,16,Chizuru,タイムカプセル、ということね?,"타임캡슐, 그런 거네?","타임캡슐, 그런 거네?"
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,111,5,주인공,……はい,……네,……네
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,112,16,Chizuru,どこにうめたか、覚えているの?,어디 묻었는지 기억해?,어디 묻었는지 기억해?
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,113,6,주인공,それが……,그게……,그게……
-dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,114,26,Chizuru,掘り出すなんて言っても、<6E5C>神社はけっこう広いわよ?,"파낸다고 해도,<6E5C>신사는 꽤 큰데?","파낸다고 해도,<6E5C>신사는 꽤 큰데?"
+dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,114,26,Chizuru,掘り出すなんて言っても、<6E5C>神社はけっこう広いわよ?,"파낸다고 해도,<6E5C>신사는 꽤 넓은데?","파낸다고 해도,<6E5C>신사는 꽤 넓은데?"
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,115,21,주인공,はい.でも、<6E5C>見つかるまで探すつもりです,"네. 그래도,<6E5C>찾을 때까지 찾아볼게요","네. 그래도,<6E5C>찾을 때까지 찾아볼게요"
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,116,35,주인공,もちろん、<6E5C>掘った穴は元通りに戻します.<6E5C>どうか、お願いします……!,"물론,<6E5C>판 구멍은 원래대로 되돌릴게요.<6E5C>부디, 부탁드려요……!","물론,<6E5C>판 구멍은 원래대로 되돌릴게요.<6E5C>부디, 부탁드려요……!"
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,117,5,Chizuru,………….,………….,………….
@@ -1058,7 +1058,7 @@ dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,133,19,Chizuru,そう.それは�
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,134,19,Chizuru,しっかり、その人を<6E5C>護ってあげなさい,"제대로, 그 사람을<6E5C>지켜주렴","제대로, 그 사람을<6E5C>지켜주렴"
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,135,9,주인공,はい!護ります!,네! 지킬게요!,네! 지킬게요!
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,136,5,[효과음/내레이션],…………,…………,…………
-dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,137,13,[효과음/내레이션],……え、タイムカプセル?,"……어, 타임 통?","……어, 타임 통?"
+dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,137,13,[효과음/내레이션],……え、タイムカプセル?,"……어, 타임캡슐?","……어, 타임캡슐?"
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,138,37,[효과음/내레이션],……うん、10年後のふたりに向けて<6E5C>メッセージを書くの.<6E5C>ステキでしょ?,"……응, 10년 후의 우리 둘에게<6E5C>메시지를 쓰는 거야.<6E5C>멋지지?","……응, 10년 후의 우리 둘에게<6E5C>메시지를 쓰는 거야.<6E5C>멋지지?"
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,139,14,[효과음/내레이션],……うんっ!わくわくする!,……응! 두근두근해!,……응! 두근두근해!
 dom2Kisarah_X04.mes,Script/dom2Kisarah_X04.mes,140,52,[효과음/내레이션],……キサラは、未来の<이름:3232>クンに<6E5C>向けて.<이름:3232>クンは、未来の<6E5C>キサラに向けて<485C>未来へ送るお手紙だからネ!,"……키사라는 미래의 <이름:3232>군에게<6E5C>쓰고,<이름:3232>군은 미래의<6E5C>키사라에게 쓰는<485C>미래로 보내는 편지니까!","……키사라는 미래의 <이름:3232>군에게<6E5C>쓰고,<이름:3232>군은 미래의<6E5C>키사라에게 쓰는<485C>미래로 보내는 편지니까!"
@@ -1095,7 +1095,7 @@ dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,4,25,주인공,いや、ダメだ
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,5,53,주인공,キサラはこの日を、1日も忘れず<6E5C>10年、待っていたんだ<485C>僕がこれぐらいで、<6E5C>へこたれてる場合じゃない……,키사라는 이 날을 하루도 잊지 않고<6E5C>10년을 기다려왔어<485C>내가 이 정도로<6E5C>지쳐 있을 때가 아냐…,키사라는 이 날을 하루도 잊지 않고<6E5C>10년을 기다려왔어<485C>내가 이 정도로<6E5C>지쳐 있을 때가 아냐…
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,6,7,[효과음/내레이션],チュンチュン,포르릉,포르릉
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,7,49,주인공,……でも、もう意識が朦朧と<6E5C>してきた<485C>どこを掘って、どこを掘って<6E5C>ないのかもわからなくなってきた,…하지만 이제 의식이 몽롱해<6E5C>지기 시작했어<485C>어디를 팠는지 어디를<6E5C>안 팠는지 모르게 됐어,…하지만 이제 의식이 몽롱해<6E5C>지기 시작했어<485C>어디를 팠는지 어디를<6E5C>안 팠는지 모르게 됐어
-dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,8,41,주인공,ああ、バカだ.こんなことじゃ、<6E5C>何日掘ったって、<6E5C>タイムカプセルは出てこない……,"아, 바보 같아. 이래서는,<6E5C>며칠을 파든,<6E5C>타임 통은 안 나올 거야……","아, 바보 같아. 이래서는,<6E5C>며칠을 파든,<6E5C>타임 통은 안 나올 거야……"
+dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,8,41,주인공,ああ、バカだ.こんなことじゃ、<6E5C>何日掘ったって、<6E5C>タイムカプセルは出てこない……,"아, 바보 같아. 이래서는,<6E5C>며칠을 파든,<6E5C>타임캡슐은 안 나올 거야……","아, 바보 같아. 이래서는,<6E5C>며칠을 파든,<6E5C>타임캡슐은 안 나올 거야……"
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,9,9,[효과음/내레이션],ピチ、ピチチ……,"삐, 삐삐……","삐, 삐삐……"
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,10,5,주인공,……ん?,……응?,……응?
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,11,19,주인공,雀のさえずりの中に、<6E5C>違う声音が……,참새 소리 사이에<6E5C>다른 소리가……,참새 소리 사이에<6E5C>다른 소리가……
@@ -1118,7 +1118,7 @@ dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,27,14,주인공,早く、早く�
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,28,7,UNKNOWN_1e,<이름:3131>くん!?,<이름:3131>군!?,<이름:3131>군!?
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,29,9,주인공,あ、巳沢さん……,아 미사와 씨…,아 미사와 씨…
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,30,19,Shizuku,どうしたの?<6E5C>こんなとこを走って……,무슨 일이야?<6E5C>이런 데를 뛰어서…,무슨 일이야?<6E5C>이런 데를 뛰어서…
-dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,31,13,Shizuku,やだ、泥だらけじゃない!,"어머, 완전 더러워!","어머, 완전 더러워!"
+dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,31,13,Shizuku,やだ、泥だらけじゃない!,"어머, 흙투성이잖아!","어머, 흙투성이잖아!"
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,32,27,주인공,そんなこと、どうでもいいんだ.<6E5C>僕、とにかく急いでて,그런 건 아무래도 상관없어요.<6E5C>저 아무튼 급해서,그런 건 아무래도 상관없어요.<6E5C>저 아무튼 급해서
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,33,19,Shizuku,そうなの?<6E5C>ごめんなさい、呼び止めて,"그래?<6E5C>미안해, 붙잡아서","그래?<6E5C>미안해, 붙잡아서"
 dom2Kisarah_X05.mes,Script/dom2Kisarah_X05.mes,34,5,주인공,いや……,아뇨……,아뇨……

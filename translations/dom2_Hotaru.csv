@@ -128,7 +128,7 @@ dom2Hotaru_L04.mes,Script/dom2Hotaru_L04.mes,13,13,Kisarah,え~?ナニ言って�
 dom2Hotaru_L04.mes,Script/dom2Hotaru_L04.mes,14,31,Kisarah,サイテー.<6E5C>こんなトコでまで教師ぶるなんて.<6E5C>ほたる、行こっ,"최악이야.<6E5C>이런 데서 선생님인 척하다니.<6E5C>호타루, 가자","최악이야.<6E5C>이런 데서 선생님인 척하다니.<6E5C>호타루, 가자"
 dom2Hotaru_L04.mes,Script/dom2Hotaru_L04.mes,15,7,Hotaru,う、うん……,"으, 응……","으, 응……"
 dom2Hotaru_L04.mes,Script/dom2Hotaru_L04.mes,16,24,주인공,(うっ、ちょっとえらそうだった<6E5C>かな、僕……),"(윽, 좀 잘난 척했나<6E5C>싶네, 나……)","(윽, 좀 잘난 척했나<6E5C>싶네, 나……)"
-dom2Hotaru_L05.mes,Script/dom2Hotaru_L05.mes,0,9,[효과음/내레이션],チュンチュン……,포르릉……,포르릉……
+dom2Hotaru_L05.mes,Script/dom2Hotaru_L05.mes,0,9,[효과음/내레이션],チュンチュン……,짹짹……,짹짹……
 dom2Hotaru_L05.mes,Script/dom2Hotaru_L05.mes,1,4,주인공,ん……,음……,음……
 dom2Hotaru_L05.mes,Script/dom2Hotaru_L05.mes,2,9,주인공,(もう朝か……),(아침인가……),(아침인가……)
 dom2Hotaru_L05.mes,Script/dom2Hotaru_L05.mes,3,5,[효과음/내레이션],ガバッ!,벌떡!,벌떡!
@@ -187,7 +187,7 @@ dom2Hotaru_L08.mes,Script/dom2Hotaru_L08.mes,18,13,[선택지],動物っぽい�
 dom2Hotaru_L08.mes,Script/dom2Hotaru_L08.mes,19,19,주인공,ほたるが動物っぽいからじゃないか<6E5C>?,호타루가 동물 같아서 아니야<6E5C>?,호타루가 동물 같아서 아니야<6E5C>?
 dom2Hotaru_L08.mes,Script/dom2Hotaru_L08.mes,20,14,Hotaru,それって、どういう意味!?,그게 무슨 의미야!?,그게 무슨 의미야!?
 dom2Hotaru_L08.mes,Script/dom2Hotaru_L08.mes,21,5,UNKNOWN_3e,キュゥ!,큐우!,큐우!
-dom2Hotaru_L08.mes,Script/dom2Hotaru_L08.mes,22,4,[효과음/내레이션],ガブッ,덥석,덥석
+dom2Hotaru_L08.mes,Script/dom2Hotaru_L08.mes,22,4,[효과음/내레이션],ガブッ,콱,콱
 dom2Hotaru_L08.mes,Script/dom2Hotaru_L08.mes,23,5,주인공,いたた!,아야!,아야!
 dom2Hotaru_L08.mes,Script/dom2Hotaru_L08.mes,24,30,주인공,ほたる、仲良いならそいつの噛み<6E5C>ぐせもなんとかしてくれよ!,"호타루, 친하면 이 녀석 무는<6E5C>버릇도 어떻게 해줘!","호타루, 친하면 이 녀석 무는<6E5C>버릇도 어떻게 해줘!"
 dom2Hotaru_L08.mes,Script/dom2Hotaru_L08.mes,25,23,Hotaru,いじわるばっかり言うお兄ちゃんが<6E5C>悪いんだよ,심술만 부리는 오빠가<6E5C>잘못이야,심술만 부리는 오빠가<6E5C>잘못이야
@@ -241,7 +241,7 @@ dom2Hotaru_L09.mes,Script/dom2Hotaru_L09.mes,33,16,주인공,いやいや、こ�
 dom2Hotaru_L09.mes,Script/dom2Hotaru_L09.mes,34,27,주인공,ほら、ほたるも食べろよ.<6E5C>僕ひとりじゃ食べきれないぞ,"자, 호타루도 먹어.<6E5C>나 혼자서는 다 못 먹어","자, 호타루도 먹어.<6E5C>나 혼자서는 다 못 먹어"
 dom2Hotaru_L09.mes,Script/dom2Hotaru_L09.mes,35,24,Hotaru,うん!今日は、ふたりっきりで<6E5C>お祝いだもんね?,"응! 오늘은, 둘이서만<6E5C>축하하는 거지?","응! 오늘은, 둘이서만<6E5C>축하하는 거지?"
 dom2Hotaru_L10.mes,Script/dom2Hotaru_L10.mes,0,9,주인공,う、うう~ん……,"으, 으으음……","으, 으으음……"
-dom2Hotaru_L10.mes,Script/dom2Hotaru_L10.mes,1,4,[효과음/내레이션],ガブッ,덥석,덥석
+dom2Hotaru_L10.mes,Script/dom2Hotaru_L10.mes,1,4,[효과음/내레이션],ガブッ,콱,콱
 dom2Hotaru_L10.mes,Script/dom2Hotaru_L10.mes,2,6,주인공,いってー!,아야얏!,아야얏!
 dom2Hotaru_L10.mes,Script/dom2Hotaru_L10.mes,3,5,UNKNOWN_3e,キュゥ!,큐우!,큐우!
 dom2Hotaru_L10.mes,Script/dom2Hotaru_L10.mes,4,24,주인공,……あぁ、おはよう、ほたる.<6E5C>えらく早起きだな,"아, 좋은 아침, 호타루.<6E5C>일찍 일어났네","아, 좋은 아침, 호타루.<6E5C>일찍 일어났네"
@@ -313,7 +313,7 @@ dom2Hotaru_M02.mes,Script/dom2Hotaru_M02.mes,2,20,주인공,(もう二度と見�
 dom2Hotaru_M02.mes,Script/dom2Hotaru_M02.mes,3,8,Hotaru,お兄ちゃん……,오빠……,오빠……
 dom2Hotaru_M02.mes,Script/dom2Hotaru_M02.mes,4,17,주인공,どうした、ほたる.寝れないのか?,"왜 그래, 잠 안 와?","왜 그래, 잠 안 와?"
 dom2Hotaru_M02.mes,Script/dom2Hotaru_M02.mes,5,6,Hotaru,ううん……,아니……,아니……
-dom2Hotaru_M02.mes,Script/dom2Hotaru_M02.mes,6,16,주인공,……パパとママの夢を見たのか?,"아빠, 엄마 꿈 꾼 거야?","아빠, 엄마 꿈 꾼 거야?"
+dom2Hotaru_M02.mes,Script/dom2Hotaru_M02.mes,6,16,주인공,……パパとママの夢を見たのか?,"아빠, 엄마 꿈 꿨어?","아빠, 엄마 꿈 꿨어?"
 dom2Hotaru_M02.mes,Script/dom2Hotaru_M02.mes,7,5,Hotaru,…………,…………,…………
 dom2Hotaru_M02.mes,Script/dom2Hotaru_M02.mes,8,10,주인공,……こっちにおいで,……이리 와,……이리 와
 dom2Hotaru_M02.mes,Script/dom2Hotaru_M02.mes,9,6,Hotaru,……うんっ,……응!,……응!
@@ -564,7 +564,7 @@ dom2Hotaru_S08.mes,Script/dom2Hotaru_S08.mes,19,45,Hotaru,……お兄ちゃん�
 dom2Hotaru_S08.mes,Script/dom2Hotaru_S08.mes,20,9,주인공,えぇ?見えないよ,뭐? 안 보여,뭐? 안 보여
 dom2Hotaru_S08.mes,Script/dom2Hotaru_S08.mes,21,16,Hotaru,……もぉ、お兄ちゃんのバカ……,"……정말, 오빠 바보……","……정말, 오빠 바보……"
 dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,0,13,주인공,う~ん、むにゃむにゃ……,"으~음, 우물우물……","으~음, 우물우물……"
-dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,1,4,[효과음/내레이션],ガブッ,덥석,덥석
+dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,1,4,[효과음/내레이션],ガブッ,콱,콱
 dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,2,7,주인공,いってーっ!,아야얏!,아야얏!
 dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,3,5,UNKNOWN_3e,キュゥ!,큐우!,큐우!
 dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,4,7,주인공,イトカツ……,이토카츠……,이토카츠……
@@ -583,7 +583,7 @@ dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,16,5,Hotaru,…………,………�
 dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,17,11,주인공,わかった、わかった!,"알았어, 알았어!","알았어, 알았어!"
 dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,18,29,주인공,ほたるの好きなとこについて<6E5C>いってやるから、安心しなさい,"호타루가 좋아하는 곳으로<6E5C>데려가 줄 테니까, 안심해","호타루가 좋아하는 곳으로<6E5C>데려가 줄 테니까, 안심해"
 dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,19,19,Hotaru,やったー!<6E5C>ありがとう、お兄ちゃん!,"야호!<6E5C>고마워, 오빠!","야호!<6E5C>고마워, 오빠!"
-dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,20,17,주인공,やれやれ、休まるときがないな……,어휴 마음 편할 날이 없네……,어휴 마음 편할 날이 없네……
+dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,20,17,주인공,やれやれ、休まるときがないな……,어휴 쉴 틈이 없네……,어휴 쉴 틈이 없네……
 dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,21,14,Hotaru,おにーちゃーん、早く早く!,"오빠아, 빨리 빨리!","오빠아, 빨리 빨리!"
 dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,22,19,주인공,まてまて、そんなに騒ぐなよ、<6E5C>ほたる,"잠깐만, 소란 피우지 마,<6E5C>호타루","잠깐만, 소란 피우지 마,<6E5C>호타루"
 dom2Hotaru_X01.mes,Script/dom2Hotaru_X01.mes,23,29,Hotaru,だって、お兄ちゃんと一日中遊べる<6E5C>なんて嬉しいんだもんっ,"그치만, 오빠랑 하루 종일 놀 수<6E5C>있어서 좋은걸!","그치만, 오빠랑 하루 종일 놀 수<6E5C>있어서 좋은걸!"
@@ -749,7 +749,7 @@ dom2Hotaru_X02.mes,Script/dom2Hotaru_X02.mes,28,6,주인공,ほたる……,호�
 dom2Hotaru_X02.mes,Script/dom2Hotaru_X02.mes,29,33,주인공,まぁいいか.忙しいみたいだし.<6E5C>よし、ごはんを食べるぞ、イトカツ,"뭐 됐나. 바쁜가 본데.<6E5C>좋아, 밥 먹자, 이토카츠","뭐 됐나. 바쁜가 본데.<6E5C>좋아, 밥 먹자, 이토카츠"
 dom2Hotaru_X02.mes,Script/dom2Hotaru_X02.mes,30,5,UNKNOWN_3e,キュゥ!,큐우!,큐우!
 dom2Hotaru_X02.mes,Script/dom2Hotaru_X02.mes,31,9,[효과음/내레이션],シュウウウウ……,치이이익……,치이이익……
-dom2Hotaru_X02.mes,Script/dom2Hotaru_X02.mes,32,15,주인공,ほたる!鍋、吹いてるよ!火!,호타루! 냄비 넘쳐!,호타루! 냄비 넘쳐!
+dom2Hotaru_X02.mes,Script/dom2Hotaru_X02.mes,32,15,주인공,ほたる!鍋、吹いてるよ!火!,호타루! 냄비 끓어 넘쳐!,호타루! 냄비 끓어 넘쳐!
 dom2Hotaru_X02.mes,Script/dom2Hotaru_X02.mes,33,8,Hotaru,あっ、ごめん!,"앗, 미안!","앗, 미안!"
 dom2Hotaru_X02.mes,Script/dom2Hotaru_X02.mes,34,4,[효과음/내레이션],カチッ,딸깍,딸깍
 dom2Hotaru_X02.mes,Script/dom2Hotaru_X02.mes,35,5,Hotaru,ふぅ……,후……,후……
@@ -935,7 +935,7 @@ dom2Hotaru_X03.mes,Script/dom2Hotaru_X03.mes,95,11,주인공,あそこにいる�
 dom2Hotaru_X03.mes,Script/dom2Hotaru_X03.mes,96,5,UNKNOWN_3e,キュゥッ,큐웃,큐웃
 dom2Hotaru_X03.mes,Script/dom2Hotaru_X03.mes,97,5,[효과음/내레이션],タタタッ,타다닷,타다닷
 dom2Hotaru_X03.mes,Script/dom2Hotaru_X03.mes,98,8,주인공,あ、イトカツ!,"아, 이토카츠","아, 이토카츠"
-dom2Hotaru_X03.mes,Script/dom2Hotaru_X03.mes,99,17,주인공,……はぁ、はぁ.あれ、見失った?,"……헉헉, 놓친 건가?","……헉헉, 놓친 건가?"
+dom2Hotaru_X03.mes,Script/dom2Hotaru_X03.mes,99,17,주인공,……はぁ、はぁ.あれ、見失った?,"……헉헉, 놓쳤나?","……헉헉, 놓쳤나?"
 dom2Hotaru_X03.mes,Script/dom2Hotaru_X03.mes,100,6,UNKNOWN_3e,キュゥ……,큐우……,큐우……
 dom2Hotaru_X03.mes,Script/dom2Hotaru_X03.mes,101,13,주인공,イトカツ.今の人影は……,"방금, 그 사람은……","방금, 그 사람은……"
 dom2Hotaru_X03.mes,Script/dom2Hotaru_X03.mes,102,6,UNKNOWN_3e,キュゥ……,큐우……,큐우……
@@ -1104,7 +1104,7 @@ dom2Hotaru_X04.mes,Script/dom2Hotaru_X04.mes,92,23,Shizuku,家族は、何もの
 dom2Hotaru_X04.mes,Script/dom2Hotaru_X04.mes,93,38,주인공,……そうだよね.<6E5C>やっぱり、血のつながった家族と<6E5C>いるのが一番いいんだよね,"……그렇지.<6E5C>역시, 피가 이어진 가족과<6E5C>있는 게 제일 좋은 거지","……그렇지.<6E5C>역시, 피가 이어진 가족과<6E5C>있는 게 제일 좋은 거지"
 dom2Hotaru_X04.mes,Script/dom2Hotaru_X04.mes,94,28,Shizuku,それって妹さんのこと?<6E5C>ほたるちゃんと何かあったんだね,그거 여동생 얘기야?<6E5C>호타루랑 무슨 일 있었구나,그거 여동생 얘기야?<6E5C>호타루랑 무슨 일 있었구나
 dom2Hotaru_X04.mes,Script/dom2Hotaru_X04.mes,95,5,주인공,…………,…………,…………
-dom2Hotaru_X04.mes,Script/dom2Hotaru_X04.mes,96,21,Shizuku,たしかに血のつながりって<6E5C>特別なものだわ,확실히 혈연이라는 게<6E5C>특별하긴 하지,확실히 혈연이라는 게<6E5C>특별하긴 하지
+dom2Hotaru_X04.mes,Script/dom2Hotaru_X04.mes,96,21,Shizuku,たしかに血のつながりって<6E5C>特別なものだわ,확실히 핏줄이라는 게<6E5C>특별하긴 하지,확실히 핏줄이라는 게<6E5C>특별하긴 하지
 dom2Hotaru_X04.mes,Script/dom2Hotaru_X04.mes,97,19,Shizuku,でもね、それが一番じゃないでしょ<6E5C>?,"근데, 그게 제일은<6E5C>아니잖아?","근데, 그게 제일은<6E5C>아니잖아?"
 dom2Hotaru_X04.mes,Script/dom2Hotaru_X04.mes,98,4,주인공,え……,어……,어……
 dom2Hotaru_X04.mes,Script/dom2Hotaru_X04.mes,99,28,Shizuku,私がほしい家族って、<6E5C>血のつながってる人のことじゃない,"내가 원하는 가족은,<6E5C>피가 이어진 사람이 아니야","내가 원하는 가족은,<6E5C>피가 이어진 사람이 아니야"
@@ -1307,7 +1307,7 @@ dom2Hotaru_ending1.mes,Script/dom2Hotaru_ending1.mes,26,20,Hotaru,……早く�
 dom2Hotaru_ending1.mes,Script/dom2Hotaru_ending1.mes,27,4,주인공,ああ!,그래!,그래!
 dom2Hotaru_ending1.mes,Script/dom2Hotaru_ending1.mes,28,6,UNKNOWN_3e,キュゥッ!,큐웃!,큐웃!
 dom2Hotaru_ending1.mes,Script/dom2Hotaru_ending1.mes,29,23,주인공,……でもほたる、<6E5C>本当のお兄さんはいいのか?,"……근데 호타루,<6E5C>진짜 오빠는 괜찮아?","……근데 호타루,<6E5C>진짜 오빠는 괜찮아?"
-dom2Hotaru_ending1.mes,Script/dom2Hotaru_ending1.mes,30,33,Hotaru,うん.お兄ちゃんにはお兄ちゃんの<6E5C>生活があるし、目的があるみたい,"응. 오빠한텐 오빠의<6E5C>생활이 있고, 목적도 있나 봐","응. 오빠한텐 오빠의<6E5C>생활이 있고, 목적도 있나 봐"
+dom2Hotaru_ending1.mes,Script/dom2Hotaru_ending1.mes,30,33,Hotaru,うん.お兄ちゃんにはお兄ちゃんの<6E5C>生活があるし、目的があるみたい,"응. 오빠한텐 오빠의<6E5C>삶이 있고, 목적도 있나 봐","응. 오빠한텐 오빠의<6E5C>삶이 있고, 목적도 있나 봐"
 dom2Hotaru_ending1.mes,Script/dom2Hotaru_ending1.mes,31,47,Hotaru,ほたるは会えただけで嬉しかったし<6E5C>、また会ってくれるって約束して<6E5C>くれた.それだけで十分だよ,"호타루는 만나서 기뻤고<6E5C>, 또 와주겠다고 약속해<6E5C>줬어. 그걸로 충분해","호타루는 만나서 기뻤고<6E5C>, 또 와주겠다고 약속해<6E5C>줬어. 그걸로 충분해"
 dom2Hotaru_ending1.mes,Script/dom2Hotaru_ending1.mes,32,28,Hotaru,ほたるは、<이름:3232>お兄ちゃんのそばを<6E5C>離れられないもん……,"호타루는, <이름:3232>오빠 곁을<6E5C> 떠날 수 없는걸……","호타루는, <이름:3232>오빠 곁을<6E5C> 떠날 수 없는걸……"
 dom2Hotaru_ending1.mes,Script/dom2Hotaru_ending1.mes,33,34,주인공,……じゃあ、そのお兄さんの分も、<6E5C>僕がほたるをしっかり守らないとね,"……그럼, 그 오빠 몫까지,<6E5C>내가 호타루를 지켜야겠네","……그럼, 그 오빠 몫까지,<6E5C>내가 호타루를 지켜야겠네"

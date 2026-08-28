@@ -462,7 +462,7 @@ dom2Festival.mes,Script/dom2Festival.mes,459,28,Mature,フフフ、さすが私�
 dom2Festival.mes,Script/dom2Festival.mes,460,17,주인공,いや、僕は教え子ってわけじゃ……,아뇨 저는 제자는 아니라서……,아뇨 저는 제자는 아니라서……
 dom2Festival.mes,Script/dom2Festival.mes,461,19,주인공,というか、マチュアさんは<6E5C>秘書でしょ,"그보다, 마츄어 씨는<6E5C>비서잖아요","그보다, 마츄어 씨는<6E5C>비서잖아요"
 dom2Festival.mes,Script/dom2Festival.mes,462,9,Mature,さあ、次は射的よ,자 다음 사격!,자 다음 사격!
-dom2Festival.mes,Script/dom2Festival.mes,463,19,Mature,私のハートを打ち抜いて<6E5C>ごらんなさい,내 마음을 맞혀<6E5C>보시지,내 마음을 맞혀<6E5C>보시지
+dom2Festival.mes,Script/dom2Festival.mes,463,19,Mature,私のハートを打ち抜いて<6E5C>ごらんなさい,내 마음을 꿰뚫어<6E5C>보시지,내 마음을 꿰뚫어<6E5C>보시지
 dom2Festival.mes,Script/dom2Festival.mes,464,22,Mature,そうすれば、<6E5C>今夜の私は……あなたのモノよ,그렇게 하면<6E5C>오늘 밤 나는…… 네 거야,그렇게 하면<6E5C>오늘 밤 나는…… 네 거야
 dom2Festival.mes,Script/dom2Festival.mes,465,13,주인공,そ、それってどういう……,"그, 그건 무슨……","그, 그건 무슨……"
 dom2Festival.mes,Script/dom2Festival.mes,466,12,Mature,ウフフ……ダメな子ねぇ,우후훗…… 못쓰겠네,우후훗…… 못쓰겠네
@@ -501,7 +501,7 @@ dom2Festival.mes,Script/dom2Festival.mes,498,37,주인공,店じまいしてい�
 dom2Festival.mes,Script/dom2Festival.mes,499,12,Athena,……ごめんね、<이름:3131>くん,"…… 미안해, <이름:3131>군","…… 미안해, <이름:3131>군"
 dom2Festival.mes,Script/dom2Festival.mes,500,5,주인공,麻宮……,아사미야,아사미야
 dom2Festival.mes,Script/dom2Festival.mes,501,28,Athena,やっぱり、わたしなんかがお祭りに<6E5C>来ちゃダメだったんだ,"역시, 내가 축제에<6E5C>오면 안 됐던 거야","역시, 내가 축제에<6E5C>오면 안 됐던 거야"
-dom2Festival.mes,Script/dom2Festival.mes,502,23,Athena,<이름:3131>くんにも迷惑かけちゃった.<6E5C>……帰るね?,<이름:3131>군한테 폐 끼치고 말았네.<6E5C>……갈게?,<이름:3131>군한테 폐 끼치고 말았네.<6E5C>……갈게?
+dom2Festival.mes,Script/dom2Festival.mes,502,23,Athena,<이름:3131>くんにも迷惑かけちゃった.<6E5C>……帰るね?,<이름:3131>군한테 폐 끼쳤네.<6E5C>……갈게?,<이름:3131>군한테 폐 끼쳤네.<6E5C>……갈게?
 dom2Festival.mes,Script/dom2Festival.mes,503,5,주인공,待って!,기다려!,기다려!
 dom2Festival.mes,Script/dom2Festival.mes,504,10,[선택지],手をにぎる抱きしめる,손잡기<6E5C>안아줌,손잡기\안아줌
 dom2Festival.mes,Script/dom2Festival.mes,505,4,[효과음/내레이션],ギュッ,꼭,꼭
@@ -594,7 +594,7 @@ dom2Festival.mes,Script/dom2Festival.mes,591,16,주인공,(な、何人連れて
 dom2Festival.mes,Script/dom2Festival.mes,592,32,주인공,(うーん、巳沢さん遅いなぁ.<6E5C>やっぱり間に合わないのかな……),(으음 미사와 씨 늦네.<6E5C>역시 시간 못 맞추는 걸까……),(으음 미사와 씨 늦네.<6E5C>역시 시간 못 맞추는 걸까……)
 dom2Festival.mes,Script/dom2Festival.mes,593,10,주인공,(ん?あれは……),(응? 저건……),(응? 저건……)
 dom2Festival.mes,Script/dom2Festival.mes,594,13,Mature,……なの?では……するわ,…… 그래? 그럼 할게,…… 그래? 그럼 할게
-dom2Festival.mes,Script/dom2Festival.mes,595,13,UNKNOWN_42,社とシェルミーは……だな,샤와 셀미는…… 이군,샤와 셀미는…… 이군
+dom2Festival.mes,Script/dom2Festival.mes,595,13,UNKNOWN_42,社とシェルミーは……だな,샤와 셸미는…… 이군,샤와 셸미는…… 이군
 dom2Festival.mes,Script/dom2Festival.mes,596,29,주인공,(秘書ズのふたり……と、<6E5C>いっしょにいるのは……誰だ?),"(비서 둘이…… 하고,<6E5C>같이 있는 건…… 누구지?)","(비서 둘이…… 하고,<6E5C>같이 있는 건…… 누구지?)"
 dom2Festival.mes,Script/dom2Festival.mes,597,17,UNKNOWN_5d,俺たちの……全員……消しておこう,우리…… 전원…… 지워두자,우리…… 전원…… 지워두자
 dom2Festival.mes,Script/dom2Festival.mes,598,17,UNKNOWN_47,ここの神主は……よね.だから……,여기 신주는… 지. 그래서……,여기 신주는… 지. 그래서……
@@ -605,7 +605,7 @@ dom2Festival.mes,Script/dom2Festival.mes,602,11,주인공,もしもし、巳沢�
 dom2Festival.mes,Script/dom2Festival.mes,603,35,Shizuku,ごめんね、<이름:3131>くん.お待たせ.<6E5C>やっとイリュージョン<6E5C>抜けられたんだ,"미안해, <이름:3131>군. 기다렸지.<6E5C>드디어 일루전<6E5C>빠져나올 수 있었어","미안해, <이름:3131>군. 기다렸지.<6E5C>드디어 일루전<6E5C>빠져나올 수 있었어"
 dom2Festival.mes,Script/dom2Festival.mes,604,28,Shizuku,でももう夏祭り終わっちゃうよね…<6E5C>…どこに行けばいい?,이제 여름 축제 곧 끝나겠지…<6E5C>…어디로 가면 돼?,이제 여름 축제 곧 끝나겠지…<6E5C>…어디로 가면 돼?
 dom2Festival.mes,Script/dom2Festival.mes,605,28,주인공,そうだな……神社の裏手にでも行っ<6E5C>て、ゆっくりしようか,"그러네…… 신사 뒤쪽에라도 가<6E5C>서, 천천히 있을까","그러네…… 신사 뒤쪽에라도 가<6E5C>서, 천천히 있을까"
-dom2Festival.mes,Script/dom2Festival.mes,606,15,주인공,巳沢さんも仕事で疲れただろ?,미사와 씨도 힘들었지?,미사와 씨도 힘들었지?
+dom2Festival.mes,Script/dom2Festival.mes,606,15,주인공,巳沢さんも仕事で疲れただろ?,미사와 씨도 지쳤지?,미사와 씨도 지쳤지?
 dom2Festival.mes,Script/dom2Festival.mes,607,29,Shizuku,ありがとう、<이름:3131>くん.<6E5C>それじゃ、15分後に神社の裏手で,"고마워, <이름:3131>군.<6E5C>그럼, 15분 뒤에 신사 뒤에서","고마워, <이름:3131>군.<6E5C>그럼, 15분 뒤에 신사 뒤에서"
 dom2Festival.mes,Script/dom2Festival.mes,608,3,주인공,うん,응,응
 dom2Festival.mes,Script/dom2Festival.mes,609,3,[효과음/내레이션],ピッ,삐,삐

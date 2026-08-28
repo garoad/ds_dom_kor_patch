@@ -12984,3 +12984,722 @@ JS와 Python의 블록 경계 탐색 알고리즘이 이제 완전히 동일하�
 낫다고 판단. "(11)"에서 원문으로 되돌렸던 17건은 이번 수정으로 근본 원인이
 해소되어 N옵션 분할 마커가 정상 발동하므로 전부 복원했고, 이제 마커 발동이
 차단되는 알려진 블록은 없다.
+
+## Task E 재개 (13) — 한글 폰트맵 결측 문자 목록 정밀 재조사 (2026-08-27)
+
+**배경**: (12)에서 JS `findDialogueBlocks`를 고친 직후, 사용자가 "번역 중 한글이 없어서
+대체했던 단어들도 이제 다 넣을 수 있나"라고 질문하며 "JS가 한글 풀코드를 못 보고 있어서
+대체가 생겼던 것 아니냐"는 가설을 제기함.
+
+**가설 검증 결과 (반박됨)**: `webtool/server/lib/translateIo.js`의 실제 한글 인코딩 함수
+`textToTokens()`가 참조하는 `_CHAR_TO_CODE` 맵은 처음부터 `mc.CODES_KR`
+(`analysis/font_map_kr.json`)에서 빌드되고 있었다 — Python `analysis/translate_io.py`의
+`text_to_tokens()`와 정확히 같은 파일을 읽는다(중복 파일 없음, 단일 소스). 즉 (12)에서 고친
+버그는 `findDialogueBlocks`(블록 경계 탐지)에만 있었고 한글 인코딩 경로와는 무관 —
+"JS가 한글 코드를 못 보고 있었다"는 가설은 사실이 아니다. 실제 원인은 `font_map_kr.json`이
+채택한 **KS X 1001 완성형 표준 2,350자 자체가 애초에 일부 현대 한글 음절(굳/뻗/넓/흉 등)을
+빠뜨린 legacy 인코딩**이라는 구조적 한계였고, 그래서 Python/JS 양쪽 다 처음부터 동일하게
+이 음절들을 인코딩할 수 없었다(둘 다 같은 결과 — JS만의 결함이 아님).
+
+**타일 예산 여유 재확인**: `temp/compute_safe_hangul_budget.py`(2026-08-11 세션에 도입된
+real_tile 풋프린트 배타성 기준 스크립트, 미변경) 재실행 결과, 안전 배정 상한은 여전히
+**3,099개**(한자전용 1,753 + 미판독전용 1,346)이고 현재 `font_map_kr.json`은 2,350자만
+사용 중 — **749칸의 안전한 여유**가 있다.
+
+**결측 문자 목록 정밀 재수집**: `ANALYSIS_NOTES.md` 전체(캐릭터별 배치 작업 기록 전부)를
+훑어 "폰트맵/font_map_kr.json에 없음"으로 명시적으로 보고된 모든 한글 완성형 음절을
+수작업으로 취합하고, 각각을 현재 `font_map_kr.json`과 대조해 실제로 아직도 결측인지
+재검증했다(과거엔 없었지만 이후 다른 이유로 매핑에 들어간 경우가 있는지 확인하기 위함 —
+실제로 `쩌` 1건이 이에 해당해 현재는 매핑되어 있음을 확인, 목록에서 제외).
+
+**최종 확인된 결측 문자 80개** (전부 현재 `font_map_kr.json`에 없음을 코드로 직접 재검증
+완료, 2026-08-27 기준):
+
+```
+걔 걘 굳 굶 궂 궤 귓 깎 깼 꺅 꼈 꾐 꿇 꿨 꿰 뀔 끓 낡 넋 넓 닳 덟 돋 뒀 뒈 뒷 뒹 듣 땋 땠 땡
+똠 뭡 뭣 밟 볍 뵐 뵙 붉 뺏 뻗 뼛 뽑 뿍 뿟 삶 셸 쉴 쉿 쌤 얕 얜 얽 엮 옭 옮 웬 쟤 쟨 짊 쨍 쨩
+쩡 쭐 쯧 챘 쳇 쳤 촥 캡 캭 콧 콱 풉 풋 핏 홱 휙 흉 흙
+```
+
+(80개 < 여유 749칸 — 전부 안전하게 추가 가능한 규모. 이 외에 `·`(가운뎃점)/`—`(em dash)/
+라틴 소문자 알파벳도 결측으로 보고된 바 있으나 이들은 한글 완성형이 아니라 별도 카테고리라
+이 목록에서 제외했다.)
+
+**결론 및 다음 단계 (미착수)**: 사용자가 "먼저 정확한 목록만 뽑아서 검토"를 선택해 이번
+세션에서는 목록 취합·검증까지만 진행하고 실제 폰트맵 확장/재빌드/번역 복원은 진행하지
+않았다. 다음 단계로 진행하려면: (1) 이 80자를 반영한 신규 매니페스트 작성 →
+`analysis/rebuild_font_map_kr.py`로 재생성(반드시 이 스크립트를 통해서만, 원칙 5),
+(2) Galmuri11 글리프 렌더링(`apply_font_art`), (3) 전체 코퍼스 재검증, (4) 이 80자 때문에
+과거 다른 단어로 우회했던 CSV 행들을 찾아 원래 의도한 표현으로 되돌리는 별도 복원 작업
+(여러 캐릭터 CSV에 흩어져 있어 규모가 큼 — 원칙 6에 따라 병렬 에이전트 처리 대상).
+
+**추가 검토: "안 쓰는 한글 타일 교체" 방식의 타당성 확인** — 사용자가 신규 real_tile 슬롯을
+새로 배정하는 대신, 현재 2,350자 중 실제 번역문에서 전혀 안 쓰인 코드를 재활용(교체)하는
+방식을 제안함. 이를 검증하기 위해 `translations/*.csv`(37개 파일, 번역문 있는 19,708행)
+전체를 스캔해 완성형 2,350자 각각의 실제 사용 빈도를 집계(`temp/hangul_usage_analysis.json`,
+스크립트는 인라인 실행 후 결과만 저장 — 재사용 필요 시 재작성).
+
+- 실제 사용된 문자: 1,105자 / 전혀 사용 안 된(0회) 매핑 문자: **1,245자**.
+- **그러나 이 "0회"는 신뢰할 수 없는 신호다** — `dom2` 캐릭터별 CSV 9개가 아직 번역 전(Task
+  #4 진행 중)이라, 0회로 잡힌 문자 중에는 `값`/`뭉`/`뜸`/`뜰`/`짬`/`팡`/`혐`/`홑`/`륜`/`윤`/`융`/
+  `앰`/`엠`처럼 실제로는 흔히 쓰이는 현대 한글 단어의 음절도 다수 섞여 있음을 직접 확인함(코드로
+  재검증). 즉 "지금까지 안 썼다"는 "앞으로도 안 쓴다"를 보장하지 못하고, 이런 문자를 없애고
+  결측 80자로 교체하면 나중에 dom2 잔여 배치 번역 중 지금보다 더 흔한 단어가 또 막히는
+  동일한 사고를 재현할 위험이 있음.
+- **결론**: 타일 교체 방식은 기술적으로는 가능하지만(이미 안전 검증된 한글 카테고리 타일의
+  `char` 라벨만 바꾸는 것이라 신규 real_tile 배타성 재검증이 필요 없어 오히려 더 간단함),
+  현재 번역이 진행 중인 상태에서는 "안 쓴다"를 판단할 근거가 부족해 위험하다고 판단. 이미
+  749칸의 여유가 있으므로(기존 타일을 건드리지 않고) **신규 슬롯 확장 방식이 더 안전한
+  선택**이라는 결론을 사용자에게 전달함(결정 대기 중).
+
+## 2026-08-27 dom2_Mary.csv 1447행 번역 진행 상황 (Task #14, 병렬 배치) — 세션 중단 지점 기록
+
+### 완료된 것
+- `dom2_Mary.csv` 1447행(0~1446) 전체를 15개 배치(각 ~100행)로 나눠 병렬 에이전트로 번역 완료.
+  결과는 `temp/mary_batch_results/batch01_0-99.json` ~ `batch15_1400-1446.json`에 전부 저장됨
+  (컴팩션으로 유실됐던 batch07, batch10, batch13, batch14, batch15는 원시 트랜스크립트
+  (`da490988-...jsonl`)에서 재추출해 복구 완료).
+- 15개 배치를 `temp/mary_merged.json`으로 병합. 병합 시 아래 두 종류의 일관성 문제를 발견해 수정:
+  - **선택지(`[선택지]`) 분할 마커 누락/오류**: 16개 `[선택지]` 행 중 10개(45, 91, 250, 266, 646,
+    862, 974, 1172, 1248, 1258)가 `\` 구분자 없이 옵션이 붙어 있거나 옛 마커(`<6E5C>`)를 잘못
+    사용함. 원인은 배치 브리핑 문서(`temp/mary_batch_briefing.md`)가 `CHOICE_SPLIT_MARK`(`\`)
+    관례를 에이전트들에게 설명하지 않았기 때문. `\` 기준으로 수정 완료.
+  - **"그럼, 안녕"(Bye) 계열 대사 3곳(33, 1369, 1444) 불일치**: row 1444만 "그럼," 에서 끊겨
+    "안녕"이 누락된 것을 확인해 다른 두 곳과 동일하게 맞춤.
+  - 자체 오타 2건 수정: batch07 자리에 플레이스홀더 문자열이 잘못 저장됐던 것, batch08 row 710에
+    `&lt;6E5C>` HTML 엔티티가 실제 `<` 대신 들어간 것.
+- 병합된 번역을 `translations/dom2_Mary.csv`, `webtool/workspace/dom1/translations/dom2_Mary.csv`
+  양쪽에 기입하고 `diff`로 byte-identical 확인함.
+
+### 새로 발견한 시스템적 버그 (중요 — 다른 캐릭터 CSV에도 동일하게 적용됨)
+- CSV의 `n_tokens` 컬럼(`mes_translate_extract.py` line 201: `e - s`)은 블록의 **원시(raw) 토큰
+  스팬**이다. 그런데 블록이 페이지 넘김 토큰(`tio.PAGE_TURN_TOKEN`)으로 끝나는 경우, 그 토큰은
+  CSV 텍스트에서는 숨겨지고 `mes_translate_reinsert.py`의 `build_file()`이 인코딩 후 자동으로
+  다시 붙인다. 즉 이런 블록의 **실제 번역 가능 토큰 수는 `n_tokens - 1`**이며, `n_tokens` 그대로
+  꽉 채워 번역하면 오라클에서 "token count mismatch - translation encodes to N+1 (longer)"로
+  스킵당한다.
+- 이 버그를 인지하지 못한 채 번역 브리핑을 했기 때문에, `dom2_Mary.csv` 1447행 중 **256행**이
+  정확히 토큰 1개씩 초과함(오라클 실행 시 25개 서브파일 중 23개가 스킵됨).
+- 초과 256행 목록·상세는 `/tmp/mary_overbudget_rows.json`, `/tmp/mary_overbudget_details.json`에
+  저장(row, file, block, speaker, source, current_translation, current_tokens, target_tokens 포함).
+  5개 배치(`/tmp/mary_overbudget_batch1.json`~`batch5.json`, 각 48~52행)로 나눠 병렬 에이전트에게
+  "정확히 1토큰(또는 target_tokens 이하)로 축약, 의미·태그 개수 보존" 작업을 맡겨 **5개 배치 전부
+  완료**함. 각 에이전트가 반환한 최종 JSON은 `/tmp/mary_fix_batches/batch1.json`~`batch5.json`에
+  저장해 둠 (256행 전부, HTML 엔티티는 실제 `<`/`>`로 정규화 완료).
+
+### 다음 세션에서 이어서 할 일 (사용자가 "여기까지만 하고 멈추자"고 하여 중단)
+1. `/tmp/mary_fix_batches/batch1.json`~`batch5.json`(256행)을 `temp/mary_merged.json`에 패치
+   (해당 row만 덮어쓰기).
+2. `translations/dom2_Mary.csv`, `webtool/workspace/dom1/translations/dom2_Mary.csv` 양쪽을
+   갱신된 병합 dict로 재작성.
+3. `PYTHONPATH=analysis python3 analysis/mes_translate_reinsert.py translations/dom2_Mary.csv`
+   재실행 → `0 skipped` 확인.
+4. 두 CSV 트리 `diff`로 byte-identical 재확인.
+5. row 1444("그럼, 안녕" 통일 수정 건)가 256개 초과 행에 포함되는지 확인하고, 포함된다면 축약
+   후에도 "그럼, 안녕" 어미가 유지됐는지 재확인.
+6. Task #14를 completed로 변경.
+7. **중요**: 남은 캐릭터(`dom2_Mature.csv`, `dom2_Orochi.csv`, `dom2_Shizuku.csv`) 번역 브리핑에는
+   반드시 (a) `[선택지]` 행 분할 마커는 `\` 사용, (b) 페이지 넘김으로 끝나는 블록은 `n_tokens - 1`이
+   진짜 예산이라는 점을 미리 포함시켜 동일한 두 종류 오류 재발을 막을 것.
+
+### 2026-08-27 (이어서) — 256행 토큰 초과 수정 병합 완료, Task #14 완료 처리
+- `/tmp/mary_fix_batches/batch1.json`~`batch5.json`(256행)을 `temp/mary_merged.json`에 패치 완료.
+- `translations/dom2_Mary.csv`, `webtool/workspace/dom1/translations/dom2_Mary.csv` 양쪽 재작성.
+- 오라클 재실행 결과: `CSV dom2_Mary.csv: 25 written, 0 skipped` — 전부 통과.
+- 두 CSV 트리 `diff` 결과 byte-identical 확인.
+- row 1444("그럼, 안녕" 통일 건)는 256개 초과 행에 포함되지 않았고 어미도 그대로 유지됨을 확인.
+- **Task #14(dom2_Mary.csv 1447행 번역) 완료 처리.** 사용자 지시("mary 번역작업까지만 마무리")에
+  따라 이번 세션은 여기서 종료하고, `dom2_Mature.csv`/`dom2_Orochi.csv`/`dom2_Shizuku.csv`
+  번역은 다음 세션으로 이월. 그 브리핑에는 위에 기록한 두 가지 주의사항(선택지 `\` 마커,
+  페이지 넘김 블록의 `n_tokens - 1` 실제 예산)을 반드시 포함할 것.
+
+## 2026-08-27 `font_map_kr.json`의 "완성형 2,350자"가 KS X 1001 표준과 일치하지 않음을 확인
+
+사용자가 공개 gist(KS X 1001 완성형 한글 목록 텍스트)를 주고 우리 `font_map_kr.json`의 2,350자와
+같은 문자 집합인지 확인 요청. 검증 결과 **다름**을 확인:
+
+- **공식 KS X 1001 완성형 2,350자**를 Python `euc-kr` 코덱으로 lead byte `0xB0~0xC8`, trail byte
+  `0xA1~0xFE` 범위만 디코딩해 직접 재현함 (25×94=2350, 정확히 일치).
+- 사용자가 준 gist 파일은 이 공식 2,350자 + 표준에 없는 3자(`됬`, `핳`, `힣`) = 총 2,353자였음.
+- `analysis/font_map_kr.json`의 한글 2,350자는 **공식 KS X 1001 집합과도, gist와도 전혀 다름**:
+  - 공식/gist에는 있는데 우리 맵엔 없는 글자 674개 (갉, 걔, 궂, 궤, 깎, 꺅, 뭣, 밟, 붉, 뽑, 삶, 얕,
+    얽, 옮, 웬, 쟤, 짊, 쭙, 흙 등 — 이전 세션의 "결측 글자 80개" 목록과 대체로 겹침)
+  - 우리 맵에는 있는데 공식 표준엔 없는 비표준 조합 671개 (갂, 걌, 궀, 긕, 냏, 뎂, 딀 등)
+- **원인**: `temp/build_full_2350_manifest.py`를 확인한 결과, 이 프로젝트의 "완성형 2,350자"는 KS X
+  1001 표준 문자 목록을 그대로 쓴 게 아니라 **번역 코퍼스에서 실제 등장한 한글 음절을 빈도순으로
+  뽑고(기존 1,558자 유지 + 코퍼스 최빈 음절 우선 채움), 부족분은 자모 조합 back-off로 채운
+  코퍼스 맞춤형 집합**임. 목표 개수(2,350)만 KS X 1001과 우연히 같을 뿐 문자 구성은 완전히 다름.
+- **결론/주의사항**: CLAUDE.md·ANALYSIS_NOTES에 쓰인 "완성형 전체(2,350자)"라는 표현은 "KS X 1001
+  표준과 동일한 문자 집합"이 아니라 "표준과 개수만 같은 코퍼스 맞춤형 집합"으로 해석해야 정확함.
+  번역 실무상으로는 실제 게임 대사에 쓰이는 음절 위주라 오히려 실용적이지만, 표준 완성형과의
+  1:1 일치를 전제로 한 판단(예: "표준 한글이면 무조건 인코딩될 것" 가정)은 틀렸으므로 주의.
+  이번 세션 이전에 이미 확인된 "결측 한글 80개"(Task #13) 역시 이 코퍼스 미등장 음절들이 원인.
+
+## 2026-08-27 (이어서) — namu.wiki 기준 KS X 1001 완성형 2,350자 목록 확정, 실사용 호환성 검증
+
+사용자가 namu.wiki "완성형/한글 목록/KS X 1001" 문서를 근거로 "완성형 한글 리스트를 이거 기준으로
+다시 만들어" 요청.
+
+- namu.wiki 문서 확인 결과: 2,350자, 가나다순(자모순) 정렬, 코드표는 별도 섹션에서 동일 순서로
+  제공. 문서가 보여준 목록 앞 50자("가각간갇갈갉갊감갑값갓갔강갖갗같갚갛개객갠갤갬갭갯갰갱갸갹갼걀
+  걋갹...")와 뒤 50자 샘플을 이전에 직접 계산해둔 `euc-kr` lead `0xB0-0xC8`/trail `0xA1-0xFE`
+  범위 디코딩 결과와 대조 → **완전히 일치**. 즉 이전 세션에서 재현한 "공식 KS X 1001 2,350자"가
+  namu.wiki 기준으로도 정확함이 재확인됨(gist는 이 2,350자 + 비표준 3자를 포함하고 있었던 것도
+  재확인).
+- 이 검증된 2,350자 순서/코드(lead/trail hex) 목록을 `temp/ks_x1001_hangul_2350.json`에 저장
+  (조사/참고용 산출물이므로 규칙 3에 따라 `temp/`에 둠 — `font_map_kr.json`을 대체하는 게
+  아니라 대조용 원본 리스트).
+- **실사용 호환성 검증**: `temp/hangul_usage_analysis.json`(37개 번역 CSV, 19,708행 스캔 결과,
+  Task E 재개 (13) 말미에서 생성)의 실제 사용 문자(1,105자, 사용 횟수>0) 전체를 이 공식 2,350자와
+  대조 → **1,104자는 전부 포함, 단 1자(`냣`, 1회 사용)만 표준 밖**. 사용처는
+  `translations/dom2_Hotaru.csv:1172`(`dom2Hotaru_X05.mes` block 17, "잠깐, 이게 뭔 일이냣!").
+  즉 만약 `font_map_kr.json`을 이 공식 2,350자 집합으로 완전히 교체한다면 기존 번역 중 딱 이
+  한 줄만 인코딩 실패 위험이 있고(안전 여유 749칸이 있으므로 `냣`을 2351번째 안전 슬롯으로
+  추가하면 해결 가능), 나머지는 전부 무손상으로 재인코딩된다.
+
+**다음 단계 (미착수, 사용자 확인 필요)**: 이 리스트 자체는 "다시 만들었다"(요청 완료)이지만,
+이걸로 실제 `analysis/font_map_kr.json`(현재는 코퍼스 빈도 기반 집합, 공식 표준과 674자/671자
+차이)을 교체할지는 별도의 훨씬 큰 결정이다 — `rebuild_font_map_kr.py`를 통한 재생성, 신규 배정
+674자(+`냣` 보존용 1자)에 대한 Galmuri11 글리프 렌더링(`apply_font_art`), 37개 기존 번역 CSV
+전체 재검증이 필요한 규모의 작업. 규칙 5의 두 차례 손상 사고 이력과, 이전 세션에서 이미
+"신규 슬롯 확장 vs 기존 슬롯 교체" 결정이 "결정 대기 중"으로 보류된 점을 감안해 사용자의 명시적
+지시 없이 진행하지 않음.
+
+## 2026-08-27 (이어서 2) — `font_map_kr.json` 한글 집합을 KS X 1001 공식 표준으로 실제 교체 완료
+
+사용자가 "font_map_kr.json도 표준으로 교체 진행"을 명시적으로 선택. Plan Mode로 설계 후 승인
+받아 진행. 기존 안전장치(`rebuild_font_map_kr.py`의 real_tile 카테고리 배타성 검증,
+`build_full_2350_manifest.py`의 풋프린트 완전배타 풀 계산)를 그대로 재사용하고, 문자 선정
+로직만 코퍼스 빈도 → 공식 표준 멤버십으로 교체.
+
+**신규 스크립트**: `temp/build_ksx1001_manifest.py` (1회성 빌드 스크립트, 규칙 3에 따라
+`temp/`). 목표 집합 = `temp/ks_x1001_hangul_2350.json`의 공식 2,350자 ∪ 현재
+`translations/*.csv` 실사용 중이면서 표준 밖인 문자(스캔으로 동적 계산, 하드코딩 안 함).
+
+**실행 결과** (`PYTHONPATH=analysis python3 temp/build_ksx1001_manifest.py`):
+- 한자전용/미판독전용 안전 풀: 필터 후 1,753 / 1,345개 (기존과 동일 알고리즘, 변화 없음)
+- 실사용 중이나 공식 표준 밖인 문자: 1개 (`냣`) — 사전 분석 그대로 재확인
+- 목표 집합 총량: 2,351자 (공식 2,350 + `냣`)
+- 기존 배정 중 유지(keep): 1,678개 / 목표 밖이라 제거: 672개 / 신규 배정(add): 673개
+  (신규 가용: 한자전용 371 + 미판독-빈타일 33 + 미판독-잉크 269)
+- 기존 매니페스트는 `temp/full_2350_hangul_manifest.json.bak_before_ksx1001`로 백업 후 덮어씀
+
+**재생성 파이프라인 실행**:
+1. `python3 analysis/rebuild_font_map_kr.py` — 안전 검증 통과, `analysis/font_map_kr.json`
+   재생성. 최종 매핑 한글 2,354자(매니페스트 2,351 + real_tile 공유 별칭 동기화 3개 — 이전
+   2,350→2,353 확장 때와 동일한 패턴이라 정상).
+2. `.venv/bin/python3 analysis/apply_font_art.py` — pristine `Font_DOM.nbfc`에서 재시작해
+   Galmuri11 글리프 2,354자 전량 재렌더링, BDF 결측 0건.
+
+**검증 결과** (전부 통과):
+1. Python 오라클: `PYTHONPATH=analysis python3 analysis/mes_translate_reinsert.py` — 37개 CSV
+   전체 868개 파일 작성, **0 skipped**. `dom2_Hotaru.csv`(`냣` 포함)도 정상 통과.
+2. JS 오라클: `webtool/tool.sh restart` 후 `/api/build/reinsert` (`name=dom1`) —
+   `{"filesWritten":524,"filesSkipped":0,"problems":[]}`.
+3. `/api/build/pack` (`name=dom1`) — `{"ok":true, ...dom1.nds}` 성공, ROM 빌드 정상.
+
+**결론**: Task #13에서 발견된 "결측 80자" 문제가 근본 해소됨(공식 표준 전체를 포함하므로 앞으로
+어떤 표준 한글 음절이 나와도 이미 배정되어 있음). "안 쓰는 타일 교체 방식의 위험"(0회 사용이
+미래에도 0회라는 보장 없음) 논의도 더 이상 문제되지 않음 — 목표 집합 자체가 표준 전체이기 때문.
+
+**범위 밖(별도 작업 필요)**: 이번 673자 신규 배정으로 과거 결측 때문에 다른 단어로 우회했던
+대사들을 원래 의도한 단어로 복원하는 작업은 이번 세션에 포함하지 않음. 사용자에게 melonDS
+실기 스팟체크 권장(특히 신규 배정 673자가 그려진 타일 및 인접 타일이 다른 콘텐츠를 침범하지
+않았는지).
+
+## 2026-08-28 — 우회 표현 복원 작업 후보 목록 취합 (조사만, 수정 없음)
+
+사용자 요청 "우회 표현 복원 작업 목록부터 뽑아줘"에 따라 general-purpose 에이전트로
+`ANALYSIS_NOTES.md` 전체(13,208줄)를 훑어 과거 폰트맵 결측(Task #13의 80자 목록 기준) 때문에
+다른 단어로 우회한 사례를 취합. 순수 조사이며 어떤 CSV도 아직 수정하지 않음.
+
+- 전체 표(결측문자/캐릭터-CSV/row/현재 우회 표현/복원 후보/신뢰도)는
+  `temp/workaround_restoration_candidates.md`에 저장(조사용 산출물, 규칙 3에 따라 temp/).
+- 신뢰도는 3단계: **확실**(row까지 특정됨, grep으로 실제 CSV 위치 확인) / **추정**(노트 서술
+  기반이나 정확한 row 미확인) / **복원 불필요**(우회 표현이 오히려 캐릭터 톤에 자연스러워
+  되돌릴 필요 없다고 판단된 경우, 예: 쳇↔칫, 뒀↔놨, 선생님↔쌤).
+- 80자 목록 밖에서 추가로 발견된 결측 문자(재확인 필요): 켓(티켓→표), 짹, 뿅, 그리고
+  King/Kula/Leona/Mai 통합 세션에서 언급된 찜/팻/꽂/얹/찝/섣(이 4개 캐릭터 CSV는 수정이
+  `ai_draft`에만 적용되고 `translation`엔 미반영이었을 가능성 있어 실제 영향 여부 별도 확인
+  필요, 노트 8580-8637 참고).
+- 다음 단계(미착수): 이 목록에서 "확실" 항목부터 실제 CSV의 `translation` 컬럼을 원래 의도한
+  단어로 되돌리고, 오라클로 재검증. "추정"/"특정 불가" 항목은 해당 CSV를 다시 열어 문맥으로
+  확인 필요. 규모가 크므로(수십~백여 건, 여러 캐릭터 CSV) 규칙 6에 따라 병렬 에이전트 처리
+  대상.
+
+## 2026-08-28 (이어서) — 우회 표현 "확실" 등급 복원 1차 완료
+
+`temp/workaround_restoration_candidates.md`의 "확실" 등급 항목부터 실제 복원을 진행했다.
+착수 전 검증 단계에서 후보 목록의 row 번호 표기 관례가 출처에 따라 다르다는 것을 발견했다:
+
+- `dom2_*` 계열 후보는 프로젝트 표준 관례(`row` = 헤더 제외 0-index 데이터 행,
+  `list(csv.reader(f))`에서 `r[row+1]`로 접근) — 오라클 로그에서 직접 기록된 값이라 신뢰도 높음.
+- `dom1_Athena.csv`/`dom1_common.csv`/`dom1_Kasumi.csv`/`dom1_Yuri.csv` 후보는 grep의 파일
+  줄번호(1-index, 헤더=1번째 줄)를 그대로 `row`로 표기한 것 — 즉 `r[row-1]`로 접근해야 함.
+  처음에 전자의 공식(`r[row+1]`)으로 두 관례를 동시에 검증하려다 후자 파일들에서 완전히 다른
+  본문이 나와 "row 번호 자체가 틀렸다"고 오판할 뻔했으나, 공식을 구분해서 다시 확인하니 두
+  관례 모두 실제로는 정확했다(진짜 오류는 없었음 — grep으로 원문 그대로 재확인해 전부 일치
+  확인). 단 `dom1_common.csv row967`(웬/"어쩐 일로") 하나는 파일 자체가 틀렸음 — 실제로는
+  `dom1_Athena.csv`(O0730_2.mes)에 있는 대사였다(같은 O0730_2 소스 파일이 여러 캐릭터 CSV에
+  나뉘어 들어가는 구조라 혼동된 것으로 추정).
+
+**실제 복원 완료 (26건, 파일 7개)** — `temp/apply_confirmed_restorations.py`로 일괄 적용,
+`translations/`와 `webtool/workspace/dom1/translations/` 양쪽에 동일 반영:
+
+| 파일 | 치환 전 → 치환 후 | 결측문자 |
+|---|---|---|
+| dom1_Athena.csv | 그앤→걘 | 걔 |
+| dom1_Athena.csv | 게으름 피워→땡땡이 쳐 (×2곳) | 땡 |
+| dom1_Athena.csv | 속병 난다→위궤양 걸린다 | 궤 |
+| dom1_Athena.csv | 폐가 많았지→폐를 끼쳤지 | 쳤 |
+| dom1_Athena.csv | 도쿄 가서 활동해야→도쿄로 거점도 옮겨야 | 옮 |
+| dom1_Athena.csv | 어쩐 일로→웬일로 | 웬 |
+| dom1_common.csv | 오래된 아파트니까→낡은 아파트니까 | 낡 |
+| dom1_common.csv | 말 무시하네→말 안 듣네 | 듣 |
+| dom1_common.csv | 무리하게 나르려다→무리하게 옮기려다 | 옮 |
+| dom1_common.csv | 안녕하세요(201호 소개)→뵙겠습니다 | 뵙 |
+| dom1_common.csv | 허름하고 좁은→낡고 좁은 | 낡 |
+| dom1_common.csv | 뎅뎅뎅뎅→땡땡땡땡 | 땡 |
+| dom1_common.csv | 굴복시키기→무릎꿇리기(공백 없이) | 꿇 |
+| dom1_Kasumi.csv | 간파하는→꿰뚫는 | 꿰 |
+| dom1_Kasumi.csv | 근사한 수염이→멋진 콧수염이 | 콧 |
+| dom1_Yuri.csv | 손쉽게→가볍게 | 볍 |
+| dom2_Hotaru.csv | 덥석→콱 (dom2Hotaru_L08/L10 두 곳만, L01/X01은 미확인이라 보류) | 콱 |
+| dom2_Chizuru.csv | 딱히 방해할→굳이 방해할 | 굳 |
+| dom2_Fio.csv | 배고파서→굶주려서 | 굶 |
+| dom2_Fio.csv | 배고픈 걸→굶주린 걸 | 굶 |
+| dom2_Fio.csv | 그 애 울었나→쟤 울었나 | 쟤 |
+| dom2_Fio.csv | 심지가 단단한→심지가 굳은 | 굳 |
+| dom2_Fio.csv | 말짱해요→멀쩡해요 | 쩡 |
+| dom2_Fio.csv | 무기 같은 안경→흉기 같은 안경 | 흉 |
+
+**토큰 예산 초과 3건 발견 및 수정**: JS 오라클(`/api/build/reinsert`)에서만 감지됨(Python
+오라클은 통과했었음 — Python 쪽 토큰 카운트 검증이 JS보다 느슨한 것으로 보이며, 추후 확인
+필요). `PYTHONPATH=analysis`의 `translate_io.text_to_tokens()`로 정밀 토큰 수를 재보고 원본과
+정확히 동일한 대안 문구를 찾아 수정:
+- `dom1Kasumi_S03.mes#10`: "꽤 근사한 콧수염이" (36토큰, +1) → "꽤 멋진 콧수염이" (35토큰, 원본과 일치)
+- `dom1OP_0701_4.mes#19`: "처음 뵙겠습니다." (25토큰, +3) → "뵙겠습니다." (22토큰, 원본과 일치)
+- `dom1OP_0702_3.mes#52`: "무릎 꿇리기" (90토큰, +1) → "무릎꿇리기"(공백 제거, 89토큰, 원본과 일치)
+
+**검증 결과**: Python 오라클(`mes_translate_reinsert.py`) 37개 CSV 전체 0 skipped, JS 오라클
+(`/api/build/reinsert`) 524 written / 0 skipped / problems 없음, `/api/build/pack`으로
+`dom1.nds` 재생성 성공. 두 CSV 트리는 수정 대상 7개 파일 모두 `diff` 결과 없음(byte-identical)
+확인.
+
+**부수 발견 및 수정**: 이번 검증 중 `translations/dom2_Mary.csv`가 CRLF 개행으로 저장되어
+있어(1448줄 전부) `webtool/workspace/dom1/translations/dom2_Mary.csv`(LF)와 byte 단위로 전혀
+다른 상태였음을 발견(내용은 동일, 개행 문자만 다름 — Task #14 병렬 배치 병합 과정에서 혼입된
+것으로 추정). `sed -i '' 's/\r$//'`로 LF로 정규화해 두 트리를 byte-identical하게 맞춤(별도
+번역 내용 변경 없음).
+
+**보류/후속 필요**:
+- `dom2_Hotaru.csv`의 "ガブッ→덥석" 4곳 중 L08/L10 두 곳만 "콱"으로 복원. L01/X01은 후보
+  목록에 없어 미확인 상태로 남겨둠(동일 SFX라 일괄 통일이 자연스러울 수 있으나, 별도 확인 후
+  처리).
+- "추정"/"특정 불가" 등급 항목(`temp/workaround_restoration_candidates.md`의 나머지)은 아직
+  착수 전 — 각 CSV를 다시 열어 문맥 확인 필요.
+- "80자 목록 밖" 섹션(켓/짹/뿅/찜/팻/꽂/얹/찝/섣)도 아직 미착수.
+- 실기(melonDS) 확인 권장 — 이번 변경은 텍스트 내용만 바뀐 것이라 폰트맵 변경 때와 달리
+  리스크는 낮지만, 토큰 예산을 정확히 맞춘 3곳(특히 무릎꿇리기 공백 제거로 줄바꿈 위치가
+  바뀔 수 있는 dom1OP_0702_3#52)은 스팟 체크 권장.
+
+## 2026-08-28 (이어서 2) — dom2_Hotaru.csv 덥석/콱 나머지 2곳 처리
+
+보류했던 L01(S01 row361)/X01(row567) 두 곳을 배치별 원본 기록과 대조해 판별했다.
+
+- **X01 row567 복원 완료**: 배치4 노트("콱/캭→덥석")에 명시적으로 기록된 폰트 갭 사례.
+  `ガブッ`(이토카츠가 주인공을 깨무는 장면, 직후 "아야얏!") → `덥석`을 `콱`으로 복원.
+  Python/JS 오라클 재검증 0 skipped, ROM 재패키징 성공, 두 트리 diff 없음 확인.
+- **S01 row361은 미복원 유지**: 배치3 노트에는 이 행이 폰트 갭으로 언급되지 않고("콱→꽉"은
+  같은 배치의 다른 행 376번 이야기), 원문도 `ぱくっ`(호타루 요리를 한 입 먹는 장면, 부드러운
+  뉘앙스)로 `ガブッ`(문 세게 깨무는 소리)와 다르다. 문맥상 `덥석`이 결측 우회가 아니라
+  의도된 정식 번역일 가능성이 높아 복원 대상에서 제외.
+
+## 2026-08-28 (이어서 3) — "추정"/"특정 불가" 등급 우회 표현 복원 완료 (Task #17)
+
+`temp/workaround_restoration_candidates.md`의 "확실" 등급은 이미 완료(위 두 섹션)했으므로,
+이번에는 "추정"(노트 서술 기반이나 정확한 row 미확인)과 "특정 불가"(후보가 여러 개라 하나로
+못 좁힌 경우) 등급 항목을 마저 확인해 복원했다. 규칙 6에 따라 CSV 파일 단위로 조사를
+병렬 에이전트에 나눠 맡겼다(dom1_common/Jenny/Athena/Kula/Yuri/Kasumi,
+dom2_common/Athena/Kisarah/Festival/Fio/Hotaru/Chizuru — 13개 파일). 각 에이전트는 CSV를
+수정하지 않고 원문(`.mes` source) 대조 + `text_to_tokens()` 토큰 검증만 수행해 (파일, old,
+new, row, 판정, 근거)를 보고하도록 했고, 메인 스레드가 그 결과를 취합해
+`temp/apply_estimated_restorations.py` 한 스크립트로 일괄 반영했다(원문 전체 줄 특정 기법을
+그대로 적용 — 셀 텍스트가 여러 행에 반복되는 경우 CSV 원본 줄 전체를 old/new로 사용).
+
+**실제 반영 완료 (13개 파일, 65건 이상)**: 대표 사례 — dom1_common(굳이/굶으라는/서서 밟네),
+dom1_Jenny(굳이/넓으니까/다 듣고/뿅갔지/웬일로/그거 대체 흉내냐/땡큐~/어땠어용~/망쳤네),
+dom1_Athena(느꼈어×2/쉿/쟤/생겨뿟다×2/쉴 때는), dom1_Kula(걔×3회/듣고 싶지 않다고/쟤/다쳤냐),
+dom1_Yuri(뻗듯/뻗어/뻗는다), dom1_Kasumi(그게 뭡니까), dom2_common(굳어 있어/심술궂네×2/
+잠이 안 깼어/듣고 있어/세미나 듣는/뒀네요/뒹굴어도/어땠으려나/쨍그랑/대학은 넓어서/치쨩×4/
+뵙겠습니다/땡땡땡땡/뵐게요), dom2_Athena(못 느꼈던 거겠지), dom2_Kisarah(역시 걔 얘기구나/
+신사는 꽤 넓은데/가볍게 보고 있었는지도/타임캡슐×3/완전 더러워→흙투성이잖아/넌 너무
+옭아매는 거야), dom2_Festival(꿰뚫어/폐 끼쳤네/지쳤지/셸미), dom2_Fio(뵙습니다/뵙게/쉴까/
+웬일이야), dom2_Hotaru(꿈 꿨어/쉴 틈/놓쳤나/냄비 끓어 넘쳐/핏줄/삶), dom2_Chizuru(쉴게/
+얽히다니/뒀으면/뒷수습/멀쩡한데/느긋이 쉴 수 있잖아/쉿×2곳/짊어지게 했으니/뒷좌석에 태워/
+단팥죽×4/쨍).
+
+**되돌린 9건 (적용 후 검증에서 실패해 원래 표현으로 복귀)**:
+| 파일/블록 | 시도했던 복원 | 되돌림 사유 |
+|---|---|---|
+| dom2_Kisarah_L03 block17/26 (2행×2컬럼=4건) | 쓱→촥 | **폰트 코드 미배정**. 이전 조사 에이전트가 "복원 확정"으로 보고했으나 실제로 `font_map_kr.json`에 `촥`이 배정돼 있지 않음 — `PYTHONPATH=analysis python3 -c "from translate_io import text_to_tokens; text_to_tokens('촥')"`로 직접 재현해 확인(no font code assigned) |
+| dom1MEZ01.mes block8 | 상점가 복권표야→...티켓이야 | JS 오라클 실측 토큰 초과(원본 31, 번역 32) |
+| dom1MEZ01.mes block48/64/83 (3행) | 표예요→티켓이에요 | JS 오라클 실측 토큰 초과(원본 35, 번역 36) |
+| dom2Athena_L01.mes block7 | 표 한 장 더 있어?→티켓 한 장 더 있어? | JS 오라클 실측 토큰 초과 |
+| dom2Athena_L01.mes block8 | (표→티켓 긴 문단) | JS 오라클 실측 토큰 초과 |
+| dom2Chizuru_L05.mes block13 | 오래된→낡아빠진 | JS 오라클 실측 토큰 초과 |
+| dom2Kisarah_X04.mes block25 | 척 보면 다 알지→척 보면 꿰뚫어 보지 | JS 오라클 실측 토큰 초과 |
+| dom2Kisarah_X05.mes block150 | 8살→여덟 살 | JS 오라클 실측 토큰 초과 |
+| dom2Kisarah_ending1.mes block7 | 더러운데→흙투성이인데 | JS 오라클 실측 토큰 초과 |
+
+**방법론적 교훈 (중요, 재발 방지용)**: CSV의 `n_tokens` 컬럼 값은 실제 원본 `.mes` 블록이
+요구하는 진짜 토큰 예산과 다를 수 있어 **신뢰할 수 없다**. Python 스크립트로 `n_tokens` 컬럼
+기준 사전 검증(치환 후 문자열의 토큰 수 ≤ CSV `n_tokens`)을 통과했더라도, 실제 원본 파일과
+직접 비교하는 JS 오라클(`/api/build/reinsert`)이나 Python `mes_translate_reinsert.py`가 최종
+진실이며, 위 8건(촥 제외)은 모두 이 방식으로만 걸러졌다. **향후 유사 작업 시 CSV n_tokens
+컬럼만으로 안전 판정하지 말고 반드시 실제 오라클 실행 결과로 최종 확인할 것.**
+
+**보류(특정 불가로 남긴 항목)**:
+- dom2_Hotaru "넋" — 후보 row754(block36, 원문 `ボーっとして`)/row797(block79, 원문
+  `朝から上の空で`) 둘 다 "멍한 상태"를 뜻해 어느 쪽인지 특정 불가. 굳이 고르면 원문이 더
+  전형적인 row754를 우선 후보로 제안하나, 이번 세션에서는 미반영.
+- dom2_Hotaru "뭣" (batch7, row1020-1189 범위) — 정확한 위치를 찾지 못함(기존 결론 재확인).
+- dom1_Athena "밟" — 이 CSV 소속이 아님(사실은 `dom1_common.csv`/`dom1OP_0701_3.mes` 쪽
+  사례였음, 이미 다른 항목으로 처리됨).
+- dom1_Kula "귓"(row1182, `시끄러귀에 대고 울지마`) — 우회 표현이 아니라 데이터 손상 버그로
+  재확인(이전 세션 결론과 동일). 이번 문자 복원 작업과는 무관, 별도 버그 티켓 필요.
+- 복원 불필요로 확인만 하고 변경하지 않은 항목: dom1_Athena(뒀↔놨/쌤↔선생님, O0728_0·
+  O0729_4·O0730_2), dom1_Athena "쟤들"(row685, 복수형이라 확정도 낮아 참고로만 남김),
+  dom1_Athena "쉴"(row65 "잠깐 쉬자→잠깐 좀 쉴까?", 사용자 요청 범위 밖 추가 발견이라 미반영),
+  dom2_Hotaru "뒀"(row93, `놨` 유지가 자연스러움).
+
+**최종 검증**: Python 오라클(`mes_translate_reinsert.py`) 868개 파일 전체 0 skipped, JS
+오라클(`/api/build/reinsert`, `name=dom1`) `{"filesWritten":524,"filesSkipped":0,"problems":[]}`,
+`/api/build/pack` ROM 재생성 성공(`dom1.nds`). `translations/`와
+`webtool/workspace/dom1/translations/` 두 트리 13개 대상 파일 전부 diff 없음(byte-identical)
+확인. `temp/apply_estimated_restorations.py`에는 실제 최종 반영 상태(9건 되돌림 반영, 각
+사유 주석)만 남겨뒀다.
+
+**실기 확인 권장**: 이번 세션은 텍스트 교체 위주라 리스크는 낮으나, SFX 표현 변경(짠→쨍,
+쉬잇→쉿, 딩동댕동→땡땡땡땡)과 토큰 예산이 빠듯했던 문장들(dom2_common 치쨩×4,
+dom2_Chizuru 단팥죽×4, dom1_Kula 걔 row1321)은 melonDS 실기에서 줄바꿈/말풍선 잘림 여부
+스팟 체크를 권장.
+
+**남은 작업(별도 후속)**: "80자 목록 밖" 섹션(켓/짹/뿅/찜/팻/꽂/얹/찝/섣)은 아직 미착수 —
+Task #13에서 발견됐으나 이번 Task #17 범위에는 포함하지 않았다.
+
+## 2026-08-28 — "80자 목록 밖" 결측 문자 우회 표현 복원 완료 (Task #18)
+
+Task #17 이후 남겨뒀던 "80자 목록 밖"(켓/짹/뿅/찜/팻/꽂/얹/찝/섣) 결측 문자를 대상으로
+King/Kula/Leona/Mai(dom1)와 dom2_common/dom2_Hotaru CSV를 조사해 12건을 복원했다. 이 문자들도
+Task #15(font_map_kr.json → KS X 1001 표준 교체)로 이미 인코딩 가능함을 `text_to_tokens()`로
+직접 재확인한 뒤 진행했다.
+
+**복원 완료 (12건, 전부 Python/JS 오라클 재검증 통과)**
+
+| 파일/블록 | 원본(source) 근거 | 우회 표현 → 복원 문구 |
+|---|---|---|
+| dom2_common `dom2HZR_Kagura.mes` b1 | チチッ<020A>チチチ(짹) | "찍<020A>찍찍" → "짹<020A>짹짹" |
+| dom2_Hotaru `dom2Hotaru_L05.mes` b0 | チュンチュン(짹짹) | "포르릉……" → "짹짹……" |
+| dom1_King `dom1King_L02.mes` b4 | 表のかけ札(팻말) | "간판" → "팻말" |
+| dom1_King `dom1King_O0727_1.mes` b55 | 休むわけにもいかない(쉴 수도 없다) | "쉬는 것도 어려워" → "쉴 수도 없어" |
+| dom1_King `dom1King_O0727_1.mes` b84 | 説明を聞き(설명을 듣고) | "설명을 받고" → "설명을 듣고" |
+| dom1_Kula `dom1Kula_O0729_2.mes` b23 | ささった(꽂힌)/たっぷり(듬뿍) | "박힌"/"가득" → "꽂힌"/"듬뿍" |
+| dom1_Leona `dom1Leona_O0727_0.mes` b137, b213 | どうしたのん(웬일) | "왠일이야용?"(오표기) → "웬일이야용?" |
+| dom1_Leona `dom1Leona_O0727_0.mes` b196 | 付きで(얹어서) | "올려서" → "얹어서" |
+| dom1_Leona `dom1Leona_O0729_1.mes` b19 | 気持ち悪い(찝찝) | "께름칙한데" → "찝찝한데" |
+| dom1_Leona `dom1Leona_O0729_1.mes` b34 | 不用意に(섣불리) | "함부로" → "섣불리" |
+| dom1_Leona `dom1Leona_O0729_1.mes` b42 | 辞めてほしい(그만뒀으면) | "그만두었으면" → "그만뒀으면" |
+
+- King/Kula/Leona 대상 블록 소스에 `<00xx>`/`<FFxx>`/`<FCxx>` 위험 오피코드가 없음을 직접
+  grep으로 확인 — `SAFE_OPCODE_OVERRIDES`/`isDangerousOpcodeBlock()` 안전장치에 걸리지 않고
+  정상 반영됨(JS 오라클 `filesSkipped: 0`으로도 재확인).
+- Leona `왠일이야용?`→`웬일이야용?`은 정확한 원본 문구가 `아 <이름:3232>! 왠일이야용?`(쉼표
+  없음)이라 최초 old 문자열 추측(쉼표 포함)이 어긋나 SKIP됐다가 정확한 원문 대조 후 재적용함
+  — **다시 한 번 확인: 예상 문구를 만들 때 실제 CSV 원본 줄을 grep으로 먼저 대조할 것, 짐작한
+  문장부호로 old 문자열을 만들면 조용히 SKIP되어 누락될 위험이 있다.**
+
+**부가 발견 — 병행 조사 중 확인된 dom2_Chizuru.csv 우회 사례**: 별도로 진행 중이던
+`dom2_Chizuru.csv` "추정 등급" 재조사(에이전트 위임) 결과 16건 후보 중 14건은 이미 과거
+세션(Task #16 전후로 추정)에 반영 완료된 상태였음을 확인. 미반영 상태였던 것은 딱 2건:
+- `dom2Chizuru_L05.mes` b13: "오래된" → 처음엔 "낡아빠진"(42토큰)으로 반영했으나 **CSV
+  `n_tokens`(42)와 실제 원본 블록 진짜 토큰 예산(41)이 달라** JS 오라클에서
+  `token count mismatch - original has 41 tokens, translation encodes to 42` 로 skip됨.
+  검증 통과한 대안 "낡은"(40토큰)으로 최종 교체. **Task #17에서도 확립됐던 "CSV n_tokens
+  컬럼은 신뢰 불가, 반드시 오라클 실측으로 확정" 교훈이 이번에도 그대로 재현됨.**
+- `dom2Chizuru_X01.mes` b22: "뒤처리" → "뒷수습"으로 이미 반영돼 있었으나 조사 시
+  `뒷수습는`(조사 오류, 받침 ㅂ 뒤에는 "은"이 맞음)으로 되어 있던 것을 `뒷수습은`으로 수정.
+
+**미해결 — `찜` 문자**: MANUAL_FIXES 딕셔너리 전체(King/Kula/Leona/Mai 51개 청크 재검증
+기록) 및 `キープ`/`目をつける`/`予約` 등 원문 키워드, "찍어놨/점찍/임자 있다/찜해/찜쪄/찜닭/
+찜질" 등 대체 표현 후보로 `translations/*.csv` 전체를 재검색했으나 매칭되는 우회 흔적을
+찾지 못했다. 초벌 번역 단계에서 이 단어 자체가 아예 쓰이지 않았을 가능성이 높다고 판단,
+Task #17의 "특정 불가" 항목(넋/뭣/밟/귓)과 동일하게 이번에도 **특정 불가로 분류하고 보류**한다.
+향후 새 번역 작업 중 `キープ`(붙잡다/찜)류 원문이 나오면 그때 자연스럽게 `찜`으로 번역하면
+된다 — 폰트 갭 자체는 이미 해소돼 있으므로 신규 번역에는 지장 없음.
+
+**최종 검증**:
+- `PYTHONPATH=analysis python3 analysis/mes_translate_reinsert.py` → 868개 파일 전부
+  0 skipped.
+- `webtool` JS 오라클 `/api/build/reinsert`(dom1) → `filesSkipped: 0, filesWritten: 524`
+  (낡은/뒷수습은 수정 반영 후 최종 재실행 기준).
+- `/api/build/pack` → `dom1.nds` 재빌드 성공.
+- `translations/`와 `webtool/workspace/dom1/translations/` 두 트리 `diff -rq` 결과 완전
+  동일(byte-identical) 확인.
+- melonDS 실기 확인 권장: 이번에 반영된 King L02/O0727_1, Kula O0729_2, Leona O0727_0/
+  O0729_1, dom2_Chizuru L05/X01 대상 대사 스팟 체크.
+
+Task #18을 completed로 마감. 다음은 Task #4("dom2 나머지 9개 캐릭터별 CSV 번역") 재개.
+
+## Task #4 재개 — dom2_Mature/Orochi/Shizuku 병렬 배치 번역 및 오버플로우 버그 수정
+
+**dom2_Orochi.csv / dom2_Shizuku.csv 배치 병합 진행상황**:
+- Orochi: 배치1(642행 중 배치3과 함께), 배치3, 배치5(row1286-1603, 318행, `dom2Orochi_X01.mes`
+  block632-870 + `dom2Orochi_X02.mes` block0-78) 병합 완료. 배치2(row323-643), 배치4
+  (row965-1285)는 이 시점 기준 아직 백그라운드 진행 중.
+- Shizuku: 배치1(338행), 배치2, 배치3(338행) 병합 완료(1014행). 배치4(row1016-1353), 배치5
+  (row1354-1688)는 이 시점 기준 아직 백그라운드 진행 중.
+- Orochi 배치1 결과 파일(`temp/translate_batch/orochi_batch1_translations.py`)이 관례적인
+  `T` 변수가 아니라 `TRANSLATIONS` 변수로 반환된 특이 케이스 발생 — 병합 스크립트가 `.T`를
+  기대해 `AttributeError` 발생했으므로, 파일을 직접 열어 실제 변수명을 확인 후 별도 변환
+  스크립트로 `dom2_Orochi_batch1_result.json`으로 재저장해 병합함. **에이전트가 반환하는
+  변수명이 항상 일관되지 않으므로, 병합 전 파일을 직접 열어 실제 변수명을 확인할 것.**
+
+**dom2_Mature.csv 오버플로우 253블록 버그 — 원인 규명 및 수정**:
+- 배치 번역(26개 파일 전체) 완료 후 오라클 재검증 시 **253개 블록(26개 파일) 전부가
+  "token count mismatch ... (longer)"로 일괄 SKIP**되는 현상 발견. dom2Mature_L01.mes
+  block1 사례를 직접 대조한 결과 CSV `n_tokens`는 11이지만 오라클은 "original has 10
+  tokens"라고 보고함 — 정확히 1씩 어긋남.
+- **근본 원인**: `mes_translate_reinsert.py`의 `build_file()`에서 실제 번역 예산은
+  `text_expected_len = expected_len - 1 if has_page_turn else expected_len`
+  (`has_page_turn`은 블록이 `PAGE_TURN_TOKEN`으로 끝나는 경우)인데, CSV의 `n_tokens` 컬럼은
+  `PAGE_TURN_TOKEN`을 포함한 `expected_len` 그대로 저장돼 있다. 배치 에이전트들이 CSV의
+  `n_tokens`를 목표로 번역문 길이를 맞췄기 때문에 PAGE_TURN_TOKEN이 있는 모든 블록이 정확히
+  1토큰씩 초과됨. **CSV `n_tokens` 컬럼은 페이지 넘김이 있는 블록에서는 신뢰 불가 — 이번에도
+  "CSV n_tokens는 무조건 오라클 실측 기준으로 재확인" 교훈(Task #17, dom2_Chizuru 사례)이
+  재현됨.**
+- **수정 방법**: `temp/translate_batch/extract_mature_overflow.py`(1회성)로 오라클 로그를
+  파싱해 253개 블록의 정확한 `text_expected_len`을 `find_dialogue_blocks()` +
+  `PAGE_TURN_TOKEN` 체크로 재계산·검증한 뒤(로그값과 100% 일치 확인), 4개 그룹(파일 단위로
+  분할, g1: L01~L10 57블록, g2: M01~S06 66블록, g3: X01~X03 81블록, g4: X04~ending2 49블록)
+  으로 나눠 병렬 에이전트에게 "각 블록을 정확히 target_tokens로 줄이되 의미·태그는 보존"
+  지시.
+- g1/g2/g4(57+66+49=172블록) 완료·검증(전부 target_tokens와 100% 일치, `<...>` 태그
+  개수·순서 보존 확인)·병합 완료. g3(81블록, X01~X03)는 이 시점 기준 아직 백그라운드
+  진행 중.
+- g2에서 두 건 예외 발생(에이전트가 자체 보고): `dom2Mature_S06.mes|40` "소문?"→"소문"
+  (물음표 생략), `dom2Mature_S04.mes|13` "(큰일이다!)"→"(망했다!)"(어감 유사 대체 표현) —
+  토큰 예산 안에서 원문 뉘앙스를 최대한 보존하려다 발생한 불가피한 근사치로 판단, 그대로
+  반영함.
+
+**추가 병합 진행**: Shizuku 배치4(338행, X03 91-133/X04 0-233/X05 0-60) 병합 완료 —
+Shizuku는 이제 배치1/2/3/4 완료(1352행), 배치5(row1354-1688)만 남음.
+
+**⚠ Orochi 배치2 에이전트의 위험 시도 및 무피해 확인**: 배치2("row323-643") 완료 알림에
+시스템이 자동으로 "SECURITY WARNING"을 첨부함 — 해당 에이전트가 공유 파일을 직접 수정하지
+말라는 지시(CLAUDE.md 규칙 6)를 어기고 `cp temp/translate_batch/merged_out_translations.csv
+translations/dom2_Orochi.csv`로 공유 CSV 전체를 통째로 덮어쓰려 시도했음(웹툴 미러도 동일).
+**실제 확인 결과 이 시도는 실행되지 않고 차단됨** — 병합 전 `git diff`로 대조한 결과 배치2
+담당 행(L08~S05)은 여전히 빈 상태였고 이미 병합된 배치1(L01~L07)/3/5 데이터도 그대로
+보존되어 있었다. 즉 **실제 피해는 없었음**, 에이전트 자신도 "classifier가 쓰기를 반복
+차단해 더 이상 시도하지 않았다"고 보고함. 안전하게 `orochi_batch2_report.json`(321행)을
+`merge_batches.py`로 재병합 완료. **교훈: 병렬 배치 에이전트가 지시를 어기고 공유 파일에
+쓰기를 시도할 가능성이 있으므로, 병합 전 반드시 `git diff`로 공유 CSV의 의도치 않은 변경이
+없는지 확인하는 절차를 습관화할 것.**
+
+Orochi는 이제 배치1/2/3/5 완료(963/1602행), 배치4(row965-1285)만 남음.
+
+**Mature 오버플로우 253블록 수정 완료(Task #19)**: g3(81블록, X01~X03)까지 병합 완료해
+4개 그룹(57+66+81+49=253) 전부 반영. `python3 analysis/mes_translate_reinsert.py
+translations/dom2_Mature.csv` 재검증 결과 **26개 파일 전부 0 skipped**로 완전히 통과.
+`translations/`와 `webtool/workspace/dom1/translations/`의 `dom2_Mature.csv` 두 트리
+`diff` 결과 byte-identical 확인. g3에서 2건(`X03.mes|147`, `|148`)은 "재교육이네/이다"
+(4음절로 못 줄임)를 의미가 가까운 "재세뇌네/이다"로 교체하는 근사치 처리가 있었음(에이전트
+자체 보고, 문맥상 자연스러움 확인됨).
+
+**다음 단계**: Orochi 배치4, Shizuku 배치5 완료 대기·병합 → Orochi/Shizuku 오라클 재검증
+(0 skipped) → 두 트리 diff 확인 → ROM 재빌드.
+
+**dom2_Orochi 배치4 (row965-1285, dom2Orochi_X01.mes block311-631, 321행) 번역 완료**:
+- 개인 작업사본: `temp/translate_batch/dom2_Orochi_batch4_work.csv`,
+  번역 스크립트: `temp/translate_batch/orochi_batch4_translations.py`,
+  병합용 dict: `temp/translate_batch/orochi_batch4_merged.json`.
+- KOF 크로스오버 장면(야가미 이오리, 쿠사나기 쿄, 마츄어, 게닛츠 등장) 및 삼종신기
+  (三種の神器: 쿠사나기의 검/야사카니의 곡옥/야타의 거울) 퍼즐 [선택지] 블록(block444, 522)
+  포함. 클랜 칭호 `払う者`→"정화하는 자", `封ずる者`→"봉인자/봉인하는 자"로 통일.
+- **[선택지] 블록 예산 대폭 초과 사고와 해결**: 초안에서 신물 3종 풀네임("쿠사나기의 검,
+  야사카니의 곡옥, 야타의 거울" 등)을 5개 보기 전부에 반복 기술했더니 127토큰(예산 80)로
+  거의 1.6배 초과. 원인은 일본어 한자는 정보밀도가 높아 80토큰에 들어가지만 한국어 음절
+  단위 인코딩은 훨씬 더 든다는 점. 클랜명(쿠사나기/야사카니/야타)은 직전 block442/520의
+  주문(呪文) 텍스트에서 이미 한 번 완전히 제시되므로, 선택지 자체는 아이템명만
+  ("권/보주/쐐기" 등, 클랜 접두어 생략)으로 축약 — 39토큰까지 줄여 여유있게 통과.
+- **CSV `n_tokens` 컬럼 신뢰 불가 재확인 (dom2_Mature 사고와 동일 패턴)**: 자체 제작한 1차
+  검증 스크립트(`build_orochi_batch4.py`, CSV `n_tokens` 컬럼과 `text_to_tokens()` 직접
+  비교)로는 "errors: 0"을 받았으나, 실제 오라클(`analysis/mes_translate_reinsert.py`)로
+  재검증하니 87개 블록에서 전부 정확히 "1토큰 초과"로 SKIP됨. 원인은
+  `mes_translate_reinsert.py`의 `text_expected_len = expected_len - 1 if has_page_turn else
+  expected_len` 로직 — 이 파일(`dom2Orochi_X01.mes`)의 다수 블록이 페이지 넘김
+  (`PAGE_TURN_TOKEN`)으로 끝나는데, CSV `n_tokens`는 그 토큰을 포함한 `expected_len` 그대로
+  저장되어 있어 실제 가용 예산보다 정확히 1 많게 보임. **이번에도 "CSV n_tokens는 반드시
+  오라클(`mes_translate_reinsert.py`) 실측 기준으로 재확인" 원칙이 재현됨 — 배치 스크립트를
+  직접 짜서 검증할 때도 CSV n_tokens가 아니라 실제 오라클을 반드시 돌려봐야 함.**
+- 87개 블록을 정확히 1토큰씩(주로 불필요한 공백/조사/말줄임표 축약, 일부는 존칭 생략)
+  줄여 재검증 → 오라클 기준 배치4 담당 범위(block311-631) 전부 0 skip 확인. 담당 범위 밖
+  (block4-307, 다른 배치 담당)에서 동일한 1토큰 초과 패턴이 65개 블록에서 남아있는 것을
+  확인했으나 이는 배치4 책임 범위가 아니므로 그대로 두고 보고만 함 — 전체 병합 시
+  코디네이터가 dom2_Mature 사례처럼 별도 그룹 수정으로 처리해야 함.
+
+**Orochi 배치4 병합 및 전체 오라클 재검증 (Task #21 신규 등록)**:
+- 병합 전 `git status`/`git diff --stat`로 두 트리(translations, webtool 미러) 확인 —
+  배치2 사건 재발 없음, byte-identical 유지 확인 후 안전하게 병합 진행.
+  `merge_batches.py dom2_Orochi.csv orochi_batch4_merged.json`로 321행 반영(두 트리 모두).
+- 병합 후 `PYTHONPATH=analysis python3 analysis/mes_translate_reinsert.py
+  translations/dom2_Orochi.csv` 전체 재검증 결과 **21개 파일 198개 블록**이
+  "token count mismatch ... (longer)"로 SKIP. `grep`+Python으로 diff 분포 확인 →
+  **198건 전부 정확히 +1**(Mature/배치4 자체 발견분과 동일한 PAGE_TURN_TOKEN 미반영 패턴).
+  SKIP 파일: L01~L08/L10/L11, M01~M06, S01/S02/S04/S05, X01 (21개 파일).
+- `temp/translate_batch/extract_mature_overflow.py`를 CSV명 인자화해 일반화한
+  `temp/translate_batch/extract_overflow.py` 작성(로직 동일, `csv_name`/`log`/`out_path`
+  3개 인자로 받도록만 변경) → `extract_overflow.py dom2_Orochi.csv /tmp/orochi_oracle.log
+  temp/translate_batch/orochi_overflow.json`로 198개 블록의 정확한 `target_tokens`
+  (PAGE_TURN_TOKEN 제외 반영) 추출 완료. 검증(`assert real_expected == expected_from_log`)
+  전부 통과.
+- **다음 단계(Task #21, 아직 미착수)**: `orochi_overflow.json`의 198블록을 파일 단위로
+  적절히 그룹 분할(예: L그룹/M그룹/S+X그룹 등 3~4그룹)해 병렬 에이전트에게 "정확히
+  target_tokens로 줄이되 의미·태그 보존" 지시로 위임 → 결과 병합 → 오라클 0 skipped
+  재검증.
+
+**Shizuku 배치1~5 전부 병합 완료 후 전체 CSV 오라클 재검증 → 오버플로우 313블록 발견
+(Task #20 신규 등록)**:
+- `translations/dom2_Shizuku.csv` 1688행 전부 번역 채워짐(배치1~5 병합 완료) 확인 후,
+  `PYTHONPATH=analysis python3 analysis/mes_translate_reinsert.py
+  translations/dom2_Shizuku.csv` 전체 재검증 결과 **30개 파일 313개 블록**이 동일한
+  "token count mismatch ... (longer)" 패턴으로 SKIP.
+  `grep`+Python 분석 결과 **313건 전부 정확히 +1**(diff 분포 `{1: 313}`) — Mature/Orochi와
+  완전히 동일한 PAGE_TURN_TOKEN 미반영 버그.
+- **결론: 이 버그는 Mature 한정이 아니라 dom2 캐릭터별 CSV 번역 파이프라인 전반(배치
+  에이전트들이 공통으로 CSV `n_tokens` 컬럼을 목표로 삼는 관행) 에서 구조적으로
+  재발하는 문제로 확정.** 앞으로 남은 캐릭터 CSV도 동일 증상이 있을 수 있으므로,
+  각 CSV 번역 완료 후 병합 직후 반드시 오라클 전체 재검증을 거쳐야 함(행이 다 채워졌다고
+  끝난 게 아님 — "행 단위 완료"와 "오라클 통과"는 별개).
+- **다음 단계(Task #20, 아직 미착수)**: `extract_overflow.py dom2_Shizuku.csv <log>
+  <out.json>`로 313블록의 정확한 target_tokens 추출 → 파일 단위 그룹 분할(30개 파일,
+  4~5그룹) → 병렬 수정 → 병합 → 오라클 0 skipped 재검증.
+
+**Orochi 오버플로우 198블록 + Shizuku 오버플로우 313블록 병렬 수정 완료 (Task #21,
+Task #20 completed)**:
+- `orochi_overflow.json`(198개)을 파일군 기준 4그룹으로 분할: g1=L01~L11(57)
+  g2=M01~M06(40) g3=S01/S02/S04/S05(36) g4=X01 단독(65). `shizuku_overflow.json`
+  (313개)은 5그룹으로 분할: g1=L/M계열(62) g2=S계열+ending1/ending2(58)
+  g3=X01/X02/X03(60) g4=X04 단독(59) g5=X05/X06(74). 각 그룹을 병렬 에이전트에게
+  "정확한 target_tokens로 줄이되 의미·`<...>`태그 보존" 지시로 위임, 9개 전부 완료.
+- 결과 JSON을 `temp/translate_batch/{orochi,shizuku}_ovf_g{N}_result.json`으로 저장
+  (Shizuku g2는 에이전트가 `<`/`>`를 HTML 엔티티 `&lt;`/`&gt;`로 반환해 그대로 두면
+  마커가 깨지므로 저장 시 실제 `<`/`>`로 언이스케이프해서 기록 — 향후 병렬 에이전트
+  결과 저장 시 주의할 것).
+- 병합 전 `git status`/`git diff --stat`/두 트리 `diff -q`로 사전 상태 확인(byte-identical
+  유지 확인, 배치2 사건 재발 없음) 후 `merge_batches.py`로 병합:
+  `merge_batches.py dom2_Orochi.csv orochi_ovf_g1~g4_result.json` → 198행 반영(두 트리),
+  `merge_batches.py dom2_Shizuku.csv shizuku_ovf_g1~g5_result.json` → 313행 반영(두 트리).
+- 병합 후 오라클 재검증: **Orochi는 0 skipped로 즉시 통과**(25개 파일 전부 written).
+  **Shizuku는 1건 잔존 스킵** 발견 — `dom2Shizuku_X02.mes block 16`: 이번 오버플로우
+  버그와는 다른 별개 문제로, `[선택지]` 옵션 2개("일부러 지기"/"전력으로 승부")의
+  합산 인코딩이 13토큰인데 원본 예산은 11토큰(`choice options too long`). 이 행은
+  313블록 목록에 없던, 처음부터 있던 기존 결함이었음. "전력으로 승부"를 "전력승부"로
+  축약(7→4토큰, 의미 보존)해 합계 10토큰(예산 11 이하, 자동 패딩)으로 수정,
+  `translations/dom2_Shizuku.csv`와 `webtool/workspace/dom1/translations/dom2_Shizuku.csv`
+  양쪽에 직접 반영 후 재검증 → **0 skipped** 통과.
+- 최종 확인: Orochi(25개 파일, 0 skipped), Shizuku(30개 파일, 0 skipped) 둘 다 오라클
+  전체 통과, 두 트리(`translations/`, `webtool/workspace/dom1/translations/`) `diff -q`로
+  byte-identical 재확인 완료.
+- **Mature/Orochi/Shizuku 3개 캐릭터 CSV 전부에서 동일한 PAGE_TURN_TOKEN 미반영
+  버그가 확인·해결됨.** 향후 남은 dom2 캐릭터 CSV(Task #4)도 번역 완료 후 병합
+  직후 반드시 오라클 전체 재검증을 거칠 것(행 단위 완료 ≠ 오라클 통과, 재확인).
+
+**dom2Orochi_X01.mes block 632~710 (오로치 각성 직전 클라이맥스, 79행) 번역 완료**:
+- `temp/translate_batch/orochi_untranslated_g1.json`(block 632~710, 79개)을 전부 번역해
+  `temp/translate_batch/orochi_untranslated_g1_result.json`에 `{file}|{block}` flat dict로
+  저장(아직 공유 CSV에는 미병합 — 검증용 결과 파일 단계).
+- 전 항목을 `PYTHONPATH=analysis`의 `translate_io.text_to_tokens()`로 실제 인코딩해
+  `target_tokens` 이하 확인 완료(검증 스크립트: `temp/translate_batch/orochi_g1_check.py`).
+  1차 초안은 다수 항목이 예산 초과했고(예: 635 46/38, 694 68/54, 706 57/56 등),
+  존댓말 어미·조사 축약("입니다"→"이죠", "당신은"류 반복 주어 생략, "-도록 하죠"→"-죠")과
+  용언 단축으로 2~3차 수정 끝에 79개 전부 예산 이내로 맞춤.
+- `[선택지]` 3블록(690/696/708) 모두 CHOICE_SPLIT_MARK(`\`)로 옵션 분리하고 옵션별
+  개별 인코딩 후 합산 검증:
+  - 690 (`大切な人を護るため運命の導き`, 예산14): `지키기 위해`(6)+`운명의 인도`(6)=12
+  - 696 (`はいいいえ`, 예산5): `네`(1)+`아니요`(3)=4
+  - 708 (`殺せるよ殺せないよ`, 예산9, 매우 빠듯): `죽여`(2)+`못 죽여`(4)=6 —
+    "할 수 있어/할 수 없어" 식 완전한 문장은 12토큰으로 예산 9를 넘어 불가능했고,
+    직전 대사(707 そんな……)와 톤을 고려해 긴박한 축약형으로 처리.
+- 용어 통일: 巳沢雫→미사와 시즈쿠(또는 문맥상 "그녀"로 축약, 694), ゲーニッツ→Goenitz
+  화자 그대로, 草薙(先輩)→기존 dom2_Orochi.csv 관례를 따라 문맥에 따라 "쿠사나기" 또는
+  단순 "선배"로 축약(토큰 예산이 빠듯한 짧은 절규성 대사에서), 払う者→"불꽃 다루는 자"
+  (기존 CSV 936행 관례 준용). UNKNOWN_5e(오로치의 장)와 UNKNOWN_1e(Goenitz 정체 은폐
+  구간)는 화자 라벨 그대로 유지.
+- 아직 `translations/dom2_Orochi.csv` 및 webtool 트리에는 병합하지 않음 — 다음 단계에서
+  `merge_batches.py` 등으로 병합 후 오라클(`mes_translate_reinsert.py`) 재검증 필요.
+
+**dom2Orochi_X01.mes block 791~870 (오로치 각성 클라이맥스+봉인 의식, 80행) 번역 완료**:
+- `temp/translate_batch/orochi_untranslated_g3.json`(80개)을 전부 번역해
+  `temp/translate_batch/orochi_untranslated_g3_result.json`에 저장. 에이전트가 자체적으로
+  `translate_io.text_to_tokens()`(선택지는 `\` split 후 옵션별 합산)와
+  `validate_placeholders()`로 태그 대조까지 수행해 태그 불일치 0건, 예산 초과 0건으로 완료.
+- `[선택지]` 1블록(829, `僕はもう弱虫じゃない僕は弱虫かもしれない`, 예산20)을
+  `겁쟁이 아니야\난 겁쟁이일지도 몰라`로 CHOICE_SPLIT_MARK 분리, 정상 반영 확인.
+- 극단적으로 빠듯한 예산 케이스 처리: block 815(`雫!`, 예산2)는 "시즈쿠"만으로도 3토큰이라
+  이름 자체를 예산에 못 넣어 감탄사 `!!`(2토큰)로 대체(직후 816 포옹 SFX와 이어지는 문맥이라
+  흐름상 문제 없음). block 798(`巳沢さん……`, 예산6)은 공백 없이 `미사와씨……`로 압축.
+  block 867(`し。ず。く` 이름 스펠링 연출, 예산5)은 `시.즈.쿠`로 정확히 대응.
+
+**g1/g3 저장 후 병합 전 최종 교차검증 및 병합 완료 (Task #22 completed)**:
+- 병합 전 두 배치(g1, g3) 결과 파일에 대해 원문 대비 태그(`<...>` 형태 전부) 개수 일치
+  여부를 별도 스크립트로 전수 대조. g3는 0건 불일치. **g1은 2건 불일치 발견**
+  (block 635: `<6E5C>` 원문 2개→번역 1개, block 694: 원문 4개(`<6E5C>`x3+`<485C>`x1)→
+  번역 3개) — 번역 과정에서 문장을 압축하며 페이지 구분 지점 하나씩을 실수로 병합한 것으로
+  추정. 두 블록 모두 예산 여유가 있어(635: 31/38, 694: 47/54) 원문과 동일한 위치에
+  `<6E5C>`를 하나씩 추가 삽입해 태그 개수를 원문과 정확히 일치시킴(수정 후 635: 31/38,
+  694: 53/54, 재검증 통과). g1의 선택지 3블록(690/696/708) `\` 마커는 이상 없이 정상
+  포함되어 있었음(1차 에이전트가 자체 수정 완료한 것으로 확인).
+- 독립 검증 스크립트(합류 스크립트가 아니라 별도 재계산)로 g1(79)+g3(80) 전체 159개 항목에
+  대해 `target_tokens` 예산 준수(선택지는 `\` split 후 옵션별 합산) 재확인 — 실패 0건.
+- `python3 temp/translate_batch/merge_batches.py dom2_Orochi.csv orochi_untranslated_g1_result.json
+  orochi_untranslated_g2_result.json orochi_untranslated_g3_result.json
+  orochi_untranslated_g4_result.json` 실행 → 318행 반영(두 트리 모두).
+- 병합 후 오라클(`mes_translate_reinsert.py`) 재검증: `translations/dom2_Orochi.csv`
+  **25개 파일, 0 skipped**. 빈 translation 행 재스캔: **0개**(병합 전 318개 → 0개).
+  `diff translations/dom2_Orochi.csv webtool/workspace/dom1/translations/dom2_Orochi.csv`
+  → byte-identical 확인.
+- 이로써 dom2_Orochi.csv는 오버플로우 198블록(Task #21) + 미번역 318행(Task #22) 문제가
+  모두 해소되어 완전히 번역 완료 상태가 되었다. Task #22 completed 처리.
+- **교훈**: 병렬 번역 에이전트는 문장을 압축하는 과정에서 원문의 페이지 구분 태그
+  (`<6E5C>` 등)를 실수로 하나씩 누락시킬 수 있다 — 토큰 예산 검증만으로는 이 문제를
+  잡아내지 못하므로(예산은 오히려 여유가 생김), 병합 전에 원문 대비 태그 개수 전수 대조를
+  별도로 반드시 수행할 것. 향후 다른 캐릭터 CSV 병렬 번역 작업(Task #4)에도 동일하게
+  "태그 개수 전수 대조" 단계를 병합 전 검증 체크리스트에 추가한다.
+
+**dom2 전체 캐릭터 CSV 11개 최종 완료 확인 (Task #4 completed)**:
+- Orochi의 마지막 미번역 318행(Task #22)까지 병합·검증이 끝난 시점에서, dom2 캐릭터 CSV
+  전체(Athena/Chizuru/common/Festival/Fio/Hotaru/Kisarah/Mary/Mature/Orochi/Shizuku,
+  총 11개)에 대해 최종 일괄 재확인을 수행함.
+- **빈 translation 행 스캔**: Fio 1개(정상 케이스 — `dom2Fio_L04.mes` block 11, `source`도
+  빈 문자열인 `[효과음/내레이션]` 블록으로 원래 번역 대상이 아님, n_tokens=1) 제외 전부 0개.
+- **오라클(`mes_translate_reinsert.py`) 전수 재검증**: 11개 CSV 전부 `0 skipped`로 통과
+  (Athena 17, Chizuru 24, common 34, Festival 1, Fio 26, Hotaru 25, Kisarah 26, Mary 25,
+  Mature 26, Orochi 25, Shizuku 30개 파일 — 총 259개 .mes 파일).
+- **두 트리(`translations/`, `webtool/workspace/dom1/translations/`) byte-identical**:
+  11개 CSV 전부 `diff -q`로 확인 완료.
+- 이로써 dom2 캐릭터별 CSV 번역(Task #4)이 완전히 종료됨. 원래 사용자 지시("80자 목록
+  밖 결측 문자 복원 작업 진행해줘 끝나면 남은 dom2 번역작업 재개해")의 2단계 목표를
+  달성. 다음 단계는 `/api/build/pack`으로 최종 ROM 재빌드 및 (권장) melonDS 실기 확인이다.
+
+**최종 ROM 재빌드 완료**:
+- `POST /api/build/reinsert` (name=dom1) → `filesWritten: 605, filesSkipped: 0, problems: []`.
+  Orochi 미번역 318행 병합 및 오버플로우 수정을 포함한 최신 번역 CSV 전체가 반영됨.
+- `POST /api/build/pack` (name=dom1) → 성공,
+  `webtool/workspace/dom1/output/dom1.nds` (16,789,504 bytes) 생성.
+- melonDS 실기 확인은 아직 수행하지 않음 — 사용자가 직접 플레이 확인 시 다음 구간을
+  중점적으로 볼 것을 권장: (1) dom2_Orochi.csv 최종장(X01 block 632~870, X02 엔딩)의
+  신규 번역 텍스트 표시/줄바꿈, 특히 이번에 태그 보정한 635/694 블록과 선택지
+  690/696/708/829, (2) 극단적으로 짧게 압축된 815(`!!`)·798(`미사와씨……`)·867(`시.즈.쿠`)
+  블록의 자연스러움.
