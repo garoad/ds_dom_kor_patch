@@ -13938,3 +13938,207 @@ byte-identical하게 동기화 (`dom2_Mary.csv`는 6번 건이 보류 상태라 
 
 이제 앞으로 `font_map_full.json`을 수정한 뒤 `extractProject()`를 돌려도 기존 번역이 조용히
 사라지는 일은 재발하지 않는다.
+
+## 2026-08-28 (계속6) — 웹툴 백엔드 Node.js → Python 재작성 시작
+
+**배경**: 위 병합 키 버그 자체가 "webtool/server/lib/*.js가 analysis/*.py 핵심 로직을
+재이식(port)한 별도 사본"이라는 구조에서 비롯됐다는 진단 하에, 사용자가 웹툴 백엔드를
+Python으로 전면 재작성해서 `analysis/*.py`를 직접 재사용하도록 요청함 (`AskUserQuestion`으로
+"백엔드 전체를 Python으로 재작성" 선택). 계획 파일: 대화 세션의 plan mode에서 작성한
+설계 문서 참고 — 핵심은 Flask 기반 새 백엔드(`webtool/server_py/`)가 `analysis/mes_codec.py`,
+`translate_io.py`, `speaker_map.py`, `mes_translate_extract.py`, `mes_translate_reinsert.py`,
+`apply_font_art.py`, `lz10.py`를 그대로 import해서 쓰고, `webtool/server/lib/*.js`는 전부 삭제.
+
+**1단계 — analysis/*.py 프로젝트별 파라미터화 (완료)**: 웹툴은 프로젝트마다 다른 워크스페이스
+경로(`webtool/workspace/<name>/unpack/`)를 쓰지만, `analysis/*.py`는 지금까지 전부 이 저장소
+자신의 고정 경로(`unpack/`, `unpack_origin/`)에 하드코딩되어 있었다. 이를 함수 인자로 뽑아내되,
+인자를 생략하면 기존 전역값으로 폴백하게 해서 `analysis/`의 CLI 스크립트 자체의 동작은 절대
+바뀌지 않도록 최소 변경:
+
+- `mes_codec.py`: 모듈 import 시점에 고정 경로(`{ROOT}/data/Font_DOM.nbfc`)에서 한 번만 계산하던
+  `NUM_TILES`를 `num_tiles_for(data_dir)` 함수로 뽑아내고, `decode_value(v, num_tiles=NUM_TILES)`로
+  파라미터화. `NUM_TILES` 전역은 하위호환용으로 남기되 파일이 없으면 `None`으로 tolerant하게 처리
+  (웹툴 프로세스가 이 모듈을 import할 때 이 저장소의 `unpack/`이 항상 존재한다는 보장이 없으므로).
+  `decode_value`는 현재 실제로 어디서도 호출되지 않는 죽은 코드였지만, import 시점 부작용을
+  없애기 위해 함께 정리.
+- `mes_translate_extract.py`: `get_category(path, origin_root=None)`로 `mc.ORIGIN_ROOT` 참조를
+  인자화.
+- `mes_translate_reinsert.py`: `build_file(fname, rows_by_block, root=None, origin_root=None)`로
+  `mc.ROOT`/`mc.ORIGIN_ROOT` 참조를 인자화.
+- `apply_font_art.py`: 기존 `main()`이 통째로 하던 일(원본에서 리셋 → BDF 파싱 → 한글 타일 렌더링 →
+  스페이스 타일 클리어 → 파일 쓰기)을 재사용 가능한 `apply_font_art(target_nbfc_path,
+  font_map_path=FONT_MAP_PATH, bdf_path=BDF_PATH, reset_from=None)` 함수로 뽑아냄. 웹툴의
+  `build/` 디렉토리는 이미 `unpack/`의 fresh copy라 `reset_from`이 필요 없어 `None`으로 호출하면
+  됨 — 이 함수가 곧 `webtool/server/lib/pipeline.js`의 `applyFontArt`/`parseBdf`/
+  `renderGlyphToTiles`(JS로 새로 재구현되어 있던 코드, 966~1035줄)를 대체할 예정.
+
+**검증**: 위 4개 파일 수정 후
+1. `python3 analysis/mes_translate_reinsert.py translations/` → 여전히 **869 written, 0 skipped**
+   (수정 전과 동일).
+2. `python3 analysis/apply_font_art.py` 재실행 → `unpack/data/Font_DOM.nbfc`의 MD5가 수정 전/후
+   완전히 동일(`40b70f47cd684d6bc360351167611392`) — 리팩터링이 순수 함수 추출이었을 뿐 실제
+   동작을 전혀 바꾸지 않았음을 확인.
+3. 개별 함수 임포트/호출 스모크 테스트(`num_tiles_for`, `decode_value`, `get_category`,
+   `apply_font_art` 모두 정상 동작) 통과.
+
+**다음 단계**: `webtool/server_py/project.py`(워크스페이스 관리, `lib/project.js` 포트) →
+`pipeline.py`(오케스트레이션, 위 analysis 함수들을 직접 호출) → `nbfc_image.py`/`mac_translate.py`
+→ Flask routes/`app.py` → Node와 병행 검증 → `tool.sh` 전환 및 Node 소스 삭제 순으로 진행 예정.
+
+**2단계 — `webtool/server_py/project.py` 포팅 (완료)**: `lib/project.js`를 그대로 옮김 —
+워크스페이스 경로 계산(`project_dir`/`unpack_dir`/`csv_dir`/`build_dir`/`output_dir`),
+`project-state.json` 읽기/쓰기, `NitroPacker` CLI subprocess 실행. 의존성 없는 독립 모듈이라
+포팅 자체는 기계적이었음.
+
+**3단계 — `webtool/server_py/pipeline.py` 포팅 (완료)**: 계획대로 `mes_codec`, `translate_io`,
+`speaker_map`, `mes_translate_extract`, `mes_translate_reinsert`, `apply_font_art`를 직접
+import해서 재사용하는 얇은 오케스트레이션 레이어로 작성. 포팅 과정에서 확인된 사항:
+
+- `pipeline.js`의 "상수"(`FIELDS`, `PLAYERNAME_FILE`, `PLAYERNAME_MAX_TOKENS`,
+  `LIST_NO_LENGTH_CAP_FILES`, `CHOICE_SPEAKER`, `CHOICE_SPLIT_MARK`, `CHOICE_HEADER_SLOTS`,
+  `OUTSIDE_MES_FILES`)는 전부 `analysis/*.py`의 대응 상수와 바이트 단위로 동일해서 재정의 없이
+  그대로 import — 애초 계획보다 새로 짤 코드가 더 줄었음.
+- `translateIo.js`의 `splitUnits`/`unitTokenLength`(헤더-드리프트 안전장치 `computeHeaderSplice`가
+  씀)는 `analysis/translate_io.py`에 대응물이 없어서 이번에 처음 추가함(`split_units`,
+  `unit_token_length`) — "제3의 사본"을 만드는 대신 `analysis/`의 진짜 원본에 채워 넣는 방식으로
+  갭을 메움.
+- `normalizeChoiceSplitMarks`/`CHOICE_SPLIT_MARK_ALIASES`(원화 기호 ₩/￦ → `\` 정규화)는 웹툴
+  UI 전용 편의 기능이라 `analysis/`로 승격하지 않고 `pipeline.py`에만 존재.
+
+**발견된 의도적 차이 (수용, 문서화)**:
+1. `speaker_map.py::SPECIAL_NAMES`에는 `0x6E5C: ""` 항목이 있는데(헤더 없는 리스트 파일에서
+   헤더 슬롯이 박스클로저 자신의 토큰과 겹치는 경우), `speakerMap.js`에는 이 항목이 없어서
+   JS 쪽은 이 경우 `UNKNOWN_6e5c`로 표시했었다. 새 `pipeline.py`는 계획대로
+   `speaker_map.speaker_of()`를 그대로 재사용하므로, 이 경우 화자가 빈 문자열(`""`)로 나온다.
+   실제 dom1 워크스페이스로 재추출 검증(아래) 시 `dom2_common.csv`/`dom3_common.csv`/
+   `system_common.csv`의 각 1~316행에서 `UNKNOWN_6e5c` → `""`로 바뀌는 것 외에는 완전히 동일함을
+   확인 — 의도된 동작 개선으로 수용.
+2. JS `extractProject`의 "미판독 화자" 라벨 형식은 `UNKNOWN_2a`(0x 접두사 없음)인데,
+   `mes_translate_extract.py` 자체의 포맷 문자열은 `UNKNOWN_0x2a`(0x 접두사 있음, 이건 별개의
+   무관한 코드 경로). `pipeline.py`의 `extract_project`는 기존 번역 작업/CSV와의 호환을 위해
+   JS와 동일한 포맷(0x 접두사 없음)을 그대로 재현하도록 직접 작성 — 두 원본 중 어느 쪽 포맷
+   문자열도 재사용하지 않음.
+
+**검증 (Node와 병행 비교, `dom1` 실제 워크스페이스 대상)**:
+1. `analysis/translate_io.py` 추가분(`split_units`/`unit_token_length`) 스모크 테스트 통과 +
+   오라클 재확인(`869 written, 0 skipped`, 변화 없음).
+2. `extract_project('dom1')` 실행 전 `webtool/workspace/dom1/translations/`를 백업한 뒤 재실행 →
+   `filesScanned=881, filesWithBlocks=869, totalBlocks=38506, skippedDebug=328,
+   translatedCount=25665` (번역 완료 행 수가 실행 전후로 정확히 일치 — 병합 키가 기존 번역을
+   전혀 유실하지 않음을 확인). CSV 37개 파일 중 처음엔 전부 다르게 나왔으나 원인은 실제 데이터
+   차이가 아니라 `csv.DictWriter`의 기본 줄바꿈이 `\r\n`이던 것 — `lineterminator="\n"`을
+   명시해 Node와 동일한 `\n` 포맷으로 고침. 재실행 후 862개 완전 바이트 동일, 나머지 3개는
+   위 "발견된 의도적 차이 #1"(`UNKNOWN_6e5c` → `""`)만 다름을 확인. 검증 후 백업에서 CSV 원복.
+3. `build_file_tokens`를 `dom1` 워크스페이스의 번역이 채워진 869개 `.mes` 파일 전체에 대해 실행하고,
+   Node `pipeline.js`의 `buildFileTokens`를 동일한 CSV 데이터로 직접 실행한 결과와 토큰 단위로
+   비교 → **869개 파일 전원 바이트(토큰) 단위로 완전 일치**, `problems` 배열도 완전 일치(둘 다
+   0건). (참고: 저장소에 미리 존재하던 `webtool/workspace/dom1/build/`는 최근 번역 갱신 이후
+   재생성되지 않아 살짝 stale한 상태였고 그것과 비교했을 때는 10개 파일이 달랐으나, Node
+   `buildFileTokens`를 직접 그 자리에서 실행해 다시 비교하니 그 10개도 전부 일치 — 즉 그 10개
+   차이는 Python 포팅의 버그가 아니라 사전 빌드 산출물의 낡음 때문이었음.)
+
+**다음 단계**: `nbfc_image.py`(Pillow 기반, `lib/nbfcImage.js` 포트), `mac_translate.py`(Swift
+CLI subprocess 포트) → Flask `routes/*.py` + `app.py` (`pip3 install flask`) → 엔드투엔드 curl
+검증 → `tool.sh` 전환 및 `webtool/server/` 삭제 순으로 진행.
+
+**4단계 — `nbfc_image.py`/`mac_translate.py` 포팅 (완료)**: `lib/nbfcImage.js`는 `analysis/`에
+대응물이 없는 웹툴 전용 코드(그래픽 리소스 PNG 프리뷰/리팩용)라 새로 포팅 — pngjs 대신
+Pillow(`Image`)를 사용했고, LZ10 압축/해제는 `analysis/lz10.py`를 그대로 import(별도 JS 사본과
+포맷이 원래 동일해서 재조정 불필요). `lib/macTranslate.js`(Swift CLI `mac-translate` 바이너리를
+stdin/stdout JSON으로 호출)도 동작 변경 없이 `subprocess`로 그대로 포팅.
+
+**검증**: `dom1` 워크스페이스의 실제 타일 트리플릿(`hoshi0057.nbfc/.nbfp/.nbfs`, 768개 스크린맵
+엔트리)으로 Node `nbfcImage.js`와 나란히 비교:
+1. `decode_tilemap_png` — Node/Python 양쪽이 만든 PNG를 Pillow로 다시 열어 픽셀 배열
+   (`getdata()`) 비교 → **완전 일치**(PNG 파일 바이트 자체는 인코더 라이브러리가 달라 다르지만,
+   픽셀 데이터는 동일).
+2. `encode_tilemap_png` — 위 PNG를 다시 타일/스크린맵으로 인코딩 → 압축 결과(`.nbfc`/`.nbfs`)를
+   `lz10.decompress()`로 풀어서 비교 → **압축 해제 후 바이트 완전 일치**(LZ10 압축 자체는
+   Node/Python 구현이 바이트 단위로 같을 필요는 없고, 압축 해제 후 원본 타일/스크린맵 데이터가
+   같으면 충분 — 스크린맵이 항상 단순 순차 인덱스라 결정론적으로 동일함도 확인).
+3. `mac_translate.py` import 및 `BIN_PATH` 해석(`webtool/native/mac-translate/.build/release/
+   mac-translate`, 실제 빌드된 바이너리 존재 확인) 스모크 테스트 통과. 실제 번역 스트리밍 동작
+   자체(SSE 경유 `translate_batch` 호출)는 5단계 Flask 라우트 작성 후 엔드투엔드 검증에서 다시
+   확인 예정.
+
+**다음 단계**: Flask `routes/*.py` + `app.py` 작성(`pip3 install flask`) → Node 서버와 나란히
+띄워 실제 `curl` 엔드투엔드 검증 → `tool.sh` 전환 및 `webtool/server/`/`package.json` 삭제 순으로
+진행.
+
+**5단계 — Flask `routes/*.py` + `app.py` 작성 (완료)**: `pip3 install flask` 후
+`webtool/server_py/routes/{project,csv,build,files}.py` + `app.py`를 각각의 JS 원본
+(`routes/project.js`, `routes/csv.js`, `routes/build.js`, `routes/files.js`, `index.js`)과
+경로/응답 형식 100% 동일하게 포팅. 포팅 중 발견한 두 가지 의도적 차이:
+1. **`translate-stream` SSE 진행률 스트리밍**: 처음 작성한 `mac_translate.run_binary`는
+   `subprocess.communicate()`로 자식 프로세스 종료까지 블록한 뒤 stderr를 한꺼번에 처리하는
+   구조였다 — JS 원본(`macTranslate.js`)은 `child.stderr.on("data", ...)` 이벤트로 실시간
+   스트리밍한다. SSE로 진행률을 보여주는 라우트 특성상 이 차이가 사용자에게 보이는 실제
+   UX 차이로 이어지므로 즉시 수정: `run_binary`가 stdin은 별도 스레드에서 쓰고(파이프
+   데드락 방지), stderr는 `for line in proc.stderr:`로 라인 단위 실시간 반복하며
+   `on_progress`를 즉시 호출하도록 변경. `routes/csv.py`의 `translate_stream`도 `queue.Queue`
+   + 워커 스레드로 재구성해 `on_progress` 콜백이 큐에 넣는 즉시 Flask 제너레이터가
+   `yield`로 SSE 이벤트를 내보내도록 함 (Node의 이벤트 기반 스트리밍과 동등).
+2. **정적 파일 서빙**: `webtool/public/`엔 `index.html`/`app.js`/`style.css` 3개뿐이고
+   SPA 라우팅이 없음을 확인 — Node의 `express.static`과 동일하게 정확히 일치하는 파일만
+   서빙하고 나머지는 404 나도록 구현(`send_from_directory`가 자동으로 404 처리). 존재하지
+   않는 모든 경로를 `index.html`로 폴백하는 SPA 패턴은 적용하지 않음(있지도 않은 라우트를
+   200으로 착각하게 만들 위험).
+   또한 Node의 라우트별 body-size 제한(`express.json 10mb`, multer ROM 512MB/이미지 16MB)은
+   Flask에 필드별 제한 기능이 없어 `MAX_CONTENT_LENGTH=512MB` 전역 하나로 통합 — 로컬
+   신뢰 클라이언트만 접속하는 도구라 문제 없음.
+
+**6단계 — Node vs Python 병행 검증 (완료)**: 두 서버를 각각 포트 4001(Python)/4002(Node)로
+동시 기동해 실제 `dom1` 프로덕션 워크스페이스를 대상으로 `curl` 엔드투엔드 비교:
+- `GET /api/project/list`, `/status`, `GET /api/csv/files`, `/search`, `/file/<fname>`,
+  `GET /api/files/tree` — 전부 `diff` 결과 완전 동일(JSON 정규화 후 바이트 단위 일치).
+- `GET /api/files/raw` — `.nbfc`(`00_ATHENA_0.nbfc`, 256×192)와 `.bin` 명명규칙
+  (`SNK_LOGO_bg_snkc.bin`, 256×256) 양쪽 다 Pillow로 다시 열어 픽셀 데이터
+  (`getdata()`) 완전 일치 확인.
+- `GET /api/csv/download`(zip) — Python `zipfile` 모듈로 만든 zip이 정상 압축 해제되고
+  37개 CSV 파일 모두 포함됨을 확인 (Node는 시스템 `zip` 바이너리 shell-out, Python은 표준
+  라이브러리만 사용 - 압축 바이트 자체는 달라도 내용물은 동등).
+  Python 표준 라이브러리 zipfile로 대체됨을 확인 (사전 계획대로).
+- `GET /api/build/download`(nds) — Python(4001)과 Node(4002) 양쪽이 내려주는 `.nds` 파일이
+  `cmp`로 완전히 바이트 동일함을 확인 (둘 다 이미 `build/`에 존재하는 동일한 팩 결과물을
+  그대로 스트리밍하는 것이라 당연한 결과지만, 파일 스트리밍 자체의 정상 동작 확인 차원).
+- `mac_translate.py`의 실제 번역 엔진 호출을 프로덕션 데이터를 건드리지 않고 독립적으로
+  스모크 테스트: `translate_batch(['こんにちは', 'ありがとう'], on_progress)` →
+  `['안녕하세요', '고마워']` 정상 반환, 진행률 콜백도 정상 호출됨 (Swift CLI 바이너리
+  왕복 확인). `translate-stream` 라우트 자체의 엔드투엔드 curl 테스트는 프로덕션 `dom1`이
+  유일한 워크스페이스라 실제 번역 호출이 CSV를 변경시키는 부작용을 피하기 위해 보류함 -
+  라우트 로직(큐 릴레이)과 엔진 호출(`mac_translate.py`) 양쪽을 각각 독립 검증한 것으로
+  충분하다고 판단.
+
+**다음 단계**: `tool.sh`를 `python3 server_py/app.py`로 전환 → `webtool/server/`(Node 소스),
+`webtool/package.json`, `node_modules/` 삭제 → 최종 기록.
+
+**7단계 — 전환 마무리 (완료)**: `webtool/tool.sh`의 `node server/index.js` 실행 커맨드를
+`python3 server_py/app.py`로 교체. `git rm --cached`로 `webtool/server/`(Node 소스 12개 파일),
+`webtool/package.json`, `webtool/package-lock.json`을 커밋 대상에서 제거하고 실제 디렉토리도
+삭제, `webtool/node_modules/`(gitignore 대상, 7.7MB)도 삭제. `webtool/.gitignore`에
+`__pycache__/`, `*.pyc` 추가(Python 백엔드 전환에 따른 정리).
+
+전환 과정에서 예상 밖의 사건 발생: `tool.sh start/stop`을 테스트하다가, **이전 세션부터
+계속 떠 있던 실제 웹툴 서버(PID 37657, 기본 포트 4000, `server.log` 타임스탬프로 미루어 Node
+버전)가 이 테스트의 `stop` 호출로 함께 종료됨**. 사용자가 실제로 쓰던 서버였을 가능성이
+있어, 즉시 새 `tool.sh`(Python 버전)로 포트 4000에 재기동하고 정상 응답(`/api/csv/files`
+869개 반환)을 확인해 원상복구함 - 이 시점부터는 웹툴이 Python 백엔드로 서빙되는 것이 최종
+목표였으므로 재기동 자체가 전환 완료 상태와 일치함. (부수적으로, 앞서 직접 `node -e`/
+`node server/index.js`/`PORT=4001 python3 server_py/app.py`로 켜뒀던 임시 비교용 프로세스
+2개도 이 과정에서 함께 정리함 - Bash 도구가 호출마다 새 셸을 띄워 job control(`%1` 등)이
+호출 간에 유지되지 않는다는 것을 이번에 확인했음, 향후 백그라운드 프로세스는 PID를 직접
+기록해뒀다가 `kill <pid>`로 정리할 것.)
+
+**최종 검증**: Node 소스/의존성 삭제 후 `./tool.sh status`로 재확인 → 정상 실행 중, 삭제 전과
+동일하게 `GET /api/csv/files?name=dom1` → 869개 파일 정상 응답.
+
+## 웹툴 백엔드 Node.js → Python 전면 재작성 완료 요약 (2026-08-28)
+
+1~7단계 전체 완료. 최종 구조: `webtool/server_py/{app.py, project.py, pipeline.py,
+nbfc_image.py, mac_translate.py, routes/{project,csv,build,files}.py}`가
+`analysis/*.py`를 직접 import해서 재사용하는 얇은 웹 어댑터 계층으로 자리잡았고, `webtool/server/`
+(Node/Express 사본)는 완전히 삭제됨 - 이 세션 서두에서 발견된 "두 벌 관리로 인한 조용한
+데이터 유실" 근본 원인(병합 키 버그)이 구조적으로 재발 불가능해짐. 실행은
+`webtool/tool.sh {start|stop|restart|status}`로 동일, 내부적으로
+`python3 server_py/app.py`를 실행. 의존성은 `pip3 install flask`(+ 기존 Pillow)만 필요,
+`webtool/requirements.txt`에 기록됨.

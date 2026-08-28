@@ -17,7 +17,7 @@ start() {
     exit 0
   fi
   cd "$DIR"
-  PORT="$PORT" nohup node server/index.js > "$LOG_FILE" 2>&1 < /dev/null &
+  PORT="$PORT" nohup python3 server_py/app.py > "$LOG_FILE" 2>&1 < /dev/null &
   echo $! > "$PID_FILE"
   disown
   sleep 1

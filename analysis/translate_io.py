@@ -290,3 +290,43 @@ def validate_placeholders(src_text, dst_text):
     if extra:
         problems.append(f"unexpected/extra placeholders: {dict(extra)}")
     return problems
+
+
+def split_units(text):
+    """Split text into the same atomic units tokens_to_text()/text_to_tokens()
+    treat as indivisible: a <이름>/<이름:XXXX> marker, a <HEX> placeholder, or a
+    single literal character. Used by pipeline.py's header-splice safety
+    check (see its compute_header_splice comment) to find how much of a
+    translated block's leading text is UNCHANGED from the source,
+    unit-for-unit. Ported from webtool/server/lib/translateIo.js's
+    splitUnits(), which had no Python equivalent until this rewrite needed
+    one too - added here instead of a third copy."""
+    units = []
+    i, n = 0, len(text)
+    while i < n:
+        m = NAME_VAR_RE.match(text, i)
+        if m:
+            units.append(text[i:m.end()])
+            i = m.end()
+            continue
+        m = PLACEHOLDER_RE.match(text, i)
+        if m:
+            units.append(text[i:m.end()])
+            i = m.end()
+            continue
+        units.append(text[i])
+        i += 1
+    return units
+
+
+_UNIT_NAME_VAR_RE = re.compile(r"^<이름(?::([0-9A-Fa-f]{4}))?>$")
+
+
+def unit_token_length(unit):
+    """How many raw u16 tokens one split_units() unit represents: 2 for a
+    <이름:XXXX> marker (prefix + suffix token), 1 for everything else (a bare
+    <이름> marker, a <HEX> placeholder, or a single literal character)."""
+    m = _UNIT_NAME_VAR_RE.match(unit)
+    if m:
+        return 2 if m.group(1) else 1
+    return 1

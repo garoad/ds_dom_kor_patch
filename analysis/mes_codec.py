@@ -26,19 +26,34 @@ with open(os.path.join(HERE, "font_map_full.json")) as f:
     _FM = json.load(f)
 CODES = _FM["codes"]
 
-with open(f"{ROOT}/data/Font_DOM.nbfc", "rb") as f:
-    _NBFC = f.read()
-NUM_TILES = len(_NBFC) // 64
+
+def num_tiles_for(data_dir):
+    """Tile count for a project's own Font_DOM.nbfc (64 bytes/8bpp tile).
+    Different projects (webtool workspaces built from different ROM copies)
+    can have a different tile count, so this must never be hardcoded to a
+    single global file - see webtool/server_py/pipeline.py callers."""
+    with open(os.path.join(data_dir, "Font_DOM.nbfc"), "rb") as f:
+        return len(f.read()) // 64
 
 
-def decode_value(v):
+# Backward-compatible default for analysis/ CLI scripts, which always target
+# the single fixed unpack/ directory this repo's own translation work uses.
+# Lazy/tolerant so importing mes_codec doesn't require that file to exist
+# (e.g. from a webtool process operating on a different project's workspace).
+try:
+    NUM_TILES = num_tiles_for(os.path.join(ROOT, "data"))
+except FileNotFoundError:
+    NUM_TILES = None
+
+
+def decode_value(v, num_tiles=NUM_TILES):
     bank = (v >> 8) & 0xFF
     low = v & 0xFF
     if bank == 0:
         if low >= 0x80:
             return ("half", low - 128)
         return ("ctrl", v)
-    if v + 33 >= NUM_TILES:
+    if num_tiles is not None and v + 33 >= num_tiles:
         return ("ctrl", v)
     return ("full", v)
 

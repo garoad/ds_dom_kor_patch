@@ -65,9 +65,10 @@ OUTSIDE_MES_FILES = [
 ]
 
 
-def get_category(path):
+def get_category(path, origin_root=None):
+    origin_root = origin_root if origin_root is not None else mc.ORIGIN_ROOT
     fname = os.path.basename(path)
-    if not path.startswith(os.path.join(mc.ORIGIN_ROOT, "data", "Script")):
+    if not path.startswith(os.path.join(origin_root, "data", "Script")):
         return "system_common"
 
     if fname.startswith("dom1"):

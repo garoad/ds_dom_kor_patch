@@ -116,21 +116,24 @@ def load_csv(path):
     return by_file
 
 
-def build_file(fname, rows_by_block):
+def build_file(fname, rows_by_block, root=None, origin_root=None):
+    root = root if root is not None else mc.ROOT
+    origin_root = origin_root if origin_root is not None else mc.ORIGIN_ROOT
+
     # Determine source path via rel_path from the first row if present, else fallback to Script/
     first_row = next(iter(rows_by_block.values()))
     rel_path = first_row.get("rel_path")
     if rel_path:
-        src_path = os.path.join(mc.ROOT, "data", rel_path)
+        src_path = os.path.join(root, "data", rel_path)
     else:
-        src_path = os.path.join(mc.ROOT, "data", "Script", fname)
+        src_path = os.path.join(root, "data", "Script", fname)
 
     if not os.path.exists(src_path):
         # Fallback to unpack_origin if unpack doesn't have it yet
         if rel_path:
-            src_path = os.path.join(mc.ORIGIN_ROOT, "data", rel_path)
+            src_path = os.path.join(origin_root, "data", rel_path)
         else:
-            src_path = os.path.join(mc.ORIGIN_ROOT, "data", "Script", fname)
+            src_path = os.path.join(origin_root, "data", "Script", fname)
 
     if not os.path.exists(src_path):
         return None, rel_path or fname, [f"source file not found: {src_path}"]

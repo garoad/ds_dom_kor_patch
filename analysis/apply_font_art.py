@@ -146,25 +146,38 @@ def glyph_to_4_tiles(grid):
     return tiles
 
 
-def main():
-    assert os.path.exists(UNPACK_ORIGIN_NBFC), f"Missing pristine origin: {UNPACK_ORIGIN_NBFC}"
-    assert os.path.exists(BDF_PATH), f"Missing BDF font: {BDF_PATH}"
+# Both full-width (0xA002) and half-width (0x00CA) space codes need all 4
+# sub-tiles of their 2x2 block cleared, not just the top row - 0x00CA shares
+# its base tile with the unused full-width code 0x0606, which occupies all 4
+# sub-tiles (base, base+1, base+32, base+33). Clearing only (base, base+1)
+# left the bottom row with leftover pristine glyph ink, confirmed 2026-08-10
+# via melonDS showing garbage where spaces/padding should be blank.
+SPACE_TILES = (10242, 390)
 
-    # Parse BDF font (pixel-perfect bitmap data, no rasterization needed)
-    print(f"Parsing BDF font: {BDF_PATH}")
-    bdf_glyphs = parse_bdf(BDF_PATH)
-    kr_count = sum(1 for cp in bdf_glyphs if 0xAC00 <= cp <= 0xD7A3)
-    print(f"  Total glyphs: {len(bdf_glyphs)}, Korean syllables: {kr_count}")
 
-    # Always reset unpack/data/Font_DOM.nbfc from pristine unpack_origin
-    shutil.copy2(UNPACK_ORIGIN_NBFC, UNPACK_NBFC)
-    print(f"Reset {UNPACK_NBFC} from pristine origin")
+def apply_font_art(target_nbfc_path, font_map_path=FONT_MAP_PATH, bdf_path=BDF_PATH,
+                    reset_from=None):
+    """Bake Hangul glyphs (per font_map_path's 'real_tile' assignments) into
+    target_nbfc_path using bdf_path's pixel-perfect bitmap data.
 
-    with open(UNPACK_NBFC, "rb") as f:
+    If reset_from is given, target_nbfc_path is first overwritten with a copy
+    of it (used by the analysis/ CLI to always start from the pristine
+    unpack_origin copy; the webtool passes None since its build/ dir is
+    already a fresh copy of unpack/ before this runs - see
+    webtool/server_py/pipeline.py's apply_font_art wrapper)."""
+    assert os.path.exists(bdf_path), f"Missing BDF font: {bdf_path}"
+
+    bdf_glyphs = parse_bdf(bdf_path)
+
+    if reset_from is not None:
+        assert os.path.exists(reset_from), f"Missing pristine origin: {reset_from}"
+        shutil.copy2(reset_from, target_nbfc_path)
+
+    with open(target_nbfc_path, "rb") as f:
         nbfc = bytearray(f.read())
     orig_size = len(nbfc)
 
-    with open(FONT_MAP_PATH, encoding="utf-8") as f:
+    with open(font_map_path, encoding="utf-8") as f:
         font_map = json.load(f)
     codes = font_map["codes"]
 
@@ -187,26 +200,28 @@ def main():
         for sub_i, tile_id in enumerate(fp):
             nbfc[tile_id * 64 : (tile_id + 1) * 64] = b"\x00" * 64
             nbfc[tile_id * 64 : (tile_id + 1) * 64] = sub_tiles[sub_i]
-        
+
         # Check if glyph was actually found in BDF
         if ord(ch) not in bdf_glyphs:
             missing += 1
         count += 1
 
-    # Zero out space tiles (full 2x2 block for both - half-width 0x00CA
-    # shares its base tile with the unused full-width code 0x0606, which
-    # occupies all 4 sub-tiles; clearing only the top row (base, base+1)
-    # left the bottom row (base+32, base+33) with leftover pristine glyph
-    # ink, confirmed 2026-08-10 via melonDS showing garbage where spaces/
-    # padding should be blank)
-    for space_t in (10242, 390):
+    for space_t in SPACE_TILES:
         for off in (space_t, space_t + 1, space_t + 32, space_t + 33):
             nbfc[off * 64 : (off + 1) * 64] = b"\x00" * 64
 
     assert len(nbfc) == orig_size, "File size must remain unchanged"
 
-    with open(UNPACK_NBFC, "wb") as f:
+    with open(target_nbfc_path, "wb") as f:
         f.write(nbfc)
+
+    return count, missing
+
+
+def main():
+    print(f"Parsing BDF font: {BDF_PATH}")
+    count, missing = apply_font_art(UNPACK_NBFC, reset_from=UNPACK_ORIGIN_NBFC)
+    print(f"Reset {UNPACK_NBFC} from pristine origin")
     print(f"Successfully rendered {count} Hangul glyphs ({missing} missing from BDF) into {UNPACK_NBFC}")
 
 

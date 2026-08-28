@@ -3,3 +3,5 @@ workspace/
 .server.pid
 server.log
 native/mac-translate/.build/
+__pycache__/
+*.pyc
