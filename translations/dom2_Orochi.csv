@@ -602,7 +602,7 @@ dom2Orochi_S04.mes,Script/dom2Orochi_S04.mes,22,50,UNKNOWN_42,よしみだ、今
 dom2Orochi_S04.mes,Script/dom2Orochi_S04.mes,23,44,Mature,あなたは自分のことだけ考えて、<6E5C>なにも知らない顔で今まで通りの<6E5C>生活を続ければいいのよ,넌 네 일만 생각하면서<6E5C>아무것도 모르는 얼굴로 지금까지처럼<6E5C>살아가면 되는 거야,넌 네 일만 생각하면서<6E5C>아무것도 모르는 얼굴로 지금까지처럼<6E5C>살아가면 되는 거야
 dom2Orochi_S04.mes,Script/dom2Orochi_S04.mes,24,7,주인공,ぼ、僕は……,"저, 저는…","저, 저는…"
 dom2Orochi_S04.mes,Script/dom2Orochi_S04.mes,25,12,Mature,さようなら、<이름:3131>君……,"안녕, <이름:3131>군……","안녕, <이름:3131>군……"
-dom2Orochi_S04.mes,Script/dom2Orochi_S04.mes,26,34,UNKNOWN_0x42,<이름:3131>……お前、何度言ったら<6E5C>わかるんだ?<6E5C>手を引けと言ってるだろう,"<이름:3131>…… 너, 몇 번을 말해야<6E5C>알아듣겠어?<6E5C>손 떼라고 했잖아","<이름:3131>…… 너, 몇 번을 말해야<6E5C>알아듣겠어?<6E5C>손 떼라고 했잖아"
+dom2Orochi_S04.mes,Script/dom2Orochi_S04.mes,26,34,UNKNOWN_42,<이름:3131>……お前、何度言ったら<6E5C>わかるんだ?<6E5C>手を引けと言ってるだろう,"<이름:3131>…… 너, 몇 번을 말해야<6E5C>알아듣겠어?<6E5C>손 떼라고 했잖아","<이름:3131>…… 너, 몇 번을 말해야<6E5C>알아듣겠어?<6E5C>손 떼라고 했잖아"
 dom2Orochi_S04.mes,Script/dom2Orochi_S04.mes,27,26,주인공,引けません……!<6E5C>みんな、僕の大切な人たちなんです,"못 떼요……!<6E5C>다들, 제게 소중한 사람들이에요","못 떼요……!<6E5C>다들, 제게 소중한 사람들이에요"
 dom2Orochi_S04.mes,Script/dom2Orochi_S04.mes,28,29,Mature,一番大切なのは誰なの?<6E5C>その子だけ助けてあげましょうか?,제일 소중한 게 누군데?<6E5C>그 아이만 도와줄까?,제일 소중한 게 누군데?<6E5C>그 아이만 도와줄까?
 dom2Orochi_S04.mes,Script/dom2Orochi_S04.mes,29,15,주인공,一番なんて……決められません,제일이라니…정할 수 없어요,제일이라니…정할 수 없어요
@@ -643,7 +643,7 @@ dom2Orochi_S05.mes,Script/dom2Orochi_S05.mes,6,19,King,草薙に八神?<6E5C>あ
 dom2Orochi_S05.mes,Script/dom2Orochi_S05.mes,7,36,주인공,(あのふたりを問題児扱い<6E5C>できるのは、キングさんくらい<6E5C>だろうな……),"(저 둘을 문제아 취급<6E5C>할 수 있는 건, 킹씨 정도<6E5C>뿐이겠지…)","(저 둘을 문제아 취급<6E5C>할 수 있는 건, 킹씨 정도<6E5C>뿐이겠지…)"
 dom2Orochi_S05.mes,Script/dom2Orochi_S05.mes,8,57,King,草薙のことはよく知らないが、<485C>たしか繁華街の西側に、<6E5C>八神がよく行くレコードショップが<6E5C>あると閉いたことがあるな,"쿠사나기는 잘 모르지만,<485C>확실히 번화가 서쪽에<6E5C>야가미가 자주 가는 레코드 가게가<6E5C>있다고 들었지","쿠사나기는 잘 모르지만,<485C>확실히 번화가 서쪽에<6E5C>야가미가 자주 가는 레코드 가게가<6E5C>있다고 들었지"
 dom2Orochi_S05.mes,Script/dom2Orochi_S05.mes,9,28,주인공,繁華街ですか……わかりました!<6E5C>ありがとうごさいます!,번화가 말인가요……알겠습니다!<6E5C>감사합니다!,번화가 말인가요……알겠습니다!<6E5C>감사합니다!
-dom2Orochi_S06.mes,Script/dom2Orochi_S06.mes,0,15,UNKNOWN_0x1e,あれ、<이름:3131>さんじゃないっすか,"어라, <이름:3131> 씨 아니에요?","어라, <이름:3131> 씨 아니에요?"
+dom2Orochi_S06.mes,Script/dom2Orochi_S06.mes,0,15,UNKNOWN_1e,あれ、<이름:3131>さんじゃないっすか,"어라, <이름:3131> 씨 아니에요?","어라, <이름:3131> 씨 아니에요?"
 dom2Orochi_S06.mes,Script/dom2Orochi_S06.mes,1,20,주인공,え、どなたですか?<6E5C>なんで僕の名前を?,"네, 누구세요?<6E5C>왜 제 이름을……?","네, 누구세요?<6E5C>왜 제 이름을……?"
 dom2Orochi_S06.mes,Script/dom2Orochi_S06.mes,2,56,UNKNOWN_60,オレ、真吾っていいます!<6E5C>草薙さんのことならなんでも<6E5C>知ってますから、<485C><이름:3131>さんのことも<6E5C>閉いたことあるっす!,"저, 신고예요!<6E5C>쿠사나기 씨라면 뭐든지<6E5C>알고 있으니까,<485C><이름:3131> 씨 얘기도<6E5C>들어본 적 있어요!","저, 신고예요!<6E5C>쿠사나기 씨라면 뭐든지<6E5C>알고 있으니까,<485C><이름:3131> 씨 얘기도<6E5C>들어본 적 있어요!"
 dom2Orochi_S06.mes,Script/dom2Orochi_S06.mes,3,42,주인공,そ、そうなんだ……あ!<6E5C>それじゃあ、草薙先輩が今どこに<6E5C>いるかも知ってるんですか?,"그, 그렇구나…… 아!<6E5C>그럼 쿠사나기 선배가 지금 어디<6E5C>있는지도 아세요?","그, 그렇구나…… 아!<6E5C>그럼 쿠사나기 선배가 지금 어디<6E5C>있는지도 아세요?"
@@ -894,7 +894,7 @@ dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,239,3,Chizuru,ええ,그래,그래
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,240,12,Chizuru,さぁ、<이름:3131>君、走って!,"자, <이름:3131>군, 뛰어!","자, <이름:3131>군, 뛰어!"
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,241,4,주인공,はい!,네!,네!
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,242,8,[효과음/내레이션],タッタッタ……,타다다닥……,타다다닥……
-dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,243,3,UNKNOWN_0x1e,待て,잠깐,잠깐
+dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,243,3,UNKNOWN_1e,待て,잠깐,잠깐
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,244,6,주인공,え……!?,어……!?,어……!?
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,245,12,UNKNOWN_5d,なにぃ、まさか……!?,"뭐야, 설마……!?","뭐야, 설마……!?"
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,246,10,UNKNOWN_5d,て、てめぇは赤毛!,"너, 빨간 머리!","너, 빨간 머리!"
@@ -920,7 +920,7 @@ dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,265,11,Chizuru,<이름:3131>君、�
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,266,30,Chizuru,御三家の一人が手を貸してくれたの<6E5C>よ、無駄にしてはいけない,"삼대 가문 한 명이 도와줬어,<6E5C>헛되게 하면 안 돼","삼대 가문 한 명이 도와줬어,<6E5C>헛되게 하면 안 돼"
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,267,22,주인공,はい……八神先輩、<6E5C>ありがとうございます!,"네…… 야가미 선배,<6E5C>감사합니다!","네…… 야가미 선배,<6E5C>감사합니다!"
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,268,8,[효과음/내레이션],タッタッタ……,타다다닥……,타다다닥……
-dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,269,4,UNKNOWN_0x1e,待ちな,기다려,기다려
+dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,269,4,UNKNOWN_1e,待ちな,기다려,기다려
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,270,6,주인공,え……!?,어……!?,어……!?
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,271,5,UNKNOWN_5d,誰だ!?,누구!?,누구!?
 dom2Orochi_X01.mes,Script/dom2Orochi_X01.mes,272,10,주인공,く……草薙先輩!!,크…… 선배!,크…… 선배!

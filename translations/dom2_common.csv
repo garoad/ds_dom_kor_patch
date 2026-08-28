@@ -103,7 +103,7 @@ dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,11,14,주인공,いや�
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,12,7,[마리의 개],グルルル……,그르르……,그르르……
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,13,21,주인공,え、もしかして怒ってる?<6E5C>わ、悪かったよ,"어, 혹시 화났어?<6E5C>미, 미안해","어, 혹시 화났어?<6E5C>미, 미안해"
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,14,4,[마리의 개],ワン!,멍!,멍!
-dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,15,3,UNKNOWN_0x1e,よお,여어,여어
+dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,15,3,UNKNOWN_1e,よお,여어,여어
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,16,28,주인공,草薙先輩.と……あそこで待ってる<6E5C>の、被女さんですか?,"쿠사나기 선배 옆에서<6E5C>기다리는 분, 여자친구예요?","쿠사나기 선배 옆에서<6E5C>기다리는 분, 여자친구예요?"
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,17,13,Kyo,ああ.おまえはひとりか?,그래. 넌 혼자냐?,그래. 넌 혼자냐?
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,18,26,주인공,先輩と違って、デートしてくれる<6E5C>被女もいませんから,"선배와 달리, 데이트해 줄<6E5C>여자친구도 없어서요","선배와 달리, 데이트해 줄<6E5C>여자친구도 없어서요"
@@ -112,7 +112,7 @@ dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,20,12,주인공,え?そ
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,21,13,Kyo,この鈍感野郎!じゃーなっ,이 둔감한 놈! 간다,이 둔감한 놈! 간다
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,22,10,주인공,……からかわれた?,…놀림받은 건가?,…놀림받은 건가?
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,23,13,주인공,……さて、どうしようかな,"……자, 어떻게 할까","……자, 어떻게 할까"
-dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,24,17,UNKNOWN_0x1e,そんなスケジュール無理ですって!,그런 스케줄은 무리라고요!,그런 스케줄은 무리라고요!
+dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,24,17,UNKNOWN_1e,そんなスケジュール無理ですって!,그런 스케줄은 무리라고요!,그런 스케줄은 무리라고요!
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,25,16,주인공,な、なんだ?この大きな声は……,뭐 뭐야? 이 큰 소리는……,뭐 뭐야? 이 큰 소리는……
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,26,40,UNKNOWN_1e,今は貴重なオフでっせ?ウチの子<6E5C>に無茶なスケジュール組ません<6E5C>とってください!,지금은 귀한 휴일이거든요?<6E5C>우리 애한테 무리한 일정은<6E5C>짜지 마세요!,지금은 귀한 휴일이거든요?<6E5C>우리 애한테 무리한 일정은<6E5C>짜지 마세요!
 dom2ENC_T4_Afternoon.mes,Script/dom2ENC_T4_Afternoon.mes,27,21,주인공,あ……ビジネスマンか.<6E5C>暑い中、大変だな,아…… 회사원인가<6E5C>더운데 고생이 많네,아…… 회사원인가<6E5C>더운데 고생이 많네
@@ -333,7 +333,7 @@ dom2HZR_Downtown.mes,Script/dom2HZR_Downtown.mes,4,22,주인공,……僕、け�
 dom2HZR_Downtown.mes,Script/dom2HZR_Downtown.mes,5,16,주인공,(特に手がかりはなし、か……),(딱히 단서는 없나……),(딱히 단서는 없나……)
 dom2HZR_Downtown.mes,Script/dom2HZR_Downtown.mes,6,28,주인공,なんだか町全体の風景がよどんで<6E5C>見える……気のせいかな,왠지 거리 전체 풍경이 탁해<6E5C>보여…… 기분 탓인가,왠지 거리 전체 풍경이 탁해<6E5C>보여…… 기분 탓인가
 dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,0,12,[효과음/내레이션],♪カランコロンカラ~ン,♪딸랑딸랑딸랑~,♪딸랑딸랑딸랑~
-dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,1,10,UNKNOWN_0x2c,いらっしゃいませ~,어서 오세요―,어서 오세요―
+dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,1,10,UNKNOWN_2c,いらっしゃいませ~,어서 오세요―,어서 오세요―
 dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,2,22,주인공,あ、双子のウエイトレスさん.<6E5C>え~っと……,"아, 쌍둥이 웨이트리스.<6E5C>어~ 그게……","아, 쌍둥이 웨이트리스.<6E5C>어~ 그게……"
 dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,3,19,UNKNOWN_2c,サリーよ.<6E5C>今、お水を持ってくるわね,샐리야.<6E5C>지금 물 갖다 줄게,샐리야.<6E5C>지금 물 갖다 줄게
 dom2HZR_Illusion.mes,Script/dom2HZR_Illusion.mes,4,19,주인공,どうも.<6E5C>今日も学生でいっぱいだなぁ,고마워.<6E5C>오늘도 학생들로 가득하네,고마워.<6E5C>오늘도 학생들로 가득하네
@@ -433,7 +433,7 @@ dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,8,6,[효과음/내레이션],シェ�
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,9,5,[효과음/내레이션],ルガール,루갈,루갈
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,10,4,[효과음/내레이션],キング,킹,킹
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,11,5,[효과음/내레이션],ケンスウ,켄스우,켄스우
-dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,12,5,,タイトル：,타이틀:,타이틀:
+dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,12,5,UNKNOWN_6e5c,タイトル：,타이틀:,타이틀:
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,13,6,[효과음/내레이션],オープニング,오프닝,오프닝
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,14,6,[효과음/내레이션],メインテーマ,메인 테마,메인 테마
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,15,2,[효과음/내레이션],対決,대결,대결
@@ -463,10 +463,10 @@ dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,38,15,주인공,(待ってて、す�
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,39,11,주인공,(今度こそ、助ける),(이번에는 구할게),(이번에는 구할게)
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,40,17,주인공,(もう手を離したりなんかしない),(다신 손 놓지 않을 거야),(다신 손 놓지 않을 거야)
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,41,7,주인공,(僕が……),(내가……),(내가……)
-dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,42,7,UNKNOWN_0x1e,……ちゃん.寺,……빠.,……빠.
-dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,43,9,UNKNOWN_0x1e,……お兄ちゃん.寺,……오빠.,……오빠.
-dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,44,11,UNKNOWN_0x1e,起きて、お兄ちゃん!寺,"일어나, 오빠!","일어나, 오빠!"
-dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,45,13,UNKNOWN_0x1e,も~、イトカツ、いくよ!,"자, 이토카츠, 가자!","자, 이토카츠, 가자!"
+dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,42,7,UNKNOWN_1e,……ちゃん.寺,……빠.,……빠.
+dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,43,9,UNKNOWN_1e,……お兄ちゃん.寺,……오빠.,……오빠.
+dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,44,11,UNKNOWN_1e,起きて、お兄ちゃん!寺,"일어나, 오빠!","일어나, 오빠!"
+dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,45,13,UNKNOWN_1e,も~、イトカツ、いくよ!,"자, 이토카츠, 가자!","자, 이토카츠, 가자!"
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,46,4,[효과음/내레이션],ドサッ,쿵,쿵
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,47,8,주인공,……あ、あれ?,"……어, 어라","……어, 어라"
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,48,5,[효과음/내레이션],ガブッ!,덥석!,덥석!
@@ -482,11 +482,11 @@ dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,57,21,주인공,わかってるよ.<6
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,58,14,Hotaru,もぉ!子供あつかいしてー!,"정말, 애 취급하지 마!","정말, 애 취급하지 마!"
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,59,31,주인공,ごめん、ごめん.ホラ、早く学校に<6E5C>行かないといけないんだろ?,"미안, 미안. 자, 얼른 학교에<6E5C>가야 하는 거잖아?","미안, 미안. 자, 얼른 학교에<6E5C>가야 하는 거잖아?"
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,60,17,Hotaru,あ、そうだった.行くよイトカツ!,"아, 맞다. 가자 이토카츠!","아, 맞다. 가자 이토카츠!"
-dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,61,5,UNKNOWN_0x3e,キュゥ!,꾸엥!,꾸엥!
+dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,61,5,UNKNOWN_3e,キュゥ!,꾸엥!,꾸엥!
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,62,22,Hotaru,そういえばお兄ちゃん、<6E5C>ケータイ鳴ってたよ,"그러고 보니 오빠,<6E5C>휴대폰 울렸어","그러고 보니 오빠,<6E5C>휴대폰 울렸어"
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,63,6,주인공,え、僕の?,내 거?,내 거?
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,64,19,Hotaru,どうせ女の子からじゃないの?<6E5C>もぉ!,어차피 여자애 아니야? 정말!,어차피 여자애 아니야? 정말!
-dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,65,5,UNKNOWN_0x3e,キュゥ!,꾸엥!,꾸엥!
+dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,65,5,UNKNOWN_3e,キュゥ!,꾸엥!,꾸엥!
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,66,5,주인공,いたた!,아야!,아야!
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,67,14,Hotaru,それじゃ、行ってきまーす!,"그럼, 다녀올게―!","그럼, 다녀올게―!"
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,68,5,[효과음/내레이션],バタンッ,쾅,쾅
@@ -495,7 +495,7 @@ dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,70,16,주인공,さてと、僕もそ
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,71,14,[효과음/내레이션],♪キーンコーンカーンコーン,♪딩동댕동,♪딩동댕동
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,72,21,주인공,……よし.ラスト2日だ、<6E5C>今日も頑張るぞ,……좋아. 마지막 2일<6E5C>오늘도 힘내자,……좋아. 마지막 2일<6E5C>오늘도 힘내자
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,73,14,주인공,でも、何か忘れてる気が……,근데 뭔가 잊은 느낌……,근데 뭔가 잊은 느낌……
-dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,74,17,UNKNOWN_0x1a,なーにシケた顔してんだよ、真吾!,"왜 그런 표정이야, 신고!","왜 그런 표정이야, 신고!"
+dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,74,17,UNKNOWN_1a,なーにシケた顔してんだよ、真吾!,"왜 그런 표정이야, 신고!","왜 그런 표정이야, 신고!"
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,75,6,[효과음/내레이션],バシーン!,찰싹!,찰싹!
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,76,6,주인공,いってー!,아파!,아파!
 dom2OP_0701_1.mes,Script/dom2OP_0701_1.mes,77,49,주인공,……もぉ、僕は<이름:3232>ですよ、<6E5C>草薙先輩!<이름:3131><이름:3232>です!<485C>真吾さんって大学の後輩だった<6E5C>人でしょ!?,"……정말, 저는<이름:3232>예요,<6E5C>쿠사나기 선배! <이름:3131><이름:3232>예요!<485C>신고 씨는 대학 후배였잖아요!?","……정말, 저는<이름:3232>예요,<6E5C>쿠사나기 선배! <이름:3131><이름:3232>예요!<485C>신고 씨는 대학 후배였잖아요!?"

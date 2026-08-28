@@ -23,7 +23,7 @@ dom1Kula_L01.mes,Script/dom1Kula_L01.mes,20,6,[효과음/내레이션],K.O.!,K.O
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,21,13,주인공,いや~、クーラは強いなぁ,"이야, 쿨라 강하네","이야, 쿨라 강하네"
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,22,25,Kula,………….ちゃんとホンキ出さない<6E5C>と怒るよ、<이름:3232>,"……제대로 진심 안 내면<6E5C>화낼 거야, <이름:3232>","……제대로 진심 안 내면<6E5C>화낼 거야, <이름:3232>"
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,23,28,주인공,(な、なんでわざと負けたってわか<6E5C>るんだ?この子……),"(뭐, 일부러 진 거 어떻게<6E5C>알았지? 이 애……)","(뭐, 일부러 진 거 어떻게<6E5C>알았지? 이 애……)"
-dom1Kula_L01.mes,Script/dom1Kula_L01.mes,24,32,UNKNOWN_0x1a,おーいクーラ、欲しがってたぬいぐ<6E5C>るみ、やっとゲットできたぞ!,"어이 쿨라, 갖고 싶어하던 인<6E5C>형 드디어 손에 넣었다!","어이 쿨라, 갖고 싶어하던 인<6E5C>형 드디어 손에 넣었다!"
+dom1Kula_L01.mes,Script/dom1Kula_L01.mes,24,32,UNKNOWN_1a,おーいクーラ、欲しがってたぬいぐ<6E5C>るみ、やっとゲットできたぞ!,"어이 쿨라, 갖고 싶어하던 인<6E5C>형 드디어 손에 넣었다!","어이 쿨라, 갖고 싶어하던 인<6E5C>형 드디어 손에 넣었다!"
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,25,10,주인공,うっ、この声は……,윽 이 목소리……,윽 이 목소리……
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,26,21,Kaidou,……って、なんで<이름:3131>がいんだ!<6E5C>消えろ!,"……아니, 왜 <이름:3131>가 있어!<6E5C>꺼져!","……아니, 왜 <이름:3131>가 있어!<6E5C>꺼져!"
 dom1Kula_L01.mes,Script/dom1Kula_L01.mes,27,26,주인공,海堂もいたのか…….はいはい、<6E5C>消えればいいんだろ,카이도도 있었냐……. 사라지<6E5C>면 되는 거지,카이도도 있었냐……. 사라지<6E5C>면 되는 거지
@@ -102,7 +102,7 @@ dom1Kula_L04.mes,Script/dom1Kula_L04.mes,9,3,주인공,え?,어?,어?
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,10,9,Kula,このぬいぐるみ!,이 인형!,이 인형!
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,11,12,주인공,あぁ、クレーンゲームか,"아, 인형 잡기구나","아, 인형 잡기구나"
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,12,13,[선택지],取ってあげる話の続きをする,잡아줄게이야기 계속하기,잡아줄게\이야기 계속하기
-dom1Kula_L04.mes,Script/dom1Kula_L04.mes,13,13,[선택지],……よーし、やってみるか,"……좋아, 해볼까","……좋아, 해볼까"
+dom1Kula_L04.mes,Script/dom1Kula_L04.mes,13,13,주인공,……よーし、やってみるか,"……좋아, 해볼까","……좋아, 해볼까"
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,14,5,Kula,ヤッタ!,야호!,야호!
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,15,10,주인공,次はどれが欲しい?,다음은 뭐갖고파?,다음은 뭐갖고파?
 dom1Kula_L04.mes,Script/dom1Kula_L04.mes,16,9,Kula,あのキャンディ!,저 사탕!,저 사탕!
@@ -301,7 +301,7 @@ dom1Kula_L09.mes,Script/dom1Kula_L09.mes,19,15,[선택지],ゲームで勝負す
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,20,21,주인공,よーし、じゃあ対戦ゲームで決めよ<6E5C>うぜ!,"좋아, 그럼 대전 게임으로 정하<6E5C>자!","좋아, 그럼 대전 게임으로 정하<6E5C>자!"
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,21,23,Kaidou,おぅ!勝った方が、クーラから<6E5C>プレゼントな!,오! 이기는 쪽이 쿠라한테<6E5C>선물 받는다!,오! 이기는 쪽이 쿠라한테<6E5C>선물 받는다!
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,22,4,주인공,ああ!,그래!,그래!
-dom1Kula_L09.mes,Script/dom1Kula_L09.mes,23,10,[효과음/내레이션],go 『igh>!,파이트!,파이트!
+dom1Kula_L09.mes,Script/dom1Kula_L09.mes,23,10,[효과음/내레이션],go fight!,,파이트!
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,24,6,Kaidou,オラオラ!,덤벼덤벼!,덤벼덤벼!
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,25,6,주인공,くっそー!,젠장!,젠장!
 dom1Kula_L09.mes,Script/dom1Kula_L09.mes,26,16,Kula,……バカみたい.クーラもう帰る,……바보 같아. 쿠라 갈래,……바보 같아. 쿠라 갈래
@@ -344,7 +344,7 @@ dom1Kula_L10.mes,Script/dom1Kula_L10.mes,26,49,주인공,お兄ちゃんも好�
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,27,5,Kula,でも……,그치만…,그치만…
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,28,11,주인공,他に方法があるだろ?,다른 방법이있잖아?,다른 방법이있잖아?
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,29,9,Kula,……わかんないよ,……모르겠어,……모르겠어
-dom1Kula_L10.mes,Script/dom1Kula_L10.mes,30,9,UNKNOWN_0x1a,……うるせぇなぁ,<2012><0000><0000><0001><0000><0020><0012><001A>……시끄럽네,……시끄럽네
+dom1Kula_L10.mes,Script/dom1Kula_L10.mes,30,9,UNKNOWN_1a,……うるせぇなぁ,<2012><0000><0000><0001><0000><0020><0012><001A>……시끄럽네,……시끄럽네
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,31,2,주인공,!,!,!
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,32,11,UNKNOWN_25,おまえ、妹のなんだ?,너 내 동생 뭐냐?,너 내 동생 뭐냐?
 dom1Kula_L10.mes,Script/dom1Kula_L10.mes,33,7,Kula,お兄ちゃん!,오빠!,오빠!
@@ -768,7 +768,7 @@ dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,4,4,주인공,えぇ?,엥?,엥?
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,5,4,[효과음/내레이션],ヒュー,휘잉,휘잉
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,6,5,주인공,うわぁ!,으악!,으악!
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,7,12,[선택지],左でキャッチ右でキャッチ,왼손받기오른손받기,왼손받기\오른손받기
-dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,8,5,[선택지],ドシン!,쿵!,쿵!
+dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,8,5,[효과음/내레이션],ドシン!,쿵!,쿵!
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,9,5,[효과음/내레이션],…………,……,……
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,10,16,Kula,狂也ナイスキャッチ!うまいね!,쿄야 나이스캐치!잘한다!,쿄야 나이스캐치!잘한다!
 dom1Kula_O0730_0.mes,Script/dom1Kula_O0730_0.mes,11,8,Kaidou,イッテーーー!,아야아아!,아야아아!
@@ -1136,7 +1136,7 @@ dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,214,9,[선택지],右下。右A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,215,5,[선택지],A下。右下,A하.우하,A\하.우하
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,216,4,[선택지],下。右下,하.우하,하.우하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,217,1,[선택지],A,A,A
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,218,8,UNKNOWN_29,右下。右下。右下,우하.우하.우하,우하.우하.우하
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,218,8,[선택지],右下。右下。右下,우하.우하.우하,우하.우하.우하
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,219,4,[선택지],下。右下,하.우하,하.우하\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,220,4,[선택지],右下。右,우하.우,우하.우\
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,221,5,[선택지],右下。右A,우하.우A,우하.우\A

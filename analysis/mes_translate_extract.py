@@ -55,6 +55,13 @@ OUTSIDE_MES_FILES = [
     # LIST_NO_LENGTH_CAP_FILES treatment.
     "mapmove.mes",
     "nameinput.mes",
+    # Save/load UI prompts (file-select, overwrite confirmation, card
+    # read/write error, save-data reset, return-to-title). Added 2026-08-28.
+    # Blocks 0-11 are date/time digit-tile fragments (control-code-heavy
+    # formatting, not plain text) and stay untranslated; only blocks 12-18
+    # (the plain UI strings) are translated - see pipeline.js's
+    # OUTSIDE_MES_FILES comment for the JS-side mirror of this note.
+    "saveload.mes",
 ]
 
 

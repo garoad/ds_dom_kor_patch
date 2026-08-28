@@ -53,8 +53,9 @@ PLAYERNAME_MAX_TOKENS = 3
 # orochiendroll.mes (staff credits - real people's names, must stay as-is,
 # not translated); saveload.mes (save/load UI mixes translatable words with
 # fixed-position date/time digit formatting via dense control codes - too
-# fragile to blanket-exempt, left on strict matching if ever added to the
-# pipeline).
+# fragile to blanket-exempt; added to the pipeline 2026-08-28 on strict
+# per-block length matching, with blocks 0-11 (the date/time fragments)
+# left untranslated rather than exempted).
 LIST_NO_LENGTH_CAP_FILES = {
     "namelist1.mes",
     "dom1chara.mes",

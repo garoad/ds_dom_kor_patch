@@ -95,6 +95,21 @@ const CHOICE_SPEAKER = "[선택지]";
 const CHOICE_SPLIT_MARK = "\\";
 const CHOICE_HEADER_SLOTS = 5; // values[s-6], values[s-5], values[s-4], values[s-3], values[s-2]
 
+// Windows renders (and, on some Korean keyboard layouts/IMEs, actually
+// inputs) the backslash key as a won-sign look-alike instead of a literal
+// "\" - both ₩ (U+20A9 WON SIGN) and ￦ (U+FFE6 FULLWIDTH WON SIGN) have been
+// observed. Neither has a font code of its own (same as "\" itself), so
+// treating them as equivalent to CHOICE_SPLIT_MARK can't mask a character
+// that would otherwise have encoded successfully.
+const CHOICE_SPLIT_MARK_ALIASES = ["₩", "￦"];
+function normalizeChoiceSplitMarks(text) {
+  let result = text;
+  for (const alias of CHOICE_SPLIT_MARK_ALIASES) {
+    result = result.split(alias).join(CHOICE_SPLIT_MARK);
+  }
+  return result;
+}
+
 const OUTSIDE_MES_FILES = [
   "soundnamedom1.mes",
   "soundnamedom2.mes",
@@ -122,6 +137,15 @@ const OUTSIDE_MES_FILES = [
   // standard strict length matching, not LIST_NO_LENGTH_CAP_FILES.
   "mapmove.mes",
   "nameinput.mes",
+  // Save/load UI prompts (file-select, overwrite confirmation, card
+  // read/write error, save-data reset, return-to-title). Added 2026-08-28
+  // after the user reported an untranslated "play data exists - overwrite?"
+  // prompt in-game. Blocks 0-11 are date/time digit-tile fragments (mixed
+  // control-code formatting, not plain text) and are intentionally left
+  // untranslated (translation stays empty so buildFileTokens() copies the
+  // original bytes through unchanged) - only blocks 12-18 (the plain UI
+  // strings) are translated.
+  "saveload.mes",
 ];
 
 function getCategory(filePath, unpackDataDir) {
@@ -208,8 +232,25 @@ function writeCsv(name, rows) {
 /**
  * Scan every .mes file in the project's unpack/data/Script, extract real
  * dialogue blocks, and merge with any existing CSV - rows matching on
- * (file, block, n_tokens, source) keep their existing translation, since the
- * CSV is the translator's save file and re-extraction must never wipe work.
+ * (file, block, n_tokens) keep their existing translation, since the CSV is
+ * the translator's save file and re-extraction must never wipe work.
+ *
+ * 2026-08-28: the merge key used to also include `source`, which seemed like
+ * an extra safety net but was actually a data-loss bug - block boundaries
+ * (and therefore `block`/`n_tokens`) come purely from the .mes file's own
+ * bytes via findDialogueBlocks(), independent of how those bytes are
+ * DECODED to text. Whenever an unrelated font_map_full.json correction
+ * changed how a block's bytes render as `source` (e.g. fixing a garbled
+ * glyph), the old `source` string in the CSV stopped matching the freshly
+ * decoded one, so the existing translation looked like it belonged to a
+ * brand-new untranslated row and was silently dropped on the next
+ * extractProject() run - 26 rows were lost this way and had to be recovered
+ * by hand (see ANALYSIS_NOTES.md 2026-08-28 "계속4"). `n_tokens` alone is
+ * kept in the key as the actual guard against block-boundary drift (if a
+ * block's span genuinely shifts, its token count changes and the old
+ * translation is correctly treated as stale); `source` is regenerated fresh
+ * from the current decode either way, so it never needs to be part of the
+ * lookup key.
  */
 function extractProject(name) {
   const unpackDir = proj.unpackDir(name);
@@ -227,7 +268,7 @@ function extractProject(name) {
   const existing = readCsv(name);
   const existingByKey = new Map();
   for (const row of existing) {
-    const key = `${row.file} ${row.block} ${row.n_tokens} ${row.source}`;
+    const key = `${row.file} ${row.block} ${row.n_tokens}`;
     existingByKey.set(key, {
       ai_draft: row.ai_draft || "",
       translation: row.translation || "",
@@ -264,7 +305,7 @@ function extractProject(name) {
       const headerVal = s - 1 >= 0 ? values[s - 1] : null;
       const speaker = headerVal !== null ? speakerMap.speakerOf(headerVal) : null;
       const nTokens = e - s;
-      const key = `${fname} ${i} ${nTokens} ${text}`;
+      const key = `${fname} ${i} ${nTokens}`;
       const saved = existingByKey.get(key) || { ai_draft: "", translation: "" };
 
       rows.push({
@@ -387,11 +428,46 @@ function maxLenOf(row, fname, hasPageTurnHint) {
  * authoritative - same source buildFileTokens() uses); this only falls back
  * to detectHasPageTurn()'s srcText-based guess when the caller couldn't
  * resolve the real file.
+ *
+ * speaker, when === CHOICE_SPEAKER, enables CHOICE_SPLIT_MARK-aware
+ * validation: the marker (and its Windows won-sign look-alikes) is stripped
+ * out and each option is encoded/summed separately, mirroring the real
+ * split-and-encode buildFileTokens() does. Without this, any translator who
+ * actually types the "\" (or ₩/￦) needed to mark option boundaries always
+ * fails here, since none of those characters have a font code of their own.
  */
-function validateRow(srcText, dstTextRaw, expectedTokenCount, fname, hasPageTurnHint) {
-  const dstText = dstTextRaw && dstTextRaw.length > 0 ? dstTextRaw : srcText;
+function validateRow(srcText, dstTextRaw, expectedTokenCount, fname, hasPageTurnHint, speaker) {
+  const dstText = normalizeChoiceSplitMarks(dstTextRaw && dstTextRaw.length > 0 ? dstTextRaw : srcText);
   const problems = tio.validatePlaceholders(srcText, dstText);
   if (problems.length) return { ok: false, error: problems.join("; ") };
+
+  const hasPageTurn = hasPageTurnHint !== undefined ? hasPageTurnHint : detectHasPageTurn(srcText, expectedTokenCount);
+  const textExpected = hasPageTurn ? expectedTokenCount - 1 : expectedTokenCount;
+
+  if (speaker === CHOICE_SPEAKER && dstText.includes(CHOICE_SPLIT_MARK)) {
+    const optTexts = dstText.split(CHOICE_SPLIT_MARK);
+    if (optTexts.length - 1 > CHOICE_HEADER_SLOTS - 1) {
+      return {
+        ok: false,
+        error: `too many choice options - ${optTexts.length} option markers found, max ${CHOICE_HEADER_SLOTS} options allowed`,
+      };
+    }
+    let optTokens;
+    try {
+      optTokens = optTexts.map((t) => tio.textToTokens(t));
+    } catch (ex) {
+      return { ok: false, error: ex.message };
+    }
+    const total = optTokens.reduce((sum, t) => sum + t.length, 0);
+    if (total > textExpected) {
+      return {
+        ok: false,
+        error: `choice options too long - encode to ${total} tokens combined, original allows ${textExpected}`,
+      };
+    }
+    return { ok: true, tokenCount: textExpected + (hasPageTurn ? 1 : 0) };
+  }
+
   let tokens;
   try {
     tokens = tio.textToTokens(dstText);
@@ -412,9 +488,6 @@ function validateRow(srcText, dstTextRaw, expectedTokenCount, fname, hasPageTurn
   if (LIST_NO_LENGTH_CAP_FILES.has(fname)) {
     return { ok: true, tokenCount: tokens.length };
   }
-
-  const hasPageTurn = hasPageTurnHint !== undefined ? hasPageTurnHint : detectHasPageTurn(srcText, expectedTokenCount);
-  const textExpected = hasPageTurn ? expectedTokenCount - 1 : expectedTokenCount;
 
   if (textExpected !== undefined && tokens.length < textExpected) {
     tokens = tokens.concat(Array(textExpected - tokens.length).fill(tio.SPACE_TOKEN));
@@ -444,7 +517,7 @@ function saveFile(name, fname, edits) {
     if (item.ai_draft !== undefined) row.ai_draft = item.ai_draft;
 
     const hasPageTurnHint = pageTurnFlags ? pageTurnFlags[Number(row.block)] : undefined;
-    const v = validateRow(row.source, row.translation, Number(row.n_tokens), fname, hasPageTurnHint);
+    const v = validateRow(row.source, row.translation, Number(row.n_tokens), fname, hasPageTurnHint, row.speaker);
     if (!v.ok) {
       report.push({ block: Number(row.block), ok: false, error: v.error });
     } else if (fname !== PLAYERNAME_FILE && !LIST_NO_LENGTH_CAP_FILES.has(fname) && v.tokenCount !== Number(row.n_tokens)) {
@@ -590,7 +663,7 @@ function buildFileTokens(name, fname, rowsByBlock) {
   blocks.forEach(([s, e], i) => {
     const row = rowsByBlock.get(i);
     const srcText = row.source;
-    const dstText = row.translation && row.translation.length > 0 ? row.translation : srcText;
+    const dstText = normalizeChoiceSplitMarks(row.translation && row.translation.length > 0 ? row.translation : srcText);
 
     if (!row.translation || row.translation === srcText) {
       out.push(...values.slice(last, s));

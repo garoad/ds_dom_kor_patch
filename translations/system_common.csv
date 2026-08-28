@@ -130,7 +130,7 @@ namelist1.mes,namelist1.mes,9,4,UNKNOWN_6e5c,ジェニー,,제니
 namelist1.mes,namelist1.mes,10,2,UNKNOWN_6e5c,海堂,,카이도
 namelist1.mes,namelist1.mes,11,3,UNKNOWN_6e5c,クーラ,,쿨라
 namelist1.mes,namelist1.mes,12,2,UNKNOWN_6e5c,竜白,,류하쿠
-namelist1.mes,namelist1.mes,13,6,UNKNOWN_6e5c,M<.ビッグ,,Mr.빅
+namelist1.mes,namelist1.mes,13,6,UNKNOWN_6e5c,Mr.ビッグ,,Mr.빅
 namelist1.mes,namelist1.mes,14,2,UNKNOWN_6e5c,狂也,,쿄야
 namelist1.mes,namelist1.mes,15,5,UNKNOWN_6e5c,ハイデルン,,하이덜른
 namelist1.mes,namelist1.mes,16,4,UNKNOWN_6e5c,アンディ,,앤디
@@ -271,7 +271,7 @@ namelist1.mes,namelist1.mes,150,4,UNKNOWN_6e5c,花ちゃん,,하나짱
 namelist1.mes,namelist1.mes,151,4,UNKNOWN_6e5c,銀髪の男,,은발의 남자
 namelist1.mes,namelist1.mes,152,4,UNKNOWN_6e5c,金髪女性,,금발 여성
 namelist1.mes,namelist1.mes,153,4,UNKNOWN_6e5c,千両役者,,명배우
-namelist1.mes,namelist1.mes,154,2,UNKNOWN_6e5c,和狆,니코친,니코친
+namelist1.mes,namelist1.mes,154,2,UNKNOWN_6e5c,和<CE12>,,니코<CE12>
 namelist1.mes,namelist1.mes,155,2,UNKNOWN_6e5c,骸羅,,가이라
 namelist1.mes,namelist1.mes,156,4,UNKNOWN_6e5c,隻眼の男,,애꾸눈의 남자
 namelist1.mes,namelist1.mes,157,3,UNKNOWN_6e5c,町民1,,마을 주민1
@@ -319,3 +319,22 @@ dom1chara.mes,dom1chara.mes,6,50,UNKNOWN_6e5c,誕生日：5月29日<6E5C>年齢<
 dom1chara.mes,dom1chara.mes,7,50,UNKNOWN_6e5c,誕生日：1月10日<6E5C>年齢<020A>：17歳<6E5C>出身地：不明<6E5C>血夜型：B型<6E5C>身長<020A>：176cm<6E5C>体重<020A>：66kg,,생일: 1월 10일<6E5C>나이<020A>: 17세<6E5C>출신지: 불명<6E5C>혈액형: B형<6E5C>신장<020A>: 176cm<6E5C>체중<020A>: 66kg
 mapmove.mes,mapmove.mes,0,12,,移動先を選んでください.,이동할 곳 선택하세요.,이동할 곳을 선택하세요
 nameinput.mes,nameinput.mes,0,13,UNKNOWN_20a,この名前でよろしいですか?,이름으로 하시겠습니까?,이 이름으로 할까요?
+saveload.mes,saveload.mes,0,35,,2<0414><0414><0414>H<0414><0414>H<0414><0414><020A><020A><0414><0414>：<0414><0414><6E5C><020A><020A><020A><020A><020A><020A><020A><020A><020A>7H<020A><020A><020A><020A><020A>時,,
+saveload.mes,saveload.mes,1,35,UNKNOWN_6e5c,2<0414><0414><0414>H<0414><0414>H<0414><0414><020A><020A><0414><0414>：<0414><0414><6E5C><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A>それから,,
+saveload.mes,saveload.mes,2,2,UNKNOWN_20a,8時,,
+saveload.mes,saveload.mes,3,3,UNKNOWN_6e5c,12時,,
+saveload.mes,saveload.mes,4,3,UNKNOWN_6e5c,15時,,
+saveload.mes,saveload.mes,5,3,UNKNOWN_6e5c,17時,,
+saveload.mes,saveload.mes,6,3,UNKNOWN_6e5c,2<0414>時,,
+saveload.mes,saveload.mes,7,3,UNKNOWN_6e5c,<820E>の刻,,
+saveload.mes,saveload.mes,8,3,UNKNOWN_6e5c,午の刻,,
+saveload.mes,saveload.mes,9,3,UNKNOWN_6e5c,未の刻,,
+saveload.mes,saveload.mes,10,3,UNKNOWN_6e5c,申の刻,,
+saveload.mes,saveload.mes,11,3,UNKNOWN_6e5c,<CD16>の刻,,
+saveload.mes,saveload.mes,12,20,UNKNOWN_6e5c,セーブするファイルを<6E5C>選択してください.,,저장할 파일을 선택해 주세요.
+saveload.mes,saveload.mes,13,28,UNKNOWN_20a,プレイデータがあります.<6E5C><020A><020A>上書きしてよろしいですか?,,플레이 데이터가 있습니다.<6E5C><020A><020A>덮어써도 되겠습니까?
+saveload.mes,saveload.mes,14,14,UNKNOWN_6e5c,ファイルを選択してください.,,파일을 선택해 주세요.
+saveload.mes,saveload.mes,15,41,UNKNOWN_20a,データを読めませんでした.<6E5C><020A><020A>電源を切って、カードを差し込み直<6E5C><020A><020A>してください,,데이터를 읽을 수 없었습니다.<6E5C><020A><020A>전원을 끄고 카드를 다시<6E5C><020A><020A>꽂아 주세요
+saveload.mes,saveload.mes,16,40,UNKNOWN_20a,データを書けませんでした<6E5C><020A><020A>電源を切って、カードを差し込み直<6E5C><020A><020A>してください,,데이터를 쓸 수 없었습니다<6E5C><020A><020A>전원을 끄고 카드를 다시<6E5C><020A><020A>꽂아 주세요
+saveload.mes,saveload.mes,17,44,UNKNOWN_20a,セーブデータを初期化します.<6E5C><020A><020A>すべてのデータは消去されますが、<6E5C><020A><020A>よろしいですか?,,"세이브데이터를 초기화합니다.<6E5C><020A><020A>모든 데이터가 삭제되는데,<6E5C><020A><020A>괜찮으시겠습니까?"
+saveload.mes,saveload.mes,18,23,UNKNOWN_20a,タイトル画面に戻ります.<6E5C><020A><020A>よろしいですか?,,타이틀로 돌아갑니다.<6E5C><020A><020A>괜찮으시겠습니까?

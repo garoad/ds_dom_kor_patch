@@ -13703,3 +13703,238 @@ Task #20 completed)**:
   신규 번역 텍스트 표시/줄바꿈, 특히 이번에 태그 보정한 635/694 블록과 선택지
   690/696/708/829, (2) 극단적으로 짧게 압축된 815(`!!`)·798(`미사와씨……`)·867(`시.즈.쿠`)
   블록의 자연스러움.
+
+## 2026-08-28 — 윈도우 `\`→`￦` 표시/입력 문제로 `[선택지]` 행 저장 체크 실패 수정
+
+**증상**: 사용자가 웹툴에서 `[선택지]` 행을 번역할 때 옵션 구분 마크로 `\`를 넣는데, 윈도우
+환경에서는 `\`가 `￦`(원화 기호)로 보이거나 실제로 그렇게 입력되어 저장 시 검증("체크")이
+통과되지 않는다고 보고.
+
+**근본 원인은 두 가지가 겹쳐 있었음**:
+1. `webtool/server/lib/pipeline.js`의 `validateRow()`(저장 API `saveFile()`이 매 행 저장마다
+   호출하는 실제 "체크" 함수)가 `CHOICE_SPLIT_MARK`(`\`)를 전혀 인식하지 못하고 있었다.
+   `buildFileTokens()`(실제 빌드 경로)는 `[선택지]` 화자 행에서 `\`로 텍스트를 분리해 옵션별로
+   따로 인코딩하는데, `validateRow()`는 이 로직이 없어 `\`가 섞인 텍스트 전체를
+   `tio.textToTokens()`에 통째로 넘겼음. `\`는애초에 `font_map_kr.json`에 매핑이 없는 글자라
+   (`analysis/font_map_kr.json` 조회로 확인) **정상적으로 실제 백슬래시를 입력해도 항상
+   "no font code assigned" 에러로 저장 체크가 실패**하는 상태였음 — 윈도우 이슈와 무관하게
+   원래부터 있던 버그.
+2. 여기에 윈도우 쪽 표시/입력 이슈(`\` 키가 한글 폰트/키보드 레이아웃에서 `₩`(U+20A9)나
+   `￦`(U+FFE6)로 보이거나 그대로 입력됨)까지 겹쳐, 사용자가 인지한 증상이 "윈도우에서만
+   실패"처럼 보였음.
+
+**수정** (`webtool/server/lib/pipeline.js`):
+- `normalizeChoiceSplitMarks()` 헬퍼 추가 — `₩`/`￦`를 캐노니컬 `\`로 정규화. 두 글자 모두
+  `font_map_kr.json`에 매핑이 없어(직접 확인) 정규화가 인코딩 가능한 문자를 가리는 부작용은
+  없음.
+- `buildFileTokens()`의 `dstText` 산출 시 이 정규화를 적용(라인 640 부근) — 윈도우에서 실수로
+  `₩`/`￦`를 넣은 채로 저장된 CSV도 실제 빌드에서 정상적으로 옵션 분리되도록.
+- `validateRow()`에 `speaker` 파라미터를 추가하고, `speaker === CHOICE_SPEAKER`이고 정규화된
+  텍스트에 `\`가 있으면 `buildFileTokens()`와 동일하게 `\` 기준으로 분리 → 옵션별 인코딩 →
+  토큰 합계 비교(초과 시 에러, 미달 시 패딩 후 원래 `expectedTokenCount`와 동일하게 반환)하도록
+  구현. 옵션 개수 상한(`CHOICE_HEADER_SLOTS - 1` = 4개 마크, 5옵션)도 동일하게 체크.
+  `saveFile()` 호출부에서 `row.speaker`를 새로 전달.
+- 임시 스크립트로 검증(`temp/`에 남기지 않고 즉시 삭제): `₩`/`￦`가 섞인 `[선택지]` 텍스트가
+  이제 `validateRow()`를 통과하고, 옵션 합계가 원본 토큰 수를 초과하면 정확히 에러가 나며,
+  `[선택지]`가 아닌 일반 대사 행에 `￦`가 섞이면 여전히(의도대로) "no font code assigned"로
+  막히는 것을 확인.
+
+**영향**: `[선택지]` 화자 CSV 행을 웹툴에서 저장할 때 옵션 구분 마크(`\`, 또는 윈도우에서
+그 대신 입력된 `₩`/`￦`)가 있어도 더 이상 저장 체크가 실패하지 않음. 기존에 이미 CSV에
+저장되어 있던 선택지 번역들(있다면)도 다음 빌드부터 정상 분리됨 — 재저장 불필요.
+
+## 2026-08-28 (계속) — 기존 CSV의 `[선택지]` 번역 전수 스캔: ₩/￦ 오염 0건, 별개의 "마크 누락" 버그 6건 발견
+
+**요청**: 방금 고친 `\`/`₩`/`￦` 검증 버그와 별개로, 기존에 이미 저장된 `[선택지]` 번역들 중
+실제로 영향받은 게 있는지 스캔.
+
+**스캔 방법**: `temp/scan_choice_translations.py`(재사용 가능하도록 temp/에 보관)로
+`translations/*.csv`와 `webtool/workspace/dom1/translations/*.csv` 양쪽 트리 전체를 순회,
+`speaker == "[선택지]"`이고 번역이 채워진 행(871개 중 607개)을 대상으로 텍스트에 `\`/`₩`/`￦`가
+포함되는지 검사.
+
+**결과 1 (원래 질문에 대한 답)**: `₩`/`￦`가 섞인 행은 **0건**. 기존 번역자들은 전부 정확한
+리터럴 `\`만 사용해왔음(548건). 즉 이번에 고친 윈도우 표시/입력 문제로 인해 이미 오염된 기존
+데이터는 없음 — 재저장 불필요.
+
+**결과 2 (스캔 중 별도로 발견한 버그)**: 마크가 전혀 없는 나머지 59건을 실제 `.mes` 헤더의
+옵션 분리 슬롯(`values[s-6..s-2]`, 5칸)까지 직접 읽어(Node에서 `pipeline.js`의
+`realBlocksOf()`를 임시로 export해 실제 CSV와 동일한 블록 인덱싱으로 조회) 분류한 결과:
+- 44건: 슬롯 1개만 non-zero (진짜 단일 값 - 무대 준비 아이템/노래 제목/단일 선택 등). 분리
+  불필요, 문제 없음.
+- 5건: 슬롯 2개 이상 non-zero이지만 `sum(slots) != 2*textExpectedLen` (헤더 게이트 불일치 -
+  `dom1King_O0727_0.mes` block 5, `dom1Leona_O0727_0.mes` block 6, `dom1Mai_O0727_4.mes`
+  block 26, `dom1Kula_L04.mes` block 13, `dom1Kula_O0730_0.mes` block 8). 실제 빌드 로직의
+  `isChoiceSplit` 게이트(`choiceHeaderSum === 2 * textExpectedLen`)를 통과 못 하므로 `\`가
+  있든 없든 항상 단일 텍스트 경로로 처리됨 - 편지/독백류 긴 텍스트라 원래도 분리 대상이
+  아니었음. 문제 없음.
+- 3건: 슬롯 2개, 게이트 통과(진짜 2옵션 블록)인데 우연히 원문과 번역의 글자 수/위치가
+  1:1로 맞아떨어져 원본 헤더 분리 위치 그대로 잘라도 결과가 정확함 (`dom1Kula_O0731_2.mes`
+  block 42 `우A`, block 166 `B좌하`, block 208 `우하.우우.하` - 전부 QTE 방향/버튼 표기라
+  글자 단위 축자역이라 안전했음). 문제 없음이지만 구조적으로는 우연에 의존하는 상태.
+- **6건: 슬롯 2개, 게이트 통과(진짜 2옵션 블록)인데 번역이 마크 없이 두 옵션을 이어붙인 상태
+  - 실기에서 원본 일본어 바이트 분리 지점 그대로 잘려 글자가 깨져 보일 실제 버그**:
+  1. `dom1Kasumi_L05_2.mes` block 10: `声をかける`(5)/`抱き締める`(5) → 현재 `말걸기안아주기`
+     → `말걸기\안아주기`로 수정 필요
+  2. `dom1Kasumi_L06.mes` block 8: `止める`(3)/`止めない`(4) → 현재 `말리기안말리기`
+     → `말리기\안말리기`로 수정 필요
+  3. `dom1Kasumi_O0727_1.mes` block 5: `舞さんかな`(5)/`キングさんかな`(7) → 현재
+     `마이씨려나킹씨려나` → `마이씨려나\킹씨려나`로 수정 필요
+  4. `dom1King_O0731_2.mes` block 8: `ソーダ水`(4)/`氷水`(2) → 현재 `소다수얼음물`
+     → `소다수\얼음물`로 수정 필요
+  5. `dom1MEZ01.mes` block 23: `1人で行く`(5)/`次のページ`(5) → 현재 `혼자가기다음페이지`
+     → `혼자가기\다음페이지`로 수정 필요
+  6. `dom2Mary_L01.mes` block 12: `わ、わかりましたよ`(9)/`ご、ごめんなさい!`(9) → 현재
+     `아, 알겠어요, 죄, 죄송해요!`(두 옵션을 이미 한 문장으로 합쳐놓은 상태) → 단순 마크
+     삽입이 아니라 "두 개의 독립된 선택지 버튼 문구"로 재번역 필요 (예: "알겠어요" /
+     "죄송해요!" 식) - 원 대사 맥락 확인 후 재작업 필요, 보류.
+
+**다음 작업**: 사용자 승인 시 1~5는 CSV 두 트리에 마크만 삽입해 바로 고치고, 6은 대사 맥락을
+다시 보고 두 옵션 문구를 새로 정해야 함.
+
+## 2026-08-28 (계속2) — 위 1~5번 마크 삽입 수정 적용 완료
+
+**적용 방법**: 직접 CSV를 손으로 고치지 않고, 방금 고친 검증 로직을 그대로 타도록
+`pipeline.saveFile("dom1", fname, [{block, translation}])`(실제 웹툴 저장 경로)를 5번 호출
+(`temp/fix_choice_split_marks.js`, 실행 후 삭제 — 1회성). `webtool/workspace/dom1/translations/`
+쪽에 먼저 저장해 5건 모두 `ok: true` 확인:
+1. `dom1Kasumi_L05_2.mes` block 10: `말걸기안아주기` → `말걸기\안아주기`
+2. `dom1Kasumi_L06.mes` block 8: `말리기안말리기` → `말리기\안말리기`
+3. `dom1Kasumi_O0727_1.mes` block 5: `마이씨려나킹씨려나` → `마이씨려나\킹씨려나`
+4. `dom1King_O0731_2.mes` block 8: `소다수얼음물` → `소다수\얼음물`
+5. `dom1MEZ01.mes` block 23: `혼자가기다음페이지` → `혼자가기\다음페이지`
+
+저장 후 `diff`로 확인한 결과 `writeCsv()`의 전체 재버킷팅에도 불구하고 각 파일마다 해당 행의
+`translation` 필드 한 줄만 변경되고 나머지는 그대로였음 (다른 행에 대한 부수효과 없음 확인).
+이후 변경된 3개 CSV(`dom1_Kasumi.csv`, `dom1_King.csv`, `dom1_common.csv`)를
+`webtool/workspace/dom1/translations/` → `translations/`로 그대로 복사해 두 트리를 다시
+byte-identical하게 동기화 (`dom2_Mary.csv`는 6번 건이 보류 상태라 이번엔 미변경, 원래도
+동일했음).
+
+**최종 검증**: `python3 analysis/mes_translate_reinsert.py`(인자 없이 = 전체 `translations/`
+대상)를 재실행해 전체 868개 파일이 **0 skipped**로 정상 인코딩됨을 확인 — 이번 5건 수정이
+다른 어떤 파일도 깨뜨리지 않았음.
+
+**남은 작업**: 6번(`dom2Mary_L01.mes` block 12, `dom2_Mary.csv`)은 여전히 보류 — 사용자가
+"알겠어요"/"죄송해요!" 식 두 독립 선택지 문구를 확정하면 그때 동일한 방식(`pipeline.saveFile`)
+으로 반영.
+
+## 2026-08-28 (계속3) — 6번(`dom2Mary_L01.mes` block 12) 반영 완료, 6건 전부 마무리
+
+사용자가 두 옵션 문구를 `아,알겠어요` / `죄,죄송해요!`로 확정. 동일하게
+`pipeline.saveFile("dom1", "dom2Mary_L01.mes", [{block: "12", translation: "아,알겠어요\\죄,죄송해요!"}])`
+로 저장 (`ok: true`). `diff` 결과 해당 행 한 줄만 변경됨을 확인 후 `webtool/workspace/dom1/translations/dom2_Mary.csv`를
+`translations/dom2_Mary.csv`로 복사해 두 트리 재동기화. 전체 오라클 재실행 결과 868개 파일
+**0 skipped** 유지 확인. 이로써 스캔에서 발견된 6건의 "[선택지] 마크 누락" 버그 전부 수정 완료.
+
+## 2026-08-28 (계속4) — `saveload.mes`(세이브/로드 UI) 파이프라인 추가 및 block 12-18 번역
+
+사용자가 게임 내 세이브 시 "플레이 데이터가 있는데 덮어쓰겠습니까?" 문구가 안 보인다고 제보.
+조사 결과 `unpack/data/saveload.mes`에 19개 블록이 있는데, 이 파일이 `mes_translate_extract.py`/
+`pipeline.js`의 `OUTSIDE_MES_FILES` 목록에 아예 빠져 있어서 지금까지 한 번도 추출/번역
+대상이 된 적이 없었음 (기존 주석에도 "saveload.mes는 너무 위험해서 나중에 추가할 것"이라고
+명시돼 있었음 — 미완료 상태였던 항목).
+
+**블록 구성**: block 0-11은 날짜/시간 숫자 타일 조각(제어코드 밀집, 일반 텍스트 아님) — 번역
+대상에서 제외. block 12-18이 실제 플레이어가 보는 UI 문구 7개.
+
+**적용**:
+1. `pipeline.js`와 `mes_translate_extract.py` 양쪽 `OUTSIDE_MES_FILES`에 `"saveload.mes"` 추가
+   (주석 상호 미러링). `mes_translate_reinsert.py`의 `LIST_NO_LENGTH_CAP_FILES` 주석도 갱신
+   (saveload.mes는 그 세트에 넣지 않고 일반 strict 길이매칭 유지, block 0-11은 번역칸을
+   비워둬서 원본 바이트 그대로 통과).
+2. `pipeline.extractProject("dom1")` 실행 → saveload.mes의 19개 블록이 새 CSV 행으로
+   `system_common.csv`에 추가됨 (기존 번역과의 병합은 `${file} ${block} ${n_tokens} ${source}`
+   키로 안전하게 처리 — 아래 버그 항목 참고).
+3. block 12-18에 대해 7개 한국어 번역 작성 후 placeholder(`<020A>` 개수 일치)/토큰 길이 예산
+   검증을 거쳐 `pipeline.saveFile("dom1", "saveload.mes", edits)`로 저장 (`ok: true` 전부 확인).
+   최종 번역:
+   - block12 "저장할 파일을 선택해 주세요."
+   - block13 "플레이 데이터가 있습니다.<6E5C><020A><020A>덮어써도 되겠습니까?"
+   - block14 "파일을 선택해 주세요."
+   - block15 "데이터를 읽을 수 없었습니다.<6E5C><020A><020A>전원을 끄고 카드를 다시<6E5C><020A><020A>꽂아 주세요"
+   - block16 "데이터를 쓸 수 없었습니다<6E5C><020A><020A>전원을 끄고 카드를 다시<6E5C><020A><020A>꽂아 주세요"
+   - block17 "세이브데이터를 초기화합니다.<6E5C><020A><020A>모든 데이터가 삭제되는데,<6E5C><020A><020A>괜찮으시겠습니까?"
+   - block18 "타이틀로 돌아갑니다.<6E5C><020A><020A>괜찮으시겠습니까?"
+
+**발견한 버그 (`extractProject()`의 병합 키가 source 텍스트 문자열을 포함하는 데서 발생하는
+번역 유실)**: `pipeline.extractProject()`를 돌리면 `writeCsv()`가 프로젝트의 CSV 28개 전부를
+처음부터 다시 씀. 이후 `translations/`(루트, 진본)와 `webtool/workspace/dom1/translations/`를
+`diff`한 결과 28개 파일 전부가 달라짐 — 원인을 세 가지로 분류:
+1. CRLF vs LF 줄바꿈 차이 (일부 캐릭터 CSV가 과거 Windows에서 저장되며 CRLF로 남아있던 것,
+   내용은 무관) — 무해.
+2. `UNKNOWN_0x1e`(Python 포맷) vs `UNKNOWN_1e`(JS 포맷) 같은 화자 라벨 표기 차이, 그리고
+   `dom1Athena_O0731_3.mes` block 24/27/44가 예전엔 `UNKNOWN_29`였다가 최신 `speaker_map.js`
+   기준 재계산으로 `[선택지]`가 된 것 — 둘 다 `speaker` 필드만 다르고 `source`/`translation`은
+   동일해서 빌드에 영향 없음(선택지 헤더 패치 로직은 실제로 `\` 마크가 있을 때만 발동하는데
+   해당 행엔 없었음). 무해.
+3. **실제 데이터 유실(심각)**: 총 26개 행에서 `source` 텍스트 자체가 예전 CSV에 저장된 값과
+   달라져 있었음 — 이전 세션 어느 시점에 `font_map_full.json`이 수정되어(예: `M<` → `Mr`,
+   `B「『」 O『 Figh>『<:P` → `Band Of Fighters`, `K)O-)A': 「「『」P` → `KYO-YA's band`,
+   `『igh>` → `fight`, `和狆`의 `狆` → 미확인 타일 `<CE12>`) 디코딩 결과가 바뀌었는데, 정작
+   CSV의 `source`/`translation` 열은 예전 디코딩 결과인 채로 남아 있었음. `extractProject()`는
+   병합 키에 `source` 문자열이 포함되므로, 새로 디코딩한(고쳐진) source가 옛 키와 매치가
+   안 돼서 **기존 번역이 통째로 빈 칸으로 떨어져 나감** — `webtool/workspace/dom1/translations/`
+   에서 실제로 26개 행이 `translation=""` 이 되어버린 것을 확인. (`translations/` 루트 트리는
+   `extractProject()`가 건드리지 않아서 그대로 살아있었기 때문에 유실은 아니었고, 복구
+   가능했음.)
+   - 복구: `translations/`(옛 source+번역 쌍)와 `webtool/.../translations/`(새 source, 빈 번역)를
+     `(file, block)` 키로 비교해 26개 전부 식별 → `<CE12>` placeholder가 새로 생긴
+     `namelist1.mes` block 154(`니코친` → `니코<CE12>`, 미확인 타일이라 placeholder만 유지)
+     한 건만 번역 수정이 필요했고 나머지 25건은 placeholder 검증 통과. 이 중 `dom1King_*`/
+     `dom1Yuri_O0730_4.mes`의 "Mr.ビッグ" 관련 11개 행은 예전 번역가가 깨진 소스("M<.ビッグ")를
+     그대로 베껴 "M<빅"이라고 옮긴 상태였어서, 복구하면서 "Mr.빅"으로 같이 정정(다른 정상
+     번역행들은 이미 "미스터 빅"/"Mr.빅"으로 올바르게 되어 있어 일관성 확보). `dom1King_O0729_4.mes`
+     block 12는 "M<빅"→"Mr.빅" 치환으로 1토큰 초과(69→70)해서 "없군." → "없군"(마침표 제거)으로
+     1토큰 줄여 예산 안에 맞춤.
+   - 복구는 `pipeline.saveFile()`로 재검증 저장 (전부 `ok: true` 확인 후 재확인 스크립트로
+     orphaned 0건 확인).
+4. saveload.mes 19개 신규 행 (의도된 변경).
+
+이 네 가지 외에는 두 트리 간 차이가 전혀 없음을 확인한 뒤 `webtool/workspace/dom1/translations/`
+→ `translations/`로 28개 파일 전부 복사해 두 트리 재동기화.
+
+**최종 검증**:
+- `python3 analysis/mes_translate_reinsert.py <임시 복사본>` 재실행 → 869개 파일 **0 skipped**.
+- `saveload.mes` 빌드 결과를 `temp/decode_kr_tokens.py`(새로 작성한 재사용 가능 검증 도구 —
+  `translate_io.tokens_to_text()`는 항상 `font_map_full.json`으로 디코딩하므로 한글 인코딩된
+  토큰을 넣으면 엉뚱한 한자로 깨져 보임; 이 스크립트는 `font_map_kr.json` 역매핑으로 디코딩해
+  실제 한글 결과를 확인할 수 있게 함)로 직접 디코딩해 block 12-18이 정확히 의도한 한국어
+  문구로, block 0-11은 원본 그대로 보존됨을 눈으로 확인.
+
+**교훈**: `extractProject()`를 돌릴 때마다 이런 "font_map 수정 이후 source 재디코딩으로 인한
+번역 유실"이 재발할 수 있음 — 앞으로 `extractProject()` 실행 후에는 항상 이번처럼
+`(file, block)` 키로 old/new 두 CSV의 `translation` 필드를 비교해 "이전엔 번역이 있었는데
+지금은 빈 칸"인 행이 있는지 확인하는 절차를 거칠 것 (`translations/`가 항상 extractProject
+실행 전 상태를 보존하고 있으므로 비교 기준으로 쓸 수 있음).
+
+## 2026-08-28 (계속5) — extractProject() 병합 키를 (file, block, n_tokens) 기반으로 수정
+
+바로 위 항목("계속4")에서 발견한 `extractProject()`의 데이터 유실 버그(병합 키에 `source` 텍스트
+문자열이 포함돼 있어서, 폰트맵 디코딩 결과가 바뀌면 기존 번역이 통째로 빈 칸으로 떨어져 나가는
+문제)를 근본적으로 수정.
+
+**수정**: `webtool/server/lib/pipeline.js`의 `extractProject()`에서 병합 키를
+`${row.file} ${row.block} ${row.n_tokens} ${row.source}` → `${row.file} ${row.block} ${row.n_tokens}`로
+변경 (`existingByKey` 생성부와 조회부 양쪽 다). `source`는 병합 키에서 완전히 제외.
+
+**왜 n_tokens는 남겨뒀는가**: block의 시작/끝 offset(`s, e`)은 `findDialogueBlocks()`가 `.mes`
+파일의 원본 바이트만 보고 결정하며, 그 바이트를 텍스트로 "디코딩"하는 방식(font_map_full.json)과는
+완전히 무관하다. 즉 폰트맵을 고쳐도 block 경계 자체는 절대 안 움직인다 — `source`는 매번 최신
+디코딩 결과로 다시 채워지므로(`writeCsv`가 새로 계산한 `text`를 그대로 쓰는 것은 원래도 그랬음)
+키에 넣을 필요가 전혀 없었다. 반대로 `n_tokens`(블록 길이)는 실제로 block 경계가 밀리는(shift)
+상황(예: block 탐지 로직 자체 변경, 원본 ROM 재추출 등)을 잡아내는 유일한 안전장치이므로 유지 —
+`n_tokens`가 달라지면 지금도 여전히 "새 미번역 행"으로 취급되어 번역이 자동 이월되지 않는다(이건
+의도된 동작: 경계가 실제로 바뀌었으면 옛 번역을 그 자리에 그냥 재사용하는 게 더 위험함).
+
+**검증**:
+1. 수정 후 `node -e "require('./webtool/server/lib/pipeline').extractProject('dom1')"` 재실행 →
+   `filesScanned: 881, filesWithBlocks: 869, totalBlocks: 38506, translatedCount: 25665`.
+2. `diff -rq translations/ webtool/workspace/dom1/translations/` → **완전히 동일(diff 없음)**.
+   이전(계속4 발견 당시)에는 이 시점에 28개 파일이 전부 달라졌었는데, 이번에는 `source`가 병합
+   키에서 빠지고 나니 이미 최신 디코딩과 일치하는 상태라 아예 diff 자체가 발생하지 않음 — 재발
+   방지가 실제로 작동함을 직접 확인.
+3. `analysis/mes_translate_reinsert.py`로 `translations/` 전체를 다시 빌드 → 869개 파일 **0 skipped**.
+
+이제 앞으로 `font_map_full.json`을 수정한 뒤 `extractProject()`를 돌려도 기존 번역이 조용히
+사라지는 일은 재발하지 않는다.

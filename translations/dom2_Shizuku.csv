@@ -539,7 +539,7 @@ dom2Shizuku_S04.mes,Script/dom2Shizuku_S04.mes,14,10,Shizuku,そう?ならいい
 dom2Shizuku_S04.mes,Script/dom2Shizuku_S04.mes,15,21,주인공,いいですね、<6E5C>ごいっしょさせてもらいます,"좋죠,<6E5C>같이 먹을게요","좋죠,<6E5C>같이 먹을게요"
 dom2Shizuku_S04.mes,Script/dom2Shizuku_S04.mes,16,9,Shizuku,ごゆっくりどうぞ,편히 즐기세요,편히 즐기세요
 dom2Shizuku_S04.mes,Script/dom2Shizuku_S04.mes,17,19,주인공,(巳沢さんの笑顔って……時々怖い<6E5C>),"(미사와 씨 미소, 가끔<6E5C>무서워)","(미사와 씨 미소, 가끔<6E5C>무서워)"
-dom2Shizuku_S05.mes,Script/dom2Shizuku_S05.mes,0,6,UNKNOWN_0x1e,<이름:3131>くーん,<이름:3131>구운~,<이름:3131>구운~
+dom2Shizuku_S05.mes,Script/dom2Shizuku_S05.mes,0,6,UNKNOWN_1e,<이름:3131>くーん,<이름:3131>구운~,<이름:3131>구운~
 dom2Shizuku_S05.mes,Script/dom2Shizuku_S05.mes,1,22,주인공,あれ、巳沢さん、<6E5C>今日はもう授業はないの?,"미사와 씨,<6E5C>오늘은 이제 수업 없어?","미사와 씨,<6E5C>오늘은 이제 수업 없어?"
 dom2Shizuku_S05.mes,Script/dom2Shizuku_S05.mes,2,11,Shizuku,うん、もう終わったよ,응 벌써 다 끝났어,응 벌써 다 끝났어
 dom2Shizuku_S05.mes,Script/dom2Shizuku_S05.mes,3,15,Shizuku,ねえ、どこか遊びに行かない?,어디 놀러 안 갈래?,어디 놀러 안 갈래?

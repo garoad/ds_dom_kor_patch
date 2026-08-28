@@ -374,7 +374,7 @@ dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,39,9,Jenny,ステキよ!<이름:3232>
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,40,10,주인공,俺もやりたいです!,저도 할래요!,저도 할래요!
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,41,31,Jenny,そーこなくっちゃ★<6E5C>リーリンナイツでベース<6E5C>弾いてよ、<이름:3232>!,"그거지★<6E5C>리린나이츠에서 베이스<6E5C>쳐줘, <이름:3232>!","그거지★<6E5C>리린나이츠에서 베이스<6E5C>쳐줘, <이름:3232>!"
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,42,11,주인공,えぇ!?ほんとに!?,네에!?진짜로!?,네에!?진짜로!?
-dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,43,37,Jenny,バンドコンテスト、<6E5C>'B「『」 O『 Figh>『<:Pに<6E5C>出よーよん!,"밴드 콘테스트,<6E5C>'록 오브 파이터즈'에<6E5C>나가는 거용!","밴드 콘테스트,<6E5C>'록 오브 파이터즈'에<6E5C>나가는 거용!"
+dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,43,37,Jenny,バンドコンテスト、<6E5C>'Band Of FightersPに<6E5C>出よーよん!,,"밴드 콘테스트,<6E5C>'록 오브 파이터즈'에<6E5C>나가는 거용!"
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,44,9,주인공,い、いきなり……,이렇게 갑자기?,이렇게 갑자기?
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,45,4,Jenny,イヤ?,싫어?,싫어?
 dom1Jenny_L10.mes,Script/dom1Jenny_L10.mes,46,12,주인공,……いえ、ぜんぜん!!,"……아뇨, 전혀!!","……아뇨, 전혀!!"
@@ -489,7 +489,7 @@ dom1Jenny_O0727_2.mes,Script/dom1Jenny_O0727_2.mes,5,14,주인공,(教育実習�
 dom1Jenny_O0727_2.mes,Script/dom1Jenny_O0727_2.mes,6,45,주인공,それと……、練習の前に、その<6E5C>バンドコンテストのことを詳しく<6E5C>教えてほしいんですけど……,"그리고…… 연습 전에, 그<6E5C>밴드 콘테스트에 대해 자세히<6E5C>알려줬으면 하는데요……","그리고…… 연습 전에, 그<6E5C>밴드 콘테스트에 대해 자세히<6E5C>알려줬으면 하는데요……"
 dom1Jenny_O0727_2.mes,Script/dom1Jenny_O0727_2.mes,7,23,Jenny,ソーネ!すっかりセツメイするの<6E5C>忘れてたわ!,맞다! 완전히 설명하는 거<6E5C>깜빡했네!,맞다! 완전히 설명하는 거<6E5C>깜빡했네!
 dom1Jenny_O0727_2.mes,Script/dom1Jenny_O0727_2.mes,8,14,주인공,(しっかりしてくれよ……),(정신 좀 차려줘……),(정신 좀 차려줘……)
-dom1Jenny_O0727_2.mes,Script/dom1Jenny_O0727_2.mes,9,66,Jenny,'B「『」 O『 Figh>『<:Pが<6E5C>行われるのは31日よん!<6E5C>会場はOROCHi<485C>毎年行われてるチョ~レベル高い<6E5C>コンテストよ,'록 오브 파이터즈'가<6E5C>열리는 건 31일이야!<6E5C>장소는 OROCHi<485C>매년 열리는 완전<6E5C>레벨 높은 콘테스트야,'록 오브 파이터즈'가<6E5C>열리는 건 31일이야!<6E5C>장소는 OROCHi<485C>매년 열리는 완전<6E5C>레벨 높은 콘테스트야
+dom1Jenny_O0727_2.mes,Script/dom1Jenny_O0727_2.mes,9,66,Jenny,'Band Of FightersPが<6E5C>行われるのは31日よん!<6E5C>会場はOROCHi<485C>毎年行われてるチョ~レベル高い<6E5C>コンテストよ,,'록 오브 파이터즈'가<6E5C>열리는 건 31일이야!<6E5C>장소는 OROCHi<485C>매년 열리는 완전<6E5C>레벨 높은 콘테스트야
 dom1Jenny_O0727_2.mes,Script/dom1Jenny_O0727_2.mes,10,17,주인공,31日って4日後じゃないですか!,31일이면 4일 뒤잖아요!,31일이면 4일 뒤잖아요!
 dom1Jenny_O0727_2.mes,Script/dom1Jenny_O0727_2.mes,11,21,Jenny,そーよん.だからみっちり練習する<6E5C>のよー,맞다니까.그니까 빡세게<6E5C>연습하는 거야,맞다니까.그니까 빡세게<6E5C>연습하는 거야
 dom1Jenny_O0727_2.mes,Script/dom1Jenny_O0727_2.mes,12,12,주인공,でもレベル高いって……,근데 레벨 높다니……,근데 레벨 높다니……
@@ -799,15 +799,15 @@ dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,4,26,UNKNOWN_1a,オヤ?見慣
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,5,11,주인공,なっ……この声は……,뭐…이 목소리는……,뭐…이 목소리는……
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,6,22,Kaidou,<이름:3131>、そりゃナンのマネだ?<6E5C>おままごとか?,"<이름:3131>, 그거 대체 흉내냐?<6E5C>소꿉놀이냐?","<이름:3131>, 그거 대체 흉내냐?<6E5C>소꿉놀이냐?"
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,7,14,주인공,海堂!おまえこそなんで……,카이도! 너야말로 왜……,카이도! 너야말로 왜……
-dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,8,48,Kaidou,明日はオレ様が優勝する<6E5C>'B「『」 O『 Figh>『<:P<6E5C>だからな.軽く練習しに来たんだよ,내일은 나님이 우승할<6E5C>'록 오브 파이터즈'<6E5C>니까. 살짝 연습하러 왔다,내일은 나님이 우승할<6E5C>'록 오브 파이터즈'<6E5C>니까. 살짝 연습하러 왔다
+dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,8,48,Kaidou,明日はオレ様が優勝する<6E5C>'Band Of FightersP<6E5C>だからな.軽く練習しに来たんだよ,,내일은 나님이 우승할<6E5C>'록 오브 파이터즈'<6E5C>니까. 살짝 연습하러 왔다
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,9,13,주인공,お、おまえも出るのかよ!,너 너도 나가는 거냐!,너 너도 나가는 거냐!
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,10,16,Kaidou,ってことは<이름:3131>、テメーもか!?,그럼 <이름:3131> 네놈도냐!?,그럼 <이름:3131> 네놈도냐!?
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,11,5,주인공,あぁ……,아……,아……
-dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,12,62,Kaidou,あいかわらずふざけたヤツだな……<485C>'B「『」 O『 Figh>『<:Pは<6E5C>オマエみたいなド素人が出れる<6E5C>大会じゃねーんだぜ,여전히 웃긴 놈이구만……<485C>'록 오브 파이터즈'는<6E5C>너 같은 초짜가 나올 수 있는<6E5C>대회가 아니라고,여전히 웃긴 놈이구만……<485C>'록 오브 파이터즈'는<6E5C>너 같은 초짜가 나올 수 있는<6E5C>대회가 아니라고
+dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,12,62,Kaidou,あいかわらずふざけたヤツだな……<485C>'Band Of FightersPは<6E5C>オマエみたいなド素人が出れる<6E5C>大会じゃねーんだぜ,,여전히 웃긴 놈이구만……<485C>'록 오브 파이터즈'는<6E5C>너 같은 초짜가 나올 수 있는<6E5C>대회가 아니라고
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,13,28,Jenny,ちょっとー!アタシの大事な<6E5C>メンバーにケチつける気ぃ?,잠깐ー! 내 소중한<6E5C>멤버한테 시비 걸 셈이야?,잠깐ー! 내 소중한<6E5C>멤버한테 시비 걸 셈이야?
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,14,7,주인공,あ、ジェニー,"아, 제니","아, 제니"
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,15,21,Kaidou,おや?いつかのキレイなオネー<6E5C>サンじゃん,오라? 언젠가 그 예쁜 누<6E5C>나잖아,오라? 언젠가 그 예쁜 누<6E5C>나잖아
-dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,16,54,Jenny,'B「『」 O『 Figh>『<:Pで<6E5C>ユウショーするのはアタシたち<6E5C>リーリンナイツよ!<485C>まちがえないで!,'록 오브 파이터즈'에서<6E5C>우승하는 건 우리<6E5C>리린나이츠야!<485C>착각하지 마!,'록 오브 파이터즈'에서<6E5C>우승하는 건 우리<6E5C>리린나이츠야!<485C>착각하지 마!
+dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,16,54,Jenny,'Band Of FightersPで<6E5C>ユウショーするのはアタシたち<6E5C>リーリンナイツよ!<485C>まちがえないで!,,'록 오브 파이터즈'에서<6E5C>우승하는 건 우리<6E5C>리린나이츠야!<485C>착각하지 마!
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,17,47,Kaidou,へぇ、アンタも出るのか.<6E5C>そりゃ楽しみだな<485C>でも、<이름:3131>なんかを入れてる<6E5C>時点で負けは決定だぜ,허 너도 나가는 거냐.<6E5C>기대되는군<485C>근데 <이름:3131> 따위를 넣은<6E5C>시점에서 패배 확정이다,허 너도 나가는 거냐.<6E5C>기대되는군<485C>근데 <이름:3131> 따위를 넣은<6E5C>시점에서 패배 확정이다
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,18,14,Jenny,ナニよ~ん!?やる気ぃ~?,뭐야!? 해보자는 거야?,뭐야!? 해보자는 거야?
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,19,7,주인공,ジェニー……,제니……,제니……
@@ -818,7 +818,7 @@ dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,23,14,[효과음/내레이션
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,24,5,주인공,…………,…………,…………
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,25,20,Kaidou,どーだ?スゴすぎて声も出ねぇっ<6E5C>てか?,어떠냐? 쩔어서 말도 안 나오<6E5C>냐?,어떠냐? 쩔어서 말도 안 나오<6E5C>냐?
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,26,6,주인공,……くそぉ,……젠장,……젠장
-dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,27,56,Kaidou,まぁ、明日はオレ達<6E5C>'K)O-)A': 「「『」Pがデビュー<6E5C>する瞬間を、指をくわえて<6E5C>見てるんだな!アバヨ!,뭐 내일은 우리 팀이<6E5C>데뷔하는 순간을 손가락 빨며<6E5C>구경이나 해! 잘가!,뭐 내일은 우리 팀이<6E5C>데뷔하는 순간을 손가락 빨며<6E5C>구경이나 해! 잘가!
+dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,27,56,Kaidou,まぁ、明日はオレ達<6E5C>'KYO-YA's bandPがデビュー<6E5C>する瞬間を、指をくわえて<6E5C>見てるんだな!アバヨ!,,뭐 내일은 우리 팀이<6E5C>데뷔하는 순간을 손가락 빨며<6E5C>구경이나 해! 잘가!
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,28,4,주인공,あ……,아……,아……
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,29,5,Jenny,…………,…………,…………
 dom1Jenny_O0730_2.mes,Script/dom1Jenny_O0730_2.mes,30,7,주인공,ジェニー……,제니……,제니……
@@ -902,7 +902,7 @@ dom1Jenny_O0731_0.mes,Script/dom1Jenny_O0731_0.mes,18,36,Kaidou,なんだ、め�
 dom1Jenny_O0731_0.mes,Script/dom1Jenny_O0731_0.mes,19,5,주인공,…………,…………,…………
 dom1Jenny_O0731_0.mes,Script/dom1Jenny_O0731_0.mes,20,4,Jenny,<이름:3232>!,<이름:3232>!,<이름:3232>!
 dom1Jenny_O0731_0.mes,Script/dom1Jenny_O0731_0.mes,21,17,주인공,どうしたのジェニー、そんな顔して,"왜 그래 제니, 그런 얼굴로","왜 그래 제니, 그런 얼굴로"
-dom1Jenny_O0731_0.mes,Script/dom1Jenny_O0731_0.mes,22,41,Jenny,アタシ……アタシ出れない!<6E5C>'B「『」 O『 Figh>『<:Pに<6E5C>出れないよ!,나…… 나 못 나가!<6E5C>'록 오브 파이터즈'에<6E5C>못 나간다구!,나…… 나 못 나가!<6E5C>'록 오브 파이터즈'에<6E5C>못 나간다구!
+dom1Jenny_O0731_0.mes,Script/dom1Jenny_O0731_0.mes,22,41,Jenny,アタシ……アタシ出れない!<6E5C>'Band Of FightersPに<6E5C>出れないよ!,,나…… 나 못 나가!<6E5C>'록 오브 파이터즈'에<6E5C>못 나간다구!
 dom1Jenny_O0731_0.mes,Script/dom1Jenny_O0731_0.mes,23,5,주인공,えぇ!?,뭐!?,뭐!?
 dom1Jenny_O0731_1.mes,Script/dom1Jenny_O0731_1.mes,0,10,주인공,ジェニーの父親!?,제니 아버지!?,제니 아버지!?
 dom1Jenny_O0731_1.mes,Script/dom1Jenny_O0731_1.mes,1,56,UNKNOWN_b7,あぁ.そいつから電話がかかって<6E5C>きてな、リーダーが大会に出るなら<485C>大会そのものを中止させるって<6E5C>言ってきたんだ,"그래.그 사람한테 전화가<6E5C>왔는데, 리더가 대회에 나가면<485C>대회 자체를 중지시키겠다고<6E5C>그러더라","그래.그 사람한테 전화가<6E5C>왔는데, 리더가 대회에 나가면<485C>대회 자체를 중지시키겠다고<6E5C>그러더라"
@@ -954,7 +954,7 @@ dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,26,55,주인공,大丈夫だ�
 dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,27,6,Jenny,<이름:3232>……!,<이름:3232>……!,<이름:3232>……!
 dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,28,24,주인공,ジェニー、家に電話して!父親に<6E5C>出てもらって!,"제니, 집에 전화해!아버지<6E5C>바꿔 달래!","제니, 집에 전화해!아버지<6E5C>바꿔 달래!"
 dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,29,11,Jenny,どうするつもりなの?,어쩌려는 건데?,어쩌려는 건데?
-dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,30,47,주인공,歌うんだ!リーリンナイツのライブ<6E5C>だ!'B「『」 O『 Figh>『<:Pの<6E5C>はじまる前に!,노래할 거야!리린나이츠<6E5C>라이브야!'록 오브 파이터즈'가<6E5C>시작 전에!,노래할 거야!리린나이츠<6E5C>라이브야!'록 오브 파이터즈'가<6E5C>시작 전에!
+dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,30,47,주인공,歌うんだ!リーリンナイツのライブ<6E5C>だ!'Band Of FightersPの<6E5C>はじまる前に!,,노래할 거야!리린나이츠<6E5C>라이브야!'록 오브 파이터즈'가<6E5C>시작 전에!
 dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,31,5,Jenny,エェ!?,뭐!?,뭐!?
 dom1Jenny_O0731_2.mes,Script/dom1Jenny_O0731_2.mes,32,27,UNKNOWN_20,そりゃぁおもしれぇ!よし、いっ<6E5C>ちょやってやるかぁ!,"그거 재밌겠는데!좋아, 한번<6E5C>해 보자고!","그거 재밌겠는데!좋아, 한번<6E5C>해 보자고!"
 dom1Jenny_O0731_3.mes,Script/dom1Jenny_O0731_3.mes,0,16,주인공,ちょっと、ちょっとすいません!,"저기, 저기 잠깐만요!","저기, 저기 잠깐만요!"
@@ -1244,11 +1244,11 @@ dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,23,17,주인공,うぅ、気�
 dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,24,8,[효과음/내레이션],そして8月……,그럼 8월……,그럼 8월……
 dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,25,28,Jenny,もぉ<이름:3232>!<6E5C>そんなんじゃ午後のデートは<6E5C>オアズケよん!,아 참 <이름:3232>!<6E5C>오후 데이트는<6E5C>없던 걸로 할 거야!,아 참 <이름:3232>!<6E5C>오후 데이트는<6E5C>없던 걸로 할 거야!
 dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,26,7,주인공,そ、そんな~,"그, 그런~","그, 그런~"
-dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,27,49,Jenny,来年の'B「『」 O『 Figh>『<:P<6E5C>ではぜったい優勝するんだから!<6E5C>もう後はないのよん!,내년<6E5C>'록 오브 파이터즈'에서는 절대<6E5C>우승할 거야! 더는 다음이 없다구!,내년<6E5C>'록 오브 파이터즈'에서는 절대<6E5C>우승할 거야! 더는 다음이 없다구!
+dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,27,49,Jenny,来年の'Band Of FightersP<6E5C>ではぜったい優勝するんだから!<6E5C>もう後はないのよん!,,내년<6E5C>'록 오브 파이터즈'에서는 절대<6E5C>우승할 거야! 더는 다음이 없다구!
 dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,28,32,주인공,……大会、まさか出られなくなると<6E5C>は思わなかったですからね……,"……대회, 설마 못 나가게<6E5C>될 줄은 몰랐네요……","……대회, 설마 못 나가게<6E5C>될 줄은 몰랐네요……"
 dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,29,60,Jenny,あったまくるわあのスタッフ!<6E5C>アタシたちのおかげで中止に<6E5C>ならずにすんだのに、<485C>『大会妨害で出場取り消し』<6E5C>ですって!,"열받네 그 스태프들!<6E5C>우리들 덕분에 중지되지<6E5C>않고 끝났는데,<485C>『대회 방해로 출전 취소』<6E5C>래!","열받네 그 스태프들!<6E5C>우리들 덕분에 중지되지<6E5C>않고 끝났는데,<485C>『대회 방해로 출전 취소』<6E5C>래!"
 dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,30,27,주인공,(中止になりかけたのも、俺達が<6E5C>原因なんだけど……),"(중지될 뻔한 것도, 우리가<6E5C>원인이지만……)","(중지될 뻔한 것도, 우리가<6E5C>원인이지만……)"
-dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,31,56,Jenny,それで優勝が<6E5C>'K)O-)A': 「「『」P!<485C>ぜったいリーリンナイツのほうが<6E5C>よかったのにぃ~.<6E5C>くやしぃ~,그래서 우승은<6E5C>완전히 물 건너갔지 뭐야!<485C>절대 리린나이츠 쪽이<6E5C>나았을 텐데~<6E5C>분하다~,그래서 우승은<6E5C>완전히 물 건너갔지 뭐야!<485C>절대 리린나이츠 쪽이<6E5C>나았을 텐데~<6E5C>분하다~
+dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,31,56,Jenny,それで優勝が<6E5C>'KYO-YA's bandP!<485C>ぜったいリーリンナイツのほうが<6E5C>よかったのにぃ~.<6E5C>くやしぃ~,,그래서 우승은<6E5C>완전히 물 건너갔지 뭐야!<485C>절대 리린나이츠 쪽이<6E5C>나았을 텐데~<6E5C>분하다~
 dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,32,43,주인공,まぁ、あいつらも妨害の手助けをし<6E5C>たってことで、デビューの話はナシ<6E5C>みたいですけどね,"뭐, 그 애들도 방해를 도왔단<6E5C>이유로, 데뷔 얘기는 없던 일이<6E5C>된것 같은데요","뭐, 그 애들도 방해를 도왔단<6E5C>이유로, 데뷔 얘기는 없던 일이<6E5C>된것 같은데요"
 dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,33,50,Jenny,来年はぜったい優勝をうばいとるわ<6E5C>よん!<020A>そのためには猛トックン!<6E5C>1日たりとも休めないんだから!,내년엔 반드시 우승을 빼앗아<6E5C>올 거야!<020A>그러기 위해선 특훈!<6E5C>하루도 쉬면 안 되는 거야!,내년엔 반드시 우승을 빼앗아<6E5C>올 거야!<020A>그러기 위해선 특훈!<6E5C>하루도 쉬면 안 되는 거야!
 dom1Jenny_ending1.mes,Script/dom1Jenny_ending1.mes,34,12,주인공,そんな、デートは……?,"그런, 데이트는……?","그런, 데이트는……?"
@@ -1268,7 +1268,7 @@ dom1Jenny_ending2.mes,Script/dom1Jenny_ending2.mes,6,42,Jenny,それがすっご
 dom1Jenny_ending2.mes,Script/dom1Jenny_ending2.mes,7,12,주인공,ええっ、イギリスで!?,"네엣, 영국에서요!?","네엣, 영국에서요!?"
 dom1Jenny_ending2.mes,Script/dom1Jenny_ending2.mes,8,32,UNKNOWN_b7,リーダーすごい!<6E5C>イギリスでバンドなんて<6E5C>本望じゃないですか!,리더 대단하네요!<6E5C>영국에서 밴드라니<6E5C>바라던 바잖아요!,리더 대단하네요!<6E5C>영국에서 밴드라니<6E5C>바라던 바잖아요!
 dom1Jenny_ending2.mes,Script/dom1Jenny_ending2.mes,9,33,Jenny,そーと決まればゼンはいそげよん!<6E5C><이름:3232>、イギリスに行きましょう!,"그렇게 정해졌으면 서둘러야지!<6E5C><이름:3232>, 영국으로 가자!","그렇게 정해졌으면 서둘러야지!<6E5C><이름:3232>, 영국으로 가자!"
-dom1Jenny_ending2.mes,Script/dom1Jenny_ending2.mes,10,37,주인공,んな無茶な!<6E5C>'B「『」 O『 Figh>『<:Pは<6E5C>どーするんですか!,그런 무리한 소리를!<6E5C>'록 오브 파이터즈'는<6E5C>어떡할 거예요!,그런 무리한 소리를!<6E5C>'록 오브 파이터즈'는<6E5C>어떡할 거예요!
+dom1Jenny_ending2.mes,Script/dom1Jenny_ending2.mes,10,37,주인공,んな無茶な!<6E5C>'Band Of FightersPは<6E5C>どーするんですか!,,그런 무리한 소리를!<6E5C>'록 오브 파이터즈'는<6E5C>어떡할 거예요!
 dom1Jenny_ending2.mes,Script/dom1Jenny_ending2.mes,11,77,Jenny,そんなの見るまでもなく優勝に<6E5C>決まってるじゃない!<485C>そしてリーリンナイツは世界に<6E5C>はばたくのよ!<485C>どうせやるならスリリングに、<6E5C>そしてエキサイトにねん!,"그런 건 보나마나 우승<6E5C>확정이잖아!<485C>그리고 리린나이츠는 세계로<6E5C>날아오르는 거야!<485C>어차피 할 거면 짜릿하게,<6E5C>그리고 신나게 하는 거지!","그런 건 보나마나 우승<6E5C>확정이잖아!<485C>그리고 리린나이츠는 세계로<6E5C>날아오르는 거야!<485C>어차피 할 거면 짜릿하게,<6E5C>그리고 신나게 하는 거지!"
 dom1Jenny_ending2.mes,Script/dom1Jenny_ending2.mes,12,8,주인공,んな勝手な……,그런 맘대로…,그런 맘대로…
 dom1Jenny_ending2.mes,Script/dom1Jenny_ending2.mes,13,30,Kaidou,おいオマエら!<6E5C>コンテスト中だってのにどこに<6E5C>行く気だぁ?,야 너희들!<6E5C>콘테스트 중인데 어디<6E5C>가려는 거야?,야 너희들!<6E5C>콘테스트 중인데 어디<6E5C>가려는 거야?
