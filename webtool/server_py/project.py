@@ -44,7 +44,15 @@ def script_dir(name):
 
 
 def csv_dir(name):
-    return os.path.join(project_dir(name), "translations")
+    # Translation CSVs are NOT a per-project copy - they live in the repo
+    # root's translations/, the same directory analysis/mes_translate_*.py's
+    # CLI oracle reads/writes. A prior design kept a second copy under
+    # workspace/<name>/translations/ manually synced to root, and that
+    # "두 벌 관리" split was a repeated source of silent data-loss bugs (see
+    # ANALYSIS_NOTES.md's many "두 트리 diff" entries). name is validated but
+    # otherwise unused here.
+    assert_valid_name(name)
+    return os.path.join(REPO_ROOT, "translations")
 
 
 def original_rom_path(name):

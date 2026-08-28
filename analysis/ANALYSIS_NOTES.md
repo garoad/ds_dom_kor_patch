@@ -14142,3 +14142,44 @@ nbfc_image.py, mac_translate.py, routes/{project,csv,build,files}.py}`가
 `webtool/tool.sh {start|stop|restart|status}`로 동일, 내부적으로
 `python3 server_py/app.py`를 실행. 의존성은 `pip3 install flask`(+ 기존 Pillow)만 필요,
 `webtool/requirements.txt`에 기록됨.
+
+## 웹툴 CSV 저장소를 루트 translations/로 단일화 (2026-08-29)
+
+**배경**: 백엔드를 Python으로 재작성해 코드 중복(로직 두 벌)은 없앴지만, 데이터 쪽으로도
+같은 문제가 남아 있었다 - 웹툴은 `webtool/workspace/dom1/translations/`라는 자기만의 CSV
+사본에서 읽고 쓰고, 실제 패치 빌드에 쓰이는 진본은 저장소 루트의 `translations/`였다. 두
+트리가 다르면 안 되므로 이번 세션 이전 내내 매 작업마다 `diff -rq`로 두 트리 동일 여부를
+확인하고 수작업으로 한쪽 변경을 다른 쪽에 복사하는 과정을 반복했다(이 파일 안에서만도
+"두 트리" 언급이 수십 건). 사용자가 "CSV도 2벌로 관리하니 문제가 생기는 것 같다"며 웹툴이
+`translations/` 폴더만 직접 읽고 편집하도록 바꿔달라고 요청.
+
+**변경**: `webtool/server_py/project.py`의 `csv_dir(name)`이 더 이상
+`workspace/<name>/translations/`를 만들어 반환하지 않고, `assert_valid_name(name)`으로
+이름 유효성만 검사한 뒤 `REPO_ROOT/translations`를 그대로 반환하도록 수정. `pipeline.py`의
+`read_csv`/`write_csv`/`file_summaries`/`rows_for_file`/`save_file`/`search_csv`와
+`routes/csv.py`의 `/download` zip 라우트는 모두 `proj.csv_dir(name)`을 통해서만 CSV 경로를
+얻으므로 다른 코드 변경 없이 전부 루트 `translations/`를 대상으로 동작하게 됨. (참고: CSV
+파일명 접두사 `dom1_`/`dom2_`/`dom3_`는 `mes_translate_extract.get_category()`가 .mes
+파일 이름 자체로 판별하는 카테고리이며 프로젝트 이름 "dom1"과는 무관 - 이 프로젝트가
+다루는 ROM 전체에 걸쳐 원래 하나의 공유 `translations/` 트리만 존재했어야 했다는 뜻.)
+
+**검증**:
+1. 서버 재시작 후 `GET /api/project/status?name=dom1` → `csvExists: true`, `totalBlocks:
+   38506` 정상, `GET /api/csv/files?name=dom1` → 869개 파일(오라클과 동일 개수).
+2. `GET /api/csv/file/dom1Athena_L01.mes?name=dom1`로 실제 행 읽기 확인(루트 CSV 내용과
+   일치).
+3. **쓰기 경로가 루트만 향하는지 직접 증명**: block 0 번역에 임시 마커(`TESTMARK`)를 넣어
+   `POST /api/csv/file/...`로 저장 → 루트 `translations/dom1_Athena.csv`에는 반영되고
+   `webtool/workspace/dom1/translations/dom1_Athena.csv`(구 사본)에는 반영 안 됨을
+   `grep -c`로 확인 → 원래 값으로 되돌리고 `md5` 해시가 저장 전과 동일함을 재확인.
+4. 오라클 회귀: `python3 analysis/mes_translate_reinsert.py translations/` →
+   "869 file(s) written ... 0 file(s) skipped".
+5. 이제 완전히 죽은 사본이 된 `webtool/workspace/dom1/translations/`를 삭제(사용자 확인
+   받은 뒤 진행 - `rm -rf`가 auto-mode 승인 정책에 막혀 `AskUserQuestion`으로 명시적 동의를
+   받음). 삭제 전 `diff -rq translations/ webtool/workspace/dom1/translations/`로
+   byte-identical함을 재확인했으므로 데이터 유실 없음. `dom1_translations.zip`(다운로드
+   산출물)은 그대로 유지.
+
+**효과**: 웹툴에서 번역을 편집하면 그 즉시 저장소 루트의 진본 CSV가 바뀌고, CLI 파이프라인
+(`mes_translate_reinsert.py`)이 보는 파일과 웹툴이 보여주는 파일이 항상 물리적으로 같은
+파일이 됨 - "두 트리 동기화 확인" 절차 자체가 더 이상 필요 없어짐.
