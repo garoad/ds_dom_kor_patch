@@ -1,297 +1,297 @@
 file,rel_path,block,n_tokens,speaker,source,ai_draft,translation
-dom3Festival.mes,Script/dom3Festival.mes,0,15,[효과음/내레이션],ヒュ~、ドン<020A>パンッ<020A>パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,1,14,주인공,何の音だ?遠くの方から……,,
-dom3Festival.mes,Script/dom3Festival.mes,2,14,Iroha,今日は夏祭りですよ、旦那様,,
-dom3Festival.mes,Script/dom3Festival.mes,3,5,주인공,夏祭り?,,
-dom3Festival.mes,Script/dom3Festival.mes,4,35,Iroha,ええ、河原で花火を<6E5C>上げているのです.<6E5C>旦那様は行かれないのですか?,,
-dom3Festival.mes,Script/dom3Festival.mes,5,6,주인공,そうだなぁ,,
-dom3Festival.mes,Script/dom3Festival.mes,6,19,주인공,(誰かを誘って行って<6E5C>みようか……),,
+dom3Festival.mes,Script/dom3Festival.mes,0,15,[효과음/내레이션],ヒュ~、ドン<020A>パンッ<020A>パンッ,"휘~,펑<020A>팡<020A>팡","휘~,펑<020A>팡<020A>팡"
+dom3Festival.mes,Script/dom3Festival.mes,1,14,주인공,何の音だ?遠くの方から……,무슨 소리지? 멀리서……,무슨 소리지? 멀리서……
+dom3Festival.mes,Script/dom3Festival.mes,2,14,Iroha,今日は夏祭りですよ、旦那様,"오늘 여름축제예요,서방님","오늘 여름축제예요,서방님"
+dom3Festival.mes,Script/dom3Festival.mes,3,5,주인공,夏祭り?,축제?,축제?
+dom3Festival.mes,Script/dom3Festival.mes,4,35,Iroha,ええ、河原で花火を<6E5C>上げているのです.<6E5C>旦那様は行かれないのですか?,"네, 강가에서 불꽃놀이를<6E5C>하고 있어요.<6E5C>서방님은 안 가시나요?","네, 강가에서 불꽃놀이를<6E5C>하고 있어요.<6E5C>서방님은 안 가시나요?"
+dom3Festival.mes,Script/dom3Festival.mes,5,6,주인공,そうだなぁ,그렇구나,그렇구나
+dom3Festival.mes,Script/dom3Festival.mes,6,19,주인공,(誰かを誘って行って<6E5C>みようか……),(누군가를 데려가<6E5C>볼까……),(누군가를 데려가<6E5C>볼까……)
 dom3Festival.mes,Script/dom3Festival.mes,7,15,[선택지],ナコルル詩乃ミナ凛花次のページ,나코루루시노미나린카다음페이지,나코루루\시노\미나\린카\다음페이지
 dom3Festival.mes,Script/dom3Festival.mes,8,12,[선택지],サヤ命色いろは次のページ,사야미코토시키이로하다음,사야\미코토\시키\이로하\다음
-dom3Festival.mes,Script/dom3Festival.mes,9,8,[선택지],千夜最初のページ,,
-dom3Festival.mes,Script/dom3Festival.mes,10,10,Nakoruru,夏祭り……ですか?,,
-dom3Festival.mes,Script/dom3Festival.mes,11,9,주인공,何かまずいのか?,,
-dom3Festival.mes,Script/dom3Festival.mes,12,29,UNKNOWN_7e,姉様は、これからあたしといっしょ<6E5C>に夏祭りに行くんだよ!,,
-dom3Festival.mes,Script/dom3Festival.mes,13,9,주인공,え……そうなの?,,
-dom3Festival.mes,Script/dom3Festival.mes,14,14,Nakoruru,そうなんです.ごめんなさい,,
-dom3Festival.mes,Script/dom3Festival.mes,15,17,주인공,(むむ、誘うのが遅かったか……),,
-dom3Festival.mes,Script/dom3Festival.mes,16,9,Nakoruru,夏祭り、ですか?,,
-dom3Festival.mes,Script/dom3Festival.mes,17,15,주인공,うん.いっしょに行かないか?,,
-dom3Festival.mes,Script/dom3Festival.mes,18,11,Nakoruru,でも、リムルルが……,,
-dom3Festival.mes,Script/dom3Festival.mes,19,23,주인공,あ、もしかしてふたりで行く<6E5C>予定だったのか?,,
-dom3Festival.mes,Script/dom3Festival.mes,20,5,Nakoruru,……はい,,
-dom3Festival.mes,Script/dom3Festival.mes,21,6,주인공,そうか……,,
-dom3Festival.mes,Script/dom3Festival.mes,22,11,[선택지],あきらめるあきらめない,,
-dom3Festival.mes,Script/dom3Festival.mes,23,25,주인공,そういうことなら仕方ないな.<6E5C>今回はあきらめるよ,,
-dom3Festival.mes,Script/dom3Festival.mes,24,4,UNKNOWN_7e,ダメ!,,
-dom3Festival.mes,Script/dom3Festival.mes,25,6,Nakoruru,リムルル?,,
-dom3Festival.mes,Script/dom3Festival.mes,26,40,UNKNOWN_7e,姉様、たまには自分に素直になって<6E5C>よ!<이름:3232>兄様といっしょに<6E5C>行きたいんでしょ?,,
-dom3Festival.mes,Script/dom3Festival.mes,27,7,Nakoruru,……リムルル,,
-dom3Festival.mes,Script/dom3Festival.mes,28,14,UNKNOWN_7e,<이름:3232>兄様!姉様を頼んだよ!,,
-dom3Festival.mes,Script/dom3Festival.mes,29,6,주인공,お、おう!,,
-dom3Festival.mes,Script/dom3Festival.mes,30,16,UNKNOWN_7e,それじゃ、いってらっしゃーい!,,
-dom3Festival.mes,Script/dom3Festival.mes,31,4,[효과음/내레이션],ヒュ~、,,
-dom3Festival.mes,Script/dom3Festival.mes,32,2,[효과음/내레이션],ドン,,
-dom3Festival.mes,Script/dom3Festival.mes,33,3,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,34,4,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,35,13,Nakoruru,とても、きれいですね……,,
-dom3Festival.mes,Script/dom3Festival.mes,36,3,주인공,ああ,,
-dom3Festival.mes,Script/dom3Festival.mes,37,5,Nakoruru,きゃっ!,,
-dom3Festival.mes,Script/dom3Festival.mes,38,5,주인공,危ない!,,
-dom3Festival.mes,Script/dom3Festival.mes,39,4,[효과음/내레이션],ガバッ,,
-dom3Festival.mes,Script/dom3Festival.mes,40,38,주인공,どうしたんだ、ナコルル.こんな<6E5C>河原でこけそうになるなんて、<6E5C>めずらしいな,,
-dom3Festival.mes,Script/dom3Festival.mes,41,21,Nakoruru,ご、ごめんなさい.<6E5C>どうしたのかしら……,,
-dom3Festival.mes,Script/dom3Festival.mes,42,16,Nakoruru,あの、もう大丈夫です.肩を……,,
-dom3Festival.mes,Script/dom3Festival.mes,43,19,주인공,しばらく、このままでも<6E5C>いいかな……,,
-dom3Festival.mes,Script/dom3Festival.mes,44,11,Nakoruru,……はい.今だけ……,,
-dom3Festival.mes,Script/dom3Festival.mes,45,25,주인공,リムルル、ここはひとつ俺と<6E5C>代わってくれないか?,,
-dom3Festival.mes,Script/dom3Festival.mes,46,2,UNKNOWN_7e,イ。,,
-dom3Festival.mes,Script/dom3Festival.mes,47,2,UNKNOWN_7e,ヤ。,,
-dom3Festival.mes,Script/dom3Festival.mes,48,2,UNKNOWN_7e,だ。,,
-dom3Festival.mes,Script/dom3Festival.mes,49,3,UNKNOWN_7e,よ!,,
-dom3Festival.mes,Script/dom3Festival.mes,50,7,주인공,そんなぁ……,,
-dom3Festival.mes,Script/dom3Festival.mes,51,12,Nakoruru,ごめんなさい、<이름:3232>さん,,
-dom3Festival.mes,Script/dom3Festival.mes,52,19,주인공,はぁ、仕方ない.<6E5C>ひとりで行くか……,,
-dom3Festival.mes,Script/dom3Festival.mes,53,15,Shino,あら<이름:3232>さん、いいところに!,,
-dom3Festival.mes,Script/dom3Festival.mes,54,30,주인공,え、まさか夏祭りのこと?<6E5C>そうか、詩乃さんも俺のことを……,,
-dom3Festival.mes,Script/dom3Festival.mes,55,46,Shino,そうそう!おじいちゃんと露店を<6E5C>出すから手伝ってよ!人手はいくら<6E5C>あっても困らないからね!,,
-dom3Festival.mes,Script/dom3Festival.mes,56,11,주인공,えぇ~、手伝いかよぉ,,
-dom3Festival.mes,Script/dom3Festival.mes,57,29,Shino,こっちは、こんな稼ぎ時に遊んでる<6E5C>場合じゃないんだよっ!,,
-dom3Festival.mes,Script/dom3Festival.mes,58,9,주인공,駄目だこりゃ……,,
-dom3Festival.mes,Script/dom3Festival.mes,59,7,Shino,え、夏祭り?,,
-dom3Festival.mes,Script/dom3Festival.mes,60,9,주인공,行きたくないの?,,
-dom3Festival.mes,Script/dom3Festival.mes,61,38,Shino,そうじゃないけど、毎年祭りには<6E5C>おじいちゃんと露店を出すから、<6E5C>今年も……,,
-dom3Festival.mes,Script/dom3Festival.mes,62,10,주인공,そうか.大変だなぁ,,
-dom3Festival.mes,Script/dom3Festival.mes,63,10,[선택지],頑張ってね俺もやろう,,
-dom3Festival.mes,Script/dom3Festival.mes,64,22,주인공,じゃ、邪魔しちゃ悪いな.<6E5C>お店、頑張ってね,,
-dom3Festival.mes,Script/dom3Festival.mes,65,33,Shino,もっちろん!<이름:3232>さんだったら、<6E5C>もろこし三本は買ってくれるよね?,,
-dom3Festival.mes,Script/dom3Festival.mes,66,10,주인공,そ、そんなには……,,
-dom3Festival.mes,Script/dom3Festival.mes,67,12,주인공,よし、じゃあ俺もやろう,,
-dom3Festival.mes,Script/dom3Festival.mes,68,3,Shino,え?,,
-dom3Festival.mes,Script/dom3Festival.mes,69,34,주인공,俺も露店の手伝いをするよ.<6E5C>この材料、河原に運んだら<6E5C>いいのかな?,,
-dom3Festival.mes,Script/dom3Festival.mes,70,7,Shino,<이름:3232>さん……,,
-dom3Festival.mes,Script/dom3Festival.mes,71,4,[효과음/내레이션],ヒュ~、,,
-dom3Festival.mes,Script/dom3Festival.mes,72,2,[효과음/내레이션],ドン,,
-dom3Festival.mes,Script/dom3Festival.mes,73,3,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,74,4,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,75,13,UNKNOWN_69,おい!そば一人前おくれっ,,
-dom3Festival.mes,Script/dom3Festival.mes,76,12,UNKNOWN_6a,こっちは、もろこしだよ,,
-dom3Festival.mes,Script/dom3Festival.mes,77,24,주인공,はいぃ、ただいま!<6E5C>……すごい繁盛だな、こりゃ,,
-dom3Festival.mes,Script/dom3Festival.mes,78,29,Shino,<이름:3232>さん……今日はありがとう、<6E5C>こんなに力を貸してくれて,,
-dom3Festival.mes,Script/dom3Festival.mes,79,8,주인공,いいってことよ,,
-dom3Festival.mes,Script/dom3Festival.mes,80,34,Shino,ふふ、<이름:3232>さんにはお店を商う<6E5C>素質があるね!<6E5C>いい発見しちゃった!,,
-dom3Festival.mes,Script/dom3Festival.mes,81,19,주인공,(ん?<6E5C>それってどういう意味だろう),,
-dom3Festival.mes,Script/dom3Festival.mes,82,9,Mina,わたしに……用?,,
-dom3Festival.mes,Script/dom3Festival.mes,83,24,주인공,うん.いっしょに夏祭りに<6E5C>行かないかと思ってさ,,
-dom3Festival.mes,Script/dom3Festival.mes,84,27,Mina,あんな人のたくさんいるところ、<6E5C>ぜったいに行かない!,,
-dom3Festival.mes,Script/dom3Festival.mes,85,10,UNKNOWN_7b,んじゃちゃーびら~,,
-dom3Festival.mes,Script/dom3Festival.mes,86,19,주인공,(う……、<6E5C>ミナって人嫌いだもんな),,
-dom3Festival.mes,Script/dom3Festival.mes,87,7,Mina,……夏祭り?,,
-dom3Festival.mes,Script/dom3Festival.mes,88,19,주인공,うん.<6E5C>いっしょに行かないかと思って,,
-dom3Festival.mes,Script/dom3Festival.mes,89,3,Mina,……,,
-dom3Festival.mes,Script/dom3Festival.mes,90,4,주인공,駄目?,,
-dom3Festival.mes,Script/dom3Festival.mes,91,3,Mina,……,,
-dom3Festival.mes,Script/dom3Festival.mes,92,6,Mina,……いいよ,,
-dom3Festival.mes,Script/dom3Festival.mes,93,19,주인공,よかった!<6E5C>じゃあ、さっそく行こう!,,
-dom3Festival.mes,Script/dom3Festival.mes,94,4,[효과음/내레이션],ヒュ~、,,
-dom3Festival.mes,Script/dom3Festival.mes,95,2,[효과음/내레이션],ドン,,
-dom3Festival.mes,Script/dom3Festival.mes,96,3,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,97,4,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,98,5,[효과음/내레이션],ガヤガヤ,,
-dom3Festival.mes,Script/dom3Festival.mes,99,9,주인공,すごい人だな……,,
-dom3Festival.mes,Script/dom3Festival.mes,100,3,Mina,……,,
-dom3Festival.mes,Script/dom3Festival.mes,101,4,UNKNOWN_7b,ミナー,,
-dom3Festival.mes,Script/dom3Festival.mes,102,4,주인공,ミナ?,,
-dom3Festival.mes,Script/dom3Festival.mes,103,19,[선택지],気分でも悪いのか?静かな場所へ移ろうか,,
-dom3Festival.mes,Script/dom3Festival.mes,104,19,주인공,どうした、ミナ?<6E5C>気分でも悪いのか?,,
-dom3Festival.mes,Script/dom3Festival.mes,105,20,Mina,……わたし、帰る.<6E5C>行こう、チャンプル,,
-dom3Festival.mes,Script/dom3Festival.mes,106,3,UNKNOWN_7b,う~,,
-dom3Festival.mes,Script/dom3Festival.mes,107,10,주인공,あ、ちょっとミナ!,,
-dom3Festival.mes,Script/dom3Festival.mes,108,25,주인공,(……ミナには、<6E5C>この人ごみはきつかったのかな),,
-dom3Festival.mes,Script/dom3Festival.mes,109,19,주인공,ミナ、もうちょっと向こうへ<6E5C>行こうか,,
-dom3Festival.mes,Script/dom3Festival.mes,110,5,Mina,……うん,,
-dom3Festival.mes,Script/dom3Festival.mes,111,26,주인공,ちょっと遠いけど、<6E5C>ここからでも花火は見れそうだな,,
-dom3Festival.mes,Script/dom3Festival.mes,112,8,Mina,……ありがとう,,
-dom3Festival.mes,Script/dom3Festival.mes,113,30,주인공,いいよ.俺もミナとふたりっきりで<6E5C>花火が見られてうれしいし,,
-dom3Festival.mes,Script/dom3Festival.mes,114,9,Mina,……わたし……も,,
-dom3Festival.mes,Script/dom3Festival.mes,115,6,주인공,そ、そうか,,
-dom3Festival.mes,Script/dom3Festival.mes,116,16,주인공,(なんか、ドキドキするな……),,
-dom3Festival.mes,Script/dom3Festival.mes,117,5,Rinka,夏祭り?,,
-dom3Festival.mes,Script/dom3Festival.mes,118,27,주인공,たまには稽古を早めに切り上げて、<6E5C>遊びに行かないか?,,
-dom3Festival.mes,Script/dom3Festival.mes,119,26,Rinka,行かない.あたしには遊んでいる<6E5C>時間なんてないんだ,,
-dom3Festival.mes,Script/dom3Festival.mes,120,20,주인공,あっ…….ったく、稽古バカなんだ<6E5C>から,,
-dom3Festival.mes,Script/dom3Festival.mes,121,5,Rinka,夏祭り?,,
-dom3Festival.mes,Script/dom3Festival.mes,122,15,주인공,ああ、いっしょに行かないか?,,
-dom3Festival.mes,Script/dom3Festival.mes,123,3,Rinka,……,,
-dom3Festival.mes,Script/dom3Festival.mes,124,25,주인공,いや、ごめん.<6E5C>稽古をサボってなんて行けないよな,,
-dom3Festival.mes,Script/dom3Festival.mes,125,11,Rinka,……いいよ、行っても,,
-dom3Festival.mes,Script/dom3Festival.mes,126,3,주인공,え?,,
-dom3Festival.mes,Script/dom3Festival.mes,127,30,Rinka,いっしょに行ってやるって言ってん<6E5C>だ.ほら、早く用意しろ!,,
-dom3Festival.mes,Script/dom3Festival.mes,128,8,주인공,え、は、はい!,,
-dom3Festival.mes,Script/dom3Festival.mes,129,4,[효과음/내레이션],ヒュ~、,,
-dom3Festival.mes,Script/dom3Festival.mes,130,2,[효과음/내레이션],ドン,,
-dom3Festival.mes,Script/dom3Festival.mes,131,3,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,132,4,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,133,7,주인공,きれいだなぁ,,
-dom3Festival.mes,Script/dom3Festival.mes,134,15,Rinka,……み、見えないよ!むぎゅっ,,
-dom3Festival.mes,Script/dom3Festival.mes,135,19,주인공,え?<6E5C>ああ、チビだから見えないんだな,,
-dom3Festival.mes,Script/dom3Festival.mes,136,11,Rinka,チビなんかじゃない!,,
-dom3Festival.mes,Script/dom3Festival.mes,137,15,[선택지],肩車してやる人ごみから抜け出る,,
-dom3Festival.mes,Script/dom3Festival.mes,138,5,[효과음/내레이션],ヒョイッ,,
-dom3Festival.mes,Script/dom3Festival.mes,139,11,Rinka,わっ!何するんだよ!,,
-dom3Festival.mes,Script/dom3Festival.mes,140,21,주인공,こうすれば、誰よりもよーく<6E5C>見えるだろ?,,
-dom3Festival.mes,Script/dom3Festival.mes,141,23,Rinka,バカ!あたしは子どもじゃないん<6E5C>だ!降ろせ!,,
-dom3Festival.mes,Script/dom3Festival.mes,142,17,주인공,照れるな、照れるな.楽しいだろ?,,
-dom3Festival.mes,Script/dom3Festival.mes,143,3,Rinka,……,,
-dom3Festival.mes,Script/dom3Festival.mes,144,15,주인공,どうした?そんなに嫌なのか?,,
-dom3Festival.mes,Script/dom3Festival.mes,145,44,Rinka,ううん.ちょっと昔を思い出しただ<6E5C>け.父さんにも、同じことをしても<6E5C>らったな、って……,,
-dom3Festival.mes,Script/dom3Festival.mes,146,3,주인공,……,,
-dom3Festival.mes,Script/dom3Festival.mes,147,3,UNKNOWN_7a,ヂ~,,
-dom3Festival.mes,Script/dom3Festival.mes,148,29,주인공,この人ごみじゃ、凛花には酷だな.<6E5C>よし、ちょっと抜けるか,,
-dom3Festival.mes,Script/dom3Festival.mes,149,3,Rinka,え?,,
-dom3Festival.mes,Script/dom3Festival.mes,150,4,[효과음/내레이션],ぎゅっ,,
-dom3Festival.mes,Script/dom3Festival.mes,151,13,주인공,しっかり手を握ってろよ!,,
-dom3Festival.mes,Script/dom3Festival.mes,152,19,주인공,……ふぅ、ここらへんなら<6E5C>空いてるな,,
-dom3Festival.mes,Script/dom3Festival.mes,153,24,UNKNOWN_7e,あたしをどこに連れてくのよ!<6E5C>ぷんすかぷーん!,,
-dom3Festival.mes,Script/dom3Festival.mes,154,11,주인공,でぇ!?間違えたぁ?,,
-dom3Festival.mes,Script/dom3Festival.mes,155,37,Saya,夏祭り?ちょうどよかった.<6E5C>ワタシも<이름:3232>ちゃんを<6E5C>誘おうと思っていたのよ,,
-dom3Festival.mes,Script/dom3Festival.mes,156,5,주인공,やった!,,
-dom3Festival.mes,Script/dom3Festival.mes,157,10,UNKNOWN_1e,サヤ、お待たせー!,,
-dom3Festival.mes,Script/dom3Festival.mes,158,24,주인공,(え?凛花もいっしょなのか?<6E5C>ま、まあいいか),,
-dom3Festival.mes,Script/dom3Festival.mes,159,19,UNKNOWN_1e,サヤ殿、拙者は…….<6E5C>ゴホッ、ゴホッ,,
-dom3Festival.mes,Script/dom3Festival.mes,160,14,주인공,(え?もしや右京さんも?),,
-dom3Festival.mes,Script/dom3Festival.mes,161,24,Saya,右京先生は寝ていたほうがよさそう<6E5C>ね、残念だわ,,
-dom3Festival.mes,Script/dom3Festival.mes,162,6,Ukyo,……すまぬ,,
-dom3Festival.mes,Script/dom3Festival.mes,163,5,주인공,(ほっ),,
-dom3Festival.mes,Script/dom3Festival.mes,164,21,Saya,じゃあ、あとは狂エ門クンね.<6E5C>遅いわねぇ,,
-dom3Festival.mes,Script/dom3Festival.mes,165,10,주인공,え!?狂エ門も!?,,
-dom3Festival.mes,Script/dom3Festival.mes,166,24,Saya,モチロン、みんなで行った方が<6E5C>楽しいじゃない!,,
-dom3Festival.mes,Script/dom3Festival.mes,167,11,주인공,(や、やられた……),,
-dom3Festival.mes,Script/dom3Festival.mes,168,40,Saya,夏祭り?それはふたりっきりって<6E5C>意味かしら.それともみんなに声を<6E5C>かけてるノ?,,
-dom3Festival.mes,Script/dom3Festival.mes,169,25,주인공,もちろんサヤさんだけに決まってる<6E5C>じゃないですか,,
-dom3Festival.mes,Script/dom3Festival.mes,170,27,Saya,ソウ.<이름:3232>ちゃんのお願い<6E5C>だったら叶えてあげないとネ,,
-dom3Festival.mes,Script/dom3Festival.mes,171,5,주인공,やった!,,
-dom3Festival.mes,Script/dom3Festival.mes,172,4,[효과음/내레이션],ヒュ~、,,
-dom3Festival.mes,Script/dom3Festival.mes,173,2,[효과음/내레이션],ドン,,
-dom3Festival.mes,Script/dom3Festival.mes,174,3,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,175,4,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,176,6,Saya,キレイねぇ,,
-dom3Festival.mes,Script/dom3Festival.mes,177,5,주인공,はい……,,
-dom3Festival.mes,Script/dom3Festival.mes,178,22,Saya,一瞬の命だからキレイに見えるのか<6E5C>しら……,,
-dom3Festival.mes,Script/dom3Festival.mes,179,12,[선택지],そうかもそんなことはない,,
-dom3Festival.mes,Script/dom3Festival.mes,180,29,주인공,確かにそうかも知れませんね.<6E5C>花の命も短いって言うし……,,
-dom3Festival.mes,Script/dom3Festival.mes,181,49,Saya,それって女性を花にたとえた言葉よ<6E5C>ね?<이름:3232>ちゃんはワタシに長生き<6E5C>してほしくないってことかしら?,,
-dom3Festival.mes,Script/dom3Festival.mes,182,25,주인공,な、なんで怒るんですか、<6E5C>自分で言ったくせに……,,
-dom3Festival.mes,Script/dom3Festival.mes,183,35,주인공,そんなことはないですよ.<6E5C>きれいな物はきれい.<6E5C>時間など関係ないです,,
-dom3Festival.mes,Script/dom3Festival.mes,184,26,Saya,あら、花の命だって短いからキレイ<6E5C>って言うじゃない,,
-dom3Festival.mes,Script/dom3Festival.mes,185,13,주인공,花はまた次の年に咲きます,,
-dom3Festival.mes,Script/dom3Festival.mes,186,40,주인공,そんなことを言ったら、サヤさんの<6E5C>美しさも今だけってことになるじゃ<6E5C>ないですか,,
-dom3Festival.mes,Script/dom3Festival.mes,187,39,Saya,それもそうね.ワタシの美しさは<6E5C>永遠だもの!イイコト言うわね、<6E5C><이름:3232>ちゃんっ,,
-dom3Festival.mes,Script/dom3Festival.mes,188,4,[효과음/내레이션],チュッ,,
-dom3Festival.mes,Script/dom3Festival.mes,189,3,주인공,!?,,
-dom3Festival.mes,Script/dom3Festival.mes,190,11,Mikoto,夏祭り……、ですか?,,
-dom3Festival.mes,Script/dom3Festival.mes,191,16,주인공,はい.いっしょに行きませんか?,,
-dom3Festival.mes,Script/dom3Festival.mes,192,30,Mikoto,……コホッ、コホッ.<6E5C>見てのとおり、体の調子が<6E5C>悪くて……,,
-dom3Festival.mes,Script/dom3Festival.mes,193,29,UNKNOWN_1e,なんだ、<이름:3232>.<6E5C>いっしょに行ってくれる人が<6E5C>いないのか?,,
-dom3Festival.mes,Script/dom3Festival.mes,194,8,주인공,覇王丸さん!?,,
-dom3Festival.mes,Script/dom3Festival.mes,195,21,UNKNOWN_75,仕方ねぇな.<6E5C>俺がいっしょに行ってやるよ,,
-dom3Festival.mes,Script/dom3Festival.mes,196,4,[효과음/내레이션],ぐいっ,,
-dom3Festival.mes,Script/dom3Festival.mes,197,10,주인공,ええっ、ちょっと!,,
-dom3Festival.mes,Script/dom3Festival.mes,198,29,Mikoto,おふたりとも、わたくしに気兼ねせ<6E5C>ずいってらっしゃいませ,,
-dom3Festival.mes,Script/dom3Festival.mes,199,7,[효과음/내레이션],ずるずる……,,
-dom3Festival.mes,Script/dom3Festival.mes,200,6,주인공,トホホ……,,
-dom3Festival.mes,Script/dom3Festival.mes,201,11,UNKNOWN_75,じゃあ、行ってくるぜ,,
-dom3Festival.mes,Script/dom3Festival.mes,202,17,주인공,あれ、覇王丸さんお出かけですか?,,
-dom3Festival.mes,Script/dom3Festival.mes,203,32,Mikoto,<이름:3131>様.<6E5C>おじ様は夏祭りで大道芸の出し物に<6E5C>呼ばれているのです,,
-dom3Festival.mes,Script/dom3Festival.mes,204,15,주인공,命さんは行かれないのですか?,,
-dom3Festival.mes,Script/dom3Festival.mes,205,24,Mikoto,わたくし、今日は体の具合が悪いの<6E5C>で留守番です,,
-dom3Festival.mes,Script/dom3Festival.mes,206,27,주인공,そうですか…….でしたら俺も<6E5C>いっしょに留守番します,,
-dom3Festival.mes,Script/dom3Festival.mes,207,12,Mikoto,え?そんな、悪いですわ,,
-dom3Festival.mes,Script/dom3Festival.mes,208,29,주인공,いいんです.本当は命さんと行こう<6E5C>と誘いに来たんですから,,
-dom3Festival.mes,Script/dom3Festival.mes,209,5,Mikoto,……まぁ,,
-dom3Festival.mes,Script/dom3Festival.mes,210,41,UNKNOWN_75,ああもう、おまえらふたりで表に<6E5C>出ろ!そこの通りでも、いくらか<6E5C>花火は見れるぞ!,,
-dom3Festival.mes,Script/dom3Festival.mes,211,26,UNKNOWN_75,じゃあな、<이름:3232>.<6E5C>ふたりっきりで、しっかりやれよ!,,
-dom3Festival.mes,Script/dom3Festival.mes,212,5,주인공,ええ!?,,
-dom3Festival.mes,Script/dom3Festival.mes,213,14,Mikoto,も、もう、おじ様ったら……,,
-dom3Festival.mes,Script/dom3Festival.mes,214,4,[효과음/내레이션],ヒュ~、,,
-dom3Festival.mes,Script/dom3Festival.mes,215,2,[효과음/내레이션],ドン,,
-dom3Festival.mes,Script/dom3Festival.mes,216,3,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,217,4,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,218,14,주인공,……うわぁ、きれいですねぇ,,
-dom3Festival.mes,Script/dom3Festival.mes,219,24,Mikoto,ええ、小さくしか見えません<6E5C>けれど、きれい……,,
-dom3Festival.mes,Script/dom3Festival.mes,220,28,Mikoto,わたくしも、死ぬ前にああやって<6E5C>美しく咲きたいです……,,
-dom3Festival.mes,Script/dom3Festival.mes,221,6,주인공,命さん……,,
-dom3Festival.mes,Script/dom3Festival.mes,222,18,[선택지],死ぬなんて言わないで今でもきれいです,,
-dom3Festival.mes,Script/dom3Festival.mes,223,24,주인공,死ぬなんて縁起の悪いことを<6E5C>言わないでください,,
-dom3Festival.mes,Script/dom3Festival.mes,224,24,Mikoto,でもわたくしの命はもう、<6E5C>そう長くはないのです,,
-dom3Festival.mes,Script/dom3Festival.mes,225,34,주인공,病は気からって言うじゃない<6E5C>ですか.生きる希望をもって<6E5C>くださいよ,,
-dom3Festival.mes,Script/dom3Festival.mes,226,10,Mikoto,でもわたくしは……,,
-dom3Festival.mes,Script/dom3Festival.mes,227,20,주인공,(な、何て言えば慰められ<6E5C>るんだ!?),,
-dom3Festival.mes,Script/dom3Festival.mes,228,16,주인공,命さんは今でも十分きれいですよ,,
-dom3Festival.mes,Script/dom3Festival.mes,229,4,Mikoto,えっ?,,
-dom3Festival.mes,Script/dom3Festival.mes,230,21,주인공,だから死ぬとか<6E5C>簡単に言わないでください,,
-dom3Festival.mes,Script/dom3Festival.mes,231,6,Mikoto,<이름:3131>様……,,
-dom3Festival.mes,Script/dom3Festival.mes,232,37,Mikoto,わかりました.今夜、この花火を<6E5C>見ている間は、悪魔のことは<6E5C>忘れます……,,
-dom3Festival.mes,Script/dom3Festival.mes,233,31,주인공,そうですよ.悪魔に、このひととき<6E5C>を邪魔なんてさせません……,,
-dom3Festival.mes,Script/dom3Festival.mes,234,6,Shiki,……夏祭り,,
-dom3Festival.mes,Script/dom3Festival.mes,235,13,주인공,ええ、できればいっしょに,,
-dom3Festival.mes,Script/dom3Festival.mes,236,22,Shiki,……あなたに……私を誘う資格は<6E5C>ないわ……,,
-dom3Festival.mes,Script/dom3Festival.mes,237,3,[효과음/내레이션],スッ,,
-dom3Festival.mes,Script/dom3Festival.mes,238,17,주인공,そんな言い方しなくても……ひどい,,
-dom3Festival.mes,Script/dom3Festival.mes,239,16,Shiki,……いいわよ、私と堕ちたいのね,,
-dom3Festival.mes,Script/dom3Festival.mes,240,15,주인공,花火を見に行くだけですって!,,
-dom3Festival.mes,Script/dom3Festival.mes,241,4,[효과음/내레이션],ヒュ~、,,
-dom3Festival.mes,Script/dom3Festival.mes,242,2,[효과음/내레이션],ドン,,
-dom3Festival.mes,Script/dom3Festival.mes,243,3,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,244,4,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,245,24,주인공,(うわ~花火の光の中の色さん、<6E5C>きれいだなぁ),,
-dom3Festival.mes,Script/dom3Festival.mes,246,5,Shiki,……何?,,
-dom3Festival.mes,Script/dom3Festival.mes,247,14,주인공,いや、きれいだな、と思って,,
-dom3Festival.mes,Script/dom3Festival.mes,248,23,Shiki,刹那で消える光というのは、<6E5C>美しいものよ……,,
-dom3Festival.mes,Script/dom3Festival.mes,249,15,[선택지],色さんもですか?そうですね……,,
-dom3Festival.mes,Script/dom3Festival.mes,250,27,주인공,色さんがきれいなのも、刹那で消え<6E5C>る光だからですか?,,
-dom3Festival.mes,Script/dom3Festival.mes,251,34,Shiki,そうね……あなたの目にそう映る私<6E5C>も、刹那の光なのかもしれない……,,
-dom3Festival.mes,Script/dom3Festival.mes,252,36,주인공,だったら、この一瞬をずっと忘れな<6E5C>いように、見つめていていい<6E5C>ですか?,,
-dom3Festival.mes,Script/dom3Festival.mes,253,28,Shiki,……あなたなら、私と交わる資格が<6E5C>あるかもしれないわね,,
-dom3Festival.mes,Script/dom3Festival.mes,254,30,주인공,え、交わるって……それってどうい<6E5C>う意味ですか、色さん!?,,
-dom3Festival.mes,Script/dom3Festival.mes,255,37,주인공,そうですね……確かに、刹那で消え<6E5C>るものははかなくて美しいかもしれ<6E5C>ない,,
-dom3Festival.mes,Script/dom3Festival.mes,256,8,Shiki,……目を閉じて,,
-dom3Festival.mes,Script/dom3Festival.mes,257,3,주인공,え?,,
-dom3Festival.mes,Script/dom3Festival.mes,258,11,Shiki,目を、閉じるのよ……,,
-dom3Festival.mes,Script/dom3Festival.mes,259,6,주인공,は、はい!,,
-dom3Festival.mes,Script/dom3Festival.mes,260,16,주인공,(こ、この展開はまさか……!),,
-dom3Festival.mes,Script/dom3Festival.mes,261,5,[효과음/내레이션],…………,,
-dom3Festival.mes,Script/dom3Festival.mes,262,15,주인공,(……あれ?何も起こらない),,
-dom3Festival.mes,Script/dom3Festival.mes,263,3,[효과음/내레이션],スッ,,
-dom3Festival.mes,Script/dom3Festival.mes,264,30,주인공,あれ、色さん?どこですかぁ?<6E5C>置いていくなんて、ひどい……,,
-dom3Festival.mes,Script/dom3Festival.mes,265,17,주인공,よし、じゃあいろはを誘っていこう,,
-dom3Festival.mes,Script/dom3Festival.mes,266,34,Iroha,え!わ、私ですか!?<6E5C>そんな、私などと行っても<6E5C>楽しくありません!,,
-dom3Festival.mes,Script/dom3Festival.mes,267,29,주인공,そんなことないよ.俺はいろはと<6E5C>いるだけで楽しいんだから,,
-dom3Festival.mes,Script/dom3Festival.mes,268,9,Iroha,だ、旦那様……!,,
-dom3Festival.mes,Script/dom3Festival.mes,269,54,Iroha,それならいっしょにお部屋の<6E5C>掃除をしましょう!<485C>花火もきれいですけど、部屋を<6E5C>きれいにするのも大事ですよ?,,
-dom3Festival.mes,Script/dom3Festival.mes,270,4,주인공,えぇ~,,
-dom3Festival.mes,Script/dom3Festival.mes,271,24,주인공,じゃ、俺といっしょに行ってくれな<6E5C>いか、いろは,,
-dom3Festival.mes,Script/dom3Festival.mes,272,22,Iroha,え!私を誘ってくださるのですか?<6E5C>旦那様!,,
-dom3Festival.mes,Script/dom3Festival.mes,273,16,주인공,ああ.いろはが嫌じゃなければな,,
-dom3Festival.mes,Script/dom3Festival.mes,274,15,Iroha,もちろんお供します!旦那様!,,
-dom3Festival.mes,Script/dom3Festival.mes,275,4,[효과음/내레이션],ヒュ~、,,
-dom3Festival.mes,Script/dom3Festival.mes,276,2,[효과음/내레이션],ドン,,
-dom3Festival.mes,Script/dom3Festival.mes,277,3,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,278,4,[효과음/내레이션],パンッ,,
-dom3Festival.mes,Script/dom3Festival.mes,279,14,주인공,おお、きれいだなぁ、花火は,,
-dom3Festival.mes,Script/dom3Festival.mes,280,14,Iroha,ええ、美しいですね.旦那様,,
-dom3Festival.mes,Script/dom3Festival.mes,281,19,[선택지],いろはの方がもっと美しい夏の空も美しい,,
-dom3Festival.mes,Script/dom3Festival.mes,282,20,주인공,でも、いろはの方がもっと<6E5C>美しいよ……,,
-dom3Festival.mes,Script/dom3Festival.mes,283,20,Iroha,だ、旦那様!?<6E5C>そんな、そんなこと……,,
-dom3Festival.mes,Script/dom3Festival.mes,284,35,Iroha,何かおかしなものでも<6E5C>食べたんですか?<6E5C>今日の旦那様はヘンですよ!?,,
-dom3Festival.mes,Script/dom3Festival.mes,285,13,주인공,あ、あれ、通じないな……,,
-dom3Festival.mes,Script/dom3Festival.mes,286,38,주인공,夏の夜空も美しい…….<6E5C>この大空を飛べる鳥たちは、<6E5C>さぞ気持ちよいだろうな,,
-dom3Festival.mes,Script/dom3Festival.mes,287,16,Iroha,ええ!とっても気持ちいいです!,,
-dom3Festival.mes,Script/dom3Festival.mes,288,23,주인공,ははは、まるで飛んできたみたいな<6E5C>言い方だな,,
-dom3Festival.mes,Script/dom3Festival.mes,289,16,Iroha,え?あ、そんなことは……あうぅ,,
-dom3Festival.mes,Script/dom3Festival.mes,290,22,UNKNOWN_6d,まぁ、旦那.<6E5C>あちきを誘ってくれるのかい?,,
-dom3Festival.mes,Script/dom3Festival.mes,291,24,주인공,ええ、是非、千夜さんといっしょに<6E5C>行きたくてね,,
-dom3Festival.mes,Script/dom3Festival.mes,292,20,UNKNOWN_6d,じゃあ、旦那とは十三番目に<6E5C>回れるねぇ,,
-dom3Festival.mes,Script/dom3Festival.mes,293,6,주인공,十三番目?,,
-dom3Festival.mes,Script/dom3Festival.mes,294,36,UNKNOWN_6d,今夜はお誘いが多くてネェ、<6E5C>予約制になってるんだよ.<6E5C>旦那は一番最後さ,,
-dom3Festival.mes,Script/dom3Festival.mes,295,10,주인공,うっ……そうなのか,,
+dom3Festival.mes,Script/dom3Festival.mes,9,8,[선택지],千夜最初のページ,치요\처음 페이지,치요\처음 페이지
+dom3Festival.mes,Script/dom3Festival.mes,10,10,Nakoruru,夏祭り……ですか?,여름축제……예요?,여름축제……예요?
+dom3Festival.mes,Script/dom3Festival.mes,11,9,주인공,何かまずいのか?,뭐 문제 있어?,뭐 문제 있어?
+dom3Festival.mes,Script/dom3Festival.mes,12,29,UNKNOWN_7e,姉様は、これからあたしといっしょ<6E5C>に夏祭りに行くんだよ!,언니는 이제부터 나랑 같이<6E5C>여름 축제에 갈 거야!,언니는 이제부터 나랑 같이<6E5C>여름 축제에 갈 거야!
+dom3Festival.mes,Script/dom3Festival.mes,13,9,주인공,え……そうなの?,어……그래?,어……그래?
+dom3Festival.mes,Script/dom3Festival.mes,14,14,Nakoruru,そうなんです.ごめんなさい,그런 거예요.죄송해요,그런 거예요.죄송해요
+dom3Festival.mes,Script/dom3Festival.mes,15,17,주인공,(むむ、誘うのが遅かったか……),"(음, 초대가 늦었나……)","(음, 초대가 늦었나……)"
+dom3Festival.mes,Script/dom3Festival.mes,16,9,Nakoruru,夏祭り、ですか?,"축제,말인가요?","축제,말인가요?"
+dom3Festival.mes,Script/dom3Festival.mes,17,15,주인공,うん.いっしょに行かないか?,응.같이 가지 않을래?,응.같이 가지 않을래?
+dom3Festival.mes,Script/dom3Festival.mes,18,11,Nakoruru,でも、リムルルが……,"근데,리무루루가……","근데,리무루루가……"
+dom3Festival.mes,Script/dom3Festival.mes,19,23,주인공,あ、もしかしてふたりで行く<6E5C>予定だったのか?,"아, 혹시 둘이서 갈<6E5C>계획이었나?","아, 혹시 둘이서 갈<6E5C>계획이었나?"
+dom3Festival.mes,Script/dom3Festival.mes,20,5,Nakoruru,……はい,……네,……네
+dom3Festival.mes,Script/dom3Festival.mes,21,6,주인공,そうか……,그런가……,그런가……
+dom3Festival.mes,Script/dom3Festival.mes,22,11,[선택지],あきらめるあきらめない,포기한다\포기 안 한다,포기한다\포기 안 한다
+dom3Festival.mes,Script/dom3Festival.mes,23,25,주인공,そういうことなら仕方ないな.<6E5C>今回はあきらめるよ,그런 거라면 어쩔 수 없지.<6E5C>이번엔 포기할게,그런 거라면 어쩔 수 없지.<6E5C>이번엔 포기할게
+dom3Festival.mes,Script/dom3Festival.mes,24,4,UNKNOWN_7e,ダメ!,안돼!,안돼!
+dom3Festival.mes,Script/dom3Festival.mes,25,6,Nakoruru,リムルル?,리무루루?,리무루루?
+dom3Festival.mes,Script/dom3Festival.mes,26,40,UNKNOWN_7e,姉様、たまには自分に素直になって<6E5C>よ!<이름:3232>兄様といっしょに<6E5C>行きたいんでしょ?,"언니, 가끔은 솔직해져도<6E5C>되잖아!<이름:3232>오빠랑 같이<6E5C>가고 싶은 거잖아?","언니, 가끔은 솔직해져도<6E5C>되잖아!<이름:3232>오빠랑 같이<6E5C>가고 싶은 거잖아?"
+dom3Festival.mes,Script/dom3Festival.mes,27,7,Nakoruru,……リムルル,……리무루루,……리무루루
+dom3Festival.mes,Script/dom3Festival.mes,28,14,UNKNOWN_7e,<이름:3232>兄様!姉様を頼んだよ!,<이름:3232>오빠!언니를 부탁해!,<이름:3232>오빠!언니를 부탁해!
+dom3Festival.mes,Script/dom3Festival.mes,29,6,주인공,お、おう!,"오, 오!","오, 오!"
+dom3Festival.mes,Script/dom3Festival.mes,30,16,UNKNOWN_7e,それじゃ、いってらっしゃーい!,"그럼, 잘 다녀와~!","그럼, 잘 다녀와~!"
+dom3Festival.mes,Script/dom3Festival.mes,31,4,[효과음/내레이션],ヒュ~、,"휘~,","휘~,"
+dom3Festival.mes,Script/dom3Festival.mes,32,2,[효과음/내레이션],ドン,펑,펑
+dom3Festival.mes,Script/dom3Festival.mes,33,3,[효과음/내레이션],パンッ,팡,팡
+dom3Festival.mes,Script/dom3Festival.mes,34,4,[효과음/내레이션],パンッ,팡,팡
+dom3Festival.mes,Script/dom3Festival.mes,35,13,Nakoruru,とても、きれいですね……,"정말, 예쁘네요……","정말, 예쁘네요……"
+dom3Festival.mes,Script/dom3Festival.mes,36,3,주인공,ああ,그래,그래
+dom3Festival.mes,Script/dom3Festival.mes,37,5,Nakoruru,きゃっ!,꺅!,꺅!
+dom3Festival.mes,Script/dom3Festival.mes,38,5,주인공,危ない!,위험해!,위험해!
+dom3Festival.mes,Script/dom3Festival.mes,39,4,[효과음/내레이션],ガバッ,덥석,덥석
+dom3Festival.mes,Script/dom3Festival.mes,40,38,주인공,どうしたんだ、ナコルル.こんな<6E5C>河原でこけそうになるなんて、<6E5C>めずらしいな,"왜 그래, 나코루루.이런<6E5C>강가에서 넘어질 뻔하다니,<6E5C>희한하네","왜 그래, 나코루루.이런<6E5C>강가에서 넘어질 뻔하다니,<6E5C>희한하네"
+dom3Festival.mes,Script/dom3Festival.mes,41,21,Nakoruru,ご、ごめんなさい.<6E5C>どうしたのかしら……,"미, 미안해요.<6E5C>왜 이러지……","미, 미안해요.<6E5C>왜 이러지……"
+dom3Festival.mes,Script/dom3Festival.mes,42,16,Nakoruru,あの、もう大丈夫です.肩を……,이제 괜찮아요.어깨는……,이제 괜찮아요.어깨는……
+dom3Festival.mes,Script/dom3Festival.mes,43,19,주인공,しばらく、このままでも<6E5C>いいかな……,"잠깐, 이대로도<6E5C>괜찮을까……","잠깐, 이대로도<6E5C>괜찮을까……"
+dom3Festival.mes,Script/dom3Festival.mes,44,11,Nakoruru,……はい.今だけ……,……네.지금만……,……네.지금만……
+dom3Festival.mes,Script/dom3Festival.mes,45,25,주인공,リムルル、ここはひとつ俺と<6E5C>代わってくれないか?,"리무루루, 여기는 나랑<6E5C>바꿔주지 않을래?","리무루루, 여기는 나랑<6E5C>바꿔주지 않을래?"
+dom3Festival.mes,Script/dom3Festival.mes,46,2,UNKNOWN_7e,イ。,싫.,싫.
+dom3Festival.mes,Script/dom3Festival.mes,47,2,UNKNOWN_7e,ヤ。,다.,다.
+dom3Festival.mes,Script/dom3Festival.mes,48,2,UNKNOWN_7e,だ。,구.,구.
+dom3Festival.mes,Script/dom3Festival.mes,49,3,UNKNOWN_7e,よ!,!!,!!
+dom3Festival.mes,Script/dom3Festival.mes,50,7,주인공,そんなぁ……,그런……,그런……
+dom3Festival.mes,Script/dom3Festival.mes,51,12,Nakoruru,ごめんなさい、<이름:3232>さん,"미안해요, <이름:3232>씨","미안해요, <이름:3232>씨"
+dom3Festival.mes,Script/dom3Festival.mes,52,19,주인공,はぁ、仕方ない.<6E5C>ひとりで行くか……,"하, 어쩔 수 없지.<6E5C>혼자 갈까…","하, 어쩔 수 없지.<6E5C>혼자 갈까…"
+dom3Festival.mes,Script/dom3Festival.mes,53,15,Shino,あら<이름:3232>さん、いいところに!,"어머<이름:3232>씨, 딱 왔네!","어머<이름:3232>씨, 딱 왔네!"
+dom3Festival.mes,Script/dom3Festival.mes,54,30,주인공,え、まさか夏祭りのこと?<6E5C>そうか、詩乃さんも俺のことを……,"어, 설마 여름축제 얘기?<6E5C>그렇구나, 시노 씨도 날…","어, 설마 여름축제 얘기?<6E5C>그렇구나, 시노 씨도 날…"
+dom3Festival.mes,Script/dom3Festival.mes,55,46,Shino,そうそう!おじいちゃんと露店を<6E5C>出すから手伝ってよ!人手はいくら<6E5C>あっても困らないからね!,맞아맞아!할아버지랑 노점을<6E5C>낼 거니까 도와줘!일손은 아무리<6E5C>많아도 모자라지 않아!,맞아맞아!할아버지랑 노점을<6E5C>낼 거니까 도와줘!일손은 아무리<6E5C>많아도 모자라지 않아!
+dom3Festival.mes,Script/dom3Festival.mes,56,11,주인공,えぇ~、手伝いかよぉ,"에엥~,돕는 거야?","에엥~,돕는 거야?"
+dom3Festival.mes,Script/dom3Festival.mes,57,29,Shino,こっちは、こんな稼ぎ時に遊んでる<6E5C>場合じゃないんだよっ!,"이쪽은, 이런 대목에 놀고 있을<6E5C>때가 아니라고!","이쪽은, 이런 대목에 놀고 있을<6E5C>때가 아니라고!"
+dom3Festival.mes,Script/dom3Festival.mes,58,9,주인공,駄目だこりゃ……,안되겠다……,안되겠다……
+dom3Festival.mes,Script/dom3Festival.mes,59,7,Shino,え、夏祭り?,"어, 축제?","어, 축제?"
+dom3Festival.mes,Script/dom3Festival.mes,60,9,주인공,行きたくないの?,가기 싫어?,가기 싫어?
+dom3Festival.mes,Script/dom3Festival.mes,61,38,Shino,そうじゃないけど、毎年祭りには<6E5C>おじいちゃんと露店を出すから、<6E5C>今年も……,"그런건 아닌데, 매년 축제마다<6E5C>할아버지랑 노점을 내니까,<6E5C>올해도……","그런건 아닌데, 매년 축제마다<6E5C>할아버지랑 노점을 내니까,<6E5C>올해도……"
+dom3Festival.mes,Script/dom3Festival.mes,62,10,주인공,そうか.大変だなぁ,그렇구나.힘들겠다,그렇구나.힘들겠다
+dom3Festival.mes,Script/dom3Festival.mes,63,10,[선택지],頑張ってね俺もやろう,힘내\나도 할래,힘내\나도 할래
+dom3Festival.mes,Script/dom3Festival.mes,64,22,주인공,じゃ、邪魔しちゃ悪いな.<6E5C>お店、頑張ってね,"그럼, 방해하면 안되지.<6E5C>가게, 힘내","그럼, 방해하면 안되지.<6E5C>가게, 힘내"
+dom3Festival.mes,Script/dom3Festival.mes,65,33,Shino,もっちろん!<이름:3232>さんだったら、<6E5C>もろこし三本は買ってくれるよね?,"당연하지!<이름:3232>씨라면,<6E5C>옥수수 세 개는 사주겠지?","당연하지!<이름:3232>씨라면,<6E5C>옥수수 세 개는 사주겠지?"
+dom3Festival.mes,Script/dom3Festival.mes,66,10,주인공,そ、そんなには……,그렇게까지는……,그렇게까지는……
+dom3Festival.mes,Script/dom3Festival.mes,67,12,주인공,よし、じゃあ俺もやろう,"좋아, 나도 할게","좋아, 나도 할게"
+dom3Festival.mes,Script/dom3Festival.mes,68,3,Shino,え?,어?,어?
+dom3Festival.mes,Script/dom3Festival.mes,69,34,주인공,俺も露店の手伝いをするよ.<6E5C>この材料、河原に運んだら<6E5C>いいのかな?,"나도 노점 도울게.<6E5C>이 재료, 강가로 옮기면<6E5C>되나?","나도 노점 도울게.<6E5C>이 재료, 강가로 옮기면<6E5C>되나?"
+dom3Festival.mes,Script/dom3Festival.mes,70,7,Shino,<이름:3232>さん……,<이름:3232>씨……,<이름:3232>씨……
+dom3Festival.mes,Script/dom3Festival.mes,71,4,[효과음/내레이션],ヒュ~、,"휘~,","휘~,"
+dom3Festival.mes,Script/dom3Festival.mes,72,2,[효과음/내레이션],ドン,펑,펑
+dom3Festival.mes,Script/dom3Festival.mes,73,3,[효과음/내레이션],パンッ,팡,팡
+dom3Festival.mes,Script/dom3Festival.mes,74,4,[효과음/내레이션],パンッ,팡,팡
+dom3Festival.mes,Script/dom3Festival.mes,75,13,UNKNOWN_69,おい!そば一人前おくれっ,이봐!소바 하나 줘,이봐!소바 하나 줘
+dom3Festival.mes,Script/dom3Festival.mes,76,12,UNKNOWN_6a,こっちは、もろこしだよ,이쪽은 옥수수야,이쪽은 옥수수야
+dom3Festival.mes,Script/dom3Festival.mes,77,24,주인공,はいぃ、ただいま!<6E5C>……すごい繁盛だな、こりゃ,"네에, 갑니다!<6E5C>……엄청 잘되네, 이거","네에, 갑니다!<6E5C>……엄청 잘되네, 이거"
+dom3Festival.mes,Script/dom3Festival.mes,78,29,Shino,<이름:3232>さん……今日はありがとう、<6E5C>こんなに力を貸してくれて,"<이름:3232>씨……오늘 고마워,<6E5C>이렇게 힘써줘서","<이름:3232>씨……오늘 고마워,<6E5C>이렇게 힘써줘서"
+dom3Festival.mes,Script/dom3Festival.mes,79,8,주인공,いいってことよ,별거 아니야,별거 아니야
+dom3Festival.mes,Script/dom3Festival.mes,80,34,Shino,ふふ、<이름:3232>さんにはお店を商う<6E5C>素質があるね!<6E5C>いい発見しちゃった!,"후후, <이름:3232>씨는 장사<6E5C>소질이 있네!<6E5C>좋은 발견했어!","후후, <이름:3232>씨는 장사<6E5C>소질이 있네!<6E5C>좋은 발견했어!"
+dom3Festival.mes,Script/dom3Festival.mes,81,19,주인공,(ん?<6E5C>それってどういう意味だろう),(음?<6E5C>그게 무슨 뜻이지),(음?<6E5C>그게 무슨 뜻이지)
+dom3Festival.mes,Script/dom3Festival.mes,82,9,Mina,わたしに……用?,나한테……볼일?,나한테……볼일?
+dom3Festival.mes,Script/dom3Festival.mes,83,24,주인공,うん.いっしょに夏祭りに<6E5C>行かないかと思ってさ,응.같이 여름 축제에<6E5C>안 갈래 싶어서,응.같이 여름 축제에<6E5C>안 갈래 싶어서
+dom3Festival.mes,Script/dom3Festival.mes,84,27,Mina,あんな人のたくさんいるところ、<6E5C>ぜったいに行かない!,"그렇게 사람 많은 데는,<6E5C>절대 안 가!","그렇게 사람 많은 데는,<6E5C>절대 안 가!"
+dom3Festival.mes,Script/dom3Festival.mes,85,10,UNKNOWN_7b,んじゃちゃーびら~,그럼 안녕~,그럼 안녕~
+dom3Festival.mes,Script/dom3Festival.mes,86,19,주인공,(う……、<6E5C>ミナって人嫌いだもんな),"(윽……,<6E5C>미나는 사람 싫어하지)","(윽……,<6E5C>미나는 사람 싫어하지)"
+dom3Festival.mes,Script/dom3Festival.mes,87,7,Mina,……夏祭り?,……축제?,……축제?
+dom3Festival.mes,Script/dom3Festival.mes,88,19,주인공,うん.<6E5C>いっしょに行かないかと思って,응.<6E5C>같이 갈래 싶어서,응.<6E5C>같이 갈래 싶어서
+dom3Festival.mes,Script/dom3Festival.mes,89,3,Mina,……,……,……
+dom3Festival.mes,Script/dom3Festival.mes,90,4,주인공,駄目?,안돼?,안돼?
+dom3Festival.mes,Script/dom3Festival.mes,91,3,Mina,……,……,……
+dom3Festival.mes,Script/dom3Festival.mes,92,6,Mina,……いいよ,……좋아,……좋아
+dom3Festival.mes,Script/dom3Festival.mes,93,19,주인공,よかった!<6E5C>じゃあ、さっそく行こう!,"다행이다!<6E5C>그럼, 바로 가자!","다행이다!<6E5C>그럼, 바로 가자!"
+dom3Festival.mes,Script/dom3Festival.mes,94,4,[효과음/내레이션],ヒュ~、,"휘~,","휘~,"
+dom3Festival.mes,Script/dom3Festival.mes,95,2,[효과음/내레이션],ドン,펑,펑
+dom3Festival.mes,Script/dom3Festival.mes,96,3,[효과음/내레이션],パンッ,팡,팡
+dom3Festival.mes,Script/dom3Festival.mes,97,4,[효과음/내레이션],パンッ,팡,팡
+dom3Festival.mes,Script/dom3Festival.mes,98,5,[효과음/내레이션],ガヤガヤ,왁자지껄,왁자지껄
+dom3Festival.mes,Script/dom3Festival.mes,99,9,주인공,すごい人だな……,사람 많다……,사람 많다……
+dom3Festival.mes,Script/dom3Festival.mes,100,3,Mina,……,……,……
+dom3Festival.mes,Script/dom3Festival.mes,101,4,UNKNOWN_7b,ミナー,미나~,미나~
+dom3Festival.mes,Script/dom3Festival.mes,102,4,주인공,ミナ?,미나?,미나?
+dom3Festival.mes,Script/dom3Festival.mes,103,19,[선택지],気分でも悪いのか?静かな場所へ移ろうか,어디 안 좋아?\조용한 곳으로 갈까,어디 안 좋아?\조용한 곳으로 갈까
+dom3Festival.mes,Script/dom3Festival.mes,104,19,주인공,どうした、ミナ?<6E5C>気分でも悪いのか?,"왜 그래, 미나?<6E5C>어디 안 좋아?","왜 그래, 미나?<6E5C>어디 안 좋아?"
+dom3Festival.mes,Script/dom3Festival.mes,105,20,Mina,……わたし、帰る.<6E5C>行こう、チャンプル,"……나, 갈래.<6E5C>가자, 참프루","……나, 갈래.<6E5C>가자, 참프루"
+dom3Festival.mes,Script/dom3Festival.mes,106,3,UNKNOWN_7b,う~,우~,우~
+dom3Festival.mes,Script/dom3Festival.mes,107,10,주인공,あ、ちょっとミナ!,"아, 잠깐 미나!","아, 잠깐 미나!"
+dom3Festival.mes,Script/dom3Festival.mes,108,25,주인공,(……ミナには、<6E5C>この人ごみはきつかったのかな),"(……미나한테는,<6E5C>이 인파가 힘들었나)","(……미나한테는,<6E5C>이 인파가 힘들었나)"
+dom3Festival.mes,Script/dom3Festival.mes,109,19,주인공,ミナ、もうちょっと向こうへ<6E5C>行こうか,"미나, 좀 더 저쪽으로<6E5C>가볼까","미나, 좀 더 저쪽으로<6E5C>가볼까"
+dom3Festival.mes,Script/dom3Festival.mes,110,5,Mina,……うん,……응,……응
+dom3Festival.mes,Script/dom3Festival.mes,111,26,주인공,ちょっと遠いけど、<6E5C>ここからでも花火は見れそうだな,"좀 멀지만,<6E5C>여기서도 불꽃놀이는 보이겠다","좀 멀지만,<6E5C>여기서도 불꽃놀이는 보이겠다"
+dom3Festival.mes,Script/dom3Festival.mes,112,8,Mina,……ありがとう,……고마워,……고마워
+dom3Festival.mes,Script/dom3Festival.mes,113,30,주인공,いいよ.俺もミナとふたりっきりで<6E5C>花火が見られてうれしいし,괜찮아.나도 미나랑 단둘이서<6E5C>불꽃놀이 봐서 좋아,괜찮아.나도 미나랑 단둘이서<6E5C>불꽃놀이 봐서 좋아
+dom3Festival.mes,Script/dom3Festival.mes,114,9,Mina,……わたし……も,……나……도,……나……도
+dom3Festival.mes,Script/dom3Festival.mes,115,6,주인공,そ、そうか,"그, 그래","그, 그래"
+dom3Festival.mes,Script/dom3Festival.mes,116,16,주인공,(なんか、ドキドキするな……),"(왠지, 두근거리네……)","(왠지, 두근거리네……)"
+dom3Festival.mes,Script/dom3Festival.mes,117,5,Rinka,夏祭り?,축제?,축제?
+dom3Festival.mes,Script/dom3Festival.mes,118,27,주인공,たまには稽古を早めに切り上げて、<6E5C>遊びに行かないか?,"가끔은 수련 일찍 끝내고,<6E5C>놀러 가지 않을래?","가끔은 수련 일찍 끝내고,<6E5C>놀러 가지 않을래?"
+dom3Festival.mes,Script/dom3Festival.mes,119,26,Rinka,行かない.あたしには遊んでいる<6E5C>時間なんてないんだ,안 가.나한텐 놀고 있을<6E5C>시간 따위 없어,안 가.나한텐 놀고 있을<6E5C>시간 따위 없어
+dom3Festival.mes,Script/dom3Festival.mes,120,20,주인공,あっ…….ったく、稽古バカなんだ<6E5C>から,"앗……,진짜, 수련 바보라니<6E5C>까","앗……,진짜, 수련 바보라니<6E5C>까"
+dom3Festival.mes,Script/dom3Festival.mes,121,5,Rinka,夏祭り?,축제?,축제?
+dom3Festival.mes,Script/dom3Festival.mes,122,15,주인공,ああ、いっしょに行かないか?,"그래, 같이 안 갈래?","그래, 같이 안 갈래?"
+dom3Festival.mes,Script/dom3Festival.mes,123,3,Rinka,……,……,……
+dom3Festival.mes,Script/dom3Festival.mes,124,25,주인공,いや、ごめん.<6E5C>稽古をサボってなんて行けないよな,"아니, 미안.<6E5C>수련 빼먹고 갈 순 없지","아니, 미안.<6E5C>수련 빼먹고 갈 순 없지"
+dom3Festival.mes,Script/dom3Festival.mes,125,11,Rinka,……いいよ、行っても,……가도 괜찮아,……가도 괜찮아
+dom3Festival.mes,Script/dom3Festival.mes,126,3,주인공,え?,어?,어?
+dom3Festival.mes,Script/dom3Festival.mes,127,30,Rinka,いっしょに行ってやるって言ってん<6E5C>だ.ほら、早く用意しろ!,같이 가준다는 거잖<6E5C>아.얼른 준비나 해!,같이 가준다는 거잖<6E5C>아.얼른 준비나 해!
+dom3Festival.mes,Script/dom3Festival.mes,128,8,주인공,え、は、はい!,"어,네,네!","어,네,네!"
+dom3Festival.mes,Script/dom3Festival.mes,129,4,[효과음/내레이션],ヒュ~、,"휘~,","휘~,"
+dom3Festival.mes,Script/dom3Festival.mes,130,2,[효과음/내레이션],ドン,펑,펑
+dom3Festival.mes,Script/dom3Festival.mes,131,3,[효과음/내레이션],パンッ,팡,팡
+dom3Festival.mes,Script/dom3Festival.mes,132,4,[효과음/내레이션],パンッ,팡,팡
+dom3Festival.mes,Script/dom3Festival.mes,133,7,주인공,きれいだなぁ,예쁘다,예쁘다
+dom3Festival.mes,Script/dom3Festival.mes,134,15,Rinka,……み、見えないよ!むぎゅっ,"……아, 안 보여!으윽","……아, 안 보여!으윽"
+dom3Festival.mes,Script/dom3Festival.mes,135,19,주인공,え?<6E5C>ああ、チビだから見えないんだな,"어?<6E5C>아, 꼬마라서 안 보이는구나","어?<6E5C>아, 꼬마라서 안 보이는구나"
+dom3Festival.mes,Script/dom3Festival.mes,136,11,Rinka,チビなんかじゃない!,꼬마 아니야!,꼬마 아니야!
+dom3Festival.mes,Script/dom3Festival.mes,137,15,[선택지],肩車してやる人ごみから抜け出る,목마 태워줄게\인파 벗어나자,목마 태워줄게\인파 벗어나자
+dom3Festival.mes,Script/dom3Festival.mes,138,5,[효과음/내레이션],ヒョイッ,번쩍,번쩍
+dom3Festival.mes,Script/dom3Festival.mes,139,11,Rinka,わっ!何するんだよ!,왁!뭐 하는 거야!,왁!뭐 하는 거야!
+dom3Festival.mes,Script/dom3Festival.mes,140,21,주인공,こうすれば、誰よりもよーく<6E5C>見えるだろ?,"이러면, 누구보다 잘<6E5C>보이지?","이러면, 누구보다 잘<6E5C>보이지?"
+dom3Festival.mes,Script/dom3Festival.mes,141,23,Rinka,バカ!あたしは子どもじゃないん<6E5C>だ!降ろせ!,바보!난 애가 아니란<6E5C>말이야!내려놔!,바보!난 애가 아니란<6E5C>말이야!내려놔!
+dom3Festival.mes,Script/dom3Festival.mes,142,17,주인공,照れるな、照れるな.楽しいだろ?,"부끄러워마,부끄러워마.재밌지?","부끄러워마,부끄러워마.재밌지?"
+dom3Festival.mes,Script/dom3Festival.mes,143,3,Rinka,……,……,……
+dom3Festival.mes,Script/dom3Festival.mes,144,15,주인공,どうした?そんなに嫌なのか?,왜?그렇게 싫어?,왜?그렇게 싫어?
+dom3Festival.mes,Script/dom3Festival.mes,145,44,Rinka,ううん.ちょっと昔を思い出しただ<6E5C>け.父さんにも、同じことをしても<6E5C>らったな、って……,"아니.그냥 옛날이 떠올랐<6E5C>어.아빠도, 똑같이 해줬<6E5C>었지, 하고……","아니.그냥 옛날이 떠올랐<6E5C>어.아빠도, 똑같이 해줬<6E5C>었지, 하고……"
+dom3Festival.mes,Script/dom3Festival.mes,146,3,주인공,……,……,……
+dom3Festival.mes,Script/dom3Festival.mes,147,3,UNKNOWN_7a,ヂ~,치익,치익
+dom3Festival.mes,Script/dom3Festival.mes,148,29,주인공,この人ごみじゃ、凛花には酷だな.<6E5C>よし、ちょっと抜けるか,"이 인파 속은 린카에겐 힘들겠지.<6E5C>좋아, 빠지자","이 인파 속은 린카에겐 힘들겠지.<6E5C>좋아, 빠지자"
+dom3Festival.mes,Script/dom3Festival.mes,149,3,Rinka,え?,어?,어?
+dom3Festival.mes,Script/dom3Festival.mes,150,4,[효과음/내레이션],ぎゅっ,꾸욱,꾸욱
+dom3Festival.mes,Script/dom3Festival.mes,151,13,주인공,しっかり手を握ってろよ!,손 꽉 잡고 있어!,손 꽉 잡고 있어!
+dom3Festival.mes,Script/dom3Festival.mes,152,19,주인공,……ふぅ、ここらへんなら<6E5C>空いてるな,"…후, 이쯤이면<6E5C>한산하겠군","…후, 이쯤이면<6E5C>한산하겠군"
+dom3Festival.mes,Script/dom3Festival.mes,153,24,UNKNOWN_7e,あたしをどこに連れてくのよ!<6E5C>ぷんすかぷーん!,"날 어디로 데려가는 거야!<6E5C>흥, 삐졌어!","날 어디로 데려가는 거야!<6E5C>흥, 삐졌어!"
+dom3Festival.mes,Script/dom3Festival.mes,154,11,주인공,でぇ!?間違えたぁ?,어!? 잘못 왔나?,어!? 잘못 왔나?
+dom3Festival.mes,Script/dom3Festival.mes,155,37,Saya,夏祭り?ちょうどよかった.<6E5C>ワタシも<이름:3232>ちゃんを<6E5C>誘おうと思っていたのよ,여름 축제? 마침 잘됐네.<6E5C>나도 <이름:3232>를<6E5C>불러볼까 생각하던 참이었어,여름 축제? 마침 잘됐네.<6E5C>나도 <이름:3232>를<6E5C>불러볼까 생각하던 참이었어
+dom3Festival.mes,Script/dom3Festival.mes,156,5,주인공,やった!,좋았어!,좋았어!
+dom3Festival.mes,Script/dom3Festival.mes,157,10,UNKNOWN_1e,サヤ、お待たせー!,"사야, 기다렸지!","사야, 기다렸지!"
+dom3Festival.mes,Script/dom3Festival.mes,158,24,주인공,(え?凛花もいっしょなのか?<6E5C>ま、まあいいか),"(어? 린카도 온 건가?<6E5C>뭐, 상관없나)","(어? 린카도 온 건가?<6E5C>뭐, 상관없나)"
+dom3Festival.mes,Script/dom3Festival.mes,159,19,UNKNOWN_1e,サヤ殿、拙者は…….<6E5C>ゴホッ、ゴホッ,"사야님, 소인은…….<6E5C>콜록, 콜록","사야님, 소인은…….<6E5C>콜록, 콜록"
+dom3Festival.mes,Script/dom3Festival.mes,160,14,주인공,(え?もしや右京さんも?),(어? 설마 우쿄씨도?),(어? 설마 우쿄씨도?)
+dom3Festival.mes,Script/dom3Festival.mes,161,24,Saya,右京先生は寝ていたほうがよさそう<6E5C>ね、残念だわ,"우쿄 씨는 누워 계시는<6E5C>게 낫겠네, 아쉽네","우쿄 씨는 누워 계시는<6E5C>게 낫겠네, 아쉽네"
+dom3Festival.mes,Script/dom3Festival.mes,162,6,Ukyo,……すまぬ,…미안하네,…미안하네
+dom3Festival.mes,Script/dom3Festival.mes,163,5,주인공,(ほっ),(휴),(휴)
+dom3Festival.mes,Script/dom3Festival.mes,164,21,Saya,じゃあ、あとは狂エ門クンね.<6E5C>遅いわねぇ,그럼 남은 건 쿄에몬 군이네.<6E5C>늦네~,그럼 남은 건 쿄에몬 군이네.<6E5C>늦네~
+dom3Festival.mes,Script/dom3Festival.mes,165,10,주인공,え!?狂エ門も!?,어! 쿄에몬도!?,어! 쿄에몬도!?
+dom3Festival.mes,Script/dom3Festival.mes,166,24,Saya,モチロン、みんなで行った方が<6E5C>楽しいじゃない!,"당연하지, 다같이 가는 게<6E5C>더 즐겁잖아!","당연하지, 다같이 가는 게<6E5C>더 즐겁잖아!"
+dom3Festival.mes,Script/dom3Festival.mes,167,11,주인공,(や、やられた……),"(다, 당했다……)","(다, 당했다……)"
+dom3Festival.mes,Script/dom3Festival.mes,168,40,Saya,夏祭り?それはふたりっきりって<6E5C>意味かしら.それともみんなに声を<6E5C>かけてるノ?,여름 축제? 둘이서만<6E5C>가자는 거야? 아니면 다 불러서<6E5C>가자는 거야?,여름 축제? 둘이서만<6E5C>가자는 거야? 아니면 다 불러서<6E5C>가자는 거야?
+dom3Festival.mes,Script/dom3Festival.mes,169,25,주인공,もちろんサヤさんだけに決まってる<6E5C>じゃないですか,당연히 사야 씨하고만<6E5C>가는 거죠,당연히 사야 씨하고만<6E5C>가는 거죠
+dom3Festival.mes,Script/dom3Festival.mes,170,27,Saya,ソウ.<이름:3232>ちゃんのお願い<6E5C>だったら叶えてあげないとネ,그래.<이름:3232>의 부탁<6E5C>이라면 들어줘야지,그래.<이름:3232>의 부탁<6E5C>이라면 들어줘야지
+dom3Festival.mes,Script/dom3Festival.mes,171,5,주인공,やった!,좋았어!,좋았어!
+dom3Festival.mes,Script/dom3Festival.mes,172,4,[효과음/내레이션],ヒュ~、,"휘잉~,","휘잉~,"
+dom3Festival.mes,Script/dom3Festival.mes,173,2,[효과음/내레이션],ドン,펑,펑
+dom3Festival.mes,Script/dom3Festival.mes,174,3,[효과음/내레이션],パンッ,팡!,팡!
+dom3Festival.mes,Script/dom3Festival.mes,175,4,[효과음/내레이션],パンッ,팡!,팡!
+dom3Festival.mes,Script/dom3Festival.mes,176,6,Saya,キレイねぇ,예쁘네~,예쁘네~
+dom3Festival.mes,Script/dom3Festival.mes,177,5,주인공,はい……,네……,네……
+dom3Festival.mes,Script/dom3Festival.mes,178,22,Saya,一瞬の命だからキレイに見えるのか<6E5C>しら……,찰나의 목숨이라서 예뻐<6E5C>보이는 걸까……,찰나의 목숨이라서 예뻐<6E5C>보이는 걸까……
+dom3Festival.mes,Script/dom3Festival.mes,179,12,[선택지],そうかもそんなことはない,그럴지도\그렇지 않아,그럴지도\그렇지 않아
+dom3Festival.mes,Script/dom3Festival.mes,180,29,주인공,確かにそうかも知れませんね.<6E5C>花の命も短いって言うし……,확실히 그럴지도 몰라요.<6E5C>꽃의 목숨도 짧다잖아요,확실히 그럴지도 몰라요.<6E5C>꽃의 목숨도 짧다잖아요
+dom3Festival.mes,Script/dom3Festival.mes,181,49,Saya,それって女性を花にたとえた言葉よ<6E5C>ね?<이름:3232>ちゃんはワタシに長生き<6E5C>してほしくないってことかしら?,그건 여자를 꽃에 비유한 말이잖<6E5C>아? <이름:3232>는 내가 오래 살길<6E5C>바라지 않는다는 뜻이야?,그건 여자를 꽃에 비유한 말이잖<6E5C>아? <이름:3232>는 내가 오래 살길<6E5C>바라지 않는다는 뜻이야?
+dom3Festival.mes,Script/dom3Festival.mes,182,25,주인공,な、なんで怒るんですか、<6E5C>自分で言ったくせに……,"왜, 왜 화를 내세요,<6E5C>본인이 말해놓고서……","왜, 왜 화를 내세요,<6E5C>본인이 말해놓고서……"
+dom3Festival.mes,Script/dom3Festival.mes,183,35,주인공,そんなことはないですよ.<6E5C>きれいな物はきれい.<6E5C>時間など関係ないです,그렇지 않아요.<6E5C>예쁜 건 예쁜 거죠.<6E5C>시간 따위 상관없어요,그렇지 않아요.<6E5C>예쁜 건 예쁜 거죠.<6E5C>시간 따위 상관없어요
+dom3Festival.mes,Script/dom3Festival.mes,184,26,Saya,あら、花の命だって短いからキレイ<6E5C>って言うじゃない,"어머, 꽃의 목숨도 짧으니까<6E5C>예쁘다고 하잖아","어머, 꽃의 목숨도 짧으니까<6E5C>예쁘다고 하잖아"
+dom3Festival.mes,Script/dom3Festival.mes,185,13,주인공,花はまた次の年に咲きます,꽃은 내년에 또 핍니다,꽃은 내년에 또 핍니다
+dom3Festival.mes,Script/dom3Festival.mes,186,40,주인공,そんなことを言ったら、サヤさんの<6E5C>美しさも今だけってことになるじゃ<6E5C>ないですか,"그렇게 말하면, 사야 씨의<6E5C>아름다움도 지금뿐이라는 게<6E5C>되잖아요","그렇게 말하면, 사야 씨의<6E5C>아름다움도 지금뿐이라는 게<6E5C>되잖아요"
+dom3Festival.mes,Script/dom3Festival.mes,187,39,Saya,それもそうね.ワタシの美しさは<6E5C>永遠だもの!イイコト言うわね、<6E5C><이름:3232>ちゃんっ,"그것도 그렇네. 내 아름다움은<6E5C>영원하니까! 좋은 말 하네,<6E5C><이름:3232>야","그것도 그렇네. 내 아름다움은<6E5C>영원하니까! 좋은 말 하네,<6E5C><이름:3232>야"
+dom3Festival.mes,Script/dom3Festival.mes,188,4,[효과음/내레이션],チュッ,쪽!,쪽!
+dom3Festival.mes,Script/dom3Festival.mes,189,3,주인공,!?,!?,!?
+dom3Festival.mes,Script/dom3Festival.mes,190,11,Mikoto,夏祭り……、ですか?,여름 축제……요?,여름 축제……요?
+dom3Festival.mes,Script/dom3Festival.mes,191,16,주인공,はい.いっしょに行きませんか?,네. 같이 가지 않으실래요?,네. 같이 가지 않으실래요?
+dom3Festival.mes,Script/dom3Festival.mes,192,30,Mikoto,……コホッ、コホッ.<6E5C>見てのとおり、体の調子が<6E5C>悪くて……,"…콜록, 콜록.<6E5C>보시다시피, 몸 상태가<6E5C>좋지 않아서…","…콜록, 콜록.<6E5C>보시다시피, 몸 상태가<6E5C>좋지 않아서…"
+dom3Festival.mes,Script/dom3Festival.mes,193,29,UNKNOWN_1e,なんだ、<이름:3232>.<6E5C>いっしょに行ってくれる人が<6E5C>いないのか?,"뭐야, <이름:3232>.<6E5C>같이 가줄 사람이<6E5C>없는 거냐?","뭐야, <이름:3232>.<6E5C>같이 가줄 사람이<6E5C>없는 거냐?"
+dom3Festival.mes,Script/dom3Festival.mes,194,8,주인공,覇王丸さん!?,하오마루!?,하오마루!?
+dom3Festival.mes,Script/dom3Festival.mes,195,21,UNKNOWN_75,仕方ねぇな.<6E5C>俺がいっしょに行ってやるよ,어쩔 수 없군.<6E5C>내가 같이 가주지,어쩔 수 없군.<6E5C>내가 같이 가주지
+dom3Festival.mes,Script/dom3Festival.mes,196,4,[효과음/내레이션],ぐいっ,휙,휙
+dom3Festival.mes,Script/dom3Festival.mes,197,10,주인공,ええっ、ちょっと!,"어엇, 잠깐만!","어엇, 잠깐만!"
+dom3Festival.mes,Script/dom3Festival.mes,198,29,Mikoto,おふたりとも、わたくしに気兼ねせ<6E5C>ずいってらっしゃいませ,"두 분 다, 저는 신경 쓰지<6E5C>마시고 다녀오세요","두 분 다, 저는 신경 쓰지<6E5C>마시고 다녀오세요"
+dom3Festival.mes,Script/dom3Festival.mes,199,7,[효과음/내레이션],ずるずる……,질질……,질질……
+dom3Festival.mes,Script/dom3Festival.mes,200,6,주인공,トホホ……,흑흑……,흑흑……
+dom3Festival.mes,Script/dom3Festival.mes,201,11,UNKNOWN_75,じゃあ、行ってくるぜ,"그럼, 다녀오마","그럼, 다녀오마"
+dom3Festival.mes,Script/dom3Festival.mes,202,17,주인공,あれ、覇王丸さんお出かけですか?,"어라, 하오마루 외출하세요?","어라, 하오마루 외출하세요?"
+dom3Festival.mes,Script/dom3Festival.mes,203,32,Mikoto,<이름:3131>様.<6E5C>おじ様は夏祭りで大道芸の出し物に<6E5C>呼ばれているのです,<이름:3131>님.<6E5C>아저씨는 여름 축제에서 공연에<6E5C>초대받으셨어요,<이름:3131>님.<6E5C>아저씨는 여름 축제에서 공연에<6E5C>초대받으셨어요
+dom3Festival.mes,Script/dom3Festival.mes,204,15,주인공,命さんは行かれないのですか?,미코토 씨는 안 가시나요?,미코토 씨는 안 가시나요?
+dom3Festival.mes,Script/dom3Festival.mes,205,24,Mikoto,わたくし、今日は体の具合が悪いの<6E5C>で留守番です,오늘 몸이 안 좋아서<6E5C>집을 볼게요,오늘 몸이 안 좋아서<6E5C>집을 볼게요
+dom3Festival.mes,Script/dom3Festival.mes,206,27,주인공,そうですか…….でしたら俺も<6E5C>いっしょに留守番します,그렇군요…….그럼 저도<6E5C>같이 집 볼게요,그렇군요…….그럼 저도<6E5C>같이 집 볼게요
+dom3Festival.mes,Script/dom3Festival.mes,207,12,Mikoto,え?そんな、悪いですわ,"네? 그런, 죄송해요","네? 그런, 죄송해요"
+dom3Festival.mes,Script/dom3Festival.mes,208,29,주인공,いいんです.本当は命さんと行こう<6E5C>と誘いに来たんですから,괜찮아요.미코토 씨랑 가려고<6E5C>초대하러 온 거니까요,괜찮아요.미코토 씨랑 가려고<6E5C>초대하러 온 거니까요
+dom3Festival.mes,Script/dom3Festival.mes,209,5,Mikoto,……まぁ,……어머,……어머
+dom3Festival.mes,Script/dom3Festival.mes,210,41,UNKNOWN_75,ああもう、おまえらふたりで表に<6E5C>出ろ!そこの通りでも、いくらか<6E5C>花火は見れるぞ!,"아 진짜, 둘이 밖에<6E5C>나가라! 저 길에서도 불꽃놀이<6E5C>어느 정도 보인다고!","아 진짜, 둘이 밖에<6E5C>나가라! 저 길에서도 불꽃놀이<6E5C>어느 정도 보인다고!"
+dom3Festival.mes,Script/dom3Festival.mes,211,26,UNKNOWN_75,じゃあな、<이름:3232>.<6E5C>ふたりっきりで、しっかりやれよ!,"그럼 간다, <이름:3232>.<6E5C>둘이서 잘 해보라고!","그럼 간다, <이름:3232>.<6E5C>둘이서 잘 해보라고!"
+dom3Festival.mes,Script/dom3Festival.mes,212,5,주인공,ええ!?,네!?,네!?
+dom3Festival.mes,Script/dom3Festival.mes,213,14,Mikoto,も、もう、おじ様ったら……,"정말, 아저씨도……","정말, 아저씨도……"
+dom3Festival.mes,Script/dom3Festival.mes,214,4,[효과음/내레이션],ヒュ~、,"휘잉~,","휘잉~,"
+dom3Festival.mes,Script/dom3Festival.mes,215,2,[효과음/내레이션],ドン,펑,펑
+dom3Festival.mes,Script/dom3Festival.mes,216,3,[효과음/내레이션],パンッ,팡!,팡!
+dom3Festival.mes,Script/dom3Festival.mes,217,4,[효과음/내레이션],パンッ,팡!,팡!
+dom3Festival.mes,Script/dom3Festival.mes,218,14,주인공,……うわぁ、きれいですねぇ,"……우와, 예쁘네요","……우와, 예쁘네요"
+dom3Festival.mes,Script/dom3Festival.mes,219,24,Mikoto,ええ、小さくしか見えません<6E5C>けれど、きれい……,"네, 작게밖에 안 보이지만<6E5C>예뻐요……","네, 작게밖에 안 보이지만<6E5C>예뻐요……"
+dom3Festival.mes,Script/dom3Festival.mes,220,28,Mikoto,わたくしも、死ぬ前にああやって<6E5C>美しく咲きたいです……,"저도, 죽기 전에 저렇게<6E5C>아름답게 피고 싶어요……","저도, 죽기 전에 저렇게<6E5C>아름답게 피고 싶어요……"
+dom3Festival.mes,Script/dom3Festival.mes,221,6,주인공,命さん……,미코토……,미코토……
+dom3Festival.mes,Script/dom3Festival.mes,222,18,[선택지],死ぬなんて言わないで今でもきれいです,죽는다는 말 마세요\지금도 예뻐요,죽는다는 말 마세요\지금도 예뻐요
+dom3Festival.mes,Script/dom3Festival.mes,223,24,주인공,死ぬなんて縁起の悪いことを<6E5C>言わないでください,죽는다는 재수 없는 말은<6E5C>하지 말아주세요,죽는다는 재수 없는 말은<6E5C>하지 말아주세요
+dom3Festival.mes,Script/dom3Festival.mes,224,24,Mikoto,でもわたくしの命はもう、<6E5C>そう長くはないのです,"하지만 제 목숨은 이제,<6E5C>그리 길지 않아요","하지만 제 목숨은 이제,<6E5C>그리 길지 않아요"
+dom3Festival.mes,Script/dom3Festival.mes,225,34,주인공,病は気からって言うじゃない<6E5C>ですか.生きる希望をもって<6E5C>くださいよ,병은 마음먹기 나름이라고<6E5C>하잖아요. 희망을<6E5C>가지세요,병은 마음먹기 나름이라고<6E5C>하잖아요. 희망을<6E5C>가지세요
+dom3Festival.mes,Script/dom3Festival.mes,226,10,Mikoto,でもわたくしは……,하지만 저는……,하지만 저는……
+dom3Festival.mes,Script/dom3Festival.mes,227,20,주인공,(な、何て言えば慰められ<6E5C>るんだ!?),"(뭐, 뭐라고 위로해야<6E5C>하지!?)","(뭐, 뭐라고 위로해야<6E5C>하지!?)"
+dom3Festival.mes,Script/dom3Festival.mes,228,16,주인공,命さんは今でも十分きれいですよ,지금도 충분히 예뻐요,지금도 충분히 예뻐요
+dom3Festival.mes,Script/dom3Festival.mes,229,4,Mikoto,えっ?,네?,네?
+dom3Festival.mes,Script/dom3Festival.mes,230,21,주인공,だから死ぬとか<6E5C>簡単に言わないでください,그러니 죽는다는 말<6E5C>함부로 마세요,그러니 죽는다는 말<6E5C>함부로 마세요
+dom3Festival.mes,Script/dom3Festival.mes,231,6,Mikoto,<이름:3131>様……,<이름:3131>님……,<이름:3131>님……
+dom3Festival.mes,Script/dom3Festival.mes,232,37,Mikoto,わかりました.今夜、この花火を<6E5C>見ている間は、悪魔のことは<6E5C>忘れます……,알겠어요. 오늘 밤 이 불꽃놀이를<6E5C>보는 동안은 악마는<6E5C>잊을게요……,알겠어요. 오늘 밤 이 불꽃놀이를<6E5C>보는 동안은 악마는<6E5C>잊을게요……
+dom3Festival.mes,Script/dom3Festival.mes,233,31,주인공,そうですよ.悪魔に、このひととき<6E5C>を邪魔なんてさせません……,그래요. 악마 따위가 순간을<6E5C>방해하게 두지 않을게요……,그래요. 악마 따위가 순간을<6E5C>방해하게 두지 않을게요……
+dom3Festival.mes,Script/dom3Festival.mes,234,6,Shiki,……夏祭り,……축제,……축제
+dom3Festival.mes,Script/dom3Festival.mes,235,13,주인공,ええ、できればいっしょに,"네, 가능하면 같이","네, 가능하면 같이"
+dom3Festival.mes,Script/dom3Festival.mes,236,22,Shiki,……あなたに……私を誘う資格は<6E5C>ないわ……,…당신에겐……날 초대할 자격이<6E5C>없어……,…당신에겐……날 초대할 자격이<6E5C>없어……
+dom3Festival.mes,Script/dom3Festival.mes,237,3,[효과음/내레이션],スッ,휙,휙
+dom3Festival.mes,Script/dom3Festival.mes,238,17,주인공,そんな言い方しなくても……ひどい,그렇게 말 안해도……너무해,그렇게 말 안해도……너무해
+dom3Festival.mes,Script/dom3Festival.mes,239,16,Shiki,……いいわよ、私と堕ちたいのね,…나와 타락하고 싶다는 거네,…나와 타락하고 싶다는 거네
+dom3Festival.mes,Script/dom3Festival.mes,240,15,주인공,花火を見に行くだけですって!,그냥 불꽃놀이라니까요!,그냥 불꽃놀이라니까요!
+dom3Festival.mes,Script/dom3Festival.mes,241,4,[효과음/내레이션],ヒュ~、,"휘잉~,","휘잉~,"
+dom3Festival.mes,Script/dom3Festival.mes,242,2,[효과음/내레이션],ドン,펑,펑
+dom3Festival.mes,Script/dom3Festival.mes,243,3,[효과음/내레이션],パンッ,팡!,팡!
+dom3Festival.mes,Script/dom3Festival.mes,244,4,[효과음/내레이션],パンッ,팡!,팡!
+dom3Festival.mes,Script/dom3Festival.mes,245,24,주인공,(うわ~花火の光の中の色さん、<6E5C>きれいだなぁ),"(우와~ 불꽃 빛 속의 시키 씨,<6E5C>예쁘다)","(우와~ 불꽃 빛 속의 시키 씨,<6E5C>예쁘다)"
+dom3Festival.mes,Script/dom3Festival.mes,246,5,Shiki,……何?,……뭐?,……뭐?
+dom3Festival.mes,Script/dom3Festival.mes,247,14,주인공,いや、きれいだな、と思って,"아니, 예쁘다고 생각해서","아니, 예쁘다고 생각해서"
+dom3Festival.mes,Script/dom3Festival.mes,248,23,Shiki,刹那で消える光というのは、<6E5C>美しいものよ……,"찰나에 사라지는 빛은,<6E5C>아름다운 거야…","찰나에 사라지는 빛은,<6E5C>아름다운 거야…"
+dom3Festival.mes,Script/dom3Festival.mes,249,15,[선택지],色さんもですか?そうですね……,시키 씨도요?\그렇네요……,시키 씨도요?\그렇네요……
+dom3Festival.mes,Script/dom3Festival.mes,250,27,주인공,色さんがきれいなのも、刹那で消え<6E5C>る光だからですか?,시키 씨가 예쁜 것도<6E5C>찰나의 빛이라서인가요?,시키 씨가 예쁜 것도<6E5C>찰나의 빛이라서인가요?
+dom3Festival.mes,Script/dom3Festival.mes,251,34,Shiki,そうね……あなたの目にそう映る私<6E5C>も、刹那の光なのかもしれない……,"그러네…네 눈에 그렇게 비치는<6E5C>나도, 찰나의 빛일지도 몰라…","그러네…네 눈에 그렇게 비치는<6E5C>나도, 찰나의 빛일지도 몰라…"
+dom3Festival.mes,Script/dom3Festival.mes,252,36,주인공,だったら、この一瞬をずっと忘れな<6E5C>いように、見つめていていい<6E5C>ですか?,"그럼, 이 순간을 계속 잊지<6E5C>않게, 계속 바라봐도<6E5C>될까요?","그럼, 이 순간을 계속 잊지<6E5C>않게, 계속 바라봐도<6E5C>될까요?"
+dom3Festival.mes,Script/dom3Festival.mes,253,28,Shiki,……あなたなら、私と交わる資格が<6E5C>あるかもしれないわね,"……너라면, 나와 얽힐 자격이<6E5C>있을지도 모르겠네","……너라면, 나와 얽힐 자격이<6E5C>있을지도 모르겠네"
+dom3Festival.mes,Script/dom3Festival.mes,254,30,주인공,え、交わるって……それってどうい<6E5C>う意味ですか、色さん!?,"네, 얽힌다니…그게 대체<6E5C>무슨 뜻이에요, 시키 씨!?","네, 얽힌다니…그게 대체<6E5C>무슨 뜻이에요, 시키 씨!?"
+dom3Festival.mes,Script/dom3Festival.mes,255,37,주인공,そうですね……確かに、刹那で消え<6E5C>るものははかなくて美しいかもしれ<6E5C>ない,"그렇네요…확실히, 찰나에 사라<6E5C>지는 건 덧없고 아름다울지도<6E5C>몰라요","그렇네요…확실히, 찰나에 사라<6E5C>지는 건 덧없고 아름다울지도<6E5C>몰라요"
+dom3Festival.mes,Script/dom3Festival.mes,256,8,Shiki,……目を閉じて,……눈을 감아,……눈을 감아
+dom3Festival.mes,Script/dom3Festival.mes,257,3,주인공,え?,어?,어?
+dom3Festival.mes,Script/dom3Festival.mes,258,11,Shiki,目を、閉じるのよ……,"눈을, 감으라고……","눈을, 감으라고……"
+dom3Festival.mes,Script/dom3Festival.mes,259,6,주인공,は、はい!,"네, 네!","네, 네!"
+dom3Festival.mes,Script/dom3Festival.mes,260,16,주인공,(こ、この展開はまさか……!),"(이, 이건 설마……!)","(이, 이건 설마……!)"
+dom3Festival.mes,Script/dom3Festival.mes,261,5,[효과음/내레이션],…………,……,……
+dom3Festival.mes,Script/dom3Festival.mes,262,15,주인공,(……あれ?何も起こらない),(……왜 아무 일도 없지),(……왜 아무 일도 없지)
+dom3Festival.mes,Script/dom3Festival.mes,263,3,[효과음/내레이션],スッ,휙,휙
+dom3Festival.mes,Script/dom3Festival.mes,264,30,주인공,あれ、色さん?どこですかぁ?<6E5C>置いていくなんて、ひどい……,"어라, 시키 씨? 어디예요?<6E5C>두고 가다니, 너무해요…","어라, 시키 씨? 어디예요?<6E5C>두고 가다니, 너무해요…"
+dom3Festival.mes,Script/dom3Festival.mes,265,17,주인공,よし、じゃあいろはを誘っていこう,"좋아, 그럼 이로하를 데려가자","좋아, 그럼 이로하를 데려가자"
+dom3Festival.mes,Script/dom3Festival.mes,266,34,Iroha,え!わ、私ですか!?<6E5C>そんな、私などと行っても<6E5C>楽しくありません!,"네! 저요!?<6E5C>그런, 저 같은 사람이랑 가면<6E5C>재미없어요!","네! 저요!?<6E5C>그런, 저 같은 사람이랑 가면<6E5C>재미없어요!"
+dom3Festival.mes,Script/dom3Festival.mes,267,29,주인공,そんなことないよ.俺はいろはと<6E5C>いるだけで楽しいんだから,그렇지 않아.난 이로하랑<6E5C>있는 것만으로 즐거우니까,그렇지 않아.난 이로하랑<6E5C>있는 것만으로 즐거우니까
+dom3Festival.mes,Script/dom3Festival.mes,268,9,Iroha,だ、旦那様……!,서방님……!,서방님……!
+dom3Festival.mes,Script/dom3Festival.mes,269,54,Iroha,それならいっしょにお部屋の<6E5C>掃除をしましょう!<485C>花火もきれいですけど、部屋を<6E5C>きれいにするのも大事ですよ?,"그럼 같이 방<6E5C>청소를 해요!<485C>불꽃놀이도 예쁘지만, 방을<6E5C>깨끗이 하는 것도 중요하잖아요?","그럼 같이 방<6E5C>청소를 해요!<485C>불꽃놀이도 예쁘지만, 방을<6E5C>깨끗이 하는 것도 중요하잖아요?"
+dom3Festival.mes,Script/dom3Festival.mes,270,4,주인공,えぇ~,에~,에~
+dom3Festival.mes,Script/dom3Festival.mes,271,24,주인공,じゃ、俺といっしょに行ってくれな<6E5C>いか、いろは,"그럼, 나랑 같이 가주지<6E5C>않을래, 이로하","그럼, 나랑 같이 가주지<6E5C>않을래, 이로하"
+dom3Festival.mes,Script/dom3Festival.mes,272,22,Iroha,え!私を誘ってくださるのですか?<6E5C>旦那様!,네! 절 초대하시는 거예요?<6E5C>서방님!,네! 절 초대하시는 거예요?<6E5C>서방님!
+dom3Festival.mes,Script/dom3Festival.mes,273,16,주인공,ああ.いろはが嫌じゃなければな,그래.이로하가 싫지 않다면,그래.이로하가 싫지 않다면
+dom3Festival.mes,Script/dom3Festival.mes,274,15,Iroha,もちろんお供します!旦那様!,"물론이죠, 서방님!","물론이죠, 서방님!"
+dom3Festival.mes,Script/dom3Festival.mes,275,4,[효과음/내레이션],ヒュ~、,"휘잉~,","휘잉~,"
+dom3Festival.mes,Script/dom3Festival.mes,276,2,[효과음/내레이션],ドン,펑,펑
+dom3Festival.mes,Script/dom3Festival.mes,277,3,[효과음/내레이션],パンッ,팡!,팡!
+dom3Festival.mes,Script/dom3Festival.mes,278,4,[효과음/내레이션],パンッ,팡!,팡!
+dom3Festival.mes,Script/dom3Festival.mes,279,14,주인공,おお、きれいだなぁ、花火は,"오, 불꽃놀이 예쁘네","오, 불꽃놀이 예쁘네"
+dom3Festival.mes,Script/dom3Festival.mes,280,14,Iroha,ええ、美しいですね.旦那様,"네, 아름답네요.서방님","네, 아름답네요.서방님"
+dom3Festival.mes,Script/dom3Festival.mes,281,19,[선택지],いろはの方がもっと美しい夏の空も美しい,이로하가 더 예뻐\여름 하늘도 예뻐,이로하가 더 예뻐\여름 하늘도 예뻐
+dom3Festival.mes,Script/dom3Festival.mes,282,20,주인공,でも、いろはの方がもっと<6E5C>美しいよ……,"그래도, 이로하가 더<6E5C>예뻐……","그래도, 이로하가 더<6E5C>예뻐……"
+dom3Festival.mes,Script/dom3Festival.mes,283,20,Iroha,だ、旦那様!?<6E5C>そんな、そんなこと……,"서, 서방님!?<6E5C>그런, 그런 건……","서, 서방님!?<6E5C>그런, 그런 건……"
+dom3Festival.mes,Script/dom3Festival.mes,284,35,Iroha,何かおかしなものでも<6E5C>食べたんですか?<6E5C>今日の旦那様はヘンですよ!?,뭔가 이상한 거라도<6E5C>드셨어요?<6E5C>오늘 서방님 좀 이상해요!?,뭔가 이상한 거라도<6E5C>드셨어요?<6E5C>오늘 서방님 좀 이상해요!?
+dom3Festival.mes,Script/dom3Festival.mes,285,13,주인공,あ、あれ、通じないな……,"어, 안 통하네……","어, 안 통하네……"
+dom3Festival.mes,Script/dom3Festival.mes,286,38,주인공,夏の夜空も美しい…….<6E5C>この大空を飛べる鳥たちは、<6E5C>さぞ気持ちよいだろうな,"여름 밤하늘도 아름답네….<6E5C>이 하늘을 나는 새들은,<6E5C>참 기분 좋겠지","여름 밤하늘도 아름답네….<6E5C>이 하늘을 나는 새들은,<6E5C>참 기분 좋겠지"
+dom3Festival.mes,Script/dom3Festival.mes,287,16,Iroha,ええ!とっても気持ちいいです!,네! 정말 기분 좋아요!,네! 정말 기분 좋아요!
+dom3Festival.mes,Script/dom3Festival.mes,288,23,주인공,ははは、まるで飛んできたみたいな<6E5C>言い方だな,"하하하, 꼭 날아본 것 같은<6E5C>말투네","하하하, 꼭 날아본 것 같은<6E5C>말투네"
+dom3Festival.mes,Script/dom3Festival.mes,289,16,Iroha,え?あ、そんなことは……あうぅ,"네? 아, 그런 건……아우","네? 아, 그런 건……아우"
+dom3Festival.mes,Script/dom3Festival.mes,290,22,UNKNOWN_6d,まぁ、旦那.<6E5C>あちきを誘ってくれるのかい?,"어머, 나리.<6E5C>이몸 초대하시는 건가요?","어머, 나리.<6E5C>이몸 초대하시는 건가요?"
+dom3Festival.mes,Script/dom3Festival.mes,291,24,주인공,ええ、是非、千夜さんといっしょに<6E5C>行きたくてね,"네, 꼭, 치요 씨랑 같이<6E5C>가고 싶어서요","네, 꼭, 치요 씨랑 같이<6E5C>가고 싶어서요"
+dom3Festival.mes,Script/dom3Festival.mes,292,20,UNKNOWN_6d,じゃあ、旦那とは十三番目に<6E5C>回れるねぇ,"그럼, 나리는 13번째<6E5C>차례네요","그럼, 나리는 13번째<6E5C>차례네요"
+dom3Festival.mes,Script/dom3Festival.mes,293,6,주인공,十三番目?,13번째?,13번째?
+dom3Festival.mes,Script/dom3Festival.mes,294,36,UNKNOWN_6d,今夜はお誘いが多くてネェ、<6E5C>予約制になってるんだよ.<6E5C>旦那は一番最後さ,오늘 밤은 초대가 많아서<6E5C>예약제거든요.<6E5C>나리는 제일 마지막이에요,오늘 밤은 초대가 많아서<6E5C>예약제거든요.<6E5C>나리는 제일 마지막이에요
+dom3Festival.mes,Script/dom3Festival.mes,295,10,주인공,うっ……そうなのか,윽……그렇구나,윽……그렇구나

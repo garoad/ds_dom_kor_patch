@@ -1,48 +1,48 @@
 file,rel_path,block,n_tokens,speaker,source,ai_draft,translation
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,0,3,Ukyo,……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,1,13,주인공,あ、右京さん、こんにちは,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,2,3,Ukyo,……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,3,11,주인공,あの、俺、今日は……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,4,44,Ukyo,……川柳とは、うつし世で最も短い<6E5C>詩のひとつ……<9C16>句と同じく、<6E5C>十七音でつむがれる――,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,5,26,주인공,(さ、さっそく俺を生徒だと思って<6E5C>指導している!),,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,6,22,주인공,(まぁいいか.<6E5C>この機会に教わっておこう),,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,7,20,Ukyo,<이름:3232>殿……共に句の道を<6E5C>極めようぞ……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,8,4,주인공,はいぃ,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,9,6,Ukyo,白き花……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,10,6,주인공,白き花……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,11,7,Ukyo,咲かそ橘……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,12,7,주인공,咲かそ橘……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,13,6,Ukyo,ゴハァッ!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,14,16,주인공,ごはぁ?それはどういう意味で?,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,15,12,Ukyo,ガハァッ、ウゴハァッ!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,16,28,주인공,ちょっと、しっかりしてください<6E5C>右京さん!右京さーん!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,17,46,주인공,(……こうやって度々右京さんから<6E5C>句を教わっているけど、これって<6E5C>何かの役に立つのかナァ),,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,18,15,UNKNOWN_1c,Eきゃー、きゃー、右京様ー!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,19,10,주인공,うわ、女性が何人も,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,20,5,Ukyo,……うむ,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,21,24,주인공,(やっぱりモテるんだなぁ.<6E5C>俺も頑張ろうっと),,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,22,14,주인공,どうしたんですか、右京さん,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,23,2,Ukyo,!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,24,11,Ukyo,ささめゆき、とぅっ!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,25,16,주인공,なな!果物がきれいに切れて……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,26,14,주인공,もぐもぐ.<6E5C>なんと甘美な!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,27,7,Ukyo,……あま、い,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,28,30,주인공,(句の道を極めると、こんなことも<6E5C>できるのか.すごいなぁ),,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,29,15,Ukyo,<이름:3232>殿……句を、読まれよ……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,30,31,주인공,えー、では、ゴホン.<6E5C>寺ハラへりて……<6E5C>寺ハラがなるなり……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,31,6,Ukyo,ガハァッ!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,32,9,주인공,う、右京さん!?,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,33,26,Ukyo,ゴフッ……拙者のことは気にせず<6E5C>……続きを…….<6E5C>寺,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,34,7,Ukyo,ウゴハァッ!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,35,44,주인공,(なっ!句の道とは、そこまで<6E5C>険しく厳しいものなのか…….<6E5C>俺も心してかからないと!),,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,36,31,Ukyo,<이름:3232>殿……、よくぞここまで、<6E5C>拙者の教えについて来られた……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,37,11,주인공,どういうことですか?,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,38,39,Ukyo,そなたは、十分に句の心を体得され<6E5C>た…….もはや、ここに来る必要は<6E5C>なし……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,39,41,주인공,そんな、俺はもっと教えてほしいで<6E5C>す!川柳のすばらしさを、詩の世<6E5C>界のすべてを!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,40,20,Ukyo,……しかし、もう、拙者には<6E5C>時間が……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,41,16,주인공,!<020A>そんな、肺病がそこまで……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,42,12,UNKNOWN_16,E右京様ー、早くーっ!,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,43,3,Ukyo,……,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,44,3,주인공,!?,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,45,6,Ukyo,……御免っ,,
-dom3TrainingINT.mes,Script/dom3TrainingINT.mes,46,26,주인공,ちょ、右京さん!<6E5C>……本当に俺、句を極めたのかなぁ,,
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,0,3,Ukyo,……,……,……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,1,13,주인공,あ、右京さん、こんにちは,"우쿄 씨, 안녕하세요","우쿄 씨, 안녕하세요"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,2,3,Ukyo,……,……,……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,3,11,주인공,あの、俺、今日は……,"저, 오늘은……","저, 오늘은……"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,4,44,Ukyo,……川柳とは、うつし世で最も短い<6E5C>詩のひとつ……<9C16>句と同じく、<6E5C>十七音でつむがれる――,……센류란 이 세상서 가장 짧은<6E5C>시…….<9C16>하이쿠처럼<6E5C>열일곱 음으로 짓소――,……센류란 이 세상서 가장 짧은<6E5C>시…….<9C16>하이쿠처럼<6E5C>열일곱 음으로 짓소――
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,5,26,주인공,(さ、さっそく俺を生徒だと思って<6E5C>指導している!),(벌써 나를 제자로 알고<6E5C>가르치고 계셔!),(벌써 나를 제자로 알고<6E5C>가르치고 계셔!)
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,6,22,주인공,(まぁいいか.<6E5C>この機会に教わっておこう),(뭐 좋아.<6E5C>이 기회에 배워두자),(뭐 좋아.<6E5C>이 기회에 배워두자)
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,7,20,Ukyo,<이름:3232>殿……共に句の道を<6E5C>極めようぞ……,<이름:3232> 님……함께 구도를<6E5C>닦아보세……,<이름:3232> 님……함께 구도를<6E5C>닦아보세……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,8,4,주인공,はいぃ,네에,네에
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,9,6,Ukyo,白き花……,흰 꽃……,흰 꽃……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,10,6,주인공,白き花……,흰 꽃……,흰 꽃……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,11,7,Ukyo,咲かそ橘……,귤꽃피자……,귤꽃피자……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,12,7,주인공,咲かそ橘……,귤꽃피자……,귤꽃피자……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,13,6,Ukyo,ゴハァッ!,커헉!,커헉!
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,14,16,주인공,ごはぁ?それはどういう意味で?,커헉? 무슨 뜻이에요?,커헉? 무슨 뜻이에요?
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,15,12,Ukyo,ガハァッ、ウゴハァッ!,"가허헉, 우헉!","가허헉, 우헉!"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,16,28,주인공,ちょっと、しっかりしてください<6E5C>右京さん!右京さーん!,"잠깐, 정신 차리세요<6E5C>우쿄 씨! 우쿄 씨ー!","잠깐, 정신 차리세요<6E5C>우쿄 씨! 우쿄 씨ー!"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,17,46,주인공,(……こうやって度々右京さんから<6E5C>句を教わっているけど、これって<6E5C>何かの役に立つのかナァ),"(……이렇게 자주 우쿄 씨한테<6E5C>구를 배우고 있는데, 이게<6E5C>도움이 되긴 하는 걸까)","(……이렇게 자주 우쿄 씨한테<6E5C>구를 배우고 있는데, 이게<6E5C>도움이 되긴 하는 걸까)"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,18,15,UNKNOWN_1c,Eきゃー、きゃー、右京様ー!,"E꺄아 꺄아, 우쿄 님ー!","E꺄아 꺄아, 우쿄 님ー!"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,19,10,주인공,うわ、女性が何人も,"우와, 여성들이","우와, 여성들이"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,20,5,Ukyo,……うむ,……음,……음
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,21,24,주인공,(やっぱりモテるんだなぁ.<6E5C>俺も頑張ろうっと),(역시 인기가 많으시구나.<6E5C>나도 힘내야지),(역시 인기가 많으시구나.<6E5C>나도 힘내야지)
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,22,14,주인공,どうしたんですか、右京さん,"무슨 일이세요, 우쿄 씨","무슨 일이세요, 우쿄 씨"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,23,2,Ukyo,!,!,!
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,24,11,Ukyo,ささめゆき、とぅっ!,"사사메유키, 홧!","사사메유키, 홧!"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,25,16,주인공,なな!果物がきれいに切れて……,허걱! 과일이 깔끔하게……,허걱! 과일이 깔끔하게……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,26,14,주인공,もぐもぐ.<6E5C>なんと甘美な!,냠냠.<6E5C>정말 달콤해!,냠냠.<6E5C>정말 달콤해!
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,27,7,Ukyo,……あま、い,"……달, 다","……달, 다"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,28,30,주인공,(句の道を極めると、こんなことも<6E5C>できるのか.すごいなぁ),(구의 길을 닦으면 이런 것도<6E5C>되는구나. 대단해),(구의 길을 닦으면 이런 것도<6E5C>되는구나. 대단해)
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,29,15,Ukyo,<이름:3232>殿……句を、読まれよ……,<이름:3232> 님……구를 읊게……,<이름:3232> 님……구를 읊게……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,30,31,주인공,えー、では、ゴホン.<6E5C>寺ハラへりて……<6E5C>寺ハラがなるなり……,"그럼, 흠흠.<6E5C>서당배가 고파서……<6E5C>서당배가 꼬르륵……","그럼, 흠흠.<6E5C>서당배가 고파서……<6E5C>서당배가 꼬르륵……"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,31,6,Ukyo,ガハァッ!,커헉!,커헉!
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,32,9,주인공,う、右京さん!?,"우, 우쿄씨!?","우, 우쿄씨!?"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,33,26,Ukyo,ゴフッ……拙者のことは気にせず<6E5C>……続きを…….<6E5C>寺,커헉……소인 걱정은 말고<6E5C>……계속을…….<6E5C>서,커헉……소인 걱정은 말고<6E5C>……계속을…….<6E5C>서
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,34,7,Ukyo,ウゴハァッ!,우헉!,우헉!
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,35,44,주인공,(なっ!句の道とは、そこまで<6E5C>険しく厳しいものなのか…….<6E5C>俺も心してかからないと!),(헉! 구의 길이 그렇게까지<6E5C>험하고 혹독한가…….<6E5C>나도 각오해야겠어!),(헉! 구의 길이 그렇게까지<6E5C>험하고 혹독한가…….<6E5C>나도 각오해야겠어!)
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,36,31,Ukyo,<이름:3232>殿……、よくぞここまで、<6E5C>拙者の教えについて来られた……,"<이름:3232> 님……, 용케 여기까지<6E5C>가르침을 따라오셨소……","<이름:3232> 님……, 용케 여기까지<6E5C>가르침을 따라오셨소……"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,37,11,주인공,どういうことですか?,무슨 말씀이세요?,무슨 말씀이세요?
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,38,39,Ukyo,そなたは、十分に句の心を体得され<6E5C>た…….もはや、ここに来る必要は<6E5C>なし……,그대는 구의 마음을 체득<6E5C>하였소…….이제 여기 올<6E5C>필요는 없소……,그대는 구의 마음을 체득<6E5C>하였소…….이제 여기 올<6E5C>필요는 없소……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,39,41,주인공,そんな、俺はもっと教えてほしいで<6E5C>す!川柳のすばらしさを、詩の世<6E5C>界のすべてを!,"그런, 저는 더 배우고 싶어요<6E5C>! 센류의 훌륭함을, 시의 세<6E5C>계 전부를!","그런, 저는 더 배우고 싶어요<6E5C>! 센류의 훌륭함을, 시의 세<6E5C>계 전부를!"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,40,20,Ukyo,……しかし、もう、拙者には<6E5C>時間が……,……허나 이제 소인에겐<6E5C>시간이……,……허나 이제 소인에겐<6E5C>시간이……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,41,16,주인공,!<020A>そんな、肺病がそこまで……,"!<020A>그런, 폐병이 그렇게……","!<020A>그런, 폐병이 그렇게……"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,42,12,UNKNOWN_16,E右京様ー、早くーっ!,"E우쿄 님, 빨리요!","E우쿄 님, 빨리요!"
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,43,3,Ukyo,……,……,……
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,44,3,주인공,!?,!?,!?
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,45,6,Ukyo,……御免っ,……용서를,……용서를
+dom3TrainingINT.mes,Script/dom3TrainingINT.mes,46,26,주인공,ちょ、右京さん!<6E5C>……本当に俺、句を極めたのかなぁ,"저, 우쿄 씨!<6E5C>……정말 나 구를 익힌 걸까","저, 우쿄 씨!<6E5C>……정말 나 구를 익힌 걸까"

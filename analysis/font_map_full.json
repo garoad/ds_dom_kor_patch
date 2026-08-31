@@ -13254,7 +13254,8 @@
     "CE12": {
       "kind": "full",
       "count": 1,
-      "real_tile": 13202
+      "real_tile": 13202,
+      "char": "狆"
     },
     "0191": {
       "kind": "full",

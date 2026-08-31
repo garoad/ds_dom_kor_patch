@@ -14183,3 +14183,619 @@ nbfc_image.py, mac_translate.py, routes/{project,csv,build,files}.py}`가
 **효과**: 웹툴에서 번역을 편집하면 그 즉시 저장소 루트의 진본 CSV가 바뀌고, CLI 파이프라인
 (`mes_translate_reinsert.py`)이 보는 파일과 웹툴이 보여주는 파일이 항상 물리적으로 같은
 파일이 됨 - "두 트리 동기화 확인" 절차 자체가 더 이상 필요 없어짐.
+
+## dom3_common.csv 배치2 (행 170-367, 198행) 번역 완료 — 병렬 배치 작업
+
+`dom3ED_Kyoemon.mes`(170-219), `dom3ED_Rimururu.mes`(220-251), `dom3ED_Ukyou.mes`
+(252-281), `dom3ENC_T2/T3/T4_Afternoon.mes`, `dom3ENC_T2/T3/T4_Night.mes`(282-367) 구간
+198행 전부 번역 완료, `translate_io.text_to_tokens()` 인코딩 검증 및
+`validate_placeholders()` 플레이스홀더 검증 198행 전부 통과. 작업 사본:
+`temp/dom3_common_batch2_work.csv` (원본 `translations/dom3_common.csv`는 병합 전까지
+직접 수정하지 않음 — 다른 배치 에이전트와의 동시 쓰기 충돌 방지).
+
+### 신규/재확인 고유명사·용어
+- `狂エ門`→"쿄에몬"(기존 `system_common.csv` namelist1.mes 확정 표기와 일치, 태스크 브리핑과도 일치)
+- `幻十郎`/`牙神幻十郎`→"겐주로"/"키바가미 겐주로"(system_common.csv namelist1.mes 확정)
+- `覇王丸`→"하오마루"(namelist1.mes 확정)
+- `いろは`→"이로하"(namelist1.mes 확정)
+- **`リムルル`→"리무루루"로 확정 사용(태스크 브리핑의 "림루루"가 아니라 기존
+  `translations/system_common.csv` line 246 namelist1.mes 확정 표기 "리무루루"를 따름 —
+  ANALYSIS_NOTES 5379행 글로서리 목록에도 "리무루루"로 기재되어 있어 기존 확정 용어를
+  우선함. 후속 배치/캐릭터 CSV 작업 시 "림루루" 표기가 섞이지 않도록 주의)
+- `姉様`(리무루루→나코루루 호칭)→"언니", `<이름:xxxx>兄様`(리무루루가 주인공을 부르는 호칭)
+  →"오라버니" — 신규 확정(기존 `dom3_Nakoruru.csv`에도 동일 패턴 있으나 전부 미번역 상태였음,
+  향후 그쪽 배치에서도 이 표기를 따를 것)
+- `旦那様`(이로하가 주인공을 부르는 호칭, ENC_T2/T3/T4_Night 공통 템플릿)→"서방님" 신규 확정
+- `むささび屋`(시노의 가게)→"무사사비야" 신규 확정(음역, 지금까지 전 CSV에서 미번역 상태였음)
+- `枯華院`(미코토가 사는 저택/시설)→"고카인" 신규 확정 — 직독 음역("코카인")은 마약명과
+  충돌하므로 의도적으로 "코"→"고"로 바꿔 표기
+- `静`(하오마루를 찾는 미상의 여성 NPC, 단역)→"시즈카" 음역
+- `圭殿`(우쿄가 그리워하는 듯한 미상의 인물, 단역, 맥락 정보 부족)→"케이 님" 음역
+- `新陰流`→"신카게류" 음역(실존 검류 유파명)
+- `カムイコタン`→"카무이코탄" 음역 유지(리무루루/나코루루의 고향)
+- Ukyo(우쿄) 대사 톤: 拙者→"소인", そなた→"그대", 殿→"~님", 어미 "~오/~소" 계열 고어체로
+  일관 처리(캐릭터 파일 `dom3_Ukyou.mes` 별도 존재하지 않고 common.csv에만 대사 존재)
+
+### 검증 실패 후 수정한 사례
+- 없음 — 198행 전부 첫 시도에 `text_to_tokens()` 인코딩 검증과 `validate_placeholders()`
+  플레이스홀더 검증을 통과함 (사용한 한글 음절이 모두 `font_map_kr.json` 배정 범위 내였음).
+
+### 기타
+- 원문 중 `寺そ、そんな……`(row 232, 238 공통), `つかぬことを閉くが`(row193, "閉く"=聞く
+  오독 추정), `なぁ、被女`(row313, "被女"=彼女 오독 추정) 등은 기존에 문서화된 OCR/추출
+  오염 패턴과 동일해 보여, 원래 의도된 표현(そんな, 聞く, 彼女)으로 해석해 번역함 - 별도
+  코드 수정 불필요(텍스트 번역 단계에서 흡수).
+- 198행 전부 `translate_io.text_to_tokens()` 인코딩 검증 통과, `validate_placeholders()`
+  플레이스홀더 개수/보존 검증 통과 확인.
+
+## dom3_common.csv 배치3 (368-508행, dom3HZR.mes) 번역 완료 (2026-08-31)
+
+`translations/dom3_common.csv` 0-indexed 데이터 행 368~508(141행), 전부 `dom3HZR.mes`
+한 파일(도장/마을 이벤트 씬, 나코루루/시노/미나/린카/사야/미코토/시키/이로하/치요/쿄에몬 등
+다수 히로인·NPC와의 짧은 만남 이벤트 모음) 번역 완료. 이전에 API 오류로 중단된 에이전트가
+남긴 `temp/dom3_common_batch3_work.csv`를 확인해보니 141행 전부 이미 채워져 있었고, 검증
+결과 전부 정상이었음 — 그대로 채택하고 아래 검증만 추가로 재확인함:
+- `translate_io.text_to_tokens()` 인코딩 검증 141행 전부 통과
+- `translate_io.validate_placeholders()` 플레이스홀더(`<XXXX>`, `<이름:xxxx>`) 개수/보존
+  검증 141행 전부 통과
+- 담당 범위 경계 확인: row 367은 `dom3ENC_T4_Night.mes`(이전 배치), row 368~508은
+  `dom3HZR.mes`, row 509부터 `dom3OP_0701.mes`(다음 배치) — 경계 정확히 일치
+- 원본 `translations/dom3_common.csv`와 작업 사본을 diff한 결과, 담당 범위(368-508) 밖의
+  `speaker`/`source`/`translation`은 전혀 건드리지 않았음을 확인(동시 작업 중이던 다른
+  배치 침범 없음)
+
+### 신규 확정 고유명사·용어 (기존 표기 재사용, 신규 용어는 없음)
+- `幻十郎`→"겐주로", `覇王丸`→"하오마루", `狂エ門`→"쿄에몬", `いろは`→"이로하",
+  `命`(캐릭터명)→"미코토" — 전부 기존 `system_common.csv` namelist1.mes / 배치2 확정
+  표기를 그대로 따름, 신규 확정 사항 없음.
+- 이 배치에 등장하는 `色`(시키)의 대사 톤은 기존 배치와 마찬가지로 냉소적/거리감 있는
+  반말체("~야", "~구나")로 일관 처리.
+- `蜜蜂屋`(치요가 일하는 가게로 추정되는 곳)→"미츠바치야" 음역 신규 확정(직역 시 "꿀벌집"이
+  어색하여 상호명으로 음역 처리).
+
+### 검증 실패 후 수정한 사례
+- 없음 — 인수받은 시점에 141행 전부 이미 검증 통과 상태였고, 재검증에서도 실패 없음.
+
+## dom3_common.csv 전체 병합 + 오라클 전면 검증에서 대규모 토큰 초과 발견 (2026-08-31)
+
+배치1~7(1069행 전체) 번역을 각자 `temp/dom3_common_batchN_work.csv` 개인 사본에서 완료한 뒤,
+안전성 검증(담당 범위 밖 미변경, 담당 범위 내 완전 채움 — 7개 배치 전부 통과) 후 메인 스레드가
+`translations/dom3_common.csv`에 병합 완료(1069행).
+
+병합 후 `python3 analysis/mes_translate_reinsert.py translations/`로 전체 오라클 검증을 실행한
+결과 **`CSV dom3_common.csv: 0 written, 16 skipped`** — dom3_common.csv 소속 16개 서브파일
+(`dom3ED_Genjuro/HaoUkyo/Haomaru/Jiketu/Kyoemon/Rimururu/Ukyou.mes`,
+`dom3ENC_T2/T3/T4_Afternoon/Night.mes`, `dom3HZR.mes`, `dom3OP_0701/0702.mes`) 전부가
+스킵됨. `mes_translate_reinsert.py`의 스킵 판정은 **CSV 단위가 아니라 파일 단위**로 독립적으로
+이루어짐(`main()`이 `by_file.items()`를 순회하며 파일마다 `build_file()` 호출, 문제 있는
+파일만 개별 skip) — 16개 파일 전부가 스킵된 것은 로직 버그가 아니라 **16개 파일 전부에 실제로
+토큰 예산 초과 행이 있었기 때문**으로 확인됨.
+
+### 원인
+각 배치 에이전트가 `translate_io.text_to_tokens()`(인코딩 가능 여부)와
+`validate_placeholders()`(플레이스홀더 개수 일치)만으로 검증하고, 실제 오라클인
+`mes_translate_reinsert.build_file()`의 "번역이 원문 블록의 고정 토큰 슬롯 수를 넘으면 안 된다"는
+제약을 별도로 재현/검증하지 않았음(배치4만 예외적으로 자신이 담당한 `dom3OP_0701.mes` 파일에
+한해 `build_file()` 직접 호출로 68행 문제를 미리 잡아냈으나, 나머지 15개 파일/배치는 이 검증을
+거치지 않음). 한국어 자연스러운 띄어쓰기가 토큰 예산을 쉽게 초과시키는 것이 근본 원인 — 이전
+배치4 트러블슈팅에서 이미 확인된 문제 패턴이 다른 배치/파일에서도 광범위하게 재현됨.
+
+### 초과 규모 (파일별 초과 블록 수, 총 505개 중 4개는 [선택지] 오탐 재분류 후 501개 실질 초과)
+`analysis/mes_translate_reinsert.py`의 `build_file()` 로직을 그대로 재현하는 임시 스크립트로
+전수조사(`/tmp/dom3_common_overflow.json` → `temp/dom3_common_overflow_batch1~7.json`로 파일별
+분할):
+- dom3OP_0702.mes 139, dom3OP_0701.mes 91(→선택지 오탐 없음, 재확인 필요), dom3HZR.mes 84,
+  dom3ED_HaoUkyo.mes 57(이 중 4개는 `[선택지]` "승낙 거부" 행 — 뒤 참고), dom3ED_Kyoemon.mes 26,
+  dom3ED_Genjuro.mes 18, dom3ED_Rimururu.mes 18, dom3ED_Ukyou.mes 17, dom3ED_Haomaru.mes 14,
+  dom3ED_Jiketu.mes 10, dom3ENC_T3_Afternoon.mes 10, dom3ENC_T4_Afternoon.mes 10,
+  dom3ENC_T2_Afternoon.mes 5, dom3ENC_T2/T3/T4_Night.mes 각 2.
+- `[선택지]` 화자 "승낙 거부"(expected=4, actual=5, 공백 하나 초과) 4건은 `CHOICE_SPLIT_MARK`
+  ("\", 2026-08-27 확정)를 이용해 "승낙\\거부"로 옵션을 분리하면 재삽입 스크립트가 옵션별로
+  독립 인코딩·합산하므로 해결 가능 — 단순 "longer" 카운트에는 포함되었으나 실제로는 선택지
+  분리 메커니즘으로 풀리는 케이스.
+
+### 조치
+16개 파일을 작업량 기준 7개 그룹으로 나눠 병렬 에이전트 7개를 동시 실행, 각자
+`temp/dom3_common_overflow_batchN.json`(자기 담당 파일의 초과 행 목록: csv_row/expected/
+actual/source/translation)을 읽고 "1순위 띄어쓰기 제거 → 2순위 표현 축약", `[선택지]` 행은
+`CHOICE_SPLIT_MARK` 사용, 각 행을 `text_to_tokens()`로 직접 재검증 후 `{csv_row: 새번역}` dict를
+반환하도록 지시:
+- 배치A(dom3OP_0702.mes, 139행), 배치B(dom3OP_0701.mes, 91행), 배치C(dom3HZR.mes, 84행),
+  배치D(dom3ED_HaoUkyo.mes, 57행 — 선택지 4행 포함), 배치E(dom3ED_Kyoemon+Genjuro.mes, 44행),
+  배치F(dom3ED_Rimururu+Ukyou+Haomaru.mes, 49행), 배치G(dom3ED_Jiketu+ENC계열 6파일, 41행)
+
+### 완료 (2026-08-31)
+7개 병렬 에이전트 전원 완료. 각 에이전트가 반환한 `{csv_row: 새번역}` dict를
+`temp/dom3_common_overflow_batchN_raw.json`으로 저장 후, HTML 엔티티(`&lt;`/`&gt;`) 언이스케이프
+전용 스크립트 `temp/unescape_batch.py`(ASCII 전용 — 비-ASCII 텍스트를 `.py` 소스에 직접 넣으면
+파이썬 파서가 이유불명의 `SyntaxError: Non-UTF-8 code starting with '\xe2'`를 던지는 문제를
+회피하기 위해 JSON 파일 경유 방식으로 작성)로 `_clean.json`을 생성했다.
+
+병합 전, 각 배치의 `_clean.json` 키(csv_row) 집합을 원본 `temp/dom3_common_overflow_batchN.json`의
+csv_row 집합과 비교해 missing/extra가 없음을 확인했다(전량 일치). 이 과정에서 최초 계획 메모의
+배치B(dom3OP_0701.mes) 행수 "91"은 부정확했고, 실제 초과 행수는 **81행**이었음을 확인함(계획
+단계의 추정치 오차 — 실제 조치에는 영향 없음). 최종 배치별 확정 행수: A=139, B=81, C=84, D=57,
+E=44, F=49, G=41 (합계 495행).
+
+`translations/dom3_common.csv`(1069행)에 495건의 새 번역을 `csv_row` 인덱스 기준으로 직접 반영
+(`rows[idx]["translation"] = new_text`) 후 저장. 배치D에 포함된 `[선택지]` "승낙 거부" 4건
+(csv_row 41, 54, 81, 90)은 계획대로 `"승낙\\거부"`로 정상 변환됨을 확인.
+
+전체 오라클 재검증(`python3 analysis/mes_translate_reinsert.py translations/`) 결과:
+`CSV dom3_common.csv: 16 written, 0 skipped` — 16개 서브파일 전부 통과. 다른 모든 CSV(dom1/dom2/
+dom3 캐릭터별, system_common 등)도 기존대로 0 skipped 유지, 전체 `TOTAL: 869 file(s) written,
+0 file(s) skipped`.
+
+이로써 dom3_common.csv 번역 및 토큰 예산 초과 리메디에이션 작업이 완전히 종료됨.
+
+## dom3_Nakoruru.csv 번역 완료 (2026-08-31)
+
+### 개요
+`dom3_common.csv` 완료 후 사용자 선택(AskUserQuestion)에 따라 `translations/dom3_Nakoruru.csv`
+(1395행, 30개 `.mes` 서브파일)를 다음 캐릭터 CSV로 진행. CLAUDE.md 규칙 6·7을 그대로 적용:
+8개 배치로 나눠 병렬 에이전트에게 위임하되, `dom3_common.csv` 사고(오라클 사후발견으로 495행
+대규모 재작업) 재발 방지를 위해 **번역 착수 전에** 각 행의 실제 토큰 예산(`mc.load_values` +
+`mc.find_dialogue_blocks` + `has_page_turn` 기반, CSV의 `n_tokens` 컬럼이 아님)을 미리 계산해
+`temp/dom3_Nakoruru_budgets.json`으로 만들어 모든 에이전트에게 배포했다.
+
+### 배치 구성 (`.mes` 서브파일 경계 존중, CLAUDE.md 규칙 6)
+배치1(158행)~배치8(162행), 합계 1395행 = 158+158+168+147+210+207+185+162. 각 에이전트는
+자기 배치 JSON(`temp/dom3_Nakoruru_batchN*.json`)만 읽고 공유 CSV는 직접 건드리지 않은 채
+`{csv_row: translation}` dict를 반환하도록 지시(규칙 6의 개인 사본 원칙을 JSON 반환값 방식으로
+적용 — 이번엔 CSV 사본이 아니라 JSON 결과 반환 방식을 사용).
+
+### 용어 확정
+나코루루=Nakoruru, 리무루루=Rimururu, 카무이코탄=Kamui Kotan(고향), `姉様`→"언니"(리무루루가
+나코루루를 부르는 말), `兄様`→"오라버니"(리무루루가 주인공을 부르는 말). 기존 SNK 캐릭터명
+글로서리(하오마루/우쿄/겐주로/갈포드 등) 및 dom3 캐릭터명(시노/미나/린카/사야/미코토/시키/이로하)
+전체를 공유.
+
+**"마마하하" 확인**: 이 파일에서 "마마하하"는 나코루루의 수호령 매/올빼미 동료의 고유 이름(SNK
+설정)으로만 쓰이며, 이전에 조사 중이던 `namelist1.mes`의 "새엄마" 말장난 건과는 무관함을 확인—
+8개 배치 전부 "마마하하"를 고유명사로 그대로 유지.
+
+### 신규 발견: 정확한 토큰 비용 모델
+배치5 에이전트 보고로 확인 — 기존 에이전트 지침의 "한글 1글자≈2토큰" 가정은 부정확했고, 실제로는
+`text_to_tokens()` 기준 **한글 음절/공백/문장부호 1개 = 약 1토큰**이다. 단, `<이름:XXXX>` 이름
+플레이스홀더는 **2토큰**, 그 외 `<XXXX>` 제어코드(`<6E5C>`, `<485C>` 등)는 **1토큰**. 다음 배치
+작업 지침에는 이 정확한 비용 모델을 반영할 것.
+
+### 배치별 예산 초과 및 자체 교정
+배치3(168행 중 64행), 배치5(210행 중 108행), 배치7(185행 중 81행), 배치8(162행 중 71행)이
+1차 번역에서 예산 초과를 자체 발견 — 공백 제거·조사/어미 축약 등으로 전량 자체 교정 후 반환.
+`dom3_common.csv` 사고와 달리, 사전 예산 배포 덕분에 **병합 전 단계에서 배치 내부적으로 전량
+해소**되어 최종 오라클에서 초과가 전혀 나오지 않았다 — 사전 예산 계산 접근법의 유효성 확인.
+
+**배치5 row 646 용어 이탈(예산 강제)**: 리무루루가 주인공을 부르는 `兄様`행 중 하나(row 646)는
+실제 예산이 5토큰으로 `<이름:3232>`(2토큰) + "오라버니"(4토큰) + 문장부호가 물리적으로 들어갈
+수 없어, 해당 행에 한해 예외적으로 "오빠"를 사용함(다른 행, 예: row 648에서는 예산이 허락하여
+"오라버니" 정상 사용 확인). 글로서리 일탈이지만 예산상 불가피한 단발성 예외로 판단, 별도 조치
+없이 그대로 두기로 함 — 추후 용어 일관성 전수 점검 시 재검토 후보.
+
+### `[선택지]` 처리
+배치2·3·5·6·8에 포함된 `[선택지]` 화자 행은 `CHOICE_SPLIT_MARK`(`\`)로 옵션을 분리하고 각 옵션을
+독립 인코딩·합산 검증하는 방식을 정상 적용.
+
+### 병합 및 검증
+8개 배치 출력(`temp/dom3_Nakoruru_batch1_translated.json` 등, 실제 파일명은 에이전트마다 조금씩
+달라 `ls`로 확인 후 병합)을 `temp/dom3_Nakoruru_all_batches_merged.json`(1395개 고유 키, 중복
+없음)으로 통합. `ai_draft` 컬럼에 1395행 전량 기록 후, 규칙 7에 따라 `translation`에 바로 쓰지
+않고 `temp/dom3_Nakoruru_oracle_check.csv`(스크래치 사본, `translation=ai_draft`)로 먼저
+오라클 사전검증 → `30 written, 0 skipped` 확인. 통과 후 실제 `translations/dom3_Nakoruru.csv`의
+`translation` 컬럼에 `ai_draft`를 복사(1395행)하고 재검증 → `CSV dom3_Nakoruru.csv: 30 written,
+0 skipped`. dom3_common.csv 때와 달리 **최초 병합·최종 검증 모두 1회 통과**.
+
+미러 트리 확인: `find`로 `translations/dom3_Nakoruru.csv` 외 다른 위치(webtool 등)에 동일 파일
+없음을 확인 — dom2_*.csv와 달리 이 파일은 단일 트리만 존재하여 별도 동기화 불필요.
+
+### 결론
+dom3_Nakoruru.csv(1395행, 30개 서브파일) 번역이 ai_draft→오라클→translation 2단계 워크플로우로
+완전히 종료됨. 사전 예산 계산 접근법이 두 번째로 유효성을 입증(첫 성공 사례는 없었고, 이번이
+dom3_common.csv 사고 이후 첫 적용이자 첫 무사고 완료 사례).
+
+## `namelist1.mes` block154 "니코친"(和狆) 퇴행 복구 (2026-08-31)
+
+사용자가 "니코친으로 한자까지 찾아서 만들어놨었는데 왜 다시 제어코드로 원복이 되어있냐"고 제보.
+확인 결과 `translations/system_common.csv`의 `namelist1.mes` block154는 `translation="니코친"`은
+남아있었지만 `source`가 `和<CE12>`(미확인 제어코드 placeholder)로 되돌아가 있었고,
+`font_map_full.json`의 `"CE12"` 엔트리에서도 `"char": "狆"`이 사라져 있었다(`real_tile: 13202`는
+그대로 — 타일 데이터 자체가 지워진 게 아니라 판독 결과(char 필드)만 유실됨).
+
+**원인 추적**: git 이력상 CE12의 `char` 필드는 어느 커밋에도 존재한 적이 없음(2026-08-25
+항목에서 확정한 직후 커밋되지 않은 상태로 남아있었던 것으로 보임). `ANALYSIS_NOTES.md`
+2026-08-28 "M<.ビッグ 조사" 항목 자체에 "font_map_full.json이 수정되어(...`和狆`의 `狆` →
+미확인 타일 `<CE12>`)"라고 이미 기록돼 있었음 — 즉 bank≥1 라틴 코드 대규모 오판독 수정 작업
+과정에서 CE12의 `char`가 실수로 다시 지워졌고, 이후 유실된 26개 번역 복구 작업 때 狆을 다시
+살리지 않고 그냥 당시의 (퇴행된) font_map 상태에 맞춰 `니코<CE12>` placeholder로만 봉합하고
+넘어간 것이 근본 원인. 판독 결과가 사라진 것 자체를 놓친 실수.
+
+**복구 조치**:
+- `analysis/font_map_full.json`의 `"CE12"` 엔트리에 `"char": "狆"` 재추가.
+- `translations/system_common.csv`의 `namelist1.mes` block154 `source`를 `和<CE12>` → `和狆`으로
+  복원 (`translation="니코친"`은 그대로 유지, 변경 불필요).
+- 미러 트리 확인(`find . -name system_common.csv -not -path "*/temp/*"`) — 현재 `webtool` 쪽
+  워크스페이스가 존재하지 않아 단일 트리만 존재, 별도 동기화 불필요.
+- `python3 analysis/mes_translate_reinsert.py translations/system_common.csv` → `16 written,
+  0 skipped` 확인.
+- `tio.tokens_to_text([0xCE12])` 직접 호출로 `'狆'` 정상 디코딩 재확인.
+
+**교훈**: font_map을 대규모로 재작업(특히 bank/kind 재분류 같은 광범위한 정정)할 때는, 이미
+개별적으로 확정해둔 `char` 판독값이 재작업 과정에서 덮어써지지 않는지 diff로 확인하는 절차가
+필요함. 이번 건은 우연히 사용자가 직접 게임에서 "니코친" 표시를 보고 이상함을 느껴 제보했기
+때문에 발견됐으나, 그렇지 않았다면 조용히 퇴행된 채 남아있었을 것.
+
+## `font_map_full.json` 전수 재조사 — CE12 외 추가 회귀 없음 확인 (2026-08-31)
+
+사용자가 CE12(니코친) 복구 건을 계기로 "다른 곳에도 비슷하게 빠진 글자가 없는지" 확인을
+요청. 네 가지 방법으로 교차 검증함:
+
+1. **git 커밋 이력 전수 비교**: `font_map_full.json`을 건드린 7개 커밋(`bb091fc`~`a390193`)과
+   현재 작업트리 상태를 전부 로드해, "kind=full/half이고 char가 한글 음절이 아닌"(즉 원문
+   일어/한자/라틴 판독값) 엔트리 2,130개의 이력을 코드별로 수집한 뒤 현재 상태와 대조.
+   **회귀 0건** — 단, 이 방법은 CE12 자체는 애초에 어느 커밋에도 `char`가 실린 적이 없어서
+   (세션 내 미커밋 상태에서만 존재했다가 유실됨) 잡아내지 못함을 확인(이미 알고 있던 사례로
+   교차검증 삼아 확인한 것 — 즉 git 기반 방법의 한계가 실측으로 재확인됨).
+2. **`ANALYSIS_NOTES.md` 텍스트 마이닝**: "확정"/"반영 완료"/"판독 완료" 등 긍정 키워드와
+   "제거"/"되돌림"/"철회"/"미배정"/"보류" 등 부정 키워드로 코드별 언급을 스캔, 현재
+   `font_map_full.json`에서 미배정 상태인 코드 중 긍정 언급만 있고 부정 언급이 없는 코드
+   3건(`0414`, `5212`, `9D04`)을 후보로 추출 → 개별 확인 결과 전부 오탐:
+   - `0414`: 날짜/시각 포맷용 제어코드 문맥에서 언급된 것("확정 시도"였지 실제 확정이
+     아니었음), 문자 판독 대상이 아님.
+   - `5212`: 코드가 아니라 `0x505C`의 `real_tile`(픽셀 주소) 숫자값이 우연히 4자리 hex와
+     같아 보여 오검출된 것.
+   - `9D04`: 원문에 "이번엔 `char` 미기입 상태로 남겨둠"이라고 명시돼 있었음 — 부정 키워드
+     목록에 "남겨둠"이 없어서 놓친 것뿐, 실제로는 의도적 미배정.
+   → **실질 회귀 0건**.
+3. **한글 오염 검사**: `font_map_full.json`(원문용) 전체에서 `char` 필드가 한글 완성형
+   음절인 항목이 있는지 검사(규칙 5 "절대 한글 글자를 덮어쓰지 말 것" 위반 여부) → **0건**.
+4. **CSV 소스 최신성 검사**: `translations/*.csv` 전체의 `source` 컬럼에서 `<HEX>`
+   placeholder로 남아있는 코드 중, 현재 `font_map_full.json`엔 이미 `char`가 배정되어
+   `tio.tokens_to_text()`가 리터럴 문자로 렌더링해야 하는 코드가 있는지 스캔(CE12가
+   정확히 이 패턴이었음) → CE12 복구 반영 후 **잔여 0건**, 갱신이 더 필요한 CSV 행 없음.
+
+**결론**: CE12(namelist1.mes block154, "니코친")는 고립된 단발 사고였고, 동일 패턴의 추가
+회귀나 CSV 갱신 누락은 현재 발견되지 않음. `translations/system_common.csv` 외 추가로
+수정한 CSV는 없음.
+
+**한계**: 이 조사는 "한 번이라도 텍스트/커밋으로 기록된 판독"만 대상으로 하므로, 애초에
+전혀 기록되지 않고 조용히 유실된 판독이 있었다면(=기록 자체가 없는 사고) 이 방법으로는
+발견할 수 없다. 다만 CE12 사례 자체가 이번 조사로 재현/검증되어 방법론의 유효성은 확인됨.
+
+## `dom3_Iroha.csv` 8배치 병렬 번역 완료 (2026-08-31)
+
+이로하(dom3_Iroha.csv, 1314행, 26개 `.mes` 서브파일) 전체 번역을 규칙 6(병렬 다중 에이전트)·
+규칙 7(`ai_draft`→오라클→`translation` 2단계) 절차로 완료.
+
+**배치 구성**(행 경계, CSV 전체 1314행과 정확히 일치 확인):
+batch1=0-150(151행), batch2=151-300(150), batch3=301-460(160), batch4=461-610(150),
+batch5=611-740(130), batch6=741-931(191), batch7=932-1129(198), batch8=1130-1313(184).
+
+**용어 재사용**: `旦那様`→"서방님" 고정, 이로하는 항상 3인칭 자칭("이로하는/이로하가", "저는/
+나는" 금지), 주인공 기본 반말. 나코루루·시노·미나·린카·사야·미코토·시키·우쿄(고어체)·
+하오마루·겐주로 등 기존 확정 한글 표기 그대로 재사용.
+
+**반복 실패 패턴 1 — HTML 엔티티 이스케이핑**: 8배치 중 6개 배치(1, 4, 5, 6, 7, 8)에서
+에이전트가 `<6E5C>` 같은 제어코드 placeholder를 `&lt;6E5C&gt;`로 HTML 이스케이프해서 반환.
+매 프롬프트에 "HTML 이스케이프 금지"를 명시했음에도 반복 발생 — 프롬프트 지시로는 예방이
+안 되고, 매번 `html.unescape()`로 사후 정정하는 것만 실효성 있었음. batch2, batch3만 이
+문제 없이 깨끗하게 반환됨.
+
+**반복 실패 패턴 2 — API 타임아웃**: batch5, batch8이 각각 2회씩(총 3회 시도 끝에 성공)
+"Request timed out"으로 실패. 세 번째 시도부터는 "30~40행 단위로 쪼개 순차 번역하고, 매
+서브그룹 완료 시 `temp/<batch>_partial.json`에 중간 저장" 지시를 명시적으로 추가한 뒤에야
+성공(batch5: agentId `a35fd3cf3c1997016`, batch8: agentId `ad60a1ff055ceabbd`).
+
+**기타 이상 케이스**: batch2 재시도 에이전트(`a1d04a2168779b542`)가 완료 메시지에 JSON 본문
+없이 "위에 출력한 JSON 그대로"라는 텍스트만 반환. 다행히 메시지가 언급한
+`temp/dom3_Iroha_batch2_translations_draft.json` 경로에 에이전트가 이미 저장해둔 파일이
+있어, 에이전트를 재개(`SendMessage`)하지 않고 `Read`로 직접 회수 — 더 빠른 복구 경로였음.
+
+**오라클 1차 검증 실패 7건과 수정**(모두 `temp/scratch_oracle_check/dom3_Iroha.csv`로
+`translation`=`ai_draft` 상태에서 사전 검증):
+- `dom3Iroha_L01.mes` block7: 토큰 33/32(+1) → "이로하 역할이에요"→"이로하 몫이에요"로 축약.
+- `dom3Iroha_L02.mes` block5(선택지): 합산 15/14(+1) → "미꾸라지가 좋아"→"미꾸라지 좋아",
+  "다른 게 좋아"→"다른 게 나아"로 조사 축약.
+- `dom3Iroha_L03.mes` block16(선택지): 합산 8/7(+1) → "이제 무리"→"무리"로 축약.
+- `dom3Iroha_L03.mes` block24: 토큰 26/25(+1) → "반짝반짝하게"→"반짝반짝"으로 축약.
+- `dom3Iroha_L04.mes` block8: 토큰 45/44(+1) → "미코토 씨인가요?"→"미코토 씨예요?"로 축약.
+- `dom3Iroha_L05.mes` block14(선택지): 합산 10/7(+3) → "찬성이야"→"찬성", "내가 일할게"→
+  "일할게"로 대폭 축약.
+- `dom3Iroha_X01.mes` block30(선택지): 합산 18/16(+2) → "붕대를/머리를"에서 조사 "를" 제거.
+- `dom3Iroha_X03.mes` block52: **하드 인코딩 실패** — `font_map_kr.json`에 없는 비존재
+  음절 `뵜`(및 검사 중 함께 발견된 `얬`)이 초안에 사용됨("안 뵜지만", "하얬어"). "안
+  뵜지만"→"안 보였지만", "하얬어"→"하얗던"으로 재작성 후 토큰 46/45(+1) 추가 발견 →
+  "멀어 잘"→"멀어서"로 한 번 더 축약해 정확히 45로 맞춤. **교훈**: 오라클은 인코딩 실패
+  지점에서 검사를 멈추므로, 한 블록에 존재하지 않는 음절이 2개 이상 있으면 첫 번째만
+  보고되고 두 번째는 첫 수정 후 재검증에서야 드러남 — 인코딩 실패가 난 블록은 반드시
+  전체 문자열을 육안으로 재확인할 것.
+
+**최종 검증**: 수정 후 스크래치 카피 재검증 `29 written, 0 skipped` → 실제
+`translations/dom3_Iroha.csv`의 `translation` 컬럼에 `ai_draft` 반영 → 실제 파일 기준
+오라클 재실행 `29 written, 0 skipped` 확인. 미러 CSV 트리 없음(`find . -name
+dom3_Iroha.csv -not -path "./temp/*"` → 원본 1개뿐), 별도 동기화 불필요.
+
+## dom3_Mina.csv 8배치 병렬 번역 완료 후 대규모 토큰 초과 발견 및 수정 착수 (2026-08-31)
+
+### 개요
+`dom3_Iroha.csv` 완료 후 사용자 선택(AskUserQuestion)에 따라 `translations/dom3_Mina.csv`
+(1495행, 31개 `.mes` 서브파일, 히로인 "미나" — 오키나와 방언 화자, 동료 괴수 "찬푸루" 등장)를
+CLAUDE.md 규칙 6·7에 따라 8개 배치로 나눠 병렬 번역 완료(배치1=0-175, 배치2=176-360,
+배치3=361-528, 배치4=529-699, 배치5=700-893, 배치6=894-1102, 배치7=1103-1288, 배치8=1289-1494).
+
+**중요한 실수**: `dom3_Nakoruru.csv` 작업 때 확립된 "사전 토큰 예산 계산 후 배포" 방법론
+(`temp/dom3_Nakoruru_budgets.json`)을 이번엔 적용하지 않고 배치 에이전트들에게 곧바로 번역만
+맡겼다. 그 결과 `dom3_common.csv` 사고와 동일한 패턴이 재현됨 — 병합 후 오라클
+(`analysis/mes_translate_reinsert.py`)을 처음 돌렸을 때 **31개 서브파일 전부가 스킵**,
+총 **504건**(mismatch 481건 + choice 20건 + no_font 3건) 토큰 예산 초과/인코딩 실패 발견.
+
+### no_font 3건 상세
+- row 437, 439 (dom3Mina_M04.mes): 번역문에 화자 지시용으로 넣은 가운뎃점 `·`가 폰트 맵에 없음
+- row 1476 (dom3Mina_ending1.mes): 의성어 "웃사~ㅇ"의 자모 단독 문자 'ㅇ'이 폰트 맵에 없음
+
+### 조치
+`dom3_common.csv` 사고 때 확립된 방법론을 그대로 적용 — 오라클 로그를 파싱해 (file, block) →
+CSV row 매핑 후 `temp/dom3_Mina_overflow_full.json`(504건, type/expected/actual 포함) 생성,
+서브파일 워크로드 기준 8개 수정배치로 재분할:
+- 수정배치1(L01-L05, 64건), 수정배치2(L06-L10, 56건), 수정배치3(M01-M05+S01-S04, 62건,
+  no_font 2건 포함), 수정배치4(S05-S10+X01, 65건), 수정배치5(X02, 43건), 수정배치6(X03, 57건),
+  수정배치7(X04, 93건, 최대), 수정배치8(X05+ending1, 64건, no_font 1건 포함)
+
+각 에이전트에게 `text_to_tokens()` 직접 재검증, 공백/조사/어미 축약 우선, 플레이스홀더
+개수·순서 불변, `[선택지]` 백슬래시 분리 지점 유지, HTML 이스케이핑 금지(자체 grep 점검)를
+지시하고 8개 병렬 실행 착수.
+
+### 수정배치 결과 및 완료 (2026-08-31)
+8개 수정배치 전부 완료 후 각각 독립적으로 재검증(키 개수/키셋 일치, `&lt;`/`&gt;` 이스케이핑
+없음, mismatch는 `text_to_tokens()` 결과가 `expected`와 정확히 일치, choice는 두 옵션 합산이
+`expected` 이하, no_font는 인코딩 예외 미발생) — 8개 배치(64+56+62+65+43+57+93+64=504) 전부
+0 failures로 통과.
+
+**용어 일관성 수동 교정**: 수정배치4 에이전트가 극도로 타이트한 토큰 예산(예: `"命さん?"` 4토큰)을
+맞추려고 캐릭터 이름 "미코토"를 한자음독 "명"/"명 씨"로 축약한 4건(row 648, 652, 665, 753)을
+발견 — 이는 나코루루 사례("오라버니"→"오빠", 경어체 미세조정)와 달리 독자가 인식 불가능한 완전한
+이름 대체이므로 수용 불가로 판단하고, `text_to_tokens()`로 직접 재계산해 "미코토"를 그대로 유지하면서
+목표 토큰 수를 정확히 맞춘 대안으로 수동 교체함:
+  - row 648: "미코토?" (4토큰)
+  - row 652: "…미, 미코토!?" (9토큰)
+  - row 665: "피해, 미코토!" (8토큰)
+  - row 753: "으, 응, 미코토,<6E5C>몸은 좀 어때?" (19토큰)
+
+no_font 3건도 정상 인코딩 확인: row 437/439는 가운뎃점 `·` 제거, row 1476은 "웃사~ㅇ"→"우샤~아앙"으로
+자모 단독 문자를 완성형 음절로 교체.
+
+**병합 중 발견한 BOM 버그**: 8개 수정배치 결과(총 504건)를 `translations/dom3_Mina.csv`의
+`ai_draft`에 오버레이 적용 후 `utf-8-sig`로 다시 써서 파일 맨 앞에 BOM이 추가됐고, 오라클
+(`analysis/mes_translate_reinsert.py`)은 `encoding="utf-8"`(BOM 미처리)로 읽기 때문에 첫
+컬럼명이 `﻿file`이 되어 `KeyError: 'file'`로 즉시 크래시. 원본 파일(`git show HEAD:...`)이
+BOM 없는 순수 UTF-8이었음을 확인 후, 실제 CSV와 스크래치 CSV 둘 다 `encoding="utf-8"`(BOM 없이)로
+재작성해서 해결.
+
+**최종 결과**: `temp/scratch_oracle_check/dom3_Mina.csv`(translation=ai_draft) 오라클 재실행 →
+`31 written, 0 skipped`. 이를 근거로 실제 `translations/dom3_Mina.csv`의 `ai_draft`를
+`translation`으로 확정(1495행 전체, 빈 `ai_draft` 0건 확인)하고, 실제 파일에 대해 오라클을
+다시 실행해도 동일하게 `31 written, 0 skipped` 확인. 미러/중복 CSV 트리 없음
+(`find . -name "dom3_Mina.csv" -not -path "./temp/*"` → `translations/dom3_Mina.csv` 단일 결과).
+`dom3_Mina.csv` 번역 작업 완료.
+
+## dom3_Shiki.csv 번역 — 사전 토큰 예산 계산으로 재작업 없이 1차 통과 (2026-08-31)
+
+`dom3_common.csv`(495/504행 실패)와 `dom3_Mina.csv`(504행 실패) 두 차례의 대규모 토큰 초과
+사고를 반복하지 않기 위해, 이번엔 배치 번역을 시작하기 전에 먼저 정확한 per-row 토큰 예산을
+계산하는 재사용 가능한 스크립트를 만들었다.
+
+**신규 스크립트**: `analysis/compute_token_budgets.py` — `mes_translate_reinsert.build_file()`의
+블록 경계/페이지턴 보정 로직(`text_expected_len = expected_len - 1 if has_page_turn else
+expected_len`)을 번역문 없이 그대로 재현해 CSV 전체의 `{row_index: budget}`을 산출한다.
+`dom3_Iroha.csv`에 대해 실행해 기존 오라클 통과 이력이 있는 `temp/dom3_Iroha_budgets.json`과
+diff, 1314행 전부 0 mismatch로 검증 완료.
+
+**`build_file()`에서 새로 확인한 사실**: 인코딩 길이가 budget보다 **짧은 것은 실패가 아니다** —
+`tio.SPACE_TOKEN`으로 자동 패딩된다(233-263행). 실패하는 건 오직 budget **초과**뿐이다. 즉 실제
+제약은 `encoded_length <= budget`이지 정확히 일치할 필요는 없다.
+
+**작업 과정**: `translations/dom3_Shiki.csv`(1423행, 32개 서브파일, 히로인 색/시키)를
+`compute_token_budgets.py`로 사전 예산 계산 → `.mes` 서브파일 경계를 기준으로 8배치(174/202/161/
+240/175/121/195/155행)로 분할 → 각 배치 입력 JSON(`temp/dom3_Shiki_batch{1-8}_input.json`,
+`{row, file, speaker, source, budget}`)을 만들어 8개 병렬 에이전트에 배정. 각 에이전트에게
+budget 데이터, 전체 서브파일 오프셋 표, 확정 캐릭터 글로서리, 시키의 톤(냉소적/거리감 있는
+반말체, "~야"/"~구나", "……" 다용), `[선택지]` 행은 백슬래시 `\`로 옵션 구분(합산 토큰 ≤
+budget), HTML 이스케이프(`&lt;`/`&gt;`) 금지, 완성형 한글 외 문자 사용 금지를 명시하고, 결과는
+`{row: 번역}` JSON으로 `temp/dom3_Shiki_batch{N}_translated.json`에 저장(공유 CSV 직접 수정 금지)
+하도록 지시했다.
+
+**결과**: 8개 배치 모두 자체 self-check(`text_to_tokens()` 재인코딩 후 budget 이하 확인)
+`fail count: 0`으로 통과. 병합 시 1423개 키 전부 존재, 중복 0건, 누락 0건 확인
+(`temp/dom3_Shiki_overlay_all.json`). `ai_draft`에 오버레이 적용 후(BOM 방지를 위해 항상
+plain `utf-8`로 저장) 스크래치 사본(`temp/scratch_oracle_check/dom3_Shiki.csv`,
+translation=ai_draft)에 오라클 실행 → **`dom3_Shiki.csv: 32 written, 0 skipped`** — 사전
+예산 계산 도입 후 최초로 재작업 없이 1차 통과. 실제 파일에 `ai_draft`→`translation` 확정
+(1423행 전부, 빈 ai_draft 0건 사전 확인) 후 `translations/` 전체 디렉터리에 대해 오라클을
+재실행해도 `dom3_Shiki.csv: 32 written, 0 skipped`, 전체 869개 파일 0 skipped(다른 CSV
+회귀 없음)로 최종 확인. BOM 없음도 바이트 확인(`b'file'`로 시작, `﻿` 없음). 미러/중복
+CSV 트리 없음(`find . -name "dom3_Shiki.csv" -not -path "./temp/*"` → `translations/
+dom3_Shiki.csv` 단일 결과).
+
+**새로 확정된 고유명사**: 참프루(チャンプル, 미나의 펫), 파마의 화살(破魔の矢), 나라카(ナラカ,
+유가의 기술명), 유가(ユガ, 최종 흑막 — X02에서 처음 등장, X03~X05까지 이어짐), 린카(Rinka),
+치요(千夜, 미츠바치야 마담). 기존 확정 표기(시키, 나코루루, 이로하, 미코토, 우쿄, 미나, 시노,
+카스미, 하오마루, 키바가미 겐주로/겐주로, 미츠바치야)는 전부 그대로 재사용.
+
+**교훈**: `compute_token_budgets.py`를 번역 착수 "전"에 반드시 실행하는 것을 향후 모든 CSV
+작업의 표준 절차로 삼는다 — `dom3_common.csv`/`dom3_Mina.csv`처럼 사후 발견-수정 방식보다
+훨씬 적은 재작업으로 끝난다는 것이 이번 세션에서 실증됐다.
+
+`dom3_Shiki.csv` 번역 작업 완료.
+
+## `dom3_TrainingINT.csv` + `dom3_TrainingMain.csv` 미번역 66행 번역 (small_batch2, 2026-08-31)
+
+두 CSV(각각 서브파일 구분 없는 단일 `.mes`, row=block) 전체 미번역분 총 66행(TrainingINT
+47행: 0~46, TrainingMain 19행: 0~18)을 `temp/small_batch2_input.json`(budget 포함) 기준으로
+번역해 `temp/small_batch2_translated.json`에 `{csv: {row: 번역문}}` 중첩 dict로 저장(원본
+`translations/dom3_TrainingINT.csv`, `dom3_TrainingMain.csv`는 아직 미병합 — 병합은 메인
+스레드가 수행 예정).
+
+- **TrainingINT**: 우쿄(Ukyo)가 주인공에게 센류(川柳)를 가르치다 각혈하며 쓰러지는 코미디
+  씬. 우쿄는 확정 고어체("소인", "그대", "~하오/~소") 유지. `咲かそ橘……`(백화, 귤꽃 피우자
+  — 하얀 귤꽃과 우쿄의 성 橘을 엮은 언어유희, 우쿄→주인공 순으로 동일 구절 반복)는 예산 6
+  토큰 극협소로 "귤꽃피자……"(6토큰, 공백 생략)로 축약. `寺ハラへりて……寺ハラがなるなり……`
+  (寺子屋의 寺+腹 말장난, 유명 센류 패러디)는 "서당배가 고파서……서당배가 꼬르륵……"으로
+  한국어 말장난(서당+배)으로 재구성.
+- **TrainingMain**: 이로하(Iroha) 루트 도입부. 서방님 호칭 등 기존 확정 톤 그대로 재사용.
+  `[선택지]` 3회 반복(`剣術道場寺子屋橘城下町` — 원문에 구분자 없이 4개 선택지가 붙어서
+  나옴) 전부 "도장\서당\타치바나\마을"(합산 10토큰, 예산 11)로 통일 — 剣術道場은 기존
+  확정 축약 "도장", 寺子屋은 "서당"(기존 전례), 城下町은 "마을"(dom3Nakoruru_L10 전례),
+  橘은 이번에 신규로 "타치바나"(우쿄의 장소/그를 만나러 가는 선택지로 추정) 확정.
+- **발견 — 원문 속 리터럴 'E' 접두 문자**: `UNKNOWN_1c`/`UNKNOWN_16`(TrainingINT 18, 42행)와
+  `dom3_Saya.csv`(UNKNOWN_30, 아직 미번역)의 군중 대사가 전부 `E`로 시작
+  (`Eきゃー、きゃー、右京様ー!` 등). `font_map_full.json`의 `009F`가 2026-08-11 실기 확인으로
+  "half-width 확정 코드, char='E'"로 이미 확정돼 있고 `font_map_kr.json`에도 `009F`가 동일
+  `char:'E'`로 존재(인코딩 가능) — 즉 `<XXXX>` 제어코드 플레이스홀더가 아니라 게임 원문에
+  실제로 박혀 있는 리터럴 알파벳 문자다. 의미는 불명(장식/이펙트 표시 추정)이나, 임의로
+  지우지 않고 번역문에도 그대로 `E` 접두를 유지하는 방식으로 처리("E꺄아 꺄아, 우쿄
+  님ー!", "E우쿄 님, 빨리요!"). 이후 이 패턴을 만나는 배치도 동일하게 처리할 것.
+- 일본어 장음부호 `ー`는 `font_map_kr.json`(`021E`)에 이미 매핑돼 있어 그대로 사용 가능하지만,
+  em dash `—`는 미매핑(encode error) — 강조/말줄임 늘림 표현에는 `ー`나 `~`(`0304`/`0184`)만
+  쓸 것.
+- self-check(budget 초과 0, HTML 이스케이프 0, `[선택지]` 분리 확인) + 추가로
+  `validate_placeholders()`로 66행 전체 플레이스홀더 개수 일치도 확인 → 문제 0건.
+- 신규 확정 용어: 橘(선택지 맥락)→"타치바나". 그 외는 전부 기존 확정 표기(우쿄, 이로하,
+  서방님) 재사용.
+
+## 캐릭터명 표기 통일 — 하이델른→하이데른, 셀미→셸미 (2026-08-31)
+
+사용자 지시로 두 캐릭터명의 잘못된/일관되지 않은 한글 표기를 전수 교정했다.
+
+- **대상**: `translations/dom1_common.csv`(하이델른, 1행/2셀), `translations/dom1_Leona.csv`
+  (하이델른, 1행/2셀 — 단 이 파일엔 이미 "하이데른"으로 올바르게 적힌 행이 3곳 더 있었음,
+  즉 기존에 표기가 혼재돼 있었음), `translations/system_common.csv`(셀미, 1행/1셀 —
+  이 행은 `ai_draft`가 비어있고 `translation`만 채워진 상태였음), `translations/dom2_common.csv`
+  (셀미, 8행/16셀, 전부 `dom2Ed_Shermie.mes` + `dom2OP_0701_1.mes` 소속).
+- **검증**: 두 이름쌍 모두 음절 수 불변(하이델른=하이데른=4음절, 셀미=셸미=2음절)이라
+  `translate_io.text_to_tokens()`로 사전 확인한 결과 인코딩 토큰 길이도 동일(4, 2) —
+  예산 영향 없음이 확실해 별도 재조정 없이 단순 문자열 치환만 수행.
+  `font_map_kr.json`에 데/셸/델/른/셀/미 전부 매핑돼 있어 신규/구 표기 모두 인코딩 가능함도
+  사전 확인.
+- **치환 방식**: `ai_draft`, `translation` 컬럼만 대상으로 Python csv 모듈로 정확히 치환
+  (source/speaker 등 다른 컬럼은 건드리지 않음), 4개 파일 모두 plain `utf-8`(BOM 없이) 재기록.
+- **검증 결과**: 4개 파일 전부 오라클 재실행 통과 —
+  `dom1_common.csv: 21 written, 0 skipped`, `dom1_Leona.csv: 32 written, 0 skipped`,
+  `system_common.csv: 16 written, 0 skipped`, `dom2_common.csv: 34 written, 0 skipped`.
+  잔여 "하이델른"/"셀미" 0건, 신규 표기로 전부 교체 확인.
+- `temp/translations/`에 2026-08-27 시점 스크래치 사본이 남아있으나 이번 작업 대상이 아님
+  (오래된 임시 백업으로 판단, 실제 게임 데이터 파이프라인은 `translations/`만 참조).
+
+## 소형 파일 일괄 번역 완료 — Birthday/Festival/Training* 6종, 678행 (2026-08-31)
+
+`dom3_Shiki.csv` 완료 후 사용자가 "소형 파일 일괄"을 선택해, 생일/축제/훈련 테마의 소형
+CSV 6종(각각 `.mes` 서브파일 1개뿐이라 CSV row == block index, 서브파일 오프셋 표 불필요)의
+미번역 678행을 5개 배치로 병렬 번역했다. `dom3_Shiki.csv`와 동일하게
+`analysis/compute_token_budgets.py`로 사전 토큰 예산을 각 CSV별로 뽑아 모든 배치 에이전트에게
+제공했고, 6개 CSV 전부 경고 0건으로 계산됨.
+
+- **배치 구성**: batch1=TrainingANG(68)+TrainingSTR(52), batch2=TrainingINT(47)+TrainingMain(19),
+  batch3=Birthday(198 전체), batch4=Festival row 0–147(단 기존 번역 완료된 7,8행은 제외,
+  146행), batch5=Festival row 148–295(148행). `dom3_Festival.csv`의 7·8행(5지선다 선택지
+  예시, "나코루루\시노\미나\린카\다음페이지" 등)은 입력 JSON 생성 시부터 제외해 덮어쓰기
+  사고를 원천 차단.
+- **전 배치 self-check `fail count: 0`으로 1차 완료** — Shiki에 이어 사전 예산 계산 방식이
+  두 번째로 재작업 없이 통과.
+- **크로스 배치 명명 불일치 발견·수정**: batch4(Festival 담당) 에이전트가 チャンプル(미나의
+  펫)를 "챤푸루"로 신규 번역했으나, 이는 이미 Shiki batch6에서 확정한 "참프루"와 충돌 —
+  병합 전 `temp/small_batch4_translated.json`의 105행을 "참프루"로 직접 패치해 수정
+  (음절수 동일이라 예산 영향 없음).
+- **신규 확정 용어**: 쿠로코(黒子, Haomaru 훈련), 고월참/선풍열참(하오마루 필살기), 녹접(鹿蝶),
+  타치바나(橘, batch2에서 이미 확정한 것 재사용).
+- **병합 절차**: 5개 배치 JSON을 `{csv: {row: text}}` 형태로 통합(중복 키 0건 확인) →
+  각 CSV의 `ai_draft`에 반영(Festival 7·8행은 이미 `translation`이 채워져 있어 자동 스킵,
+  실제로 스킵 0건 — 배치 입력 단계에서 이미 제외했으므로 정상) → 6개 CSV 전부 스크래치 사본으로
+  오라클 선검증(`0 skipped`) → 실제 파일에서 재검증(`0 skipped`) → `ai_draft`→`translation`
+  확정 반영(678행: 68+52+47+19+198+294) → 실제 파일 오라클 최종 재확인(`0 skipped`, 빈
+  `translation` 0건). 전 과정 plain `utf-8`(BOM 없음) 유지, 미러 트리 없음 확인.
+- Festival 7·8행의 `ai_draft`는 과거 버전이라 백슬래시 구분자 없이 붙어 있는 상태
+  (`나코루루시노미나린카다음페이지`)이지만 `translation`(확정본)은 정상 —
+  `ai_draft`는 이번 작업에서 건드리지 않았으므로 이상 없음(참고용 기록).
+
+## `dom3_Shiki.csv` 오역 수정 — "色さん" → "색채씨"(오역) → "시키씨" (2026-08-31)
+
+사용자가 `dom3_Shiki.csv`에서 캐릭터 호칭 `色さん`이 "시키 씨"가 아니라 "색채씨"(色=색채로
+글자 그대로 오역)로 잘못 들어간 부분이 있다고 지적해 전수 수정했다.
+
+- **범위**: `translations/dom3_Shiki.csv` 전체(`ai_draft`, `translation` 컬럼), "색채"/"색채님"/
+  "색채씨"/"색채 씨" 등 전 변형 48셀. 전부 `dom3Shiki_X05.mes`/`dom3Shiki_ending1.mes`
+  (엔딩 파트, Shiki batch8 담당 구간)에 집중돼 있었음 — 해당 배치 에이전트가 `色`(いろ)를
+  이름 "시키"로 인식하지 못하고 한자 뜻(색채)으로 직역한 것이 원인으로 추정.
+  (이 세션의 `dom3_Shino.csv` batch5 에이전트가 동일한 `色さん`을 "이로 씨"로 오역한 것과
+  같은 유형의 실수 — `色`이라는 한자 하나만으로는 이게 캐릭터 이름 시키를 가리키는 애칭인지
+  알기 어려운 게 근본 원인. 이후 시키 관련 배치 지시문에는 `色さん`→"시키 씨" 명시적 매핑을
+  반드시 포함시킬 것.)
+- **치환**: 단순 "색채"→"시키" 문자열 치환(음절 수 동일, 토큰 길이 동일 2개 — budget 영향
+  없음 사전 확인) 후 오라클 재검증 통과(`32 written, 0 skipped`). 미러 트리 없음 확인.
+
+## `dom3_Shino.csv` 전체 번역 완료 — 1329행, 9개 배치 병렬 (2026-08-31)
+
+`dom3_Shino.csv`(30개 서브파일: `dom3Shino_L01-L10/M01-M06/S01-S08/X01-X05/ending1.mes`,
+1329행, 시작 시점 100% 미번역)를 `analysis/compute_token_budgets.py`로 사전 예산 계산
+(경고 0건) 후, `.mes` 서브파일 경계에 맞춰 9개 배치(각 104~181행)로 나눠 병렬 에이전트에게
+맡겼다. 배치 구성: batch1(0-161, L01-L06), batch2(162-304, L07-L10), batch3(305-443,
+M01-M06), batch4(444-591, S01-S08), batch5(592-695, X01), batch6(696-856, X02),
+batch7(857-1020, X03), batch8(1021-1147, X04), batch9(1148-1328, X05+ending1, 엔딩 포함).
+
+### "色さん" 오역 패턴 — 이번 배치에서 9개 중 2개(22%)에서 재발
+
+`dom3_Shiki.csv` 수정 건(위 항목)에서 사용자가 지적한 것과 동일한 유형의 오류가, 사전에
+프롬프트에 "色さん(시키 씨)" 매핑을 명시했음에도 불구하고 재발했다:
+
+- **batch1**(4행: 115, 128, 138, 152): `色さん`/`色`을 "이로하씨"/"이로하"로 오역(캐릭터
+  이로하와 혼동). 자체 self-check는 fail count 0으로 보고했으나 실제로는 오역 상태 — 나
+  (메인 에이전트)가 직접 batch 입력/출력 JSON을 grep해 발견, 4행 모두 패치.
+- **batch5**(3행: 669, 671, 673): 동일 오역이 "이로 씨"/"이로씨" 형태로 재발. 마찬가지로
+  self-check는 fail count 0으로 보고. 직접 grep으로 발견해 3행 패치, 패치 후 예산 내
+  재확인(22/23, 4/4, 24/26 토큰).
+- **batch4, 6, 7, 8**은 직접 grep 검증한 결과 전부 정상적으로 "시키 씨"/"시키씨"로 처리됨
+  (batch4: row 494, 538 / batch7: row 858, 889, 891, 893, 899, 924, 984, 998, 1003,
+  1006, 1008 / batch8: row 1021).
+- **결론 — 표준 QA 절차로 확정**: `色`/`色さん`이 등장하는 배치는 프롬프트에 매핑을 명시하는
+  것만으로는 불충분하며, 병합 전 반드시 입력 JSON에서 `色` 포함 행을 grep해 출력과
+  대조하는 수동 검증을 거칠 것. (이 규칙은 시키가 조연으로 등장하는 향후 다른 캐릭터
+  CSV에도 동일하게 적용해야 함 — 3회 연속 재발한 사고 패턴.)
+
+### UNKNOWN_74(狂エ門) 표기 불일치 발견·수정
+
+batch8이 UNKNOWN_74의 이름을 "쿠루에몬"으로 신규 번역했으나(row 1032, 1052), 이는 이미
+`dom3_Birthday.csv`에서 확정된 "쿄에몬"(狂エ門)과 충돌 — batch9는 우연히 "쿄에몬"을
+사용해 정합. 병합 전 `temp/dom3_Shino_batch8_translated.json`의 두 행을 "쿄에몬"으로
+직접 패치해 통일.
+
+### 기타 확정 용어/캐릭터 (배치별)
+
+- `UNKNOWN_6d` = 치요(千夜, 미츠바치야 게이샤), 톤: "나리"/"~다우"/"~네".
+- `UNKNOWN_a2` = 시노의 조부이자 시노네 닌자 집단 수장. 고어체 노년 남성 말투
+  ("이 몸/~다네/~는구나"), 결말부에서 두 사람을 축복하는 역할. 호칭은 시노 발화 시
+  "할아버지", 주인공 발화 시 "할아버님"으로 구분.
+- `UNKNOWN_1e`/`UNKNOWN_b1` = 시노의 사촌언니 마이(麻衣), 마을 제일의 쿠노이치, 결말부에
+  정체 확정(row 1287-1292).
+- `UNKNOWN_74` = 쿄에몬(狂エ門, `dom3_Birthday.csv` 재사용), 야쿠자풍 1인칭 "오레사마"→
+  "이 몸", 배신했다가 최종적으로 조력.
+- `UNKNOWN_ae/af/b0` = 엔딩부 코믹 닌자 군단, 격투기 실황중계 패러디 톤.
+- `UNKNOWN_1d` = 엔딩 크레딧성 집단 대사("우리를 찾아줘서, 고마워!").
+- 유가(ユガ) = 극중 최종 빌런, "님" 존칭으로 시키를 조종(row 831, 838, 844 등 홀린 듯한
+  끊어지는 말투로 세뇌 상태 표현) — 후반부(batch7-9)에서 실제 격퇴 서사로 이어짐.
+- 젠자이→단팥죽, 사몬(좌문, 단역), [선택지] 3분할 기술명(선풍수리검/난무수리검/열풍수리검
+  등)은 원문에 구분자 없이 붙어 있던 것을 균등 분할 후 백슬래시로 재구성.
+
+### 병합 절차 및 검증
+
+9개 배치 JSON(`temp/dom3_Shino_batch{1-9}_translated.json`, 플랫 `{row: text}` 형식)을
+통합(중복 키 0건) → 1329행 전체 매핑 확인(누락 0건) → `validate_placeholders()` 전수
+재검증(0건 이상) → 스크래치 사본 오라클 선검증 1차에서 row 657(batch5, X01 block 65)
+`<이름:3232>` 플레이스홀더 누락 발견(self-check를 통과했음에도 실제로는 원문의 이름
+placeholder가 번역문에서 빠진 상태) → 예산(62토큰) 내에서 플레이스홀더를 복원해 패치
+(56/62 토큰) → 재검증 통과(`30 written, 0 skipped`) → 실제 파일 `ai_draft` 반영 →
+`ai_draft`→`translation` 확정(1329행, 빈 draft 0건) → 최종 오라클 재검증(`30 written,
+0 skipped`). 미러 트리 없음 확인(`translations/dom3_Shino.csv` 단일 위치).
+
+**교훈**: 에이전트의 self-check `fail count: 0` 보고는 `text_to_tokens()`/예산 초과
+여부만 검증했을 가능성이 높고, `validate_placeholders()`까지 실제로 돌렸다고 보고한
+배치(2, 3, 7, 9)에서도 이번처럼 별도의 병합 전 전수 재검증(placeholder + 色さん grep)에서
+문제가 발견됨 — 개별 배치의 self-check 보고를 그대로 신뢰하지 말고, 병합 직전 항상
+전체 데이터셋에 대해 독립적으로 `validate_placeholders()`와 핵심 용어 grep을 다시 돌릴 것.

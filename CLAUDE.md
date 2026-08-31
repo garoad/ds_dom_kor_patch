@@ -72,6 +72,28 @@
   확인하고, 두 트리가 byte-identical한지 `diff`로 재확인한다.
 - 병합이 끝나면 `analysis/ANALYSIS_NOTES.md`에 배치별 완료 기록을 남긴다 (규칙 1 그대로 적용).
 
+## 7. 번역은 `ai_draft` → 검수 → `translation` 2단계로 진행한다
+
+CSV의 번역문을 곧바로 `translation` 컬럼에 쓰지 말 것. 반드시 아래 순서를 지킨다:
+
+1. 번역 초안을 먼저 `ai_draft` 컬럼에 채운다.
+2. `analysis/mes_translate_reinsert.py`(오라클)로 검수한다 — 토큰 슬롯 예산 초과, placeholder
+   개수 불일치 등을 전부 찾아 수정한다. `translate_io.text_to_tokens()`/`validate_placeholders()`
+   만으로는 번역 길이가 원본 블록의 고정 토큰 슬롯 예산을 넘는지 검사하지 못하므로(그 검사는
+   `mes_translate_reinsert.py`의 `build_file()` 안에만 있음), 반드시 실제 오라클(`build_file()`
+   경로)까지 돌려서 확인할 것.
+3. 검수를 통과한 최종 결과만 `translation` 컬럼에 채운다.
+
+병렬 다중 에이전트로 배치 작업을 맡길 때도 이 2단계 규칙(초안은 `ai_draft`, 검수 후 확정본만
+`translation`)을 각 에이전트에게 명시적으로 지시할 것.
+
+**Why**: 2026-08-31 세션에서 `dom3_common.csv` 7개 배치 번역을 처음부터 `translation`에 바로
+써넣었다가, 전체 병합 후 처음 오라클을 돌렸을 때 495개 행(16개 서브파일 전체)이 토큰 슬롯 초과로
+한꺼번에 실패하는 사고가 발생했다(`analysis/ANALYSIS_NOTES.md`의 "dom3_common.csv 전체 병합 +
+오라클 전면 검증에서 대규모 토큰 초과 발견" 항목 참고). `translation`에 미검증 결과를 바로
+채우면 "번역 완료"와 "실제 롬에 들어갈 수 있는 결과"가 구분되지 않아 대규모 재작업이 필요해졌다.
+`ai_draft`를 초안 전용 컬럼으로 분리해두면 검수 전/후 상태가 항상 명확히 구분된다.
+
 ## Why
 
 작업 세션 중간에 컨텍스트가 컴팩팅되면 대화 기록의 세부사항(정확한 코드값, 수정 근거, 검증 과정)이

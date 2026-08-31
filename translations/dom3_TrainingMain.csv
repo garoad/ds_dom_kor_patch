@@ -1,20 +1,20 @@
 file,rel_path,block,n_tokens,speaker,source,ai_draft,translation
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,0,4,[효과음/내레이션],ゴ~ン,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,1,9,주인공,ん、うぅ~ん……,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,2,10,주인공,ん?どこだ、ここは,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,3,14,Iroha,おはようございます、旦那様,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,4,11,주인공,うわ!びっくりした!,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,5,29,주인공,……そうか、昨夜から君の家に<6E5C>お邪魔になってるんだったな,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,6,40,Iroha,そうです.ここには私以外に誰もい<6E5C>ませんから、気兼ねなく過ごしてく<6E5C>ださいね?,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,7,48,주인공,うむ.……昨日は疲れきってすぐに<6E5C>寝てしまったが、質素な家だなぁ.<6E5C>こんなところに、ひとりで?,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,8,20,Iroha,はい.<6E5C>今は旦那様とふたりっきりです!,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,9,15,Iroha,これから……どうされますか?,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,10,20,주인공,え?あ、え~っと……<6E5C>出かけてくるよ!,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,11,11,Iroha,お出かけ……ですか?,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,12,38,주인공,ああ、男たるもの、町に出て修行を<6E5C>積まねばね!<6E5C>え~っと、どこに行こうかな,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,13,11,[선택지],剣術道場寺子屋橘城下町,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,14,4,[효과음/내레이션],ゴ~ン,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,15,31,Iroha,おはようございます、旦那様!<6E5C>今日はどちらにお出かけですか?,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,16,11,[선택지],剣術道場寺子屋橘城下町,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,17,12,Iroha,いってらっしゃいませ!,,
-dom3TrainingMain.mes,Script/dom3TrainingMain.mes,18,11,[선택지],剣術道場寺子屋橘城下町,,
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,0,4,[효과음/내레이션],ゴ~ン,댕~,댕~
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,1,9,주인공,ん、うぅ~ん……,"음, 으음~……","음, 으음~……"
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,2,10,주인공,ん?どこだ、ここは,응? 여긴 어디지,응? 여긴 어디지
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,3,14,Iroha,おはようございます、旦那様,"좋은 아침이에요, 서방님","좋은 아침이에요, 서방님"
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,4,11,주인공,うわ!びっくりした!,우와! 깜짝이야!,우와! 깜짝이야!
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,5,29,주인공,……そうか、昨夜から君の家に<6E5C>お邪魔になってるんだったな,"……맞다, 어젯밤부터 네 집에<6E5C>신세 지고 있었지","……맞다, 어젯밤부터 네 집에<6E5C>신세 지고 있었지"
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,6,40,Iroha,そうです.ここには私以外に誰もい<6E5C>ませんから、気兼ねなく過ごしてく<6E5C>ださいね?,"맞아요. 여기엔 저 말고 아무도<6E5C>없으니까, 편하게 지내<6E5C>주세요?","맞아요. 여기엔 저 말고 아무도<6E5C>없으니까, 편하게 지내<6E5C>주세요?"
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,7,48,주인공,うむ.……昨日は疲れきってすぐに<6E5C>寝てしまったが、質素な家だなぁ.<6E5C>こんなところに、ひとりで?,"음.……어제는 지쳐서 바로<6E5C>잠들어버렸는데, 소박한 집이네.<6E5C>이런 곳에, 혼자서?","음.……어제는 지쳐서 바로<6E5C>잠들어버렸는데, 소박한 집이네.<6E5C>이런 곳에, 혼자서?"
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,8,20,Iroha,はい.<6E5C>今は旦那様とふたりっきりです!,네.<6E5C>지금은 서방님과 단둘이에요!,네.<6E5C>지금은 서방님과 단둘이에요!
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,9,15,Iroha,これから……どうされますか?,이제……어떻게 하실래요?,이제……어떻게 하실래요?
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,10,20,주인공,え?あ、え~っと……<6E5C>出かけてくるよ!,"어? 아, 음……<6E5C>나갔다 올게!","어? 아, 음……<6E5C>나갔다 올게!"
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,11,11,Iroha,お出かけ……ですか?,외출……하시게요?,외출……하시게요?
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,12,38,주인공,ああ、男たるもの、町に出て修行を<6E5C>積まねばね!<6E5C>え~っと、どこに行こうかな,"그래, 사내라면 마을에 나가 수행을<6E5C>쌓아야지!<6E5C>어~, 어디로 갈까","그래, 사내라면 마을에 나가 수행을<6E5C>쌓아야지!<6E5C>어~, 어디로 갈까"
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,13,11,[선택지],剣術道場寺子屋橘城下町,도장\서당\타치바나\마을,도장\서당\타치바나\마을
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,14,4,[효과음/내레이션],ゴ~ン,댕~,댕~
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,15,31,Iroha,おはようございます、旦那様!<6E5C>今日はどちらにお出かけですか?,"좋은 아침이에요, 서방님!<6E5C>오늘은 어디로 나가세요?","좋은 아침이에요, 서방님!<6E5C>오늘은 어디로 나가세요?"
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,16,11,[선택지],剣術道場寺子屋橘城下町,도장\서당\타치바나\마을,도장\서당\타치바나\마을
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,17,12,Iroha,いってらっしゃいませ!,다녀오세요!,다녀오세요!
+dom3TrainingMain.mes,Script/dom3TrainingMain.mes,18,11,[선택지],剣術道場寺子屋橘城下町,도장\서당\타치바나\마을,도장\서당\타치바나\마을

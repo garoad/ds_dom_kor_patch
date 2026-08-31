@@ -1,199 +1,199 @@
 file,rel_path,block,n_tokens,speaker,source,ai_draft,translation
-dom3Birthday.mes,Script/dom3Birthday.mes,0,25,주인공,(たまには何かおいしいものでも<6E5C>買って帰るかな),,
-dom3Birthday.mes,Script/dom3Birthday.mes,1,4,[효과음/내레이션],ドンッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,2,5,주인공,おおっと,,
-dom3Birthday.mes,Script/dom3Birthday.mes,3,25,UNKNOWN_74,ケッ、<이름:3232>じゃねぇか!<6E5C>めでてぇ日に縁起が悪ぃぜ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,4,22,주인공,狂エ門……めでたい日って、<6E5C>何かあるのか?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,5,56,UNKNOWN_74,ナニもクソも、今日はオレ様が<6E5C>この世に生をあずかった<6E5C>記念すべき日でぃ!<485C>なんだったらオマエも<6E5C>祝っていいぜ?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,6,33,주인공,自分の生まれた日かよ!<6E5C>めでたい日というか、<6E5C>頭のめでたい奴だな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,7,36,주인공,……まてよ.<6E5C>今日は七月二十四日…….あ!<6E5C>俺も生まれた日じゃないか!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,8,8,UNKNOWN_74,なんだとォ!?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,9,14,UNKNOWN_1e,喧嘩ですか?いけませんよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,10,5,UNKNOWN_74,あぁ!?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,11,8,주인공,あ……ナコルル,,
-dom3Birthday.mes,Script/dom3Birthday.mes,12,16,[선택지],いや、違うよ狂エ門に売られたんだ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,13,38,주인공,いや、違うよ.<6E5C>今日は俺たちの生まれた日だから、<6E5C>ふたりで祝ってたところさ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,14,5,UNKNOWN_74,ハァ!?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,15,41,Nakoruru,そうだったんですか.<6E5C>おめでとうございます!大自然から<6E5C>も祝福の声が閉こえますよ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,16,9,UNKNOWN_79,ピィー!ピィー!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,17,12,주인공,そいつは豪快な祝福だな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,18,9,Nakoruru,フフ、そうですね,,
-dom3Birthday.mes,Script/dom3Birthday.mes,19,14,UNKNOWN_74,ナニを言ってんだ?こいつら,,
-dom3Birthday.mes,Script/dom3Birthday.mes,20,33,주인공,いや、俺はそんなつもりはないんだ<6E5C>けど、狂エ門に売られちゃってさ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,21,25,Nakoruru,言い訳は閉きたくありません.<6E5C>喧嘩両成敗ですよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,22,5,UNKNOWN_74,何ィ!?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,23,10,Nakoruru,大自然の折紙です!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,24,5,[효과음/내레이션],バシィ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,25,7,UNKNOWN_74,いってぇ~!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,26,14,주인공,うう、ナコルル……怖い……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,27,17,UNKNOWN_1e,こんなとこで、何大声出してるの?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,28,7,주인공,詩乃さん……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,29,43,Shino,ふたりの生まれた日?なら、<6E5C>むささび屋でお祝いしてあげるよ!<6E5C>ほら、ふたりともおいで,,
-dom3Birthday.mes,Script/dom3Birthday.mes,30,16,UNKNOWN_74,マジかよ.そいつぁありがてェな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,31,27,Shino,じゃ、貸切料金として金一両を<6E5C>先払いしてもらおうかね,,
-dom3Birthday.mes,Script/dom3Birthday.mes,32,17,UNKNOWN_74,ナ、なんだよそのデタラメな値は!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,33,16,주인공,そんなことだろうと思ったよ……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,34,24,UNKNOWN_1e,こんな往来で、大の男が何を言い<6E5C>争ってるんだい,,
-dom3Birthday.mes,Script/dom3Birthday.mes,35,7,주인공,千夜さん……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,36,18,UNKNOWN_74,ヒュゥッ!<6E5C>こりゃまた極上の女だな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,37,43,UNKNOWN_6d,ふたりの生まれた日たぁ、めでたい<6E5C>ねぇ.ふたりとも祝おうかい?<6E5C>それともひとりだけ?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,38,13,UNKNOWN_74,オレ様だけでいいんだよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,39,3,주인공,……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,40,10,[선택지],ふたりともひとりだけ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,41,22,주인공,そうだな……<6E5C>ふたりとも祝ってもらいたいな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,42,14,UNKNOWN_74,チッ!このさい仕方ねぇなァ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,43,42,UNKNOWN_6d,……あちきの舞はそんなに安く<6E5C>ないんだよ.ふたりともなんて<6E5C>欲張りは、閉けないネェ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,44,12,UNKNOWN_74,アッ、なんだよ、オイ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,45,7,주인공,千夜さん……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,46,19,주인공,(……昨日のこと、<6E5C>閉けなかったな),,
-dom3Birthday.mes,Script/dom3Birthday.mes,47,28,주인공,祝ってくれるのは、ひとりでいい.<6E5C>ひとりだけで十分だよ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,48,17,UNKNOWN_74,テメェ、オレ様と勝負すんのかァ?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,49,20,UNKNOWN_6d,じゃ……あちきだけで<6E5C>いいんですかい?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,50,10,주인공,ええ、あなただけで,,
-dom3Birthday.mes,Script/dom3Birthday.mes,51,31,UNKNOWN_74,ちょ、ちょっと待てよ!<6E5C>オレか<이름:3232>かって話じゃ<6E5C>ねーのかよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,52,23,주인공,(今夜はだまって、千夜さんの舞を<6E5C>楽しもう),,
-dom3Birthday.mes,Script/dom3Birthday.mes,53,22,주인공,(昨日は、何も見なかったことに<6E5C>して……),,
-dom3Birthday.mes,Script/dom3Birthday.mes,54,11,UNKNOWN_1e,……何をやってるの?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,55,6,주인공,あ……ミナ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,56,8,Mina,そこ……通して,,
-dom3Birthday.mes,Script/dom3Birthday.mes,57,13,[선택지],あぁ、ごめんちょっと待って,,
-dom3Birthday.mes,Script/dom3Birthday.mes,58,7,주인공,あぁ、ごめん,,
-dom3Birthday.mes,Script/dom3Birthday.mes,59,3,[효과음/내레이션],スッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,60,3,Mina,……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,61,4,[효과음/내레이션],プイッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,62,17,UNKNOWN_74,なんだぁ?かわいげのないヤツだな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,63,17,주인공,俺たちには興味がないらしいな……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,64,11,주인공,ちょ、ちょっと待って,,
-dom3Birthday.mes,Script/dom3Birthday.mes,65,5,Mina,……何?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,66,19,주인공,じつは、今日は俺が生まれた<6E5C>日なんだ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,67,13,UNKNOWN_74,オレが、生まれた日だよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,68,7,Mina,……だから?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,69,31,주인공,いっしょに祝ってくれないか?<6E5C>誰も祝ってくれる人がいなくてさ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,70,16,Mina,いいけど……そっちの人は、イヤ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,71,7,UNKNOWN_74,なっ……!?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,72,39,주인공,大丈夫大丈夫、こいつは関係ない<6E5C>から.よし、そうと決まったら<6E5C>さっそく行こう,,
-dom3Birthday.mes,Script/dom3Birthday.mes,73,13,주인공,悪いな、狂エ門.じゃあな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,74,16,UNKNOWN_74,ク、クソッ!なんだってんだよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,75,17,UNKNOWN_1e,何を道の真ん中で騒いでいるんだ?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,76,23,UNKNOWN_74,チビじゃねぇか、まったく本当に<6E5C>縁起が悪いぜ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,77,22,주인공,狂エ門と俺の生まれた日が、<6E5C>今日だったんだ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,78,21,Rinka,へぇー.<6E5C>じゃあさ、今から一稽古つけてよ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,79,6,주인공,今からぁ?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,80,8,[선택지],いやだ仕方ないな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,81,31,주인공,なんでそうなるんだよ.<6E5C>いろはも待ってるし、<6E5C>俺はもう帰るよ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,82,10,Rinka,そう.……じゃあね,,
-dom3Birthday.mes,Script/dom3Birthday.mes,83,3,UNKNOWN_7a,ヂッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,84,3,[효과음/내레이션],タッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,85,13,UNKNOWN_74,おう、オレ様ももう行くぜ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,86,3,[효과음/내레이션],タッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,87,17,주인공,あ、あれ?ひとりになってしまった,,
-dom3Birthday.mes,Script/dom3Birthday.mes,88,14,주인공,仕方ないなあ.少しだけだぞ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,89,3,Rinka,うん,,
-dom3Birthday.mes,Script/dom3Birthday.mes,90,12,UNKNOWN_74,フン、やってらんねぇぜ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,91,3,[효과음/내레이션],タッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,92,20,주인공,でもなぜこんな時間から、<6E5C>稽古なんだ?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,93,43,Rinka,だって……あたしが<이름:3232>と一緒に<6E5C>できることって言ったら、<6E5C>これぐらいしかないから……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,94,29,주인공,そんなことないよ.<6E5C>今度はいっしょに遊びに行こう.<6E5C>な?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,95,5,Rinka,……うん,,
-dom3Birthday.mes,Script/dom3Birthday.mes,96,20,UNKNOWN_1e,アラ、二人とも今日がバースディ<6E5C>なの?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,97,16,Saya,ほんとに仲良しさんなんだからッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,98,4,UNKNOWN_74,誰が!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,99,26,Saya,そんな二人を、このワタシ自らが<6E5C>お祝いしてあげるワ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,100,10,Saya,飲みに行くわヨォ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,101,12,[선택지],喜んで!できればふたりで,,
-dom3Birthday.mes,Script/dom3Birthday.mes,102,4,주인공,はい!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,103,3,UNKNOWN_74,……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,104,14,Saya,ホラ、狂エ門クンも行くわヨ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,105,17,Saya,では、ふたりの友情にカンパ~イ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,106,12,주인공,友情なんかないですよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,107,22,UNKNOWN_74,そうだぜ、こいつとは友達でも<6E5C>何でも……!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,108,15,Saya,まあまあ、ここでプレゼント★,,
-dom3Birthday.mes,Script/dom3Birthday.mes,109,4,UNKNOWN_74,えっ?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,110,13,Saya,天使の祝福よ.目を閉じて,,
-dom3Birthday.mes,Script/dom3Birthday.mes,111,4,[효과음/내레이션],チュッ、,,
-dom3Birthday.mes,Script/dom3Birthday.mes,112,4,[효과음/내레이션],チュッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,113,5,UNKNOWN_74,うわっ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,114,14,Saya,最高のプレゼント、でしょ?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,115,19,주인공,(狂エ門と同じ……<6E5C>まぁ、いいか!),,
-dom3Birthday.mes,Script/dom3Birthday.mes,116,24,주인공,できれば、サヤさんとふたりっきり<6E5C>で行きたいな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,117,27,Saya,<이름:3232>ちゃん、気持ちはわかるけど<6E5C>独り占めはイケナイわ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,118,32,UNKNOWN_74,そうだぜ.サヤさん、こんなヤツ<6E5C>ほっといて、オレと行きましょう,,
-dom3Birthday.mes,Script/dom3Birthday.mes,119,9,Saya,狂エ門クンもよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,120,4,[효과음/내레이션],パンッ、,,
-dom3Birthday.mes,Script/dom3Birthday.mes,121,4,[효과음/내레이션],パンッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,122,5,주인공,いたっ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,123,5,UNKNOWN_74,いてっ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,124,12,Saya,そこで反省してなさいっ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,125,16,UNKNOWN_1e,<이름:3131>様、今のお話は本当ですの?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,126,10,주인공,命さん.ええ、まあ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,127,39,Mikoto,それでしたら、<6E5C>わたくし渡したいものが…….<6E5C>少し待っていてくださいますか?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,128,9,[선택지],待ついっしょに行く,,
-dom3Birthday.mes,Script/dom3Birthday.mes,129,6,주인공,いいですよ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,130,16,Mikoto,では、すぐに戻って参りますので,,
-dom3Birthday.mes,Script/dom3Birthday.mes,131,4,[효과음/내레이션],タタッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,132,16,주인공,ああっ、そんな走らなくても……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,133,7,[효과음/내레이션],すってーん!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,134,5,Mikoto,きゃあ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,135,13,주인공,大丈夫ですか、命さん!?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,136,27,Mikoto,わたくしったら恥ずかしい.<6E5C>すいません、コホコホ……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,137,30,주인공,(こりゃ、自分の生まれた日なんか<6E5C>祝ってる場合じゃないな),,
-dom3Birthday.mes,Script/dom3Birthday.mes,138,15,주인공,だったらいっしょに行きますよ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,139,16,UNKNOWN_74,オイ!オレはほったらかしかよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,140,10,Mikoto,これを<이름:3131>様に……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,141,17,주인공,これはお守り?ありがとう、命さん,,
-dom3Birthday.mes,Script/dom3Birthday.mes,142,42,Mikoto,いえ、覇王丸おじ様のように、<6E5C>またいつか<이름:3131>様も旅に<6E5C>出られるのだろうと思って……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,143,26,주인공,(俺は、またこの町を離れ、<6E5C>旅を続けるのかな……),,
-dom3Birthday.mes,Script/dom3Birthday.mes,144,22,UNKNOWN_1e,いいわね……生まれた日を覚えてい<6E5C>るなんて,,
-dom3Birthday.mes,Script/dom3Birthday.mes,145,6,주인공,あ、色さん,,
-dom3Birthday.mes,Script/dom3Birthday.mes,146,43,UNKNOWN_74,なんだよ、記念日の記憶がほしい<6E5C>のか?だったら、今からオレと<6E5C>思い出を作りにいこうぜ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,147,6,Shiki,そうね……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,148,3,주인공,え?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,149,13,[선택지],ちょっと待った!俺も行く!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,150,31,주인공,ちょっと待った!そういうことなら<6E5C>俺と行きましょう、色さん!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,151,20,UNKNOWN_74,テメェ、横から口を出すんじゃ<6E5C>ねぇよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,152,16,주인공,おまえに色さんは取らせないよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,153,4,[효과음/내레이션],ぎゅっ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,154,3,Shiki,……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,155,14,주인공,いいですか?その、俺と……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,156,6,Shiki,……いいわ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,157,16,주인공,悪いな、狂エ門.そういうことだ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,158,8,UNKNOWN_74,くっそォォォ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,159,6,주인공,俺も行く!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,160,15,UNKNOWN_74,ハァ?あとから何言ってやがる,,
-dom3Birthday.mes,Script/dom3Birthday.mes,161,16,Shiki,どっちが私を必要としているの?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,162,9,UNKNOWN_74,オレです、オレ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,163,4,[효과음/내레이션],タタッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,164,21,주인공,あ、ちょっと!<6E5C>くぅ~、ひとりぼっちかよ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,165,12,UNKNOWN_1e,何事ですか?旦那様……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,166,22,주인공,いろは…….<6E5C>いや、たいしたことではないよ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,167,15,Iroha,そんな乱暴な方とお話して……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,168,25,UNKNOWN_74,誰が乱暴モンだよ!<6E5C>めでてぇ日に失礼なヤツだぜッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,169,32,Iroha,そんなこと知りません!<6E5C>私は旦那様にしかお仕えしない<6E5C>身です!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,170,9,[선택지],まぁまぁその通りだ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,171,36,주인공,まぁまぁ、そんなこと言わないで.<6E5C>これも何かの縁だし、仲良くしよう<6E5C>よ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,172,50,Iroha,旦那様…….旦那様が望むのならそ<6E5C>う致しますが、私がお祝いしたいの<6E5C>は、旦那様だけなのですよ……?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,173,6,주인공,いろは……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,174,15,UNKNOWN_74,……ケッ!勝手にやってろよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,175,3,[효과음/내레이션],タッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,176,11,Iroha,……涙ぐんでましたね,,
-dom3Birthday.mes,Script/dom3Birthday.mes,177,11,주인공,むむ……許せ、狂エ門,,
-dom3Birthday.mes,Script/dom3Birthday.mes,178,33,주인공,そうだ.いろはには俺のお祝いだけ<6E5C>をしてもらおう.家でゆっくりな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,179,8,Iroha,旦那様ぁ……!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,180,21,UNKNOWN_74,ケッ!<6E5C>いちいち見せ付けてんじゃねーよ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,181,3,[효과음/내레이션],ダッ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,182,9,주인공,すまん……狂エ門,,
-dom3Birthday.mes,Script/dom3Birthday.mes,183,33,Iroha,では、今夜は旦那様のために、たく<6E5C>さんのたにしを取ってきますね!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,184,8,주인공,た、たにし!!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,185,21,주인공,生まれた日がいっしょとは……<6E5C>奇遇だなぁ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,186,9,UNKNOWN_74,気持ちわりぃぜ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,187,33,주인공,そんなこと言うなよ.これも何かの<6E5C>縁だ.今夜はふたりで飲まないか,,
-dom3Birthday.mes,Script/dom3Birthday.mes,188,32,UNKNOWN_74,な、なんだとォ!?そんな誘いに、<6E5C>このオレ様が乗ると思うかァ?,,
-dom3Birthday.mes,Script/dom3Birthday.mes,189,6,주인공,やはり嫌か,,
-dom3Birthday.mes,Script/dom3Birthday.mes,190,27,UNKNOWN_74,す……少しくらいなら、付き合って<6E5C>やってもイイぜ……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,191,3,주인공,……,,
-dom3Birthday.mes,Script/dom3Birthday.mes,192,13,주인공,はっぴば~すでぃ狂エ門~,,
-dom3Birthday.mes,Script/dom3Birthday.mes,193,15,UNKNOWN_74,は、はっぴば~すでぃ、<이름:3232>~,,
-dom3Birthday.mes,Script/dom3Birthday.mes,194,7,[효과음/내레이션],パチパチパチ,,
-dom3Birthday.mes,Script/dom3Birthday.mes,195,19,주인공,ははは、たまにはこんなのも<6E5C>楽しいな,,
-dom3Birthday.mes,Script/dom3Birthday.mes,196,31,UNKNOWN_74,オレ様は楽しくないぞ!ぜんぜん<6E5C>うれしくなんかないからなっ!,,
-dom3Birthday.mes,Script/dom3Birthday.mes,197,3,[효과음/내레이션],……,,
+dom3Birthday.mes,Script/dom3Birthday.mes,0,25,주인공,(たまには何かおいしいものでも<6E5C>買って帰るかな),가끔은 맛있는 거라도<6E5C>사서 갈까,가끔은 맛있는 거라도<6E5C>사서 갈까
+dom3Birthday.mes,Script/dom3Birthday.mes,1,4,[효과음/내레이션],ドンッ,쿵!,쿵!
+dom3Birthday.mes,Script/dom3Birthday.mes,2,5,주인공,おおっと,어이쿠,어이쿠
+dom3Birthday.mes,Script/dom3Birthday.mes,3,25,UNKNOWN_74,ケッ、<이름:3232>じゃねぇか!<6E5C>めでてぇ日に縁起が悪ぃぜ,"쳇,<이름:3232> 아니냐!<6E5C>경사스런 날에 재수없게","쳇,<이름:3232> 아니냐!<6E5C>경사스런 날에 재수없게"
+dom3Birthday.mes,Script/dom3Birthday.mes,4,22,주인공,狂エ門……めでたい日って、<6E5C>何かあるのか?,"쿄에몬……경사스런 날이라니,<6E5C>뭔데?","쿄에몬……경사스런 날이라니,<6E5C>뭔데?"
+dom3Birthday.mes,Script/dom3Birthday.mes,5,56,UNKNOWN_74,ナニもクソも、今日はオレ様が<6E5C>この世に生をあずかった<6E5C>記念すべき日でぃ!<485C>なんだったらオマエも<6E5C>祝っていいぜ?,"뭐고 나발이고, 오늘은 내가<6E5C>이 세상에 태어난<6E5C>기념할 날이라고!<485C>뭐하면 너도<6E5C>축하해도 되고?","뭐고 나발이고, 오늘은 내가<6E5C>이 세상에 태어난<6E5C>기념할 날이라고!<485C>뭐하면 너도<6E5C>축하해도 되고?"
+dom3Birthday.mes,Script/dom3Birthday.mes,6,33,주인공,自分の生まれた日かよ!<6E5C>めでたい日というか、<6E5C>頭のめでたい奴だな,"네 생일이었냐!<6E5C>경사스런 날이라기보다,<6E5C>속 편한 녀석이네","네 생일이었냐!<6E5C>경사스런 날이라기보다,<6E5C>속 편한 녀석이네"
+dom3Birthday.mes,Script/dom3Birthday.mes,7,36,주인공,……まてよ.<6E5C>今日は七月二十四日…….あ!<6E5C>俺も生まれた日じゃないか!,……잠깐.<6E5C>오늘은 7월 24일…….아!<6E5C>나도 생일이잖아!,……잠깐.<6E5C>오늘은 7월 24일…….아!<6E5C>나도 생일이잖아!
+dom3Birthday.mes,Script/dom3Birthday.mes,8,8,UNKNOWN_74,なんだとォ!?,뭐라고!?,뭐라고!?
+dom3Birthday.mes,Script/dom3Birthday.mes,9,14,UNKNOWN_1e,喧嘩ですか?いけませんよ!,싸움인가요? 안 돼요!,싸움인가요? 안 돼요!
+dom3Birthday.mes,Script/dom3Birthday.mes,10,5,UNKNOWN_74,あぁ!?,아앙!?,아앙!?
+dom3Birthday.mes,Script/dom3Birthday.mes,11,8,주인공,あ……ナコルル,아……나코루루,아……나코루루
+dom3Birthday.mes,Script/dom3Birthday.mes,12,16,[선택지],いや、違うよ狂エ門に売られたんだ,아니야\쿄에몬한테 팔렸어,아니야\쿄에몬한테 팔렸어
+dom3Birthday.mes,Script/dom3Birthday.mes,13,38,주인공,いや、違うよ.<6E5C>今日は俺たちの生まれた日だから、<6E5C>ふたりで祝ってたところさ,"아니, 아니야.<6E5C>오늘이 우리 둘 생일이라서,<6E5C>같이 축하하던 참이야","아니, 아니야.<6E5C>오늘이 우리 둘 생일이라서,<6E5C>같이 축하하던 참이야"
+dom3Birthday.mes,Script/dom3Birthday.mes,14,5,UNKNOWN_74,ハァ!?,하아!?,하아!?
+dom3Birthday.mes,Script/dom3Birthday.mes,15,41,Nakoruru,そうだったんですか.<6E5C>おめでとうございます!大自然から<6E5C>も祝福の声が閉こえますよ,그러셨군요.<6E5C>축하드려요! 대자연에서도<6E5C>축복의 목소리가 들려와요,그러셨군요.<6E5C>축하드려요! 대자연에서도<6E5C>축복의 목소리가 들려와요
+dom3Birthday.mes,Script/dom3Birthday.mes,16,9,UNKNOWN_79,ピィー!ピィー!,삐이! 삐이!,삐이! 삐이!
+dom3Birthday.mes,Script/dom3Birthday.mes,17,12,주인공,そいつは豪快な祝福だな,참 호쾌한 축복이네,참 호쾌한 축복이네
+dom3Birthday.mes,Script/dom3Birthday.mes,18,9,Nakoruru,フフ、そうですね,"후후, 그러네요","후후, 그러네요"
+dom3Birthday.mes,Script/dom3Birthday.mes,19,14,UNKNOWN_74,ナニを言ってんだ?こいつら,뭔 소리야? 이것들,뭔 소리야? 이것들
+dom3Birthday.mes,Script/dom3Birthday.mes,20,33,주인공,いや、俺はそんなつもりはないんだ<6E5C>けど、狂エ門に売られちゃってさ,"아니, 나는 그럴 생각은 없었는데<6E5C>쿄에몬한테 팔려버려서","아니, 나는 그럴 생각은 없었는데<6E5C>쿄에몬한테 팔려버려서"
+dom3Birthday.mes,Script/dom3Birthday.mes,21,25,Nakoruru,言い訳は閉きたくありません.<6E5C>喧嘩両成敗ですよ!,변명은 됐어요.<6E5C>둘 다 잘못이에요!,변명은 됐어요.<6E5C>둘 다 잘못이에요!
+dom3Birthday.mes,Script/dom3Birthday.mes,22,5,UNKNOWN_74,何ィ!?,뭐야!?,뭐야!?
+dom3Birthday.mes,Script/dom3Birthday.mes,23,10,Nakoruru,大自然の折紙です!,천벌이에요!,천벌이에요!
+dom3Birthday.mes,Script/dom3Birthday.mes,24,5,[효과음/내레이션],バシィ!,찰싹!,찰싹!
+dom3Birthday.mes,Script/dom3Birthday.mes,25,7,UNKNOWN_74,いってぇ~!,아파~!,아파~!
+dom3Birthday.mes,Script/dom3Birthday.mes,26,14,주인공,うう、ナコルル……怖い……,"으윽, 나코루루……무서워","으윽, 나코루루……무서워"
+dom3Birthday.mes,Script/dom3Birthday.mes,27,17,UNKNOWN_1e,こんなとこで、何大声出してるの?,왜 여기서 큰소리야?,왜 여기서 큰소리야?
+dom3Birthday.mes,Script/dom3Birthday.mes,28,7,주인공,詩乃さん……,시노 씨……,시노 씨……
+dom3Birthday.mes,Script/dom3Birthday.mes,29,43,Shino,ふたりの生まれた日?なら、<6E5C>むささび屋でお祝いしてあげるよ!<6E5C>ほら、ふたりともおいで,"둘 다 생일이라고? 그럼<6E5C>무사사비야에서 축하해줄게!<6E5C>자, 둘 다 이리 와","둘 다 생일이라고? 그럼<6E5C>무사사비야에서 축하해줄게!<6E5C>자, 둘 다 이리 와"
+dom3Birthday.mes,Script/dom3Birthday.mes,30,16,UNKNOWN_74,マジかよ.そいつぁありがてェな,진짜냐. 그거 고맙구먼,진짜냐. 그거 고맙구먼
+dom3Birthday.mes,Script/dom3Birthday.mes,31,27,Shino,じゃ、貸切料金として金一両を<6E5C>先払いしてもらおうかね,"그럼, 대관료로 금 한 냥을<6E5C>먼저 받아볼까","그럼, 대관료로 금 한 냥을<6E5C>먼저 받아볼까"
+dom3Birthday.mes,Script/dom3Birthday.mes,32,17,UNKNOWN_74,ナ、なんだよそのデタラメな値は!,뭐야 그 말도 안 되는 값은!,뭐야 그 말도 안 되는 값은!
+dom3Birthday.mes,Script/dom3Birthday.mes,33,16,주인공,そんなことだろうと思ったよ……,그럴 줄 알았다니까……,그럴 줄 알았다니까……
+dom3Birthday.mes,Script/dom3Birthday.mes,34,24,UNKNOWN_1e,こんな往来で、大の男が何を言い<6E5C>争ってるんだい,이런 길거리서 남정네들이<6E5C>뭘 다투는 거야,이런 길거리서 남정네들이<6E5C>뭘 다투는 거야
+dom3Birthday.mes,Script/dom3Birthday.mes,35,7,주인공,千夜さん……,치요 씨……,치요 씨……
+dom3Birthday.mes,Script/dom3Birthday.mes,36,18,UNKNOWN_74,ヒュゥッ!<6E5C>こりゃまた極上の女だな,휘유!<6E5C>이거 또 끝내주는 여자군,휘유!<6E5C>이거 또 끝내주는 여자군
+dom3Birthday.mes,Script/dom3Birthday.mes,37,43,UNKNOWN_6d,ふたりの生まれた日たぁ、めでたい<6E5C>ねぇ.ふたりとも祝おうかい?<6E5C>それともひとりだけ?,"둘 다 생일이라니, 경사스럽<6E5C>구먼. 둘 다 축하해줄까?<6E5C>아니면 한 명만?","둘 다 생일이라니, 경사스럽<6E5C>구먼. 둘 다 축하해줄까?<6E5C>아니면 한 명만?"
+dom3Birthday.mes,Script/dom3Birthday.mes,38,13,UNKNOWN_74,オレ様だけでいいんだよ!,나 하나면 충분하다고!,나 하나면 충분하다고!
+dom3Birthday.mes,Script/dom3Birthday.mes,39,3,주인공,……,……,……
+dom3Birthday.mes,Script/dom3Birthday.mes,40,10,[선택지],ふたりともひとりだけ,둘 다\한 명만,둘 다\한 명만
+dom3Birthday.mes,Script/dom3Birthday.mes,41,22,주인공,そうだな……<6E5C>ふたりとも祝ってもらいたいな,그러게……<6E5C>둘 다 축하받고 싶은데,그러게……<6E5C>둘 다 축하받고 싶은데
+dom3Birthday.mes,Script/dom3Birthday.mes,42,14,UNKNOWN_74,チッ!このさい仕方ねぇなァ,쳇! 이럼 어쩔 수 없지,쳇! 이럼 어쩔 수 없지
+dom3Birthday.mes,Script/dom3Birthday.mes,43,42,UNKNOWN_6d,……あちきの舞はそんなに安く<6E5C>ないんだよ.ふたりともなんて<6E5C>欲張りは、閉けないネェ,……이 몸의 춤은 그렇게 싸지<6E5C>않다우. 둘 다라니<6E5C>욕심은 들어줄 수 없네,……이 몸의 춤은 그렇게 싸지<6E5C>않다우. 둘 다라니<6E5C>욕심은 들어줄 수 없네
+dom3Birthday.mes,Script/dom3Birthday.mes,44,12,UNKNOWN_74,アッ、なんだよ、オイ!,"아, 뭐야, 야!","아, 뭐야, 야!"
+dom3Birthday.mes,Script/dom3Birthday.mes,45,7,주인공,千夜さん……,치요 씨……,치요 씨……
+dom3Birthday.mes,Script/dom3Birthday.mes,46,19,주인공,(……昨日のこと、<6E5C>閉けなかったな),"(……어제 일은,<6E5C>못 물어봤네)","(……어제 일은,<6E5C>못 물어봤네)"
+dom3Birthday.mes,Script/dom3Birthday.mes,47,28,주인공,祝ってくれるのは、ひとりでいい.<6E5C>ひとりだけで十分だよ,"축하는, 한 명이면 돼.<6E5C>한 명이면 충분해","축하는, 한 명이면 돼.<6E5C>한 명이면 충분해"
+dom3Birthday.mes,Script/dom3Birthday.mes,48,17,UNKNOWN_74,テメェ、オレ様と勝負すんのかァ?,네놈 나랑 승부하겠다는 거냐?,네놈 나랑 승부하겠다는 거냐?
+dom3Birthday.mes,Script/dom3Birthday.mes,49,20,UNKNOWN_6d,じゃ……あちきだけで<6E5C>いいんですかい?,그럼……이 몸 하나면<6E5C>되는 거유?,그럼……이 몸 하나면<6E5C>되는 거유?
+dom3Birthday.mes,Script/dom3Birthday.mes,50,10,주인공,ええ、あなただけで,"네, 당신 하나로","네, 당신 하나로"
+dom3Birthday.mes,Script/dom3Birthday.mes,51,31,UNKNOWN_74,ちょ、ちょっと待てよ!<6E5C>オレか<이름:3232>かって話じゃ<6E5C>ねーのかよ!,"자, 잠깐 기다려!<6E5C>나냐 <이름:3232>냐<6E5C>하는 얘기 아니었냐!","자, 잠깐 기다려!<6E5C>나냐 <이름:3232>냐<6E5C>하는 얘기 아니었냐!"
+dom3Birthday.mes,Script/dom3Birthday.mes,52,23,주인공,(今夜はだまって、千夜さんの舞を<6E5C>楽しもう),(오늘 밤은 잠자코 치요 춤을<6E5C>즐기자),(오늘 밤은 잠자코 치요 춤을<6E5C>즐기자)
+dom3Birthday.mes,Script/dom3Birthday.mes,53,22,주인공,(昨日は、何も見なかったことに<6E5C>して……),(어제 일은 못 본 걸로<6E5C>하고……),(어제 일은 못 본 걸로<6E5C>하고……)
+dom3Birthday.mes,Script/dom3Birthday.mes,54,11,UNKNOWN_1e,……何をやってるの?,……뭐 하는 거야?,……뭐 하는 거야?
+dom3Birthday.mes,Script/dom3Birthday.mes,55,6,주인공,あ……ミナ,아……미나,아……미나
+dom3Birthday.mes,Script/dom3Birthday.mes,56,8,Mina,そこ……通して,거기……비켜,거기……비켜
+dom3Birthday.mes,Script/dom3Birthday.mes,57,13,[선택지],あぁ、ごめんちょっと待って,"아, 미안\잠깐만 기다려","아, 미안\잠깐만 기다려"
+dom3Birthday.mes,Script/dom3Birthday.mes,58,7,주인공,あぁ、ごめん,"아, 미안","아, 미안"
+dom3Birthday.mes,Script/dom3Birthday.mes,59,3,[효과음/내레이션],スッ,스윽,스윽
+dom3Birthday.mes,Script/dom3Birthday.mes,60,3,Mina,……,……,……
+dom3Birthday.mes,Script/dom3Birthday.mes,61,4,[효과음/내레이션],プイッ,휙,휙
+dom3Birthday.mes,Script/dom3Birthday.mes,62,17,UNKNOWN_74,なんだぁ?かわいげのないヤツだな,뭐야? 매정한 녀석이네,뭐야? 매정한 녀석이네
+dom3Birthday.mes,Script/dom3Birthday.mes,63,17,주인공,俺たちには興味がないらしいな……,우리한테 관심이 없나 보네……,우리한테 관심이 없나 보네……
+dom3Birthday.mes,Script/dom3Birthday.mes,64,11,주인공,ちょ、ちょっと待って,"자, 잠깐만 기다려","자, 잠깐만 기다려"
+dom3Birthday.mes,Script/dom3Birthday.mes,65,5,Mina,……何?,……뭐?,……뭐?
+dom3Birthday.mes,Script/dom3Birthday.mes,66,19,주인공,じつは、今日は俺が生まれた<6E5C>日なんだ,사실 오늘은 내가 태어난<6E5C>날이거든,사실 오늘은 내가 태어난<6E5C>날이거든
+dom3Birthday.mes,Script/dom3Birthday.mes,67,13,UNKNOWN_74,オレが、生まれた日だよ!,내가 태어난 날이라고!,내가 태어난 날이라고!
+dom3Birthday.mes,Script/dom3Birthday.mes,68,7,Mina,……だから?,……그래서?,……그래서?
+dom3Birthday.mes,Script/dom3Birthday.mes,69,31,주인공,いっしょに祝ってくれないか?<6E5C>誰も祝ってくれる人がいなくてさ,같이 축하해주지 않을래?<6E5C>축하해줄 사람이 없어서 말이야,같이 축하해주지 않을래?<6E5C>축하해줄 사람이 없어서 말이야
+dom3Birthday.mes,Script/dom3Birthday.mes,70,16,Mina,いいけど……そっちの人は、イヤ,그건 되는데……저 사람 싫어,그건 되는데……저 사람 싫어
+dom3Birthday.mes,Script/dom3Birthday.mes,71,7,UNKNOWN_74,なっ……!?,뭐……!?,뭐……!?
+dom3Birthday.mes,Script/dom3Birthday.mes,72,39,주인공,大丈夫大丈夫、こいつは関係ない<6E5C>から.よし、そうと決まったら<6E5C>さっそく行こう,"괜찮아 괜찮아, 이 녀석은 상관없<6E5C>어. 자, 정해졌으니<6E5C>바로 가자","괜찮아 괜찮아, 이 녀석은 상관없<6E5C>어. 자, 정해졌으니<6E5C>바로 가자"
+dom3Birthday.mes,Script/dom3Birthday.mes,73,13,주인공,悪いな、狂エ門.じゃあな,"미안, 쿄에몬. 간다","미안, 쿄에몬. 간다"
+dom3Birthday.mes,Script/dom3Birthday.mes,74,16,UNKNOWN_74,ク、クソッ!なんだってんだよ!,"이, 젠장! 이게 뭐냐고!","이, 젠장! 이게 뭐냐고!"
+dom3Birthday.mes,Script/dom3Birthday.mes,75,17,UNKNOWN_1e,何を道の真ん中で騒いでいるんだ?,길 한복판서 뭔 소란이야?,길 한복판서 뭔 소란이야?
+dom3Birthday.mes,Script/dom3Birthday.mes,76,23,UNKNOWN_74,チビじゃねぇか、まったく本当に<6E5C>縁起が悪いぜ,"꼬맹이잖아, 진짜 정말로<6E5C>재수가 없구먼","꼬맹이잖아, 진짜 정말로<6E5C>재수가 없구먼"
+dom3Birthday.mes,Script/dom3Birthday.mes,77,22,주인공,狂エ門と俺の生まれた日が、<6E5C>今日だったんだ,"쿄에몬이랑 내 생일이,<6E5C>오늘이었거든","쿄에몬이랑 내 생일이,<6E5C>오늘이었거든"
+dom3Birthday.mes,Script/dom3Birthday.mes,78,21,Rinka,へぇー.<6E5C>じゃあさ、今から一稽古つけてよ,헤에.<6E5C>그럼 지금 나랑 한판 붙자,헤에.<6E5C>그럼 지금 나랑 한판 붙자
+dom3Birthday.mes,Script/dom3Birthday.mes,79,6,주인공,今からぁ?,지금부터?,지금부터?
+dom3Birthday.mes,Script/dom3Birthday.mes,80,8,[선택지],いやだ仕方ないな,싫어\할 수 없지,싫어\할 수 없지
+dom3Birthday.mes,Script/dom3Birthday.mes,81,31,주인공,なんでそうなるんだよ.<6E5C>いろはも待ってるし、<6E5C>俺はもう帰るよ,왜 그렇게 되는 거야.<6E5C>이로하도 기다리니<6E5C>난 이만 갈게,왜 그렇게 되는 거야.<6E5C>이로하도 기다리니<6E5C>난 이만 갈게
+dom3Birthday.mes,Script/dom3Birthday.mes,82,10,Rinka,そう.……じゃあね,그래……안녕,그래……안녕
+dom3Birthday.mes,Script/dom3Birthday.mes,83,3,UNKNOWN_7a,ヂッ,찍,찍
+dom3Birthday.mes,Script/dom3Birthday.mes,84,3,[효과음/내레이션],タッ,탁,탁
+dom3Birthday.mes,Script/dom3Birthday.mes,85,13,UNKNOWN_74,おう、オレ様ももう行くぜ,"오, 나도 이만 간다","오, 나도 이만 간다"
+dom3Birthday.mes,Script/dom3Birthday.mes,86,3,[효과음/내레이션],タッ,탁,탁
+dom3Birthday.mes,Script/dom3Birthday.mes,87,17,주인공,あ、あれ?ひとりになってしまった,"어, 어라? 나 혼자 남았네","어, 어라? 나 혼자 남았네"
+dom3Birthday.mes,Script/dom3Birthday.mes,88,14,주인공,仕方ないなあ.少しだけだぞ,어쩔 수 없네.조금만이다,어쩔 수 없네.조금만이다
+dom3Birthday.mes,Script/dom3Birthday.mes,89,3,Rinka,うん,응,응
+dom3Birthday.mes,Script/dom3Birthday.mes,90,12,UNKNOWN_74,フン、やってらんねぇぜ,"흥, 못 해먹겠구먼","흥, 못 해먹겠구먼"
+dom3Birthday.mes,Script/dom3Birthday.mes,91,3,[효과음/내레이션],タッ,탁,탁
+dom3Birthday.mes,Script/dom3Birthday.mes,92,20,주인공,でもなぜこんな時間から、<6E5C>稽古なんだ?,"근데 왜 이런 시간부터,<6E5C>수련이야?","근데 왜 이런 시간부터,<6E5C>수련이야?"
+dom3Birthday.mes,Script/dom3Birthday.mes,93,43,Rinka,だって……あたしが<이름:3232>と一緒に<6E5C>できることって言ったら、<6E5C>これぐらいしかないから……,"그야……내가 <이름:3232>랑 같이<6E5C>할 수 있는 거라고 하면,<6E5C>이 정도밖에 없으니까……","그야……내가 <이름:3232>랑 같이<6E5C>할 수 있는 거라고 하면,<6E5C>이 정도밖에 없으니까……"
+dom3Birthday.mes,Script/dom3Birthday.mes,94,29,주인공,そんなことないよ.<6E5C>今度はいっしょに遊びに行こう.<6E5C>な?,그렇지 않아.<6E5C>다음엔 같이 놀러 가자.<6E5C>응?,그렇지 않아.<6E5C>다음엔 같이 놀러 가자.<6E5C>응?
+dom3Birthday.mes,Script/dom3Birthday.mes,95,5,Rinka,……うん,……응,……응
+dom3Birthday.mes,Script/dom3Birthday.mes,96,20,UNKNOWN_1e,アラ、二人とも今日がバースディ<6E5C>なの?,어머 둘 다 오늘이 생일<6E5C>인 거야?,어머 둘 다 오늘이 생일<6E5C>인 거야?
+dom3Birthday.mes,Script/dom3Birthday.mes,97,16,Saya,ほんとに仲良しさんなんだからッ,정말 사이좋은 사이라니까!,정말 사이좋은 사이라니까!
+dom3Birthday.mes,Script/dom3Birthday.mes,98,4,UNKNOWN_74,誰が!,누가!,누가!
+dom3Birthday.mes,Script/dom3Birthday.mes,99,26,Saya,そんな二人を、このワタシ自らが<6E5C>お祝いしてあげるワ,"그런 두 사람을, 이 몸이 직접<6E5C>축하해줄게","그런 두 사람을, 이 몸이 직접<6E5C>축하해줄게"
+dom3Birthday.mes,Script/dom3Birthday.mes,100,10,Saya,飲みに行くわヨォ!,마시러 갈 거야!,마시러 갈 거야!
+dom3Birthday.mes,Script/dom3Birthday.mes,101,12,[선택지],喜んで!できればふたりで,기꺼이!\가능하면 둘이서,기꺼이!\가능하면 둘이서
+dom3Birthday.mes,Script/dom3Birthday.mes,102,4,주인공,はい!,네!,네!
+dom3Birthday.mes,Script/dom3Birthday.mes,103,3,UNKNOWN_74,……,……,……
+dom3Birthday.mes,Script/dom3Birthday.mes,104,14,Saya,ホラ、狂エ門クンも行くわヨ,"자, 쿄에몬 군도 가자","자, 쿄에몬 군도 가자"
+dom3Birthday.mes,Script/dom3Birthday.mes,105,17,Saya,では、ふたりの友情にカンパ~イ!,그럼 둘 우정을 위해 건배~!,그럼 둘 우정을 위해 건배~!
+dom3Birthday.mes,Script/dom3Birthday.mes,106,12,주인공,友情なんかないですよ!,우정 없거든요!,우정 없거든요!
+dom3Birthday.mes,Script/dom3Birthday.mes,107,22,UNKNOWN_74,そうだぜ、こいつとは友達でも<6E5C>何でも……!,그렇다고 이 녀석이랑 친구고<6E5C>뭐고……!,그렇다고 이 녀석이랑 친구고<6E5C>뭐고……!
+dom3Birthday.mes,Script/dom3Birthday.mes,108,15,Saya,まあまあ、ここでプレゼント★,"자자, 여기서 선물★","자자, 여기서 선물★"
+dom3Birthday.mes,Script/dom3Birthday.mes,109,4,UNKNOWN_74,えっ?,엣?,엣?
+dom3Birthday.mes,Script/dom3Birthday.mes,110,13,Saya,天使の祝福よ.目を閉じて,천사의 축복. 눈 감아,천사의 축복. 눈 감아
+dom3Birthday.mes,Script/dom3Birthday.mes,111,4,[효과음/내레이션],チュッ、,"쪽,","쪽,"
+dom3Birthday.mes,Script/dom3Birthday.mes,112,4,[효과음/내레이션],チュッ,쪽,쪽
+dom3Birthday.mes,Script/dom3Birthday.mes,113,5,UNKNOWN_74,うわっ!,으왓!,으왓!
+dom3Birthday.mes,Script/dom3Birthday.mes,114,14,Saya,最高のプレゼント、でしょ?,"최고의 선물, 그렇지?","최고의 선물, 그렇지?"
+dom3Birthday.mes,Script/dom3Birthday.mes,115,19,주인공,(狂エ門と同じ……<6E5C>まぁ、いいか!),(쿄에몬과 똑같이……<6E5C>뭐 됐나!),(쿄에몬과 똑같이……<6E5C>뭐 됐나!)
+dom3Birthday.mes,Script/dom3Birthday.mes,116,24,주인공,できれば、サヤさんとふたりっきり<6E5C>で行きたいな,"가능하면, 사야 씨랑 단둘이<6E5C>가고 싶은데","가능하면, 사야 씨랑 단둘이<6E5C>가고 싶은데"
+dom3Birthday.mes,Script/dom3Birthday.mes,117,27,Saya,<이름:3232>ちゃん、気持ちはわかるけど<6E5C>独り占めはイケナイわ,<이름:3232> 군 마음은 알겠는데<6E5C>독차지는 안 되는 거야,<이름:3232> 군 마음은 알겠는데<6E5C>독차지는 안 되는 거야
+dom3Birthday.mes,Script/dom3Birthday.mes,118,32,UNKNOWN_74,そうだぜ.サヤさん、こんなヤツ<6E5C>ほっといて、オレと行きましょう,"그렇다고. 사야 씨 이런 녀석은<6E5C>내버려두고, 나랑 갑시다","그렇다고. 사야 씨 이런 녀석은<6E5C>내버려두고, 나랑 갑시다"
+dom3Birthday.mes,Script/dom3Birthday.mes,119,9,Saya,狂エ門クンもよ!,쿄에몬 군도야!,쿄에몬 군도야!
+dom3Birthday.mes,Script/dom3Birthday.mes,120,4,[효과음/내레이션],パンッ、,"찰싹,","찰싹,"
+dom3Birthday.mes,Script/dom3Birthday.mes,121,4,[효과음/내레이션],パンッ,찰싹,찰싹
+dom3Birthday.mes,Script/dom3Birthday.mes,122,5,주인공,いたっ!,아얏!,아얏!
+dom3Birthday.mes,Script/dom3Birthday.mes,123,5,UNKNOWN_74,いてっ!,아얏!,아얏!
+dom3Birthday.mes,Script/dom3Birthday.mes,124,12,Saya,そこで反省してなさいっ,거기서 반성해!,거기서 반성해!
+dom3Birthday.mes,Script/dom3Birthday.mes,125,16,UNKNOWN_1e,<이름:3131>様、今のお話は本当ですの?,"<이름:3131> 님, 정말인가요?","<이름:3131> 님, 정말인가요?"
+dom3Birthday.mes,Script/dom3Birthday.mes,126,10,주인공,命さん.ええ、まあ,미코토 씨. 네,미코토 씨. 네
+dom3Birthday.mes,Script/dom3Birthday.mes,127,39,Mikoto,それでしたら、<6E5C>わたくし渡したいものが…….<6E5C>少し待っていてくださいますか?,"그러시다면,<6E5C>제가 드리고 싶은 것이…….<6E5C>잠시 기다려주시겠어요?","그러시다면,<6E5C>제가 드리고 싶은 것이…….<6E5C>잠시 기다려주시겠어요?"
+dom3Birthday.mes,Script/dom3Birthday.mes,128,9,[선택지],待ついっしょに行く,기다린다\같이 간다,기다린다\같이 간다
+dom3Birthday.mes,Script/dom3Birthday.mes,129,6,주인공,いいですよ,좋아요,좋아요
+dom3Birthday.mes,Script/dom3Birthday.mes,130,16,Mikoto,では、すぐに戻って参りますので,그럼 곧바로 돌아올 테니까요,그럼 곧바로 돌아올 테니까요
+dom3Birthday.mes,Script/dom3Birthday.mes,131,4,[효과음/내레이션],タタッ,다다닥,다다닥
+dom3Birthday.mes,Script/dom3Birthday.mes,132,16,주인공,ああっ、そんな走らなくても……,"아앗, 그렇게 안 뛰어도……","아앗, 그렇게 안 뛰어도……"
+dom3Birthday.mes,Script/dom3Birthday.mes,133,7,[효과음/내레이션],すってーん!,꽈당~!,꽈당~!
+dom3Birthday.mes,Script/dom3Birthday.mes,134,5,Mikoto,きゃあ!,꺄악!,꺄악!
+dom3Birthday.mes,Script/dom3Birthday.mes,135,13,주인공,大丈夫ですか、命さん!?,괜찮아요 미코토 씨!?,괜찮아요 미코토 씨!?
+dom3Birthday.mes,Script/dom3Birthday.mes,136,27,Mikoto,わたくしったら恥ずかしい.<6E5C>すいません、コホコホ……,"저도 참 부끄럽네요.<6E5C>죄송해요, 콜록콜록……","저도 참 부끄럽네요.<6E5C>죄송해요, 콜록콜록……"
+dom3Birthday.mes,Script/dom3Birthday.mes,137,30,주인공,(こりゃ、自分の生まれた日なんか<6E5C>祝ってる場合じゃないな),(이건 내 생일 같은 거<6E5C>축하하고 있을 때가 아니네),(이건 내 생일 같은 거<6E5C>축하하고 있을 때가 아니네)
+dom3Birthday.mes,Script/dom3Birthday.mes,138,15,주인공,だったらいっしょに行きますよ,그럼 같이 가겠습니다,그럼 같이 가겠습니다
+dom3Birthday.mes,Script/dom3Birthday.mes,139,16,UNKNOWN_74,オイ!オレはほったらかしかよ!,야! 난 내버려두는 거냐!,야! 난 내버려두는 거냐!
+dom3Birthday.mes,Script/dom3Birthday.mes,140,10,Mikoto,これを<이름:3131>様に……,이걸<이름:3131> 님께……,이걸<이름:3131> 님께……
+dom3Birthday.mes,Script/dom3Birthday.mes,141,17,주인공,これはお守り?ありがとう、命さん,"부적이에요? 고마워요, 미코토","부적이에요? 고마워요, 미코토"
+dom3Birthday.mes,Script/dom3Birthday.mes,142,42,Mikoto,いえ、覇王丸おじ様のように、<6E5C>またいつか<이름:3131>様も旅に<6E5C>出られるのだろうと思って……,"아뇨, 하오마루 아저씨처럼<6E5C>언젠가 <이름:3131> 님도<6E5C>여행 떠나실 거라 생각해서……","아뇨, 하오마루 아저씨처럼<6E5C>언젠가 <이름:3131> 님도<6E5C>여행 떠나실 거라 생각해서……"
+dom3Birthday.mes,Script/dom3Birthday.mes,143,26,주인공,(俺は、またこの町を離れ、<6E5C>旅を続けるのかな……),(나는 또 이 마을 떠나<6E5C>여행 계속하려나……),(나는 또 이 마을 떠나<6E5C>여행 계속하려나……)
+dom3Birthday.mes,Script/dom3Birthday.mes,144,22,UNKNOWN_1e,いいわね……生まれた日を覚えてい<6E5C>るなんて,좋겠네……생일을 기억하고<6E5C>있다니,좋겠네……생일을 기억하고<6E5C>있다니
+dom3Birthday.mes,Script/dom3Birthday.mes,145,6,주인공,あ、色さん,"아, 시키","아, 시키"
+dom3Birthday.mes,Script/dom3Birthday.mes,146,43,UNKNOWN_74,なんだよ、記念日の記憶がほしい<6E5C>のか?だったら、今からオレと<6E5C>思い出を作りにいこうぜ,"뭐야, 기념일 추억 갖고 싶<6E5C>냐? 그럼 지금부터 나랑<6E5C>추억 만들러 가자고","뭐야, 기념일 추억 갖고 싶<6E5C>냐? 그럼 지금부터 나랑<6E5C>추억 만들러 가자고"
+dom3Birthday.mes,Script/dom3Birthday.mes,147,6,Shiki,そうね……,그렇네……,그렇네……
+dom3Birthday.mes,Script/dom3Birthday.mes,148,3,주인공,え?,어?,어?
+dom3Birthday.mes,Script/dom3Birthday.mes,149,13,[선택지],ちょっと待った!俺も行く!,잠깐만!\나도 갈래!,잠깐만!\나도 갈래!
+dom3Birthday.mes,Script/dom3Birthday.mes,150,31,주인공,ちょっと待った!そういうことなら<6E5C>俺と行きましょう、色さん!,"잠깐만!그런 거라면<6E5C>저랑 갑시다, 시키 씨!","잠깐만!그런 거라면<6E5C>저랑 갑시다, 시키 씨!"
+dom3Birthday.mes,Script/dom3Birthday.mes,151,20,UNKNOWN_74,テメェ、横から口を出すんじゃ<6E5C>ねぇよ!,"네놈, 옆에서 끼어들지<6E5C>말라고!","네놈, 옆에서 끼어들지<6E5C>말라고!"
+dom3Birthday.mes,Script/dom3Birthday.mes,152,16,주인공,おまえに色さんは取らせないよ!,너한테 시키 씨는 못 넘겨!,너한테 시키 씨는 못 넘겨!
+dom3Birthday.mes,Script/dom3Birthday.mes,153,4,[효과음/내레이션],ぎゅっ,꽉,꽉
+dom3Birthday.mes,Script/dom3Birthday.mes,154,3,Shiki,……,……,……
+dom3Birthday.mes,Script/dom3Birthday.mes,155,14,주인공,いいですか?その、俺と……,괜찮을까요? 그 저랑……,괜찮을까요? 그 저랑……
+dom3Birthday.mes,Script/dom3Birthday.mes,156,6,Shiki,……いいわ,……좋아,……좋아
+dom3Birthday.mes,Script/dom3Birthday.mes,157,16,주인공,悪いな、狂エ門.そういうことだ,미안하다 쿄에몬. 그런 거다,미안하다 쿄에몬. 그런 거다
+dom3Birthday.mes,Script/dom3Birthday.mes,158,8,UNKNOWN_74,くっそォォォ!,젠자아앙!!,젠자아앙!!
+dom3Birthday.mes,Script/dom3Birthday.mes,159,6,주인공,俺も行く!,나도 가!,나도 가!
+dom3Birthday.mes,Script/dom3Birthday.mes,160,15,UNKNOWN_74,ハァ?あとから何言ってやがる,하아? 이제와서 뭔 소리야,하아? 이제와서 뭔 소리야
+dom3Birthday.mes,Script/dom3Birthday.mes,161,16,Shiki,どっちが私を必要としているの?,누가 날 더 필요해?,누가 날 더 필요해?
+dom3Birthday.mes,Script/dom3Birthday.mes,162,9,UNKNOWN_74,オレです、オレ!,"접니다, 저요!","접니다, 저요!"
+dom3Birthday.mes,Script/dom3Birthday.mes,163,4,[효과음/내레이션],タタッ,다다닥,다다닥
+dom3Birthday.mes,Script/dom3Birthday.mes,164,21,주인공,あ、ちょっと!<6E5C>くぅ~、ひとりぼっちかよ,"아, 잠깐!으윽~, 나만 혼자냐","아, 잠깐!으윽~, 나만 혼자냐"
+dom3Birthday.mes,Script/dom3Birthday.mes,165,12,UNKNOWN_1e,何事ですか?旦那様……,무슨 일이죠? 서방님,무슨 일이죠? 서방님
+dom3Birthday.mes,Script/dom3Birthday.mes,166,22,주인공,いろは…….<6E5C>いや、たいしたことではないよ,"이로하…….<6E5C>아니, 별일 아니야","이로하…….<6E5C>아니, 별일 아니야"
+dom3Birthday.mes,Script/dom3Birthday.mes,167,15,Iroha,そんな乱暴な方とお話して……,그런 난폭한 분과 말을……,그런 난폭한 분과 말을……
+dom3Birthday.mes,Script/dom3Birthday.mes,168,25,UNKNOWN_74,誰が乱暴モンだよ!<6E5C>めでてぇ日に失礼なヤツだぜッ,누가 난폭한 놈이야!<6E5C>경사스런 날에 무례하네,누가 난폭한 놈이야!<6E5C>경사스런 날에 무례하네
+dom3Birthday.mes,Script/dom3Birthday.mes,169,32,Iroha,そんなこと知りません!<6E5C>私は旦那様にしかお仕えしない<6E5C>身です!,그런 건 모릅니다!<6E5C>저는 서방님만을 모시는<6E5C>몸이에요!,그런 건 모릅니다!<6E5C>저는 서방님만을 모시는<6E5C>몸이에요!
+dom3Birthday.mes,Script/dom3Birthday.mes,170,9,[선택지],まぁまぁその通りだ,자자\그 말이 맞아,자자\그 말이 맞아
+dom3Birthday.mes,Script/dom3Birthday.mes,171,36,주인공,まぁまぁ、そんなこと言わないで.<6E5C>これも何かの縁だし、仲良くしよう<6E5C>よ,"자자, 그런 말 하지 말고.<6E5C>이것도 인연이니까 사이좋게 지내<6E5C>자","자자, 그런 말 하지 말고.<6E5C>이것도 인연이니까 사이좋게 지내<6E5C>자"
+dom3Birthday.mes,Script/dom3Birthday.mes,172,50,Iroha,旦那様…….旦那様が望むのならそ<6E5C>う致しますが、私がお祝いしたいの<6E5C>は、旦那様だけなのですよ……?,"서방님…….원하신다면 그<6E5C>리하겠지만, 축하드리고 싶은<6E5C>건 서방님뿐이에요……?","서방님…….원하신다면 그<6E5C>리하겠지만, 축하드리고 싶은<6E5C>건 서방님뿐이에요……?"
+dom3Birthday.mes,Script/dom3Birthday.mes,173,6,주인공,いろは……,이로하……,이로하……
+dom3Birthday.mes,Script/dom3Birthday.mes,174,15,UNKNOWN_74,……ケッ!勝手にやってろよ!,……쳇! 맘대로들 해라!,……쳇! 맘대로들 해라!
+dom3Birthday.mes,Script/dom3Birthday.mes,175,3,[효과음/내레이션],タッ,탁,탁
+dom3Birthday.mes,Script/dom3Birthday.mes,176,11,Iroha,……涙ぐんでましたね,…눈물 글썽이던데요,…눈물 글썽이던데요
+dom3Birthday.mes,Script/dom3Birthday.mes,177,11,주인공,むむ……許せ、狂エ門,음……미안 쿄에몬,음……미안 쿄에몬
+dom3Birthday.mes,Script/dom3Birthday.mes,178,33,주인공,そうだ.いろはには俺のお祝いだけ<6E5C>をしてもらおう.家でゆっくりな,그래. 이로하한테는 내 축하만<6E5C>받자. 집에서 느긋하게,그래. 이로하한테는 내 축하만<6E5C>받자. 집에서 느긋하게
+dom3Birthday.mes,Script/dom3Birthday.mes,179,8,Iroha,旦那様ぁ……!,서방니임……!,서방니임……!
+dom3Birthday.mes,Script/dom3Birthday.mes,180,21,UNKNOWN_74,ケッ!<6E5C>いちいち見せ付けてんじゃねーよ!,쳇!<6E5C>일일이 과시하지 좀 말라고!,쳇!<6E5C>일일이 과시하지 좀 말라고!
+dom3Birthday.mes,Script/dom3Birthday.mes,181,3,[효과음/내레이션],ダッ,타닥,타닥
+dom3Birthday.mes,Script/dom3Birthday.mes,182,9,주인공,すまん……狂エ門,미안……쿄에몬,미안……쿄에몬
+dom3Birthday.mes,Script/dom3Birthday.mes,183,33,Iroha,では、今夜は旦那様のために、たく<6E5C>さんのたにしを取ってきますね!,그럼 오늘 밤은 서방님을 위해 많<6E5C>은 우렁이를 잡아올게요!,그럼 오늘 밤은 서방님을 위해 많<6E5C>은 우렁이를 잡아올게요!
+dom3Birthday.mes,Script/dom3Birthday.mes,184,8,주인공,た、たにし!!,"우, 우렁이!","우, 우렁이!"
+dom3Birthday.mes,Script/dom3Birthday.mes,185,21,주인공,生まれた日がいっしょとは……<6E5C>奇遇だなぁ,생일이 같다니……<6E5C>기묘한 인연이네,생일이 같다니……<6E5C>기묘한 인연이네
+dom3Birthday.mes,Script/dom3Birthday.mes,186,9,UNKNOWN_74,気持ちわりぃぜ!,기분 나쁘구먼!,기분 나쁘구먼!
+dom3Birthday.mes,Script/dom3Birthday.mes,187,33,주인공,そんなこと言うなよ.これも何かの<6E5C>縁だ.今夜はふたりで飲まないか,그런 말 마.이것도<6E5C>인연인데.오늘 밤 한잔 안 할래,그런 말 마.이것도<6E5C>인연인데.오늘 밤 한잔 안 할래
+dom3Birthday.mes,Script/dom3Birthday.mes,188,32,UNKNOWN_74,な、なんだとォ!?そんな誘いに、<6E5C>このオレ様が乗ると思うかァ?,"뭐, 뭐라고!?<6E5C>이 몸이 넘어갈 거라 생각하냐?","뭐, 뭐라고!?<6E5C>이 몸이 넘어갈 거라 생각하냐?"
+dom3Birthday.mes,Script/dom3Birthday.mes,189,6,주인공,やはり嫌か,역시 싫나,역시 싫나
+dom3Birthday.mes,Script/dom3Birthday.mes,190,27,UNKNOWN_74,す……少しくらいなら、付き合って<6E5C>やってもイイぜ……,"조, 조금 정도라면, 어울려<6E5C>줘도 되긴 하다……","조, 조금 정도라면, 어울려<6E5C>줘도 되긴 하다……"
+dom3Birthday.mes,Script/dom3Birthday.mes,191,3,주인공,……,……,……
+dom3Birthday.mes,Script/dom3Birthday.mes,192,13,주인공,はっぴば~すでぃ狂エ門~,해피버스데이 쿄에몬~,해피버스데이 쿄에몬~
+dom3Birthday.mes,Script/dom3Birthday.mes,193,15,UNKNOWN_74,は、はっぴば~すでぃ、<이름:3232>~,"해, 해피버스데이, <이름:3232>~","해, 해피버스데이, <이름:3232>~"
+dom3Birthday.mes,Script/dom3Birthday.mes,194,7,[효과음/내레이션],パチパチパチ,짝짝짝,짝짝짝
+dom3Birthday.mes,Script/dom3Birthday.mes,195,19,주인공,ははは、たまにはこんなのも<6E5C>楽しいな,"하하하, 가끔은 이런 것도<6E5C>즐겁네","하하하, 가끔은 이런 것도<6E5C>즐겁네"
+dom3Birthday.mes,Script/dom3Birthday.mes,196,31,UNKNOWN_74,オレ様は楽しくないぞ!ぜんぜん<6E5C>うれしくなんかないからなっ!,나는 안 즐겁거든!전혀<6E5C>기쁘지도 않다고!,나는 안 즐겁거든!전혀<6E5C>기쁘지도 않다고!
+dom3Birthday.mes,Script/dom3Birthday.mes,197,3,[효과음/내레이션],……,……,……
