@@ -11,11 +11,19 @@ is_running() {
   [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null
 }
 
+ensure_deps() {
+  if ! python3 -c "import flask, PIL" >/dev/null 2>&1; then
+    echo "필요한 파이썬 패키지를 설치합니다..."
+    python3 -m pip install -r "$DIR/requirements.txt"
+  fi
+}
+
 start() {
   if is_running; then
     echo "이미 실행 중입니다 (PID $(cat "$PID_FILE")), http://localhost:$PORT"
     exit 0
   fi
+  ensure_deps
   cd "$DIR"
   PORT="$PORT" nohup python3 server_py/app.py > "$LOG_FILE" 2>&1 < /dev/null &
   echo $! > "$PID_FILE"
