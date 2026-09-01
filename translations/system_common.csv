@@ -117,9 +117,9 @@ endtitledom1.mes,endtitledom1.mes,14,6,UNKNOWN_6e5c,手を取合って,,손을 �
 endtitledom1.mes,endtitledom1.mes,15,7,UNKNOWN_6e5c,サヨナラレオナ,,안녕 레오나
 endtitledom1.mes,endtitledom1.mes,16,9,UNKNOWN_6e5c,夕日に向かって走れ,,석양을 향해 달려라
 endtitledom1.mes,endtitledom1.mes,17,7,UNKNOWN_6e5c,???????,,
-namelist1.mes,namelist1.mes,0,1,,<이름>,,
-namelist1.mes,namelist1.mes,1,2,UNKNOWN_6e5c,<이름:3131>,,
-namelist1.mes,namelist1.mes,2,2,UNKNOWN_6e5c,<이름:3232>,,
+namelist1.mes,namelist1.mes,0,1,,<이름>,<이름>,<이름>
+namelist1.mes,namelist1.mes,1,2,UNKNOWN_6e5c,<이름:3131>,<이름:3131>,<이름:3131>
+namelist1.mes,namelist1.mes,2,2,UNKNOWN_6e5c,<이름:3232>,<이름:3232>,<이름:3232>
 namelist1.mes,namelist1.mes,3,3,UNKNOWN_6e5c,アテナ,,아테나
 namelist1.mes,namelist1.mes,4,3,UNKNOWN_6e5c,レオナ,,레오나
 namelist1.mes,namelist1.mes,5,1,UNKNOWN_6e5c,舞,,마이
@@ -216,7 +216,7 @@ namelist1.mes,namelist1.mes,95,3,UNKNOWN_6e5c,事務員,,사무원
 namelist1.mes,namelist1.mes,96,2,UNKNOWN_6e5c,真吾,,신고
 namelist1.mes,namelist1.mes,97,5,UNKNOWN_6e5c,雫&アテナ,,시즈쿠&아테나
 namelist1.mes,namelist1.mes,98,1,UNKNOWN_6e5c,母,,어머니
-namelist1.mes,namelist1.mes,99,2,UNKNOWN_6e5c,……,,
+namelist1.mes,namelist1.mes,99,2,UNKNOWN_6e5c,……,……,……
 namelist1.mes,namelist1.mes,100,6,UNKNOWN_6e5c,<이름:3232>&キサラ,,<이름:3232>&키사라
 namelist1.mes,namelist1.mes,101,1,UNKNOWN_6e5c,桑,,쿠와
 namelist1.mes,namelist1.mes,102,2,UNKNOWN_6e5c,全員,,전원
