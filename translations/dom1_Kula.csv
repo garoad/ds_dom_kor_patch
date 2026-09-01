@@ -944,7 +944,7 @@ dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,22,26,Kaidou,何ボサっとし
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,23,4,주인공,あぁ!,으아!,으아!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,24,6,UNKNOWN_26,消えろォ!,사라져라!,사라져라!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,25,12,주인공,(よし、やってやる!),"(좋아, 해주겠어!)","(좋아, 해주겠어!)"
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,26,10,[효과음/내레이션],<アイントリガー>,<アイントリガー>,<アイントリガー>
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,26,10,[효과음/내레이션],<アイントリガー>,<아인트리거>,<아인트리거>
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,27,5,[선택지],右下右下A,우하우하A,우\하\우하\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,28,4,[선택지],下右下A,하우하A,하\우하\A
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,29,3,[선택지],右下A,우하A,우하\A
@@ -996,7 +996,7 @@ dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,74,8,UNKNOWN_26,甘ぇんだよ
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,75,4,주인공,くそっ,젠장,젠장
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,76,10,UNKNOWN_26,ガーキーどーもー!,으아 잘 가라고!,으아 잘 가라고!
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,77,2,주인공,!,!,!
-dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,78,9,[효과음/내레이션],<クロウバイツ>,<クロウバイツ>,<クロウバイツ>
+dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,78,9,[효과음/내레이션],<クロウバイツ>,<클로우바이트>,<클로우바이트>
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,79,5,[선택지],右下A右下,우하A우하,우\하\A\우하
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,80,4,[선택지],下A右下,하A우하,하\A\우하
 dom1Kula_O0731_2.mes,Script/dom1Kula_O0731_2.mes,81,3,[선택지],A右下,A우하,A\우하

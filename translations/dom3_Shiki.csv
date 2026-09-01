@@ -955,7 +955,7 @@ dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,0,4,주인공,う……,윽……,윽
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,1,4,UNKNOWN_1e,ミナー,미나~,미나~
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,2,10,주인공,ミナ?チャンプル?,미나? 참프루?,미나? 참프루?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,3,8,Mina,気づいたの……,깨어났구나……,깨어났구나……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,4,41,주인공,俺、なんでこんなところに?<6E5C>破れ屋で色さんを見つけて、<6E5C>ユガって奴が出てきて……,"내가 왜 여기에?<6E5C>폐가에서 색 씨를 발견했는데,<6E5C>유가란 놈이 나타나서……","내가 왜 여기에?<6E5C>폐가에서 색 씨를 발견했는데,<6E5C>유가란 놈이 나타나서……"
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,4,41,주인공,俺、なんでこんなところに?<6E5C>破れ屋で色さんを見つけて、<6E5C>ユガって奴が出てきて……,내가 왜 여기에?<6E5C>폐가에서 시키 씨를 발견했는데<6E5C>유가란 놈이 나타나서……,내가 왜 여기에?<6E5C>폐가에서 시키 씨를 발견했는데<6E5C>유가란 놈이 나타나서……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,5,17,Mina,あなたは……ここで眠っていたのよ,당신은……여기서 자고 있었어,당신은……여기서 자고 있었어
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,6,39,주인공,そうか.そういえば、ユガの指先が<6E5C>光って……急に目の前が<6E5C>真っ暗になって……,그렇군. 유가 손끝이<6E5C>빛나서……갑자기 눈앞이<6E5C>캄캄해져서……,그렇군. 유가 손끝이<6E5C>빛나서……갑자기 눈앞이<6E5C>캄캄해져서……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,7,17,Mina,……かすかに、邪気を感じた……わ,……희미하게 사기를 느꼈어……,……희미하게 사기를 느꼈어……
@@ -970,19 +970,19 @@ dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,15,15,주인공,どうしてこんな
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,16,27,Mina,チャンプルが……あなたを気に<6E5C>入ったみたいだから……,참프루가……당신을 마음에<6E5C>든 것 같으니까……,참프루가……당신을 마음에<6E5C>든 것 같으니까……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,17,3,UNKNOWN_7b,う~,우~,우~
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,18,21,주인공,そうか.<6E5C>ありがとう、ミナ、チャンプル!,"그렇군.<6E5C>고마워, 미나, 참프루!","그렇군.<6E5C>고마워, 미나, 참프루!"
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,19,45,주인공,これはありがたく借りていくよ.<6E5C>明日、もう一度……今度こそ、<6E5C>色さんを取り返してみせる!,"이건 고맙게 빌려갈게.<6E5C>내일 다시……이번엔 꼭,<6E5C>색 씨를 되찾아 보이겠어!","이건 고맙게 빌려갈게.<6E5C>내일 다시……이번엔 꼭,<6E5C>색 씨를 되찾아 보이겠어!"
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,19,45,주인공,これはありがたく借りていくよ.<6E5C>明日、もう一度……今度こそ、<6E5C>色さんを取り返してみせる!,"이건 고맙게 빌려갈게.<6E5C>내일 다시……이번엔 꼭,<6E5C>시키 씨를 되찾아 보이겠어!","이건 고맙게 빌려갈게.<6E5C>내일 다시……이번엔 꼭,<6E5C>시키 씨를 되찾아 보이겠어!"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,20,13,주인공,(あれ……誰もいない?),(어라…아무도 없나?),(어라…아무도 없나?)
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,21,11,UNKNOWN_1e,……何をしているの?,……뭐 하는 거야?,……뭐 하는 거야?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,22,4,주인공,あ……,아……,아……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,23,3,Shiki,……,……,……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,24,22,주인공,色さん…….<6E5C>ユガは、どこにいるんですか?,색 씨…….<6E5C>유가는 어디 있는 겁니까?,색 씨…….<6E5C>유가는 어디 있는 겁니까?
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,24,22,주인공,色さん…….<6E5C>ユガは、どこにいるんですか?,시키 씨……<6E5C>유가는 어디 있는 겁니까?,시키 씨……<6E5C>유가는 어디 있는 겁니까?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,25,7,Shiki,ユガ様……?,유가님……?,유가님……?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,26,10,UNKNOWN_1e,我はここにあり……,난 여기 있다……,난 여기 있다……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,27,6,주인공,出たな!?,왔구나!?,왔구나!?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,28,17,UNKNOWN_8e,貴様……何ゆえ色に固執する……?,"네놈, 왜 색에게 집착하나?","네놈, 왜 색에게 집착하나?"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,29,6,주인공,それは……,그건……,그건……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,30,24,[선택지],色さんは俺のものだから色さんと生きると決めたから,색 씨는 내 거니까\색 씨와 살기로 했으니까,색 씨는 내 거니까\색 씨와 살기로 했으니까
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,31,14,주인공,色さんは俺のものだからだ!,색 씨는 내 거니까!,색 씨는 내 거니까!
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,30,24,[선택지],色さんは俺のものだから色さんと生きると決めたから,시키씨는 내 거니까\시키 씨와 살기로 했으니까,시키씨는 내 거니까\시키 씨와 살기로 했으니까
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,31,14,주인공,色さんは俺のものだからだ!,시키 씨는 내 거니까!,시키 씨는 내 거니까!
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,32,21,UNKNOWN_8e,……所詮、下等な人間の愚かな<6E5C>答えか……,"……역시, 인간의<6E5C>어리석은 답이군……","……역시, 인간의<6E5C>어리석은 답이군……"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,33,9,주인공,な、なんだと!?,"뭐, 뭐라고!?","뭐, 뭐라고!?"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,34,35,UNKNOWN_8e,己のものだと声を張るならば……<6E5C>その力をもって我から<6E5C>奪い取ってみよ,제 것이라 소리친다면……<6E5C>그 힘으로 나에게서<6E5C>빼앗아 보아라,제 것이라 소리친다면……<6E5C>그 힘으로 나에게서<6E5C>빼앗아 보아라
@@ -993,20 +993,20 @@ dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,38,3,주인공,!?,!?,!?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,39,4,UNKNOWN_8e,消えよ,사라져,사라져
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,40,31,주인공,な、なんだ?ひ、光の輪が……!?<6E5C>ち、力が……抜けていく……,"뭐, 뭐지? 빛의 고리가……!?<6E5C>힘이……빠져나가……","뭐, 뭐지? 빛의 고리가……!?<6E5C>힘이……빠져나가……"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,41,53,주인공,(なんだか気持ちよく<6E5C>なってきた……)<485C>(体から魂が離れていく<6E5C>みたいだ…….<6E5C>ふわふわして、あぁ……),(왠지 기분 좋아<6E5C>지는 것 같아……)<485C>(몸에서 영혼이 빠져나가는<6E5C>느낌…….<6E5C>둥실둥실 아아……),(왠지 기분 좋아<6E5C>지는 것 같아……)<485C>(몸에서 영혼이 빠져나가는<6E5C>느낌…….<6E5C>둥실둥실 아아……)
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,42,8,주인공,(色さん……),(색 씨……),(색 씨……)
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,43,22,주인공,色さんとふたりで生きるって<6E5C>決めたからだ!,색 씨와 둘이서 살기로<6E5C>결심했으니까!,색 씨와 둘이서 살기로<6E5C>결심했으니까!
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,42,8,주인공,(色さん……),(시키 씨…),(시키 씨…)
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,43,22,주인공,色さんとふたりで生きるって<6E5C>決めたからだ!,시키 씨와 둘이서 살기로<6E5C>결심했으니까!,시키 씨와 둘이서 살기로<6E5C>결심했으니까!
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,44,3,Shiki,……,……,……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,45,36,UNKNOWN_8e,異なことを…….<6E5C>貴様は抜け殻となったこの女と<6E5C>共に生きるというのか?,이상한 소리를…….<6E5C>네놈은 빈껍데기 여자와<6E5C>함께 살겠다는 거냐?,이상한 소리를…….<6E5C>네놈은 빈껍데기 여자와<6E5C>함께 살겠다는 거냐?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,46,32,UNKNOWN_8e,今の色は……人形も同じ.<6E5C>我の言葉のみに反応する、<6E5C>木偶人形ぞ,지금 색은 인형과 같다.<6E5C>내 말에만 반응하는<6E5C>꼭두각시니라,지금 색은 인형과 같다.<6E5C>내 말에만 반응하는<6E5C>꼭두각시니라
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,47,44,주인공,魂がないなら、俺のを分けてやる!<6E5C>記憶がないなら、これから<6E5C>ひとつずつ積み重ねていく!,영혼이 없다면 내 걸 나눠주겠어!<6E5C>기억이 없다면 지금부터<6E5C>하나씩 쌓아가면 돼!,영혼이 없다면 내 걸 나눠주겠어!<6E5C>기억이 없다면 지금부터<6E5C>하나씩 쌓아가면 돼!
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,48,17,주인공,俺は、どんな色さんでも愛してる!,나는 어떤 색 씨라도 사랑해!,나는 어떤 색 씨라도 사랑해!
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,48,17,주인공,俺は、どんな色さんでも愛してる!,나는 어떤 시키씨라도 사랑해!,나는 어떤 시키씨라도 사랑해!
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,49,7,Shiki,……あ、い?,"……아,이?","……아,이?"
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,50,6,주인공,色さん!?,색 씨!?,색 씨!?
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,50,6,주인공,色さん!?,시키씨!?,시키씨!?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,51,9,Shiki,あなたは……誰?,당신은……누구?,당신은……누구?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,52,24,주인공,俺は、<이름:3232>だ!<6E5C>俺の声を忘れてしまったのか!?,나는 <이름:3232>다!<6E5C>내 목소리를 잊은 거야!?,나는 <이름:3232>다!<6E5C>내 목소리를 잊은 거야!?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,53,8,Shiki,<이름:3232>……うぅ!,<이름:3232>……으윽!,<이름:3232>……으윽!
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,54,22,UNKNOWN_8e,ぬぅ……我の術から<6E5C>逃れようというのか……,크윽……내 술법에서<6E5C>벗어나려느냐……,크윽……내 술법에서<6E5C>벗어나려느냐……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,55,31,주인공,頑張れ、色さん!俺はここだ!<6E5C>俺のところへ戻って来てくれ!!,힘내 색 씨! 나는 여기 있어!<6E5C>내 곁으로 돌아와줘!!,힘내 색 씨! 나는 여기 있어!<6E5C>내 곁으로 돌아와줘!!
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,55,31,주인공,頑張れ、色さん!俺はここだ!<6E5C>俺のところへ戻って来てくれ!!,힘내 시키씨! 나는 여기 있어!<6E5C>내 곁으로 돌아와줘!!,힘내 시키씨! 나는 여기 있어!<6E5C>내 곁으로 돌아와줘!!
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,56,12,Shiki,<이름:3232>……<이름:3232>……あぁ!,<이름:3232>……<이름:3232>……아아!,<이름:3232>……<이름:3232>……아아!
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,57,16,UNKNOWN_8e,おのれ……!我の邪魔はさせぬ!,이놈! 방해는 용납 못 해!,이놈! 방해는 용납 못 해!
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,58,4,[효과음/내레이션],カッ!,번쩍!,번쩍!
@@ -1017,17 +1017,17 @@ dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,62,12,UNKNOWN_8e,ぬうぅぅおぉ�
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,63,7,주인공,やったか!?,해냈나!?,해냈나!?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,64,29,UNKNOWN_8e,……お、おのれ……貴様ごときに…<6E5C>…我が、敗れるのか……,"……이, 이놈……네놈에게…<6E5C>…내가 패배하는 건가……","……이, 이놈……네놈에게…<6E5C>…내가 패배하는 건가……"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,65,4,[효과음/내레이션],バタッ,털썩,털썩
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,66,25,주인공,か、勝ったのか?<6E5C>すごいな、ミナの矢は.色さん!,"이, 이긴 건가?<6E5C>대단해 미나 화살 색 씨!","이, 이긴 건가?<6E5C>대단해 미나 화살 색 씨!"
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,66,25,주인공,か、勝ったのか?<6E5C>すごいな、ミナの矢は.色さん!,"이, 이긴 건가?<6E5C>대단해 미나 화살 시키씨!","이, 이긴 건가?<6E5C>대단해 미나 화살 시키씨!"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,67,3,Shiki,……,……,……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,68,15,주인공,色さん……俺がわかりますか?,색 씨……제가 보이세요?,색 씨……제가 보이세요?
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,68,15,주인공,色さん……俺がわかりますか?,시키 씨……제가 보이세요?,시키 씨……제가 보이세요?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,69,3,Shiki,……,……,……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,70,33,주인공,く、駄目か……!?<6E5C>ユガの呪縛からは解き放たれた<6E5C>はずなのに……,"크, 안 되는 건가……!?<6E5C>유가 저주에서 풀려났을<6E5C>텐데……","크, 안 되는 건가……!?<6E5C>유가 저주에서 풀려났을<6E5C>텐데……"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,71,27,주인공,と、とにかく、もうここには用は<6E5C>ない.行きましょう!,"아, 아무튼, 이제 여기 볼일은<6E5C>없어. 가자!","아, 아무튼, 이제 여기 볼일은<6E5C>없어. 가자!"
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,72,9,주인공,色さん!色さん!,색 씨! 색 씨,색 씨! 색 씨
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,72,9,주인공,色さん!色さん!,시키씨! 시키씨,시키씨! 시키씨
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,73,3,Shiki,……,……,……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,74,23,주인공,こたえてくれよ、色さん!<6E5C>俺が見えるだろう?,"대답해줘, 색 씨!<6E5C>내가 보이지?","대답해줘, 색 씨!<6E5C>내가 보이지?"
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,74,23,주인공,こたえてくれよ、色さん!<6E5C>俺が見えるだろう?,"대답해줘, 시키 씨!<6E5C>내가 보이지?","대답해줘, 시키 씨!<6E5C>내가 보이지?"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,75,3,Shiki,……,……,……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,76,33,주인공,何も見てない…….<6E5C>色さんの瞳には、<6E5C>少しも俺が映っていない……,아무것도 안 봐…….<6E5C>색 씨 눈동자엔<6E5C>내가 조금도 안 비쳐,아무것도 안 봐…….<6E5C>색 씨 눈동자엔<6E5C>내가 조금도 안 비쳐
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,76,33,주인공,何も見てない…….<6E5C>色さんの瞳には、<6E5C>少しも俺が映っていない……,아무것도 안 봐……<6E5C>시키 씨 눈동자엔<6E5C>내가 조금도 안 비쳐,아무것도 안 봐……<6E5C>시키 씨 눈동자엔<6E5C>내가 조금도 안 비쳐
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,77,3,Shiki,……,……,……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,78,37,주인공,……駄目なのか.<6E5C>俺なんかがいくら呼びかけても、<6E5C>こたえてはくれないのか,……안 되는 건가.<6E5C>나 따위가 아무리 불러도<6E5C>대답해주지 않는 건가,……안 되는 건가.<6E5C>나 따위가 아무리 불러도<6E5C>대답해주지 않는 건가
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,79,3,Shiki,……,……,……
@@ -1040,20 +1040,20 @@ dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,85,4,[효과음/내레이션],ガバ�
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,86,48,주인공,俺で温めることができるなら…….<6E5C>俺がその意識を取り戻せるのなら、<6E5C>どんなことでもするのに……,나로 따뜻하게 할 수 있다면…….<6E5C>의식을 되찾을 수 있다면<6E5C>무슨 짓이든 할 텐데……,나로 따뜻하게 할 수 있다면…….<6E5C>의식을 되찾을 수 있다면<6E5C>무슨 짓이든 할 텐데……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,87,5,[효과음/내레이션],ぎゅうっ,꽉,꽉
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,88,6,Shiki,……あ……,……아……,……아……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,89,5,주인공,色さん?,색 씨?,색 씨?
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,89,5,주인공,色さん?,시키씨?,시키씨?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,90,9,Shiki,……あ、……あぁ,"……아,……아아","……아,……아아"
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,91,21,주인공,色さん、頑張って!<6E5C>俺がここにいるから!,"색 씨, 힘내!<6E5C>내가 여기 있으니까!","색 씨, 힘내!<6E5C>내가 여기 있으니까!"
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,91,21,주인공,色さん、頑張って!<6E5C>俺がここにいるから!,시키 씨 힘내!<6E5C>내가 여기 있으니까!,시키 씨 힘내!<6E5C>내가 여기 있으니까!
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,92,3,Shiki,……,……,……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,93,38,주인공,……見ていられない、そんな魂の<6E5C>抜けた、人形のような色さんは<6E5C>見たくないよ,……못 보겠어 그런 영혼이<6E5C>빠진 인형 같은 색 씨는<6E5C>보고 싶지 않아,……못 보겠어 그런 영혼이<6E5C>빠진 인형 같은 색 씨는<6E5C>보고 싶지 않아
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,93,38,주인공,……見ていられない、そんな魂の<6E5C>抜けた、人形のような色さんは<6E5C>見たくないよ,…못 보겠어 그런 영혼이<6E5C>빠진 인형 같은 시키 씨는<6E5C>보고 싶지 않아,…못 보겠어 그런 영혼이<6E5C>빠진 인형 같은 시키 씨는<6E5C>보고 싶지 않아
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,94,29,주인공,必ず、あなたの心を取り戻すから、<6E5C>どうか待っていてくれ!,"반드시 당신의 마음을 되찾을 테니,<6E5C>부디 기다려줘!","반드시 당신의 마음을 되찾을 테니,<6E5C>부디 기다려줘!"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,95,15,Shiki,(…….<6E5C>寺こ、こ、ろ……),"(…….<6E5C>마,마,음……)","(…….<6E5C>마,마,음……)"
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,96,24,주인공,色さん、どうか、この口づけで<6E5C>目覚めてくれ……,"색 씨, 부디, 이 입맞춤으로<6E5C>깨어나줘……","색 씨, 부디, 이 입맞춤으로<6E5C>깨어나줘……"
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,96,24,주인공,色さん、どうか、この口づけで<6E5C>目覚めてくれ……,"시키 씨 부디, 이 입맞춤으로<6E5C>깨어나줘……","시키 씨 부디, 이 입맞춤으로<6E5C>깨어나줘……"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,97,3,[효과음/내레이션],スッ,스윽,스윽
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,98,5,Shiki,あぁっ!,아앗!,아앗!
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,99,21,주인공,お、落ち着いて色さん、<6E5C>どうしたんだ……,"지, 진정해 색 씨,<6E5C>왜 그래……","지, 진정해 색 씨,<6E5C>왜 그래……"
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,99,21,주인공,お、落ち着いて色さん、<6E5C>どうしたんだ……,"지, 진정해 시키 씨,<6E5C>왜 그래……","지, 진정해 시키 씨,<6E5C>왜 그래……"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,100,8,Shiki,う……うぅ……,으……으윽……,으……으윽……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,101,36,주인공,こんなに震えて…….<6E5C>今の俺には、色さんを救う力が<6E5C>ないというのか……,이렇게 떨다니…….<6E5C>나에겐 색 씨를 구할 힘이<6E5C>없다는 건가……,이렇게 떨다니…….<6E5C>나에겐 색 씨를 구할 힘이<6E5C>없다는 건가……
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,102,6,주인공,色さん……,색 씨……,색 씨……
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,101,36,주인공,こんなに震えて…….<6E5C>今の俺には、色さんを救う力が<6E5C>ないというのか……,이렇게 떨다니…….<6E5C>나에겐 시키 씨를 구할 힘이<6E5C>없다는 건가……,이렇게 떨다니…….<6E5C>나에겐 시키 씨를 구할 힘이<6E5C>없다는 건가……
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,102,6,주인공,色さん……,시키씨……,시키씨……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,103,34,Iroha,……旦那様がこんなに呼びかけても<6E5C>反応がないなんて……どうすれば?,……주인님이 이렇게 부르는데도<6E5C>반응이 없다니……어쩌면 좋죠?,……주인님이 이렇게 부르는데도<6E5C>반응이 없다니……어쩌면 좋죠?
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,104,13,주인공,やっと取り戻したのに……,겨우 되찾았는데……,겨우 되찾았는데……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,105,6,Iroha,旦那様……,주인님……,주인님……
@@ -1061,7 +1061,7 @@ dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,106,3,Shiki,……,……,……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,107,15,Iroha,もぉ、いい加減にしなさーい!,"정말, 적당히 좀 하세요!","정말, 적당히 좀 하세요!"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,108,7,주인공,い、いろは?,"이,이로하?","이,이로하?"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,109,33,Iroha,こんなに旦那様が必死になってるの<6E5C>に、いつまで黙ってるんですか!,이렇게 주인님이 필사적인데<6E5C>언제까지 입 다물고 계세요!,이렇게 주인님이 필사적인데<6E5C>언제까지 입 다물고 계세요!
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,110,14,주인공,いや、いろは、色さんは……,아니 이로하 색 씨는……,아니 이로하 색 씨는……
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,110,14,주인공,いや、いろは、色さんは……,아니 이로하 시키씨는……,아니 이로하 시키씨는……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,111,25,Iroha,止めないでください旦那様!<6E5C>いろはは悔しいです!,말리지 말아주세요 주인님!<6E5C>이로하는 분해요!,말리지 말아주세요 주인님!<6E5C>이로하는 분해요!
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,112,12,Shiki,……く、や、し、い……,"……분, 하, 다……","……분, 하, 다……"
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,113,3,주인공,え?,어?,어?
@@ -1070,8 +1070,8 @@ dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,115,5,주인공,う、うん,"으, �
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,116,3,Shiki,……,……,……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,117,16,Iroha,気のせいだったんでしょうか……,기분 탓이었을까요……,기분 탓이었을까요……
 dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,118,59,주인공,いや、やはり完全に心を失って<6E5C>しまったわけじゃないんだ<485C>呼びかけ続ければ、<6E5C>きっと帰ってきてくれる.<6E5C>俺は信じるよ!,"아니, 역시 완전히 마음을 잃어<6E5C>버린 건 아니야<485C>계속 불러주면,<6E5C>분명 돌아와 줄 거야.<6E5C>나는 믿어!","아니, 역시 완전히 마음을 잃어<6E5C>버린 건 아니야<485C>계속 불러주면,<6E5C>분명 돌아와 줄 거야.<6E5C>나는 믿어!"
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,119,47,Iroha,そうですね.色さんにゆかりのある<6E5C>町の人たちにも声をかけてもらって<6E5C>、心を呼び戻しましょう!,그래요. 색 씨와 인연이 있는<6E5C>마을 사람들에게도 부탁해<6E5C>마음을 불러 돌아오게 해요!,그래요. 색 씨와 인연이 있는<6E5C>마을 사람들에게도 부탁해<6E5C>마음을 불러 돌아오게 해요!
-dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,120,45,주인공,よし、決まりだ!<6E5C>落ち込んでなんかいられない、<6E5C>明日は必ず元の色さんに<6E5C>戻してみせるっ!,"좋아, 결정이다!<6E5C>낙담할 순 없어<6E5C>내일은 반드시 원래 색 씨로<6E5C>되돌려 보이겠어!","좋아, 결정이다!<6E5C>낙담할 순 없어<6E5C>내일은 반드시 원래 색 씨로<6E5C>되돌려 보이겠어!"
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,119,47,Iroha,そうですね.色さんにゆかりのある<6E5C>町の人たちにも声をかけてもらって<6E5C>、心を呼び戻しましょう!,그래요. 시키씨와 인연이 있는<6E5C>마을 사람들에게도 부탁해<6E5C>마음을 불러 돌아오게 해요!,그래요. 시키씨와 인연이 있는<6E5C>마을 사람들에게도 부탁해<6E5C>마음을 불러 돌아오게 해요!
+dom3Shiki_X03.mes,Script/dom3Shiki_X03.mes,120,45,주인공,よし、決まりだ!<6E5C>落ち込んでなんかいられない、<6E5C>明日は必ず元の色さんに<6E5C>戻してみせるっ!,"좋아, 결정이다!<6E5C>낙담할 순 없어<6E5C>내일은 반드시 원래 시키씨로<6E5C>되돌려 보이겠어!","좋아, 결정이다!<6E5C>낙담할 순 없어<6E5C>내일은 반드시 원래 시키씨로<6E5C>되돌려 보이겠어!"
 dom3Shiki_X04.mes,Script/dom3Shiki_X04.mes,0,16,주인공,それじゃ、いろは.行ってくるよ,"그럼, 이로하. 다녀올게","그럼, 이로하. 다녀올게"
 dom3Shiki_X04.mes,Script/dom3Shiki_X04.mes,1,17,Iroha,はい.がんばってください、旦那様,"네. 힘내세요, 서방님","네. 힘내세요, 서방님"
 dom3Shiki_X04.mes,Script/dom3Shiki_X04.mes,2,8,주인공,行こう、色さん,가자 시키 씨,가자 시키 씨
