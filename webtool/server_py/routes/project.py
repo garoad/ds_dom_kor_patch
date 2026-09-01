@@ -53,11 +53,6 @@ def unpack():
         return jsonify({"error": str(ex)}), 500
 
 
-@bp.get("/list")
-def list_projects():
-    return jsonify(proj.list_projects())
-
-
 @bp.get("/status")
 def status():
     name = request.args.get("name")

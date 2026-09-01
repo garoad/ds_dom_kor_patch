@@ -92,16 +92,6 @@ def write_state(name, patch):
     return next_state
 
 
-def list_projects():
-    if not os.path.exists(WORKSPACE_ROOT):
-        return []
-    names = [
-        d for d in os.listdir(WORKSPACE_ROOT)
-        if os.path.isdir(os.path.join(WORKSPACE_ROOT, d)) and NAME_RE.match(d)
-    ]
-    return [s for s in (read_state(n) for n in names) if s]
-
-
 def find_project_json(dir_path):
     """Find the NitroPacker project JSON file inside a project's unpack/build dir."""
     if not os.path.exists(dir_path):

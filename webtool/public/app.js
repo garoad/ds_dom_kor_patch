@@ -1,7 +1,10 @@
 "use strict";
 
+// 이 게임은 ROM이 하나뿐이라 여러 프로젝트를 오가며 작업할 일이 없어, 프로젝트
+// 이름을 매번 입력/선택하게 하는 대신 고정 워크스페이스 이름 하나만 쓴다.
+const PROJECT_NAME = "dom1";
+
 const state = {
-  projectName: localStorage.getItem("domtool.projectName") || null,
   currentFile: null,
   currentRows: [],
   imageDir: "",
@@ -31,25 +34,10 @@ window.addEventListener("beforeunload", (e) => {
   e.returnValue = "";
 });
 
-function setActiveProject(name) {
-  state.projectName = name;
-  localStorage.setItem("domtool.projectName", name || "");
-  document.getElementById("active-project-name").textContent = name || "없음";
-  refreshProjectList();
-  refreshStatus();
-  refreshFileList();
-  loadTree("");
-  updateCsvDownloadLink();
-}
-
 function updateCsvDownloadLink() {
   const link = document.getElementById("btn-download-csv");
-  if (state.projectName) {
-    link.href = `/api/csv/download?name=${encodeURIComponent(state.projectName)}`;
-    link.classList.remove("hidden");
-  } else {
-    link.href = "#";
-  }
+  link.href = `/api/csv/download?name=${encodeURIComponent(PROJECT_NAME)}`;
+  link.classList.remove("hidden");
 }
 
 async function api(method, url, body) {
@@ -78,27 +66,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 });
 
 // ---- 탭 1: 프로젝트 ----
-async function refreshProjectList() {
-  const list = document.getElementById("project-list");
-  list.innerHTML = "";
-  try {
-    const projects = await api("GET", "/api/project/list");
-    if (!projects.length) {
-      list.innerHTML = "<li>등록된 프로젝트가 없습니다</li>";
-      return;
-    }
-    for (const p of projects) {
-      const li = document.createElement("li");
-      li.textContent = `${p.projectName} (${p.romFileName || "?"})`;
-      if (p.projectName === state.projectName) li.classList.add("selected");
-      li.addEventListener("click", () => setActiveProject(p.projectName));
-      list.appendChild(li);
-    }
-  } catch (ex) {
-    list.innerHTML = `<li>목록 로드 실패: ${ex.message}</li>`;
-  }
-}
-
 // ROM 파일 선택: 클릭(파일 열기 다이얼로그) 또는 드래그앤드롭 — 브라우저는 로컬 파일의
 // 절대경로를 노출하지 않으므로, 파일 자체를 서버로 업로드해서 그 사본으로 언팩한다.
 let selectedRomFile = null;
@@ -135,7 +102,6 @@ dropzone.addEventListener("drop", (e) => {
 
 document.getElementById("unpack-form").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const projectName = document.getElementById("project-name").value.trim();
   const resultBox = document.getElementById("unpack-result");
   if (!selectedRomFile) {
     resultBox.textContent = "ROM 파일을 먼저 선택하세요";
@@ -144,7 +110,7 @@ document.getElementById("unpack-form").addEventListener("submit", async (e) => {
   resultBox.textContent = "업로드 및 언팩 중...";
   try {
     const fd = new FormData();
-    fd.append("projectName", projectName);
+    fd.append("projectName", PROJECT_NAME);
     fd.append("romFile", selectedRomFile);
     const res = await fetch("/api/project/unpack", { method: "POST", body: fd });
     const result = await res.json().catch(() => ({}));
@@ -152,7 +118,10 @@ document.getElementById("unpack-form").addEventListener("submit", async (e) => {
     resultBox.textContent = `언팩 완료: ${result.mesCount}개의 .mes 파일 발견`;
     setRomFile(null);
     romFileInput.value = "";
-    setActiveProject(projectName);
+    refreshStatus();
+    refreshFileList();
+    loadTree("");
+    updateCsvDownloadLink();
   } catch (ex) {
     resultBox.textContent = `오류: ${ex.message}`;
   }
@@ -160,12 +129,8 @@ document.getElementById("unpack-form").addEventListener("submit", async (e) => {
 
 async function refreshStatus() {
   const box = document.getElementById("project-status");
-  if (!state.projectName) {
-    box.textContent = "프로젝트를 선택하세요";
-    return;
-  }
   try {
-    const s = await api("GET", `/api/project/status?name=${encodeURIComponent(state.projectName)}`);
+    const s = await api("GET", `/api/project/status?name=${encodeURIComponent(PROJECT_NAME)}`);
     box.textContent = JSON.stringify(s, null, 2);
   } catch (ex) {
     box.textContent = `상태 조회 실패: ${ex.message}`;
@@ -175,10 +140,9 @@ async function refreshStatus() {
 // ---- 탭 2: 번역 CSV ----
 document.getElementById("btn-extract").addEventListener("click", async () => {
   const box = document.getElementById("extract-result");
-  if (!state.projectName) return (box.textContent = "먼저 프로젝트를 선택하세요");
   box.textContent = "추출 중...";
   try {
-    const summary = await api("POST", "/api/csv/extract", { name: state.projectName });
+    const summary = await api("POST", "/api/csv/extract", { name: PROJECT_NAME });
     box.textContent = JSON.stringify(summary, null, 2);
     refreshFileList();
     refreshStatus();
@@ -203,9 +167,8 @@ async function refreshFileList() {
   const select = document.getElementById("file-select");
   select.innerHTML = "";
   state.allFiles = [];
-  if (!state.projectName) return;
   try {
-    state.allFiles = await api("GET", `/api/csv/files?name=${encodeURIComponent(state.projectName)}`);
+    state.allFiles = await api("GET", `/api/csv/files?name=${encodeURIComponent(PROJECT_NAME)}`);
     renderFileSelect();
   } catch (ex) {
     select.innerHTML = `<option>목록 로드 실패</option>`;
@@ -266,10 +229,6 @@ function highlightKeyword(text, keyword) {
 }
 
 async function performCsvSearch() {
-  if (!state.projectName) {
-    alert("먼저 프로젝트를 선택하세요.");
-    return;
-  }
   const inputEl = document.getElementById("csv-search-input");
   const query = inputEl.value.trim();
   if (!query) {
@@ -290,7 +249,7 @@ async function performCsvSearch() {
   try {
     const data = await api(
       "GET",
-      `/api/csv/search?name=${encodeURIComponent(state.projectName)}&q=${encodeURIComponent(query)}&target=${encodeURIComponent(target)}`
+      `/api/csv/search?name=${encodeURIComponent(PROJECT_NAME)}&q=${encodeURIComponent(query)}&target=${encodeURIComponent(target)}`
     );
 
     const total = data.total || 0;
@@ -383,7 +342,7 @@ document.getElementById("csv-search-results-body").addEventListener("click", (e)
 });
 
 document.getElementById("btn-auto-translate").addEventListener("click", () => {
-  if (!state.projectName || !state.currentFile) return alert("프로젝트와 파일이 선택되지 않았습니다.");
+  if (!state.currentFile) return alert("파일이 선택되지 않았습니다.");
   if (!confirmDiscardIfDirty()) return;
 
   const box = document.getElementById("translate-progress");
@@ -399,7 +358,7 @@ document.getElementById("btn-auto-translate").addEventListener("click", () => {
   appendLog("자동 초벌번역 준비 중...");
 
   const engine = document.getElementById("engine-select").value;
-  const url = `/api/csv/translate-stream?name=${encodeURIComponent(state.projectName)}&fname=${encodeURIComponent(state.currentFile)}&engine=${encodeURIComponent(engine)}`;
+  const url = `/api/csv/translate-stream?name=${encodeURIComponent(PROJECT_NAME)}&fname=${encodeURIComponent(state.currentFile)}&engine=${encodeURIComponent(engine)}`;
   const es = new EventSource(url);
 
   es.onmessage = (e) => {
@@ -437,9 +396,9 @@ document.getElementById("btn-auto-translate").addEventListener("click", () => {
 });
 
 async function loadFileRows(fname) {
-  if (!fname || !state.projectName) return;
+  if (!fname) return;
   state.currentFile = fname;
-  const rows = await api("GET", `/api/csv/file/${encodeURIComponent(fname)}?name=${encodeURIComponent(state.projectName)}`);
+  const rows = await api("GET", `/api/csv/file/${encodeURIComponent(fname)}?name=${encodeURIComponent(PROJECT_NAME)}`);
   state.currentRows = rows;
   renderCsvTable(rows);
   clearDirty();
@@ -494,7 +453,7 @@ function escapeHtml(s) {
 }
 
 document.getElementById("btn-save-csv").addEventListener("click", async () => {
-  if (!state.projectName || !state.currentFile) return;
+  if (!state.currentFile) return;
   const rowsEl = document.querySelectorAll("#csv-table-body tr");
   const edits = Array.from(rowsEl).map((tr) => ({
     block: Number(tr.dataset.block),
@@ -503,7 +462,7 @@ document.getElementById("btn-save-csv").addEventListener("click", async () => {
   try {
     const result = await api(
       "POST",
-      `/api/csv/file/${encodeURIComponent(state.currentFile)}?name=${encodeURIComponent(state.projectName)}`,
+      `/api/csv/file/${encodeURIComponent(state.currentFile)}?name=${encodeURIComponent(PROJECT_NAME)}`,
       edits
     );
     const byBlock = new Map(result.report.map((r) => [r.block, r]));
@@ -527,11 +486,10 @@ async function loadTree(dir) {
   renderBreadcrumb(dir);
   const list = document.getElementById("file-tree");
   list.innerHTML = "";
-  if (!state.projectName) return;
   try {
     const entries = await api(
       "GET",
-      `/api/files/tree?name=${encodeURIComponent(state.projectName)}&dir=${encodeURIComponent(dir)}`
+      `/api/files/tree?name=${encodeURIComponent(PROJECT_NAME)}&dir=${encodeURIComponent(dir)}`
     );
     for (const e of entries) {
       const li = document.createElement("li");
@@ -581,7 +539,7 @@ function previewImage(relPath) {
   const preview = document.getElementById("image-preview");
   preview.innerHTML = "";
   const img = document.createElement("img");
-  img.src = `/api/files/raw?name=${encodeURIComponent(state.projectName)}&path=${encodeURIComponent(relPath)}&t=${Math.floor(performance.now())}`;
+  img.src = `/api/files/raw?name=${encodeURIComponent(PROJECT_NAME)}&path=${encodeURIComponent(relPath)}&t=${Math.floor(performance.now())}`;
   preview.appendChild(img);
 }
 
@@ -620,7 +578,7 @@ imageDropzone.addEventListener("drop", (e) => {
 
 document.getElementById("btn-image-upload").addEventListener("click", async () => {
   const status = document.getElementById("image-upload-status");
-  if (!state.projectName || !state.currentImagePath) {
+  if (!state.currentImagePath) {
     status.textContent = "먼저 이미지를 선택하세요";
     return;
   }
@@ -633,7 +591,7 @@ document.getElementById("btn-image-upload").addEventListener("click", async () =
     const fd = new FormData();
     fd.append("image", selectedImageFile);
     const res = await fetch(
-      `/api/files/image?name=${encodeURIComponent(state.projectName)}&path=${encodeURIComponent(state.currentImagePath)}`,
+      `/api/files/image?name=${encodeURIComponent(PROJECT_NAME)}&path=${encodeURIComponent(state.currentImagePath)}`,
       { method: "POST", body: fd }
     );
     const data = await res.json().catch(() => ({}));
@@ -680,10 +638,6 @@ batchDropzone.addEventListener("drop", (e) => {
 
 document.getElementById("btn-batch-image-upload").addEventListener("click", async () => {
   const box = document.getElementById("batch-image-result");
-  if (!state.projectName) {
-    box.textContent = "먼저 프로젝트를 선택하세요";
-    return;
-  }
   if (!selectedBatchFiles.length) {
     box.textContent = "PNG 파일을 먼저 선택하세요";
     return;
@@ -692,7 +646,7 @@ document.getElementById("btn-batch-image-upload").addEventListener("click", asyn
   try {
     const fd = new FormData();
     for (const f of selectedBatchFiles) fd.append("images", f);
-    const res = await fetch(`/api/files/images-batch?name=${encodeURIComponent(state.projectName)}`, {
+    const res = await fetch(`/api/files/images-batch?name=${encodeURIComponent(PROJECT_NAME)}`, {
       method: "POST",
       body: fd,
     });
@@ -715,10 +669,9 @@ document.getElementById("btn-batch-image-upload").addEventListener("click", asyn
 // ---- 탭 4: 빌드 ----
 document.getElementById("btn-reinsert").addEventListener("click", async () => {
   const box = document.getElementById("reinsert-result");
-  if (!state.projectName) return (box.textContent = "먼저 프로젝트를 선택하세요");
   box.textContent = "재삽입 중...";
   try {
-    const result = await api("POST", "/api/build/reinsert", { name: state.projectName });
+    const result = await api("POST", "/api/build/reinsert", { name: PROJECT_NAME });
     box.textContent = JSON.stringify(result, null, 2);
   } catch (ex) {
     box.textContent = `오류: ${ex.message}`;
@@ -729,12 +682,11 @@ document.getElementById("btn-pack").addEventListener("click", async () => {
   const box = document.getElementById("pack-result");
   const link = document.getElementById("download-link");
   link.classList.add("hidden");
-  if (!state.projectName) return (box.textContent = "먼저 프로젝트를 선택하세요");
   box.textContent = "빌드 중...";
   try {
-    const result = await api("POST", "/api/build/pack", { name: state.projectName });
+    const result = await api("POST", "/api/build/pack", { name: PROJECT_NAME });
     box.textContent = JSON.stringify(result, null, 2);
-    link.href = `/api/build/download?name=${encodeURIComponent(state.projectName)}`;
+    link.href = `/api/build/download?name=${encodeURIComponent(PROJECT_NAME)}`;
     link.classList.remove("hidden");
   } catch (ex) {
     box.textContent = `오류: ${ex.message}`;
@@ -742,12 +694,8 @@ document.getElementById("btn-pack").addEventListener("click", async () => {
 });
 
 // ---- 초기화 ----
-document.getElementById("project-name").value = "";
-if (state.projectName) {
-  document.getElementById("active-project-name").textContent = state.projectName;
-}
-refreshProjectList();
 refreshStatus();
 refreshFileList();
 loadTree("");
+updateCsvDownloadLink();
 updateCsvDownloadLink();
