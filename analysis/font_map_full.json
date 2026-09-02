@@ -13353,7 +13353,8 @@
     "0414": {
       "kind": "full",
       "count": 1,
-      "real_tile": 276
+      "real_tile": 276,
+      "char": "0"
     },
     "040C": {
       "kind": "full",
@@ -17043,7 +17044,8 @@
     "820E": {
       "kind": "full",
       "count": 1,
-      "real_tile": 8334
+      "real_tile": 8334,
+      "char": "辰"
     },
     "8214": {
       "kind": "full",
@@ -19754,7 +19756,8 @@
     "CD16": {
       "kind": "full",
       "count": 0,
-      "real_tile": 13142
+      "real_tile": 13142,
+      "char": "戌"
     },
     "D004": {
       "kind": "full",

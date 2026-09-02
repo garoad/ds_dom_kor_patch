@@ -1,0 +1,7 @@
+# webtool/server_py/pipeline.py's write_csv() always writes LF
+# (csv.DictWriter(..., lineterminator="\n")). Older CSVs committed before the
+# 2026-08-28 Node.js->Python backend migration still had CRLF, so opening a
+# project in the webtool (which re-extracts and rewrites every category CSV)
+# silently flipped them to LF and showed up as a full-file diff in git. Pin
+# LF here so the working tree always matches what the tool writes, on any OS.
+translations/*.csv text eol=lf

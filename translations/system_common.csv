@@ -68,7 +68,7 @@ playername.mes,playername.mes,3,1,UNKNOWN_6e5c,優,,유우
 playername.mes,playername.mes,4,2,UNKNOWN_6e5c,村上,,무라키
 playername.mes,playername.mes,5,3,UNKNOWN_6e5c,大之介,,다이치
 extraopen.mes,extraopen.mes,0,14,UNKNOWN_20a,エキストラが追加されました.,엑스트라가 추가되었습니다.,엑스트라가 추가되었습니다.
-common.mes,common.mes,0,10,UNKNOWN_20a,<0414>123456789,,
+common.mes,common.mes,0,10,UNKNOWN_20a,0123456789,,
 common.mes,common.mes,1,7,UNKNOWN_20a,、.!?!?),,
 endtitledom3.mes,endtitledom3.mes,0,7,,おかえりなさい,,어서 오세요
 endtitledom3.mes,endtitledom3.mes,1,9,UNKNOWN_6e5c,店も忍も大恋愛も!,,가게도 닌자도 대연애도!
@@ -319,18 +319,18 @@ dom1chara.mes,dom1chara.mes,6,50,UNKNOWN_6e5c,誕生日：5月29日<6E5C>年齢<
 dom1chara.mes,dom1chara.mes,7,50,UNKNOWN_6e5c,誕生日：1月10日<6E5C>年齢<020A>：17歳<6E5C>出身地：不明<6E5C>血夜型：B型<6E5C>身長<020A>：176cm<6E5C>体重<020A>：66kg,,생일: 1월 10일<6E5C>나이<020A>: 17세<6E5C>출신지: 불명<6E5C>혈액형: B형<6E5C>신장<020A>: 176cm<6E5C>체중<020A>: 66kg
 mapmove.mes,mapmove.mes,0,12,,移動先を選んでください.,이동할 곳 선택하세요.,이동할 곳을 선택하세요
 nameinput.mes,nameinput.mes,0,13,UNKNOWN_20a,この名前でよろしいですか?,이름으로 하시겠습니까?,이 이름으로 할까요?
-saveload.mes,saveload.mes,0,35,,2<0414><0414><0414>H<0414><0414>H<0414><0414><020A><020A><0414><0414>：<0414><0414><6E5C><020A><020A><020A><020A><020A><020A><020A><020A><020A>7H<020A><020A><020A><020A><020A>時,,
-saveload.mes,saveload.mes,1,35,UNKNOWN_6e5c,2<0414><0414><0414>H<0414><0414>H<0414><0414><020A><020A><0414><0414>：<0414><0414><6E5C><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A>それから,,
+saveload.mes,saveload.mes,0,35,,2<0414><0414><0414>H<0414><0414>H<0414><0414><020A><020A><0414><0414>：<0414><0414><6E5C><020A><020A><020A><020A><020A><020A><020A><020A><020A>7H<020A><020A><020A><020A><020A>時,,2<0414><0414><0414>H<0414><0414>H<0414><0414><020A><020A><0414><0414>：<0414><0414><6E5C><020A><020A><020A><020A><020A><020A><020A><020A><020A>7H<020A><020A><020A><020A><020A>시
+saveload.mes,saveload.mes,1,35,UNKNOWN_6e5c,2<0414><0414><0414>H<0414><0414>H<0414><0414><020A><020A><0414><0414>：<0414><0414><6E5C><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A>それから,,2<0414><0414><0414>H<0414><0414>H<0414><0414><020A><020A><0414><0414>：<0414><0414><6E5C><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A><020A>부터
 saveload.mes,saveload.mes,2,2,UNKNOWN_20a,8時,,
 saveload.mes,saveload.mes,3,3,UNKNOWN_6e5c,12時,,
 saveload.mes,saveload.mes,4,3,UNKNOWN_6e5c,15時,,
 saveload.mes,saveload.mes,5,3,UNKNOWN_6e5c,17時,,
-saveload.mes,saveload.mes,6,3,UNKNOWN_6e5c,2<0414>時,,
-saveload.mes,saveload.mes,7,3,UNKNOWN_6e5c,<820E>の刻,,
+saveload.mes,saveload.mes,6,3,UNKNOWN_6e5c,20時,,
+saveload.mes,saveload.mes,7,3,UNKNOWN_6e5c,辰の刻,,
 saveload.mes,saveload.mes,8,3,UNKNOWN_6e5c,午の刻,,
 saveload.mes,saveload.mes,9,3,UNKNOWN_6e5c,未の刻,,
 saveload.mes,saveload.mes,10,3,UNKNOWN_6e5c,申の刻,,
-saveload.mes,saveload.mes,11,3,UNKNOWN_6e5c,<CD16>の刻,,
+saveload.mes,saveload.mes,11,3,UNKNOWN_6e5c,戌の刻,,
 saveload.mes,saveload.mes,12,20,UNKNOWN_6e5c,セーブするファイルを<6E5C>選択してください.,,저장할 파일을 선택해 주세요.
 saveload.mes,saveload.mes,13,28,UNKNOWN_20a,プレイデータがあります.<6E5C><020A><020A>上書きしてよろしいですか?,,플레이 데이터가 있습니다.<6E5C><020A><020A>덮어써도 되겠습니까?
 saveload.mes,saveload.mes,14,14,UNKNOWN_6e5c,ファイルを選択してください.,,파일을 선택해 주세요.
