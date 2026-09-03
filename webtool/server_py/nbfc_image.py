@@ -223,9 +223,8 @@ def nearest_palette_index(r, g, b, palette):
 def encode_tilemap_png(png_buf, nbfp_buf, orig_entry_count):
     """Re-encode a PNG into tile (.nbfc)+screenmap (.nbfs) compressed
     binaries. The palette is reused as-is (nearest-color matched per pixel,
-    not regenerated) and the screenmap is emitted as a plain sequential index
-    (no hflip/vflip, no tile dedup) - correctness over compactness, since
-    NitroPacker's pack step tolerates variable-size files."""
+    not regenerated) with tile deduplication so decompressed tile data fits
+    within NDS BG character VRAM blocks (preventing VRAM buffer overflow)."""
     if orig_entry_count > 1024:
         raise ValueError(
             f"타일 개수({orig_entry_count})가 1024개를 초과해 인코딩할 수 없습니다 "
@@ -244,17 +243,27 @@ def encode_tilemap_png(png_buf, nbfp_buf, orig_entry_count):
     px = img.load()
 
     n = orig_entry_count
-    tiles = bytearray(n * 64)
+    tiles = []
+    tile_dict = {}
     screen = bytearray(n * 2)
+
     for i in range(n):
         tx = i % map_w
         ty = i // map_w
-        tile_off = i * 64
+        tile_bytes = bytearray(64)
         for py in range(8):
             for pcol in range(8):
                 r, g, b = px[tx * 8 + pcol, ty * 8 + py][:3]
-                tiles[tile_off + py * 8 + pcol] = nearest_palette_index(r, g, b, palette)
-        screen[i * 2] = i & 0xFF
-        screen[i * 2 + 1] = (i >> 8) & 0xFF
+                tile_bytes[py * 8 + pcol] = nearest_palette_index(r, g, b, palette)
 
-    return {"nbfc": lz10.compress(bytes(tiles)), "nbfs": lz10.compress(bytes(screen))}
+        t_key = bytes(tile_bytes)
+        if t_key not in tile_dict:
+            tile_dict[t_key] = len(tiles)
+            tiles.append(t_key)
+
+        tile_idx = tile_dict[t_key]
+        screen[i * 2] = tile_idx & 0xFF
+        screen[i * 2 + 1] = (tile_idx >> 8) & 0xFF
+
+    raw_tiles = b"".join(tiles)
+    return {"nbfc": lz10.compress(raw_tiles), "nbfs": lz10.compress(bytes(screen))}
