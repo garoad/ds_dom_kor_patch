@@ -20,7 +20,11 @@ import subprocess
 HERE = os.path.dirname(os.path.abspath(__file__))
 WORKSPACE_ROOT = os.path.abspath(os.path.join(HERE, "..", "workspace"))
 REPO_ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-NITROPACKER_BIN = os.path.join(REPO_ROOT, "NitroPacker")
+NITROPACKER_BIN = (
+    os.path.join(REPO_ROOT, "NitroPacker.exe")
+    if os.path.exists(os.path.join(REPO_ROOT, "NitroPacker.exe"))
+    else os.path.join(REPO_ROOT, "NitroPacker")
+)
 
 NAME_RE = re.compile(r"^[A-Za-z0-9_-]+$")
 

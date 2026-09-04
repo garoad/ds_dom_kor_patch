@@ -1,5 +1,6 @@
 @echo off
 REM DOM 한글패치 웹 툴 시작/멈춤 스크립트 (Windows)
+chcp 65001 >nul
 setlocal enabledelayedexpansion
 
 set "DIR=%~dp0"
@@ -21,6 +22,7 @@ if not errorlevel 1 (
   )
 )
 
+if "%~1"=="" goto start
 if /i "%~1"=="start" goto start
 if /i "%~1"=="stop" goto stop
 if /i "%~1"=="restart" goto restart
@@ -52,9 +54,8 @@ if not errorlevel 1 (
   exit /b 0
 )
 call :ensure_deps
-cd /d "%DIR%"
-powershell -NoProfile -Command "$p = Start-Process -FilePath '%PY_CMD%' -ArgumentList 'server_py\app.py' -WorkingDirectory '%DIR%' -WindowStyle Hidden -RedirectStandardOutput '%LOG_FILE%' -RedirectStandardError '%ERR_LOG_FILE%' -PassThru; $p.Id | Out-File -Encoding ascii '%PID_FILE%'"
-timeout /t 1 /nobreak >nul
+powershell -NoProfile -Command "$p = Start-Process -FilePath '%PY_CMD%' -ArgumentList 'server_py\app.py' -WorkingDirectory '%DIR%' -WindowStyle Hidden -PassThru; $p.Id | Out-File -Encoding ascii '%PID_FILE%'"
+powershell -NoProfile -Command "Start-Sleep -Milliseconds 800"
 call :is_running
 if errorlevel 1 (
   echo 서버 시작 실패. 로그:

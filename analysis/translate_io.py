@@ -24,7 +24,7 @@ from collections import Counter
 import mes_codec as mc
 
 # Load Korean font map for text_to_tokens re-encoding
-with open(os.path.join(mc.HERE, "font_map_kr.json")) as _f:
+with open(os.path.join(mc.HERE, "font_map_kr.json"), encoding="utf-8") as _f:
     _FM_KR = json.load(_f)
 CODES_KR = _FM_KR["codes"]
 

@@ -22,7 +22,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(HERE, ".."))
 ROOT = os.path.join(PROJECT_ROOT, "unpack")
 ORIGIN_ROOT = os.path.join(PROJECT_ROOT, "unpack_origin")
 
-with open(os.path.join(HERE, "font_map_full.json")) as f:
+with open(os.path.join(HERE, "font_map_full.json"), encoding="utf-8") as f:
     _FM = json.load(f)
 CODES = _FM["codes"]
 

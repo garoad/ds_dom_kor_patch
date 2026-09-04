@@ -254,3 +254,6 @@ webtool/workspace/
 10
 128
 =
+NitroPacker.exe
+package.json
+package-lock.json

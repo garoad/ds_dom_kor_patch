@@ -8,10 +8,19 @@ is harmless since this tool only ever runs against a trusted local client.
 """
 import os
 import sys
+import io
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
+
+LOG_PATH = os.path.abspath(os.path.join(HERE, "..", "server.log"))
+ERR_PATH = os.path.abspath(os.path.join(HERE, "..", "server.err.log"))
+
+if sys.stdout is None:
+    sys.stdout = open(LOG_PATH, "a", encoding="utf-8")
+if sys.stderr is None:
+    sys.stderr = open(ERR_PATH, "a", encoding="utf-8")
 
 from flask import Flask, send_from_directory
 
@@ -40,5 +49,5 @@ def serve_public(path):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 4000))
-    print(f"DOM 한글패치 툴 서버 실행 중: http://localhost:{port}")
+    print(f"DOM 한글패치 툴 서버 실행 중: http://localhost:{port}", flush=True)
     app.run(host="0.0.0.0", port=port, threaded=True)
