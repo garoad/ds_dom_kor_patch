@@ -16228,3 +16228,224 @@ Node.js→Python 백엔드 전환 이전에 **CRLF**로 저장된 것들이 그�
   - **블록 12~18**: 기존 UI 프롬프트 번역을 `ai_draft` 및 `translation`에 정상 반영
 - `analysis/mes_translate_reinsert.py` 오라클 검증 통과(`saveload.mes` 정상 빌드 확인).
 
+## 2026-09-05 — `image_patch/titleobj.png` 이미지 그래픽 한글화 작업 및 검증
+
+사용자 요청: `/Users/garoad/Documents/workspace/ds_dom_kor_patch/image_patch/titleobj.png` 추출된 이미지 한글 수정 요청.
+
+**분석 및 구조 파악**:
+1. `titleobj.png`는 타이틀 선택 화면의 안내 말풍선 OAM 스프라이트(`data/titleobj.nbfcn`, 112타일)를 `webtool/server_py/routes/files.py`의 `decode_tile_grid_png` 룰에 따라 hstack 조합(가로 96x96)한 이미지:
+   - 좌측 조각: tiles[0:56] (8x7 타일 = 64x56 픽셀, 말풍선 본체 좌측 및 꼬리)
+   - 우측 조각: tiles[64:84] (4x5 타일 = 32x40 픽셀, 말풍선 본체 우측)
+   - 하단 조각: tiles[96:112] (4x4 타일 = 32x32 픽셀, 별 아이콘)
+   - 패딩 타일: tiles[56:64] 및 tiles[84:96]은 전부 0 (빈 타일).
+2. 원본 일본어 텍스트:
+   - 1행: `タイトルを` (y=6..17, x=19..75, 이탤릭 고딕)
+   - 2행: `選んでね。` (y=19..31, x=19..72, 이탤릭 고딕)
+3. 팔레트 색상 제약 분석:
+   - 말풍선 내부 배경은 `(255, 255, 255)`, 외곽선 핑크는 `(255, 90, 165)`.
+   - 텍스트 셰이딩 및 안티에일리어싱은 `unpack_origin/data/titleobj.nbfpn`의 전용 서브팔레트 인덱스 237~255(16색 램프: 66,66,66 ~ 255,255,255)만을 사용.
+4. 한글화 디자인 및 렌더링:
+   - 원문의 친근하고 발랄한 어조(`~選んでね`)와 이탤릭 기울기(약 10도), 진한 굵기를 살려 디자인.
+   - 1안(적용): `타이틀을` / `골라줘.` (13px Pretendard-Black 기반 이탤릭 셰어링 + 전용 팔레트 16색 안티에일리어싱 양자화, 말풍선 공간비율 완벽 매칭)
+   - 2안: `타이틀을` / `선택해줘.` (12px 변형본)
+5. 산출물 및 라운드트립 검증:
+   - 원본 백업: `image_patch/titleobj_orig.png`
+   - 기본 한글 수정본: `image_patch/titleobj.png` ("타이틀을 / 골라줘.")
+   - 대안 수정본: `image_patch/titleobj_select.png` ("타이틀을 / 선택해줘.")
+   - 리버스 인코더(`temp/titleobj_test.nbfcn`)로 타일맵 재인코딩 후 `decode_tile_grid_png`로 디코딩하여 시각적 라운드트립 100% 일치 검증 완료.
+
+## 2026-09-05 — `data/infodom1` 장소 명판 그래픽 일괄 추출 및 한글화 리팩 완료
+
+사용자 요청: `data/infodom1` 이미지들 일괄로 뽑아서 한글화 진행.
+
+**1. 리소스 구성 및 분석**:
+- `data/infodom1/` 디렉토리는 맵 상단 화면 및 이동 장소 명판 리소스:
+  - `map_ue_bg_map_uec.bin` / `map_ue_bg_map_ues.bin` / `map_ue_p_map_ue.bin`: 상단 바 배경 (날짜/시간용 `/`, `:` 기호만 포함, 일본어 텍스트 없음).
+  - `eplace_00` ~ `eplace_31`, `eplace_99` (총 33세트): 80×24px (10×3 타일) 빨간 장소 명판 배너.
+  - 전용 팔레트는 없으며 디렉토리 내 `map_ue_p_map_ue.bin` 팔레트를 공용으로 사용.
+- 원본 33개 장소명 분석 및 CSV 대사 용어 대조 확정:
+  - `eplace_00`: 빈 배너 (유지)
+  - `eplace_01`: 通学路 → 통학로
+  - `eplace_02`: 清嶺学園 → 세이레이 학원
+  - `eplace_03`: 教室 → 교실
+  - `eplace_04`: 廊下 → 복도
+  - `eplace_05`: 柔剣部道場 → 유검부 도장
+  - `eplace_06`: イリュージョン → 일루전
+  - `eplace_07`: ネオジオランド → 네오지오랜드
+  - `eplace_08`: 極限流道場 → 극한류 도장
+  - `eplace_09`: OROCHi → 오로치
+  - `eplace_10`: 繁華街 → 번화가
+  - `eplace_11`: アパート → 아파트
+  - `eplace_12`: 舞の部屋 → 마이의 방
+  - `eplace_13`: 河川敷 → 강변
+  - `eplace_14`: 観光地 → 관광지
+  - `eplace_15`: 街 → 거리
+  - `eplace_16`: 工場 → 공장
+  - `eplace_17`: 病院 → 병원
+  - `eplace_18`: 海水浴場 → 해수욕장
+  - `eplace_19`: コンテスト会場 → 콘테스트 회장
+  - `eplace_20`: 雷門学園前 → 라이몬 학원 앞
+  - `eplace_21`: 武道天覧会会場 → 무도천람회장
+  - `eplace_22`: ライブ会場 → 라이브 공연장
+  - `eplace_23`: 肝試し会場 → 담력시험장
+  - `eplace_24`: 北の廃工場 → 북쪽 폐공장
+  - `eplace_25`: 工場裏 → 공장 뒤편
+  - `eplace_26`: 星空の見える丘 → 별이 보이는 언덕
+  - `eplace_27`: 映画館 → 영화관
+  - `eplace_28`: ショッピングモール → 쇼핑몰
+  - `eplace_29`: 夜の工場 → 밤의 공장
+  - `eplace_30`: ダイアモンド家の屋敷 → 다이아몬드 저택
+  - `eplace_31`: 舞の実家 → 마이의 본가
+  - `eplace_99`: 移動 → 이동
+
+**2. 한글 그래픽 디자인 및 렌더링**:
+- 원본 스타일: 빨간 배경 `(255, 90, 74)`, 진한 남색 외곽선 `(16, 0, 66)`, 흰색 채움 `(255, 255, 255)`.
+- Pretendard-Bold 기반으로 글자 수(2자~8자)에 맞춰 11~16px 폰트 크기 및 1.2px 스트로크를 정밀 조정하여 80×24px 배너 중앙에 수평/수직 균형 있게 배치.
+- 4배 슈퍼샘플링 렌더링 후 Lanczos 다운스케일링을 통해 극도로 매끄러운 픽셀 안티에일리어싱 구현.
+
+**3. 산출물 및 인코딩/검증**:
+- 개별 한글 PNG 파일: [`image_patch/infodom1/eplace_*.png`](image_patch/infodom1/) (33개)
+- 한눈에 확인 가능한 전체 몽타주: [`image_patch/infodom1/eplace_montage_kr.png`](image_patch/infodom1/eplace_montage_kr.png)
+- NDS 타일맵/스크린맵 인코딩 후 `unpack/data/infodom1/`에 33개 세트(`*c.bin`, `*s.bin`) 실제 반영 완료.
+- 인코딩된 바이너리를 역디코딩하여 팔레트 양자화 상태(`image_patch/infodom1/roundtrip_montage_kr.png`) 100% 정상 렌더링 확인.
+
+## 2026-09-05 (계속) — `data/infodom2` 및 `data/infodom3` 장소 명판 그래픽 일괄 한글화 및 리팩
+
+사용자 요청: 2, 3편도 마찬가지로 그래픽 한글화 실행 요청.
+
+**1. `infodom2` (총 22개 배너)**:
+- 원본 텍스트 및 번역 매핑 확정:
+  - `eplace_00`: 빈 배너 (유지)
+  - `eplace_01`: 清嶺学園 → 세이레이 학원
+  - `eplace_02`: 清嶺大学 → 세이레이 대학
+  - `eplace_03`: イリュージョン → 일루전
+  - `eplace_04`: 繁華街 → 번화가
+  - `eplace_05`: ネオジオワールド → 네오지오 월드
+  - `eplace_06`: NESTS → 네스츠
+  - `eplace_07`: 神楽神社 → 카구라 신사
+  - `eplace_08`: アパート → 아파트
+  - `eplace_09`: 河川敷 → 강변
+  - `eplace_10`: 洞窟 → 동굴
+  - `eplace_11`: 海水浴場 → 해수욕장
+  - `eplace_12`: 水着売り場 → 수영복 매장
+  - `eplace_13`: ボーリング場 → 볼링장
+  - `eplace_14`: 映画館 → 영화관
+  - `eplace_15`: 海 → 바다
+  - `eplace_16`: コンサート会場 → 콘서트 회장
+  - `eplace_17`: キサラ宅前 → 키사라 집 앞
+  - `eplace_18`: 公園 → 공원
+  - `eplace_19`: 駅 → 역
+  - `eplace_20`: 街 → 거리
+  - `eplace_99`: 移動 → 이동
+
+**2. `infodom3` (총 17개 배너 — 에도/막말 시대극 배경)**:
+- 원본 텍스트 및 번역 매핑 확정:
+  - `eplace_00`: 빈 배너 (유지)
+  - `eplace_01`: 寺子屋橘 → 서당 타치바나
+  - `eplace_02`: むささび屋 → 무사사비야
+  - `eplace_03`: 蜜蜂屋 → 미츠바치야
+  - `eplace_04`: 城下町 → 성하마을
+  - `eplace_05`: ねおじ山 → 네오지산
+  - `eplace_06`: 枯華院 → 고카인
+  - `eplace_07`: 剣術道場 → 검술 도장
+  - `eplace_08`: 河原 → 강가
+  - `eplace_09`: まいほぅむ → 우리 집
+  - `eplace_10`: 森 → 숲
+  - `eplace_11`: 破れ屋 → 허름한 집
+  - `eplace_12`: 海 → 바다
+  - `eplace_13`: 江坂歌舞伎座 → 에사카 가부키자
+  - `eplace_14`: 町はずれの破れ屋 → 변두리 허름한 집
+  - `eplace_15`: 呉服屋 → 포목점
+  - `eplace_99`: 移動 → 이동
+
+**3. 산출물 및 인코딩/배포 반영**:
+- 개별 PNG 파일: [`image_patch/infodom2/`](image_patch/infodom2/) (22개), [`image_patch/infodom3/`](image_patch/infodom3/) (17개)
+- 전체 확인용 몽타주: [`image_patch/infodom2/eplace_montage_kr.png`](image_patch/infodom2/eplace_montage_kr.png), [`image_patch/infodom3/eplace_montage_kr.png`](image_patch/infodom3/eplace_montage_kr.png)
+- 타일맵/스크린맵 인코딩 후 배포 위치 두 곳 모두에 완전 반영:
+  - CLI/빌드 파이프라인 트리: `unpack/data/infodom2/`, `unpack/data/infodom3/`
+  - 웹툴 라이브 작업 영역: `webtool/workspace/dom1/unpack/data/infodom2/`, `webtool/workspace/dom1/unpack/data/infodom3/`
+- 웹툴 API(`/api/files/raw`)를 curl로 요청하여 2편/3편 배너가 즉시 한글로 디코딩되어 응답되는 것을 실제 확인 완료.
+
+## 2026-09-05 (계속) — `data/talkobj.nbfcn` 로그(LOG) 버튼 그래픽 한글화 및 리팩
+
+사용자 요청: `talkobj`에 로그 버튼도 한글화 진행 요청.
+
+**1. `talkobj.nbfcn` 구조 분석 및 로그 버튼 타일 위치 확인**:
+- 기존 분석 메모에 "안경(glasses)" 아이콘으로 추정 기록되어 있던 스프라이트가 실제로는 **로그(`ログ`) 버튼**이었음을 확인(대화창 상단/터치 인터페이스에서 이전 대사 로그를 열어보는 버튼).
+- 버튼 구조:
+  - `tiles[32:48]`: 눌림(pressed/inactive) 상태 (12타일: 4×3타일 = 32×24px 실제 버튼, 나머지 4타일은 OAM 32×32 슬롯 맞춤용 빈 타일 패딩).
+  - `tiles[48:60]`: 기본(normal/active) 상태 (12타일: 4×3타일 = 32×24px 실제 버튼, 연한 녹색 바탕에 녹색 테두리 및 흰색 채움 글씨).
+- 버튼 페이스 영역: 폭 26px, 높이 22px의 입체 라운드 사각 버튼 내부.
+
+**2. 한글화 디자인 및 인덱스 팔레트 매칭**:
+- 원작의 대각선 팝 배치(좌상단 `ロ`, 우하단 `グ`)를 계승하여 좌상단 `로`, 우하단 `그` 형태로 배치.
+- 폰트: Pretendard-Black 기반 9.5px, 1.2px 스트로크 및 약 7도(0.12) 기울기 적용 후 4배 슈퍼샘플링 렌더링.
+- 활성 상태(`tiles[48:60]`): 연한 녹색 바탕에 진한 녹색 테두리 `(0, 82, 0)` + 흰색 본체 채움 `(255, 255, 255)`.
+- 눌림 상태(`tiles[32:48]`): 회색빛 음영 바탕에 1px 하단 이동 입체감 + 어두운 블루그레이 채움 `(123, 165, 181)`.
+- `talkobj.nbfpn` 팔레트의 256색 중 기존 버튼 색상과 100% 매치되는 인덱스로 양자화.
+
+**3. 산출물 및 반영 위치**:
+- PNG 산출물: [`image_patch/talkobj.png`](image_patch/talkobj.png)
+- 바이너리 반영:
+
+## 2026-09-05 (계속) — 웹툴 `image_patch` 폴더 기반 이미지 자동 일괄 교체 기능 구현
+
+사용자 요청: 웹툴에서 이미지 일괄 교체 시, `image_patch` 폴더 안에 같은 이름의 PNG가 존재하면 자동으로 교체하도록 개선 요청.
+
+**1. 구현 내용**:
+- **백엔드 (`webtool/server_py/routes/files.py`)**:
+  - `sync_image_patch_folder(name)` 및 `apply_single_png_patch(name, png_bytes, rel_png_path)` 함수 구현.
+  - `image_patch/` 디렉터리를 재귀 탐색하여 수정된 한글화 PNG 파일들을 자동 수집 (백업/미리보기용 `_orig`, `_select`, `montage`, `_test` 제외).
+  - 파일 매칭:
+    - 기본 일치: 파일 기본명(`eplace_01` 등)으로 `_bg_*c.bin` 및 `.nbfc/.nbfcn` 타겟 자동 매칭.
+    - 하위 폴더 기반 구분: `image_patch/infodom1/`, `image_patch/infodom2/`, `image_patch/infodom3/`와 같이 상위 폴더명이 일치하는 대상에 우선 매칭.
+  - 특수 OAM 스프라이트 패커 연동:
+    - `titleobj.png` -> `pack_titleobj()` 자동 호출 후 `data/titleobj.nbfcn` 리팩.
+    - `talkobj.png` -> `pack_talkobj()` 자동 호출 후 `data/talkobj.nbfcn` 리팩.
+  - 스크린맵/타일맵 자동 인코딩:
+    - 80×24 해상도(30타일) eplace 배너 인코딩 지원을 위해 `nbfc_image.py`의 `tilemap_dims()`에 `n == 30: 10, 3` 추가.
+    - 동일 폴더의 대표 팔레트를 참조하는 `borrowed_palette` 모드도 인코딩 허용.
+  - 동기화 대상:
+    - 웹툴 작업 디렉터리(`webtool/workspace/dom1/unpack/`) 및 레포지토리 루트 언팩(`unpack/`) 양쪽에 동시 반영.
+  - API 엔드포인트:
+    - `POST /api/files/images-batch?name=<project>&from_folder=true` 지원.
+    - 브라우저에서 드래그/선택한 파일 없이 "일괄 교체 실행" 버튼을 누르면 자동으로 `image_patch/` 폴더 동기화로 폴백 동작.
+- **프론트엔드 (`webtool/public/index.html`, `webtool/public/app.js`)**:
+  - UI에 "📁 image_patch 폴더에서 일괄 교체" 전용 버튼 추가.
+  - 드래그 드롭 없이 기존 버튼("일괄 교체 실행") 클릭 시에도 자동으로 `image_patch/` 폴더 기반 일괄 교체 실행 안내 및 처리.
+  - 교체 완료 시 트리 및 현재 미리보기 자동 새로고침.
+
+## 2026-09-05 (계속) — 웹툴 이미지 탐색 원본 고정, 좌우 비교 뷰어 및 빌드 시 일괄 교체 자동화
+
+사용자 요청:
+1. 이미지 탐색 시 항상 **원본 폴더**의 에셋을 확인하게 할 것.
+2. `image_patch/` 폴더에 대응하는 한글 PNG가 있을 경우 **왼쪽에 원본, 오른쪽에 패치 이미지**를 나란히 띄워 비교할 수 있게 할 것.
+3. 이미지 교체는 **빌드할 때 일괄로 실행**되도록 파이프라인 변경.
+
+**1. 원본 폴더 보존 및 복원**:
+- 웹툴 작업 폴더(`webtool/workspace/dom1/unpack/`) 및 CLI 루트 언팩(`unpack/`)을 순수 원본 상태(`unpack_origin/`)로 완전 복원.
+- 이제 탐색 트리에서 탐색되는 모든 에셋은 수정되지 않은 깨끗한 원본 상태를 유지함.
+
+**2. 좌우 비교 뷰어 (Side-by-Side Comparison)**:
+- **백엔드 (`webtool/server_py/routes/files.py`)**:
+  - `get_patch_rel_for_asset(rel_path)` 및 `get_all_patch_files()` 구현.
+  - `/api/files/tree`: 파일 목록 반환 시 `hasPatch: bool`, `patchRel: string` 메타데이터를 함께 제공.
+  - `/api/files/raw`: `type=orig` (기본값, 원본 NDS 그래픽 실시간 디코딩) 및 `type=patch` (`image_patch/`의 원본 PNG 이미지 서빙) 쿼리 파라미터 분기.
+- **프론트엔드 (`webtool/public/index.html`, `webtool/public/style.css`, `webtool/public/app.js`)**:
+  - 탐색 트리에서 패치 파일이 존재하는 항목 옆에 녹색 `[한글 패치]` 뱃지 노출.
+  - 이미지 뷰어를 2열(왼쪽: **🔍 원본 이미지**, 오른쪽: **✨ 한글 패치 이미지**) 레이아웃으로 개편.
+  - 픽셀 렌더링 최적화(`image-rendering: pixelated`)로 저해상도 도트 그래픽을 선명하게 비교 확인 가능.
+  - 패치 파일이 없는 에셋 선택 시 우측에 "image_patch 폴더에 매칭되는 PNG가 없습니다" 상태 안내 표시.
+
+**3. 빌드 시점 일괄 교체 파이프라인 연동**:
+- **백엔드 (`webtool/server_py/routes/build.py`)**:
+  - 기존: `POST /api/build/reinsert` 시 `unpack/` 복사 후 스크립트(.mes) 및 폰트 아트(Font_DOM.nbfc)만 교체.
+  - 개선: 폰트 아트 적용 직후, `sync_image_patch_folder(name, target_root=build_dir)`를 호출하여 `build/` 디렉터리에 `image_patch/` 내 74개 한글 그래픽을 자동으로 일괄 리팩/인코딩 삽입.
+  - `unpack/`(원본)은 건드리지 않고, 오직 최종 배포용 `build/`에만 한글 그래픽이 반영되므로 언제든 원본을 유지하면서 안전하게 롬 빌드 가능.
+  - `pack_titleobj` 및 `pack_talkobj`의 좌표 변환을 실제 PNG 레이아웃 규격에 맞춰 정밀 보정 완료 (말풍선 OAM 슬라이싱 및 로그 버튼 타일 정확 매핑).
+- **검증**:
+  - `POST /api/build/reinsert` 실행 결과: 868개 스크립트 재삽입 + **74개 한글 그래픽 일괄 교체 (`imagesPatched: 74, problems: []`)** 성공.
+  - `POST /api/build/pack` 실행 결과: `webtool/workspace/dom1/output/dom1.nds` (16MB) 정상 빌드 완료.
+
+
+

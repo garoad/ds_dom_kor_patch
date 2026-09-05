@@ -87,8 +87,18 @@ def reinsert():
 
         pipeline.apply_font_art(name)
 
+        # Apply image patches from image_patch/ to build_dir
+        from routes.files import sync_image_patch_folder
+        img_sync_res = sync_image_patch_folder(name, target_root=build_dir)
+        img_patched = sum(1 for r in img_sync_res.get("results", []) if r.get("ok"))
+
         proj.write_state(name, {"reinsertedAt": _now_iso()})
-        return jsonify({"filesWritten": files_written, "filesSkipped": files_skipped, "problems": problems})
+        return jsonify({
+            "filesWritten": files_written,
+            "filesSkipped": files_skipped,
+            "imagesPatched": img_patched,
+            "problems": problems,
+        })
     except Exception as ex:
         return jsonify({"error": str(ex)}), 500
 

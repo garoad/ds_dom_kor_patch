@@ -1,11 +1,21 @@
 """Python port of webtool/server/routes/files.js - see that file for the
 original route contract (path-traversal guard, .nbfc/.bin sibling-matching
 logic) this mirrors exactly."""
+import io
 import os
 import re
 
 from flask import Blueprint, jsonify, request, send_file, Response
+from PIL import Image
 
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ANALYSIS_DIR = os.path.abspath(os.path.join(HERE, "..", "..", "..", "analysis"))
+if ANALYSIS_DIR not in sys.path:
+    sys.path.insert(0, ANALYSIS_DIR)
+
+import lz10
 import nbfc_image
 import project as proj
 
@@ -314,19 +324,38 @@ def walk_image_files(dir_path, root, out):
         if ext not in (".nbfc", ".nbfcn", ".bin"):
             continue
         resolved = resolve_triplet_paths(entry.path)
-        if resolved.get("mode") != "full":
+        mode = resolved.get("mode")
+        if mode not in ("full", "tile_pal", "borrowed_palette", "grid"):
             continue
         out.append({
+            "name": entry.name,
             "base": os.path.splitext(entry.name)[0].lower(),
             "rel": os.path.relpath(entry.path, root),
+            "mode": mode,
         })
 
 
-def find_images_by_basename(name, target_base):
+def find_images_by_basename(name, target_base, sub_dir=None):
     root = proj.unpack_dir(name)
     all_files = []
     walk_image_files(root, root, all_files)
-    return [f for f in all_files if f["base"] == target_base.lower()]
+    base_clean = target_base.lower()
+
+    # 1. Exact match on base
+    matches = [f for f in all_files if f["base"] == base_clean]
+    if not matches:
+        # 2. Bin match (e.g. "eplace_01" -> "eplace_01_bg_eplace_01c")
+        matches = [
+            f for f in all_files
+            if f["base"].startswith(base_clean + "_bg_") or f["base"].endswith("_" + base_clean + "c")
+        ]
+
+    if sub_dir and len(matches) > 1:
+        filtered = [f for f in matches if sub_dir.lower() in f["rel"].lower()]
+        if filtered:
+            matches = filtered
+
+    return matches
 
 
 def resolve_in_unpack(name, rel):
@@ -335,6 +364,52 @@ def resolve_in_unpack(name, rel):
     if resolved != root and not resolved.startswith(root + os.sep):
         raise ValueError("잘못된 경로입니다")
     return resolved
+
+
+def get_all_patch_files():
+    patch_dir = os.path.join(proj.REPO_ROOT, "image_patch")
+    if not os.path.exists(patch_dir):
+        return {}
+    patch_dict = {}
+    for root, _, files in os.walk(patch_dir):
+        for fn in files:
+            if fn.lower().endswith(".png") and not any(k in fn.lower() for k in ["_orig", "_select", "montage", "_test"]):
+                full = os.path.join(root, fn)
+                rel = os.path.relpath(full, patch_dir).replace("\\", "/")
+                patch_dict[rel] = full
+    return patch_dict
+
+
+def get_patch_rel_for_asset(rel_path, patch_dict=None):
+    if patch_dict is None:
+        patch_dict = get_all_patch_files()
+    if not patch_dict:
+        return None
+
+    fname = os.path.basename(rel_path)
+    base = os.path.splitext(fname)[0].lower()
+    m = BIN_TILE_RE.match(fname)
+    stem = m.group(1).lower() if m else base
+
+    parts = rel_path.replace("\\", "/").split("/")
+    sub = parts[-2].lower() if len(parts) >= 2 else ""
+
+    cand1 = f"{sub}/{stem}.png" if sub else None
+    if cand1 and cand1 in patch_dict:
+        return cand1
+    cand2 = f"{stem}.png"
+    if cand2 in patch_dict:
+        return cand2
+
+    matches = [k for k in patch_dict if os.path.splitext(os.path.basename(k))[0].lower() == stem]
+    if len(matches) == 1:
+        return matches[0]
+    elif len(matches) > 1:
+        sub_matches = [k for k in matches if sub and sub in k.lower()]
+        if sub_matches:
+            return sub_matches[0]
+        return matches[0]
+    return None
 
 
 @bp.get("/tree")
@@ -349,10 +424,11 @@ def tree():
         if not os.path.exists(target):
             return jsonify({"error": "디렉터리를 찾을 수 없습니다"}), 404
 
+        patch_dict = get_all_patch_files()
         entries_raw = list(os.scandir(target))
         entries = []
         for e in entries_raw:
-            rel_path = os.path.join(dir_, e.name)
+            rel_path = os.path.join(dir_, e.name).replace("\\", "/")
             if e.is_dir():
                 entries.append({"name": e.name, "type": "dir", "path": rel_path})
                 continue
@@ -360,12 +436,16 @@ def tree():
             size = e.stat().st_size
             is_std_image = ext in IMAGE_EXTS
             is_tile_image = ext in (".nbfc", ".nbfcn", ".bin") and "error" not in resolve_triplet_paths(e.path)
+            is_img = is_std_image or is_tile_image
+            patch_rel = get_patch_rel_for_asset(rel_path, patch_dict) if is_img else None
             entries.append({
                 "name": e.name,
                 "type": "file",
                 "path": rel_path,
                 "size": size,
-                "isImage": is_std_image or is_tile_image,
+                "isImage": is_img,
+                "hasPatch": bool(patch_rel),
+                "patchRel": patch_rel,
             })
         entries.sort(key=lambda e: (e["type"] != "dir", e["name"]))
         return jsonify(entries)
@@ -377,10 +457,19 @@ def tree():
 def raw():
     name = request.args.get("name")
     rel_path = request.args.get("path")
+    view_type = request.args.get("type", "orig")  # "orig" | "patch"
     if not name or not rel_path:
         return jsonify({"error": "name, path는 필수입니다"}), 400
 
     try:
+        # Patch view request
+        if view_type == "patch":
+            patch_dict = get_all_patch_files()
+            patch_rel = get_patch_rel_for_asset(rel_path, patch_dict)
+            if not patch_rel or patch_rel not in patch_dict:
+                return jsonify({"error": "패치 이미지가 없습니다"}), 404
+            return send_file(patch_dict[patch_rel], mimetype="image/png")
+
         ext = os.path.splitext(rel_path)[1].lower()
         target = resolve_in_unpack(name, rel_path)
         if not os.path.exists(target):
@@ -449,15 +538,187 @@ def upload_image():
         with open(resolved["screenPath"], "rb") as f:
             screen_buf = f.read()
         orig_entry_count = len(nbfc_image.load_screen(screen_buf))
-
         encoded = nbfc_image.encode_tilemap_png(file.read(), palette_buf, orig_entry_count)
         with open(resolved["tilePath"], "wb") as f:
             f.write(encoded["nbfc"])
         with open(resolved["screenPath"], "wb") as f:
             f.write(encoded["nbfs"])
-        return jsonify({"ok": True, "tileCount": orig_entry_count})
-    except ValueError as ex:
-        return jsonify({"error": str(ex)}), 400
+        return jsonify({"tileCount": orig_entry_count})
+    except Exception as ex:
+        return jsonify({"error": str(ex)}), 500
+
+
+def pack_titleobj(png_bytes, target_path, pal_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp))
+    with open(pal_path, "rb") as f:
+        pal = nbfc_image.load_palette(f.read())
+    px = img.load()
+    # Chunk 1: tiles[0:56] @ width 8 (64x56 px at x=0..63, y=0..55)
+    for ty in range(7):
+        for tx in range(8):
+            t_idx = ty * 8 + tx
+            tile_off = t_idx * 64
+            for py in range(8):
+                for px_x in range(8):
+                    x = tx * 8 + px_x
+                    y = ty * 8 + py
+                    c = px[x, y]
+                    if c[3] == 0:
+                        dec[tile_off + py * 8 + px_x] = 0
+                    else:
+                        dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(c[0], c[1], c[2], pal)
+
+    # Chunk 2: tiles[64:84] @ width 4 (32x40 px at x=64..95, y=0..39)
+    for ty in range(5):
+        for tx in range(4):
+            t_idx = 64 + ty * 4 + tx
+            tile_off = t_idx * 64
+            for py in range(8):
+                for px_x in range(8):
+                    x = 64 + tx * 8 + px_x
+                    y = ty * 8 + py
+                    c = px[x, y]
+                    if c[3] == 0:
+                        dec[tile_off + py * 8 + px_x] = 0
+                    else:
+                        dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(c[0], c[1], c[2], pal)
+
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(bytes(dec)))
+    return 112
+
+
+def pack_talkobj(png_bytes, target_path, pal_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp))
+    with open(pal_path, "rb") as f:
+        pal = nbfc_image.load_palette(lz10.decompress(f.read()) if pal_path.endswith("n") else f.read())
+    px = img.load()
+    w, h = img.size
+    # In full sheet 64x392:
+    # tiles[0:80] has width=4 (32px), horizontally centered in 64px canvas -> x_base = 16.
+    # tiles[32:48] (normal button): row offset ty = 8 (y = 64..95)
+    # tiles[48:64] (active button): row offset ty = 12 (y = 96..127)
+    if (w, h) == (64, 392):
+        x_base = 16
+        y_off_32 = 64
+        y_off_48 = 96
+    else:
+        x_base = 0
+        y_off_32 = 0
+        y_off_48 = 32 if h >= 64 else 0
+
+    for ty in range(4):
+        for tx in range(4):
+            t_offset = ty * 4 + tx
+            off32 = (32 + t_offset) * 64
+            off48 = (48 + t_offset) * 64
+            for py in range(8):
+                for col in range(8):
+                    x = x_base + tx * 8 + col
+                    c32 = px[x, y_off_32 + ty * 8 + py]
+                    c48 = px[x, y_off_48 + ty * 8 + py]
+                    dec[off32 + py * 8 + col] = 0 if (c32[3] == 0 or c32[:3] == (0, 255, 0)) else nbfc_image.nearest_palette_index(c32[0], c32[1], c32[2], pal)
+                    dec[off48 + py * 8 + col] = 0 if (c48[3] == 0 or c48[:3] == (0, 255, 0)) else nbfc_image.nearest_palette_index(c48[0], c48[1], c48[2], pal)
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(bytes(dec)))
+    return 304
+
+
+def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
+    png_name = os.path.basename(rel_png_path)
+    base = os.path.splitext(png_name)[0]
+    sub_dir = os.path.dirname(rel_png_path)
+
+    # Ignore preview and backup files
+    if any(k in base.lower() for k in ["_orig", "_select", "montage", "_test"]):
+        return {"file": rel_png_path, "ok": False, "error": "백업/미리보기 파일 제외"}
+
+    matches = find_images_by_basename(name, base, sub_dir=sub_dir)
+    if not matches:
+        return {"file": rel_png_path, "ok": False, "error": "일치하는 파일을 찾지 못했습니다"}
+    if len(matches) > 1:
+        return {
+            "file": rel_png_path,
+            "ok": False,
+            "error": f"여러 파일과 일치해 자동 선택할 수 없습니다: {', '.join(m['rel'] for m in matches)}",
+        }
+
+    match = matches[0]
+    root = target_root or proj.unpack_dir(name)
+    target = os.path.join(root, match["rel"])
+    resolved = resolve_triplet_paths(target)
+    if "error" in resolved:
+        return {"file": rel_png_path, "ok": False, "error": resolved["error"]}
+
+    target_fname = os.path.basename(target).lower()
+    tile_count = 0
+
+    if target_fname == "titleobj.nbfcn":
+        tile_count = pack_titleobj(png_bytes, target, resolved["palettePath"])
+    elif target_fname == "talkobj.nbfcn":
+        tile_count = pack_talkobj(png_bytes, target, resolved["palettePath"])
+    else:
+        if resolved["mode"] not in ("full", "borrowed_palette"):
+            return {"file": rel_png_path, "ok": False, "error": "이 파일은 미리보기 전용입니다 (스크린맵이 없음)"}
+        with open(resolved["palettePath"], "rb") as f:
+            palette_buf = f.read()
+        with open(resolved["screenPath"], "rb") as f:
+            screen_buf = f.read()
+        orig_entry_count = len(nbfc_image.load_screen(screen_buf))
+        encoded = nbfc_image.encode_tilemap_png(png_bytes, palette_buf, orig_entry_count)
+        with open(resolved["tilePath"], "wb") as f:
+            f.write(encoded["nbfc"])
+        with open(resolved["screenPath"], "wb") as f:
+            f.write(encoded["nbfs"])
+        tile_count = orig_entry_count
+
+    # If target_root is build_dir, we do not overwrite unpack!
+    # If target_root is None (direct manual sync), synchronize to root unpack/ if distinct
+    if target_root is None:
+        repo_unpack = os.path.join(proj.REPO_ROOT, "unpack")
+        if os.path.exists(repo_unpack) and os.path.abspath(repo_unpack) != os.path.abspath(root):
+            root_target = os.path.join(repo_unpack, match["rel"])
+            if os.path.exists(os.path.dirname(root_target)):
+                if resolved.get("tilePath") and os.path.exists(resolved["tilePath"]):
+                    with open(resolved["tilePath"], "rb") as sf, open(root_target, "wb") as df:
+                        df.write(sf.read())
+                if resolved.get("screenPath") and os.path.exists(resolved["screenPath"]):
+                    root_screen = os.path.join(repo_unpack, os.path.relpath(resolved["screenPath"], root))
+                    with open(resolved["screenPath"], "rb") as sf, open(root_screen, "wb") as df:
+                        df.write(sf.read())
+
+    return {
+        "file": rel_png_path,
+        "ok": True,
+        "matchedPath": match["rel"],
+        "tileCount": tile_count,
+    }
+
+
+def sync_image_patch_folder(name, target_root=None):
+    patch_dir = os.path.join(proj.REPO_ROOT, "image_patch")
+    if not os.path.exists(patch_dir):
+        return {"error": "image_patch 폴더를 찾을 수 없습니다"}
+
+    results = []
+    for dirpath, _, filenames in os.walk(patch_dir):
+        for fn in sorted(filenames):
+            if fn.lower().endswith(".png"):
+                full_p = os.path.join(dirpath, fn)
+                rel_p = os.path.relpath(full_p, patch_dir)
+                with open(full_p, "rb") as f:
+                    b = f.read()
+                res = apply_single_png_patch(name, b, rel_p, target_root=target_root)
+                if res.get("error") == "백업/미리보기 파일 제외":
+                    continue
+                results.append(res)
+    return {"results": results}
 
 
 @bp.post("/images-batch")
@@ -465,9 +726,15 @@ def upload_images_batch():
     name = request.args.get("name")
     if not name:
         return jsonify({"error": "name은 필수입니다"}), 400
+
     files = request.files.getlist("images")
-    if not files:
-        return jsonify({"error": "images 파일이 필요합니다"}), 400
+    from_folder = request.args.get("from_folder", "").lower() in ("true", "1", "yes")
+
+    if not files or from_folder:
+        res = sync_image_patch_folder(name)
+        if "error" in res:
+            return jsonify(res), 400
+        return jsonify(res)
 
     root = proj.unpack_dir(name)
     if not os.path.exists(root):
@@ -475,38 +742,21 @@ def upload_images_batch():
 
     results = []
     for file in files:
-        base = os.path.splitext(file.filename)[0]
         try:
-            matches = find_images_by_basename(name, base)
-            if not matches:
-                results.append({"file": file.filename, "ok": False, "error": "일치하는 파일을 찾지 못했습니다"})
-                continue
-            if len(matches) > 1:
-                results.append({
-                    "file": file.filename,
-                    "ok": False,
-                    "error": f"여러 파일과 일치해 자동 선택할 수 없습니다: {', '.join(m['rel'] for m in matches)}",
-                })
-                continue
-            match = matches[0]
-            target = os.path.join(root, match["rel"])
-            resolved = resolve_triplet_paths(target)
-            if "error" in resolved:
-                results.append({"file": file.filename, "ok": False, "error": resolved["error"]})
-                continue
-
-            with open(resolved["palettePath"], "rb") as f:
-                palette_buf = f.read()
-            with open(resolved["screenPath"], "rb") as f:
-                screen_buf = f.read()
-            orig_entry_count = len(nbfc_image.load_screen(screen_buf))
-            encoded = nbfc_image.encode_tilemap_png(file.read(), palette_buf, orig_entry_count)
-            with open(resolved["tilePath"], "wb") as f:
-                f.write(encoded["nbfc"])
-            with open(resolved["screenPath"], "wb") as f:
-                f.write(encoded["nbfs"])
-            results.append({"file": file.filename, "ok": True, "matchedPath": match["rel"], "tileCount": orig_entry_count})
+            res = apply_single_png_patch(name, file.read(), file.filename)
+            results.append(res)
         except Exception as ex:
             results.append({"file": file.filename, "ok": False, "error": str(ex)})
 
     return jsonify({"results": results})
+
+
+@bp.post("/images-patch-sync")
+def images_patch_sync():
+    name = request.args.get("name") or (request.get_json(silent=True) or {}).get("name")
+    if not name:
+        return jsonify({"error": "name은 필수입니다"}), 400
+    res = sync_image_patch_folder(name)
+    if "error" in res:
+        return jsonify(res), 400
+    return jsonify(res)

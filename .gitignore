@@ -249,6 +249,7 @@ webtool/workspace/
 *.png
 *.jpg
 *.jpeg
+!image_patch/**
 
 # Miscellaneous junk files
 10

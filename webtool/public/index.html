@@ -146,38 +146,19 @@
 
   <section id="tab-images" class="tab-panel">
     <h2>이미지 탐색</h2>
-    <details class="help-box">
-      <summary>여러 이미지를 한 번에 교체하려면?</summary>
-      <ul>
-        <li>미리보기 이미지를 "다른 이름으로 저장"하면 원본 파일명(예: <code>dom1char002.png</code>,
-          <code>SNK_LOGO_bg_snkc.png</code>)이 자동으로 붙습니다. 이 파일명을 그대로 유지한 채
-          편집하세요.</li>
-        <li>편집이 끝난 PNG 여러 개를 아래 박스에 한 번에 드래그하거나 선택하면, 파일명이 같은
-          원본 이미지를 프로젝트 전체에서 찾아 자동으로 교체합니다 (탐색 트리에서 하나씩 선택할
-          필요 없음).</li>
-        <li>파일명이 프로젝트 안에 없거나 여러 개와 동시에 일치하면 그 파일은 건너뛰고 결과에
-          이유가 표시됩니다.</li>
-      </ul>
-    </details>
-    <div id="batch-image-dropzone" class="dropzone">
-      PNG 파일 여러 개를 여기로 드래그하거나 클릭해서 선택하세요 (파일명으로 자동 매칭)
-      <input type="file" id="batch-image-input" accept="image/png" multiple hidden />
-    </div>
-    <button id="btn-batch-image-upload" class="btn-action">일괄 교체 실행</button>
-    <pre id="batch-image-result" class="result-box"></pre>
-
     <div id="breadcrumb" class="breadcrumb"></div>
     <div class="image-browser">
       <ul id="file-tree" class="file-tree"></ul>
       <div>
-        <div id="image-preview" class="image-preview">파일을 선택하세요</div>
-        <div id="image-dropzone" class="image-dropzone">
-          PNG 파일을 여기로 드래그하거나 클릭해서 선택하세요
-          <input type="file" id="image-upload-input" accept="image/png" hidden />
-        </div>
-        <div class="image-upload-row">
-          <button id="btn-image-upload">이미지 교체</button>
-          <span id="image-upload-status"></span>
+        <div class="image-compare-container">
+          <div class="image-compare-col">
+            <div class="image-compare-header">🔍 원본 이미지 (ROM 언팩)</div>
+            <div id="image-preview-orig" class="image-preview">파일을 선택하세요</div>
+          </div>
+          <div class="image-compare-col">
+            <div class="image-compare-header" id="image-patch-header">✨ 한글 패치 이미지 (image_patch)</div>
+            <div id="image-preview-patch" class="image-preview">패치 파일 없음</div>
+          </div>
         </div>
       </div>
     </div>

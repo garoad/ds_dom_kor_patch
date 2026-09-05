@@ -51,6 +51,8 @@ def load_screen(buf):
 def tilemap_dims(n):
     """Screenmap entry count -> tilemap width/height in tiles. Must match on
     both the decode and encode side for round-tripping."""
+    if n == 30:
+        return 10, 3
     if n == 289:
         return 17, 17
     if n == 768:

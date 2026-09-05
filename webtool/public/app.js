@@ -493,15 +493,26 @@ async function loadTree(dir) {
     );
     for (const e of entries) {
       const li = document.createElement("li");
-      li.textContent = e.type === "dir" ? `📁 ${e.name}` : `${e.isImage ? "🖼️" : "📄"} ${e.name}`;
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = e.type === "dir" ? `📁 ${e.name}` : `${e.isImage ? "🖼️" : "📄"} ${e.name}`;
+      li.appendChild(nameSpan);
+
+      if (e.hasPatch) {
+        const tag = document.createElement("span");
+        tag.className = "patch-tag";
+        tag.textContent = "한글 패치";
+        tag.title = `매칭 파일: ${e.patchRel}`;
+        li.appendChild(tag);
+      }
+
       li.addEventListener("click", () => {
         if (e.type === "dir") {
           loadTree(e.path);
         } else if (e.isImage) {
-          document.getElementById("image-upload-status").textContent = "";
-          previewImage(e.path);
+          previewImage(e.path, e.hasPatch, e.patchRel);
         } else {
-          document.getElementById("image-preview").textContent = `${e.name} (${e.size} bytes) - 미리보기 미지원 형식`;
+          document.getElementById("image-preview-orig").textContent = `${e.name} (${e.size} bytes) - 미리보기 미지원 형식`;
+          document.getElementById("image-preview-patch").textContent = "미리보기 미지원";
         }
       });
       list.appendChild(li);
@@ -532,139 +543,34 @@ function renderBreadcrumb(dir) {
   }
 }
 
-function previewImage(relPath) {
+function previewImage(relPath, hasPatch = false, patchRel = "") {
   state.currentImagePath = relPath;
-  selectedImageFile = null;
-  document.getElementById("image-upload-input").value = "";
-  const preview = document.getElementById("image-preview");
-  preview.innerHTML = "";
-  const img = document.createElement("img");
-  img.src = `/api/files/raw?name=${encodeURIComponent(PROJECT_NAME)}&path=${encodeURIComponent(relPath)}&t=${Math.floor(performance.now())}`;
-  preview.appendChild(img);
+
+  // 1. 왼쪽: 원본 이미지 (ROM 언팩)
+  const prevOrig = document.getElementById("image-preview-orig");
+  prevOrig.innerHTML = "";
+  const imgOrig = document.createElement("img");
+  imgOrig.src = `/api/files/raw?name=${encodeURIComponent(PROJECT_NAME)}&path=${encodeURIComponent(relPath)}&type=orig&t=${Math.floor(performance.now())}`;
+  prevOrig.appendChild(imgOrig);
+
+  // 2. 오른쪽: image_patch 폴더의 한글 이미지
+  const prevPatch = document.getElementById("image-preview-patch");
+  const patchHeader = document.getElementById("image-patch-header");
+  prevPatch.innerHTML = "";
+
+  if (hasPatch || patchRel) {
+    patchHeader.textContent = `✨ 한글 패치 이미지 (${patchRel || "image_patch"})`;
+    const imgPatch = document.createElement("img");
+    imgPatch.src = `/api/files/raw?name=${encodeURIComponent(PROJECT_NAME)}&path=${encodeURIComponent(relPath)}&type=patch&t=${Math.floor(performance.now())}`;
+    imgPatch.onerror = () => {
+      prevPatch.textContent = "패치 이미지 로드 실패";
+    };
+    prevPatch.appendChild(imgPatch);
+  } else {
+    patchHeader.textContent = "✨ 한글 패치 이미지 (image_patch)";
+    prevPatch.innerHTML = '<span style="color: #888; font-size: 13px;">image_patch 폴더에 매칭되는 PNG가 없습니다</span>';
+  }
 }
-
-// 이미지 파일 선택: 클릭(파일 열기 다이얼로그) 또는 드래그앤드롭 - ROM 업로드의
-// selectedRomFile/setRomFile 패턴과 동일.
-let selectedImageFile = null;
-const imageDropzone = document.getElementById("image-dropzone");
-const imageUploadInput = document.getElementById("image-upload-input");
-
-function setImageFile(file) {
-  selectedImageFile = file || null;
-  document.getElementById("image-upload-status").textContent = selectedImageFile
-    ? `선택됨: ${selectedImageFile.name}`
-    : "";
-}
-
-imageDropzone.addEventListener("click", () => imageUploadInput.click());
-imageUploadInput.addEventListener("change", () => setImageFile(imageUploadInput.files[0]));
-
-["dragenter", "dragover"].forEach((evt) => {
-  imageDropzone.addEventListener(evt, (e) => {
-    e.preventDefault();
-    imageDropzone.classList.add("dragover");
-  });
-});
-["dragleave", "drop"].forEach((evt) => {
-  imageDropzone.addEventListener(evt, (e) => {
-    e.preventDefault();
-    imageDropzone.classList.remove("dragover");
-  });
-});
-imageDropzone.addEventListener("drop", (e) => {
-  const file = e.dataTransfer.files && e.dataTransfer.files[0];
-  if (file) setImageFile(file);
-});
-
-document.getElementById("btn-image-upload").addEventListener("click", async () => {
-  const status = document.getElementById("image-upload-status");
-  if (!state.currentImagePath) {
-    status.textContent = "먼저 이미지를 선택하세요";
-    return;
-  }
-  if (!selectedImageFile) {
-    status.textContent = "업로드할 PNG 파일을 선택하세요";
-    return;
-  }
-  status.textContent = "업로드 중...";
-  try {
-    const fd = new FormData();
-    fd.append("image", selectedImageFile);
-    const res = await fetch(
-      `/api/files/image?name=${encodeURIComponent(PROJECT_NAME)}&path=${encodeURIComponent(state.currentImagePath)}`,
-      { method: "POST", body: fd }
-    );
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(data.error || `요청 실패: ${res.status}`);
-    previewImage(state.currentImagePath);
-    status.textContent = `적용됨 (타일 ${data.tileCount}개) - 다음 재삽입/빌드에 반영됩니다`;
-  } catch (ex) {
-    status.textContent = `실패: ${ex.message}`;
-  }
-});
-
-// 여러 PNG를 한 번에 드래그앤드롭/선택 - 탐색 트리에서 대상을 고를 필요 없이 파일명으로
-// 서버가 자동으로 짝을 찾아 교체한다(POST /api/files/images-batch).
-let selectedBatchFiles = [];
-const batchDropzone = document.getElementById("batch-image-dropzone");
-const batchImageInput = document.getElementById("batch-image-input");
-
-function setBatchFiles(fileList) {
-  selectedBatchFiles = fileList ? Array.from(fileList) : [];
-  const box = document.getElementById("batch-image-result");
-  box.textContent = selectedBatchFiles.length
-    ? `${selectedBatchFiles.length}개 파일 선택됨 - "일괄 교체 실행"을 누르세요\n(${selectedBatchFiles.map((f) => f.name).join(", ")})`
-    : "";
-}
-
-batchDropzone.addEventListener("click", () => batchImageInput.click());
-batchImageInput.addEventListener("change", () => setBatchFiles(batchImageInput.files));
-
-["dragenter", "dragover"].forEach((evt) => {
-  batchDropzone.addEventListener(evt, (e) => {
-    e.preventDefault();
-    batchDropzone.classList.add("dragover");
-  });
-});
-["dragleave", "drop"].forEach((evt) => {
-  batchDropzone.addEventListener(evt, (e) => {
-    e.preventDefault();
-    batchDropzone.classList.remove("dragover");
-  });
-});
-batchDropzone.addEventListener("drop", (e) => {
-  if (e.dataTransfer.files && e.dataTransfer.files.length) setBatchFiles(e.dataTransfer.files);
-});
-
-document.getElementById("btn-batch-image-upload").addEventListener("click", async () => {
-  const box = document.getElementById("batch-image-result");
-  if (!selectedBatchFiles.length) {
-    box.textContent = "PNG 파일을 먼저 선택하세요";
-    return;
-  }
-  box.textContent = `${selectedBatchFiles.length}개 파일 업로드 중...`;
-  try {
-    const fd = new FormData();
-    for (const f of selectedBatchFiles) fd.append("images", f);
-    const res = await fetch(`/api/files/images-batch?name=${encodeURIComponent(PROJECT_NAME)}`, {
-      method: "POST",
-      body: fd,
-    });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(data.error || `요청 실패: ${res.status}`);
-    const lines = data.results.map((r) =>
-      r.ok ? `✅ ${r.file} -> ${r.matchedPath} (타일 ${r.tileCount}개)` : `❌ ${r.file}: ${r.error}`
-    );
-    selectedBatchFiles = [];
-    batchImageInput.value = "";
-    if (state.currentImagePath && data.results.some((r) => r.ok && r.matchedPath === state.currentImagePath)) {
-      previewImage(state.currentImagePath);
-    }
-    box.textContent = lines.join("\n");
-  } catch (ex) {
-    box.textContent = `실패: ${ex.message}`;
-  }
-});
 
 // ---- 탭 4: 빌드 ----
 document.getElementById("btn-reinsert").addEventListener("click", async () => {
