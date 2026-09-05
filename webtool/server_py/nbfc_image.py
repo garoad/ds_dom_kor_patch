@@ -42,6 +42,312 @@ def load_tiles(buf):
     return [dec[i * 64:i * 64 + 64] for i in range(n)]
 
 
+def detect_bpp(pal_buf):
+    """Detect whether tiles paired with this palette are 4bpp or 8bpp.
+    16-color palette (≤32 bytes decompressed) → 4bpp, else 8bpp.
+    This is the reliable heuristic for NDS OBJ files whose palette size
+    indicates how many bits index each pixel."""
+    dec = lz10.decompress(pal_buf)
+    return 4 if len(dec) <= 32 else 8
+
+
+def load_tiles_4bpp(buf):
+    """Decode LZ10-compressed 4bpp (16-color) tile data.
+    Each 8×8 tile = 32 bytes (4 bits per pixel, two pixels per byte,
+    low nibble = left pixel). Returns list of 64-byte expanded tiles
+    (one byte per pixel, same indexing as 8bpp) for uniform rendering."""
+    dec = lz10.decompress(buf)
+    tiles = []
+    for i in range(len(dec) // 32):
+        tile = bytearray(64)
+        for y in range(8):
+            for x in range(4):
+                b = dec[i * 32 + y * 4 + x]
+                tile[y * 8 + x * 2] = b & 0x0F
+                tile[y * 8 + x * 2 + 1] = (b >> 4) & 0x0F
+        tiles.append(bytes(tile))
+    return tiles
+
+
+def encode_tiles_4bpp(tiles):
+    """Pack a list of expanded 64-byte tiles back into 4bpp (32 bytes each)
+    and LZ10-compress. Inverse of load_tiles_4bpp."""
+    raw = bytearray()
+    for tile in tiles:
+        for y in range(8):
+            for x in range(4):
+                lo = tile[y * 8 + x * 2] & 0x0F
+                hi = tile[y * 8 + x * 2 + 1] & 0x0F
+                raw.append((hi << 4) | lo)
+    return lz10.compress(bytes(raw))
+
+
+def decode_tile_grid_4bpp_png(nbfc_buf, nbfp_buf, map_w=8, segments=None):
+    """Like decode_tile_grid_png but for 4bpp tiles (auto-detected by the
+    caller via detect_bpp). Palette index 0 → transparent, matching NDS OBJ
+    convention.  Accepts the same ``segments`` parameter as the 8bpp variant
+    for multi-row layouts (e.g. map*move nameplates: 48-tile cycles of
+    big + small plate pairs)."""
+    tiles = load_tiles_4bpp(nbfc_buf)
+    palette = load_palette(nbfp_buf)
+
+    def _render_range(start, end, w):
+        sub = tiles[start:end]
+        h = -(-len(sub) // w)
+        img = Image.new("RGBA", (w * 8, h * 8))
+        px = img.load()
+        blank = bytes(64)
+        for idx, tile in enumerate(sub):
+            tx = idx % w
+            ty = idx // w
+            for py in range(8):
+                for pcol in range(8):
+                    cidx = tile[py * 8 + pcol]
+                    if cidx == 0:
+                        px[tx * 8 + pcol, ty * 8 + py] = (0, 0, 0, 0)
+                    elif cidx < len(palette):
+                        r, g, b = palette[cidx]
+                        px[tx * 8 + pcol, ty * 8 + py] = (r, g, b, 255)
+                    else:
+                        px[tx * 8 + pcol, ty * 8 + py] = (0, 0, 0, 0)
+        return img
+
+    if segments:
+        DEFAULT_GAP = 8
+        pieces = []
+        gaps_after = []
+        for row in segments:
+            if row[0] == "hstack":
+                sub_ranges = row[1]
+                pad_bottom = row[2] if len(row) > 2 else 0
+                gap_after = row[3] if len(row) > 3 else DEFAULT_GAP
+                sub_pieces = [_render_range(*r) for r in sub_ranges]
+                piece_w = sum(im.width for im in sub_pieces)
+                piece_h = max(im.height for im in sub_pieces)
+                piece = Image.new("RGBA", (piece_w, piece_h))
+                x = 0
+                for im in sub_pieces:
+                    piece.paste(im, (x, 0))
+                    x += im.width
+            else:
+                start, end, w = row[0], row[1], row[2]
+                pad_bottom = row[3] if len(row) > 3 else 0
+                gap_after = row[4] if len(row) > 4 else DEFAULT_GAP
+                piece = _render_range(start, end, w)
+            if pad_bottom:
+                padded = Image.new("RGBA", (piece.width, piece.height + pad_bottom))
+                padded.paste(piece, (0, 0))
+                piece = padded
+            pieces.append(piece)
+            gaps_after.append(gap_after)
+        canvas_w = max(im.width for im in pieces)
+        canvas_h = sum(im.height for im in pieces) + sum(gaps_after[:-1])
+        canvas = Image.new("RGBA", (canvas_w, canvas_h))
+        y = 0
+        for i, im in enumerate(pieces):
+            x = (canvas_w - im.width) // 2
+            canvas.paste(im, (x, y))
+            y += im.height
+            if i < len(pieces) - 1:
+                y += gaps_after[i]
+        out = io.BytesIO()
+        canvas.save(out, format="PNG")
+        return out.getvalue()
+
+    img = _render_range(0, len(tiles), map_w)
+    out = io.BytesIO()
+    img.save(out, format="PNG")
+    return out.getvalue()
+
+
+def decode_nameplates_80x24(nbfc_buf, nbfp_buf, gap=8):
+    """Decode map*move_name{on,off}_obj 4bpp OBJ nameplate files into a
+    vertically stacked strip of complete 80x24 px (10x3 tiles) buttons.
+
+    Hardware OAM layout per button (48 tiles total):
+      - Chunk 1: 64x32 OAM sprite (tiles 0..31, 8x4 tiles). Top 64x24 px
+        (tiles 0..23, 8x3) is the left portion of the button. Bottom 64x8 px
+        (tiles 24..31) is transparent padding.
+      - Chunk 2: 32x32 OAM sprite (tiles 32..47, 4x4 tiles). Top-left 16x24 px
+        (tiles 32..47 cols 0..1, rows 0..2) is the right continuation + border.
+        Remaining tiles are transparent padding.
+      - Assembled button size: (64 + 16) x 24 = 80 x 24 px.
+    """
+    tiles = load_tiles_4bpp(nbfc_buf)
+    pal = load_palette(nbfp_buf)
+    n_tiles = len(tiles)
+    n_plates = n_tiles // 48
+    canvas_h = n_plates * 24 + (n_plates - 1) * gap
+    img = Image.new("RGBA", (80, canvas_h), (0, 0, 0, 0))
+    px = img.load()
+
+    for p in range(n_plates):
+        base = p * 48
+        row_y = p * (24 + gap)
+        # Left 64x24 px (tiles base + 0..23, 8 tiles wide)
+        for ty in range(3):
+            for tx in range(8):
+                t = tiles[base + ty * 8 + tx]
+                for py in range(8):
+                    for px_x in range(8):
+                        c = t[py * 8 + px_x]
+                        if c != 0 and c < len(pal):
+                            r, g, b = pal[c]
+                            px[tx * 8 + px_x, row_y + ty * 8 + py] = (r, g, b, 255)
+        # Right 16x24 px (tiles base + 32..47 at width 4, cols 0..1)
+        for ty in range(3):
+            for tx in range(2):
+                t = tiles[base + 32 + ty * 4 + tx]
+                for py in range(8):
+                    for px_x in range(8):
+                        c = t[py * 8 + px_x]
+                        if c != 0 and c < len(pal):
+                            r, g, b = pal[c]
+                            px[64 + tx * 8 + px_x, row_y + ty * 8 + py] = (r, g, b, 255)
+    out = io.BytesIO()
+    img.save(out, format="PNG")
+    return out.getvalue()
+
+
+def pack_4bpp_nameplates(png_bytes, target_path, pal_path, gap=8):
+    """Re-encode an 80x24 button strip PNG back into 4bpp OBJ nameplate tiles.
+    Inverse of decode_nameplates_80x24:
+      - Left 64x24 px -> tiles base + 0..23 (8x3 tiles)
+      - Left bottom padding (tiles base + 24..31) -> 0
+      - Right 16x24 px -> tiles base + 32 + ty*4 + tx (tx: 0..1, ty: 0..2)
+      - Right padding (cols 2..3 and row 3) -> 0
+    Zero-diff lossless round-trip verified."""
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+    orig_tiles = load_tiles_4bpp(open(target_path, "rb").read())
+    pal = load_palette(open(pal_path, "rb").read())
+    n_tiles = len(orig_tiles)
+    n_plates = n_tiles // 48
+    new_tiles = [bytearray(64) for _ in range(n_tiles)]
+
+    for p in range(n_plates):
+        base = p * 48
+        row_y = p * (24 + gap)
+        # 1. Left 64x24 px -> tiles base + 0..23
+        for ty in range(3):
+            for tx in range(8):
+                t_idx = base + ty * 8 + tx
+                for py in range(8):
+                    for px_x in range(8):
+                        x = tx * 8 + px_x
+                        y = row_y + ty * 8 + py
+                        if x < img.width and y < img.height:
+                            c = px[x, y]
+                            if c[3] < 128 or c[:3] == (0, 255, 0):
+                                new_tiles[t_idx][py * 8 + px_x] = 0
+                            else:
+                                new_tiles[t_idx][py * 8 + px_x] = nearest_palette_index(c[0], c[1], c[2], pal)
+        # 2. Left bottom padding (tiles base + 24..31) stays 0 (empty)
+        # 3. Right 16x24 px -> tiles base + 32 + ty * 4 + tx (tx: 0..1)
+        for ty in range(3):
+            for tx in range(2):
+                t_idx = base + 32 + ty * 4 + tx
+                for py in range(8):
+                    for px_x in range(8):
+                        x = 64 + tx * 8 + px_x
+                        y = row_y + ty * 8 + py
+                        if x < img.width and y < img.height:
+                            c = px[x, y]
+                            if c[3] < 128 or c[:3] == (0, 255, 0):
+                                new_tiles[t_idx][py * 8 + px_x] = 0
+                            else:
+                                new_tiles[t_idx][py * 8 + px_x] = nearest_palette_index(c[0], c[1], c[2], pal)
+        # 4. Right padding (tx: 2..3 and row 3) stays 0 (empty)
+
+    packed = [bytes(t) for t in new_tiles]
+    with open(target_path, "wb") as f:
+        f.write(encode_tiles_4bpp(packed))
+    return n_tiles
+
+
+def decode_infobar_after(nbfc_buf, nbfp_buf):
+    """Decode infobar_after_obj.nbfcn (8bpp, 48 tiles) into a complete
+    80x24 px banner ("それから" phrase).
+    Uses the exact same OAM sprite assembly as map*move nameplates:
+      - Left: 64x32 OAM sprite (tiles 0..31, 8x4), top 64x24 px (tiles 0..23, 8x3).
+      - Right: 32x32 OAM sprite (tiles 32..47, 4x4), top-left 16x24 px (cols 0..1, rows 0..2).
+    Assembled size: 80x24 px. Transparent background (index 0)."""
+    tiles = load_tiles(nbfc_buf)
+    pal = load_palette(nbfp_buf)
+    img = Image.new("RGBA", (80, 24), (0, 0, 0, 0))
+    px = img.load()
+
+    # Left 64x24 px (tiles 0..23, width 8)
+    for ty in range(3):
+        for tx in range(8):
+            t = tiles[ty * 8 + tx]
+            for py in range(8):
+                for px_x in range(8):
+                    c = t[py * 8 + px_x]
+                    if c != 0 and c < len(pal):
+                        px[tx * 8 + px_x, ty * 8 + py] = pal[c] + (255,)
+
+    # Right 16x24 px (tiles 32..47, width 4, cols 0..1)
+    for ty in range(3):
+        for tx in range(2):
+            t = tiles[32 + ty * 4 + tx]
+            for py in range(8):
+                for px_x in range(8):
+                    c = t[py * 8 + px_x]
+                    if c != 0 and c < len(pal):
+                        px[64 + tx * 8 + px_x, ty * 8 + py] = pal[c] + (255,)
+
+    out = io.BytesIO()
+    img.save(out, format="PNG")
+    return out.getvalue()
+
+
+def pack_infobar_after(png_bytes, target_path, pal_path):
+    """Re-encode an 80x24 PNG back into infobar_after_obj 8bpp tiles (48 tiles).
+    Inverse of decode_infobar_after. Zero-diff round-trip verified."""
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+    orig_tiles = load_tiles(open(target_path, "rb").read())
+    pal = load_palette(open(pal_path, "rb").read())
+    n_tiles = 48
+    new_tiles = [bytearray(64) for _ in range(n_tiles)]
+
+    # Left 64x24 px
+    for ty in range(3):
+        for tx in range(8):
+            t_idx = ty * 8 + tx
+            for py in range(8):
+                for px_x in range(8):
+                    x = tx * 8 + px_x
+                    y = ty * 8 + py
+                    if x < img.width and y < img.height:
+                        c = px[x, y]
+                        if c[3] < 128 or c[:3] == (0, 255, 0):
+                            new_tiles[t_idx][py * 8 + px_x] = 0
+                        else:
+                            new_tiles[t_idx][py * 8 + px_x] = nearest_palette_index(c[0], c[1], c[2], pal)
+
+    # Right 16x24 px
+    for ty in range(3):
+        for tx in range(2):
+            t_idx = 32 + ty * 4 + tx
+            for py in range(8):
+                for px_x in range(8):
+                    x = 64 + tx * 8 + px_x
+                    y = ty * 8 + py
+                    if x < img.width and y < img.height:
+                        c = px[x, y]
+                        if c[3] < 128 or c[:3] == (0, 255, 0):
+                            new_tiles[t_idx][py * 8 + px_x] = 0
+                        else:
+                            new_tiles[t_idx][py * 8 + px_x] = nearest_palette_index(c[0], c[1], c[2], pal)
+
+    raw = b"".join(new_tiles)
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(raw))
+    return n_tiles
+
+
 def load_screen(buf):
     dec = lz10.decompress(buf)
     n = len(dec) // 2

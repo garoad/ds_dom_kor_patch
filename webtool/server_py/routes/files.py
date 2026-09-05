@@ -73,12 +73,16 @@ BIN_PALETTE_RE = re.compile(r"^.+_p_.+\.bin$", re.IGNORECASE)
 #   for titleobj/extra_afdom* (three "Days of Memories" logo cards split
 #   across an 8-wide + 4-wide chunk each) plus two more plain width-8 rows.
 # extra_b_waku/extra_ending_waku/extra_menuwaku ("waku" = frame/border) and
-# infobarobj/infobar3obj/infobar_after_obj/map*move*_obj were checked too but
+# infobarobj/infobar3obj/infobar_after_obj were checked too but
 # no candidate width made them fully coherent - they're most likely
 # runtime-assembled UI chrome (corner/edge border pieces, digit/name-tag
 # fragments drawn individually rather than as one picture), so they stay on
 # decode_tile_grid_png()'s 32-wide default (best-effort reference preview,
 # not a claim of correctness).
+# map*move_nameon/nameoff_obj are 4bpp (16-color) OBJ nameplate sprites —
+# auto-detected via detect_bpp() and decoded as 48-tile-per-location
+# (big+small) hstack pairs.  map*moveobj and map*move_waku_obj remain
+# 8bpp runtime-assembled fragments on the 32-wide default.
 #
 def _repeating_hstack_rows(cycle_len, chunk1_end, chunk2_start, chunk2_end, w1, w2, n_cycles, base_offset=0):
     """Build `n_cycles` ("hstack", [(...)]) rows for a file made of repeated
@@ -167,16 +171,29 @@ KNOWN_WIDTH_OVERRIDES = [
     # coincidence. tiles[80:112] are the shared "の刻" suffix
     # ("Hour of the ___") at width 8, confirmed still correct standalone.
     (re.compile(r"^infobar3obj\.nbfcn$", re.IGNORECASE), [(0, 80, 4), (80, 112, 8)]),
-    # infobar_after_obj (48 tiles): "それから"(그러고 나서/그 후) phrase +
-    # a small arrow/transition icon, clean at 8.
-    (re.compile(r"^infobar_after_obj\.nbfcn$", re.IGNORECASE), 8),
+    # infobar_after_obj (48 tiles): "それから" phrase banner (80x24 px).
+    # Uses the same 64x32 + 32x32 OAM sprite split as nameplates.
+    # Decoded via decode_infobar_after / re-encoded via pack_infobar_after.
     # saveloadobj (656 tiles): save/load menu buttons - return-arrow icons,
     # "タイトルにもどる"(타이틀로 돌아가기), "はい"/"いいえ"(예/아니오),
     # "1ページ"/"2ページ"/"3ページ"(페이지 탭) in multiple color states.
-    # Same failure mode as extra_menusub: at 32 a multi-row label's rows land
-    # in different quadrants of one wide display row instead of stacking, so
-    # it reads as scattered fragments; at 8 each label's rows stack correctly.
-    (re.compile(r"^saveloadobj\.nbfcn$", re.IGNORECASE), 8),
+    # Segments layout:
+    # 1. Return arrows (tiles 0..48 at width 4 -> 32x96 px)
+    # 2. Yellow 'タイトルにもどる' (tiles 48..144: 3 chunks of 64x32 hstacked -> 192x32 px)
+    # 3. Pink 'タイトルにもどる' (tiles 144..240: 3 chunks of 64x32 hstacked -> 192x32 px)
+    # 4. 'はい' buttons (tiles 240..304: grey + yellow 64x32 hstacked -> 128x32 px)
+    # 5. 'いいえ' buttons (tiles 304..368: grey + yellow 64x32 hstacked -> 128x32 px)
+    # 6. Page tabs white (tiles 368..480: 3 tabs 64x16 hstacked -> 192x16 px)
+    # 7. Page tabs yellow (tiles 512..624: 3 tabs 64x16 hstacked -> 192x16 px)
+    (re.compile(r"^saveloadobj\.nbfcn$", re.IGNORECASE), [
+        (0, 48, 4),
+        ("hstack", [(48, 80, 8), (80, 112, 8), (112, 144, 8)]),
+        ("hstack", [(144, 176, 8), (176, 208, 8), (208, 240, 8)]),
+        ("hstack", [(240, 272, 8), (272, 304, 8)]),
+        ("hstack", [(304, 336, 8), (336, 368, 8)]),
+        ("hstack", [(368, 384, 8), (416, 432, 8), (464, 480, 8)]),
+        ("hstack", [(512, 528, 8), (560, 576, 8), (608, 624, 8)]),
+    ]),
     # extra_afdom1/2/3_onsub (864 tiles each): character-select folder tabs
     # - looked fine at the 32-wide default (a plausible multi-column folder
     # grid), but re-verified 2026-09-02 with the hstack technique found for
@@ -205,6 +222,14 @@ KNOWN_WIDTH_OVERRIDES = [
 ]
 
 
+# 4bpp OBJ nameplate filename patterns (checked in raw/apply endpoints)
+# Each button is 80x24 px (64x24 left sprite + 16x24 right sprite).
+# Decoded via decode_nameplates_80x24 / re-encoded via pack_4bpp_nameplates.
+NAMEPLATE_4BPP_RE = re.compile(
+    r"^map[123]move_name(?:on|off)_obj\.nbfcn$", re.IGNORECASE
+)
+
+
 def _row_max_end(row):
     """Highest tile index a segments row reads up to - a plain
     (start,end,width,...) tuple's own `end`, or the max `end` across an
@@ -222,6 +247,10 @@ def known_width_override(fname, n_entries):
     for pat, val in KNOWN_WIDTH_OVERRIDES:
         if not pat.match(fname):
             continue
+        if callable(val):
+            # Dynamic segments builder (e.g. nameplate layout depends on
+            # actual tile count which varies per map: 384 vs 432)
+            return val(n_entries)
         if isinstance(val, list):
             if _row_max_end(val[-1]) <= n_entries:
                 return val
@@ -486,12 +515,27 @@ def raw():
             with open(resolved["palettePath"], "rb") as f:
                 pal_buf = f.read()
             if resolved["mode"] == "grid":
-                n_tiles = len(nbfc_image.load_tiles(tile_buf))
-                width_override = known_width_override(os.path.basename(target), n_tiles)
-                if isinstance(width_override, list):
-                    png = nbfc_image.decode_tile_grid_png(tile_buf, pal_buf, segments=width_override)
+                target_fname = os.path.basename(target).lower()
+                if NAMEPLATE_4BPP_RE.match(target_fname):
+                    png = nbfc_image.decode_nameplates_80x24(tile_buf, pal_buf)
+                elif target_fname == "infobar_after_obj.nbfcn":
+                    png = nbfc_image.decode_infobar_after(tile_buf, pal_buf)
                 else:
-                    png = nbfc_image.decode_tile_grid_png(tile_buf, pal_buf, map_w=width_override or 32)
+                    bpp = nbfc_image.detect_bpp(pal_buf)
+                    if bpp == 4:
+                        n_tiles = len(nbfc_image.load_tiles_4bpp(tile_buf))
+                        width_override = known_width_override(os.path.basename(target), n_tiles)
+                        if isinstance(width_override, list):
+                            png = nbfc_image.decode_tile_grid_4bpp_png(tile_buf, pal_buf, segments=width_override)
+                        else:
+                            png = nbfc_image.decode_tile_grid_4bpp_png(tile_buf, pal_buf, map_w=width_override or 8)
+                    else:
+                        n_tiles = len(nbfc_image.load_tiles(tile_buf))
+                        width_override = known_width_override(os.path.basename(target), n_tiles)
+                        if isinstance(width_override, list):
+                            png = nbfc_image.decode_tile_grid_png(tile_buf, pal_buf, segments=width_override)
+                        else:
+                            png = nbfc_image.decode_tile_grid_png(tile_buf, pal_buf, map_w=width_override or 32)
             else:
                 with open(resolved["screenPath"], "rb") as f:
                     screen_buf = f.read()
@@ -530,6 +574,16 @@ def upload_image():
         resolved = resolve_triplet_paths(target)
         if "error" in resolved:
             return jsonify({"error": resolved["error"]}), 400
+
+        target_fname = os.path.basename(target).lower()
+        # 4bpp OBJ nameplate files (no screenmap) — support direct re-encode
+        if NAMEPLATE_4BPP_RE.match(target_fname):
+            tile_count = nbfc_image.pack_4bpp_nameplates(file.read(), target, resolved["palettePath"])
+            return jsonify({"tileCount": tile_count})
+        elif target_fname == "infobar_after_obj.nbfcn":
+            tile_count = nbfc_image.pack_infobar_after(file.read(), target, resolved["palettePath"])
+            return jsonify({"tileCount": tile_count})
+
         if resolved["mode"] != "full":
             return jsonify({"error": "이 파일은 미리보기 전용입니다 (스크린맵 또는 전용 팔레트가 없어 재인코딩을 지원하지 않습니다)"}), 400
 
@@ -630,6 +684,347 @@ def pack_talkobj(png_bytes, target_path, pal_path):
     return 304
 
 
+def pack_saveloadobj(png_bytes, target_path, pal_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp))
+    with open(pal_path, "rb") as f:
+        pal = nbfc_image.load_palette(lz10.decompress(f.read()) if pal_path.endswith("n") else f.read())
+    pal256 = pal[:256]
+
+    def write_block(t_start, w_tiles, h_tiles, img_x, img_y):
+        for ty in range(h_tiles):
+            for tx in range(w_tiles):
+                t_idx = t_start + ty * w_tiles + tx
+                tile_off = t_idx * 64
+                for py in range(8):
+                    for col in range(8):
+                        x = img_x + tx * 8 + col
+                        y = img_y + ty * 8 + py
+                        c = px[x, y]
+                        if c[3] == 0 or c[:3] == (0, 255, 0):
+                            dec[tile_off + py * 8 + col] = 0
+                        else:
+                            dec[tile_off + py * 8 + col] = nbfc_image.nearest_palette_index(c[0], c[1], c[2], pal256)
+
+    # 1. Yellow Title Return (3 chunks of 64x32 = 8x4 tiles)
+    write_block(48, 8, 4, 0, 104)
+    write_block(80, 8, 4, 64, 104)
+    write_block(112, 8, 4, 128, 104)
+
+    # 2. Pink Title Return (3 chunks of 64x32 = 8x4 tiles)
+    write_block(144, 8, 4, 0, 144)
+    write_block(176, 8, 4, 64, 144)
+    write_block(208, 8, 4, 128, 144)
+
+    # 3. '예' buttons (2 chunks of 64x32 = 8x4 tiles)
+    write_block(240, 8, 4, 32, 184) # Grey
+    write_block(272, 8, 4, 96, 184) # Yellow
+
+    # 4. '아니오' buttons (2 chunks of 64x32 = 8x4 tiles)
+    write_block(304, 8, 4, 32, 224) # Grey
+    write_block(336, 8, 4, 96, 224) # Yellow
+
+    # 5. White Page Tabs (3 chunks of 64x16 = 8x2 tiles)
+    write_block(368, 8, 2, 0, 264)
+    write_block(416, 8, 2, 64, 264)
+    write_block(464, 8, 2, 128, 264)
+
+    # 6. Yellow Page Tabs (3 chunks of 64x16 = 8x2 tiles)
+    write_block(512, 8, 2, 0, 288)
+    write_block(560, 8, 2, 64, 288)
+    write_block(608, 8, 2, 128, 288)
+
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(bytes(dec)))
+    return 656
+
+
+def pack_extra_afdom(png_bytes, target_path, pal_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp))
+    orig_dec = bytes(dec)
+    with open(pal_path, "rb") as f:
+        pal_buf = lz10.decompress(f.read()) if pal_path.endswith("n") else f.read()
+        pal = nbfc_image.load_palette(pal_buf)[:256]
+
+    for i in range(9):
+        base = i * 96
+        img_y = i * 56
+        # Piece 1: 8x6 tiles @ base+0..48
+        for ty in range(6):
+            for tx in range(8):
+                t_idx = base + ty * 8 + tx
+                tile_off = t_idx * 64
+                for py in range(8):
+                    for px_x in range(8):
+                        x = tx * 8 + px_x
+                        y = img_y + ty * 8 + py
+                        orig_val = orig_dec[tile_off + py * 8 + px_x]
+                        orig_rgb = pal[orig_val] if orig_val < len(pal) else (0, 0, 0)
+                        c = px[x, y]
+                        if c[3] == 0:
+                            dec[tile_off + py * 8 + px_x] = 0
+                        elif c[:3] != orig_rgb:
+                            dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(c[0], c[1], c[2], pal)
+        # Piece 2: 4x6 tiles @ base+64..88
+        for ty in range(6):
+            for tx in range(4):
+                t_idx = base + 64 + ty * 4 + tx
+                tile_off = t_idx * 64
+                for py in range(8):
+                    for px_x in range(8):
+                        x = 64 + tx * 8 + px_x
+                        y = img_y + ty * 8 + py
+                        orig_val = orig_dec[tile_off + py * 8 + px_x]
+                        orig_rgb = pal[orig_val] if orig_val < len(pal) else (0, 0, 0)
+                        c = px[x, y]
+                        if c[3] == 0:
+                            dec[tile_off + py * 8 + px_x] = 0
+                        elif c[:3] != orig_rgb:
+                            dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(c[0], c[1], c[2], pal)
+
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(bytes(dec)))
+    return 864
+
+
+def pack_extra_dom_album(png_bytes, target_path, pal_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp))
+    orig_dec = bytes(dec)
+    with open(pal_path, "rb") as f:
+        pal_buf = lz10.decompress(f.read()) if pal_path.endswith("n") else f.read()
+        pal = nbfc_image.load_palette(pal_buf)[:256]
+
+    for i in range(9):
+        base = 128 + i * 96
+        img_y = 264 + i * 56
+        # Piece 1: 8x6 tiles @ base+0..48
+        for ty in range(6):
+            for tx in range(8):
+                t_idx = base + ty * 8 + tx
+                tile_off = t_idx * 64
+                for py in range(8):
+                    for px_x in range(8):
+                        x = tx * 8 + px_x
+                        y = img_y + ty * 8 + py
+                        orig_val = orig_dec[tile_off + py * 8 + px_x]
+                        orig_rgb = pal[orig_val] if orig_val < len(pal) else (0, 0, 0)
+                        c = px[x, y]
+                        if c[3] == 0:
+                            dec[tile_off + py * 8 + px_x] = 0
+                        elif c[:3] != orig_rgb:
+                            dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(c[0], c[1], c[2], pal)
+        # Piece 2: 4x6 tiles @ base+64..88
+        for ty in range(6):
+            for tx in range(4):
+                t_idx = base + 64 + ty * 4 + tx
+                tile_off = t_idx * 64
+                for py in range(8):
+                    for px_x in range(8):
+                        x = 64 + tx * 8 + px_x
+                        y = img_y + ty * 8 + py
+                        orig_val = orig_dec[tile_off + py * 8 + px_x]
+                        orig_rgb = pal[orig_val] if orig_val < len(pal) else (0, 0, 0)
+                        c = px[x, y]
+                        if c[3] == 0:
+                            dec[tile_off + py * 8 + px_x] = 0
+                        elif c[:3] != orig_rgb:
+                            dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(c[0], c[1], c[2], pal)
+
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(bytes(dec)))
+    return 992
+
+
+def pack_ending_b(png_bytes, target_path, pal_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp) if comp[0] == 0x10 else comp)
+    orig_dec = bytes(dec)
+    with open(pal_path, "rb") as f:
+        pal_buf = f.read()
+        if pal_buf[0] == 0x10:
+            pal_buf = lz10.decompress(pal_buf)
+        pal = nbfc_image.load_palette(pal_buf)[:256]
+
+    # Button is rows 21, 22, 23, cols 10..20 (x=80..168, y=168..192)
+    # Row 21: tiles 146..156 (and tile 261 = tile 154)
+    # Row 22: tiles 159..169
+    # Row 23: tiles 180..190 (and tiles 269..276 = tiles 180..188)
+    row_tiles = [
+        (21, [146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156]),
+        (22, [159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169]),
+        (23, [180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190]),
+    ]
+    for r, t_list in row_tiles:
+        for c_idx, t in enumerate(t_list):
+            c = 10 + c_idx
+            tile_off = t * 64
+            for py in range(8):
+                for px_x in range(8):
+                    x = c * 8 + px_x
+                    y = r * 8 + py
+                    orig_val = orig_dec[tile_off + py * 8 + px_x]
+                    orig_rgb = pal[orig_val] if orig_val < len(pal) else (0, 0, 0)
+                    clr = px[x, y]
+                    if clr[3] == 0:
+                        dec[tile_off + py * 8 + px_x] = 0
+                    elif clr[:3] != orig_rgb:
+                        dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(clr[0], clr[1], clr[2], pal)
+
+    # Clone tile 154 to tile 261
+    dec[261 * 64 : 262 * 64] = dec[154 * 64 : 155 * 64]
+    # Clone tiles 180..184 to 269..273, tile 186..188 to 274..276
+    for t_src, t_dst in [(180, 269), (181, 270), (182, 271), (183, 272), (184, 273), (186, 274), (187, 275), (188, 276)]:
+        dec[t_dst * 64 : (t_dst + 1) * 64] = dec[t_src * 64 : (t_src + 1) * 64]
+
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(bytes(dec)))
+    return len(dec) // 64
+
+
+def pack_name_screen_u(png_bytes, target_path, pal_path, screen_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp) if comp[0] == 0x10 else comp)
+    orig_dec = bytes(dec)
+    with open(pal_path, "rb") as f:
+        pal_raw = f.read()
+        if pal_raw[0] == 0x10:
+            pal_raw = lz10.decompress(pal_raw)
+        pal = nbfc_image.load_palette(pal_raw)[:256]
+    with open(screen_path, "rb") as f:
+        scr_raw = f.read()
+        if scr_raw[0] == 0x10:
+            scr_raw = lz10.decompress(scr_raw)
+    entries = [int.from_bytes(scr_raw[i : i + 2], "little") & 0x3FF for i in range(0, len(scr_raw), 2)]
+
+    tile_pos = {}
+    for r in range(24):
+        for c in range(32):
+            t = entries[r * 32 + c]
+            if t not in tile_pos:
+                tile_pos[t] = (r, c)
+    for r in range(24, 32):
+        for c in range(32):
+            t = entries[r * 32 + c]
+            if t not in tile_pos:
+                tile_pos[t] = (r, c)
+
+    # Explicit mappings for swap buffer tiles
+    tile_pos[347] = (24, 6)
+    tile_pos[348] = (24, 7)
+    tile_pos[349] = (25, 6)
+    tile_pos[350] = (25, 7)
+
+    tile_pos[351] = (27, 19)
+    tile_pos[352] = (27, 20)
+    tile_pos[353] = (28, 19)
+    tile_pos[354] = (28, 20)
+
+    tile_pos[355] = (30, 3)
+    tile_pos[356] = (30, 4)
+    tile_pos[357] = (31, 3)
+    tile_pos[358] = (31, 4)
+
+    for t in range(len(dec) // 64):
+        if t not in tile_pos:
+            continue
+        r, c = tile_pos[t]
+        tile_off = t * 64
+        for py in range(8):
+            for px_x in range(8):
+                x = c * 8 + px_x
+                y = r * 8 + py
+                orig_val = orig_dec[tile_off + py * 8 + px_x]
+                orig_rgb = pal[orig_val] if orig_val < len(pal) else (0, 0, 0)
+                clr = px[x, y]
+                if clr[3] == 0:
+                    dec[tile_off + py * 8 + px_x] = 0
+                elif clr[:3] != orig_rgb:
+                    dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(clr[0], clr[1], clr[2], pal)
+
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(bytes(dec)))
+    return len(dec) // 64
+
+
+def pack_name_screen_b(png_bytes, target_path, pal_path, screen_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp) if comp[0] == 0x10 else comp)
+    orig_dec = bytes(dec)
+    with open(pal_path, "rb") as f:
+        pal_raw = f.read()
+        if pal_raw[0] == 0x10:
+            pal_raw = lz10.decompress(pal_raw)
+        pal = nbfc_image.load_palette(pal_raw)[:256]
+    with open(screen_path, "rb") as f:
+        scr_raw = f.read()
+        if scr_raw[0] == 0x10:
+            scr_raw = lz10.decompress(scr_raw)
+    entries = [int.from_bytes(scr_raw[i : i + 2], "little") & 0x3FF for i in range(0, len(scr_raw), 2)]
+
+    tile_pos = {}
+    for r in range(24):
+        for c in range(32):
+            t = entries[r * 32 + c]
+            if t not in tile_pos:
+                tile_pos[t] = (r, c)
+    for r in range(24, 32):
+        for c in range(32):
+            t = entries[r * 32 + c]
+            if t not in tile_pos:
+                tile_pos[t] = (r, c)
+
+    # Explicit mappings for b02s tabs (from rows 28 & 29)
+    for c_idx, t in enumerate(range(141, 150)):
+        tile_pos[t] = (28, 4 + c_idx)
+    for c_idx, t in enumerate(range(165, 174)):
+        tile_pos[t] = (29, 4 + c_idx)
+    for c_idx, t in enumerate(range(152, 162)):
+        tile_pos[t] = (28, 19 + c_idx)
+    for c_idx, t in enumerate(range(175, 185)):
+        tile_pos[t] = (29, 19 + c_idx)
+
+    for t in range(len(dec) // 64):
+        if t not in tile_pos:
+            continue
+        r, c = tile_pos[t]
+        tile_off = t * 64
+        for py in range(8):
+            for px_x in range(8):
+                x = c * 8 + px_x
+                y = r * 8 + py
+                orig_val = orig_dec[tile_off + py * 8 + px_x]
+                orig_rgb = pal[orig_val] if orig_val < len(pal) else (0, 0, 0)
+                clr = px[x, y]
+                if clr[3] == 0:
+                    dec[tile_off + py * 8 + px_x] = 0
+                elif clr[:3] != orig_rgb:
+                    dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(clr[0], clr[1], clr[2], pal)
+
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(bytes(dec)))
+    return len(dec) // 64
+
+
 def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
     png_name = os.path.basename(rel_png_path)
     base = os.path.splitext(png_name)[0]
@@ -663,6 +1058,22 @@ def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
         tile_count = pack_titleobj(png_bytes, target, resolved["palettePath"])
     elif target_fname == "talkobj.nbfcn":
         tile_count = pack_talkobj(png_bytes, target, resolved["palettePath"])
+    elif target_fname == "saveloadobj.nbfcn":
+        tile_count = pack_saveloadobj(png_bytes, target, resolved["palettePath"])
+    elif re.match(r"^extra_afdom[123]_onsub\.nbfcn$", target_fname):
+        tile_count = pack_extra_afdom(png_bytes, target, resolved["palettePath"])
+    elif re.match(r"^extra_dom[123]_albumsub\.nbfcn$", target_fname):
+        tile_count = pack_extra_dom_album(png_bytes, target, resolved["palettePath"])
+    elif target_fname == "ending_b_bg_ending_b01c.bin":
+        tile_count = pack_ending_b(png_bytes, target, resolved["palettePath"])
+    elif target_fname == "name_screen_u_bg_name_screen_u01c.bin":
+        tile_count = pack_name_screen_u(png_bytes, target, resolved["palettePath"], resolved["screenPath"])
+    elif target_fname == "name_screen_b_bg_name_screen_b01c.bin":
+        tile_count = pack_name_screen_b(png_bytes, target, resolved["palettePath"], resolved["screenPath"])
+    elif NAMEPLATE_4BPP_RE.match(target_fname):
+        tile_count = nbfc_image.pack_4bpp_nameplates(png_bytes, target, resolved["palettePath"])
+    elif target_fname == "infobar_after_obj.nbfcn":
+        tile_count = nbfc_image.pack_infobar_after(png_bytes, target, resolved["palettePath"])
     else:
         if resolved["mode"] not in ("full", "borrowed_palette"):
             return {"file": rel_png_path, "ok": False, "error": "이 파일은 미리보기 전용입니다 (스크린맵이 없음)"}
