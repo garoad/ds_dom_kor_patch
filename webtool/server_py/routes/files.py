@@ -423,6 +423,16 @@ def get_patch_rel_for_asset(rel_path, patch_dict=None):
     parts = rel_path.replace("\\", "/").split("/")
     sub = parts[-2].lower() if len(parts) >= 2 else ""
 
+    # 1. Exact full basename match (e.g. "data/speed_bg_speedc.bin" -> "speed_bg_speedc.png")
+    if sub:
+        cand0_1 = f"{sub}/{base}.png"
+        if cand0_1 in patch_dict:
+            return cand0_1
+    cand0_2 = f"{base}.png"
+    if cand0_2 in patch_dict:
+        return cand0_2
+
+    # 2. Short stem match (e.g. "data/infodom1/eplace_01_bg_eplace_01c.bin" -> "infodom1/eplace_01.png")
     cand1 = f"{sub}/{stem}.png" if sub else None
     if cand1 and cand1 in patch_dict:
         return cand1
@@ -430,7 +440,7 @@ def get_patch_rel_for_asset(rel_path, patch_dict=None):
     if cand2 in patch_dict:
         return cand2
 
-    matches = [k for k in patch_dict if os.path.splitext(os.path.basename(k))[0].lower() == stem]
+    matches = [k for k in patch_dict if os.path.splitext(os.path.basename(k))[0].lower() in (base, stem)]
     if len(matches) == 1:
         return matches[0]
     elif len(matches) > 1:
@@ -520,6 +530,8 @@ def raw():
                     png = nbfc_image.decode_nameplates_80x24(tile_buf, pal_buf)
                 elif target_fname == "infobar_after_obj.nbfcn":
                     png = nbfc_image.decode_infobar_after(tile_buf, pal_buf)
+                elif target_fname == "nameobj.nbfcn":
+                    png = nbfc_image.decode_nameobj(tile_buf, pal_buf)
                 else:
                     bpp = nbfc_image.detect_bpp(pal_buf)
                     if bpp == 4:
@@ -539,9 +551,23 @@ def raw():
             else:
                 with open(resolved["screenPath"], "rb") as f:
                     screen_buf = f.read()
-                n_entries = len(nbfc_image.load_screen(screen_buf))
-                width_override = known_width_override(os.path.basename(target), n_entries)
-                png = nbfc_image.decode_tilemap_png(tile_buf, pal_buf, screen_buf, map_w=width_override)
+                target_fname = os.path.basename(target).lower()
+                if target_fname == "option_window_bg_option_windowc.bin":
+                    # Render 256x256 composite containing both top blue dialog and bottom yellow switch buttons
+                    target_dir = os.path.dirname(target)
+                    sw_path = os.path.join(target_dir, "option_window_bg_option_switchs.bin")
+                    if not os.path.exists(sw_path):
+                        sw_path = os.path.join(os.path.dirname(resolved["screenPath"]), "option_window_bg_option_switchs.bin")
+                    with open(sw_path, "rb") as f:
+                        sw_raw = f.read()
+                    png = decode_option_window_composite(tile_buf, pal_buf, screen_buf, sw_raw)
+                elif target_fname == "speed_bg_speedc.bin":
+                    # Full 32x32 (256x256) tilemap
+                    png = nbfc_image.decode_tilemap_png(tile_buf, pal_buf, screen_buf, map_w=32)
+                else:
+                    n_entries = len(nbfc_image.load_screen(screen_buf))
+                    width_override = known_width_override(os.path.basename(target), n_entries)
+                    png = nbfc_image.decode_tilemap_png(tile_buf, pal_buf, screen_buf, map_w=width_override)
             base = os.path.splitext(os.path.basename(target))[0]
             return Response(
                 png,
@@ -582,6 +608,15 @@ def upload_image():
             return jsonify({"tileCount": tile_count})
         elif target_fname == "infobar_after_obj.nbfcn":
             tile_count = nbfc_image.pack_infobar_after(file.read(), target, resolved["palettePath"])
+            return jsonify({"tileCount": tile_count})
+        elif target_fname == "nameobj.nbfcn":
+            tile_count = nbfc_image.pack_nameobj(file.read(), target, resolved["palettePath"])
+            return jsonify({"tileCount": tile_count})
+        elif target_fname == "option_window_bg_option_windowc.bin":
+            tile_count = pack_option_window(file.read(), target, resolved["palettePath"], resolved["screenPath"])
+            return jsonify({"tileCount": tile_count})
+        elif target_fname == "speed_bg_speedc.bin":
+            tile_count = pack_speed(file.read(), target, resolved["palettePath"], resolved["screenPath"])
             return jsonify({"tileCount": tile_count})
 
         if resolved["mode"] != "full":
@@ -846,6 +881,58 @@ def pack_extra_dom_album(png_bytes, target_path, pal_path):
     return 992
 
 
+def pack_extra_menusub(png_bytes, target_path, pal_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp) if comp[0] == 0x10 else comp)
+    orig_dec = bytes(dec)
+    with open(pal_path, "rb") as f:
+        pal_buf = lz10.decompress(f.read()) if pal_path.endswith("n") else f.read()
+        pal = nbfc_image.load_palette(pal_buf)[:256]
+
+    for i in range(6):
+        base = i * 128
+        img_y = i * 72
+        # Piece 1: 8x8 tiles @ base+0..64
+        for ty in range(8):
+            for tx in range(8):
+                t_idx = base + ty * 8 + tx
+                tile_off = t_idx * 64
+                for py in range(8):
+                    for px_x in range(8):
+                        x = tx * 8 + px_x
+                        y = img_y + ty * 8 + py
+                        orig_val = orig_dec[tile_off + py * 8 + px_x]
+                        orig_rgb = pal[orig_val] if orig_val < len(pal) else (0, 0, 0)
+                        c = px[x, y]
+                        if c[3] == 0 or c[:3] == (0, 255, 0):
+                            dec[tile_off + py * 8 + px_x] = 0
+                        elif c[:3] != orig_rgb:
+                            dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(c[0], c[1], c[2], pal)
+        # Piece 2: 8x8 tiles @ base+64..128
+        for ty in range(8):
+            for tx in range(8):
+                t_idx = base + 64 + ty * 8 + tx
+                tile_off = t_idx * 64
+                for py in range(8):
+                    for px_x in range(8):
+                        x = 64 + tx * 8 + px_x
+                        y = img_y + ty * 8 + py
+                        orig_val = orig_dec[tile_off + py * 8 + px_x]
+                        orig_rgb = pal[orig_val] if orig_val < len(pal) else (0, 0, 0)
+                        c = px[x, y]
+                        if c[3] == 0 or c[:3] == (0, 255, 0):
+                            dec[tile_off + py * 8 + px_x] = 0
+                        elif c[:3] != orig_rgb:
+                            dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(c[0], c[1], c[2], pal)
+
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(bytes(dec)))
+    return 1152
+
+
 def pack_ending_b(png_bytes, target_path, pal_path):
     img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
     px = img.load()
@@ -1015,14 +1102,208 @@ def pack_name_screen_b(png_bytes, target_path, pal_path, screen_path):
                 orig_val = orig_dec[tile_off + py * 8 + px_x]
                 orig_rgb = pal[orig_val] if orig_val < len(pal) else (0, 0, 0)
                 clr = px[x, y]
-                if clr[3] == 0:
-                    dec[tile_off + py * 8 + px_x] = 0
-                elif clr[:3] != orig_rgb:
-                    dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(clr[0], clr[1], clr[2], pal)
+def decode_option_window_composite(tile_buf, pal_buf, ws_buf, sw_buf):
+    tiles = nbfc_image.load_tiles(tile_buf)
+    palette = nbfc_image.load_palette(pal_buf)
+    ws_entries = nbfc_image.load_screen(ws_buf)
+    sw_entries = nbfc_image.load_screen(sw_buf)
 
+    comp = Image.new("RGBA", (256, 256), (0, 0, 0, 255))
+    px = comp.load()
+
+    # 1. Top 128px from ws_entries (32x16 tiles)
+    for i, e in enumerate(ws_entries[:512]):
+        tile_idx = e & 0x3FF
+        hflip = (e >> 10) & 1
+        vflip = (e >> 11) & 1
+        tx = i % 32
+        ty = i // 32
+        tile = tiles[tile_idx] if tile_idx < len(tiles) else bytes(64)
+        for py in range(8):
+            for pcol in range(8):
+                sx = 7 - pcol if hflip else pcol
+                sy = 7 - py if vflip else py
+                cidx = tile[sy * 8 + sx]
+                rgb = palette[cidx] if cidx < len(palette) else (0, 0, 0)
+                px[tx * 8 + pcol, ty * 8 + py] = (rgb[0], rgb[1], rgb[2], 255)
+
+    # 2. Bottom rows 16..24 (y = 128..200) from sw_entries rows 9..17 (9 rows = 72px)
+    for r in range(9):
+        sw_r = 9 + r
+        comp_r = 16 + r
+        for c in range(32):
+            e = sw_entries[sw_r * 32 + c]
+            tile_idx = e & 0x3FF
+            hflip = (e >> 10) & 1
+            vflip = (e >> 11) & 1
+            tile = tiles[tile_idx] if tile_idx < len(tiles) else bytes(64)
+            for py in range(8):
+                for pcol in range(8):
+                    sx = 7 - pcol if hflip else pcol
+                    sy = 7 - py if vflip else py
+                    cidx = tile[sy * 8 + sx]
+                    rgb = palette[cidx] if cidx < len(palette) else (0, 0, 0)
+                    px[c * 8 + pcol, comp_r * 8 + py] = (rgb[0], rgb[1], rgb[2], 255)
+
+    out = io.BytesIO()
+    comp.save(out, format="PNG")
+    return out.getvalue()
+
+
+def pack_option_window(png_bytes, target_path, pal_path, screen_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+
+    with open(pal_path, "rb") as f:
+        pal_raw = f.read()
+        if pal_raw[0] == 0x10:
+            pal_raw = lz10.decompress(pal_raw)
+        pal = nbfc_image.load_palette(pal_raw)[:256]
+
+    target_dir = os.path.dirname(target_path)
+    sw_path = os.path.join(target_dir, "option_window_bg_option_switchs.bin")
+    if not os.path.exists(sw_path):
+        sw_path = os.path.join(os.path.dirname(screen_path), "option_window_bg_option_switchs.bin")
+
+    tile_dict = {}
+    tiles = []
+
+    def get_or_add_tile(t_bytes):
+        if t_bytes in tile_dict:
+            return tile_dict[t_bytes]
+        idx = len(tiles)
+        tile_dict[t_bytes] = idx
+        tiles.append(t_bytes)
+        return idx
+
+    # 1. ws_entries (32 cols x 16 rows = 512 entries) from top 128 px
+    ws_entries = []
+    for r in range(16):
+        for c in range(32):
+            t_bytes = bytearray(64)
+            for py in range(8):
+                for px_x in range(8):
+                    clr = px[c * 8 + px_x, r * 8 + py]
+                    if clr[3] < 128 or clr[:3] == (0, 255, 0):
+                        ci = 0
+                    else:
+                        ci = nbfc_image.nearest_palette_index(clr[0], clr[1], clr[2], pal)
+                    t_bytes[py * 8 + px_x] = ci
+            t_idx = get_or_add_tile(bytes(t_bytes))
+            ws_entries.append(t_idx)
+
+    # 2. Yellow buttons from composite rows 16..24 (y = 128..200) -> sw rows 9..17
+    yellow_entries = []
+    for r in range(9):
+        comp_r = 16 + r
+        for c in range(32):
+            t_bytes = bytearray(64)
+            for py in range(8):
+                for px_x in range(8):
+                    clr = px[c * 8 + px_x, comp_r * 8 + py]
+                    if clr[3] < 128 or clr[:3] == (0, 255, 0):
+                        ci = 0
+                    else:
+                        ci = nbfc_image.nearest_palette_index(clr[0], clr[1], clr[2], pal)
+                    t_bytes[py * 8 + px_x] = ci
+            t_idx = get_or_add_tile(bytes(t_bytes))
+            yellow_entries.append(t_idx)
+
+    # 3. Build sw_entries (32 cols x 32 rows = 1024 entries)
+    trans_tile = get_or_add_tile(bytes(64))
+    sw_entries = [trans_tile] * 1024
+
+    def copy_ws_to_sw(ws_r_start, sw_r_start):
+        for r in range(3):
+            ws_r = ws_r_start + r
+            sw_r = sw_r_start + r
+            for c in range(19):
+                sw_entries[sw_r * 32 + c] = ws_entries[ws_r * 32 + (c + 1)]
+            sw_entries[sw_r * 32 + 19] = ws_entries[ws_r * 32 + 19]
+
+    copy_ws_to_sw(3, 0)   # Blue Save: ws 3..5 -> sw 0..2
+    copy_ws_to_sw(7, 3)   # Blue Load: ws 7..9 -> sw 3..5
+    copy_ws_to_sw(11, 6)  # Blue Speed: ws 11..13 -> sw 6..8
+
+    for i in range(9 * 32):
+        sw_entries[9 * 32 + i] = yellow_entries[i]
+
+    # Write target (tiles)
+    raw_tiles = b"".join(tiles)
     with open(target_path, "wb") as f:
-        f.write(lz10.compress(bytes(dec)))
-    return len(dec) // 64
+        f.write(lz10.compress(raw_tiles))
+
+    # Write screen_path (ws)
+    ws_raw = bytearray(len(ws_entries) * 2)
+    for i, val in enumerate(ws_entries):
+        ws_raw[i*2] = val & 0xFF
+        ws_raw[i*2 + 1] = (val >> 8) & 0xFF
+    with open(screen_path, "wb") as f:
+        f.write(lz10.compress(bytes(ws_raw)))
+
+    # Write sw_path (sw)
+    if os.path.exists(os.path.dirname(sw_path)):
+        sw_raw = bytearray(len(sw_entries) * 2)
+        for i, val in enumerate(sw_entries):
+            sw_raw[i*2] = val & 0xFF
+            sw_raw[i*2 + 1] = (val >> 8) & 0xFF
+        with open(sw_path, "wb") as f:
+            f.write(lz10.compress(bytes(sw_raw)))
+
+    return len(tiles)
+
+
+def pack_speed(png_bytes, target_path, pal_path, screen_path):
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+
+    with open(pal_path, "rb") as f:
+        pal_raw = f.read()
+        if pal_raw[0] == 0x10:
+            pal_raw = lz10.decompress(pal_raw)
+        pal = nbfc_image.load_palette(pal_raw)[:256]
+
+    tile_dict = {}
+    tiles = []
+
+    def get_or_add_tile(t_bytes):
+        if t_bytes in tile_dict:
+            return tile_dict[t_bytes]
+        idx = len(tiles)
+        tile_dict[t_bytes] = idx
+        tiles.append(t_bytes)
+        return idx
+
+    # 32 cols x 32 rows = 1024 entries
+    screen_entries = []
+    for r in range(32):
+        for c in range(32):
+            t_bytes = bytearray(64)
+            for py in range(8):
+                for px_x in range(8):
+                    clr = px[c * 8 + px_x, r * 8 + py]
+                    if clr[3] < 128 or clr[:3] == (0, 255, 0):
+                        ci = 0
+                    else:
+                        ci = nbfc_image.nearest_palette_index(clr[0], clr[1], clr[2], pal)
+                    t_bytes[py * 8 + px_x] = ci
+            t_idx = get_or_add_tile(bytes(t_bytes))
+            screen_entries.append(t_idx)
+
+    # Write target (tiles)
+    raw_tiles = b"".join(tiles)
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(raw_tiles))
+
+    # Write screen_path
+    scr_raw = bytearray(len(screen_entries) * 2)
+    for i, val in enumerate(screen_entries):
+        scr_raw[i*2] = val & 0xFF
+        scr_raw[i*2 + 1] = (val >> 8) & 0xFF
+    with open(screen_path, "wb") as f:
+        f.write(lz10.compress(bytes(scr_raw)))
+
+    return len(tiles)
 
 
 def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
@@ -1074,6 +1355,14 @@ def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
         tile_count = nbfc_image.pack_4bpp_nameplates(png_bytes, target, resolved["palettePath"])
     elif target_fname == "infobar_after_obj.nbfcn":
         tile_count = nbfc_image.pack_infobar_after(png_bytes, target, resolved["palettePath"])
+    elif target_fname == "nameobj.nbfcn":
+        tile_count = nbfc_image.pack_nameobj(png_bytes, target, resolved["palettePath"])
+    elif target_fname == "extra_menusub.nbfcn":
+        tile_count = pack_extra_menusub(png_bytes, target, resolved["palettePath"])
+    elif target_fname == "option_window_bg_option_windowc.bin":
+        tile_count = pack_option_window(png_bytes, target, resolved["palettePath"], resolved["screenPath"])
+    elif target_fname == "speed_bg_speedc.bin":
+        tile_count = pack_speed(png_bytes, target, resolved["palettePath"], resolved["screenPath"])
     else:
         if resolved["mode"] not in ("full", "borrowed_palette"):
             return {"file": rel_png_path, "ok": False, "error": "이 파일은 미리보기 전용입니다 (스크린맵이 없음)"}
@@ -1103,6 +1392,13 @@ def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
                     root_screen = os.path.join(repo_unpack, os.path.relpath(resolved["screenPath"], root))
                     with open(resolved["screenPath"], "rb") as sf, open(root_screen, "wb") as df:
                         df.write(sf.read())
+                # Sibling files like option_window_bg_option_switchs.bin
+                if target_fname == "option_window_bg_option_windowc.bin":
+                    sw_path = os.path.join(os.path.dirname(target), "option_window_bg_option_switchs.bin")
+                    if os.path.exists(sw_path):
+                        root_sw = os.path.join(repo_unpack, os.path.relpath(sw_path, root))
+                        with open(sw_path, "rb") as sf, open(root_sw, "wb") as df:
+                            df.write(sf.read())
 
     return {
         "file": rel_png_path,

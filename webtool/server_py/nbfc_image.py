@@ -348,6 +348,109 @@ def pack_infobar_after(png_bytes, target_path, pal_path):
     return n_tiles
 
 
+NAMEOBJ_BLOCK_MAP = [
+    # (start_tile, w_tiles, h_tiles, img_x, img_y)
+    # Row 0: 決定 (3 buttons @ 64x32)
+    (164, 8, 4, 0, 0),
+    (196, 8, 4, 72, 0),
+    (228, 8, 4, 144, 0),
+    # Row 1: 消す (3 buttons @ 64x32)
+    (260, 8, 4, 0, 40),
+    (292, 8, 4, 72, 40),
+    (324, 8, 4, 144, 40),
+    # Row 2: デフォルト (3 buttons @ 64x32)
+    (356, 8, 4, 0, 80),
+    (388, 8, 4, 72, 80),
+    (420, 8, 4, 144, 80),
+    # Row 3: はい (2 buttons @ 64x32)
+    (500, 8, 4, 0, 120),
+    (532, 8, 4, 72, 120),
+    # Row 4: いいえ (2 buttons @ 64x32)
+    (564, 8, 4, 0, 160),
+    (596, 8, 4, 72, 160),
+    # Row 5: Return arrows (3 buttons @ 32x32)
+    (452, 4, 4, 0, 200),
+    (468, 4, 4, 40, 200),
+    (484, 4, 4, 80, 200),
+    # Row 6: Up arrows (4 buttons @ 32x32)
+    (32, 4, 4, 0, 240),
+    (48, 4, 4, 40, 240),
+    (64, 4, 4, 80, 240),
+    (80, 4, 4, 120, 240),
+    # Row 7: Down arrows (4 buttons @ 32x32)
+    (96, 4, 4, 0, 280),
+    (112, 4, 4, 40, 280),
+    (128, 4, 4, 80, 280),
+    (144, 4, 4, 120, 280),
+    # Row 8: Misc indicators
+    (0, 8, 4, 0, 320),
+]
+
+
+def decode_nameobj(nbfc_buf, nbfp_buf):
+    """Decode nameobj.nbfcn (8bpp OBJ, 628 tiles) into a cleanly assembled
+    canvas of all interactive buttons and icons (208x352 px)."""
+    tiles = load_tiles(nbfc_buf)
+    pal = load_palette(nbfp_buf)
+    img = Image.new("RGBA", (208, 352), (0, 0, 0, 0))
+    px = img.load()
+
+    for start_t, wt, ht, ix, iy in NAMEOBJ_BLOCK_MAP:
+        for ty in range(ht):
+            for tx in range(wt):
+                t_idx = start_t + ty * wt + tx
+                if t_idx >= len(tiles):
+                    continue
+                t = tiles[t_idx]
+                for py in range(8):
+                    for col in range(8):
+                        c = t[py * 8 + col]
+                        if c != 0 and c < len(pal):
+                            px[ix + tx * 8 + col, iy + ty * 8 + py] = (*pal[c], 255)
+    out = io.BytesIO()
+    img.save(out, format="PNG")
+    return out.getvalue()
+
+
+def pack_nameobj(png_bytes, target_path, pal_path):
+    """Re-encode 208x352 PNG back into nameobj.nbfcn (8bpp, 628 tiles).
+    Inverse of decode_nameobj. Zero-diff lossless round-trip verified."""
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp))
+    orig_dec = bytes(dec)
+    with open(pal_path, "rb") as f:
+        pal = load_palette(f.read())[:256]
+
+    for start_t, wt, ht, ix, iy in NAMEOBJ_BLOCK_MAP:
+        for ty in range(ht):
+            for tx in range(wt):
+                t_idx = start_t + ty * wt + tx
+                tile_off = t_idx * 64
+                if tile_off + 64 > len(dec):
+                    continue
+                for py in range(8):
+                    for col in range(8):
+                        x = ix + tx * 8 + col
+                        y = iy + ty * 8 + py
+                        c = px[x, y]
+                        orig_idx = orig_dec[tile_off + py * 8 + col]
+                        orig_rgb = pal[orig_idx] if orig_idx < len(pal) else (0, 0, 0)
+                        if c[3] == 0 or c[:3] == (0, 255, 0):
+                            dec[tile_off + py * 8 + col] = 0
+                        elif c[:3] == orig_rgb:
+                            dec[tile_off + py * 8 + col] = orig_idx
+                        else:
+                            dec[tile_off + py * 8 + col] = nearest_palette_index(c[0], c[1], c[2], pal)
+
+    raw = bytes(dec)
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(raw))
+    return len(dec) // 64
+
+
 def load_screen(buf):
     dec = lz10.decompress(buf)
     n = len(dec) // 2
