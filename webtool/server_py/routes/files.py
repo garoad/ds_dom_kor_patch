@@ -63,7 +63,9 @@ BIN_PALETTE_RE = re.compile(r"^.+_p_.+\.bin$", re.IGNORECASE)
 #   (e.g. "通学路", "清嶺学園") at 10 wide.
 # - extra_par/extra_T_par (44 tiles, grid mode): digit+"%" glyph strip,
 #   clean at 2 wide (each glyph is a 2-tile column), garbled otherwise.
-# - extra_topu_obj (256 tiles, grid mode): dialog-box UI text, clean at 2.
+# - extra_topu_obj (256 tiles, grid mode): dialog-box UI text. width-2 looked
+#   "clean" (no glyph ever broke) but was really the coincidence trap - see
+#   its own KNOWN_WIDTH_OVERRIDES entry below for the real hstack layout.
 # - extra_b_icon (432 tiles, grid mode): icon list, clean at 2.
 # - extra_objkiso (64 tiles, grid mode): R/L button + arrow icon cluster,
 #   cleanest at 4 (2 or 8+ cut icons apart or interleave unrelated ones).
@@ -105,7 +107,23 @@ def _repeating_hstack_rows(cycle_len, chunk1_end, chunk2_start, chunk2_end, w1, 
 KNOWN_WIDTH_OVERRIDES = [
     (re.compile(r"^eplace_\d+_bg_eplace_\d+c\.bin$", re.IGNORECASE), 10),
     (re.compile(r"^extra_(T_)?par\.nbfcn$", re.IGNORECASE), 2),
-    (re.compile(r"^extra_topu_obj\.nbfcn$", re.IGNORECASE), 2),
+    # extra_topu_obj (256 tiles): re-verified 2026-09-08 - the naive width-2
+    # single-column reading ("clean at 2") was another "double-width
+    # coincidence"-style trap: individual glyphs never broke at width 2, but
+    # that just stacks unrelated rows in one column instead of showing the
+    # real picture. At width 8, tiles[0:64] and tiles[64:128] each render as
+    # a SEPARATE half-bubble (rounded corners closed on their own outer
+    # side, open on the side facing the other half) - hstack-ing them
+    # side-by-side (same trick as titleobj) closes the border completely
+    # and reveals one full two-line dialog bubble: "見たいモードを" /
+    # "選んでね。" (見たいモードを選んでね。= "보고 싶은 모드를 골라줘.",
+    # a "which mode do you want to view" prompt - fits the extra_menusub
+    # album/ending/sound-test menu). tiles[128:192] is blank padding.
+    # tiles[192:208] is a separate small rounded speech-bubble "tail"
+    # decoration (own row, no text) - kept immediately after with the
+    # default 8px gap, same treatment as titleobj's trailing shuriken icon.
+    (re.compile(r"^extra_topu_obj\.nbfcn$", re.IGNORECASE),
+     [("hstack", [(0, 64, 8), (64, 128, 8)]), (192, 208, 8)]),
     (re.compile(r"^extra_b_icon\.nbfcn$", re.IGNORECASE), 2),
     (re.compile(r"^extra_objkiso\.nbfcn$", re.IGNORECASE), 4),
     # extra_menusub (1152 tiles): tiles[0:768] originally treated as one
@@ -564,6 +582,12 @@ def raw():
                 elif target_fname == "speed_bg_speedc.bin":
                     # Full 32x32 (256x256) tilemap
                     png = nbfc_image.decode_tilemap_png(tile_buf, pal_buf, screen_buf, map_w=32)
+                elif target_fname == "soundmode_b_bg_soundmode_b01c.bin":
+                    # Render 256x512 composite: page-1-active state on top, page-2-active state below
+                    s2_path = os.path.join(os.path.dirname(resolved["screenPath"]), "soundmode_b_bg_soundmode_b02s.bin")
+                    with open(s2_path, "rb") as f:
+                        s2_raw = f.read()
+                    png = decode_soundmode_b_composite(tile_buf, pal_buf, screen_buf, s2_raw)
                 else:
                     n_entries = len(nbfc_image.load_screen(screen_buf))
                     width_override = known_width_override(os.path.basename(target), n_entries)
@@ -618,6 +642,10 @@ def upload_image():
         elif target_fname == "speed_bg_speedc.bin":
             tile_count = pack_speed(file.read(), target, resolved["palettePath"], resolved["screenPath"])
             return jsonify({"tileCount": tile_count})
+        elif target_fname == "soundmode_b_bg_soundmode_b01c.bin":
+            s2_path = os.path.join(os.path.dirname(resolved["screenPath"]), "soundmode_b_bg_soundmode_b02s.bin")
+            tile_count = pack_soundmode_b(file.read(), target, resolved["palettePath"], resolved["screenPath"], s2_path)
+            return jsonify({"tileCount": tile_count})
 
         if resolved["mode"] != "full":
             return jsonify({"error": "이 파일은 미리보기 전용입니다 (스크린맵 또는 전용 팔레트가 없어 재인코딩을 지원하지 않습니다)"}), 400
@@ -635,6 +663,45 @@ def upload_image():
         return jsonify({"tileCount": orig_entry_count})
     except Exception as ex:
         return jsonify({"error": str(ex)}), 500
+
+
+def pack_extra_topu_obj(png_bytes, target_path, pal_path):
+    """Reverse of the KNOWN_WIDTH_OVERRIDES layout for extra_topu_obj.nbfcn:
+    [("hstack", [(0,64,8),(64,128,8)]), (192,208,8)] rendered with the
+    default 8px inter-row gap - i.e. a 128x88 PNG where y=0..63 is the
+    hstacked two-half dialog bubble (left half tiles[0:64] at x=0..63,
+    right half tiles[64:128] at x=64..127) and y=72..87 (after the 8px gap)
+    is the untouched tail decoration at tiles[192:208], centered in the
+    128-wide canvas (native width 64 -> x offset (128-64)/2=32). Only the
+    bubble halves are writable here (that's the only region containing
+    text); the tail and all other tiles are left as-is in the decompressed
+    buffer, same pattern as pack_titleobj leaving its shuriken untouched."""
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    with open(target_path, "rb") as f:
+        comp = f.read()
+    dec = bytearray(lz10.decompress(comp))
+    with open(pal_path, "rb") as f:
+        pal = nbfc_image.load_palette(f.read())
+    px = img.load()
+    for half in range(2):
+        x_base = half * 64
+        tile_base = half * 64
+        for ty in range(8):
+            for tx in range(8):
+                t_idx = tile_base + ty * 8 + tx
+                tile_off = t_idx * 64
+                for py in range(8):
+                    for px_x in range(8):
+                        x = x_base + tx * 8 + px_x
+                        y = ty * 8 + py
+                        c = px[x, y]
+                        if c[3] == 0 or c[:3] == (0, 255, 0):
+                            dec[tile_off + py * 8 + px_x] = 0
+                        else:
+                            dec[tile_off + py * 8 + px_x] = nbfc_image.nearest_palette_index(c[0], c[1], c[2], pal)
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(bytes(dec)))
+    return 256
 
 
 def pack_titleobj(png_bytes, target_path, pal_path):
@@ -1306,6 +1373,87 @@ def pack_speed(png_bytes, target_path, pal_path, screen_path):
     return len(tiles)
 
 
+def decode_soundmode_b_composite(tile_buf, pal_buf, s1_buf, s2_buf):
+    """soundmode_b_bg_soundmode_b01c.bin's tileset is shared by two full
+    256x256 screenmaps (b01s = page-1-active tab state, b02s = page-2-active
+    tab state). Stack both decoded states into one 256x512 preview/edit
+    canvas (state1 on top, state2 below) - the inverse of pack_soundmode_b."""
+    png1 = nbfc_image.decode_tilemap_png(tile_buf, pal_buf, s1_buf)
+    png2 = nbfc_image.decode_tilemap_png(tile_buf, pal_buf, s2_buf)
+    im1 = Image.open(io.BytesIO(png1)).convert("RGBA")
+    im2 = Image.open(io.BytesIO(png2)).convert("RGBA")
+    comp = Image.new("RGBA", (256, 512), (0, 0, 0, 255))
+    comp.paste(im1, (0, 0))
+    comp.paste(im2, (0, 256))
+    buf = io.BytesIO()
+    comp.save(buf, format="PNG")
+    return buf.getvalue()
+
+
+def pack_soundmode_b(png_bytes, target_path, pal_path, s1_path, s2_path):
+    """Reverse of decode_soundmode_b_composite(): split the 256x512 PNG back
+    into the two full-screen states and rebuild ONE shared tile pool (8x8
+    tile dedup dictionary, same technique as pack_speed) plus BOTH
+    screenmaps together in a single call - this keeps b01c.bin/b01s.bin/
+    b02s.bin mutually consistent (the option_window bug history shows what
+    happens when a shared tileset's screenmap siblings fall out of sync)."""
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+
+    with open(pal_path, "rb") as f:
+        pal_raw = f.read()
+        if pal_raw[0] == 0x10:
+            pal_raw = lz10.decompress(pal_raw)
+        pal = nbfc_image.load_palette(pal_raw)[:256]
+
+    tile_dict = {}
+    tiles = []
+
+    def get_or_add_tile(t_bytes):
+        if t_bytes in tile_dict:
+            return tile_dict[t_bytes]
+        idx = len(tiles)
+        tile_dict[t_bytes] = idx
+        tiles.append(t_bytes)
+        return idx
+
+    def build_screen(y_offset):
+        entries = []
+        for r in range(32):
+            for c in range(32):
+                t_bytes = bytearray(64)
+                for py in range(8):
+                    for px_x in range(8):
+                        clr = px[c * 8 + px_x, y_offset + r * 8 + py]
+                        if clr[3] < 128 or clr[:3] == (0, 255, 0):
+                            ci = 0
+                        else:
+                            ci = nbfc_image.nearest_palette_index(clr[0], clr[1], clr[2], pal)
+                        t_bytes[py * 8 + px_x] = ci
+                entries.append(get_or_add_tile(bytes(t_bytes)))
+        return entries
+
+    s1_entries = build_screen(0)
+    s2_entries = build_screen(256)
+
+    raw_tiles = b"".join(tiles)
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(raw_tiles))
+
+    def write_screen(path, entries):
+        raw = bytearray(len(entries) * 2)
+        for i, val in enumerate(entries):
+            raw[i * 2] = val & 0xFF
+            raw[i * 2 + 1] = (val >> 8) & 0xFF
+        with open(path, "wb") as f:
+            f.write(lz10.compress(bytes(raw)))
+
+    write_screen(s1_path, s1_entries)
+    write_screen(s2_path, s2_entries)
+
+    return len(tiles)
+
+
 def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
     png_name = os.path.basename(rel_png_path)
     base = os.path.splitext(png_name)[0]
@@ -1337,6 +1485,8 @@ def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
 
     if target_fname == "titleobj.nbfcn":
         tile_count = pack_titleobj(png_bytes, target, resolved["palettePath"])
+    elif target_fname == "extra_topu_obj.nbfcn":
+        tile_count = pack_extra_topu_obj(png_bytes, target, resolved["palettePath"])
     elif target_fname == "talkobj.nbfcn":
         tile_count = pack_talkobj(png_bytes, target, resolved["palettePath"])
     elif target_fname == "saveloadobj.nbfcn":
@@ -1363,6 +1513,9 @@ def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
         tile_count = pack_option_window(png_bytes, target, resolved["palettePath"], resolved["screenPath"])
     elif target_fname == "speed_bg_speedc.bin":
         tile_count = pack_speed(png_bytes, target, resolved["palettePath"], resolved["screenPath"])
+    elif target_fname == "soundmode_b_bg_soundmode_b01c.bin":
+        s2_path = os.path.join(os.path.dirname(resolved["screenPath"]), "soundmode_b_bg_soundmode_b02s.bin")
+        tile_count = pack_soundmode_b(png_bytes, target, resolved["palettePath"], resolved["screenPath"], s2_path)
     else:
         if resolved["mode"] not in ("full", "borrowed_palette"):
             return {"file": rel_png_path, "ok": False, "error": "이 파일은 미리보기 전용입니다 (스크린맵이 없음)"}
@@ -1398,6 +1551,12 @@ def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
                     if os.path.exists(sw_path):
                         root_sw = os.path.join(repo_unpack, os.path.relpath(sw_path, root))
                         with open(sw_path, "rb") as sf, open(root_sw, "wb") as df:
+                            df.write(sf.read())
+                elif target_fname == "soundmode_b_bg_soundmode_b01c.bin":
+                    s2_path = os.path.join(os.path.dirname(target), "soundmode_b_bg_soundmode_b02s.bin")
+                    if os.path.exists(s2_path):
+                        root_s2 = os.path.join(repo_unpack, os.path.relpath(s2_path, root))
+                        with open(s2_path, "rb") as sf, open(root_s2, "wb") as df:
                             df.write(sf.read())
 
     return {
