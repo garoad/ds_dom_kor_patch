@@ -17284,3 +17284,234 @@ Node.js→Python 백엔드 전환 이전에 **CRLF**로 저장된 것들이 그�
   확인). `name_screen_b`도 `_b01s`/`_b02s` 이중 스크린맵 구조라 `soundmode_b`와 동일한 문제이므로,
   이번에 만든 `pack_soundmode_b()` 패턴(공유 타일 딕셔너리 재구축 + 스크린맵 2개 동시 재생성)을
   참고해 완성하거나 교체할 것.
+
+---
+
+## 2026-09-09 — `soundmode_b_bg_soundmode_b01c.png` 재작업 (글자 과대+원본 훼손 수정)
+
+사용자 리포트: "image_patch/soundmode_b_bg_soundmode_b01c.png 가 잘못 만들어졌어". 확인 결과 두 가지 문제.
+
+### 문제 1: 글자가 탭/버튼 대비 과도하게 큼
+- 원인: `temp/render_soundmode_b.py`의 `render_text_layer()`가 텍스트 bbox를 목표 박스의
+  **가로·세로 양쪽 모두에 꽉 채우는 스케일**(`min(target_w*ss/w, target_h*ss/h)`)을 썼는데,
+  세로 방향 목표치(`y1-y0+1-4`, 탭 기준 17px)가 실제 원문 글자 높이 비율보다 훨씬 큼.
+  원본을 직접 측정(`temp/soundmode_b_original_composite.png`, 박스 테두리 색과 글자 외곽선
+  색이 같은 네이비라 인셋을 주고 재측정)해보니 탭 글자 높이는 박스 높이(21px)의 **약 58%**
+  (12px)에 불과 — 나머지는 배경 여백. 기존 코드는 이 여백을 무시하고 박스를 거의 꽉 채워
+  렌더링해 탭 경계에 글자가 닿아 답답해 보이는 결과가 나왔음.
+- 수정: `render_text_layer()`를 "목표 **높이**(`box_h * 0.58`)로 스케일 → 폭이 `max_w`를
+  넘으면 그때만 폭 기준으로 재축소" 방식으로 교체(`apply_edit()`에 `height_ratio=0.58` 파라미터
+  추가). 외곽선도 두께를 `outline_px_final=2`→`1.5`로 살짝 줄여 작아진 글자에 비례하게 조정.
+- 검증: 원본 탭/버튼 크롭과 새 결과물을 나란히 비교(`temp/compare_tabs_stacked2.png`,
+  `temp/compare_pill_stacked2.png`) — 배경 여백 비율이 원본과 유사해짐.
+
+### 문제 2: 검증 과정에서 `webtool/workspace/dom1/unpack/`(원본 트리)이 직접 덮어써짐
+- 8/8 세션에서 웹툴 서버로 `/api/files/image` 업로드 + `POST /api/files/images-patch-sync`를
+  실행해 "실기 검증"했다고 기록했는데, 이 두 경로 모두 `apply_single_png_patch()`가
+  `target_root=None`일 때 `root = proj.unpack_dir(name)`(=`webtool/workspace/dom1/unpack/`)에
+  **직접** 인코딩 결과를 쓰는 구조였음. 규칙 8의 "원본 롬 트리(unpack/) 보존 원칙"(최종 패치는
+  격리된 `build/`에서만 처리, `unpack/`은 항상 순수 원본 유지)을 어긴 것 — 실제로
+  `webtool/workspace/dom1/unpack/data/soundmode_b_bg_soundmode_b01c.bin`/`b01s.bin`/`b02s.bin`
+  3개 파일이 `unpack_origin/`의 원본과 바이트 단위로 달라져 있는 것을 `cmp`로 확인함(팔레트는
+  무사).
+  - **주의**: 이건 `soundmode_b`만의 버그가 아니라 `apply_single_png_patch()`/
+    `sync_image_patch_folder()`/`images-patch-sync` 경로 자체가 기본값으로 `unpack_dir`에
+    쓰는 구조적 문제로 보임(코드에 "`target_root`가 build_dir면 unpack을 덮어쓰지 않는다"는
+    주석까지 있어 원래는 build 경로로 검증하도록 의도된 것으로 추정) — 이번 세션에서는
+    `soundmode_b` 3개 파일만 복구했고, 다른 105개 기존 패치들도 같은 경로로 검증되었다면
+    동일하게 `workspace/dom1/unpack/`이 오염되어 있을 가능성이 있음. **TODO(다음 세션)**:
+    전체 `webtool/workspace/dom1/unpack/`을 `unpack_origin/`과 일괄 `diff`로 대조해 오염
+    범위를 확인하고, 필요하면 웹툴 검증 경로를 `target_root=build_dir(name)`으로 바꾸거나
+    검증 후 unpack을 원복하는 절차를 추가할 것.
+  - 복구: `unpack_origin/data/soundmode_b_bg_soundmode_b01c.bin`/`b01s.bin`/`b02s.bin`을
+    `webtool/workspace/dom1/unpack/data/`와 `webtool/workspace/dom1/build/data/`에 그대로
+    복사해 원복. `cmp`로 3개 파일 모두 원본과 바이트 동일함을 재확인.
+  - 이번 세션 재검증은 워크스페이스를 다시 건드리지 않도록 `temp/soundmode_b_verify/`라는
+    격리된 임시 폴더에서만 `pack_soundmode_b()`→`decode_soundmode_b_composite()` 왕복을
+    수행(웹툴 서버 업로드 대신 함수 직접 호출). 결과: 타일 236개(원본 279개 대비 여유 있음),
+    왕복 후 PNG가 `image_patch/` 결과물과 편집 영역 밖 diff bbox 0.
+
+### 산출물
+- [`image_patch/soundmode_b_bg_soundmode_b01c.png`](image_patch/soundmode_b_bg_soundmode_b01c.png)
+  재생성(글자 크기 축소, 원본 여백 비율 반영).
+- `temp/render_soundmode_b.py` 수정(`render_text_layer`/`apply_edit` 높이 기준 스케일링으로
+  교체 — 재사용 시 이 버전 기준으로 할 것).
+- `webtool/workspace/dom1/unpack/data/soundmode_b_bg_soundmode_b01c.bin`/`b01s.bin`/`b02s.bin`,
+  `webtool/workspace/dom1/build/data/`(동일 3개) 원본으로 복구.
+
+---
+
+## 2026-09-09 (계속) — 웹툴 이미지 탐색을 `unpack_origin/` 전용으로 분리 (구조적 재발 방지)
+
+사용자 요청: "웹툴의 이미지 탐색이 origin 만 보게 수정하는게 좋겠어".
+
+### 배경: 2026-09-05 수정이 왜 다시 뚫렸는가
+- 2026-09-05 세션에서 이미 "이미지 탐색 시 항상 원본 폴더의 에셋을 확인하게" 고쳤었음 — 그러나
+  그때 방식은 `/api/files/tree`/`/raw`가 여전히 `proj.unpack_dir(name)`
+  (`webtool/workspace/dom1/unpack/`)을 읽게 두고, 대신 "쓰기는 항상 `build_dir`로만 간다"는
+  **관례**를 지키는 방식이었음(`POST /api/build/reinsert`를
+  `sync_image_patch_folder(name, target_root=build_dir)`로 바꿈). 즉 탐색 자체가 원본을 보게 한
+  게 아니라 "쓰기가 원본을 안 건드리게" 해서 간접적으로 탐색이 원본을 보게 만든 것.
+- 이 관례에는 구멍이 있었음: `images-patch-sync`(`POST /api/files/images-patch-sync`) 엔드포인트는
+  `sync_image_patch_folder(name)`을 `target_root` 없이 호출해 기본값 `unpack_dir(name)`에 직접
+  씀. 2026-09-08 세션에서 이 엔드포인트로 "실기 검증"을 했다가 바로 이 구멍을 통해
+  `webtool/workspace/dom1/unpack/`이 다시 오염됨(바로 위 섹션 참고) — 관례 기반 보호는 새 쓰기
+  경로가 하나만 추가돼도 재발한다는 것을 보여준 사례.
+
+### 수정: 탐색 경로를 물리적으로 다른 폴더로 분리
+- `webtool/server_py/project.py`: `origin_dir(name)` 신규 — 저장소 루트 `unpack_origin/`을 반환.
+- `webtool/server_py/routes/files.py`: `resolve_in_origin(name, rel)` 신규(`resolve_in_unpack`과
+  동일한 경로탈출 가드, 루트만 `origin_dir`). `/api/files/tree`(`resolve_in_origin`)와
+  `/api/files/raw`의 `type=orig`(기본) 분기를 여기로 연결.
+  - `/api/files/image`(업로드→재인코딩, 쓰기 경로)는 그대로 `resolve_in_unpack` 유지 —
+    "탐색"만 origin을 보게 해달라는 요청 범위이고, 쓰기까지 옮기면 업로드 직후 즉시
+    재인코딩 결과를 확인하는 웹툴 UI 편집 흐름 자체가 깨짐.
+- 이제 `unpack_dir(name)`(workspace)이 어떤 쓰기 경로의 실수로 다시 오염되더라도, 탐색/미리보기는
+  물리적으로 별도 폴더(`unpack_origin/`)를 읽으므로 절대 영향받지 않음 — 관례가 아니라 구조로
+  보장.
+- **검증**: `unpack_origin/`과 `webtool/workspace/dom1/unpack/`을 파일 목록 diff로 대조해
+  구조가 사실상 동일함(디버그 산출물 `Font_DOM.nbfp.dec` 1개 차이만 있고 이미지 탐색에는
+  무관) 확인 후, 웹툴 서버 재시작 → `GET /api/files/tree?name=dom1&dir=data`,
+  `GET /api/files/raw?name=dom1&path=data/soundmode_b_bg_soundmode_b01c.bin&type=orig`(원본
+  파일 크기 6760바이트·일본어 원문 그대로 디코드 확인), `type=patch`(기존 `image_patch/`
+  서빙) 전부 정상 동작 확인.
+- **TODO(다음 세션)**: `images-patch-sync`/`apply_single_png_patch()`의 기본 쓰기 대상이
+  여전히 `unpack_dir`인 구조적 문제 자체는 남아있음(이제 탐색에는 영향 없지만, 쓰기 자체가
+  원본 트리를 계속 오염시키는 건 그대로). 이 엔드포인트의 기본값을 `build_dir`로 바꾸거나
+  아예 제거/경고 처리할 것.
+
+### 산출물
+- `webtool/server_py/project.py`: `origin_dir()` 추가.
+- `webtool/server_py/routes/files.py`: `resolve_in_origin()` 추가, `/tree`·`/raw`(orig) 연결.
+
+---
+
+## 2026-09-09 (계속) — `soundmode_b` 하단 "페이지 전환" 버튼 배경 이질감 수정
+
+사용자 리포트: "soundmode_b 상단 페이지 는 잘되었는데 하단 페이지 전환은 더 자연스럽게 안되나?
+배경이 너무 이질적인 색이라 조화롭지 않아".
+
+### 원인
+- 원본 알약(pill) 버튼의 배경은 처음부터 끝까지 **균일한 연분홍**(`(255,156,189)`)이고, 글자
+  주변에 보이는 진한 마젠타(`(239,0,123)`류)는 배경색이 아니라 **알약 테두리선** 자체였음 —
+  텍스트 없는 순수 배경 열(예: `x=44`, `y=170..185`)을 직접 샘플링해 확인.
+- 그런데 렌더 스크립트(`temp/render_soundmode_b.py`)의 `PILL_FILL`이
+  `(3, (255,156,189), (239,0,123))`(상단 3px만 연분홍, 나머지는 진한 마젠타)로 되어 있어서,
+  텍스트 영역 전체를 원본에 없는 **진한 마젠타 사각 패치**로 덮어써 버렸음 — 이게 사용자가 말한
+  "이질적인 색"의 정체.
+- 부수적으로 지움 상자(`PILL`)의 `y1=190`이 알약 테두리선(`y=186..187`)과 알약 바깥 페이지
+  배경(`y=188~`)까지 침범해 그 부분도 지움색으로 덮어쓰고 있었음.
+
+### 수정
+- `PILL_FILL`을 `(0, (255,156,189), (255,156,189))`(단색 연분홍)로 교체 — 별도 배경 사각형 없이
+  글자 자체의 흰색 채움 + 마젠타 외곽선만으로 대비를 주는 원본 방식 그대로 재현.
+- `PILL` 지움 상자를 `(44, 171, 150, 190, ...)` → `(44, 171, 150, 185, ...)`로 축소해 알약
+  테두리선/바깥 배경을 건드리지 않게 함.
+- 결과물을 원본 크롭과 나란히 비교(`temp/compare_pill_final.png`) — 알약 전체가 하나의 색으로
+  자연스럽게 이어짐, 탭 디자인과 동일한 조화도 확보.
+
+### 검증
+- `temp/soundmode_b_verify/`(격리 폴더)에서 `pack_soundmode_b()`→`decode_soundmode_b_composite()`
+  왕복 재확인: 타일 229개(원본 279개 대비 여유), 왕복 후 PNG와 `image_patch/` 결과물 편집 영역
+  밖 diff bbox 없음(정상 범위 내), `webtool/workspace/dom1/unpack/`의 soundmode_b 3개 파일은
+  이번 검증으로도 전혀 건드리지 않았음(`filecmp`로 원본과 바이트 동일 재확인).
+
+### 산출물
+- [`image_patch/soundmode_b_bg_soundmode_b01c.png`](image_patch/soundmode_b_bg_soundmode_b01c.png)
+  재생성(버튼 배경 균일 연분홍으로 수정, 지움 상자 테두리 침범 제거).
+- `temp/render_soundmode_b.py` 수정(`PILL_FILL`/`PILL` 좌표 조정 — 재사용 시 이 버전 기준).
+
+### 후속 수정 (같은 세션) — 글자 크기 + 오른쪽 일본어 잔재
+사용자 리포트: "글자가 너무 작은거 같은데 오른쪽에 다 지우지않은 일본어 흔적도 남아있고".
+
+- **잔재 원인**: `x=148..165` 열 스캔으로 확인 — 원본 "切り替え" 글자 잉크가 `x=155~156`까지
+  남아있는데, 지움 상자 `PILL`의 `x1`이 150이라 `x=151~156` 구간의 일본어 글자 조각이 전혀
+  지워지지 않고 그대로 남아 있었음(알약 우측 캡 테두리는 `x=159~160`부터 시작 — `x1=158`까지는
+  안전하게 넓힐 수 있음을 확인). `PILL`을 `(44,171,150,185)` → `(44,171,158,185)`로 확장해 해결.
+- **글자 크기**: 원본 자체 비율(글자 높이/박스 높이 ≈ 0.5)을 그대로 따르면 실제 렌더 결과가
+  7px 높이 정도로 나와 탭 대비 상대적으로 작아 보였고, 특히 오른쪽 잔재까지 지우고 나니 알약
+  안에 남는 여백이 더 도드라져 보임. 한글 음절이 가나보다 글자당 밀도가 높아 같은 높이에서도
+  더 짧게 끝나는 점을 감안해, `apply_edit(..., height_ratio=0.75)`로 필 전용 비율을 탭 기본값
+  (0.58)보다 높여 적용 — 폭 제약(`max_w`) 안에서 여전히 알약 테두리를 침범하지 않음을 확인.
+- 재검증: `temp/soundmode_b_verify/`에서 인코딩 왕복(타일 230개) 재확인, `webtool/workspace/dom1/unpack/`
+  soundmode_b 3개 파일은 이번에도 건드리지 않음(`filecmp` 통과).
+
+---
+
+## 2026-09-09 (계속) — `load_save_b_bg_page01c` 구조 확인: `soundmode_b`와 동일한 "타일 공유 + 다중 스크린맵" 패턴
+
+사용자 질문: "load_save_b_bg_page01c 는 soundmode_b_bg_soundmode_b01c 처럼 페이지별로 색이 있는게
+아닌가?" — 실제 파일을 디코드해 확인함.
+
+### 확인 결과
+- `unpack_origin/data/` 구성: 타일 1개(`load_save_b_bg_page01c.bin`, 5796B) + 팔레트 1개
+  (`load_save_b_p_load_b.bin`) + 스크린맵 **4개**(`page01s.bin`=520B, `page02s.bin`=528B,
+  `page03s.bin`=528B, `fileselect01s.bin`=692B). `soundmode_b`(타일 1 + 팔레트 1 + 스크린맵 2)와
+  완전히 같은 "공유 타일셋 + 다중 스크린맵 탭/페이지 스왑" 구조이고, 여기서는 페이지가 3개(+파일
+  선택 화면 1개)라 스크린맵이 4개로 늘어난 것뿐임.
+- `nbfc_image.decode_tilemap_png(tile_buf=page01c, pal_buf=load_b, s_buf=<각 스크린맵>)`로 4개를
+  각각 디코드해 실제로 확인(`temp/render_load_save_b_pages.py`, 결과 `temp/load_save_b_*.png`):
+  - `page01s`: 탭 "1ページ"가 흰색(활성), "2ページ"/"3ページ" 비활성, 콘텐츠 박스 배경 **하늘색**.
+  - `page02s`: 탭 "2ページ" 활성, 콘텐츠 박스 배경 **초록색**.
+  - `page03s`: 탭 "3ページ" 활성, 콘텐츠 박스 배경 **노란/주황색**.
+  - `fileselect01s`: 세이브 슬롯 리스트 UI(파란 계열 일반 슬롯 + 빨간 계열 강조 슬롯 여러 줄) —
+    같은 타일셋의 둥근 박스 타일을 재사용해 전혀 다른 화면(페이지 탭이 아니라 파일 목록)을
+    구성한 것으로, `map_w` 자동판별이 32열 기준으로 잘못 잡혀(346엔트리) 세로로 과도하게 긴
+    이미지(256x640)로 나왔으나 내용 판독에는 지장 없음 — 실제 인코딩 시엔 원본 스크린맵 크기를
+    그대로 존중하므로 문제 없음.
+- **결론**: 사용자 추측이 맞음 — `page01c`(타일)는 한 벌만 존재하고, 탭/페이지별 색 차이는
+  스크린맵(`page01s`/`02s`/`03s`)이 같은 타일 중 어느 색상 계열 타일을 가리키느냐로 결정되는
+  구조. 즉 `soundmode_b`와 동일하게 **타일 인덱스가 세 스크린맵 사이에서 실제로 다름**(탭
+  활성/비활성 색상별로 별도 타일이 존재) — `option_window`/`speed`처럼 "타일 몇 개만 제자리
+  수정"은 위험하고, `soundmode_b`에서 만든 `pack_soundmode_b()` 패턴(공유 타일 딕셔너리 재구축 +
+  관련 스크린맵 전부 동시 재생성)을 `load_save_b`용으로 확장(스크린맵 2개 → 4개)해야 안전함.
+  **TODO**: `load_save_b` 한글화 작업 시 전용 `pack_load_save_b()`(4개 스크린맵 동시 처리) 신규
+  작성 필요 — 아직 미착수.
+
+### 산출물
+- `temp/render_load_save_b_pages.py`(신규, 재사용 가능): `load_save_b_bg_page01c.bin` 타일 +
+  `load_save_b_p_load_b.bin` 팔레트로 4개 스크린맵을 각각 디코드.
+- `temp/load_save_b_page01s.png`, `page02s.png`, `page03s.png`, `fileselect01s.png`(조사용 확인
+  이미지, 최종 산출물 아님).
+
+### 후속 — `load_save_b` 한글화 완료 (같은 세션)
+사용자 요청: "그럼 페이지를 이동해도 어색하지않게 텍스트 위치 유지하게 한글화해".
+
+- **탭 픽셀 대조**: `page01s`/`02s`/`03s`의 탭 영역(대략 x=9..238, y=8..24) 픽셀을 직접
+  비교한 결과 세 화면에서 **완전히 동일**(탭 자체는 하늘색/초록/노랑 고정 색상이고, 활성화는
+  탭이 아니라 그 아래 콘텐츠 박스 색이 활성 탭 색과 맞춰지는 방식) — 단, 스크린맵의 실제
+  타일 인덱스는 세 화면에서 서로 다름(픽셀은 같지만 저장은 중복 타일로 되어 있음,
+  `soundmode_b`와 동일 패턴). 즉 세 화면에 **똑같은 좌표·똑같은 텍스트**로 편집하면 페이지
+  전환 시 탭 글자가 한 픽셀도 흔들리지 않는다는 뜻.
+- **번역**: 탭 3개만 대상, `1ページ`→`1페이지`, `2ページ`→`2페이지`, `3ページ`→`3페이지`.
+  콘텐츠 박스(빈 색상 박스)와 `fileselect01s`(세이브 슬롯 리스트, 32x80 스크롤 배경)에는
+  타일에 박힌 텍스트가 전혀 없어 편집 대상 아님(저장 데이터 텍스트는 런타임 폰트 레이어로
+  추정).
+- **렌더**: `temp/render_load_save_b.py`(신규, 재사용 가능) — `soundmode_b` 레시피(흰 텍스트+
+  남색(`#00314A`) 외곽선, Pretendard-Black, `height_ratio` 기반 스케일)를 그대로 적용하되,
+  탭 3개에 대해 세 화면 모두 **동일한 erase box 좌표**(`x0,y0,x1,y1`)와 동일 텍스트를 사용해
+  위치 고정을 보장. 탭별 배경은 원본에서 실측한 평탄색(하늘 `(74,230,255)`/초록
+  `(74,239,107)`/노랑 `(255,197,58)`)과 상단 하이라이트 밴드(2px)로 재구성.
+  `page01s`/`02s`/`03s`(각 256x256, 탭 편집)와 `fileselect01s`(256x640, 무편집 통과)를 위아래로
+  이어붙인 **256x1408 합성 PNG**로 저장.
+- **전용 인코더 신규 작성**(`webtool/server_py/routes/files.py`): `load_save_b_bg_page01c.bin`은
+  스크린맵이 4개(`soundmode_b`의 2개보다 많음)라 `pack_soundmode_b()`를 일반화해
+  `decode_load_save_b_composite()`/`pack_load_save_b()`로 신규 작성 — 4개 스크린맵을 한 번에
+  디코드/공유 타일 딕셔너리 재구축하여 항상 함께 갱신되도록 함(`fileselect01s`는 32x80이라
+  `build_screen(y_offset, rows, cols=32)`로 행 수를 파라미터화해 처리). `/api/files/raw`(미리보기),
+  `/api/files/image`(업로드), `apply_single_png_patch`(일괄 동기화 + `unpack/` 형제 파일 3개
+  동기화) 4개 지점에 분기 추가.
+- **검증**: `temp/load_save_b_verify/`(격리된 임시 폴더, `webtool/workspace/dom1/unpack/`은
+  건드리지 않음)에서 `pack_load_save_b()` 직접 호출 → 타일 228개(원본 241개보다 적음, 예산
+  여유 충분) → 재디코드 후 원본 합성 PNG와 픽셀 diff bbox 확인: `page01s`/`02s`/`03s`는 diff가
+  정확히 탭 텍스트 영역(`(11,10)-(237,22)`, 팔레트 최근접 매핑에 의한 미세 반올림만)에
+  한정되고 그 밖은 diff 0, `fileselect01s`는 diff 없음(bbox `None`, 완전 무손실 통과) 확인.
+  melonDS 등 실기 확인은 아직 안 함.
+
+### 산출물
+- [`image_patch/load_save_b_bg_page01c.png`](image_patch/load_save_b_bg_page01c.png): 256x1408
+  합성(1/2/3페이지 탭 3개 한글화 + fileselect01s 무편집 통과).
+- `webtool/server_py/routes/files.py`: `decode_load_save_b_composite()`/`pack_load_save_b()` 신규
+  추가 및 4개 지점(`/raw`, `/image`, `apply_single_png_patch` 분기 + unpack 형제 동기화) 연결.
+- `temp/render_load_save_b.py`(신규, 재사용 가능한 형태로 `temp/`에 보관).
+- **TODO(다음 세션)**: melonDS 실기 확인 아직 안 함.

@@ -43,6 +43,17 @@ def unpack_dir(name):
     return os.path.join(project_dir(name), "unpack")
 
 
+def origin_dir(name):
+    """Pristine, read-only reference tree for image browsing/preview -
+    unpack_dir() above is meant to stay untouched after extraction too, but
+    routes/files.py's image-patch write paths have historically written
+    straight into it (see ANALYSIS_NOTES.md 2026-09-09), so browsing reads
+    from this separate repo-root snapshot instead of trusting that
+    unpack_dir() is still pristine."""
+    assert_valid_name(name)
+    return os.path.join(REPO_ROOT, "unpack_origin")
+
+
 def script_dir(name):
     return os.path.join(unpack_dir(name), "data", "Script")
 

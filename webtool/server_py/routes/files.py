@@ -413,6 +413,18 @@ def resolve_in_unpack(name, rel):
     return resolved
 
 
+def resolve_in_origin(name, rel):
+    """Same path-traversal-guarded resolution as resolve_in_unpack(), but
+    rooted at proj.origin_dir() - use this for browsing/preview so the tree
+    and raw decode always reflect the pristine ROM, never whatever the
+    upload/patch-sync write paths may have left in unpack_dir()."""
+    root = proj.origin_dir(name)
+    resolved = os.path.abspath(os.path.join(root, rel or ""))
+    if resolved != root and not resolved.startswith(root + os.sep):
+        raise ValueError("잘못된 경로입니다")
+    return resolved
+
+
 def get_all_patch_files():
     patch_dir = os.path.join(proj.REPO_ROOT, "image_patch")
     if not os.path.exists(patch_dir):
@@ -477,7 +489,7 @@ def tree():
         return jsonify({"error": "name은 필수입니다"}), 400
 
     try:
-        target = resolve_in_unpack(name, dir_)
+        target = resolve_in_origin(name, dir_)
         if not os.path.exists(target):
             return jsonify({"error": "디렉터리를 찾을 수 없습니다"}), 404
 
@@ -528,7 +540,7 @@ def raw():
             return send_file(patch_dict[patch_rel], mimetype="image/png")
 
         ext = os.path.splitext(rel_path)[1].lower()
-        target = resolve_in_unpack(name, rel_path)
+        target = resolve_in_origin(name, rel_path)
         if not os.path.exists(target):
             return jsonify({"error": "파일을 찾을 수 없습니다"}), 404
 
@@ -588,6 +600,19 @@ def raw():
                     with open(s2_path, "rb") as f:
                         s2_raw = f.read()
                     png = decode_soundmode_b_composite(tile_buf, pal_buf, screen_buf, s2_raw)
+                elif target_fname == "load_save_b_bg_page01c.bin":
+                    # Render composite: page01s/02s/03s (256x256 each) + fileselect01s (256x640) stacked
+                    screen_dir = os.path.dirname(resolved["screenPath"])
+                    s2_path = os.path.join(screen_dir, "load_save_b_bg_page02s.bin")
+                    s3_path = os.path.join(screen_dir, "load_save_b_bg_page03s.bin")
+                    s4_path = os.path.join(screen_dir, "load_save_b_bg_fileselect01s.bin")
+                    with open(s2_path, "rb") as f:
+                        s2_raw = f.read()
+                    with open(s3_path, "rb") as f:
+                        s3_raw = f.read()
+                    with open(s4_path, "rb") as f:
+                        s4_raw = f.read()
+                    png = decode_load_save_b_composite(tile_buf, pal_buf, screen_buf, s2_raw, s3_raw, s4_raw)
                 else:
                     n_entries = len(nbfc_image.load_screen(screen_buf))
                     width_override = known_width_override(os.path.basename(target), n_entries)
@@ -645,6 +670,13 @@ def upload_image():
         elif target_fname == "soundmode_b_bg_soundmode_b01c.bin":
             s2_path = os.path.join(os.path.dirname(resolved["screenPath"]), "soundmode_b_bg_soundmode_b02s.bin")
             tile_count = pack_soundmode_b(file.read(), target, resolved["palettePath"], resolved["screenPath"], s2_path)
+            return jsonify({"tileCount": tile_count})
+        elif target_fname == "load_save_b_bg_page01c.bin":
+            screen_dir = os.path.dirname(resolved["screenPath"])
+            s2_path = os.path.join(screen_dir, "load_save_b_bg_page02s.bin")
+            s3_path = os.path.join(screen_dir, "load_save_b_bg_page03s.bin")
+            s4_path = os.path.join(screen_dir, "load_save_b_bg_fileselect01s.bin")
+            tile_count = pack_load_save_b(file.read(), target, resolved["palettePath"], resolved["screenPath"], s2_path, s3_path, s4_path)
             return jsonify({"tileCount": tile_count})
 
         if resolved["mode"] != "full":
@@ -1454,6 +1486,98 @@ def pack_soundmode_b(png_bytes, target_path, pal_path, s1_path, s2_path):
     return len(tiles)
 
 
+def decode_load_save_b_composite(tile_buf, pal_buf, s1_buf, s2_buf, s3_buf, s4_buf):
+    """load_save_b_bg_page01c.bin's tileset is shared by FOUR screenmaps:
+    page01s/02s/03s (each a full 256x256 tab state - 1/2/3페이지 active) plus
+    fileselect01s (a taller 256x640 scrolling save-slot list with no baked-in
+    text). Stack all four vertically into one preview/edit canvas - the
+    inverse of pack_load_save_b."""
+    pngs = [
+        nbfc_image.decode_tilemap_png(tile_buf, pal_buf, s1_buf),
+        nbfc_image.decode_tilemap_png(tile_buf, pal_buf, s2_buf),
+        nbfc_image.decode_tilemap_png(tile_buf, pal_buf, s3_buf),
+        nbfc_image.decode_tilemap_png(tile_buf, pal_buf, s4_buf),
+    ]
+    ims = [Image.open(io.BytesIO(p)).convert("RGBA") for p in pngs]
+    total_h = sum(im.height for im in ims)
+    comp = Image.new("RGBA", (256, total_h), (0, 0, 0, 255))
+    y = 0
+    for im in ims:
+        comp.paste(im, (0, y))
+        y += im.height
+    buf = io.BytesIO()
+    comp.save(buf, format="PNG")
+    return buf.getvalue()
+
+
+def pack_load_save_b(png_bytes, target_path, pal_path, s1_path, s2_path, s3_path, s4_path):
+    """Reverse of decode_load_save_b_composite(): split the composite PNG
+    back into the four screenmap states (page01s/02s/03s at 256x256 each,
+    fileselect01s at 256x640) and rebuild ONE shared tile pool (8x8 tile
+    dedup dictionary, same technique as pack_soundmode_b) plus all FOUR
+    screenmaps together in a single call - keeps page01c.bin and its four
+    screenmap siblings mutually consistent."""
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    px = img.load()
+
+    with open(pal_path, "rb") as f:
+        pal_raw = f.read()
+        if pal_raw[0] == 0x10:
+            pal_raw = lz10.decompress(pal_raw)
+        pal = nbfc_image.load_palette(pal_raw)[:256]
+
+    tile_dict = {}
+    tiles = []
+
+    def get_or_add_tile(t_bytes):
+        if t_bytes in tile_dict:
+            return tile_dict[t_bytes]
+        idx = len(tiles)
+        tile_dict[t_bytes] = idx
+        tiles.append(t_bytes)
+        return idx
+
+    def build_screen(y_offset, rows, cols=32):
+        entries = []
+        for r in range(rows):
+            for c in range(cols):
+                t_bytes = bytearray(64)
+                for py in range(8):
+                    for px_x in range(8):
+                        clr = px[c * 8 + px_x, y_offset + r * 8 + py]
+                        if clr[3] < 128 or clr[:3] == (0, 255, 0):
+                            ci = 0
+                        else:
+                            ci = nbfc_image.nearest_palette_index(clr[0], clr[1], clr[2], pal)
+                        t_bytes[py * 8 + px_x] = ci
+                entries.append(get_or_add_tile(bytes(t_bytes)))
+        return entries
+
+    s1_entries = build_screen(0, 32)
+    s2_entries = build_screen(256, 32)
+    s3_entries = build_screen(512, 32)
+    s4_entries = build_screen(768, 80)
+
+    raw_tiles = b"".join(tiles)
+    with open(target_path, "wb") as f:
+        f.write(lz10.compress(raw_tiles))
+
+    def write_screen(path, entries):
+        raw = bytearray(len(entries) * 2)
+        for i, val in enumerate(entries):
+            raw[i * 2] = val & 0xFF
+            raw[i * 2 + 1] = (val >> 8) & 0xFF
+        with open(path, "wb") as f:
+            f.write(lz10.compress(bytes(raw)))
+
+    write_screen(s1_path, s1_entries)
+    write_screen(s2_path, s2_entries)
+    write_screen(s3_path, s3_entries)
+    write_screen(s4_path, s4_entries)
+
+    return len(tiles)
+
+
 def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
     png_name = os.path.basename(rel_png_path)
     base = os.path.splitext(png_name)[0]
@@ -1516,6 +1640,12 @@ def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
     elif target_fname == "soundmode_b_bg_soundmode_b01c.bin":
         s2_path = os.path.join(os.path.dirname(resolved["screenPath"]), "soundmode_b_bg_soundmode_b02s.bin")
         tile_count = pack_soundmode_b(png_bytes, target, resolved["palettePath"], resolved["screenPath"], s2_path)
+    elif target_fname == "load_save_b_bg_page01c.bin":
+        screen_dir = os.path.dirname(resolved["screenPath"])
+        s2_path = os.path.join(screen_dir, "load_save_b_bg_page02s.bin")
+        s3_path = os.path.join(screen_dir, "load_save_b_bg_page03s.bin")
+        s4_path = os.path.join(screen_dir, "load_save_b_bg_fileselect01s.bin")
+        tile_count = pack_load_save_b(png_bytes, target, resolved["palettePath"], resolved["screenPath"], s2_path, s3_path, s4_path)
     else:
         if resolved["mode"] not in ("full", "borrowed_palette"):
             return {"file": rel_png_path, "ok": False, "error": "이 파일은 미리보기 전용입니다 (스크린맵이 없음)"}
@@ -1558,6 +1688,13 @@ def apply_single_png_patch(name, png_bytes, rel_png_path, target_root=None):
                         root_s2 = os.path.join(repo_unpack, os.path.relpath(s2_path, root))
                         with open(s2_path, "rb") as sf, open(root_s2, "wb") as df:
                             df.write(sf.read())
+                elif target_fname == "load_save_b_bg_page01c.bin":
+                    for sib_name in ("load_save_b_bg_page02s.bin", "load_save_b_bg_page03s.bin", "load_save_b_bg_fileselect01s.bin"):
+                        sib_path = os.path.join(os.path.dirname(target), sib_name)
+                        if os.path.exists(sib_path):
+                            root_sib = os.path.join(repo_unpack, os.path.relpath(sib_path, root))
+                            with open(sib_path, "rb") as sf, open(root_sib, "wb") as df:
+                                df.write(sf.read())
 
     return {
         "file": rel_png_path,
